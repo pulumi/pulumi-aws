@@ -13,7 +13,7 @@ import (
 )
 
 // Provides an Amazon Connect Routing Profile resource. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html).
 //
 // ## Example Usage
 //
@@ -38,6 +38,16 @@ import (
 //					&connect.RoutingProfileMediaConcurrencyArgs{
 //						Channel:     pulumi.String("VOICE"),
 //						Concurrency: pulumi.Int(1),
+//						CrossChannelBehavior: &connect.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{
+//							BehaviorType: pulumi.String("ROUTE_ANY_CHANNEL"),
+//						},
+//					},
+//					&connect.RoutingProfileMediaConcurrencyArgs{
+//						Channel:     pulumi.String("CHAT"),
+//						Concurrency: pulumi.Int(3),
+//						CrossChannelBehavior: &connect.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{
+//							BehaviorType: pulumi.String("ROUTE_CURRENT_CHANNEL_ONLY"),
+//						},
 //					},
 //				},
 //				QueueConfigs: connect.RoutingProfileQueueConfigArray{
@@ -71,7 +81,7 @@ import (
 type RoutingProfile struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Routing Profile.
+	// Amazon Resource Name (ARN) of the Routing Profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId pulumi.StringOutput `pulumi:"defaultOutboundQueueId"`
@@ -87,7 +97,7 @@ type RoutingProfile struct {
 	QueueConfigs RoutingProfileQueueConfigArrayOutput `pulumi:"queueConfigs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The identifier for the Routing Profile.
+	// Identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringOutput `pulumi:"routingProfileId"`
 	// Tags to apply to the Routing Profile. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -138,7 +148,7 @@ func GetRoutingProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoutingProfile resources.
 type routingProfileState struct {
-	// The Amazon Resource Name (ARN) of the Routing Profile.
+	// Amazon Resource Name (ARN) of the Routing Profile.
 	Arn *string `pulumi:"arn"`
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId *string `pulumi:"defaultOutboundQueueId"`
@@ -154,7 +164,7 @@ type routingProfileState struct {
 	QueueConfigs []RoutingProfileQueueConfig `pulumi:"queueConfigs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The identifier for the Routing Profile.
+	// Identifier for the Routing Profile.
 	RoutingProfileId *string `pulumi:"routingProfileId"`
 	// Tags to apply to the Routing Profile. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -164,7 +174,7 @@ type routingProfileState struct {
 }
 
 type RoutingProfileState struct {
-	// The Amazon Resource Name (ARN) of the Routing Profile.
+	// Amazon Resource Name (ARN) of the Routing Profile.
 	Arn pulumi.StringPtrInput
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId pulumi.StringPtrInput
@@ -180,7 +190,7 @@ type RoutingProfileState struct {
 	QueueConfigs RoutingProfileQueueConfigArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The identifier for the Routing Profile.
+	// Identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringPtrInput
 	// Tags to apply to the Routing Profile. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -321,7 +331,7 @@ func (o RoutingProfileOutput) ToRoutingProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Routing Profile.
+// Amazon Resource Name (ARN) of the Routing Profile.
 func (o RoutingProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -361,7 +371,7 @@ func (o RoutingProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The identifier for the Routing Profile.
+// Identifier for the Routing Profile.
 func (o RoutingProfileOutput) RoutingProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.RoutingProfileId }).(pulumi.StringOutput)
 }

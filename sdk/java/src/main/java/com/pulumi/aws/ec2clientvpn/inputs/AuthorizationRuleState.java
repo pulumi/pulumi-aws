@@ -92,14 +92,14 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+     * The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
      * 
      */
     @Import(name="targetNetworkCidr")
     private @Nullable Output<String> targetNetworkCidr;
 
     /**
-     * @return The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+     * @return The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
      * 
      */
     public Optional<Output<String>> targetNetworkCidr() {
@@ -241,7 +241,7 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetNetworkCidr The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+         * @param targetNetworkCidr The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetNetworkCidr The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+         * @param targetNetworkCidr The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
          * 
          * @return builder
          * 

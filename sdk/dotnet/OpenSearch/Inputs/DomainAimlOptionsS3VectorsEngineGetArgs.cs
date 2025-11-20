@@ -12,6 +12,9 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class DomainAimlOptionsS3VectorsEngineGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables S3 vectors engine features.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

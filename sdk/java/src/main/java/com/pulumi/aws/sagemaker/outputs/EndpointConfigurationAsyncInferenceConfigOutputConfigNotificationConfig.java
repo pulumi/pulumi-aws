@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig {
     /**
-     * @return Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+     * @return SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
      * 
      */
     private @Nullable String errorTopic;
     /**
-     * @return The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+     * @return SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
      * 
      */
     private @Nullable List<String> includeInferenceResponseIns;
     /**
-     * @return Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+     * @return SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
      * 
      */
     private @Nullable String successTopic;
 
     private EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig() {}
     /**
-     * @return Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+     * @return SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
      * 
      */
     public Optional<String> errorTopic() {
         return Optional.ofNullable(this.errorTopic);
     }
     /**
-     * @return The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+     * @return SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
      * 
      */
     public List<String> includeInferenceResponseIns() {
         return this.includeInferenceResponseIns == null ? List.of() : this.includeInferenceResponseIns;
     }
     /**
-     * @return Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+     * @return SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
      * 
      */
     public Optional<String> successTopic() {

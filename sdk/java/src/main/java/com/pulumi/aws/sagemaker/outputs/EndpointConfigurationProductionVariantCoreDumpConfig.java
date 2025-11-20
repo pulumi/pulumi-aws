@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointConfigurationProductionVariantCoreDumpConfig {
     /**
-     * @return The Amazon S3 bucket to send the core dump to.
+     * @return S3 bucket to send the core dump to.
      * 
      */
     private String destinationS3Uri;
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+     * @return KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
      * 
      */
     private @Nullable String kmsKeyId;
 
     private EndpointConfigurationProductionVariantCoreDumpConfig() {}
     /**
-     * @return The Amazon S3 bucket to send the core dump to.
+     * @return S3 bucket to send the core dump to.
      * 
      */
     public String destinationS3Uri() {
         return this.destinationS3Uri;
     }
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+     * @return KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
      * 
      */
     public Optional<String> kmsKeyId() {

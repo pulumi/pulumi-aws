@@ -17,14 +17,14 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
     public static final EndpointConfigurationShadowProductionVariantServerlessConfigArgs Empty = new EndpointConfigurationShadowProductionVariantServerlessConfigArgs();
 
     /**
-     * The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+     * Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
      * 
      */
     @Import(name="maxConcurrency", required=true)
     private Output<Integer> maxConcurrency;
 
     /**
-     * @return The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+     * @return Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
      * 
      */
     public Output<Integer> maxConcurrency() {
@@ -32,14 +32,14 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
     }
 
     /**
-     * The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+     * Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
      * 
      */
     @Import(name="memorySizeInMb", required=true)
     private Output<Integer> memorySizeInMb;
 
     /**
-     * @return The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+     * @return Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
      * 
      */
     public Output<Integer> memorySizeInMb() {
@@ -47,14 +47,14 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
     }
 
     /**
-     * The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+     * Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
      * 
      */
     @Import(name="provisionedConcurrency")
     private @Nullable Output<Integer> provisionedConcurrency;
 
     /**
-     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+     * @return Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
      * 
      */
     public Optional<Output<Integer>> provisionedConcurrency() {
@@ -88,7 +88,7 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
         }
 
         /**
-         * @param maxConcurrency The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+         * @param maxConcurrency Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
         }
 
         /**
-         * @param maxConcurrency The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+         * @param maxConcurrency Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
         }
 
         /**
-         * @param memorySizeInMb The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+         * @param memorySizeInMb Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
         }
 
         /**
-         * @param memorySizeInMb The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+         * @param memorySizeInMb Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
         }
 
         /**
-         * @param provisionedConcurrency The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+         * @param provisionedConcurrency Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
         }
 
         /**
-         * @param provisionedConcurrency The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+         * @param provisionedConcurrency Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
          * 
          * @return builder
          * 

@@ -270,6 +270,7 @@ export class Server extends pulumi.CustomResource {
      * * `TransferSecurityPolicy-Restricted-2020-06`
      * * `TransferSecurityPolicy-Restricted-2024-06`
      * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+     * * `TransferSecurityPolicy-AS2Restricted-2025-07`
      *
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      */
@@ -483,6 +484,7 @@ export interface ServerState {
      * * `TransferSecurityPolicy-Restricted-2020-06`
      * * `TransferSecurityPolicy-Restricted-2024-06`
      * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+     * * `TransferSecurityPolicy-AS2Restricted-2025-07`
      *
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      */
@@ -608,6 +610,7 @@ export interface ServerArgs {
      * * `TransferSecurityPolicy-Restricted-2020-06`
      * * `TransferSecurityPolicy-Restricted-2024-06`
      * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+     * * `TransferSecurityPolicy-AS2Restricted-2025-07`
      *
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      */

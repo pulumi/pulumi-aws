@@ -2341,17 +2341,18 @@ class LogDeliveryDestinationDeliveryDestinationConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 destination_resource_arn: _builtins.str):
+                 destination_resource_arn: Optional[_builtins.str] = None):
         """
-        :param _builtins.str destination_resource_arn: The ARN of the AWS destination that this delivery destination represents.
+        :param _builtins.str destination_resource_arn: The ARN of the AWS destination that this delivery destination represents. Required when `delivery_destination_configuration` is specified.
         """
-        pulumi.set(__self__, "destination_resource_arn", destination_resource_arn)
+        if destination_resource_arn is not None:
+            pulumi.set(__self__, "destination_resource_arn", destination_resource_arn)
 
     @_builtins.property
     @pulumi.getter(name="destinationResourceArn")
-    def destination_resource_arn(self) -> _builtins.str:
+    def destination_resource_arn(self) -> Optional[_builtins.str]:
         """
-        The ARN of the AWS destination that this delivery destination represents.
+        The ARN of the AWS destination that this delivery destination represents. Required when `delivery_destination_configuration` is specified.
         """
         return pulumi.get(self, "destination_resource_arn")
 

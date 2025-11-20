@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ImageBlockPublicAccessArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ImageBlockPublicAccessArgs Empty = new ImageBlockPublicAccessArgs();
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
@@ -32,6 +49,7 @@ public final class ImageBlockPublicAccessArgs extends com.pulumi.resources.Resou
     private ImageBlockPublicAccessArgs() {}
 
     private ImageBlockPublicAccessArgs(ImageBlockPublicAccessArgs $) {
+        this.region = $.region;
         this.state = $.state;
     }
 
@@ -51,6 +69,27 @@ public final class ImageBlockPublicAccessArgs extends com.pulumi.resources.Resou
 
         public Builder(ImageBlockPublicAccessArgs defaults) {
             $ = new ImageBlockPublicAccessArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

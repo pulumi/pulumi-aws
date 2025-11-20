@@ -74,6 +74,70 @@ import javax.annotation.Nullable;
  * 
  * ### With Definition
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.quicksight.Dashboard;
+ * import com.pulumi.aws.quicksight.DashboardArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Dashboard("example", DashboardArgs.builder()
+ *             .dashboardId("example-id")
+ *             .name("example-name")
+ *             .versionDescription("version")
+ *             .definition(Map.ofEntries(
+ *                 Map.entry("dataSetIdentifiersDeclarations", List.of(Map.ofEntries(
+ *                     Map.entry("dataSetArn", dataset.arn()),
+ *                     Map.entry("identifier", "1")
+ *                 ))),
+ *                 Map.entry("sheets", List.of(Map.ofEntries(
+ *                     Map.entry("title", "Example"),
+ *                     Map.entry("sheetId", "Example1"),
+ *                     Map.entry("visuals", List.of(Map.of("lineChartVisual", Map.ofEntries(
+ *                         Map.entry("visualId", "LineChart"),
+ *                         Map.entry("title", Map.of("formatText", Map.of("plainText", "Line Chart Example"))),
+ *                         Map.entry("chartConfiguration", Map.of("fieldWells", Map.of("lineChartAggregatedFieldWells", Map.ofEntries(
+ *                             Map.entry("categories", List.of(Map.of("categoricalDimensionField", Map.ofEntries(
+ *                                 Map.entry("fieldId", "1"),
+ *                                 Map.entry("column", Map.ofEntries(
+ *                                     Map.entry("dataSetIdentifier", "1"),
+ *                                     Map.entry("columnName", "Column1")
+ *                                 ))
+ *                             )))),
+ *                             Map.entry("values", List.of(Map.of("categoricalMeasureField", Map.ofEntries(
+ *                                 Map.entry("fieldId", "2"),
+ *                                 Map.entry("column", Map.ofEntries(
+ *                                     Map.entry("dataSetIdentifier", "1"),
+ *                                     Map.entry("columnName", "Column1")
+ *                                 )),
+ *                                 Map.entry("aggregationFunction", "COUNT")
+ *                             ))))
+ *                         ))))
+ *                     ))))
+ *                 )))
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:

@@ -94,12 +94,6 @@ namespace Pulumi.Aws.OpenSearch
         public string DomainName { get; set; } = null!;
 
         /// <summary>
-        /// Off Peak update options
-        /// </summary>
-        [Input("offPeakWindowOptions")]
-        public Inputs.GetDomainOffPeakWindowOptionsArgs? OffPeakWindowOptions { get; set; }
-
-        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -130,12 +124,6 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
-
-        /// <summary>
-        /// Off Peak update options
-        /// </summary>
-        [Input("offPeakWindowOptions")]
-        public Input<Inputs.GetDomainOffPeakWindowOptionsInputArgs>? OffPeakWindowOptions { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -243,6 +231,10 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Configuration for enabling and managing IAM Identity Center integration within a domain.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDomainIdentityCenterOptionResult> IdentityCenterOptions;
+        /// <summary>
         /// Type of IP addresses supported by the endpoint for the domain.
         /// </summary>
         public readonly string IpAddressType;
@@ -257,7 +249,7 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Off Peak update options
         /// </summary>
-        public readonly Outputs.GetDomainOffPeakWindowOptionsResult? OffPeakWindowOptions;
+        public readonly Outputs.GetDomainOffPeakWindowOptionsResult OffPeakWindowOptions;
         /// <summary>
         /// Status of a configuration change in the domain.
         /// </summary>
@@ -322,13 +314,15 @@ namespace Pulumi.Aws.OpenSearch
 
             string id,
 
+            ImmutableArray<Outputs.GetDomainIdentityCenterOptionResult> identityCenterOptions,
+
             string ipAddressType,
 
             ImmutableArray<Outputs.GetDomainLogPublishingOptionResult> logPublishingOptions,
 
             ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionResult> nodeToNodeEncryptions,
 
-            Outputs.GetDomainOffPeakWindowOptionsResult? offPeakWindowOptions,
+            Outputs.GetDomainOffPeakWindowOptionsResult offPeakWindowOptions,
 
             bool processing,
 
@@ -362,6 +356,7 @@ namespace Pulumi.Aws.OpenSearch
             EndpointV2 = endpointV2;
             EngineVersion = engineVersion;
             Id = id;
+            IdentityCenterOptions = identityCenterOptions;
             IpAddressType = ipAddressType;
             LogPublishingOptions = logPublishingOptions;
             NodeToNodeEncryptions = nodeToNodeEncryptions;

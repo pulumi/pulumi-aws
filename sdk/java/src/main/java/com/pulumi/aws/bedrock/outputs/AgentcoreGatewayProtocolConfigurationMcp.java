@@ -18,7 +18,7 @@ public final class AgentcoreGatewayProtocolConfigurationMcp {
      */
     private @Nullable String instructions;
     /**
-     * @return Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+     * @return Search type for MCP. Valid values: `SEMANTIC`.
      * 
      */
     private @Nullable String searchType;
@@ -37,7 +37,7 @@ public final class AgentcoreGatewayProtocolConfigurationMcp {
         return Optional.ofNullable(this.instructions);
     }
     /**
-     * @return Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+     * @return Search type for MCP. Valid values: `SEMANTIC`.
      * 
      */
     public Optional<String> searchType() {

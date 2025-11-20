@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetPoliciesForTargetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
+        /// Must supply one of the 7 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
         /// </summary>
         [Input("filter", required: true)]
         public string Filter { get; set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetPoliciesForTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
+        /// Must supply one of the 7 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
         /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;

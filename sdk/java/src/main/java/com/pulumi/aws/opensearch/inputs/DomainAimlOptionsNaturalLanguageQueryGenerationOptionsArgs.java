@@ -16,14 +16,14 @@ public final class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs ex
     public static final DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs Empty = new DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs();
 
     /**
-     * Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+     * The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     @Import(name="desiredState")
     private @Nullable Output<String> desiredState;
 
     /**
-     * @return Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+     * @return The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     public Optional<Output<String>> desiredState() {
@@ -55,7 +55,7 @@ public final class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs ex
         }
 
         /**
-         * @param desiredState Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+         * @param desiredState The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs ex
         }
 
         /**
-         * @param desiredState Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+         * @param desiredState The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
          * 
          * @return builder
          * 

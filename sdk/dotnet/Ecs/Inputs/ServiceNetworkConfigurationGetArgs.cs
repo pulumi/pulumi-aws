@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         /// <summary>
         /// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `True` or `False`. Default `False`.
-        /// 
-        /// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         /// </summary>
         [Input("assignPublicIp")]
         public Input<bool>? AssignPublicIp { get; set; }
@@ -37,6 +35,8 @@ namespace Pulumi.Aws.Ecs.Inputs
 
         /// <summary>
         /// Subnets associated with the task or service.
+        /// 
+        /// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         /// </summary>
         public InputList<string> Subnets
         {

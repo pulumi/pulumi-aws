@@ -240,6 +240,87 @@ import (
 //
 // ### Outbound with encryption configuration
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description:          pulumi.String("example"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkfirewall.NewTlsInspectionConfiguration(ctx, "example", &networkfirewall.TlsInspectionConfigurationArgs{
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("example"),
+//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
+//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
+//						KeyId: example.Arn,
+//						Type:  pulumi.String("CUSTOMER_KMS"),
+//					},
+//				},
+//				TlsInspectionConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs{
+//					ServerCertificateConfigurations: []map[string]interface{}{
+//						map[string]interface{}{
+//							"certificateAuthorityArn": example1.Arn,
+//							"checkCertificateRevocationStatus": []map[string]interface{}{
+//								map[string]interface{}{
+//									"revokedStatusAction": "REJECT",
+//									"unknownStatusAction": "PASS",
+//								},
+//							},
+//							"scope": []map[string]interface{}{
+//								map[string]interface{}{
+//									"protocols": []float64{
+//										6,
+//									},
+//									"destinationPorts": []map[string]interface{}{
+//										map[string]interface{}{
+//											"fromPort": 443,
+//											"toPort":   443,
+//										},
+//									},
+//									"destination": []map[string]interface{}{
+//										map[string]interface{}{
+//											"addressDefinition": "0.0.0.0/0",
+//										},
+//									},
+//									"sourcePorts": []map[string]interface{}{
+//										map[string]interface{}{
+//											"fromPort": 0,
+//											"toPort":   65535,
+//										},
+//									},
+//									"source": []map[string]interface{}{
+//										map[string]interface{}{
+//											"addressDefinition": "0.0.0.0/0",
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Combined inbound and outbound
 //
 // ```go

@@ -187,6 +187,10 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
+        /// The maximum size for a single data record in KiB.
+        /// </summary>
+        public readonly int MaxRecordSizeInKib;
+        /// <summary>
         /// Name of the Kinesis Stream.
         /// </summary>
         public readonly string Name;
@@ -230,6 +234,8 @@ namespace Pulumi.Aws.Kinesis
 
             string kmsKeyId,
 
+            int maxRecordSizeInKib,
+
             string name,
 
             ImmutableArray<string> openShards,
@@ -252,6 +258,7 @@ namespace Pulumi.Aws.Kinesis
             EncryptionType = encryptionType;
             Id = id;
             KmsKeyId = kmsKeyId;
+            MaxRecordSizeInKib = maxRecordSizeInKib;
             Name = name;
             OpenShards = openShards;
             Region = region;

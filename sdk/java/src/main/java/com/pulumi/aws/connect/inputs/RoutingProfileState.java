@@ -20,14 +20,14 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
     public static final RoutingProfileState Empty = new RoutingProfileState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Routing Profile.
+     * Amazon Resource Name (ARN) of the Routing Profile.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Routing Profile.
+     * @return Amazon Resource Name (ARN) of the Routing Profile.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -140,14 +140,14 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The identifier for the Routing Profile.
+     * Identifier for the Routing Profile.
      * 
      */
     @Import(name="routingProfileId")
     private @Nullable Output<String> routingProfileId;
 
     /**
-     * @return The identifier for the Routing Profile.
+     * @return Identifier for the Routing Profile.
      * 
      */
     public Optional<Output<String>> routingProfileId() {
@@ -221,7 +221,7 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Routing Profile.
+         * @param arn Amazon Resource Name (ARN) of the Routing Profile.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Routing Profile.
+         * @param arn Amazon Resource Name (ARN) of the Routing Profile.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routingProfileId The identifier for the Routing Profile.
+         * @param routingProfileId Identifier for the Routing Profile.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routingProfileId The identifier for the Routing Profile.
+         * @param routingProfileId Identifier for the Routing Profile.
          * 
          * @return builder
          * 

@@ -61,6 +61,51 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Browser with VPC Configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreBrowser;
+ * import com.pulumi.aws.bedrock.AgentcoreBrowserArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserNetworkConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserNetworkConfigurationVpcConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var vpcExample = new AgentcoreBrowser("vpcExample", AgentcoreBrowserArgs.builder()
+ *             .name("vpc-browser")
+ *             .description("Browser with VPC configuration")
+ *             .networkConfiguration(AgentcoreBrowserNetworkConfigurationArgs.builder()
+ *                 .networkMode("VPC")
+ *                 .vpcConfig(AgentcoreBrowserNetworkConfigurationVpcConfigArgs.builder()
+ *                     .securityGroups("sg-12345678")
+ *                     .subnets(                    
+ *                         "subnet-12345678",
+ *                         "subnet-87654321")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Browser with Execution Role and Recording
  * 
  * <pre>

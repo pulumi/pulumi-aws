@@ -179,6 +179,10 @@ type Table struct {
 	//
 	// The following arguments are optional:
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of the table.
 	// One of `customer` or `aws`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -268,6 +272,10 @@ type tableState struct {
 	//
 	// The following arguments are optional:
 	TableBucketArn *string `pulumi:"tableBucketArn"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of the table.
 	// One of `customer` or `aws`.
 	Type *string `pulumi:"type"`
@@ -319,6 +327,10 @@ type TableState struct {
 	//
 	// The following arguments are optional:
 	TableBucketArn pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Type of the table.
 	// One of `customer` or `aws`.
 	Type pulumi.StringPtrInput
@@ -360,6 +372,8 @@ type tableArgs struct {
 	//
 	// The following arguments are optional:
 	TableBucketArn string `pulumi:"tableBucketArn"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Table resource.
@@ -391,6 +405,8 @@ type TableArgs struct {
 	//
 	// The following arguments are optional:
 	TableBucketArn pulumi.StringInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (TableArgs) ElementType() reflect.Type {
@@ -564,6 +580,16 @@ func (o TableOutput) Region() pulumi.StringOutput {
 // The following arguments are optional:
 func (o TableOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
+}
+
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o TableOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o TableOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // Type of the table.

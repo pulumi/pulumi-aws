@@ -72,6 +72,10 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fipsDnsName: pulumi.Output<string>;
     /**
+     * IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+     */
+    declare public readonly ipAddressType: pulumi.Output<string>;
+    /**
      * The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
      */
     declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
@@ -126,6 +130,7 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = state?.availabilityZone;
             resourceInputs["dnsName"] = state?.dnsName;
             resourceInputs["fipsDnsName"] = state?.fipsDnsName;
+            resourceInputs["ipAddressType"] = state?.ipAddressType;
             resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
             resourceInputs["ownerId"] = state?.ownerId;
             resourceInputs["preserveClientIp"] = state?.preserveClientIp;
@@ -141,6 +146,7 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
             if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
             resourceInputs["preserveClientIp"] = args?.preserveClientIp;
             resourceInputs["region"] = args?.region;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
@@ -181,6 +187,10 @@ export interface InstanceConnectEndpointState {
      * The DNS name of the EC2 Instance Connect FIPS Endpoint.
      */
     fipsDnsName?: pulumi.Input<string>;
+    /**
+     * IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
      */
@@ -224,6 +234,10 @@ export interface InstanceConnectEndpointState {
  * The set of arguments for constructing a InstanceConnectEndpoint resource.
  */
 export interface InstanceConnectEndpointArgs {
+    /**
+     * IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * Indicates whether your client's IP address is preserved as the source. Default: `true`.
      */

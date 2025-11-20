@@ -16,6 +16,193 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ### Lambda Target with Gateway IAM Role
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gatewayAssume = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "bedrock-agentcore.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var gatewayRole = new Aws.Iam.Role("gateway_role", new()
+    ///     {
+    ///         Name = "bedrock-gateway-role",
+    ///         AssumeRolePolicy = gatewayAssume.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var lambdaAssume = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "lambda.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var lambdaRole = new Aws.Iam.Role("lambda_role", new()
+    ///     {
+    ///         Name = "example-lambda-role",
+    ///         AssumeRolePolicy = lambdaAssume.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var example = new Aws.Lambda.Function("example", new()
+    ///     {
+    ///         Code = new FileArchive("example.zip"),
+    ///         Name = "example-function",
+    ///         Role = lambdaRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///     });
+    /// 
+    ///     var exampleAgentcoreGateway = new Aws.Bedrock.AgentcoreGateway("example", new()
+    ///     {
+    ///         Name = "example-gateway",
+    ///         RoleArn = gatewayRole.Arn,
+    ///         AuthorizerConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayAuthorizerConfigurationArgs
+    ///         {
+    ///             CustomJwtAuthorizer = new Aws.Bedrock.Inputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs
+    ///             {
+    ///                 DiscoveryUrl = "https://accounts.google.com/.well-known/openid-configuration",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAgentcoreGatewayTarget = new Aws.Bedrock.AgentcoreGatewayTarget("example", new()
+    ///     {
+    ///         Name = "example-target",
+    ///         GatewayIdentifier = exampleAgentcoreGateway.GatewayId,
+    ///         Description = "Lambda function target for processing requests",
+    ///         CredentialProviderConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs
+    ///         {
+    ///             GatewayIamRole = null,
+    ///         },
+    ///         TargetConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationArgs
+    ///         {
+    ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs
+    ///             {
+    ///                 Lambda = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs
+    ///                 {
+    ///                     LambdaArn = example.Arn,
+    ///                     ToolSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs
+    ///                     {
+    ///                         InlinePayloads = new[]
+    ///                         {
+    ///                             new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs
+    ///                             {
+    ///                                 Name = "process_request",
+    ///                                 Description = "Process incoming requests",
+    ///                                 InputSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs
+    ///                                 {
+    ///                                     Type = "object",
+    ///                                     Description = "Request processing schema",
+    ///                                     Properties = new[]
+    ///                                     {
+    ///                                         new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs
+    ///                                         {
+    ///                                             Name = "message",
+    ///                                             Type = "string",
+    ///                                             Description = "Message to process",
+    ///                                             Required = true,
+    ///                                         },
+    ///                                         new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs
+    ///                                         {
+    ///                                             Name = "options",
+    ///                                             Type = "object",
+    ///                                             Properties = new[]
+    ///                                             {
+    ///                                                 new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs
+    ///                                                 {
+    ///                                                     Name = "priority",
+    ///                                                     Type = "string",
+    ///                                                 },
+    ///                                                 new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs
+    ///                                                 {
+    ///                                                     Name = "tags",
+    ///                                                     Type = "array",
+    ///                                                     Items = new[]
+    ///                                                     {
+    ///                                                         
+    ///                                                         {
+    ///                                                             { "type", "string" },
+    ///                                                         },
+    ///                                                     },
+    ///                                                 },
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 OutputSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs
+    ///                                 {
+    ///                                     Type = "object",
+    ///                                     Properties = new[]
+    ///                                     {
+    ///                                         new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs
+    ///                                         {
+    ///                                             Name = "status",
+    ///                                             Type = "string",
+    ///                                             Required = true,
+    ///                                         },
+    ///                                         new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs
+    ///                                         {
+    ///                                             Name = "result",
+    ///                                             Type = "string",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Target with API Key Authentication
     /// 
     /// ```csharp
@@ -255,7 +442,7 @@ namespace Pulumi.Aws.Bedrock
     public partial class AgentcoreGatewayTarget : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration for authenticating requests to the target. See `CredentialProviderConfiguration` below.
+        /// Configuration for authenticating requests to the target. Required when using `Lambda`, `OpenApiSchema` and `SmithyModel` in `Mcp` block. If using `McpServer` in `Mcp` block with no authorization, it should not be specified. See `CredentialProviderConfiguration` below.
         /// </summary>
         [Output("credentialProviderConfiguration")]
         public Output<Outputs.AgentcoreGatewayTargetCredentialProviderConfiguration?> CredentialProviderConfiguration { get; private set; } = null!;
@@ -348,7 +535,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreGatewayTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for authenticating requests to the target. See `CredentialProviderConfiguration` below.
+        /// Configuration for authenticating requests to the target. Required when using `Lambda`, `OpenApiSchema` and `SmithyModel` in `Mcp` block. If using `McpServer` in `Mcp` block with no authorization, it should not be specified. See `CredentialProviderConfiguration` below.
         /// </summary>
         [Input("credentialProviderConfiguration")]
         public Input<Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs>? CredentialProviderConfiguration { get; set; }
@@ -397,7 +584,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreGatewayTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for authenticating requests to the target. See `CredentialProviderConfiguration` below.
+        /// Configuration for authenticating requests to the target. Required when using `Lambda`, `OpenApiSchema` and `SmithyModel` in `Mcp` block. If using `McpServer` in `Mcp` block with no authorization, it should not be specified. See `CredentialProviderConfiguration` below.
         /// </summary>
         [Input("credentialProviderConfiguration")]
         public Input<Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationGetArgs>? CredentialProviderConfiguration { get; set; }

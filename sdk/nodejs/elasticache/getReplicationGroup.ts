@@ -56,7 +56,7 @@ export interface GetReplicationGroupResult {
      */
     readonly authTokenEnabled: boolean;
     /**
-     * A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
+     * Whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
      */
     readonly automaticFailoverEnabled: boolean;
     /**
@@ -64,7 +64,7 @@ export interface GetReplicationGroupResult {
      */
     readonly clusterMode: string;
     /**
-     * The configuration endpoint address to allow host discovery.
+     * Configuration endpoint address to allow host discovery.
      */
     readonly configurationEndpointAddress: string;
     /**
@@ -88,11 +88,15 @@ export interface GetReplicationGroupResult {
      */
     readonly multiAzEnabled: boolean;
     /**
-     * The cluster node type.
+     * Configuration of the node groups (shards). See below.
+     */
+    readonly nodeGroupConfigurations: outputs.elasticache.GetReplicationGroupNodeGroupConfiguration[];
+    /**
+     * Cluster node type.
      */
     readonly nodeType: string;
     /**
-     * The number of cache clusters that the replication group has.
+     * Number of cache clusters that the replication group has.
      */
     readonly numCacheClusters: number;
     /**
@@ -100,15 +104,15 @@ export interface GetReplicationGroupResult {
      */
     readonly numNodeGroups: number;
     /**
-     * The port number on which the configuration endpoint will accept connections.
+     * Port number on which the configuration endpoint will accept connections.
      */
     readonly port: number;
     /**
-     * The endpoint of the primary node in this node group (shard).
+     * Endpoint of the primary node in this node group (shard).
      */
     readonly primaryEndpointAddress: string;
     /**
-     * The endpoint of the reader node in this node group (shard).
+     * Endpoint of the reader node in this node group (shard).
      */
     readonly readerEndpointAddress: string;
     readonly region: string;
@@ -118,7 +122,7 @@ export interface GetReplicationGroupResult {
     readonly replicasPerNodeGroup: number;
     readonly replicationGroupId: string;
     /**
-     * The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
+     * Number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
      */
     readonly snapshotRetentionLimit: number;
     /**

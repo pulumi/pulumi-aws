@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.connect.outputs;
 
+import com.pulumi.aws.connect.outputs.GetRoutingProfileMediaConcurrencyCrossChannelBehavior;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -21,6 +23,11 @@ public final class GetRoutingProfileMediaConcurrency {
      * 
      */
     private Integer concurrency;
+    /**
+     * @return Configuration block for cross-channel behavior. Documented below.
+     * 
+     */
+    private List<GetRoutingProfileMediaConcurrencyCrossChannelBehavior> crossChannelBehaviors;
 
     private GetRoutingProfileMediaConcurrency() {}
     /**
@@ -37,6 +44,13 @@ public final class GetRoutingProfileMediaConcurrency {
     public Integer concurrency() {
         return this.concurrency;
     }
+    /**
+     * @return Configuration block for cross-channel behavior. Documented below.
+     * 
+     */
+    public List<GetRoutingProfileMediaConcurrencyCrossChannelBehavior> crossChannelBehaviors() {
+        return this.crossChannelBehaviors;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +63,13 @@ public final class GetRoutingProfileMediaConcurrency {
     public static final class Builder {
         private String channel;
         private Integer concurrency;
+        private List<GetRoutingProfileMediaConcurrencyCrossChannelBehavior> crossChannelBehaviors;
         public Builder() {}
         public Builder(GetRoutingProfileMediaConcurrency defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.channel = defaults.channel;
     	      this.concurrency = defaults.concurrency;
+    	      this.crossChannelBehaviors = defaults.crossChannelBehaviors;
         }
 
         @CustomType.Setter
@@ -72,10 +88,22 @@ public final class GetRoutingProfileMediaConcurrency {
             this.concurrency = concurrency;
             return this;
         }
+        @CustomType.Setter
+        public Builder crossChannelBehaviors(List<GetRoutingProfileMediaConcurrencyCrossChannelBehavior> crossChannelBehaviors) {
+            if (crossChannelBehaviors == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileMediaConcurrency", "crossChannelBehaviors");
+            }
+            this.crossChannelBehaviors = crossChannelBehaviors;
+            return this;
+        }
+        public Builder crossChannelBehaviors(GetRoutingProfileMediaConcurrencyCrossChannelBehavior... crossChannelBehaviors) {
+            return crossChannelBehaviors(List.of(crossChannelBehaviors));
+        }
         public GetRoutingProfileMediaConcurrency build() {
             final var _resultValue = new GetRoutingProfileMediaConcurrency();
             _resultValue.channel = channel;
             _resultValue.concurrency = concurrency;
+            _resultValue.crossChannelBehaviors = crossChannelBehaviors;
             return _resultValue;
         }
     }

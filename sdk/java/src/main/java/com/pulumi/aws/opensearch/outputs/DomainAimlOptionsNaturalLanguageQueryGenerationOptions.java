@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainAimlOptionsNaturalLanguageQueryGenerationOptions {
     /**
-     * @return Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+     * @return The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     private @Nullable String desiredState;
 
     private DomainAimlOptionsNaturalLanguageQueryGenerationOptions() {}
     /**
-     * @return Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+     * @return The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     public Optional<String> desiredState() {

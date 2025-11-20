@@ -81,7 +81,7 @@ type Route struct {
 	ClientVpnEndpointId pulumi.StringOutput `pulumi:"clientVpnEndpointId"`
 	// A brief description of the route.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The IPv4 address range, in CIDR notation, of the route destination.
+	// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
 	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
 	Origin pulumi.StringOutput `pulumi:"origin"`
@@ -136,7 +136,7 @@ type routeState struct {
 	ClientVpnEndpointId *string `pulumi:"clientVpnEndpointId"`
 	// A brief description of the route.
 	Description *string `pulumi:"description"`
-	// The IPv4 address range, in CIDR notation, of the route destination.
+	// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
 	Origin *string `pulumi:"origin"`
@@ -153,7 +153,7 @@ type RouteState struct {
 	ClientVpnEndpointId pulumi.StringPtrInput
 	// A brief description of the route.
 	Description pulumi.StringPtrInput
-	// The IPv4 address range, in CIDR notation, of the route destination.
+	// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringPtrInput
 	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
 	Origin pulumi.StringPtrInput
@@ -174,7 +174,7 @@ type routeArgs struct {
 	ClientVpnEndpointId string `pulumi:"clientVpnEndpointId"`
 	// A brief description of the route.
 	Description *string `pulumi:"description"`
-	// The IPv4 address range, in CIDR notation, of the route destination.
+	// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -188,7 +188,7 @@ type RouteArgs struct {
 	ClientVpnEndpointId pulumi.StringInput
 	// A brief description of the route.
 	Description pulumi.StringPtrInput
-	// The IPv4 address range, in CIDR notation, of the route destination.
+	// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -293,7 +293,7 @@ func (o RouteOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 address range, in CIDR notation, of the route destination.
+// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
 func (o RouteOutput) DestinationCidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.DestinationCidrBlock }).(pulumi.StringOutput)
 }

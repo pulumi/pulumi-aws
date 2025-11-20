@@ -72,6 +72,8 @@ type Stream struct {
 	EnforceConsumerDeletion pulumi.BoolPtrOutput `pulumi:"enforceConsumerDeletion"`
 	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+	MaxRecordSizeInKib pulumi.IntOutput `pulumi:"maxRecordSizeInKib"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -129,6 +131,8 @@ type streamState struct {
 	EnforceConsumerDeletion *bool `pulumi:"enforceConsumerDeletion"`
 	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+	MaxRecordSizeInKib *int `pulumi:"maxRecordSizeInKib"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -157,6 +161,8 @@ type StreamState struct {
 	EnforceConsumerDeletion pulumi.BoolPtrInput
 	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId pulumi.StringPtrInput
+	// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+	MaxRecordSizeInKib pulumi.IntPtrInput
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -189,6 +195,8 @@ type streamArgs struct {
 	EnforceConsumerDeletion *bool `pulumi:"enforceConsumerDeletion"`
 	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+	MaxRecordSizeInKib *int `pulumi:"maxRecordSizeInKib"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -216,6 +224,8 @@ type StreamArgs struct {
 	EnforceConsumerDeletion pulumi.BoolPtrInput
 	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId pulumi.StringPtrInput
+	// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+	MaxRecordSizeInKib pulumi.IntPtrInput
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -338,6 +348,11 @@ func (o StreamOutput) EnforceConsumerDeletion() pulumi.BoolPtrOutput {
 // The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 func (o StreamOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+func (o StreamOutput) MaxRecordSizeInKib() pulumi.IntOutput {
+	return o.ApplyT(func(v *Stream) pulumi.IntOutput { return v.MaxRecordSizeInKib }).(pulumi.IntOutput)
 }
 
 // A name to identify the stream. This is unique to the AWS account and region the Stream is created in.

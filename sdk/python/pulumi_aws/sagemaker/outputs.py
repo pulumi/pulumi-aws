@@ -6179,8 +6179,8 @@ class EndpointConfigurationAsyncInferenceConfig(dict):
                  output_config: 'outputs.EndpointConfigurationAsyncInferenceConfigOutputConfig',
                  client_config: Optional['outputs.EndpointConfigurationAsyncInferenceConfigClientConfig'] = None):
         """
-        :param 'EndpointConfigurationAsyncInferenceConfigOutputConfigArgs' output_config: Specifies the configuration for asynchronous inference invocation outputs.
-        :param 'EndpointConfigurationAsyncInferenceConfigClientConfigArgs' client_config: Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
+        :param 'EndpointConfigurationAsyncInferenceConfigOutputConfigArgs' output_config: Configuration for asynchronous inference invocation outputs.
+        :param 'EndpointConfigurationAsyncInferenceConfigClientConfigArgs' client_config: Configures the behavior of the client used by SageMaker AI to interact with the model container during asynchronous inference.
         """
         pulumi.set(__self__, "output_config", output_config)
         if client_config is not None:
@@ -6190,7 +6190,7 @@ class EndpointConfigurationAsyncInferenceConfig(dict):
     @pulumi.getter(name="outputConfig")
     def output_config(self) -> 'outputs.EndpointConfigurationAsyncInferenceConfigOutputConfig':
         """
-        Specifies the configuration for asynchronous inference invocation outputs.
+        Configuration for asynchronous inference invocation outputs.
         """
         return pulumi.get(self, "output_config")
 
@@ -6198,7 +6198,7 @@ class EndpointConfigurationAsyncInferenceConfig(dict):
     @pulumi.getter(name="clientConfig")
     def client_config(self) -> Optional['outputs.EndpointConfigurationAsyncInferenceConfigClientConfig']:
         """
-        Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
+        Configures the behavior of the client used by SageMaker AI to interact with the model container during asynchronous inference.
         """
         return pulumi.get(self, "client_config")
 
@@ -6225,7 +6225,7 @@ class EndpointConfigurationAsyncInferenceConfigClientConfig(dict):
     def __init__(__self__, *,
                  max_concurrent_invocations_per_instance: Optional[_builtins.int] = None):
         """
-        :param _builtins.int max_concurrent_invocations_per_instance: The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
+        :param _builtins.int max_concurrent_invocations_per_instance: Maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, SageMaker AI will choose an optimal value for you.
         """
         if max_concurrent_invocations_per_instance is not None:
             pulumi.set(__self__, "max_concurrent_invocations_per_instance", max_concurrent_invocations_per_instance)
@@ -6234,7 +6234,7 @@ class EndpointConfigurationAsyncInferenceConfigClientConfig(dict):
     @pulumi.getter(name="maxConcurrentInvocationsPerInstance")
     def max_concurrent_invocations_per_instance(self) -> Optional[_builtins.int]:
         """
-        The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
+        Maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, SageMaker AI will choose an optimal value for you.
         """
         return pulumi.get(self, "max_concurrent_invocations_per_instance")
 
@@ -6270,10 +6270,10 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
                  notification_config: Optional['outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig'] = None,
                  s3_failure_path: Optional[_builtins.str] = None):
         """
-        :param _builtins.str s3_output_path: The Amazon S3 location to upload inference responses to.
-        :param _builtins.str kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
-        :param 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs' notification_config: Specifies the configuration for notifications of inference results for asynchronous inference.
-        :param _builtins.str s3_failure_path: The Amazon S3 location to upload failure inference responses to.
+        :param _builtins.str s3_output_path: S3 location to upload inference responses to.
+        :param _builtins.str kms_key_id: KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
+        :param 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs' notification_config: Configuration for notifications of inference results for asynchronous inference.
+        :param _builtins.str s3_failure_path: S3 location to upload failure inference responses to.
         """
         pulumi.set(__self__, "s3_output_path", s3_output_path)
         if kms_key_id is not None:
@@ -6287,7 +6287,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
     @pulumi.getter(name="s3OutputPath")
     def s3_output_path(self) -> _builtins.str:
         """
-        The Amazon S3 location to upload inference responses to.
+        S3 location to upload inference responses to.
         """
         return pulumi.get(self, "s3_output_path")
 
@@ -6295,7 +6295,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+        KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -6303,7 +6303,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
     @pulumi.getter(name="notificationConfig")
     def notification_config(self) -> Optional['outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig']:
         """
-        Specifies the configuration for notifications of inference results for asynchronous inference.
+        Configuration for notifications of inference results for asynchronous inference.
         """
         return pulumi.get(self, "notification_config")
 
@@ -6311,7 +6311,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
     @pulumi.getter(name="s3FailurePath")
     def s3_failure_path(self) -> Optional[_builtins.str]:
         """
-        The Amazon S3 location to upload failure inference responses to.
+        S3 location to upload failure inference responses to.
         """
         return pulumi.get(self, "s3_failure_path")
 
@@ -6344,9 +6344,9 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(di
                  include_inference_response_ins: Optional[Sequence[_builtins.str]] = None,
                  success_topic: Optional[_builtins.str] = None):
         """
-        :param _builtins.str error_topic: Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
-        :param Sequence[_builtins.str] include_inference_response_ins: The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
-        :param _builtins.str success_topic: Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+        :param _builtins.str error_topic: SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+        :param Sequence[_builtins.str] include_inference_response_ins: SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+        :param _builtins.str success_topic: SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
         """
         if error_topic is not None:
             pulumi.set(__self__, "error_topic", error_topic)
@@ -6359,7 +6359,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(di
     @pulumi.getter(name="errorTopic")
     def error_topic(self) -> Optional[_builtins.str]:
         """
-        Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+        SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
         """
         return pulumi.get(self, "error_topic")
 
@@ -6367,7 +6367,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(di
     @pulumi.getter(name="includeInferenceResponseIns")
     def include_inference_response_ins(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+        SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
         """
         return pulumi.get(self, "include_inference_response_ins")
 
@@ -6375,7 +6375,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(di
     @pulumi.getter(name="successTopic")
     def success_topic(self) -> Optional[_builtins.str]:
         """
-        Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+        SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
         """
         return pulumi.get(self, "success_topic")
 
@@ -6417,13 +6417,12 @@ class EndpointConfigurationDataCaptureConfig(dict):
                  enable_capture: Optional[_builtins.bool] = None,
                  kms_key_id: Optional[_builtins.str] = None):
         """
-        :param Sequence['EndpointConfigurationDataCaptureConfigCaptureOptionArgs'] capture_options: Specifies what data to capture. Fields are documented below.
-        :param _builtins.str destination_s3_uri: The URL for S3 location where the captured data is stored.
+        :param Sequence['EndpointConfigurationDataCaptureConfigCaptureOptionArgs'] capture_options: What data to capture. Fields are documented below.
+        :param _builtins.str destination_s3_uri: URL for S3 location where the captured data is stored.
         :param _builtins.int initial_sampling_percentage: Portion of data to capture. Should be between 0 and 100.
-        :param 'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs' capture_content_type_header: The content type headers to capture.
-               See `capture_content_type_header` below.
+        :param 'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs' capture_content_type_header: Content type headers to capture. See `capture_content_type_header` below.
         :param _builtins.bool enable_capture: Flag to enable data capture. Defaults to `false`.
-        :param _builtins.str kms_key_id: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
+        :param _builtins.str kms_key_id: ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
         """
         pulumi.set(__self__, "capture_options", capture_options)
         pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
@@ -6439,7 +6438,7 @@ class EndpointConfigurationDataCaptureConfig(dict):
     @pulumi.getter(name="captureOptions")
     def capture_options(self) -> Sequence['outputs.EndpointConfigurationDataCaptureConfigCaptureOption']:
         """
-        Specifies what data to capture. Fields are documented below.
+        What data to capture. Fields are documented below.
         """
         return pulumi.get(self, "capture_options")
 
@@ -6447,7 +6446,7 @@ class EndpointConfigurationDataCaptureConfig(dict):
     @pulumi.getter(name="destinationS3Uri")
     def destination_s3_uri(self) -> _builtins.str:
         """
-        The URL for S3 location where the captured data is stored.
+        URL for S3 location where the captured data is stored.
         """
         return pulumi.get(self, "destination_s3_uri")
 
@@ -6463,8 +6462,7 @@ class EndpointConfigurationDataCaptureConfig(dict):
     @pulumi.getter(name="captureContentTypeHeader")
     def capture_content_type_header(self) -> Optional['outputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader']:
         """
-        The content type headers to capture.
-        See `capture_content_type_header` below.
+        Content type headers to capture. See `capture_content_type_header` below.
         """
         return pulumi.get(self, "capture_content_type_header")
 
@@ -6480,7 +6478,7 @@ class EndpointConfigurationDataCaptureConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
+        ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -6510,10 +6508,8 @@ class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader(dict):
                  csv_content_types: Optional[Sequence[_builtins.str]] = None,
                  json_content_types: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] csv_content_types: The CSV content type headers to capture.
-               One of `csv_content_types` or `json_content_types` is required.
-        :param Sequence[_builtins.str] json_content_types: The JSON content type headers to capture.
-               One of `json_content_types` or `csv_content_types` is required.
+        :param Sequence[_builtins.str] csv_content_types: CSV content type headers to capture. One of `csv_content_types` or `json_content_types` is required.
+        :param Sequence[_builtins.str] json_content_types: The JSON content type headers to capture. One of `json_content_types` or `csv_content_types` is required.
         """
         if csv_content_types is not None:
             pulumi.set(__self__, "csv_content_types", csv_content_types)
@@ -6524,8 +6520,7 @@ class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader(dict):
     @pulumi.getter(name="csvContentTypes")
     def csv_content_types(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The CSV content type headers to capture.
-        One of `csv_content_types` or `json_content_types` is required.
+        CSV content type headers to capture. One of `csv_content_types` or `json_content_types` is required.
         """
         return pulumi.get(self, "csv_content_types")
 
@@ -6533,8 +6528,7 @@ class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader(dict):
     @pulumi.getter(name="jsonContentTypes")
     def json_content_types(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The JSON content type headers to capture.
-        One of `json_content_types` or `csv_content_types` is required.
+        The JSON content type headers to capture. One of `json_content_types` or `csv_content_types` is required.
         """
         return pulumi.get(self, "json_content_types")
 
@@ -6561,7 +6555,7 @@ class EndpointConfigurationDataCaptureConfigCaptureOption(dict):
     def __init__(__self__, *,
                  capture_mode: _builtins.str):
         """
-        :param _builtins.str capture_mode: Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
+        :param _builtins.str capture_mode: Data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
         """
         pulumi.set(__self__, "capture_mode", capture_mode)
 
@@ -6569,7 +6563,7 @@ class EndpointConfigurationDataCaptureConfigCaptureOption(dict):
     @pulumi.getter(name="captureMode")
     def capture_mode(self) -> _builtins.str:
         """
-        Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
+        Data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
         """
         return pulumi.get(self, "capture_mode")
 
@@ -6579,9 +6573,7 @@ class EndpointConfigurationProductionVariant(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "modelName":
-            suggest = "model_name"
-        elif key == "acceleratorType":
+        if key == "acceleratorType":
             suggest = "accelerator_type"
         elif key == "containerStartupHealthCheckTimeoutInSeconds":
             suggest = "container_startup_health_check_timeout_in_seconds"
@@ -6601,6 +6593,8 @@ class EndpointConfigurationProductionVariant(dict):
             suggest = "managed_instance_scaling"
         elif key == "modelDataDownloadTimeoutInSeconds":
             suggest = "model_data_download_timeout_in_seconds"
+        elif key == "modelName":
+            suggest = "model_name"
         elif key == "routingConfigs":
             suggest = "routing_configs"
         elif key == "serverlessConfig":
@@ -6622,7 +6616,6 @@ class EndpointConfigurationProductionVariant(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 model_name: _builtins.str,
                  accelerator_type: Optional[_builtins.str] = None,
                  container_startup_health_check_timeout_in_seconds: Optional[_builtins.int] = None,
                  core_dump_config: Optional['outputs.EndpointConfigurationProductionVariantCoreDumpConfig'] = None,
@@ -6633,28 +6626,28 @@ class EndpointConfigurationProductionVariant(dict):
                  instance_type: Optional[_builtins.str] = None,
                  managed_instance_scaling: Optional['outputs.EndpointConfigurationProductionVariantManagedInstanceScaling'] = None,
                  model_data_download_timeout_in_seconds: Optional[_builtins.int] = None,
+                 model_name: Optional[_builtins.str] = None,
                  routing_configs: Optional[Sequence['outputs.EndpointConfigurationProductionVariantRoutingConfig']] = None,
                  serverless_config: Optional['outputs.EndpointConfigurationProductionVariantServerlessConfig'] = None,
                  variant_name: Optional[_builtins.str] = None,
                  volume_size_in_gb: Optional[_builtins.int] = None):
         """
-        :param _builtins.str model_name: The name of the model to use.
-        :param _builtins.str accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
-        :param _builtins.int container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
-        :param 'EndpointConfigurationProductionVariantCoreDumpConfigArgs' core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
-        :param _builtins.bool enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
-        :param _builtins.str inference_ami_version: Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        :param _builtins.str accelerator_type: Size of the Elastic Inference (EI) instance to use for the production variant.
+        :param _builtins.int container_startup_health_check_timeout_in_seconds: Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        :param 'EndpointConfigurationProductionVariantCoreDumpConfigArgs' core_dump_config: Core dump configuration from the model container when the process crashes. Fields are documented below.
+        :param _builtins.bool enable_ssm_access: Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `model_name` is not set (Inference Components endpoint).
+        :param _builtins.str inference_ami_version: Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
         :param _builtins.int initial_instance_count: Initial number of instances used for auto-scaling.
-        :param _builtins.float initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
-        :param _builtins.str instance_type: The type of instance to start.
-        :param 'EndpointConfigurationProductionVariantManagedInstanceScalingArgs' managed_instance_scaling: Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
-        :param _builtins.int model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
-        :param Sequence['EndpointConfigurationProductionVariantRoutingConfigArgs'] routing_configs: Sets how the endpoint routes incoming traffic. See routing_config below.
-        :param 'EndpointConfigurationProductionVariantServerlessConfigArgs' serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param _builtins.str variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
-        :param _builtins.int volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+        :param _builtins.float initial_variant_weight: Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `model_name` is not set (Inference Components endpoint).
+        :param _builtins.str instance_type: Type of instance to start.
+        :param 'EndpointConfigurationProductionVariantManagedInstanceScalingArgs' managed_instance_scaling: Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+        :param _builtins.int model_data_download_timeout_in_seconds: Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        :param _builtins.str model_name: Name of the model to use. Required unless using Inference Components (in which case `execution_role_arn` must be specified at the endpoint configuration level).
+        :param Sequence['EndpointConfigurationProductionVariantRoutingConfigArgs'] routing_configs: How the endpoint routes incoming traffic. See routing_config below.
+        :param 'EndpointConfigurationProductionVariantServerlessConfigArgs' serverless_config: How an endpoint performs asynchronous inference.
+        :param _builtins.str variant_name: Name of the variant. If omitted, the provider will assign a random, unique name.
+        :param _builtins.int volume_size_in_gb: Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
         """
-        pulumi.set(__self__, "model_name", model_name)
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
         if container_startup_health_check_timeout_in_seconds is not None:
@@ -6675,6 +6668,8 @@ class EndpointConfigurationProductionVariant(dict):
             pulumi.set(__self__, "managed_instance_scaling", managed_instance_scaling)
         if model_data_download_timeout_in_seconds is not None:
             pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
         if routing_configs is not None:
             pulumi.set(__self__, "routing_configs", routing_configs)
         if serverless_config is not None:
@@ -6685,18 +6680,10 @@ class EndpointConfigurationProductionVariant(dict):
             pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
 
     @_builtins.property
-    @pulumi.getter(name="modelName")
-    def model_name(self) -> _builtins.str:
-        """
-        The name of the model to use.
-        """
-        return pulumi.get(self, "model_name")
-
-    @_builtins.property
     @pulumi.getter(name="acceleratorType")
     def accelerator_type(self) -> Optional[_builtins.str]:
         """
-        The size of the Elastic Inference (EI) instance to use for the production variant.
+        Size of the Elastic Inference (EI) instance to use for the production variant.
         """
         return pulumi.get(self, "accelerator_type")
 
@@ -6704,7 +6691,7 @@ class EndpointConfigurationProductionVariant(dict):
     @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
     def container_startup_health_check_timeout_in_seconds(self) -> Optional[_builtins.int]:
         """
-        The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         """
         return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
 
@@ -6712,7 +6699,7 @@ class EndpointConfigurationProductionVariant(dict):
     @pulumi.getter(name="coreDumpConfig")
     def core_dump_config(self) -> Optional['outputs.EndpointConfigurationProductionVariantCoreDumpConfig']:
         """
-        Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+        Core dump configuration from the model container when the process crashes. Fields are documented below.
         """
         return pulumi.get(self, "core_dump_config")
 
@@ -6720,7 +6707,7 @@ class EndpointConfigurationProductionVariant(dict):
     @pulumi.getter(name="enableSsmAccess")
     def enable_ssm_access(self) -> Optional[_builtins.bool]:
         """
-        You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+        Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `model_name` is not set (Inference Components endpoint).
         """
         return pulumi.get(self, "enable_ssm_access")
 
@@ -6728,7 +6715,7 @@ class EndpointConfigurationProductionVariant(dict):
     @pulumi.getter(name="inferenceAmiVersion")
     def inference_ami_version(self) -> Optional[_builtins.str]:
         """
-        Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
         """
         return pulumi.get(self, "inference_ami_version")
 
@@ -6744,7 +6731,7 @@ class EndpointConfigurationProductionVariant(dict):
     @pulumi.getter(name="initialVariantWeight")
     def initial_variant_weight(self) -> Optional[_builtins.float]:
         """
-        Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+        Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `model_name` is not set (Inference Components endpoint).
         """
         return pulumi.get(self, "initial_variant_weight")
 
@@ -6752,7 +6739,7 @@ class EndpointConfigurationProductionVariant(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[_builtins.str]:
         """
-        The type of instance to start.
+        Type of instance to start.
         """
         return pulumi.get(self, "instance_type")
 
@@ -6760,7 +6747,7 @@ class EndpointConfigurationProductionVariant(dict):
     @pulumi.getter(name="managedInstanceScaling")
     def managed_instance_scaling(self) -> Optional['outputs.EndpointConfigurationProductionVariantManagedInstanceScaling']:
         """
-        Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+        Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
         """
         return pulumi.get(self, "managed_instance_scaling")
 
@@ -6768,15 +6755,23 @@ class EndpointConfigurationProductionVariant(dict):
     @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
     def model_data_download_timeout_in_seconds(self) -> Optional[_builtins.int]:
         """
-        The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
         """
         return pulumi.get(self, "model_data_download_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the model to use. Required unless using Inference Components (in which case `execution_role_arn` must be specified at the endpoint configuration level).
+        """
+        return pulumi.get(self, "model_name")
 
     @_builtins.property
     @pulumi.getter(name="routingConfigs")
     def routing_configs(self) -> Optional[Sequence['outputs.EndpointConfigurationProductionVariantRoutingConfig']]:
         """
-        Sets how the endpoint routes incoming traffic. See routing_config below.
+        How the endpoint routes incoming traffic. See routing_config below.
         """
         return pulumi.get(self, "routing_configs")
 
@@ -6784,7 +6779,7 @@ class EndpointConfigurationProductionVariant(dict):
     @pulumi.getter(name="serverlessConfig")
     def serverless_config(self) -> Optional['outputs.EndpointConfigurationProductionVariantServerlessConfig']:
         """
-        Specifies configuration for how an endpoint performs asynchronous inference.
+        How an endpoint performs asynchronous inference.
         """
         return pulumi.get(self, "serverless_config")
 
@@ -6792,7 +6787,7 @@ class EndpointConfigurationProductionVariant(dict):
     @pulumi.getter(name="variantName")
     def variant_name(self) -> Optional[_builtins.str]:
         """
-        The name of the variant. If omitted, this provider will assign a random, unique name.
+        Name of the variant. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "variant_name")
 
@@ -6800,7 +6795,7 @@ class EndpointConfigurationProductionVariant(dict):
     @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> Optional[_builtins.int]:
         """
-        The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+        Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
         """
         return pulumi.get(self, "volume_size_in_gb")
 
@@ -6830,8 +6825,8 @@ class EndpointConfigurationProductionVariantCoreDumpConfig(dict):
                  destination_s3_uri: _builtins.str,
                  kms_key_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str destination_s3_uri: The Amazon S3 bucket to send the core dump to.
-        :param _builtins.str kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        :param _builtins.str destination_s3_uri: S3 bucket to send the core dump to.
+        :param _builtins.str kms_key_id: KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
         """
         pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
         if kms_key_id is not None:
@@ -6841,7 +6836,7 @@ class EndpointConfigurationProductionVariantCoreDumpConfig(dict):
     @pulumi.getter(name="destinationS3Uri")
     def destination_s3_uri(self) -> _builtins.str:
         """
-        The Amazon S3 bucket to send the core dump to.
+        S3 bucket to send the core dump to.
         """
         return pulumi.get(self, "destination_s3_uri")
 
@@ -6849,7 +6844,7 @@ class EndpointConfigurationProductionVariantCoreDumpConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -6880,9 +6875,9 @@ class EndpointConfigurationProductionVariantManagedInstanceScaling(dict):
                  min_instance_count: Optional[_builtins.int] = None,
                  status: Optional[_builtins.str] = None):
         """
-        :param _builtins.int max_instance_count: The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
-        :param _builtins.int min_instance_count: The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
-        :param _builtins.str status: Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+        :param _builtins.int max_instance_count: Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        :param _builtins.int min_instance_count: Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        :param _builtins.str status: Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
         """
         if max_instance_count is not None:
             pulumi.set(__self__, "max_instance_count", max_instance_count)
@@ -6895,7 +6890,7 @@ class EndpointConfigurationProductionVariantManagedInstanceScaling(dict):
     @pulumi.getter(name="maxInstanceCount")
     def max_instance_count(self) -> Optional[_builtins.int]:
         """
-        The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
         """
         return pulumi.get(self, "max_instance_count")
 
@@ -6903,7 +6898,7 @@ class EndpointConfigurationProductionVariantManagedInstanceScaling(dict):
     @pulumi.getter(name="minInstanceCount")
     def min_instance_count(self) -> Optional[_builtins.int]:
         """
-        The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
         """
         return pulumi.get(self, "min_instance_count")
 
@@ -6911,7 +6906,7 @@ class EndpointConfigurationProductionVariantManagedInstanceScaling(dict):
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
         """
-        Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+        Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -6938,7 +6933,7 @@ class EndpointConfigurationProductionVariantRoutingConfig(dict):
     def __init__(__self__, *,
                  routing_strategy: _builtins.str):
         """
-        :param _builtins.str routing_strategy: Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        :param _builtins.str routing_strategy: How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
         """
         pulumi.set(__self__, "routing_strategy", routing_strategy)
 
@@ -6946,7 +6941,7 @@ class EndpointConfigurationProductionVariantRoutingConfig(dict):
     @pulumi.getter(name="routingStrategy")
     def routing_strategy(self) -> _builtins.str:
         """
-        Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
         """
         return pulumi.get(self, "routing_strategy")
 
@@ -6979,9 +6974,9 @@ class EndpointConfigurationProductionVariantServerlessConfig(dict):
                  memory_size_in_mb: _builtins.int,
                  provisioned_concurrency: Optional[_builtins.int] = None):
         """
-        :param _builtins.int max_concurrency: The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
-        :param _builtins.int memory_size_in_mb: The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
-        :param _builtins.int provisioned_concurrency: The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+        :param _builtins.int max_concurrency: Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+        :param _builtins.int memory_size_in_mb: Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+        :param _builtins.int provisioned_concurrency: Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
         """
         pulumi.set(__self__, "max_concurrency", max_concurrency)
         pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
@@ -6992,7 +6987,7 @@ class EndpointConfigurationProductionVariantServerlessConfig(dict):
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> _builtins.int:
         """
-        The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+        Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
         """
         return pulumi.get(self, "max_concurrency")
 
@@ -7000,7 +6995,7 @@ class EndpointConfigurationProductionVariantServerlessConfig(dict):
     @pulumi.getter(name="memorySizeInMb")
     def memory_size_in_mb(self) -> _builtins.int:
         """
-        The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+        Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
         """
         return pulumi.get(self, "memory_size_in_mb")
 
@@ -7008,7 +7003,7 @@ class EndpointConfigurationProductionVariantServerlessConfig(dict):
     @pulumi.getter(name="provisionedConcurrency")
     def provisioned_concurrency(self) -> Optional[_builtins.int]:
         """
-        The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+        Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
         """
         return pulumi.get(self, "provisioned_concurrency")
 
@@ -7018,9 +7013,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "modelName":
-            suggest = "model_name"
-        elif key == "acceleratorType":
+        if key == "acceleratorType":
             suggest = "accelerator_type"
         elif key == "containerStartupHealthCheckTimeoutInSeconds":
             suggest = "container_startup_health_check_timeout_in_seconds"
@@ -7040,6 +7033,8 @@ class EndpointConfigurationShadowProductionVariant(dict):
             suggest = "managed_instance_scaling"
         elif key == "modelDataDownloadTimeoutInSeconds":
             suggest = "model_data_download_timeout_in_seconds"
+        elif key == "modelName":
+            suggest = "model_name"
         elif key == "routingConfigs":
             suggest = "routing_configs"
         elif key == "serverlessConfig":
@@ -7061,7 +7056,6 @@ class EndpointConfigurationShadowProductionVariant(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 model_name: _builtins.str,
                  accelerator_type: Optional[_builtins.str] = None,
                  container_startup_health_check_timeout_in_seconds: Optional[_builtins.int] = None,
                  core_dump_config: Optional['outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig'] = None,
@@ -7072,28 +7066,28 @@ class EndpointConfigurationShadowProductionVariant(dict):
                  instance_type: Optional[_builtins.str] = None,
                  managed_instance_scaling: Optional['outputs.EndpointConfigurationShadowProductionVariantManagedInstanceScaling'] = None,
                  model_data_download_timeout_in_seconds: Optional[_builtins.int] = None,
+                 model_name: Optional[_builtins.str] = None,
                  routing_configs: Optional[Sequence['outputs.EndpointConfigurationShadowProductionVariantRoutingConfig']] = None,
                  serverless_config: Optional['outputs.EndpointConfigurationShadowProductionVariantServerlessConfig'] = None,
                  variant_name: Optional[_builtins.str] = None,
                  volume_size_in_gb: Optional[_builtins.int] = None):
         """
-        :param _builtins.str model_name: The name of the model to use.
-        :param _builtins.str accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
-        :param _builtins.int container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
-        :param 'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs' core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
-        :param _builtins.bool enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
-        :param _builtins.str inference_ami_version: Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        :param _builtins.str accelerator_type: Size of the Elastic Inference (EI) instance to use for the production variant.
+        :param _builtins.int container_startup_health_check_timeout_in_seconds: Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        :param 'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs' core_dump_config: Core dump configuration from the model container when the process crashes. Fields are documented below.
+        :param _builtins.bool enable_ssm_access: Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `model_name` is not set (Inference Components endpoint).
+        :param _builtins.str inference_ami_version: Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
         :param _builtins.int initial_instance_count: Initial number of instances used for auto-scaling.
-        :param _builtins.float initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
-        :param _builtins.str instance_type: The type of instance to start.
-        :param 'EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs' managed_instance_scaling: Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
-        :param _builtins.int model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
-        :param Sequence['EndpointConfigurationShadowProductionVariantRoutingConfigArgs'] routing_configs: Sets how the endpoint routes incoming traffic. See routing_config below.
-        :param 'EndpointConfigurationShadowProductionVariantServerlessConfigArgs' serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param _builtins.str variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
-        :param _builtins.int volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+        :param _builtins.float initial_variant_weight: Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `model_name` is not set (Inference Components endpoint).
+        :param _builtins.str instance_type: Type of instance to start.
+        :param 'EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs' managed_instance_scaling: Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+        :param _builtins.int model_data_download_timeout_in_seconds: Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        :param _builtins.str model_name: Name of the model to use. Required unless using Inference Components (in which case `execution_role_arn` must be specified at the endpoint configuration level).
+        :param Sequence['EndpointConfigurationShadowProductionVariantRoutingConfigArgs'] routing_configs: How the endpoint routes incoming traffic. See routing_config below.
+        :param 'EndpointConfigurationShadowProductionVariantServerlessConfigArgs' serverless_config: How an endpoint performs asynchronous inference.
+        :param _builtins.str variant_name: Name of the variant. If omitted, the provider will assign a random, unique name.
+        :param _builtins.int volume_size_in_gb: Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
         """
-        pulumi.set(__self__, "model_name", model_name)
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
         if container_startup_health_check_timeout_in_seconds is not None:
@@ -7114,6 +7108,8 @@ class EndpointConfigurationShadowProductionVariant(dict):
             pulumi.set(__self__, "managed_instance_scaling", managed_instance_scaling)
         if model_data_download_timeout_in_seconds is not None:
             pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
         if routing_configs is not None:
             pulumi.set(__self__, "routing_configs", routing_configs)
         if serverless_config is not None:
@@ -7124,18 +7120,10 @@ class EndpointConfigurationShadowProductionVariant(dict):
             pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
 
     @_builtins.property
-    @pulumi.getter(name="modelName")
-    def model_name(self) -> _builtins.str:
-        """
-        The name of the model to use.
-        """
-        return pulumi.get(self, "model_name")
-
-    @_builtins.property
     @pulumi.getter(name="acceleratorType")
     def accelerator_type(self) -> Optional[_builtins.str]:
         """
-        The size of the Elastic Inference (EI) instance to use for the production variant.
+        Size of the Elastic Inference (EI) instance to use for the production variant.
         """
         return pulumi.get(self, "accelerator_type")
 
@@ -7143,7 +7131,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
     def container_startup_health_check_timeout_in_seconds(self) -> Optional[_builtins.int]:
         """
-        The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         """
         return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
 
@@ -7151,7 +7139,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="coreDumpConfig")
     def core_dump_config(self) -> Optional['outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig']:
         """
-        Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+        Core dump configuration from the model container when the process crashes. Fields are documented below.
         """
         return pulumi.get(self, "core_dump_config")
 
@@ -7159,7 +7147,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="enableSsmAccess")
     def enable_ssm_access(self) -> Optional[_builtins.bool]:
         """
-        You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+        Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `model_name` is not set (Inference Components endpoint).
         """
         return pulumi.get(self, "enable_ssm_access")
 
@@ -7167,7 +7155,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="inferenceAmiVersion")
     def inference_ami_version(self) -> Optional[_builtins.str]:
         """
-        Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
         """
         return pulumi.get(self, "inference_ami_version")
 
@@ -7183,7 +7171,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="initialVariantWeight")
     def initial_variant_weight(self) -> Optional[_builtins.float]:
         """
-        Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+        Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `model_name` is not set (Inference Components endpoint).
         """
         return pulumi.get(self, "initial_variant_weight")
 
@@ -7191,7 +7179,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[_builtins.str]:
         """
-        The type of instance to start.
+        Type of instance to start.
         """
         return pulumi.get(self, "instance_type")
 
@@ -7199,7 +7187,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="managedInstanceScaling")
     def managed_instance_scaling(self) -> Optional['outputs.EndpointConfigurationShadowProductionVariantManagedInstanceScaling']:
         """
-        Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+        Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
         """
         return pulumi.get(self, "managed_instance_scaling")
 
@@ -7207,15 +7195,23 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
     def model_data_download_timeout_in_seconds(self) -> Optional[_builtins.int]:
         """
-        The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
         """
         return pulumi.get(self, "model_data_download_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the model to use. Required unless using Inference Components (in which case `execution_role_arn` must be specified at the endpoint configuration level).
+        """
+        return pulumi.get(self, "model_name")
 
     @_builtins.property
     @pulumi.getter(name="routingConfigs")
     def routing_configs(self) -> Optional[Sequence['outputs.EndpointConfigurationShadowProductionVariantRoutingConfig']]:
         """
-        Sets how the endpoint routes incoming traffic. See routing_config below.
+        How the endpoint routes incoming traffic. See routing_config below.
         """
         return pulumi.get(self, "routing_configs")
 
@@ -7223,7 +7219,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="serverlessConfig")
     def serverless_config(self) -> Optional['outputs.EndpointConfigurationShadowProductionVariantServerlessConfig']:
         """
-        Specifies configuration for how an endpoint performs asynchronous inference.
+        How an endpoint performs asynchronous inference.
         """
         return pulumi.get(self, "serverless_config")
 
@@ -7231,7 +7227,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="variantName")
     def variant_name(self) -> Optional[_builtins.str]:
         """
-        The name of the variant. If omitted, this provider will assign a random, unique name.
+        Name of the variant. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "variant_name")
 
@@ -7239,7 +7235,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> Optional[_builtins.int]:
         """
-        The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+        Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
         """
         return pulumi.get(self, "volume_size_in_gb")
 
@@ -7269,8 +7265,8 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfig(dict):
                  destination_s3_uri: _builtins.str,
                  kms_key_id: _builtins.str):
         """
-        :param _builtins.str destination_s3_uri: The Amazon S3 bucket to send the core dump to.
-        :param _builtins.str kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        :param _builtins.str destination_s3_uri: S3 bucket to send the core dump to.
+        :param _builtins.str kms_key_id: KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
         """
         pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -7279,7 +7275,7 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfig(dict):
     @pulumi.getter(name="destinationS3Uri")
     def destination_s3_uri(self) -> _builtins.str:
         """
-        The Amazon S3 bucket to send the core dump to.
+        S3 bucket to send the core dump to.
         """
         return pulumi.get(self, "destination_s3_uri")
 
@@ -7287,7 +7283,7 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -7318,9 +7314,9 @@ class EndpointConfigurationShadowProductionVariantManagedInstanceScaling(dict):
                  min_instance_count: Optional[_builtins.int] = None,
                  status: Optional[_builtins.str] = None):
         """
-        :param _builtins.int max_instance_count: The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
-        :param _builtins.int min_instance_count: The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
-        :param _builtins.str status: Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+        :param _builtins.int max_instance_count: Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        :param _builtins.int min_instance_count: Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        :param _builtins.str status: Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
         """
         if max_instance_count is not None:
             pulumi.set(__self__, "max_instance_count", max_instance_count)
@@ -7333,7 +7329,7 @@ class EndpointConfigurationShadowProductionVariantManagedInstanceScaling(dict):
     @pulumi.getter(name="maxInstanceCount")
     def max_instance_count(self) -> Optional[_builtins.int]:
         """
-        The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
         """
         return pulumi.get(self, "max_instance_count")
 
@@ -7341,7 +7337,7 @@ class EndpointConfigurationShadowProductionVariantManagedInstanceScaling(dict):
     @pulumi.getter(name="minInstanceCount")
     def min_instance_count(self) -> Optional[_builtins.int]:
         """
-        The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
         """
         return pulumi.get(self, "min_instance_count")
 
@@ -7349,7 +7345,7 @@ class EndpointConfigurationShadowProductionVariantManagedInstanceScaling(dict):
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
         """
-        Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+        Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -7376,7 +7372,7 @@ class EndpointConfigurationShadowProductionVariantRoutingConfig(dict):
     def __init__(__self__, *,
                  routing_strategy: _builtins.str):
         """
-        :param _builtins.str routing_strategy: Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        :param _builtins.str routing_strategy: How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
         """
         pulumi.set(__self__, "routing_strategy", routing_strategy)
 
@@ -7384,7 +7380,7 @@ class EndpointConfigurationShadowProductionVariantRoutingConfig(dict):
     @pulumi.getter(name="routingStrategy")
     def routing_strategy(self) -> _builtins.str:
         """
-        Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
         """
         return pulumi.get(self, "routing_strategy")
 
@@ -7417,9 +7413,9 @@ class EndpointConfigurationShadowProductionVariantServerlessConfig(dict):
                  memory_size_in_mb: _builtins.int,
                  provisioned_concurrency: Optional[_builtins.int] = None):
         """
-        :param _builtins.int max_concurrency: The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
-        :param _builtins.int memory_size_in_mb: The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
-        :param _builtins.int provisioned_concurrency: The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+        :param _builtins.int max_concurrency: Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+        :param _builtins.int memory_size_in_mb: Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+        :param _builtins.int provisioned_concurrency: Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
         """
         pulumi.set(__self__, "max_concurrency", max_concurrency)
         pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
@@ -7430,7 +7426,7 @@ class EndpointConfigurationShadowProductionVariantServerlessConfig(dict):
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> _builtins.int:
         """
-        The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+        Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
         """
         return pulumi.get(self, "max_concurrency")
 
@@ -7438,7 +7434,7 @@ class EndpointConfigurationShadowProductionVariantServerlessConfig(dict):
     @pulumi.getter(name="memorySizeInMb")
     def memory_size_in_mb(self) -> _builtins.int:
         """
-        The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+        Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
         """
         return pulumi.get(self, "memory_size_in_mb")
 
@@ -7446,7 +7442,7 @@ class EndpointConfigurationShadowProductionVariantServerlessConfig(dict):
     @pulumi.getter(name="provisionedConcurrency")
     def provisioned_concurrency(self) -> Optional[_builtins.int]:
         """
-        The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+        Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
         """
         return pulumi.get(self, "provisioned_concurrency")
 

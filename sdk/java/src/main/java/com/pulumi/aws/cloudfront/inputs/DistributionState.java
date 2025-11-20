@@ -300,6 +300,21 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether V1 logging is enabled for the distribution.
+     * 
+     */
+    @Import(name="loggingV1Enabled")
+    private @Nullable Output<Boolean> loggingV1Enabled;
+
+    /**
+     * @return Whether V1 logging is enabled for the distribution.
+     * 
+     */
+    public Optional<Output<Boolean>> loggingV1Enabled() {
+        return Optional.ofNullable(this.loggingV1Enabled);
+    }
+
+    /**
      * Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
      * 
      */
@@ -545,6 +560,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         this.isIpv6Enabled = $.isIpv6Enabled;
         this.lastModifiedTime = $.lastModifiedTime;
         this.loggingConfig = $.loggingConfig;
+        this.loggingV1Enabled = $.loggingV1Enabled;
         this.orderedCacheBehaviors = $.orderedCacheBehaviors;
         this.originGroups = $.originGroups;
         this.origins = $.origins;
@@ -976,6 +992,27 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder loggingConfig(DistributionLoggingConfigArgs loggingConfig) {
             return loggingConfig(Output.of(loggingConfig));
+        }
+
+        /**
+         * @param loggingV1Enabled Whether V1 logging is enabled for the distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingV1Enabled(@Nullable Output<Boolean> loggingV1Enabled) {
+            $.loggingV1Enabled = loggingV1Enabled;
+            return this;
+        }
+
+        /**
+         * @param loggingV1Enabled Whether V1 logging is enabled for the distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingV1Enabled(Boolean loggingV1Enabled) {
+            return loggingV1Enabled(Output.of(loggingV1Enabled));
         }
 
         /**

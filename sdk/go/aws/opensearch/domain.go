@@ -486,7 +486,8 @@ type Domain struct {
 	AdvancedOptions pulumi.StringMapOutput `pulumi:"advancedOptions"`
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsOutput `pulumi:"advancedSecurityOptions"`
-	AimlOptions             DomainAimlOptionsOutput             `pulumi:"aimlOptions"`
+	// Configuration block for parameters required to enable all machine learning features. Detailed below.
+	AimlOptions DomainAimlOptionsOutput `pulumi:"aimlOptions"`
 	// ARN of the domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for the Auto-Tune options of the domain. Detailed below.
@@ -521,6 +522,8 @@ type Domain struct {
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	// Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+	IdentityCenterOptions DomainIdentityCenterOptionsPtrOutput `pulumi:"identityCenterOptions"`
 	// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
 	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
@@ -579,7 +582,8 @@ type domainState struct {
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
-	AimlOptions             *DomainAimlOptions             `pulumi:"aimlOptions"`
+	// Configuration block for parameters required to enable all machine learning features. Detailed below.
+	AimlOptions *DomainAimlOptions `pulumi:"aimlOptions"`
 	// ARN of the domain.
 	Arn *string `pulumi:"arn"`
 	// Configuration block for the Auto-Tune options of the domain. Detailed below.
@@ -614,6 +618,8 @@ type domainState struct {
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+	IdentityCenterOptions *DomainIdentityCenterOptions `pulumi:"identityCenterOptions"`
 	// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
@@ -643,7 +649,8 @@ type DomainState struct {
 	AdvancedOptions pulumi.StringMapInput
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
-	AimlOptions             DomainAimlOptionsPtrInput
+	// Configuration block for parameters required to enable all machine learning features. Detailed below.
+	AimlOptions DomainAimlOptionsPtrInput
 	// ARN of the domain.
 	Arn pulumi.StringPtrInput
 	// Configuration block for the Auto-Tune options of the domain. Detailed below.
@@ -678,6 +685,8 @@ type DomainState struct {
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
 	EngineVersion pulumi.StringPtrInput
+	// Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+	IdentityCenterOptions DomainIdentityCenterOptionsPtrInput
 	// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
 	IpAddressType pulumi.StringPtrInput
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
@@ -711,7 +720,8 @@ type domainArgs struct {
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
-	AimlOptions             *DomainAimlOptions             `pulumi:"aimlOptions"`
+	// Configuration block for parameters required to enable all machine learning features. Detailed below.
+	AimlOptions *DomainAimlOptions `pulumi:"aimlOptions"`
 	// Configuration block for the Auto-Tune options of the domain. Detailed below.
 	AutoTuneOptions *DomainAutoTuneOptions `pulumi:"autoTuneOptions"`
 	// Configuration block for the cluster of the domain. Detailed below.
@@ -732,6 +742,8 @@ type domainArgs struct {
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+	IdentityCenterOptions *DomainIdentityCenterOptions `pulumi:"identityCenterOptions"`
 	// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
@@ -760,7 +772,8 @@ type DomainArgs struct {
 	AdvancedOptions pulumi.StringMapInput
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
-	AimlOptions             DomainAimlOptionsPtrInput
+	// Configuration block for parameters required to enable all machine learning features. Detailed below.
+	AimlOptions DomainAimlOptionsPtrInput
 	// Configuration block for the Auto-Tune options of the domain. Detailed below.
 	AutoTuneOptions DomainAutoTuneOptionsPtrInput
 	// Configuration block for the cluster of the domain. Detailed below.
@@ -781,6 +794,8 @@ type DomainArgs struct {
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
 	EngineVersion pulumi.StringPtrInput
+	// Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+	IdentityCenterOptions DomainIdentityCenterOptionsPtrInput
 	// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
 	IpAddressType pulumi.StringPtrInput
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
@@ -903,6 +918,7 @@ func (o DomainOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsOut
 	return o.ApplyT(func(v *Domain) DomainAdvancedSecurityOptionsOutput { return v.AdvancedSecurityOptions }).(DomainAdvancedSecurityOptionsOutput)
 }
 
+// Configuration block for parameters required to enable all machine learning features. Detailed below.
 func (o DomainOutput) AimlOptions() DomainAimlOptionsOutput {
 	return o.ApplyT(func(v *Domain) DomainAimlOptionsOutput { return v.AimlOptions }).(DomainAimlOptionsOutput)
 }
@@ -984,6 +1000,11 @@ func (o DomainOutput) EndpointV2() pulumi.StringOutput {
 // Defaults to the lastest version of OpenSearch.
 func (o DomainOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
+// Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+func (o DomainOutput) IdentityCenterOptions() DomainIdentityCenterOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainIdentityCenterOptionsPtrOutput { return v.IdentityCenterOptions }).(DomainIdentityCenterOptionsPtrOutput)
 }
 
 // The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.

@@ -41,7 +41,7 @@ export function getPoliciesForTarget(args: GetPoliciesForTargetArgs, opts?: pulu
  */
 export interface GetPoliciesForTargetArgs {
     /**
-     * Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
+     * Must supply one of the 7 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
      */
     filter: string;
     /**
@@ -102,7 +102,7 @@ export function getPoliciesForTargetOutput(args: GetPoliciesForTargetOutputArgs,
  */
 export interface GetPoliciesForTargetOutputArgs {
     /**
-     * Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
+     * Must supply one of the 7 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
      */
     filter: pulumi.Input<string>;
     /**

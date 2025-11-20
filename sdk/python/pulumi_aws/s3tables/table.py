@@ -28,7 +28,8 @@ class TableArgs:
                  maintenance_configuration: Optional[pulumi.Input['TableMaintenanceConfigurationArgs']] = None,
                  metadata: Optional[pulumi.Input['TableMetadataArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[_builtins.str] format: Format of the table.
@@ -50,6 +51,7 @@ class TableArgs:
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
                A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "namespace", namespace)
@@ -64,6 +66,8 @@ class TableArgs:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -172,6 +176,18 @@ class TableArgs:
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _TableState:
@@ -191,6 +207,8 @@ class _TableState:
                  owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  version_token: Optional[pulumi.Input[_builtins.str]] = None,
                  warehouse_location: Optional[pulumi.Input[_builtins.str]] = None):
@@ -222,6 +240,8 @@ class _TableState:
         :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of the table.
                One of `customer` or `aws`.
         :param pulumi.Input[_builtins.str] version_token: Identifier for the current version of table data.
@@ -257,6 +277,10 @@ class _TableState:
             pulumi.set(__self__, "region", region)
         if table_bucket_arn is not None:
             pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if version_token is not None:
@@ -457,6 +481,30 @@ class _TableState:
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @_builtins.property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Type of the table.
@@ -507,6 +555,7 @@ class Table(pulumi.CustomResource):
                  namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon S3 Tables Table.
@@ -604,6 +653,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -709,6 +759,7 @@ class Table(pulumi.CustomResource):
                  namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -732,6 +783,7 @@ class Table(pulumi.CustomResource):
             if table_bucket_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'table_bucket_arn'")
             __props__.__dict__["table_bucket_arn"] = table_bucket_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
@@ -739,6 +791,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["modified_at"] = None
             __props__.__dict__["modified_by"] = None
             __props__.__dict__["owner_account_id"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version_token"] = None
             __props__.__dict__["warehouse_location"] = None
@@ -767,6 +820,8 @@ class Table(pulumi.CustomResource):
             owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             type: Optional[pulumi.Input[_builtins.str]] = None,
             version_token: Optional[pulumi.Input[_builtins.str]] = None,
             warehouse_location: Optional[pulumi.Input[_builtins.str]] = None) -> 'Table':
@@ -803,6 +858,8 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of the table.
                One of `customer` or `aws`.
         :param pulumi.Input[_builtins.str] version_token: Identifier for the current version of table data.
@@ -827,6 +884,8 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["owner_account_id"] = owner_account_id
         __props__.__dict__["region"] = region
         __props__.__dict__["table_bucket_arn"] = table_bucket_arn
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
         __props__.__dict__["version_token"] = version_token
         __props__.__dict__["warehouse_location"] = warehouse_location
@@ -962,6 +1021,22 @@ class Table(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "table_bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter

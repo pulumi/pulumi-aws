@@ -18,10 +18,10 @@ index c77a1a31d91..f4d8cb4c016 100644
  			names.AttrEnabled: {
  				Type:     schema.TypeBool,
 diff --git a/internal/service/appsync/api_key.go b/internal/service/appsync/api_key.go
-index 9bbca4265c2..8880372445f 100644
+index 43ea71dfd71..275e65b616e 100644
 --- a/internal/service/appsync/api_key.go
 +++ b/internal/service/appsync/api_key.go
-@@ -49,7 +49,7 @@ func resourceAPIKey() *schema.Resource {
+@@ -52,7 +52,7 @@ func resourceAPIKey() *schema.Resource {
  			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
@@ -252,10 +252,10 @@ index 6d6585687fb..1a3ce3438c1 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/redshift/parameter_group.go b/internal/service/redshift/parameter_group.go
-index b712d3ec4b4..8c9f92ef8bf 100644
+index cc95374c1a1..472dc580b72 100644
 --- a/internal/service/redshift/parameter_group.go
 +++ b/internal/service/redshift/parameter_group.go
-@@ -50,7 +50,7 @@ func resourceParameterGroup() *schema.Resource {
+@@ -51,7 +51,7 @@ func resourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -265,10 +265,10 @@ index b712d3ec4b4..8c9f92ef8bf 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/redshift/subnet_group.go b/internal/service/redshift/subnet_group.go
-index 7117c8e0612..0fa362cf95a 100644
+index dc2a5c2ab59..9ee5bb825ee 100644
 --- a/internal/service/redshift/subnet_group.go
 +++ b/internal/service/redshift/subnet_group.go
-@@ -45,7 +45,7 @@ func resourceSubnetGroup() *schema.Resource {
+@@ -46,7 +46,7 @@ func resourceSubnetGroup() *schema.Resource {
  			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,

@@ -122,6 +122,20 @@ public class InstanceConnectEndpoint extends com.pulumi.resources.CustomResource
         return this.fipsDnsName;
     }
     /**
+     * IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+     * 
+     */
+    @Export(name="ipAddressType", refs={String.class}, tree="[0]")
+    private Output<String> ipAddressType;
+
+    /**
+     * @return IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+     * 
+     */
+    public Output<String> ipAddressType() {
+        return this.ipAddressType;
+    }
+    /**
      * The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
      * 
      */

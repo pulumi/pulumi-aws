@@ -13,10 +13,46 @@ namespace Pulumi.Aws.Eks.Inputs
     public sealed class NodeGroupNodeRepairConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+        /// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `MaxParallelNodesRepairedPercentage`.
+        /// </summary>
+        [Input("maxParallelNodesRepairedCount")]
+        public Input<int>? MaxParallelNodesRepairedCount { get; set; }
+
+        /// <summary>
+        /// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `MaxParallelNodesRepairedCount`.
+        /// </summary>
+        [Input("maxParallelNodesRepairedPercentage")]
+        public Input<int>? MaxParallelNodesRepairedPercentage { get; set; }
+
+        /// <summary>
+        /// Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `MaxUnhealthyNodeThresholdPercentage`.
+        /// </summary>
+        [Input("maxUnhealthyNodeThresholdCount")]
+        public Input<int>? MaxUnhealthyNodeThresholdCount { get; set; }
+
+        /// <summary>
+        /// Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `MaxUnhealthyNodeThresholdCount`.
+        /// </summary>
+        [Input("maxUnhealthyNodeThresholdPercentage")]
+        public Input<int>? MaxUnhealthyNodeThresholdPercentage { get; set; }
+
+        [Input("nodeRepairConfigOverrides")]
+        private InputList<Inputs.NodeGroupNodeRepairConfigNodeRepairConfigOverrideGetArgs>? _nodeRepairConfigOverrides;
+
+        /// <summary>
+        /// Granular overrides for specific repair actions. See `NodeRepairConfigOverrides` below for details.
+        /// </summary>
+        public InputList<Inputs.NodeGroupNodeRepairConfigNodeRepairConfigOverrideGetArgs> NodeRepairConfigOverrides
+        {
+            get => _nodeRepairConfigOverrides ?? (_nodeRepairConfigOverrides = new InputList<Inputs.NodeGroupNodeRepairConfigNodeRepairConfigOverrideGetArgs>());
+            set => _nodeRepairConfigOverrides = value;
+        }
 
         public NodeGroupNodeRepairConfigGetArgs()
         {

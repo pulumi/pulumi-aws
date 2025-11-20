@@ -17,24 +17,14 @@ public final class ServiceOrderedPlacementStrategyArgs extends com.pulumi.resour
     public static final ServiceOrderedPlacementStrategyArgs Empty = new ServiceOrderedPlacementStrategyArgs();
 
     /**
-     * For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-     * which has the same effect), or any platform or custom attribute that is applied to a container instance.
-     * For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-     * needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-     * 
-     * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+     * For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
      * 
      */
     @Import(name="field")
     private @Nullable Output<String> field;
 
     /**
-     * @return For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-     * which has the same effect), or any platform or custom attribute that is applied to a container instance.
-     * For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-     * needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-     * 
-     * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+     * @return For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
      * 
      */
     public Optional<Output<String>> field() {
@@ -44,12 +34,16 @@ public final class ServiceOrderedPlacementStrategyArgs extends com.pulumi.resour
     /**
      * Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
      * 
+     * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+     * 
+     * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
      * 
      */
     public Output<String> type() {
@@ -82,12 +76,7 @@ public final class ServiceOrderedPlacementStrategyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param field For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-         * which has the same effect), or any platform or custom attribute that is applied to a container instance.
-         * For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-         * needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-         * 
-         * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+         * @param field For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
          * 
          * @return builder
          * 
@@ -98,12 +87,7 @@ public final class ServiceOrderedPlacementStrategyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param field For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-         * which has the same effect), or any platform or custom attribute that is applied to a container instance.
-         * For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-         * needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-         * 
-         * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+         * @param field For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
          * 
          * @return builder
          * 
@@ -115,6 +99,8 @@ public final class ServiceOrderedPlacementStrategyArgs extends com.pulumi.resour
         /**
          * @param type Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
          * 
+         * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+         * 
          * @return builder
          * 
          */
@@ -125,6 +111,8 @@ public final class ServiceOrderedPlacementStrategyArgs extends com.pulumi.resour
 
         /**
          * @param type Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+         * 
+         * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
          * 
          * @return builder
          * 

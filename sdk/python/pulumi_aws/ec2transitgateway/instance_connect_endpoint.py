@@ -22,6 +22,7 @@ __all__ = ['InstanceConnectEndpointArgs', 'InstanceConnectEndpoint']
 class InstanceConnectEndpointArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
+                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
                  preserve_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -30,12 +31,15 @@ class InstanceConnectEndpointArgs:
         """
         The set of arguments for constructing a InstanceConnectEndpoint resource.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
         :param pulumi.Input[_builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if preserve_client_ip is not None:
             pulumi.set(__self__, "preserve_client_ip", preserve_client_ip)
         if region is not None:
@@ -58,6 +62,18 @@ class InstanceConnectEndpointArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "subnet_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="preserveClientIp")
@@ -124,6 +140,7 @@ class _InstanceConnectEndpointState:
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_name: Optional[pulumi.Input[_builtins.str]] = None,
                  fips_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  owner_id: Optional[pulumi.Input[_builtins.str]] = None,
                  preserve_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -140,6 +157,7 @@ class _InstanceConnectEndpointState:
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] fips_dns_name: The DNS name of the EC2 Instance Connect FIPS Endpoint.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that created the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
@@ -158,6 +176,8 @@ class _InstanceConnectEndpointState:
             pulumi.set(__self__, "dns_name", dns_name)
         if fips_dns_name is not None:
             pulumi.set(__self__, "fips_dns_name", fips_dns_name)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if network_interface_ids is not None:
             pulumi.set(__self__, "network_interface_ids", network_interface_ids)
         if owner_id is not None:
@@ -226,6 +246,18 @@ class _InstanceConnectEndpointState:
     @fips_dns_name.setter
     def fips_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "fips_dns_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")
@@ -351,6 +383,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
                  preserve_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -380,6 +413,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
         :param pulumi.Input[_builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
@@ -427,6 +461,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
                  preserve_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -442,6 +477,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InstanceConnectEndpointArgs.__new__(InstanceConnectEndpointArgs)
 
+            __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["preserve_client_ip"] = preserve_client_ip
             __props__.__dict__["region"] = region
             __props__.__dict__["security_group_ids"] = security_group_ids
@@ -472,6 +508,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
             availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
             dns_name: Optional[pulumi.Input[_builtins.str]] = None,
             fips_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
+            ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             owner_id: Optional[pulumi.Input[_builtins.str]] = None,
             preserve_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -493,6 +530,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] fips_dns_name: The DNS name of the EC2 Instance Connect FIPS Endpoint.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that created the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
@@ -511,6 +549,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["fips_dns_name"] = fips_dns_name
+        __props__.__dict__["ip_address_type"] = ip_address_type
         __props__.__dict__["network_interface_ids"] = network_interface_ids
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["preserve_client_ip"] = preserve_client_ip
@@ -554,6 +593,14 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         The DNS name of the EC2 Instance Connect FIPS Endpoint.
         """
         return pulumi.get(self, "fips_dns_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")

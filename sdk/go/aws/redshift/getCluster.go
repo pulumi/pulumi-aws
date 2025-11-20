@@ -14,6 +14,56 @@ import (
 // Provides details about a specific redshift cluster.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := redshift.LookupCluster(ctx, &redshift.LookupClusterArgs{
+//				ClusterIdentifier: "example-cluster",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "example_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-example-stream"),
+//				Destination: pulumi.String("redshift"),
+//				RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
+//					RoleArn:          pulumi.Any(firehoseRole.Arn),
+//					ClusterJdbcurl:   pulumi.Sprintf("jdbc:redshift://%v/%v", example.Endpoint, example.DatabaseName),
+//					Username:         pulumi.String("exampleuser"),
+//					Password:         pulumi.String("Exampl3Pass"),
+//					DataTableName:    pulumi.String("example-table"),
+//					CopyOptions:      pulumi.String("delimiter '|'"),
+//					DataTableColumns: pulumi.String("example-col"),
+//					S3Configuration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs{
+//						RoleArn:           pulumi.Any(firehoseRole.Arn),
+//						BucketArn:         pulumi.Any(bucket.Arn),
+//						BufferSize:        10,
+//						BufferInterval:    400,
+//						CompressionFormat: pulumi.String("GZIP"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterResult

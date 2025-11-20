@@ -3,9 +3,20 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.GetServiceCapacityProviderStrategy;
+import com.pulumi.aws.ecs.outputs.GetServiceDeployment;
+import com.pulumi.aws.ecs.outputs.GetServiceDeploymentConfiguration;
+import com.pulumi.aws.ecs.outputs.GetServiceDeploymentController;
+import com.pulumi.aws.ecs.outputs.GetServiceEvent;
 import com.pulumi.aws.ecs.outputs.GetServiceLoadBalancer;
+import com.pulumi.aws.ecs.outputs.GetServiceNetworkConfiguration;
+import com.pulumi.aws.ecs.outputs.GetServiceOrderedPlacementStrategy;
+import com.pulumi.aws.ecs.outputs.GetServicePlacementConstraint;
+import com.pulumi.aws.ecs.outputs.GetServiceServiceRegistry;
+import com.pulumi.aws.ecs.outputs.GetServiceTaskSet;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -15,17 +26,76 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceResult {
     /**
-     * @return ARN of the ECS Service
+     * @return ARN of the task set
      * 
      */
     private String arn;
+    /**
+     * @return Whether Availability Zone rebalancing is enabled
+     * 
+     */
     private String availabilityZoneRebalancing;
+    /**
+     * @return Capacity provider strategy for the service. See `capacityProviderStrategy` Block for details.
+     * 
+     */
+    private List<GetServiceCapacityProviderStrategy> capacityProviderStrategies;
     private String clusterArn;
     /**
-     * @return Number of tasks for the ECS Service
+     * @return Time when task set was created (RFC3339 format)
+     * 
+     */
+    private String createdAt;
+    /**
+     * @return Principal that created the service
+     * 
+     */
+    private String createdBy;
+    /**
+     * @return Deployment configuration for the service. See `deploymentConfiguration` Block for details.
+     * 
+     */
+    private List<GetServiceDeploymentConfiguration> deploymentConfigurations;
+    /**
+     * @return Deployment controller configuration. See `deploymentController` Block for details.
+     * 
+     */
+    private List<GetServiceDeploymentController> deploymentControllers;
+    /**
+     * @return Current deployments for the service. See `deployments` Block for details.
+     * 
+     */
+    private List<GetServiceDeployment> deployments;
+    /**
+     * @return Desired number of tasks
      * 
      */
     private Integer desiredCount;
+    /**
+     * @return Whether ECS managed tags are enabled
+     * 
+     */
+    private Boolean enableEcsManagedTags;
+    /**
+     * @return Whether execute command functionality is enabled
+     * 
+     */
+    private Boolean enableExecuteCommand;
+    /**
+     * @return Recent service events. See `events` Block for details.
+     * 
+     */
+    private List<GetServiceEvent> events;
+    /**
+     * @return Grace period for health checks
+     * 
+     */
+    private Integer healthCheckGracePeriodSeconds;
+    /**
+     * @return ARN of the IAM role associated with the service
+     * 
+     */
+    private String iamRole;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -41,7 +111,47 @@ public final class GetServiceResult {
      * 
      */
     private List<GetServiceLoadBalancer> loadBalancers;
+    /**
+     * @return Network configuration for the service. See `networkConfiguration` Block for details.
+     * 
+     */
+    private List<GetServiceNetworkConfiguration> networkConfigurations;
+    /**
+     * @return Placement strategy for tasks. See `orderedPlacementStrategy` Block for details.
+     * 
+     */
+    private List<GetServiceOrderedPlacementStrategy> orderedPlacementStrategies;
+    /**
+     * @return Number of pending tasks
+     * 
+     */
+    private Integer pendingCount;
+    /**
+     * @return Placement constraints for tasks. See `placementConstraints` Block for details.
+     * 
+     */
+    private List<GetServicePlacementConstraint> placementConstraints;
+    /**
+     * @return Platform family for Fargate tasks
+     * 
+     */
+    private String platformFamily;
+    /**
+     * @return Platform version for Fargate tasks
+     * 
+     */
+    private String platformVersion;
+    /**
+     * @return Whether tags are propagated from task definition or service
+     * 
+     */
+    private String propagateTags;
     private String region;
+    /**
+     * @return Number of running tasks
+     * 
+     */
+    private Integer runningCount;
     /**
      * @return Scheduling strategy for the ECS Service
      * 
@@ -49,36 +159,132 @@ public final class GetServiceResult {
     private String schedulingStrategy;
     private String serviceName;
     /**
+     * @return Service discovery registries. See `serviceRegistries` Block for details.
+     * 
+     */
+    private List<GetServiceServiceRegistry> serviceRegistries;
+    /**
+     * @return Task set status
+     * 
+     */
+    private String status;
+    /**
      * @return Resource tags.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return Family for the latest ACTIVE revision or full ARN of the task definition.
+     * @return Task definition ARN
      * 
      */
     private String taskDefinition;
+    /**
+     * @return Task sets for the service. See `taskSets` Block for details.
+     * 
+     */
+    private List<GetServiceTaskSet> taskSets;
 
     private GetServiceResult() {}
     /**
-     * @return ARN of the ECS Service
+     * @return ARN of the task set
      * 
      */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Whether Availability Zone rebalancing is enabled
+     * 
+     */
     public String availabilityZoneRebalancing() {
         return this.availabilityZoneRebalancing;
+    }
+    /**
+     * @return Capacity provider strategy for the service. See `capacityProviderStrategy` Block for details.
+     * 
+     */
+    public List<GetServiceCapacityProviderStrategy> capacityProviderStrategies() {
+        return this.capacityProviderStrategies;
     }
     public String clusterArn() {
         return this.clusterArn;
     }
     /**
-     * @return Number of tasks for the ECS Service
+     * @return Time when task set was created (RFC3339 format)
+     * 
+     */
+    public String createdAt() {
+        return this.createdAt;
+    }
+    /**
+     * @return Principal that created the service
+     * 
+     */
+    public String createdBy() {
+        return this.createdBy;
+    }
+    /**
+     * @return Deployment configuration for the service. See `deploymentConfiguration` Block for details.
+     * 
+     */
+    public List<GetServiceDeploymentConfiguration> deploymentConfigurations() {
+        return this.deploymentConfigurations;
+    }
+    /**
+     * @return Deployment controller configuration. See `deploymentController` Block for details.
+     * 
+     */
+    public List<GetServiceDeploymentController> deploymentControllers() {
+        return this.deploymentControllers;
+    }
+    /**
+     * @return Current deployments for the service. See `deployments` Block for details.
+     * 
+     */
+    public List<GetServiceDeployment> deployments() {
+        return this.deployments;
+    }
+    /**
+     * @return Desired number of tasks
      * 
      */
     public Integer desiredCount() {
         return this.desiredCount;
+    }
+    /**
+     * @return Whether ECS managed tags are enabled
+     * 
+     */
+    public Boolean enableEcsManagedTags() {
+        return this.enableEcsManagedTags;
+    }
+    /**
+     * @return Whether execute command functionality is enabled
+     * 
+     */
+    public Boolean enableExecuteCommand() {
+        return this.enableExecuteCommand;
+    }
+    /**
+     * @return Recent service events. See `events` Block for details.
+     * 
+     */
+    public List<GetServiceEvent> events() {
+        return this.events;
+    }
+    /**
+     * @return Grace period for health checks
+     * 
+     */
+    public Integer healthCheckGracePeriodSeconds() {
+        return this.healthCheckGracePeriodSeconds;
+    }
+    /**
+     * @return ARN of the IAM role associated with the service
+     * 
+     */
+    public String iamRole() {
+        return this.iamRole;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -101,8 +307,64 @@ public final class GetServiceResult {
     public List<GetServiceLoadBalancer> loadBalancers() {
         return this.loadBalancers;
     }
+    /**
+     * @return Network configuration for the service. See `networkConfiguration` Block for details.
+     * 
+     */
+    public List<GetServiceNetworkConfiguration> networkConfigurations() {
+        return this.networkConfigurations;
+    }
+    /**
+     * @return Placement strategy for tasks. See `orderedPlacementStrategy` Block for details.
+     * 
+     */
+    public List<GetServiceOrderedPlacementStrategy> orderedPlacementStrategies() {
+        return this.orderedPlacementStrategies;
+    }
+    /**
+     * @return Number of pending tasks
+     * 
+     */
+    public Integer pendingCount() {
+        return this.pendingCount;
+    }
+    /**
+     * @return Placement constraints for tasks. See `placementConstraints` Block for details.
+     * 
+     */
+    public List<GetServicePlacementConstraint> placementConstraints() {
+        return this.placementConstraints;
+    }
+    /**
+     * @return Platform family for Fargate tasks
+     * 
+     */
+    public String platformFamily() {
+        return this.platformFamily;
+    }
+    /**
+     * @return Platform version for Fargate tasks
+     * 
+     */
+    public String platformVersion() {
+        return this.platformVersion;
+    }
+    /**
+     * @return Whether tags are propagated from task definition or service
+     * 
+     */
+    public String propagateTags() {
+        return this.propagateTags;
+    }
     public String region() {
         return this.region;
+    }
+    /**
+     * @return Number of running tasks
+     * 
+     */
+    public Integer runningCount() {
+        return this.runningCount;
     }
     /**
      * @return Scheduling strategy for the ECS Service
@@ -115,6 +377,20 @@ public final class GetServiceResult {
         return this.serviceName;
     }
     /**
+     * @return Service discovery registries. See `serviceRegistries` Block for details.
+     * 
+     */
+    public List<GetServiceServiceRegistry> serviceRegistries() {
+        return this.serviceRegistries;
+    }
+    /**
+     * @return Task set status
+     * 
+     */
+    public String status() {
+        return this.status;
+    }
+    /**
      * @return Resource tags.
      * 
      */
@@ -122,11 +398,18 @@ public final class GetServiceResult {
         return this.tags;
     }
     /**
-     * @return Family for the latest ACTIVE revision or full ARN of the task definition.
+     * @return Task definition ARN
      * 
      */
     public String taskDefinition() {
         return this.taskDefinition;
+    }
+    /**
+     * @return Task sets for the service. See `taskSets` Block for details.
+     * 
+     */
+    public List<GetServiceTaskSet> taskSets() {
+        return this.taskSets;
     }
 
     public static Builder builder() {
@@ -140,31 +423,75 @@ public final class GetServiceResult {
     public static final class Builder {
         private String arn;
         private String availabilityZoneRebalancing;
+        private List<GetServiceCapacityProviderStrategy> capacityProviderStrategies;
         private String clusterArn;
+        private String createdAt;
+        private String createdBy;
+        private List<GetServiceDeploymentConfiguration> deploymentConfigurations;
+        private List<GetServiceDeploymentController> deploymentControllers;
+        private List<GetServiceDeployment> deployments;
         private Integer desiredCount;
+        private Boolean enableEcsManagedTags;
+        private Boolean enableExecuteCommand;
+        private List<GetServiceEvent> events;
+        private Integer healthCheckGracePeriodSeconds;
+        private String iamRole;
         private String id;
         private String launchType;
         private List<GetServiceLoadBalancer> loadBalancers;
+        private List<GetServiceNetworkConfiguration> networkConfigurations;
+        private List<GetServiceOrderedPlacementStrategy> orderedPlacementStrategies;
+        private Integer pendingCount;
+        private List<GetServicePlacementConstraint> placementConstraints;
+        private String platformFamily;
+        private String platformVersion;
+        private String propagateTags;
         private String region;
+        private Integer runningCount;
         private String schedulingStrategy;
         private String serviceName;
+        private List<GetServiceServiceRegistry> serviceRegistries;
+        private String status;
         private Map<String,String> tags;
         private String taskDefinition;
+        private List<GetServiceTaskSet> taskSets;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.availabilityZoneRebalancing = defaults.availabilityZoneRebalancing;
+    	      this.capacityProviderStrategies = defaults.capacityProviderStrategies;
     	      this.clusterArn = defaults.clusterArn;
+    	      this.createdAt = defaults.createdAt;
+    	      this.createdBy = defaults.createdBy;
+    	      this.deploymentConfigurations = defaults.deploymentConfigurations;
+    	      this.deploymentControllers = defaults.deploymentControllers;
+    	      this.deployments = defaults.deployments;
     	      this.desiredCount = defaults.desiredCount;
+    	      this.enableEcsManagedTags = defaults.enableEcsManagedTags;
+    	      this.enableExecuteCommand = defaults.enableExecuteCommand;
+    	      this.events = defaults.events;
+    	      this.healthCheckGracePeriodSeconds = defaults.healthCheckGracePeriodSeconds;
+    	      this.iamRole = defaults.iamRole;
     	      this.id = defaults.id;
     	      this.launchType = defaults.launchType;
     	      this.loadBalancers = defaults.loadBalancers;
+    	      this.networkConfigurations = defaults.networkConfigurations;
+    	      this.orderedPlacementStrategies = defaults.orderedPlacementStrategies;
+    	      this.pendingCount = defaults.pendingCount;
+    	      this.placementConstraints = defaults.placementConstraints;
+    	      this.platformFamily = defaults.platformFamily;
+    	      this.platformVersion = defaults.platformVersion;
+    	      this.propagateTags = defaults.propagateTags;
     	      this.region = defaults.region;
+    	      this.runningCount = defaults.runningCount;
     	      this.schedulingStrategy = defaults.schedulingStrategy;
     	      this.serviceName = defaults.serviceName;
+    	      this.serviceRegistries = defaults.serviceRegistries;
+    	      this.status = defaults.status;
     	      this.tags = defaults.tags;
     	      this.taskDefinition = defaults.taskDefinition;
+    	      this.taskSets = defaults.taskSets;
         }
 
         @CustomType.Setter
@@ -184,6 +511,17 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder capacityProviderStrategies(List<GetServiceCapacityProviderStrategy> capacityProviderStrategies) {
+            if (capacityProviderStrategies == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "capacityProviderStrategies");
+            }
+            this.capacityProviderStrategies = capacityProviderStrategies;
+            return this;
+        }
+        public Builder capacityProviderStrategies(GetServiceCapacityProviderStrategy... capacityProviderStrategies) {
+            return capacityProviderStrategies(List.of(capacityProviderStrategies));
+        }
+        @CustomType.Setter
         public Builder clusterArn(String clusterArn) {
             if (clusterArn == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "clusterArn");
@@ -192,11 +530,103 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder createdAt(String createdAt) {
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "createdAt");
+            }
+            this.createdAt = createdAt;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder createdBy(String createdBy) {
+            if (createdBy == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "createdBy");
+            }
+            this.createdBy = createdBy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder deploymentConfigurations(List<GetServiceDeploymentConfiguration> deploymentConfigurations) {
+            if (deploymentConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "deploymentConfigurations");
+            }
+            this.deploymentConfigurations = deploymentConfigurations;
+            return this;
+        }
+        public Builder deploymentConfigurations(GetServiceDeploymentConfiguration... deploymentConfigurations) {
+            return deploymentConfigurations(List.of(deploymentConfigurations));
+        }
+        @CustomType.Setter
+        public Builder deploymentControllers(List<GetServiceDeploymentController> deploymentControllers) {
+            if (deploymentControllers == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "deploymentControllers");
+            }
+            this.deploymentControllers = deploymentControllers;
+            return this;
+        }
+        public Builder deploymentControllers(GetServiceDeploymentController... deploymentControllers) {
+            return deploymentControllers(List.of(deploymentControllers));
+        }
+        @CustomType.Setter
+        public Builder deployments(List<GetServiceDeployment> deployments) {
+            if (deployments == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "deployments");
+            }
+            this.deployments = deployments;
+            return this;
+        }
+        public Builder deployments(GetServiceDeployment... deployments) {
+            return deployments(List.of(deployments));
+        }
+        @CustomType.Setter
         public Builder desiredCount(Integer desiredCount) {
             if (desiredCount == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "desiredCount");
             }
             this.desiredCount = desiredCount;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableEcsManagedTags(Boolean enableEcsManagedTags) {
+            if (enableEcsManagedTags == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "enableEcsManagedTags");
+            }
+            this.enableEcsManagedTags = enableEcsManagedTags;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableExecuteCommand(Boolean enableExecuteCommand) {
+            if (enableExecuteCommand == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "enableExecuteCommand");
+            }
+            this.enableExecuteCommand = enableExecuteCommand;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder events(List<GetServiceEvent> events) {
+            if (events == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "events");
+            }
+            this.events = events;
+            return this;
+        }
+        public Builder events(GetServiceEvent... events) {
+            return events(List.of(events));
+        }
+        @CustomType.Setter
+        public Builder healthCheckGracePeriodSeconds(Integer healthCheckGracePeriodSeconds) {
+            if (healthCheckGracePeriodSeconds == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "healthCheckGracePeriodSeconds");
+            }
+            this.healthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder iamRole(String iamRole) {
+            if (iamRole == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "iamRole");
+            }
+            this.iamRole = iamRole;
             return this;
         }
         @CustomType.Setter
@@ -227,11 +657,84 @@ public final class GetServiceResult {
             return loadBalancers(List.of(loadBalancers));
         }
         @CustomType.Setter
+        public Builder networkConfigurations(List<GetServiceNetworkConfiguration> networkConfigurations) {
+            if (networkConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "networkConfigurations");
+            }
+            this.networkConfigurations = networkConfigurations;
+            return this;
+        }
+        public Builder networkConfigurations(GetServiceNetworkConfiguration... networkConfigurations) {
+            return networkConfigurations(List.of(networkConfigurations));
+        }
+        @CustomType.Setter
+        public Builder orderedPlacementStrategies(List<GetServiceOrderedPlacementStrategy> orderedPlacementStrategies) {
+            if (orderedPlacementStrategies == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "orderedPlacementStrategies");
+            }
+            this.orderedPlacementStrategies = orderedPlacementStrategies;
+            return this;
+        }
+        public Builder orderedPlacementStrategies(GetServiceOrderedPlacementStrategy... orderedPlacementStrategies) {
+            return orderedPlacementStrategies(List.of(orderedPlacementStrategies));
+        }
+        @CustomType.Setter
+        public Builder pendingCount(Integer pendingCount) {
+            if (pendingCount == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "pendingCount");
+            }
+            this.pendingCount = pendingCount;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder placementConstraints(List<GetServicePlacementConstraint> placementConstraints) {
+            if (placementConstraints == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "placementConstraints");
+            }
+            this.placementConstraints = placementConstraints;
+            return this;
+        }
+        public Builder placementConstraints(GetServicePlacementConstraint... placementConstraints) {
+            return placementConstraints(List.of(placementConstraints));
+        }
+        @CustomType.Setter
+        public Builder platformFamily(String platformFamily) {
+            if (platformFamily == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "platformFamily");
+            }
+            this.platformFamily = platformFamily;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder platformVersion(String platformVersion) {
+            if (platformVersion == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "platformVersion");
+            }
+            this.platformVersion = platformVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder propagateTags(String propagateTags) {
+            if (propagateTags == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "propagateTags");
+            }
+            this.propagateTags = propagateTags;
+            return this;
+        }
+        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "region");
             }
             this.region = region;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder runningCount(Integer runningCount) {
+            if (runningCount == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "runningCount");
+            }
+            this.runningCount = runningCount;
             return this;
         }
         @CustomType.Setter
@@ -251,6 +754,25 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder serviceRegistries(List<GetServiceServiceRegistry> serviceRegistries) {
+            if (serviceRegistries == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "serviceRegistries");
+            }
+            this.serviceRegistries = serviceRegistries;
+            return this;
+        }
+        public Builder serviceRegistries(GetServiceServiceRegistry... serviceRegistries) {
+            return serviceRegistries(List.of(serviceRegistries));
+        }
+        @CustomType.Setter
+        public Builder status(String status) {
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "status");
+            }
+            this.status = status;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "tags");
@@ -266,20 +788,53 @@ public final class GetServiceResult {
             this.taskDefinition = taskDefinition;
             return this;
         }
+        @CustomType.Setter
+        public Builder taskSets(List<GetServiceTaskSet> taskSets) {
+            if (taskSets == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "taskSets");
+            }
+            this.taskSets = taskSets;
+            return this;
+        }
+        public Builder taskSets(GetServiceTaskSet... taskSets) {
+            return taskSets(List.of(taskSets));
+        }
         public GetServiceResult build() {
             final var _resultValue = new GetServiceResult();
             _resultValue.arn = arn;
             _resultValue.availabilityZoneRebalancing = availabilityZoneRebalancing;
+            _resultValue.capacityProviderStrategies = capacityProviderStrategies;
             _resultValue.clusterArn = clusterArn;
+            _resultValue.createdAt = createdAt;
+            _resultValue.createdBy = createdBy;
+            _resultValue.deploymentConfigurations = deploymentConfigurations;
+            _resultValue.deploymentControllers = deploymentControllers;
+            _resultValue.deployments = deployments;
             _resultValue.desiredCount = desiredCount;
+            _resultValue.enableEcsManagedTags = enableEcsManagedTags;
+            _resultValue.enableExecuteCommand = enableExecuteCommand;
+            _resultValue.events = events;
+            _resultValue.healthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds;
+            _resultValue.iamRole = iamRole;
             _resultValue.id = id;
             _resultValue.launchType = launchType;
             _resultValue.loadBalancers = loadBalancers;
+            _resultValue.networkConfigurations = networkConfigurations;
+            _resultValue.orderedPlacementStrategies = orderedPlacementStrategies;
+            _resultValue.pendingCount = pendingCount;
+            _resultValue.placementConstraints = placementConstraints;
+            _resultValue.platformFamily = platformFamily;
+            _resultValue.platformVersion = platformVersion;
+            _resultValue.propagateTags = propagateTags;
             _resultValue.region = region;
+            _resultValue.runningCount = runningCount;
             _resultValue.schedulingStrategy = schedulingStrategy;
             _resultValue.serviceName = serviceName;
+            _resultValue.serviceRegistries = serviceRegistries;
+            _resultValue.status = status;
             _resultValue.tags = tags;
             _resultValue.taskDefinition = taskDefinition;
+            _resultValue.taskSets = taskSets;
             return _resultValue;
         }
     }

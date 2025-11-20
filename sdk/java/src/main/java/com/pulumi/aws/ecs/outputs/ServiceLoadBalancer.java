@@ -17,8 +17,6 @@ public final class ServiceLoadBalancer {
     /**
      * @return Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
      * 
-     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
-     * 
      */
     private @Nullable ServiceLoadBalancerAdvancedConfiguration advancedConfiguration;
     /**
@@ -39,14 +37,14 @@ public final class ServiceLoadBalancer {
     /**
      * @return ARN of the Load Balancer target group to associate with the service.
      * 
+     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+     * 
      */
     private @Nullable String targetGroupArn;
 
     private ServiceLoadBalancer() {}
     /**
      * @return Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-     * 
-     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
      * 
      */
     public Optional<ServiceLoadBalancerAdvancedConfiguration> advancedConfiguration() {
@@ -75,6 +73,8 @@ public final class ServiceLoadBalancer {
     }
     /**
      * @return ARN of the Load Balancer target group to associate with the service.
+     * 
+     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
      * 
      */
     public Optional<String> targetGroupArn() {

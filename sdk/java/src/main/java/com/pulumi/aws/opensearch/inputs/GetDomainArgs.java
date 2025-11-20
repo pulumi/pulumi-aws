@@ -3,7 +3,6 @@
 
 package com.pulumi.aws.opensearch.inputs;
 
-import com.pulumi.aws.opensearch.inputs.GetDomainOffPeakWindowOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -31,21 +30,6 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Output<String> domainName() {
         return this.domainName;
-    }
-
-    /**
-     * Off Peak update options
-     * 
-     */
-    @Import(name="offPeakWindowOptions")
-    private @Nullable Output<GetDomainOffPeakWindowOptionsArgs> offPeakWindowOptions;
-
-    /**
-     * @return Off Peak update options
-     * 
-     */
-    public Optional<Output<GetDomainOffPeakWindowOptionsArgs>> offPeakWindowOptions() {
-        return Optional.ofNullable(this.offPeakWindowOptions);
     }
 
     /**
@@ -82,7 +66,6 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetDomainArgs(GetDomainArgs $) {
         this.domainName = $.domainName;
-        this.offPeakWindowOptions = $.offPeakWindowOptions;
         this.region = $.region;
         this.tags = $.tags;
     }
@@ -124,27 +107,6 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
-        }
-
-        /**
-         * @param offPeakWindowOptions Off Peak update options
-         * 
-         * @return builder
-         * 
-         */
-        public Builder offPeakWindowOptions(@Nullable Output<GetDomainOffPeakWindowOptionsArgs> offPeakWindowOptions) {
-            $.offPeakWindowOptions = offPeakWindowOptions;
-            return this;
-        }
-
-        /**
-         * @param offPeakWindowOptions Off Peak update options
-         * 
-         * @return builder
-         * 
-         */
-        public Builder offPeakWindowOptions(GetDomainOffPeakWindowOptionsArgs offPeakWindowOptions) {
-            return offPeakWindowOptions(Output.of(offPeakWindowOptions));
         }
 
         /**

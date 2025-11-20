@@ -14,6 +14,7 @@ import com.pulumi.aws.opensearch.outputs.DomainCognitoOptions;
 import com.pulumi.aws.opensearch.outputs.DomainDomainEndpointOptions;
 import com.pulumi.aws.opensearch.outputs.DomainEbsOptions;
 import com.pulumi.aws.opensearch.outputs.DomainEncryptAtRest;
+import com.pulumi.aws.opensearch.outputs.DomainIdentityCenterOptions;
 import com.pulumi.aws.opensearch.outputs.DomainLogPublishingOption;
 import com.pulumi.aws.opensearch.outputs.DomainNodeToNodeEncryption;
 import com.pulumi.aws.opensearch.outputs.DomainOffPeakWindowOptions;
@@ -531,9 +532,17 @@ public class Domain extends com.pulumi.resources.CustomResource {
     public Output<DomainAdvancedSecurityOptions> advancedSecurityOptions() {
         return this.advancedSecurityOptions;
     }
+    /**
+     * Configuration block for parameters required to enable all machine learning features. Detailed below.
+     * 
+     */
     @Export(name="aimlOptions", refs={DomainAimlOptions.class}, tree="[0]")
     private Output<DomainAimlOptions> aimlOptions;
 
+    /**
+     * @return Configuration block for parameters required to enable all machine learning features. Detailed below.
+     * 
+     */
     public Output<DomainAimlOptions> aimlOptions() {
         return this.aimlOptions;
     }
@@ -754,6 +763,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<String> engineVersion() {
         return this.engineVersion;
+    }
+    /**
+     * Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+     * 
+     */
+    @Export(name="identityCenterOptions", refs={DomainIdentityCenterOptions.class}, tree="[0]")
+    private Output</* @Nullable */ DomainIdentityCenterOptions> identityCenterOptions;
+
+    /**
+     * @return Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+     * 
+     */
+    public Output<Optional<DomainIdentityCenterOptions>> identityCenterOptions() {
+        return Codegen.optional(this.identityCenterOptions);
     }
     /**
      * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.

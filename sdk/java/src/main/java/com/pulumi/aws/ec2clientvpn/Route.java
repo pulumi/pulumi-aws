@@ -117,14 +117,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The IPv4 address range, in CIDR notation, of the route destination.
+     * The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
      * 
      */
     @Export(name="destinationCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> destinationCidrBlock;
 
     /**
-     * @return The IPv4 address range, in CIDR notation, of the route destination.
+     * @return The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
      * 
      */
     public Output<String> destinationCidrBlock() {

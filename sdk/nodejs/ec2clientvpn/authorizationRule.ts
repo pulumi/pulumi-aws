@@ -87,7 +87,7 @@ export class AuthorizationRule extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+     * The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
      */
     declare public readonly targetNetworkCidr: pulumi.Output<string>;
 
@@ -155,7 +155,7 @@ export interface AuthorizationRuleState {
      */
     region?: pulumi.Input<string>;
     /**
-     * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+     * The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
      */
     targetNetworkCidr?: pulumi.Input<string>;
 }
@@ -185,7 +185,7 @@ export interface AuthorizationRuleArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+     * The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
      */
     targetNetworkCidr: pulumi.Input<string>;
 }

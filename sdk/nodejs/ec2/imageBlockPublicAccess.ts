@@ -53,6 +53,10 @@ export class ImageBlockPublicAccess extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    declare public readonly region: pulumi.Output<string>;
+    /**
      * The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
      */
     declare public readonly state: pulumi.Output<string>;
@@ -70,12 +74,14 @@ export class ImageBlockPublicAccess extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageBlockPublicAccessState | undefined;
+            resourceInputs["region"] = state?.region;
             resourceInputs["state"] = state?.state;
         } else {
             const args = argsOrState as ImageBlockPublicAccessArgs | undefined;
             if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
+            resourceInputs["region"] = args?.region;
             resourceInputs["state"] = args?.state;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -88,6 +94,10 @@ export class ImageBlockPublicAccess extends pulumi.CustomResource {
  */
 export interface ImageBlockPublicAccessState {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
      */
     state?: pulumi.Input<string>;
@@ -97,6 +107,10 @@ export interface ImageBlockPublicAccessState {
  * The set of arguments for constructing a ImageBlockPublicAccess resource.
  */
 export interface ImageBlockPublicAccessArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
      */

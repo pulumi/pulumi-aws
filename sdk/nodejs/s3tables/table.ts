@@ -186,6 +186,14 @@ export class Table extends pulumi.CustomResource {
      */
     declare public readonly tableBucketArn: pulumi.Output<string>;
     /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
      * Type of the table.
      * One of `customer` or `aws`.
      */
@@ -227,6 +235,8 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["ownerAccountId"] = state?.ownerAccountId;
             resourceInputs["region"] = state?.region;
             resourceInputs["tableBucketArn"] = state?.tableBucketArn;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["type"] = state?.type;
             resourceInputs["versionToken"] = state?.versionToken;
             resourceInputs["warehouseLocation"] = state?.warehouseLocation;
@@ -249,6 +259,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["namespace"] = args?.namespace;
             resourceInputs["region"] = args?.region;
             resourceInputs["tableBucketArn"] = args?.tableBucketArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
@@ -256,6 +267,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["modifiedBy"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["versionToken"] = undefined /*out*/;
             resourceInputs["warehouseLocation"] = undefined /*out*/;
@@ -341,6 +353,14 @@ export interface TableState {
      */
     tableBucketArn?: pulumi.Input<string>;
     /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Type of the table.
      * One of `customer` or `aws`.
      */
@@ -402,4 +422,8 @@ export interface TableArgs {
      * The following arguments are optional:
      */
     tableBucketArn: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

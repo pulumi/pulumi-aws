@@ -27,12 +27,12 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
         /// 
-        ///     var verification = new Tls.Index.PrivateKey("verification", new()
+        ///     var verification = new Tls.PrivateKey("verification", new()
         ///     {
         ///         Algorithm = "RSA",
         ///     });
         /// 
-        ///     var verificationCertRequest = new Tls.Index.CertRequest("verification", new()
+        ///     var verificationCertRequest = new Tls.CertRequest("verification", new()
         ///     {
         ///         KeyAlgorithm = "RSA",
         ///         PrivateKeyPem = verification.PrivateKeyPem,
@@ -67,12 +67,12 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
         /// 
-        ///     var verification = new Tls.Index.PrivateKey("verification", new()
+        ///     var verification = new Tls.PrivateKey("verification", new()
         ///     {
         ///         Algorithm = "RSA",
         ///     });
         /// 
-        ///     var verificationCertRequest = new Tls.Index.CertRequest("verification", new()
+        ///     var verificationCertRequest = new Tls.CertRequest("verification", new()
         ///     {
         ///         KeyAlgorithm = "RSA",
         ///         PrivateKeyPem = verification.PrivateKeyPem,
@@ -107,12 +107,12 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
         /// 
-        ///     var verification = new Tls.Index.PrivateKey("verification", new()
+        ///     var verification = new Tls.PrivateKey("verification", new()
         ///     {
         ///         Algorithm = "RSA",
         ///     });
         /// 
-        ///     var verificationCertRequest = new Tls.Index.CertRequest("verification", new()
+        ///     var verificationCertRequest = new Tls.CertRequest("verification", new()
         ///     {
         ///         KeyAlgorithm = "RSA",
         ///         PrivateKeyPem = verification.PrivateKeyPem,

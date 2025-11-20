@@ -136,6 +136,20 @@ public class Stream extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyId);
     }
     /**
+     * The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+     * 
+     */
+    @Export(name="maxRecordSizeInKib", refs={Integer.class}, tree="[0]")
+    private Output<Integer> maxRecordSizeInKib;
+
+    /**
+     * @return The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+     * 
+     */
+    public Output<Integer> maxRecordSizeInKib() {
+        return this.maxRecordSizeInKib;
+    }
+    /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      * 
      */

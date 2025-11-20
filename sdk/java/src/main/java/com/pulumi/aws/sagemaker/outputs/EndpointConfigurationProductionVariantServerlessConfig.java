@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointConfigurationProductionVariantServerlessConfig {
     /**
-     * @return The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+     * @return Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
      * 
      */
     private Integer maxConcurrency;
     /**
-     * @return The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+     * @return Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
      * 
      */
     private Integer memorySizeInMb;
     /**
-     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+     * @return Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
      * 
      */
     private @Nullable Integer provisionedConcurrency;
 
     private EndpointConfigurationProductionVariantServerlessConfig() {}
     /**
-     * @return The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+     * @return Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
      * 
      */
     public Integer maxConcurrency() {
         return this.maxConcurrency;
     }
     /**
-     * @return The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+     * @return Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
      * 
      */
     public Integer memorySizeInMb() {
         return this.memorySizeInMb;
     }
     /**
-     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+     * @return Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
      * 
      */
     public Optional<Integer> provisionedConcurrency() {

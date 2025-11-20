@@ -15,14 +15,14 @@ public final class EndpointConfigurationDataCaptureConfigCaptureOptionArgs exten
     public static final EndpointConfigurationDataCaptureConfigCaptureOptionArgs Empty = new EndpointConfigurationDataCaptureConfigCaptureOptionArgs();
 
     /**
-     * Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
+     * Data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
      * 
      */
     @Import(name="captureMode", required=true)
     private Output<String> captureMode;
 
     /**
-     * @return Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
+     * @return Data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
      * 
      */
     public Output<String> captureMode() {
@@ -54,7 +54,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureOptionArgs exten
         }
 
         /**
-         * @param captureMode Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
+         * @param captureMode Data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureOptionArgs exten
         }
 
         /**
-         * @param captureMode Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
+         * @param captureMode Data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
          * 
          * @return builder
          * 

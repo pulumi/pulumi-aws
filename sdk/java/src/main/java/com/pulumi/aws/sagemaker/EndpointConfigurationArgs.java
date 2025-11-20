@@ -23,14 +23,14 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     public static final EndpointConfigurationArgs Empty = new EndpointConfigurationArgs();
 
     /**
-     * Specifies configuration for how an endpoint performs asynchronous inference.
+     * How an endpoint performs asynchronous inference.
      * 
      */
     @Import(name="asyncInferenceConfig")
     private @Nullable Output<EndpointConfigurationAsyncInferenceConfigArgs> asyncInferenceConfig;
 
     /**
-     * @return Specifies configuration for how an endpoint performs asynchronous inference.
+     * @return How an endpoint performs asynchronous inference.
      * 
      */
     public Optional<Output<EndpointConfigurationAsyncInferenceConfigArgs>> asyncInferenceConfig() {
@@ -38,14 +38,14 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+     * Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      * 
      */
     @Import(name="dataCaptureConfig")
     private @Nullable Output<EndpointConfigurationDataCaptureConfigArgs> dataCaptureConfig;
 
     /**
-     * @return Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+     * @return Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      * 
      */
     public Optional<Output<EndpointConfigurationDataCaptureConfigArgs>> dataCaptureConfig() {
@@ -53,14 +53,29 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
+     * 
+     */
+    @Import(name="executionRoleArn")
+    private @Nullable Output<String> executionRoleArn;
+
+    /**
+     * @return ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
+     * 
+     */
+    public Optional<Output<String>> executionRoleArn() {
+        return Optional.ofNullable(this.executionRoleArn);
+    }
+
+    /**
+     * ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * @return ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -68,14 +83,14 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -83,14 +98,14 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     * Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
     /**
-     * @return Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     * @return Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
     public Optional<Output<String>> namePrefix() {
@@ -98,14 +113,14 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+     * List each model that you want to host at this endpoint. See below.
      * 
      */
     @Import(name="productionVariants", required=true)
     private Output<List<EndpointConfigurationProductionVariantArgs>> productionVariants;
 
     /**
-     * @return An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+     * @return List each model that you want to host at this endpoint. See below.
      * 
      */
     public Output<List<EndpointConfigurationProductionVariantArgs>> productionVariants() {
@@ -128,14 +143,14 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
      * 
      */
     @Import(name="shadowProductionVariants")
     private @Nullable Output<List<EndpointConfigurationShadowProductionVariantArgs>> shadowProductionVariants;
 
     /**
-     * @return Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * @return Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
      * 
      */
     public Optional<Output<List<EndpointConfigurationShadowProductionVariantArgs>>> shadowProductionVariants() {
@@ -143,14 +158,14 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -162,6 +177,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     private EndpointConfigurationArgs(EndpointConfigurationArgs $) {
         this.asyncInferenceConfig = $.asyncInferenceConfig;
         this.dataCaptureConfig = $.dataCaptureConfig;
+        this.executionRoleArn = $.executionRoleArn;
         this.kmsKeyArn = $.kmsKeyArn;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
@@ -190,7 +206,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param asyncInferenceConfig Specifies configuration for how an endpoint performs asynchronous inference.
+         * @param asyncInferenceConfig How an endpoint performs asynchronous inference.
          * 
          * @return builder
          * 
@@ -201,7 +217,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param asyncInferenceConfig Specifies configuration for how an endpoint performs asynchronous inference.
+         * @param asyncInferenceConfig How an endpoint performs asynchronous inference.
          * 
          * @return builder
          * 
@@ -211,7 +227,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dataCaptureConfig Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+         * @param dataCaptureConfig Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
          * 
          * @return builder
          * 
@@ -222,7 +238,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dataCaptureConfig Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+         * @param dataCaptureConfig Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
          * 
          * @return builder
          * 
@@ -232,7 +248,28 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+         * @param executionRoleArn ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionRoleArn(@Nullable Output<String> executionRoleArn) {
+            $.executionRoleArn = executionRoleArn;
+            return this;
+        }
+
+        /**
+         * @param executionRoleArn ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionRoleArn(String executionRoleArn) {
+            return executionRoleArn(Output.of(executionRoleArn));
+        }
+
+        /**
+         * @param kmsKeyArn ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
          * 
          * @return builder
          * 
@@ -243,7 +280,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+         * @param kmsKeyArn ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
          * 
          * @return builder
          * 
@@ -253,7 +290,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -264,7 +301,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -274,7 +311,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param namePrefix Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+         * @param namePrefix Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -285,7 +322,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param namePrefix Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+         * @param namePrefix Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -295,7 +332,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param productionVariants An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+         * @param productionVariants List each model that you want to host at this endpoint. See below.
          * 
          * @return builder
          * 
@@ -306,7 +343,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param productionVariants An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+         * @param productionVariants List each model that you want to host at this endpoint. See below.
          * 
          * @return builder
          * 
@@ -316,7 +353,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param productionVariants An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+         * @param productionVariants List each model that you want to host at this endpoint. See below.
          * 
          * @return builder
          * 
@@ -347,7 +384,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * @param shadowProductionVariants Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
          * 
          * @return builder
          * 
@@ -358,7 +395,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * @param shadowProductionVariants Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
          * 
          * @return builder
          * 
@@ -368,7 +405,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * @param shadowProductionVariants Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
          * 
          * @return builder
          * 
@@ -378,7 +415,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -389,7 +426,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

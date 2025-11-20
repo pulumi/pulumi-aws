@@ -16386,9 +16386,9 @@ func (o DomainRetentionPolicyPtrOutput) HomeEfsFileSystem() pulumi.StringPtrOutp
 }
 
 type EndpointConfigurationAsyncInferenceConfig struct {
-	// Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
+	// Configures the behavior of the client used by SageMaker AI to interact with the model container during asynchronous inference.
 	ClientConfig *EndpointConfigurationAsyncInferenceConfigClientConfig `pulumi:"clientConfig"`
-	// Specifies the configuration for asynchronous inference invocation outputs.
+	// Configuration for asynchronous inference invocation outputs.
 	OutputConfig EndpointConfigurationAsyncInferenceConfigOutputConfig `pulumi:"outputConfig"`
 }
 
@@ -16404,9 +16404,9 @@ type EndpointConfigurationAsyncInferenceConfigInput interface {
 }
 
 type EndpointConfigurationAsyncInferenceConfigArgs struct {
-	// Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
+	// Configures the behavior of the client used by SageMaker AI to interact with the model container during asynchronous inference.
 	ClientConfig EndpointConfigurationAsyncInferenceConfigClientConfigPtrInput `pulumi:"clientConfig"`
-	// Specifies the configuration for asynchronous inference invocation outputs.
+	// Configuration for asynchronous inference invocation outputs.
 	OutputConfig EndpointConfigurationAsyncInferenceConfigOutputConfigInput `pulumi:"outputConfig"`
 }
 
@@ -16487,14 +16487,14 @@ func (o EndpointConfigurationAsyncInferenceConfigOutput) ToEndpointConfiguration
 	}).(EndpointConfigurationAsyncInferenceConfigPtrOutput)
 }
 
-// Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
+// Configures the behavior of the client used by SageMaker AI to interact with the model container during asynchronous inference.
 func (o EndpointConfigurationAsyncInferenceConfigOutput) ClientConfig() EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfig) *EndpointConfigurationAsyncInferenceConfigClientConfig {
 		return v.ClientConfig
 	}).(EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput)
 }
 
-// Specifies the configuration for asynchronous inference invocation outputs.
+// Configuration for asynchronous inference invocation outputs.
 func (o EndpointConfigurationAsyncInferenceConfigOutput) OutputConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfig) EndpointConfigurationAsyncInferenceConfigOutputConfig {
 		return v.OutputConfig
@@ -16525,7 +16525,7 @@ func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) Elem() EndpointConfi
 	}).(EndpointConfigurationAsyncInferenceConfigOutput)
 }
 
-// Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
+// Configures the behavior of the client used by SageMaker AI to interact with the model container during asynchronous inference.
 func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) ClientConfig() EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfig) *EndpointConfigurationAsyncInferenceConfigClientConfig {
 		if v == nil {
@@ -16535,7 +16535,7 @@ func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) ClientConfig() Endpo
 	}).(EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput)
 }
 
-// Specifies the configuration for asynchronous inference invocation outputs.
+// Configuration for asynchronous inference invocation outputs.
 func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) OutputConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfig) *EndpointConfigurationAsyncInferenceConfigOutputConfig {
 		if v == nil {
@@ -16546,7 +16546,7 @@ func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) OutputConfig() Endpo
 }
 
 type EndpointConfigurationAsyncInferenceConfigClientConfig struct {
-	// The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
+	// Maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, SageMaker AI will choose an optimal value for you.
 	MaxConcurrentInvocationsPerInstance *int `pulumi:"maxConcurrentInvocationsPerInstance"`
 }
 
@@ -16562,7 +16562,7 @@ type EndpointConfigurationAsyncInferenceConfigClientConfigInput interface {
 }
 
 type EndpointConfigurationAsyncInferenceConfigClientConfigArgs struct {
-	// The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
+	// Maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, SageMaker AI will choose an optimal value for you.
 	MaxConcurrentInvocationsPerInstance pulumi.IntPtrInput `pulumi:"maxConcurrentInvocationsPerInstance"`
 }
 
@@ -16643,7 +16643,7 @@ func (o EndpointConfigurationAsyncInferenceConfigClientConfigOutput) ToEndpointC
 	}).(EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput)
 }
 
-// The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
+// Maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, SageMaker AI will choose an optimal value for you.
 func (o EndpointConfigurationAsyncInferenceConfigClientConfigOutput) MaxConcurrentInvocationsPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigClientConfig) *int {
 		return v.MaxConcurrentInvocationsPerInstance
@@ -16674,7 +16674,7 @@ func (o EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput) Elem() E
 	}).(EndpointConfigurationAsyncInferenceConfigClientConfigOutput)
 }
 
-// The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
+// Maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, SageMaker AI will choose an optimal value for you.
 func (o EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput) MaxConcurrentInvocationsPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigClientConfig) *int {
 		if v == nil {
@@ -16685,13 +16685,13 @@ func (o EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput) MaxConcu
 }
 
 type EndpointConfigurationAsyncInferenceConfigOutputConfig struct {
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+	// KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies the configuration for notifications of inference results for asynchronous inference.
+	// Configuration for notifications of inference results for asynchronous inference.
 	NotificationConfig *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig `pulumi:"notificationConfig"`
-	// The Amazon S3 location to upload failure inference responses to.
+	// S3 location to upload failure inference responses to.
 	S3FailurePath *string `pulumi:"s3FailurePath"`
-	// The Amazon S3 location to upload inference responses to.
+	// S3 location to upload inference responses to.
 	S3OutputPath string `pulumi:"s3OutputPath"`
 }
 
@@ -16707,13 +16707,13 @@ type EndpointConfigurationAsyncInferenceConfigOutputConfigInput interface {
 }
 
 type EndpointConfigurationAsyncInferenceConfigOutputConfigArgs struct {
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+	// KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Specifies the configuration for notifications of inference results for asynchronous inference.
+	// Configuration for notifications of inference results for asynchronous inference.
 	NotificationConfig EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrInput `pulumi:"notificationConfig"`
-	// The Amazon S3 location to upload failure inference responses to.
+	// S3 location to upload failure inference responses to.
 	S3FailurePath pulumi.StringPtrInput `pulumi:"s3FailurePath"`
-	// The Amazon S3 location to upload inference responses to.
+	// S3 location to upload inference responses to.
 	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
 }
 
@@ -16794,24 +16794,24 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) ToEndpointC
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+// KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the configuration for notifications of inference results for asynchronous inference.
+// Configuration for notifications of inference results for asynchronous inference.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) NotificationConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig {
 		return v.NotificationConfig
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
 }
 
-// The Amazon S3 location to upload failure inference responses to.
+// S3 location to upload failure inference responses to.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) S3FailurePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) *string { return v.S3FailurePath }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 location to upload inference responses to.
+// S3 location to upload inference responses to.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
 }
@@ -16840,7 +16840,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) Elem() E
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+// KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *string {
 		if v == nil {
@@ -16850,7 +16850,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) KmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the configuration for notifications of inference results for asynchronous inference.
+// Configuration for notifications of inference results for asynchronous inference.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) NotificationConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig {
 		if v == nil {
@@ -16860,7 +16860,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) Notifica
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
 }
 
-// The Amazon S3 location to upload failure inference responses to.
+// S3 location to upload failure inference responses to.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) S3FailurePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *string {
 		if v == nil {
@@ -16870,7 +16870,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) S3Failur
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 location to upload inference responses to.
+// S3 location to upload inference responses to.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *string {
 		if v == nil {
@@ -16881,11 +16881,11 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) S3Output
 }
 
 type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig struct {
-	// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+	// SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
 	ErrorTopic *string `pulumi:"errorTopic"`
-	// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+	// SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
 	IncludeInferenceResponseIns []string `pulumi:"includeInferenceResponseIns"`
-	// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+	// SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
 	SuccessTopic *string `pulumi:"successTopic"`
 }
 
@@ -16901,11 +16901,11 @@ type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigInpu
 }
 
 type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs struct {
-	// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+	// SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
 	ErrorTopic pulumi.StringPtrInput `pulumi:"errorTopic"`
-	// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+	// SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
 	IncludeInferenceResponseIns pulumi.StringArrayInput `pulumi:"includeInferenceResponseIns"`
-	// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+	// SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
 	SuccessTopic pulumi.StringPtrInput `pulumi:"successTopic"`
 }
 
@@ -16986,21 +16986,21 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigO
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
 }
 
-// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+// SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) ErrorTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
 		return v.ErrorTopic
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+// SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) IncludeInferenceResponseIns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) []string {
 		return v.IncludeInferenceResponseIns
 	}).(pulumi.StringArrayOutput)
 }
 
-// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+// SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) SuccessTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
 		return v.SuccessTopic
@@ -17031,7 +17031,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigP
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput)
 }
 
-// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+// SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) ErrorTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
 		if v == nil {
@@ -17041,7 +17041,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+// SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) IncludeInferenceResponseIns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) []string {
 		if v == nil {
@@ -17051,7 +17051,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigP
 	}).(pulumi.StringArrayOutput)
 }
 
-// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+// SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) SuccessTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
 		if v == nil {
@@ -17062,18 +17062,17 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigP
 }
 
 type EndpointConfigurationDataCaptureConfig struct {
-	// The content type headers to capture.
-	// See `captureContentTypeHeader` below.
+	// Content type headers to capture. See `captureContentTypeHeader` below.
 	CaptureContentTypeHeader *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader `pulumi:"captureContentTypeHeader"`
-	// Specifies what data to capture. Fields are documented below.
+	// What data to capture. Fields are documented below.
 	CaptureOptions []EndpointConfigurationDataCaptureConfigCaptureOption `pulumi:"captureOptions"`
-	// The URL for S3 location where the captured data is stored.
+	// URL for S3 location where the captured data is stored.
 	DestinationS3Uri string `pulumi:"destinationS3Uri"`
 	// Flag to enable data capture. Defaults to `false`.
 	EnableCapture *bool `pulumi:"enableCapture"`
 	// Portion of data to capture. Should be between 0 and 100.
 	InitialSamplingPercentage int `pulumi:"initialSamplingPercentage"`
-	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
+	// ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -17089,18 +17088,17 @@ type EndpointConfigurationDataCaptureConfigInput interface {
 }
 
 type EndpointConfigurationDataCaptureConfigArgs struct {
-	// The content type headers to capture.
-	// See `captureContentTypeHeader` below.
+	// Content type headers to capture. See `captureContentTypeHeader` below.
 	CaptureContentTypeHeader EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrInput `pulumi:"captureContentTypeHeader"`
-	// Specifies what data to capture. Fields are documented below.
+	// What data to capture. Fields are documented below.
 	CaptureOptions EndpointConfigurationDataCaptureConfigCaptureOptionArrayInput `pulumi:"captureOptions"`
-	// The URL for S3 location where the captured data is stored.
+	// URL for S3 location where the captured data is stored.
 	DestinationS3Uri pulumi.StringInput `pulumi:"destinationS3Uri"`
 	// Flag to enable data capture. Defaults to `false`.
 	EnableCapture pulumi.BoolPtrInput `pulumi:"enableCapture"`
 	// Portion of data to capture. Should be between 0 and 100.
 	InitialSamplingPercentage pulumi.IntInput `pulumi:"initialSamplingPercentage"`
-	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
+	// ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -17181,22 +17179,21 @@ func (o EndpointConfigurationDataCaptureConfigOutput) ToEndpointConfigurationDat
 	}).(EndpointConfigurationDataCaptureConfigPtrOutput)
 }
 
-// The content type headers to capture.
-// See `captureContentTypeHeader` below.
+// Content type headers to capture. See `captureContentTypeHeader` below.
 func (o EndpointConfigurationDataCaptureConfigOutput) CaptureContentTypeHeader() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
 		return v.CaptureContentTypeHeader
 	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
 
-// Specifies what data to capture. Fields are documented below.
+// What data to capture. Fields are documented below.
 func (o EndpointConfigurationDataCaptureConfigOutput) CaptureOptions() EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) []EndpointConfigurationDataCaptureConfigCaptureOption {
 		return v.CaptureOptions
 	}).(EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput)
 }
 
-// The URL for S3 location where the captured data is stored.
+// URL for S3 location where the captured data is stored.
 func (o EndpointConfigurationDataCaptureConfigOutput) DestinationS3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) string { return v.DestinationS3Uri }).(pulumi.StringOutput)
 }
@@ -17211,7 +17208,7 @@ func (o EndpointConfigurationDataCaptureConfigOutput) InitialSamplingPercentage(
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) int { return v.InitialSamplingPercentage }).(pulumi.IntOutput)
 }
 
-// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
+// ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
 func (o EndpointConfigurationDataCaptureConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -17240,8 +17237,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) Elem() EndpointConfigur
 	}).(EndpointConfigurationDataCaptureConfigOutput)
 }
 
-// The content type headers to capture.
-// See `captureContentTypeHeader` below.
+// Content type headers to capture. See `captureContentTypeHeader` below.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) CaptureContentTypeHeader() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
 		if v == nil {
@@ -17251,7 +17247,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) CaptureContentTypeHeade
 	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
 
-// Specifies what data to capture. Fields are documented below.
+// What data to capture. Fields are documented below.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) CaptureOptions() EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) []EndpointConfigurationDataCaptureConfigCaptureOption {
 		if v == nil {
@@ -17261,7 +17257,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) CaptureOptions() Endpoi
 	}).(EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput)
 }
 
-// The URL for S3 location where the captured data is stored.
+// URL for S3 location where the captured data is stored.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) DestinationS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *string {
 		if v == nil {
@@ -17291,7 +17287,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) InitialSamplingPercenta
 	}).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
+// ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *string {
 		if v == nil {
@@ -17302,11 +17298,9 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) KmsKeyId() pulumi.Strin
 }
 
 type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader struct {
-	// The CSV content type headers to capture.
-	// One of `csvContentTypes` or `jsonContentTypes` is required.
+	// CSV content type headers to capture. One of `csvContentTypes` or `jsonContentTypes` is required.
 	CsvContentTypes []string `pulumi:"csvContentTypes"`
-	// The JSON content type headers to capture.
-	// One of `jsonContentTypes` or `csvContentTypes` is required.
+	// The JSON content type headers to capture. One of `jsonContentTypes` or `csvContentTypes` is required.
 	JsonContentTypes []string `pulumi:"jsonContentTypes"`
 }
 
@@ -17322,11 +17316,9 @@ type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderInput interfa
 }
 
 type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs struct {
-	// The CSV content type headers to capture.
-	// One of `csvContentTypes` or `jsonContentTypes` is required.
+	// CSV content type headers to capture. One of `csvContentTypes` or `jsonContentTypes` is required.
 	CsvContentTypes pulumi.StringArrayInput `pulumi:"csvContentTypes"`
-	// The JSON content type headers to capture.
-	// One of `jsonContentTypes` or `csvContentTypes` is required.
+	// The JSON content type headers to capture. One of `jsonContentTypes` or `csvContentTypes` is required.
 	JsonContentTypes pulumi.StringArrayInput `pulumi:"jsonContentTypes"`
 }
 
@@ -17407,16 +17399,14 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) To
 	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
 
-// The CSV content type headers to capture.
-// One of `csvContentTypes` or `jsonContentTypes` is required.
+// CSV content type headers to capture. One of `csvContentTypes` or `jsonContentTypes` is required.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) CsvContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		return v.CsvContentTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// The JSON content type headers to capture.
-// One of `jsonContentTypes` or `csvContentTypes` is required.
+// The JSON content type headers to capture. One of `jsonContentTypes` or `csvContentTypes` is required.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) JsonContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		return v.JsonContentTypes
@@ -17447,8 +17437,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput)
 }
 
-// The CSV content type headers to capture.
-// One of `csvContentTypes` or `jsonContentTypes` is required.
+// CSV content type headers to capture. One of `csvContentTypes` or `jsonContentTypes` is required.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) CsvContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		if v == nil {
@@ -17458,8 +17447,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 	}).(pulumi.StringArrayOutput)
 }
 
-// The JSON content type headers to capture.
-// One of `jsonContentTypes` or `csvContentTypes` is required.
+// The JSON content type headers to capture. One of `jsonContentTypes` or `csvContentTypes` is required.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) JsonContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		if v == nil {
@@ -17470,7 +17458,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
 
 type EndpointConfigurationDataCaptureConfigCaptureOption struct {
-	// Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
+	// Data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
 	CaptureMode string `pulumi:"captureMode"`
 }
 
@@ -17486,7 +17474,7 @@ type EndpointConfigurationDataCaptureConfigCaptureOptionInput interface {
 }
 
 type EndpointConfigurationDataCaptureConfigCaptureOptionArgs struct {
-	// Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
+	// Data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
 	CaptureMode pulumi.StringInput `pulumi:"captureMode"`
 }
 
@@ -17541,7 +17529,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureOptionOutput) ToEndpointCon
 	return o
 }
 
-// Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
+// Data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
 func (o EndpointConfigurationDataCaptureConfigCaptureOptionOutput) CaptureMode() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureOption) string { return v.CaptureMode }).(pulumi.StringOutput)
 }
@@ -17567,35 +17555,35 @@ func (o EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput) Index(i 
 }
 
 type EndpointConfigurationProductionVariant struct {
-	// The size of the Elastic Inference (EI) instance to use for the production variant.
+	// Size of the Elastic Inference (EI) instance to use for the production variant.
 	AcceleratorType *string `pulumi:"acceleratorType"`
-	// The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+	// Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
 	ContainerStartupHealthCheckTimeoutInSeconds *int `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+	// Core dump configuration from the model container when the process crashes. Fields are documented below.
 	CoreDumpConfig *EndpointConfigurationProductionVariantCoreDumpConfig `pulumi:"coreDumpConfig"`
-	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+	// Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
 	EnableSsmAccess *bool `pulumi:"enableSsmAccess"`
-	// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+	// Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
 	InferenceAmiVersion *string `pulumi:"inferenceAmiVersion"`
 	// Initial number of instances used for auto-scaling.
 	InitialInstanceCount *int `pulumi:"initialInstanceCount"`
-	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+	// Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
 	InitialVariantWeight *float64 `pulumi:"initialVariantWeight"`
-	// The type of instance to start.
+	// Type of instance to start.
 	InstanceType *string `pulumi:"instanceType"`
-	// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+	// Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
 	ManagedInstanceScaling *EndpointConfigurationProductionVariantManagedInstanceScaling `pulumi:"managedInstanceScaling"`
-	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+	// Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
 	ModelDataDownloadTimeoutInSeconds *int `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	// The name of the model to use.
-	ModelName string `pulumi:"modelName"`
-	// Sets how the endpoint routes incoming traffic. See routingConfig below.
+	// Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
+	ModelName *string `pulumi:"modelName"`
+	// How the endpoint routes incoming traffic. See routingConfig below.
 	RoutingConfigs []EndpointConfigurationProductionVariantRoutingConfig `pulumi:"routingConfigs"`
-	// Specifies configuration for how an endpoint performs asynchronous inference.
+	// How an endpoint performs asynchronous inference.
 	ServerlessConfig *EndpointConfigurationProductionVariantServerlessConfig `pulumi:"serverlessConfig"`
-	// The name of the variant. If omitted, this provider will assign a random, unique name.
+	// Name of the variant. If omitted, the provider will assign a random, unique name.
 	VariantName *string `pulumi:"variantName"`
-	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+	// Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
 	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
 }
 
@@ -17611,35 +17599,35 @@ type EndpointConfigurationProductionVariantInput interface {
 }
 
 type EndpointConfigurationProductionVariantArgs struct {
-	// The size of the Elastic Inference (EI) instance to use for the production variant.
+	// Size of the Elastic Inference (EI) instance to use for the production variant.
 	AcceleratorType pulumi.StringPtrInput `pulumi:"acceleratorType"`
-	// The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+	// Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
 	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+	// Core dump configuration from the model container when the process crashes. Fields are documented below.
 	CoreDumpConfig EndpointConfigurationProductionVariantCoreDumpConfigPtrInput `pulumi:"coreDumpConfig"`
-	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+	// Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
 	EnableSsmAccess pulumi.BoolPtrInput `pulumi:"enableSsmAccess"`
-	// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+	// Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
 	InferenceAmiVersion pulumi.StringPtrInput `pulumi:"inferenceAmiVersion"`
 	// Initial number of instances used for auto-scaling.
 	InitialInstanceCount pulumi.IntPtrInput `pulumi:"initialInstanceCount"`
-	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+	// Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
 	InitialVariantWeight pulumi.Float64PtrInput `pulumi:"initialVariantWeight"`
-	// The type of instance to start.
+	// Type of instance to start.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+	// Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
 	ManagedInstanceScaling EndpointConfigurationProductionVariantManagedInstanceScalingPtrInput `pulumi:"managedInstanceScaling"`
-	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+	// Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
 	ModelDataDownloadTimeoutInSeconds pulumi.IntPtrInput `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	// The name of the model to use.
-	ModelName pulumi.StringInput `pulumi:"modelName"`
-	// Sets how the endpoint routes incoming traffic. See routingConfig below.
+	// Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
+	ModelName pulumi.StringPtrInput `pulumi:"modelName"`
+	// How the endpoint routes incoming traffic. See routingConfig below.
 	RoutingConfigs EndpointConfigurationProductionVariantRoutingConfigArrayInput `pulumi:"routingConfigs"`
-	// Specifies configuration for how an endpoint performs asynchronous inference.
+	// How an endpoint performs asynchronous inference.
 	ServerlessConfig EndpointConfigurationProductionVariantServerlessConfigPtrInput `pulumi:"serverlessConfig"`
-	// The name of the variant. If omitted, this provider will assign a random, unique name.
+	// Name of the variant. If omitted, the provider will assign a random, unique name.
 	VariantName pulumi.StringPtrInput `pulumi:"variantName"`
-	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+	// Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
 	VolumeSizeInGb pulumi.IntPtrInput `pulumi:"volumeSizeInGb"`
 }
 
@@ -17694,31 +17682,31 @@ func (o EndpointConfigurationProductionVariantOutput) ToEndpointConfigurationPro
 	return o
 }
 
-// The size of the Elastic Inference (EI) instance to use for the production variant.
+// Size of the Elastic Inference (EI) instance to use for the production variant.
 func (o EndpointConfigurationProductionVariantOutput) AcceleratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.AcceleratorType }).(pulumi.StringPtrOutput)
 }
 
-// The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+// Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
 func (o EndpointConfigurationProductionVariantOutput) ContainerStartupHealthCheckTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *int {
 		return v.ContainerStartupHealthCheckTimeoutInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+// Core dump configuration from the model container when the process crashes. Fields are documented below.
 func (o EndpointConfigurationProductionVariantOutput) CoreDumpConfig() EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *EndpointConfigurationProductionVariantCoreDumpConfig {
 		return v.CoreDumpConfig
 	}).(EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput)
 }
 
-// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+// Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
 func (o EndpointConfigurationProductionVariantOutput) EnableSsmAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *bool { return v.EnableSsmAccess }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+// Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
 func (o EndpointConfigurationProductionVariantOutput) InferenceAmiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.InferenceAmiVersion }).(pulumi.StringPtrOutput)
 }
@@ -17728,53 +17716,53 @@ func (o EndpointConfigurationProductionVariantOutput) InitialInstanceCount() pul
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *int { return v.InitialInstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+// Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
 func (o EndpointConfigurationProductionVariantOutput) InitialVariantWeight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *float64 { return v.InitialVariantWeight }).(pulumi.Float64PtrOutput)
 }
 
-// The type of instance to start.
+// Type of instance to start.
 func (o EndpointConfigurationProductionVariantOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+// Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
 func (o EndpointConfigurationProductionVariantOutput) ManagedInstanceScaling() EndpointConfigurationProductionVariantManagedInstanceScalingPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *EndpointConfigurationProductionVariantManagedInstanceScaling {
 		return v.ManagedInstanceScaling
 	}).(EndpointConfigurationProductionVariantManagedInstanceScalingPtrOutput)
 }
 
-// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+// Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
 func (o EndpointConfigurationProductionVariantOutput) ModelDataDownloadTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *int { return v.ModelDataDownloadTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The name of the model to use.
-func (o EndpointConfigurationProductionVariantOutput) ModelName() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointConfigurationProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
+// Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
+func (o EndpointConfigurationProductionVariantOutput) ModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.ModelName }).(pulumi.StringPtrOutput)
 }
 
-// Sets how the endpoint routes incoming traffic. See routingConfig below.
+// How the endpoint routes incoming traffic. See routingConfig below.
 func (o EndpointConfigurationProductionVariantOutput) RoutingConfigs() EndpointConfigurationProductionVariantRoutingConfigArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) []EndpointConfigurationProductionVariantRoutingConfig {
 		return v.RoutingConfigs
 	}).(EndpointConfigurationProductionVariantRoutingConfigArrayOutput)
 }
 
-// Specifies configuration for how an endpoint performs asynchronous inference.
+// How an endpoint performs asynchronous inference.
 func (o EndpointConfigurationProductionVariantOutput) ServerlessConfig() EndpointConfigurationProductionVariantServerlessConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *EndpointConfigurationProductionVariantServerlessConfig {
 		return v.ServerlessConfig
 	}).(EndpointConfigurationProductionVariantServerlessConfigPtrOutput)
 }
 
-// The name of the variant. If omitted, this provider will assign a random, unique name.
+// Name of the variant. If omitted, the provider will assign a random, unique name.
 func (o EndpointConfigurationProductionVariantOutput) VariantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.VariantName }).(pulumi.StringPtrOutput)
 }
 
-// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+// Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
 func (o EndpointConfigurationProductionVariantOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
 }
@@ -17800,9 +17788,9 @@ func (o EndpointConfigurationProductionVariantArrayOutput) Index(i pulumi.IntInp
 }
 
 type EndpointConfigurationProductionVariantCoreDumpConfig struct {
-	// The Amazon S3 bucket to send the core dump to.
+	// S3 bucket to send the core dump to.
 	DestinationS3Uri string `pulumi:"destinationS3Uri"`
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+	// KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -17818,9 +17806,9 @@ type EndpointConfigurationProductionVariantCoreDumpConfigInput interface {
 }
 
 type EndpointConfigurationProductionVariantCoreDumpConfigArgs struct {
-	// The Amazon S3 bucket to send the core dump to.
+	// S3 bucket to send the core dump to.
 	DestinationS3Uri pulumi.StringInput `pulumi:"destinationS3Uri"`
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+	// KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -17901,12 +17889,12 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigOutput) ToEndpointCo
 	}).(EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput)
 }
 
-// The Amazon S3 bucket to send the core dump to.
+// S3 bucket to send the core dump to.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigOutput) DestinationS3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantCoreDumpConfig) string { return v.DestinationS3Uri }).(pulumi.StringOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+// KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantCoreDumpConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -17935,7 +17923,7 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) Elem() En
 	}).(EndpointConfigurationProductionVariantCoreDumpConfigOutput)
 }
 
-// The Amazon S3 bucket to send the core dump to.
+// S3 bucket to send the core dump to.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) DestinationS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -17945,7 +17933,7 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) Destinati
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+// KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -17956,11 +17944,11 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) KmsKeyId(
 }
 
 type EndpointConfigurationProductionVariantManagedInstanceScaling struct {
-	// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+	// Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
 	MaxInstanceCount *int `pulumi:"maxInstanceCount"`
-	// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+	// Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
 	MinInstanceCount *int `pulumi:"minInstanceCount"`
-	// Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+	// Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
 }
 
@@ -17976,11 +17964,11 @@ type EndpointConfigurationProductionVariantManagedInstanceScalingInput interface
 }
 
 type EndpointConfigurationProductionVariantManagedInstanceScalingArgs struct {
-	// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+	// Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
 	MaxInstanceCount pulumi.IntPtrInput `pulumi:"maxInstanceCount"`
-	// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+	// Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
 	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
-	// Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+	// Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -18061,17 +18049,17 @@ func (o EndpointConfigurationProductionVariantManagedInstanceScalingOutput) ToEn
 	}).(EndpointConfigurationProductionVariantManagedInstanceScalingPtrOutput)
 }
 
-// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+// Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
 func (o EndpointConfigurationProductionVariantManagedInstanceScalingOutput) MaxInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantManagedInstanceScaling) *int { return v.MaxInstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+// Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
 func (o EndpointConfigurationProductionVariantManagedInstanceScalingOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantManagedInstanceScaling) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+// Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
 func (o EndpointConfigurationProductionVariantManagedInstanceScalingOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantManagedInstanceScaling) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -18100,7 +18088,7 @@ func (o EndpointConfigurationProductionVariantManagedInstanceScalingPtrOutput) E
 	}).(EndpointConfigurationProductionVariantManagedInstanceScalingOutput)
 }
 
-// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+// Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
 func (o EndpointConfigurationProductionVariantManagedInstanceScalingPtrOutput) MaxInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantManagedInstanceScaling) *int {
 		if v == nil {
@@ -18110,7 +18098,7 @@ func (o EndpointConfigurationProductionVariantManagedInstanceScalingPtrOutput) M
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+// Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
 func (o EndpointConfigurationProductionVariantManagedInstanceScalingPtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantManagedInstanceScaling) *int {
 		if v == nil {
@@ -18120,7 +18108,7 @@ func (o EndpointConfigurationProductionVariantManagedInstanceScalingPtrOutput) M
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+// Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
 func (o EndpointConfigurationProductionVariantManagedInstanceScalingPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantManagedInstanceScaling) *string {
 		if v == nil {
@@ -18131,7 +18119,7 @@ func (o EndpointConfigurationProductionVariantManagedInstanceScalingPtrOutput) S
 }
 
 type EndpointConfigurationProductionVariantRoutingConfig struct {
-	// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+	// How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
 	RoutingStrategy string `pulumi:"routingStrategy"`
 }
 
@@ -18147,7 +18135,7 @@ type EndpointConfigurationProductionVariantRoutingConfigInput interface {
 }
 
 type EndpointConfigurationProductionVariantRoutingConfigArgs struct {
-	// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+	// How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
 	RoutingStrategy pulumi.StringInput `pulumi:"routingStrategy"`
 }
 
@@ -18202,7 +18190,7 @@ func (o EndpointConfigurationProductionVariantRoutingConfigOutput) ToEndpointCon
 	return o
 }
 
-// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+// How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
 func (o EndpointConfigurationProductionVariantRoutingConfigOutput) RoutingStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantRoutingConfig) string { return v.RoutingStrategy }).(pulumi.StringOutput)
 }
@@ -18228,11 +18216,11 @@ func (o EndpointConfigurationProductionVariantRoutingConfigArrayOutput) Index(i 
 }
 
 type EndpointConfigurationProductionVariantServerlessConfig struct {
-	// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+	// Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 	MaxConcurrency int `pulumi:"maxConcurrency"`
-	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+	// Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb int `pulumi:"memorySizeInMb"`
-	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	// Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
 	ProvisionedConcurrency *int `pulumi:"provisionedConcurrency"`
 }
 
@@ -18248,11 +18236,11 @@ type EndpointConfigurationProductionVariantServerlessConfigInput interface {
 }
 
 type EndpointConfigurationProductionVariantServerlessConfigArgs struct {
-	// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+	// Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
-	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+	// Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb pulumi.IntInput `pulumi:"memorySizeInMb"`
-	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	// Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
 	ProvisionedConcurrency pulumi.IntPtrInput `pulumi:"provisionedConcurrency"`
 }
 
@@ -18333,17 +18321,17 @@ func (o EndpointConfigurationProductionVariantServerlessConfigOutput) ToEndpoint
 	}).(EndpointConfigurationProductionVariantServerlessConfigPtrOutput)
 }
 
-// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+// Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 func (o EndpointConfigurationProductionVariantServerlessConfigOutput) MaxConcurrency() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantServerlessConfig) int { return v.MaxConcurrency }).(pulumi.IntOutput)
 }
 
-// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+// Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 func (o EndpointConfigurationProductionVariantServerlessConfigOutput) MemorySizeInMb() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantServerlessConfig) int { return v.MemorySizeInMb }).(pulumi.IntOutput)
 }
 
-// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+// Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
 func (o EndpointConfigurationProductionVariantServerlessConfigOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantServerlessConfig) *int { return v.ProvisionedConcurrency }).(pulumi.IntPtrOutput)
 }
@@ -18372,7 +18360,7 @@ func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) Elem() 
 	}).(EndpointConfigurationProductionVariantServerlessConfigOutput)
 }
 
-// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+// Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MaxConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantServerlessConfig) *int {
 		if v == nil {
@@ -18382,7 +18370,7 @@ func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MaxConc
 	}).(pulumi.IntPtrOutput)
 }
 
-// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+// Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MemorySizeInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantServerlessConfig) *int {
 		if v == nil {
@@ -18392,7 +18380,7 @@ func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MemoryS
 	}).(pulumi.IntPtrOutput)
 }
 
-// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+// Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
 func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantServerlessConfig) *int {
 		if v == nil {
@@ -18403,35 +18391,35 @@ func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) Provisi
 }
 
 type EndpointConfigurationShadowProductionVariant struct {
-	// The size of the Elastic Inference (EI) instance to use for the production variant.
+	// Size of the Elastic Inference (EI) instance to use for the production variant.
 	AcceleratorType *string `pulumi:"acceleratorType"`
-	// The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+	// Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
 	ContainerStartupHealthCheckTimeoutInSeconds *int `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+	// Core dump configuration from the model container when the process crashes. Fields are documented below.
 	CoreDumpConfig *EndpointConfigurationShadowProductionVariantCoreDumpConfig `pulumi:"coreDumpConfig"`
-	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+	// Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
 	EnableSsmAccess *bool `pulumi:"enableSsmAccess"`
-	// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+	// Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
 	InferenceAmiVersion *string `pulumi:"inferenceAmiVersion"`
 	// Initial number of instances used for auto-scaling.
 	InitialInstanceCount *int `pulumi:"initialInstanceCount"`
-	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+	// Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
 	InitialVariantWeight *float64 `pulumi:"initialVariantWeight"`
-	// The type of instance to start.
+	// Type of instance to start.
 	InstanceType *string `pulumi:"instanceType"`
-	// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+	// Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
 	ManagedInstanceScaling *EndpointConfigurationShadowProductionVariantManagedInstanceScaling `pulumi:"managedInstanceScaling"`
-	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+	// Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
 	ModelDataDownloadTimeoutInSeconds *int `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	// The name of the model to use.
-	ModelName string `pulumi:"modelName"`
-	// Sets how the endpoint routes incoming traffic. See routingConfig below.
+	// Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
+	ModelName *string `pulumi:"modelName"`
+	// How the endpoint routes incoming traffic. See routingConfig below.
 	RoutingConfigs []EndpointConfigurationShadowProductionVariantRoutingConfig `pulumi:"routingConfigs"`
-	// Specifies configuration for how an endpoint performs asynchronous inference.
+	// How an endpoint performs asynchronous inference.
 	ServerlessConfig *EndpointConfigurationShadowProductionVariantServerlessConfig `pulumi:"serverlessConfig"`
-	// The name of the variant. If omitted, this provider will assign a random, unique name.
+	// Name of the variant. If omitted, the provider will assign a random, unique name.
 	VariantName *string `pulumi:"variantName"`
-	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+	// Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
 	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
 }
 
@@ -18447,35 +18435,35 @@ type EndpointConfigurationShadowProductionVariantInput interface {
 }
 
 type EndpointConfigurationShadowProductionVariantArgs struct {
-	// The size of the Elastic Inference (EI) instance to use for the production variant.
+	// Size of the Elastic Inference (EI) instance to use for the production variant.
 	AcceleratorType pulumi.StringPtrInput `pulumi:"acceleratorType"`
-	// The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+	// Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
 	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+	// Core dump configuration from the model container when the process crashes. Fields are documented below.
 	CoreDumpConfig EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrInput `pulumi:"coreDumpConfig"`
-	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+	// Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
 	EnableSsmAccess pulumi.BoolPtrInput `pulumi:"enableSsmAccess"`
-	// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+	// Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
 	InferenceAmiVersion pulumi.StringPtrInput `pulumi:"inferenceAmiVersion"`
 	// Initial number of instances used for auto-scaling.
 	InitialInstanceCount pulumi.IntPtrInput `pulumi:"initialInstanceCount"`
-	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+	// Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
 	InitialVariantWeight pulumi.Float64PtrInput `pulumi:"initialVariantWeight"`
-	// The type of instance to start.
+	// Type of instance to start.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+	// Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
 	ManagedInstanceScaling EndpointConfigurationShadowProductionVariantManagedInstanceScalingPtrInput `pulumi:"managedInstanceScaling"`
-	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+	// Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
 	ModelDataDownloadTimeoutInSeconds pulumi.IntPtrInput `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	// The name of the model to use.
-	ModelName pulumi.StringInput `pulumi:"modelName"`
-	// Sets how the endpoint routes incoming traffic. See routingConfig below.
+	// Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
+	ModelName pulumi.StringPtrInput `pulumi:"modelName"`
+	// How the endpoint routes incoming traffic. See routingConfig below.
 	RoutingConfigs EndpointConfigurationShadowProductionVariantRoutingConfigArrayInput `pulumi:"routingConfigs"`
-	// Specifies configuration for how an endpoint performs asynchronous inference.
+	// How an endpoint performs asynchronous inference.
 	ServerlessConfig EndpointConfigurationShadowProductionVariantServerlessConfigPtrInput `pulumi:"serverlessConfig"`
-	// The name of the variant. If omitted, this provider will assign a random, unique name.
+	// Name of the variant. If omitted, the provider will assign a random, unique name.
 	VariantName pulumi.StringPtrInput `pulumi:"variantName"`
-	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+	// Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
 	VolumeSizeInGb pulumi.IntPtrInput `pulumi:"volumeSizeInGb"`
 }
 
@@ -18530,31 +18518,31 @@ func (o EndpointConfigurationShadowProductionVariantOutput) ToEndpointConfigurat
 	return o
 }
 
-// The size of the Elastic Inference (EI) instance to use for the production variant.
+// Size of the Elastic Inference (EI) instance to use for the production variant.
 func (o EndpointConfigurationShadowProductionVariantOutput) AcceleratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.AcceleratorType }).(pulumi.StringPtrOutput)
 }
 
-// The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+// Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
 func (o EndpointConfigurationShadowProductionVariantOutput) ContainerStartupHealthCheckTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int {
 		return v.ContainerStartupHealthCheckTimeoutInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+// Core dump configuration from the model container when the process crashes. Fields are documented below.
 func (o EndpointConfigurationShadowProductionVariantOutput) CoreDumpConfig() EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *EndpointConfigurationShadowProductionVariantCoreDumpConfig {
 		return v.CoreDumpConfig
 	}).(EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput)
 }
 
-// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+// Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
 func (o EndpointConfigurationShadowProductionVariantOutput) EnableSsmAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *bool { return v.EnableSsmAccess }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+// Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
 func (o EndpointConfigurationShadowProductionVariantOutput) InferenceAmiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.InferenceAmiVersion }).(pulumi.StringPtrOutput)
 }
@@ -18564,53 +18552,53 @@ func (o EndpointConfigurationShadowProductionVariantOutput) InitialInstanceCount
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int { return v.InitialInstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+// Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
 func (o EndpointConfigurationShadowProductionVariantOutput) InitialVariantWeight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *float64 { return v.InitialVariantWeight }).(pulumi.Float64PtrOutput)
 }
 
-// The type of instance to start.
+// Type of instance to start.
 func (o EndpointConfigurationShadowProductionVariantOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+// Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
 func (o EndpointConfigurationShadowProductionVariantOutput) ManagedInstanceScaling() EndpointConfigurationShadowProductionVariantManagedInstanceScalingPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *EndpointConfigurationShadowProductionVariantManagedInstanceScaling {
 		return v.ManagedInstanceScaling
 	}).(EndpointConfigurationShadowProductionVariantManagedInstanceScalingPtrOutput)
 }
 
-// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+// Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
 func (o EndpointConfigurationShadowProductionVariantOutput) ModelDataDownloadTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int { return v.ModelDataDownloadTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The name of the model to use.
-func (o EndpointConfigurationShadowProductionVariantOutput) ModelName() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
+// Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
+func (o EndpointConfigurationShadowProductionVariantOutput) ModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.ModelName }).(pulumi.StringPtrOutput)
 }
 
-// Sets how the endpoint routes incoming traffic. See routingConfig below.
+// How the endpoint routes incoming traffic. See routingConfig below.
 func (o EndpointConfigurationShadowProductionVariantOutput) RoutingConfigs() EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) []EndpointConfigurationShadowProductionVariantRoutingConfig {
 		return v.RoutingConfigs
 	}).(EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput)
 }
 
-// Specifies configuration for how an endpoint performs asynchronous inference.
+// How an endpoint performs asynchronous inference.
 func (o EndpointConfigurationShadowProductionVariantOutput) ServerlessConfig() EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *EndpointConfigurationShadowProductionVariantServerlessConfig {
 		return v.ServerlessConfig
 	}).(EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput)
 }
 
-// The name of the variant. If omitted, this provider will assign a random, unique name.
+// Name of the variant. If omitted, the provider will assign a random, unique name.
 func (o EndpointConfigurationShadowProductionVariantOutput) VariantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.VariantName }).(pulumi.StringPtrOutput)
 }
 
-// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+// Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
 func (o EndpointConfigurationShadowProductionVariantOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
 }
@@ -18636,9 +18624,9 @@ func (o EndpointConfigurationShadowProductionVariantArrayOutput) Index(i pulumi.
 }
 
 type EndpointConfigurationShadowProductionVariantCoreDumpConfig struct {
-	// The Amazon S3 bucket to send the core dump to.
+	// S3 bucket to send the core dump to.
 	DestinationS3Uri string `pulumi:"destinationS3Uri"`
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+	// KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
@@ -18654,9 +18642,9 @@ type EndpointConfigurationShadowProductionVariantCoreDumpConfigInput interface {
 }
 
 type EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs struct {
-	// The Amazon S3 bucket to send the core dump to.
+	// S3 bucket to send the core dump to.
 	DestinationS3Uri pulumi.StringInput `pulumi:"destinationS3Uri"`
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+	// KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 }
 
@@ -18737,12 +18725,12 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput) ToEndp
 	}).(EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput)
 }
 
-// The Amazon S3 bucket to send the core dump to.
+// S3 bucket to send the core dump to.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput) DestinationS3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantCoreDumpConfig) string { return v.DestinationS3Uri }).(pulumi.StringOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+// KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantCoreDumpConfig) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -18771,7 +18759,7 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) Ele
 	}).(EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput)
 }
 
-// The Amazon S3 bucket to send the core dump to.
+// S3 bucket to send the core dump to.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) DestinationS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -18781,7 +18769,7 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) Des
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+// KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -18792,11 +18780,11 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) Kms
 }
 
 type EndpointConfigurationShadowProductionVariantManagedInstanceScaling struct {
-	// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+	// Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
 	MaxInstanceCount *int `pulumi:"maxInstanceCount"`
-	// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+	// Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
 	MinInstanceCount *int `pulumi:"minInstanceCount"`
-	// Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+	// Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
 }
 
@@ -18812,11 +18800,11 @@ type EndpointConfigurationShadowProductionVariantManagedInstanceScalingInput int
 }
 
 type EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs struct {
-	// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+	// Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
 	MaxInstanceCount pulumi.IntPtrInput `pulumi:"maxInstanceCount"`
-	// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+	// Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
 	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
-	// Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+	// Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -18897,21 +18885,21 @@ func (o EndpointConfigurationShadowProductionVariantManagedInstanceScalingOutput
 	}).(EndpointConfigurationShadowProductionVariantManagedInstanceScalingPtrOutput)
 }
 
-// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+// Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
 func (o EndpointConfigurationShadowProductionVariantManagedInstanceScalingOutput) MaxInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantManagedInstanceScaling) *int {
 		return v.MaxInstanceCount
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+// Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
 func (o EndpointConfigurationShadowProductionVariantManagedInstanceScalingOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantManagedInstanceScaling) *int {
 		return v.MinInstanceCount
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+// Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
 func (o EndpointConfigurationShadowProductionVariantManagedInstanceScalingOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantManagedInstanceScaling) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -18940,7 +18928,7 @@ func (o EndpointConfigurationShadowProductionVariantManagedInstanceScalingPtrOut
 	}).(EndpointConfigurationShadowProductionVariantManagedInstanceScalingOutput)
 }
 
-// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+// Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
 func (o EndpointConfigurationShadowProductionVariantManagedInstanceScalingPtrOutput) MaxInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantManagedInstanceScaling) *int {
 		if v == nil {
@@ -18950,7 +18938,7 @@ func (o EndpointConfigurationShadowProductionVariantManagedInstanceScalingPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+// Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
 func (o EndpointConfigurationShadowProductionVariantManagedInstanceScalingPtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantManagedInstanceScaling) *int {
 		if v == nil {
@@ -18960,7 +18948,7 @@ func (o EndpointConfigurationShadowProductionVariantManagedInstanceScalingPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+// Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
 func (o EndpointConfigurationShadowProductionVariantManagedInstanceScalingPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantManagedInstanceScaling) *string {
 		if v == nil {
@@ -18971,7 +18959,7 @@ func (o EndpointConfigurationShadowProductionVariantManagedInstanceScalingPtrOut
 }
 
 type EndpointConfigurationShadowProductionVariantRoutingConfig struct {
-	// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+	// How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
 	RoutingStrategy string `pulumi:"routingStrategy"`
 }
 
@@ -18987,7 +18975,7 @@ type EndpointConfigurationShadowProductionVariantRoutingConfigInput interface {
 }
 
 type EndpointConfigurationShadowProductionVariantRoutingConfigArgs struct {
-	// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+	// How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
 	RoutingStrategy pulumi.StringInput `pulumi:"routingStrategy"`
 }
 
@@ -19042,7 +19030,7 @@ func (o EndpointConfigurationShadowProductionVariantRoutingConfigOutput) ToEndpo
 	return o
 }
 
-// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+// How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
 func (o EndpointConfigurationShadowProductionVariantRoutingConfigOutput) RoutingStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantRoutingConfig) string { return v.RoutingStrategy }).(pulumi.StringOutput)
 }
@@ -19068,11 +19056,11 @@ func (o EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput) In
 }
 
 type EndpointConfigurationShadowProductionVariantServerlessConfig struct {
-	// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+	// Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 	MaxConcurrency int `pulumi:"maxConcurrency"`
-	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+	// Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb int `pulumi:"memorySizeInMb"`
-	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	// Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
 	ProvisionedConcurrency *int `pulumi:"provisionedConcurrency"`
 }
 
@@ -19088,11 +19076,11 @@ type EndpointConfigurationShadowProductionVariantServerlessConfigInput interface
 }
 
 type EndpointConfigurationShadowProductionVariantServerlessConfigArgs struct {
-	// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+	// Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
-	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+	// Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb pulumi.IntInput `pulumi:"memorySizeInMb"`
-	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	// Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
 	ProvisionedConcurrency pulumi.IntPtrInput `pulumi:"provisionedConcurrency"`
 }
 
@@ -19173,17 +19161,17 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigOutput) ToEn
 	}).(EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput)
 }
 
-// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+// Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 func (o EndpointConfigurationShadowProductionVariantServerlessConfigOutput) MaxConcurrency() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantServerlessConfig) int { return v.MaxConcurrency }).(pulumi.IntOutput)
 }
 
-// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+// Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 func (o EndpointConfigurationShadowProductionVariantServerlessConfigOutput) MemorySizeInMb() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantServerlessConfig) int { return v.MemorySizeInMb }).(pulumi.IntOutput)
 }
 
-// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+// Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
 func (o EndpointConfigurationShadowProductionVariantServerlessConfigOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantServerlessConfig) *int {
 		return v.ProvisionedConcurrency
@@ -19214,7 +19202,7 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) E
 	}).(EndpointConfigurationShadowProductionVariantServerlessConfigOutput)
 }
 
-// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+// Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) MaxConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantServerlessConfig) *int {
 		if v == nil {
@@ -19224,7 +19212,7 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) M
 	}).(pulumi.IntPtrOutput)
 }
 
-// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+// Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) MemorySizeInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantServerlessConfig) *int {
 		if v == nil {
@@ -19234,7 +19222,7 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) M
 	}).(pulumi.IntPtrOutput)
 }
 
-// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+// Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
 func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantServerlessConfig) *int {
 		if v == nil {

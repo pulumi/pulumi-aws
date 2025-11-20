@@ -22,16 +22,14 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
     public static final EndpointConfigurationDataCaptureConfigArgs Empty = new EndpointConfigurationDataCaptureConfigArgs();
 
     /**
-     * The content type headers to capture.
-     * See `captureContentTypeHeader` below.
+     * Content type headers to capture. See `captureContentTypeHeader` below.
      * 
      */
     @Import(name="captureContentTypeHeader")
     private @Nullable Output<EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs> captureContentTypeHeader;
 
     /**
-     * @return The content type headers to capture.
-     * See `captureContentTypeHeader` below.
+     * @return Content type headers to capture. See `captureContentTypeHeader` below.
      * 
      */
     public Optional<Output<EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs>> captureContentTypeHeader() {
@@ -39,14 +37,14 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
     }
 
     /**
-     * Specifies what data to capture. Fields are documented below.
+     * What data to capture. Fields are documented below.
      * 
      */
     @Import(name="captureOptions", required=true)
     private Output<List<EndpointConfigurationDataCaptureConfigCaptureOptionArgs>> captureOptions;
 
     /**
-     * @return Specifies what data to capture. Fields are documented below.
+     * @return What data to capture. Fields are documented below.
      * 
      */
     public Output<List<EndpointConfigurationDataCaptureConfigCaptureOptionArgs>> captureOptions() {
@@ -54,14 +52,14 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
     }
 
     /**
-     * The URL for S3 location where the captured data is stored.
+     * URL for S3 location where the captured data is stored.
      * 
      */
     @Import(name="destinationS3Uri", required=true)
     private Output<String> destinationS3Uri;
 
     /**
-     * @return The URL for S3 location where the captured data is stored.
+     * @return URL for S3 location where the captured data is stored.
      * 
      */
     public Output<String> destinationS3Uri() {
@@ -99,14 +97,14 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
     }
 
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
+     * ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
+     * @return ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -143,8 +141,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param captureContentTypeHeader The content type headers to capture.
-         * See `captureContentTypeHeader` below.
+         * @param captureContentTypeHeader Content type headers to capture. See `captureContentTypeHeader` below.
          * 
          * @return builder
          * 
@@ -155,8 +152,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param captureContentTypeHeader The content type headers to capture.
-         * See `captureContentTypeHeader` below.
+         * @param captureContentTypeHeader Content type headers to capture. See `captureContentTypeHeader` below.
          * 
          * @return builder
          * 
@@ -166,7 +162,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param captureOptions Specifies what data to capture. Fields are documented below.
+         * @param captureOptions What data to capture. Fields are documented below.
          * 
          * @return builder
          * 
@@ -177,7 +173,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param captureOptions Specifies what data to capture. Fields are documented below.
+         * @param captureOptions What data to capture. Fields are documented below.
          * 
          * @return builder
          * 
@@ -187,7 +183,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param captureOptions Specifies what data to capture. Fields are documented below.
+         * @param captureOptions What data to capture. Fields are documented below.
          * 
          * @return builder
          * 
@@ -197,7 +193,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param destinationS3Uri The URL for S3 location where the captured data is stored.
+         * @param destinationS3Uri URL for S3 location where the captured data is stored.
          * 
          * @return builder
          * 
@@ -208,7 +204,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param destinationS3Uri The URL for S3 location where the captured data is stored.
+         * @param destinationS3Uri URL for S3 location where the captured data is stored.
          * 
          * @return builder
          * 
@@ -260,7 +256,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
+         * @param kmsKeyId ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
          * 
          * @return builder
          * 
@@ -271,7 +267,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
+         * @param kmsKeyId ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
          * 
          * @return builder
          * 

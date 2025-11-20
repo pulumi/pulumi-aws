@@ -14,19 +14,22 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreBrowserNetworkConfiguration
     {
         /// <summary>
-        /// Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+        /// Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
         /// </summary>
         public readonly string NetworkMode;
-        public readonly Outputs.AgentcoreBrowserNetworkConfigurationNetworkModeConfig? NetworkModeConfig;
+        /// <summary>
+        /// VPC configuration when `NetworkMode` is `VPC`. See `VpcConfig` below.
+        /// </summary>
+        public readonly Outputs.AgentcoreBrowserNetworkConfigurationVpcConfig? VpcConfig;
 
         [OutputConstructor]
         private AgentcoreBrowserNetworkConfiguration(
             string networkMode,
 
-            Outputs.AgentcoreBrowserNetworkConfigurationNetworkModeConfig? networkModeConfig)
+            Outputs.AgentcoreBrowserNetworkConfigurationVpcConfig? vpcConfig)
         {
             NetworkMode = networkMode;
-            NetworkModeConfig = networkModeConfig;
+            VpcConfig = vpcConfig;
         }
     }
 }

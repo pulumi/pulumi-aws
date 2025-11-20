@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  *             .description("Admin Group")
  *             .build());
  * 
- *         var accountAssignment = new AccountAssignment("accountAssignment", AccountAssignmentArgs.builder()
+ *         var exampleAccountAssignment = new AccountAssignment("exampleAccountAssignment", AccountAssignmentArgs.builder()
  *             .instanceArn(example.arns()[0])
  *             .permissionSetArn(examplePermissionSet.arn())
  *             .principalId(exampleGroup.groupId())
@@ -145,7 +145,7 @@ import javax.annotation.Nullable;
  *             .managedPolicyArn("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup")
  *             .permissionSetArn(examplePermissionSet.arn())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsSsoadminAccountAssignment)
+ *                 .dependsOn(exampleAccountAssignment)
  *                 .build());
  * 
  *     }

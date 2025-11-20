@@ -24,6 +24,161 @@ import javax.annotation.Nullable;
  * 
  * ### Lambda Target with Gateway IAM Role
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.bedrock.AgentcoreGateway;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayAuthorizerConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTarget;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTargetArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var gatewayAssume = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRole")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("bedrock-agentcore.amazonaws.com")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var gatewayRole = new Role("gatewayRole", RoleArgs.builder()
+ *             .name("bedrock-gateway-role")
+ *             .assumeRolePolicy(gatewayAssume.json())
+ *             .build());
+ * 
+ *         final var lambdaAssume = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRole")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("lambda.amazonaws.com")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var lambdaRole = new Role("lambdaRole", RoleArgs.builder()
+ *             .name("example-lambda-role")
+ *             .assumeRolePolicy(lambdaAssume.json())
+ *             .build());
+ * 
+ *         var example = new Function("example", FunctionArgs.builder()
+ *             .code(new FileArchive("example.zip"))
+ *             .name("example-function")
+ *             .role(lambdaRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs20.x")
+ *             .build());
+ * 
+ *         var exampleAgentcoreGateway = new AgentcoreGateway("exampleAgentcoreGateway", AgentcoreGatewayArgs.builder()
+ *             .name("example-gateway")
+ *             .roleArn(gatewayRole.arn())
+ *             .authorizerConfiguration(AgentcoreGatewayAuthorizerConfigurationArgs.builder()
+ *                 .customJwtAuthorizer(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs.builder()
+ *                     .discoveryUrl("https://accounts.google.com/.well-known/openid-configuration")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleAgentcoreGatewayTarget = new AgentcoreGatewayTarget("exampleAgentcoreGatewayTarget", AgentcoreGatewayTargetArgs.builder()
+ *             .name("example-target")
+ *             .gatewayIdentifier(exampleAgentcoreGateway.gatewayId())
+ *             .description("Lambda function target for processing requests")
+ *             .credentialProviderConfiguration(AgentcoreGatewayTargetCredentialProviderConfigurationArgs.builder()
+ *                 .gatewayIamRole(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
+ *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
+ *                     .lambda(AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs.builder()
+ *                         .lambdaArn(example.arn())
+ *                         .toolSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs.builder()
+ *                             .inlinePayloads(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs.builder()
+ *                                 .name("process_request")
+ *                                 .description("Process incoming requests")
+ *                                 .inputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs.builder()
+ *                                     .type("object")
+ *                                     .description("Request processing schema")
+ *                                     .properties(                                    
+ *                                         AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs.builder()
+ *                                             .name("message")
+ *                                             .type("string")
+ *                                             .description("Message to process")
+ *                                             .required(true)
+ *                                             .build(),
+ *                                         AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs.builder()
+ *                                             .name("options")
+ *                                             .type("object")
+ *                                             .properties(                                            
+ *                                                 AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs.builder()
+ *                                                     .name("priority")
+ *                                                     .type("string")
+ *                                                     .build(),
+ *                                                 AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs.builder()
+ *                                                     .name("tags")
+ *                                                     .type("array")
+ *                                                     .items(List.of(Map.of("type", "string")))
+ *                                                     .build())
+ *                                             .build())
+ *                                     .build())
+ *                                 .outputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs.builder()
+ *                                     .type("object")
+ *                                     .properties(                                    
+ *                                         AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs.builder()
+ *                                             .name("status")
+ *                                             .type("string")
+ *                                             .required(true)
+ *                                             .build(),
+ *                                         AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs.builder()
+ *                                             .name("result")
+ *                                             .type("string")
+ *                                             .build())
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Target with API Key Authentication
  * 
  * <pre>
@@ -273,14 +428,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget")
 public class AgentcoreGatewayTarget extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration for authenticating requests to the target. See `credentialProviderConfiguration` below.
+     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
      * 
      */
     @Export(name="credentialProviderConfiguration", refs={AgentcoreGatewayTargetCredentialProviderConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreGatewayTargetCredentialProviderConfiguration> credentialProviderConfiguration;
 
     /**
-     * @return Configuration for authenticating requests to the target. See `credentialProviderConfiguration` below.
+     * @return Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
      * 
      */
     public Output<Optional<AgentcoreGatewayTargetCredentialProviderConfiguration>> credentialProviderConfiguration() {

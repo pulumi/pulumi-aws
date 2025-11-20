@@ -367,8 +367,8 @@ __all__ = [
     'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict',
     'AgentcoreBrowserNetworkConfigurationArgs',
     'AgentcoreBrowserNetworkConfigurationArgsDict',
-    'AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs',
-    'AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgsDict',
+    'AgentcoreBrowserNetworkConfigurationVpcConfigArgs',
+    'AgentcoreBrowserNetworkConfigurationVpcConfigArgsDict',
     'AgentcoreBrowserRecordingArgs',
     'AgentcoreBrowserRecordingArgsDict',
     'AgentcoreBrowserRecordingS3LocationArgs',
@@ -445,6 +445,8 @@ __all__ = [
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3ArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs',
@@ -9745,9 +9747,12 @@ if not MYPY:
     class AgentcoreBrowserNetworkConfigurationArgsDict(TypedDict):
         network_mode: pulumi.Input[_builtins.str]
         """
-        Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+        Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
         """
-        network_mode_config: NotRequired[pulumi.Input['AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgsDict']]
+        vpc_config: NotRequired[pulumi.Input['AgentcoreBrowserNetworkConfigurationVpcConfigArgsDict']]
+        """
+        VPC configuration when `network_mode` is `VPC`. See `vpc_config` below.
+        """
 elif False:
     AgentcoreBrowserNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9755,19 +9760,20 @@ elif False:
 class AgentcoreBrowserNetworkConfigurationArgs:
     def __init__(__self__, *,
                  network_mode: pulumi.Input[_builtins.str],
-                 network_mode_config: Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs']] = None):
+                 vpc_config: Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationVpcConfigArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] network_mode: Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+        :param pulumi.Input[_builtins.str] network_mode: Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
+        :param pulumi.Input['AgentcoreBrowserNetworkConfigurationVpcConfigArgs'] vpc_config: VPC configuration when `network_mode` is `VPC`. See `vpc_config` below.
         """
         pulumi.set(__self__, "network_mode", network_mode)
-        if network_mode_config is not None:
-            pulumi.set(__self__, "network_mode_config", network_mode_config)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @_builtins.property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> pulumi.Input[_builtins.str]:
         """
-        Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+        Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
         """
         return pulumi.get(self, "network_mode")
 
@@ -9776,33 +9782,49 @@ class AgentcoreBrowserNetworkConfigurationArgs:
         pulumi.set(self, "network_mode", value)
 
     @_builtins.property
-    @pulumi.getter(name="networkModeConfig")
-    def network_mode_config(self) -> Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs']]:
-        return pulumi.get(self, "network_mode_config")
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationVpcConfigArgs']]:
+        """
+        VPC configuration when `network_mode` is `VPC`. See `vpc_config` below.
+        """
+        return pulumi.get(self, "vpc_config")
 
-    @network_mode_config.setter
-    def network_mode_config(self, value: Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs']]):
-        pulumi.set(self, "network_mode_config", value)
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
 
 
 if not MYPY:
-    class AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgsDict(TypedDict):
+    class AgentcoreBrowserNetworkConfigurationVpcConfigArgsDict(TypedDict):
         security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Set of security group IDs for the VPC configuration.
+        """
         subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Set of subnet IDs for the VPC configuration.
+        """
 elif False:
-    AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgsDict: TypeAlias = Mapping[str, Any]
+    AgentcoreBrowserNetworkConfigurationVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs:
+class AgentcoreBrowserNetworkConfigurationVpcConfigArgs:
     def __init__(__self__, *,
                  security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: Set of security group IDs for the VPC configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: Set of subnet IDs for the VPC configuration.
+        """
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of security group IDs for the VPC configuration.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -9812,6 +9834,9 @@ class AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs:
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of subnet IDs for the VPC configuration.
+        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -10269,7 +10294,7 @@ if not MYPY:
         """
         search_type: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+        Search type for MCP. Valid values: `SEMANTIC`.
         """
         supported_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
@@ -10286,7 +10311,7 @@ class AgentcoreGatewayProtocolConfigurationMcpArgs:
                  supported_versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] instructions: Instructions for the MCP protocol configuration.
-        :param pulumi.Input[_builtins.str] search_type: Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+        :param pulumi.Input[_builtins.str] search_type: Search type for MCP. Valid values: `SEMANTIC`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_versions: Set of supported MCP protocol versions.
         """
         if instructions is not None:
@@ -10312,7 +10337,7 @@ class AgentcoreGatewayProtocolConfigurationMcpArgs:
     @pulumi.getter(name="searchType")
     def search_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+        Search type for MCP. Valid values: `SEMANTIC`.
         """
         return pulumi.get(self, "search_type")
 
@@ -10616,6 +10641,10 @@ if not MYPY:
         """
         Lambda function target configuration. See `lambda` below.
         """
+        mcp_server: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgsDict']]
+        """
+        MCP server target configuration. See `mcp_server` below.
+        """
         open_api_schema: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict']]
         """
         OpenAPI schema-based target configuration. See `api_schema_configuration` below.
@@ -10631,15 +10660,19 @@ elif False:
 class AgentcoreGatewayTargetTargetConfigurationMcpArgs:
     def __init__(__self__, *,
                  lambda_: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs']] = None,
+                 mcp_server: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs']] = None,
                  open_api_schema: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs']] = None,
                  smithy_model: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs']] = None):
         """
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs'] lambda_: Lambda function target configuration. See `lambda` below.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs'] mcp_server: MCP server target configuration. See `mcp_server` below.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs'] open_api_schema: OpenAPI schema-based target configuration. See `api_schema_configuration` below.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs'] smithy_model: Smithy model-based target configuration. See `api_schema_configuration` below.
         """
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if mcp_server is not None:
+            pulumi.set(__self__, "mcp_server", mcp_server)
         if open_api_schema is not None:
             pulumi.set(__self__, "open_api_schema", open_api_schema)
         if smithy_model is not None:
@@ -10656,6 +10689,18 @@ class AgentcoreGatewayTargetTargetConfigurationMcpArgs:
     @lambda_.setter
     def lambda_(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs']]):
         pulumi.set(self, "lambda_", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServer")
+    def mcp_server(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs']]:
+        """
+        MCP server target configuration. See `mcp_server` below.
+        """
+        return pulumi.get(self, "mcp_server")
+
+    @mcp_server.setter
+    def mcp_server(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs']]):
+        pulumi.set(self, "mcp_server", value)
 
     @_builtins.property
     @pulumi.getter(name="openApiSchema")
@@ -12833,6 +12878,37 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "uri", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgsDict(TypedDict):
+        endpoint: pulumi.Input[_builtins.str]
+        """
+        Endpoint for the MCP server target configuration.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs:
+    def __init__(__self__, *,
+                 endpoint: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] endpoint: Endpoint for the MCP server target configuration.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        Endpoint for the MCP server target configuration.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
 
 
 if not MYPY:

@@ -6829,8 +6829,8 @@ func (o InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput) LogDeli
 }
 
 type LogDeliveryDestinationDeliveryDestinationConfiguration struct {
-	// The ARN of the AWS destination that this delivery destination represents.
-	DestinationResourceArn string `pulumi:"destinationResourceArn"`
+	// The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
+	DestinationResourceArn *string `pulumi:"destinationResourceArn"`
 }
 
 // LogDeliveryDestinationDeliveryDestinationConfigurationInput is an input type that accepts LogDeliveryDestinationDeliveryDestinationConfigurationArgs and LogDeliveryDestinationDeliveryDestinationConfigurationOutput values.
@@ -6845,8 +6845,8 @@ type LogDeliveryDestinationDeliveryDestinationConfigurationInput interface {
 }
 
 type LogDeliveryDestinationDeliveryDestinationConfigurationArgs struct {
-	// The ARN of the AWS destination that this delivery destination represents.
-	DestinationResourceArn pulumi.StringInput `pulumi:"destinationResourceArn"`
+	// The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
+	DestinationResourceArn pulumi.StringPtrInput `pulumi:"destinationResourceArn"`
 }
 
 func (LogDeliveryDestinationDeliveryDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -6926,9 +6926,11 @@ func (o LogDeliveryDestinationDeliveryDestinationConfigurationOutput) ToLogDeliv
 	}).(LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput)
 }
 
-// The ARN of the AWS destination that this delivery destination represents.
-func (o LogDeliveryDestinationDeliveryDestinationConfigurationOutput) DestinationResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LogDeliveryDestinationDeliveryDestinationConfiguration) string { return v.DestinationResourceArn }).(pulumi.StringOutput)
+// The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
+func (o LogDeliveryDestinationDeliveryDestinationConfigurationOutput) DestinationResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogDeliveryDestinationDeliveryDestinationConfiguration) *string {
+		return v.DestinationResourceArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -6955,13 +6957,13 @@ func (o LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput) Elem() 
 	}).(LogDeliveryDestinationDeliveryDestinationConfigurationOutput)
 }
 
-// The ARN of the AWS destination that this delivery destination represents.
+// The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
 func (o LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput) DestinationResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogDeliveryDestinationDeliveryDestinationConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DestinationResourceArn
+		return v.DestinationResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 

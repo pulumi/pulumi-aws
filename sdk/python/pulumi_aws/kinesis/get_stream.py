@@ -27,7 +27,7 @@ class GetStreamResult:
     """
     A collection of values returned by getStream.
     """
-    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, encryption_type=None, id=None, kms_key_id=None, name=None, open_shards=None, region=None, retention_period=None, shard_level_metrics=None, status=None, stream_mode_details=None, tags=None):
+    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, encryption_type=None, id=None, kms_key_id=None, max_record_size_in_kib=None, name=None, open_shards=None, region=None, retention_period=None, shard_level_metrics=None, status=None, stream_mode_details=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetStreamResult:
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if max_record_size_in_kib and not isinstance(max_record_size_in_kib, int):
+            raise TypeError("Expected argument 'max_record_size_in_kib' to be a int")
+        pulumi.set(__self__, "max_record_size_in_kib", max_record_size_in_kib)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -118,6 +121,14 @@ class GetStreamResult:
         GUID for the customer-managed AWS KMS key to use for encryption.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="maxRecordSizeInKib")
+    def max_record_size_in_kib(self) -> _builtins.int:
+        """
+        The maximum size for a single data record in KiB.
+        """
+        return pulumi.get(self, "max_record_size_in_kib")
 
     @_builtins.property
     @pulumi.getter
@@ -193,6 +204,7 @@ class AwaitableGetStreamResult(GetStreamResult):
             encryption_type=self.encryption_type,
             id=self.id,
             kms_key_id=self.kms_key_id,
+            max_record_size_in_kib=self.max_record_size_in_kib,
             name=self.name,
             open_shards=self.open_shards,
             region=self.region,
@@ -241,6 +253,7 @@ def get_stream(name: Optional[_builtins.str] = None,
         encryption_type=pulumi.get(__ret__, 'encryption_type'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        max_record_size_in_kib=pulumi.get(__ret__, 'max_record_size_in_kib'),
         name=pulumi.get(__ret__, 'name'),
         open_shards=pulumi.get(__ret__, 'open_shards'),
         region=pulumi.get(__ret__, 'region'),
@@ -286,6 +299,7 @@ def get_stream_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         encryption_type=pulumi.get(__response__, 'encryption_type'),
         id=pulumi.get(__response__, 'id'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        max_record_size_in_kib=pulumi.get(__response__, 'max_record_size_in_kib'),
         name=pulumi.get(__response__, 'name'),
         open_shards=pulumi.get(__response__, 'open_shards'),
         region=pulumi.get(__response__, 'region'),

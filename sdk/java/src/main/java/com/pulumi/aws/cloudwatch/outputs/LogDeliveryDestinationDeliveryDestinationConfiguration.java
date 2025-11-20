@@ -4,25 +4,26 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class LogDeliveryDestinationDeliveryDestinationConfiguration {
     /**
-     * @return The ARN of the AWS destination that this delivery destination represents.
+     * @return The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
      * 
      */
-    private String destinationResourceArn;
+    private @Nullable String destinationResourceArn;
 
     private LogDeliveryDestinationDeliveryDestinationConfiguration() {}
     /**
-     * @return The ARN of the AWS destination that this delivery destination represents.
+     * @return The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
      * 
      */
-    public String destinationResourceArn() {
-        return this.destinationResourceArn;
+    public Optional<String> destinationResourceArn() {
+        return Optional.ofNullable(this.destinationResourceArn);
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class LogDeliveryDestinationDeliveryDestinationConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String destinationResourceArn;
+        private @Nullable String destinationResourceArn;
         public Builder() {}
         public Builder(LogDeliveryDestinationDeliveryDestinationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,10 +43,8 @@ public final class LogDeliveryDestinationDeliveryDestinationConfiguration {
         }
 
         @CustomType.Setter
-        public Builder destinationResourceArn(String destinationResourceArn) {
-            if (destinationResourceArn == null) {
-              throw new MissingRequiredPropertyException("LogDeliveryDestinationDeliveryDestinationConfiguration", "destinationResourceArn");
-            }
+        public Builder destinationResourceArn(@Nullable String destinationResourceArn) {
+
             this.destinationResourceArn = destinationResourceArn;
             return this;
         }

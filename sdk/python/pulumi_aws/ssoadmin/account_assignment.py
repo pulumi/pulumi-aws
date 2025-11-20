@@ -311,7 +311,7 @@ class AccountAssignment(pulumi.CustomResource):
             identity_store_id=example.identity_store_ids[0],
             display_name="Admin",
             description="Admin Group")
-        account_assignment = aws.ssoadmin.AccountAssignment("account_assignment",
+        example_account_assignment = aws.ssoadmin.AccountAssignment("example",
             instance_arn=example.arns[0],
             permission_set_arn=example_permission_set.arn,
             principal_id=example_group.group_id,
@@ -322,7 +322,7 @@ class AccountAssignment(pulumi.CustomResource):
             instance_arn=example.arns[0],
             managed_policy_arn="arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
             permission_set_arn=example_permission_set.arn,
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_ssoadmin_account_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_account_assignment]))
         ```
 
         ## Import
@@ -395,7 +395,7 @@ class AccountAssignment(pulumi.CustomResource):
             identity_store_id=example.identity_store_ids[0],
             display_name="Admin",
             description="Admin Group")
-        account_assignment = aws.ssoadmin.AccountAssignment("account_assignment",
+        example_account_assignment = aws.ssoadmin.AccountAssignment("example",
             instance_arn=example.arns[0],
             permission_set_arn=example_permission_set.arn,
             principal_id=example_group.group_id,
@@ -406,7 +406,7 @@ class AccountAssignment(pulumi.CustomResource):
             instance_arn=example.arns[0],
             managed_policy_arn="arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
             permission_set_arn=example_permission_set.arn,
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_ssoadmin_account_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_account_assignment]))
         ```
 
         ## Import

@@ -234,6 +234,25 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
 
         ### Custom OAuth Provider with Discovery URL
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        auth0 = aws.bedrock.AgentcoreOauth2CredentialProvider("auth0",
+            name="auth0-oauth-provider",
+            credential_provider_vendor="CustomOauth2",
+            custom_oauth2_provider_config=[{
+                "custom": [{
+                    "clientIdWo": "auth0-client-id",
+                    "clientSecretWo": "auth0-client-secret",
+                    "clientCredentialsWoVersion": 1,
+                    "oauthDiscovery": [{
+                        "discoveryUrl": "https://dev-company.auth0.com/.well-known/openid-configuration",
+                    }],
+                }],
+            }])
+        ```
+
         ### Custom OAuth Provider with Authorization Server Metadata
 
         ```python
@@ -307,6 +326,25 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         ```
 
         ### Custom OAuth Provider with Discovery URL
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        auth0 = aws.bedrock.AgentcoreOauth2CredentialProvider("auth0",
+            name="auth0-oauth-provider",
+            credential_provider_vendor="CustomOauth2",
+            custom_oauth2_provider_config=[{
+                "custom": [{
+                    "clientIdWo": "auth0-client-id",
+                    "clientSecretWo": "auth0-client-secret",
+                    "clientCredentialsWoVersion": 1,
+                    "oauthDiscovery": [{
+                        "discoveryUrl": "https://dev-company.auth0.com/.well-known/openid-configuration",
+                    }],
+                }],
+            }])
+        ```
 
         ### Custom OAuth Provider with Authorization Server Metadata
 

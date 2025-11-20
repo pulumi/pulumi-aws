@@ -1345,6 +1345,44 @@ class Service(pulumi.CustomResource):
             wait_for_steady_state=True)
         ```
 
+        ### Linear Deployment Strategy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.Service("example",
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
+            deployment_configuration={
+                "strategy": "LINEAR",
+                "bake_time_in_minutes": "10",
+                "linear_configuration": {
+                    "step_percent": 25,
+                    "step_bake_time_in_minutes": "5",
+                },
+            })
+        ```
+
+        ### Canary Deployment Strategy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.Service("example",
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
+            deployment_configuration={
+                "strategy": "CANARY",
+                "bake_time_in_minutes": "15",
+                "canary_configuration": {
+                    "canary_percent": 10,
+                    "canary_bake_time_in_minutes": "5",
+                },
+            })
+        ```
+
         ### Redeploy Service On Every Apply
 
         The key used with `triggers` is arbitrary.
@@ -1518,6 +1556,44 @@ class Service(pulumi.CustomResource):
             },
             sigint_rollback=True,
             wait_for_steady_state=True)
+        ```
+
+        ### Linear Deployment Strategy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.Service("example",
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
+            deployment_configuration={
+                "strategy": "LINEAR",
+                "bake_time_in_minutes": "10",
+                "linear_configuration": {
+                    "step_percent": 25,
+                    "step_bake_time_in_minutes": "5",
+                },
+            })
+        ```
+
+        ### Canary Deployment Strategy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.Service("example",
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
+            deployment_configuration={
+                "strategy": "CANARY",
+                "bake_time_in_minutes": "15",
+                "canary_configuration": {
+                    "canary_percent": 10,
+                    "canary_bake_time_in_minutes": "5",
+                },
+            })
         ```
 
         ### Redeploy Service On Every Apply

@@ -58,6 +58,8 @@ type InstanceConnectEndpoint struct {
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// The DNS name of the EC2 Instance Connect FIPS Endpoint.
 	FipsDnsName pulumi.StringOutput `pulumi:"fipsDnsName"`
+	// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
 	// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
@@ -120,6 +122,8 @@ type instanceConnectEndpointState struct {
 	DnsName *string `pulumi:"dnsName"`
 	// The DNS name of the EC2 Instance Connect FIPS Endpoint.
 	FipsDnsName *string `pulumi:"fipsDnsName"`
+	// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
@@ -150,6 +154,8 @@ type InstanceConnectEndpointState struct {
 	DnsName pulumi.StringPtrInput
 	// The DNS name of the EC2 Instance Connect FIPS Endpoint.
 	FipsDnsName pulumi.StringPtrInput
+	// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+	IpAddressType pulumi.StringPtrInput
 	// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
@@ -176,6 +182,8 @@ func (InstanceConnectEndpointState) ElementType() reflect.Type {
 }
 
 type instanceConnectEndpointArgs struct {
+	// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
 	PreserveClientIp *bool `pulumi:"preserveClientIp"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -191,6 +199,8 @@ type instanceConnectEndpointArgs struct {
 
 // The set of arguments for constructing a InstanceConnectEndpoint resource.
 type InstanceConnectEndpointArgs struct {
+	// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+	IpAddressType pulumi.StringPtrInput
 	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
 	PreserveClientIp pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -309,6 +319,11 @@ func (o InstanceConnectEndpointOutput) DnsName() pulumi.StringOutput {
 // The DNS name of the EC2 Instance Connect FIPS Endpoint.
 func (o InstanceConnectEndpointOutput) FipsDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.FipsDnsName }).(pulumi.StringOutput)
+}
+
+// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+func (o InstanceConnectEndpointOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
 // The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.

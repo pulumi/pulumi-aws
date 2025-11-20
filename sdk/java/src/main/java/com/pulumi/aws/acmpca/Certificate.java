@@ -75,7 +75,9 @@ import javax.annotation.Nullable;
  * 
  *         var csr = new CertRequest("csr", CertRequestArgs.builder()
  *             .privateKeyPem(key.privateKeyPem())
- *             .subject(List.of(Map.of("commonName", "example")))
+ *             .subject(CertRequestSubjectArgs.builder()
+ *                 .commonName("example")
+ *                 .build())
  *             .build());
  * 
  *         var example = new Certificate("example", CertificateArgs.builder()

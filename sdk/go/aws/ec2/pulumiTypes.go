@@ -13,6 +13,421 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AllowedImagesSettingsImageCriterion struct {
+	// Condition based on AMI creation date. See `creationDateCondition` below.
+	CreationDateCondition *AllowedImagesSettingsImageCriterionCreationDateCondition `pulumi:"creationDateCondition"`
+	// Condition based on AMI deprecation time. See `deprecationTimeCondition` below.
+	DeprecationTimeCondition *AllowedImagesSettingsImageCriterionDeprecationTimeCondition `pulumi:"deprecationTimeCondition"`
+	// Set of AMI name patterns to allow. Maximum of 50 names.
+	ImageNames []string `pulumi:"imageNames"`
+	// Set of image providers to allow. Maximum of 200 providers. Valid values include `amazon`, `aws-marketplace`, `aws-backup-vault`, `none`, or a 12-digit AWS account ID.
+	ImageProviders []string `pulumi:"imageProviders"`
+	// Set of AWS Marketplace product codes to allow. Maximum of 50 product codes.
+	MarketplaceProductCodes []string `pulumi:"marketplaceProductCodes"`
+}
+
+// AllowedImagesSettingsImageCriterionInput is an input type that accepts AllowedImagesSettingsImageCriterionArgs and AllowedImagesSettingsImageCriterionOutput values.
+// You can construct a concrete instance of `AllowedImagesSettingsImageCriterionInput` via:
+//
+//	AllowedImagesSettingsImageCriterionArgs{...}
+type AllowedImagesSettingsImageCriterionInput interface {
+	pulumi.Input
+
+	ToAllowedImagesSettingsImageCriterionOutput() AllowedImagesSettingsImageCriterionOutput
+	ToAllowedImagesSettingsImageCriterionOutputWithContext(context.Context) AllowedImagesSettingsImageCriterionOutput
+}
+
+type AllowedImagesSettingsImageCriterionArgs struct {
+	// Condition based on AMI creation date. See `creationDateCondition` below.
+	CreationDateCondition AllowedImagesSettingsImageCriterionCreationDateConditionPtrInput `pulumi:"creationDateCondition"`
+	// Condition based on AMI deprecation time. See `deprecationTimeCondition` below.
+	DeprecationTimeCondition AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrInput `pulumi:"deprecationTimeCondition"`
+	// Set of AMI name patterns to allow. Maximum of 50 names.
+	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
+	// Set of image providers to allow. Maximum of 200 providers. Valid values include `amazon`, `aws-marketplace`, `aws-backup-vault`, `none`, or a 12-digit AWS account ID.
+	ImageProviders pulumi.StringArrayInput `pulumi:"imageProviders"`
+	// Set of AWS Marketplace product codes to allow. Maximum of 50 product codes.
+	MarketplaceProductCodes pulumi.StringArrayInput `pulumi:"marketplaceProductCodes"`
+}
+
+func (AllowedImagesSettingsImageCriterionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowedImagesSettingsImageCriterion)(nil)).Elem()
+}
+
+func (i AllowedImagesSettingsImageCriterionArgs) ToAllowedImagesSettingsImageCriterionOutput() AllowedImagesSettingsImageCriterionOutput {
+	return i.ToAllowedImagesSettingsImageCriterionOutputWithContext(context.Background())
+}
+
+func (i AllowedImagesSettingsImageCriterionArgs) ToAllowedImagesSettingsImageCriterionOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowedImagesSettingsImageCriterionOutput)
+}
+
+// AllowedImagesSettingsImageCriterionArrayInput is an input type that accepts AllowedImagesSettingsImageCriterionArray and AllowedImagesSettingsImageCriterionArrayOutput values.
+// You can construct a concrete instance of `AllowedImagesSettingsImageCriterionArrayInput` via:
+//
+//	AllowedImagesSettingsImageCriterionArray{ AllowedImagesSettingsImageCriterionArgs{...} }
+type AllowedImagesSettingsImageCriterionArrayInput interface {
+	pulumi.Input
+
+	ToAllowedImagesSettingsImageCriterionArrayOutput() AllowedImagesSettingsImageCriterionArrayOutput
+	ToAllowedImagesSettingsImageCriterionArrayOutputWithContext(context.Context) AllowedImagesSettingsImageCriterionArrayOutput
+}
+
+type AllowedImagesSettingsImageCriterionArray []AllowedImagesSettingsImageCriterionInput
+
+func (AllowedImagesSettingsImageCriterionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AllowedImagesSettingsImageCriterion)(nil)).Elem()
+}
+
+func (i AllowedImagesSettingsImageCriterionArray) ToAllowedImagesSettingsImageCriterionArrayOutput() AllowedImagesSettingsImageCriterionArrayOutput {
+	return i.ToAllowedImagesSettingsImageCriterionArrayOutputWithContext(context.Background())
+}
+
+func (i AllowedImagesSettingsImageCriterionArray) ToAllowedImagesSettingsImageCriterionArrayOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowedImagesSettingsImageCriterionArrayOutput)
+}
+
+type AllowedImagesSettingsImageCriterionOutput struct{ *pulumi.OutputState }
+
+func (AllowedImagesSettingsImageCriterionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowedImagesSettingsImageCriterion)(nil)).Elem()
+}
+
+func (o AllowedImagesSettingsImageCriterionOutput) ToAllowedImagesSettingsImageCriterionOutput() AllowedImagesSettingsImageCriterionOutput {
+	return o
+}
+
+func (o AllowedImagesSettingsImageCriterionOutput) ToAllowedImagesSettingsImageCriterionOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionOutput {
+	return o
+}
+
+// Condition based on AMI creation date. See `creationDateCondition` below.
+func (o AllowedImagesSettingsImageCriterionOutput) CreationDateCondition() AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput {
+	return o.ApplyT(func(v AllowedImagesSettingsImageCriterion) *AllowedImagesSettingsImageCriterionCreationDateCondition {
+		return v.CreationDateCondition
+	}).(AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput)
+}
+
+// Condition based on AMI deprecation time. See `deprecationTimeCondition` below.
+func (o AllowedImagesSettingsImageCriterionOutput) DeprecationTimeCondition() AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput {
+	return o.ApplyT(func(v AllowedImagesSettingsImageCriterion) *AllowedImagesSettingsImageCriterionDeprecationTimeCondition {
+		return v.DeprecationTimeCondition
+	}).(AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput)
+}
+
+// Set of AMI name patterns to allow. Maximum of 50 names.
+func (o AllowedImagesSettingsImageCriterionOutput) ImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AllowedImagesSettingsImageCriterion) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
+}
+
+// Set of image providers to allow. Maximum of 200 providers. Valid values include `amazon`, `aws-marketplace`, `aws-backup-vault`, `none`, or a 12-digit AWS account ID.
+func (o AllowedImagesSettingsImageCriterionOutput) ImageProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AllowedImagesSettingsImageCriterion) []string { return v.ImageProviders }).(pulumi.StringArrayOutput)
+}
+
+// Set of AWS Marketplace product codes to allow. Maximum of 50 product codes.
+func (o AllowedImagesSettingsImageCriterionOutput) MarketplaceProductCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AllowedImagesSettingsImageCriterion) []string { return v.MarketplaceProductCodes }).(pulumi.StringArrayOutput)
+}
+
+type AllowedImagesSettingsImageCriterionArrayOutput struct{ *pulumi.OutputState }
+
+func (AllowedImagesSettingsImageCriterionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AllowedImagesSettingsImageCriterion)(nil)).Elem()
+}
+
+func (o AllowedImagesSettingsImageCriterionArrayOutput) ToAllowedImagesSettingsImageCriterionArrayOutput() AllowedImagesSettingsImageCriterionArrayOutput {
+	return o
+}
+
+func (o AllowedImagesSettingsImageCriterionArrayOutput) ToAllowedImagesSettingsImageCriterionArrayOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionArrayOutput {
+	return o
+}
+
+func (o AllowedImagesSettingsImageCriterionArrayOutput) Index(i pulumi.IntInput) AllowedImagesSettingsImageCriterionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AllowedImagesSettingsImageCriterion {
+		return vs[0].([]AllowedImagesSettingsImageCriterion)[vs[1].(int)]
+	}).(AllowedImagesSettingsImageCriterionOutput)
+}
+
+type AllowedImagesSettingsImageCriterionCreationDateCondition struct {
+	// Maximum number of days since the AMI was created.
+	MaximumDaysSinceCreated *int `pulumi:"maximumDaysSinceCreated"`
+}
+
+// AllowedImagesSettingsImageCriterionCreationDateConditionInput is an input type that accepts AllowedImagesSettingsImageCriterionCreationDateConditionArgs and AllowedImagesSettingsImageCriterionCreationDateConditionOutput values.
+// You can construct a concrete instance of `AllowedImagesSettingsImageCriterionCreationDateConditionInput` via:
+//
+//	AllowedImagesSettingsImageCriterionCreationDateConditionArgs{...}
+type AllowedImagesSettingsImageCriterionCreationDateConditionInput interface {
+	pulumi.Input
+
+	ToAllowedImagesSettingsImageCriterionCreationDateConditionOutput() AllowedImagesSettingsImageCriterionCreationDateConditionOutput
+	ToAllowedImagesSettingsImageCriterionCreationDateConditionOutputWithContext(context.Context) AllowedImagesSettingsImageCriterionCreationDateConditionOutput
+}
+
+type AllowedImagesSettingsImageCriterionCreationDateConditionArgs struct {
+	// Maximum number of days since the AMI was created.
+	MaximumDaysSinceCreated pulumi.IntPtrInput `pulumi:"maximumDaysSinceCreated"`
+}
+
+func (AllowedImagesSettingsImageCriterionCreationDateConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowedImagesSettingsImageCriterionCreationDateCondition)(nil)).Elem()
+}
+
+func (i AllowedImagesSettingsImageCriterionCreationDateConditionArgs) ToAllowedImagesSettingsImageCriterionCreationDateConditionOutput() AllowedImagesSettingsImageCriterionCreationDateConditionOutput {
+	return i.ToAllowedImagesSettingsImageCriterionCreationDateConditionOutputWithContext(context.Background())
+}
+
+func (i AllowedImagesSettingsImageCriterionCreationDateConditionArgs) ToAllowedImagesSettingsImageCriterionCreationDateConditionOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionCreationDateConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowedImagesSettingsImageCriterionCreationDateConditionOutput)
+}
+
+func (i AllowedImagesSettingsImageCriterionCreationDateConditionArgs) ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput() AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput {
+	return i.ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutputWithContext(context.Background())
+}
+
+func (i AllowedImagesSettingsImageCriterionCreationDateConditionArgs) ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowedImagesSettingsImageCriterionCreationDateConditionOutput).ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutputWithContext(ctx)
+}
+
+// AllowedImagesSettingsImageCriterionCreationDateConditionPtrInput is an input type that accepts AllowedImagesSettingsImageCriterionCreationDateConditionArgs, AllowedImagesSettingsImageCriterionCreationDateConditionPtr and AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput values.
+// You can construct a concrete instance of `AllowedImagesSettingsImageCriterionCreationDateConditionPtrInput` via:
+//
+//	        AllowedImagesSettingsImageCriterionCreationDateConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AllowedImagesSettingsImageCriterionCreationDateConditionPtrInput interface {
+	pulumi.Input
+
+	ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput() AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput
+	ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutputWithContext(context.Context) AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput
+}
+
+type allowedImagesSettingsImageCriterionCreationDateConditionPtrType AllowedImagesSettingsImageCriterionCreationDateConditionArgs
+
+func AllowedImagesSettingsImageCriterionCreationDateConditionPtr(v *AllowedImagesSettingsImageCriterionCreationDateConditionArgs) AllowedImagesSettingsImageCriterionCreationDateConditionPtrInput {
+	return (*allowedImagesSettingsImageCriterionCreationDateConditionPtrType)(v)
+}
+
+func (*allowedImagesSettingsImageCriterionCreationDateConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AllowedImagesSettingsImageCriterionCreationDateCondition)(nil)).Elem()
+}
+
+func (i *allowedImagesSettingsImageCriterionCreationDateConditionPtrType) ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput() AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput {
+	return i.ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *allowedImagesSettingsImageCriterionCreationDateConditionPtrType) ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput)
+}
+
+type AllowedImagesSettingsImageCriterionCreationDateConditionOutput struct{ *pulumi.OutputState }
+
+func (AllowedImagesSettingsImageCriterionCreationDateConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowedImagesSettingsImageCriterionCreationDateCondition)(nil)).Elem()
+}
+
+func (o AllowedImagesSettingsImageCriterionCreationDateConditionOutput) ToAllowedImagesSettingsImageCriterionCreationDateConditionOutput() AllowedImagesSettingsImageCriterionCreationDateConditionOutput {
+	return o
+}
+
+func (o AllowedImagesSettingsImageCriterionCreationDateConditionOutput) ToAllowedImagesSettingsImageCriterionCreationDateConditionOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionCreationDateConditionOutput {
+	return o
+}
+
+func (o AllowedImagesSettingsImageCriterionCreationDateConditionOutput) ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput() AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput {
+	return o.ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutputWithContext(context.Background())
+}
+
+func (o AllowedImagesSettingsImageCriterionCreationDateConditionOutput) ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AllowedImagesSettingsImageCriterionCreationDateCondition) *AllowedImagesSettingsImageCriterionCreationDateCondition {
+		return &v
+	}).(AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput)
+}
+
+// Maximum number of days since the AMI was created.
+func (o AllowedImagesSettingsImageCriterionCreationDateConditionOutput) MaximumDaysSinceCreated() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AllowedImagesSettingsImageCriterionCreationDateCondition) *int {
+		return v.MaximumDaysSinceCreated
+	}).(pulumi.IntPtrOutput)
+}
+
+type AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AllowedImagesSettingsImageCriterionCreationDateCondition)(nil)).Elem()
+}
+
+func (o AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput) ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput() AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput {
+	return o
+}
+
+func (o AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput) ToAllowedImagesSettingsImageCriterionCreationDateConditionPtrOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput {
+	return o
+}
+
+func (o AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput) Elem() AllowedImagesSettingsImageCriterionCreationDateConditionOutput {
+	return o.ApplyT(func(v *AllowedImagesSettingsImageCriterionCreationDateCondition) AllowedImagesSettingsImageCriterionCreationDateCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AllowedImagesSettingsImageCriterionCreationDateCondition
+		return ret
+	}).(AllowedImagesSettingsImageCriterionCreationDateConditionOutput)
+}
+
+// Maximum number of days since the AMI was created.
+func (o AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput) MaximumDaysSinceCreated() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AllowedImagesSettingsImageCriterionCreationDateCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumDaysSinceCreated
+	}).(pulumi.IntPtrOutput)
+}
+
+type AllowedImagesSettingsImageCriterionDeprecationTimeCondition struct {
+	// Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
+	MaximumDaysSinceDeprecated *int `pulumi:"maximumDaysSinceDeprecated"`
+}
+
+// AllowedImagesSettingsImageCriterionDeprecationTimeConditionInput is an input type that accepts AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs and AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput values.
+// You can construct a concrete instance of `AllowedImagesSettingsImageCriterionDeprecationTimeConditionInput` via:
+//
+//	AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs{...}
+type AllowedImagesSettingsImageCriterionDeprecationTimeConditionInput interface {
+	pulumi.Input
+
+	ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput() AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput
+	ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionOutputWithContext(context.Context) AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput
+}
+
+type AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs struct {
+	// Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
+	MaximumDaysSinceDeprecated pulumi.IntPtrInput `pulumi:"maximumDaysSinceDeprecated"`
+}
+
+func (AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowedImagesSettingsImageCriterionDeprecationTimeCondition)(nil)).Elem()
+}
+
+func (i AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput() AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput {
+	return i.ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionOutputWithContext(context.Background())
+}
+
+func (i AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput)
+}
+
+func (i AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput() AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput {
+	return i.ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutputWithContext(context.Background())
+}
+
+func (i AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput).ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutputWithContext(ctx)
+}
+
+// AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrInput is an input type that accepts AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs, AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtr and AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput values.
+// You can construct a concrete instance of `AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrInput` via:
+//
+//	        AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrInput interface {
+	pulumi.Input
+
+	ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput() AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput
+	ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutputWithContext(context.Context) AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput
+}
+
+type allowedImagesSettingsImageCriterionDeprecationTimeConditionPtrType AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs
+
+func AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtr(v *AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs) AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrInput {
+	return (*allowedImagesSettingsImageCriterionDeprecationTimeConditionPtrType)(v)
+}
+
+func (*allowedImagesSettingsImageCriterionDeprecationTimeConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AllowedImagesSettingsImageCriterionDeprecationTimeCondition)(nil)).Elem()
+}
+
+func (i *allowedImagesSettingsImageCriterionDeprecationTimeConditionPtrType) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput() AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput {
+	return i.ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *allowedImagesSettingsImageCriterionDeprecationTimeConditionPtrType) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput)
+}
+
+type AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput struct{ *pulumi.OutputState }
+
+func (AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowedImagesSettingsImageCriterionDeprecationTimeCondition)(nil)).Elem()
+}
+
+func (o AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput() AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput {
+	return o
+}
+
+func (o AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput {
+	return o
+}
+
+func (o AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput() AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput {
+	return o.ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutputWithContext(context.Background())
+}
+
+func (o AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AllowedImagesSettingsImageCriterionDeprecationTimeCondition) *AllowedImagesSettingsImageCriterionDeprecationTimeCondition {
+		return &v
+	}).(AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput)
+}
+
+// Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
+func (o AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput) MaximumDaysSinceDeprecated() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AllowedImagesSettingsImageCriterionDeprecationTimeCondition) *int {
+		return v.MaximumDaysSinceDeprecated
+	}).(pulumi.IntPtrOutput)
+}
+
+type AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AllowedImagesSettingsImageCriterionDeprecationTimeCondition)(nil)).Elem()
+}
+
+func (o AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput() AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput {
+	return o
+}
+
+func (o AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput) ToAllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutputWithContext(ctx context.Context) AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput {
+	return o
+}
+
+func (o AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput) Elem() AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput {
+	return o.ApplyT(func(v *AllowedImagesSettingsImageCriterionDeprecationTimeCondition) AllowedImagesSettingsImageCriterionDeprecationTimeCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AllowedImagesSettingsImageCriterionDeprecationTimeCondition
+		return ret
+	}).(AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput)
+}
+
+// Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
+func (o AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput) MaximumDaysSinceDeprecated() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AllowedImagesSettingsImageCriterionDeprecationTimeCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumDaysSinceDeprecated
+	}).(pulumi.IntPtrOutput)
+}
+
 type AmiCopyEbsBlockDevice struct {
 	// Boolean controlling whether the EBS volumes created to
 	// support each created instance will be deleted once that instance is terminated.
@@ -61425,6 +61840,12 @@ func (o GetVpnGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetVpnGatewayFi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionArrayInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionCreationDateConditionInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionCreationDateConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionCreationDateConditionPtrInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionCreationDateConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionDeprecationTimeConditionInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiCopyEbsBlockDeviceInput)(nil)).Elem(), AmiCopyEbsBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiCopyEbsBlockDeviceArrayInput)(nil)).Elem(), AmiCopyEbsBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiCopyEphemeralBlockDeviceInput)(nil)).Elem(), AmiCopyEphemeralBlockDeviceArgs{})
@@ -62326,6 +62747,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionVgwTelemetryArrayInput)(nil)).Elem(), GetVpnConnectionVgwTelemetryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterInput)(nil)).Elem(), GetVpnGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterArrayInput)(nil)).Elem(), GetVpnGatewayFilterArray{})
+	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionOutput{})
+	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionArrayOutput{})
+	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionCreationDateConditionOutput{})
+	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionCreationDateConditionPtrOutput{})
+	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionDeprecationTimeConditionOutput{})
+	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionDeprecationTimeConditionPtrOutput{})
 	pulumi.RegisterOutputType(AmiCopyEbsBlockDeviceOutput{})
 	pulumi.RegisterOutputType(AmiCopyEbsBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(AmiCopyEphemeralBlockDeviceOutput{})

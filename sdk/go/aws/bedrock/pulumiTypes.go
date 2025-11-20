@@ -26166,9 +26166,10 @@ func (o AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput) Index(i pul
 }
 
 type AgentcoreBrowserNetworkConfiguration struct {
-	// Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
-	NetworkMode       string                                                 `pulumi:"networkMode"`
-	NetworkModeConfig *AgentcoreBrowserNetworkConfigurationNetworkModeConfig `pulumi:"networkModeConfig"`
+	// Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
+	NetworkMode string `pulumi:"networkMode"`
+	// VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
+	VpcConfig *AgentcoreBrowserNetworkConfigurationVpcConfig `pulumi:"vpcConfig"`
 }
 
 // AgentcoreBrowserNetworkConfigurationInput is an input type that accepts AgentcoreBrowserNetworkConfigurationArgs and AgentcoreBrowserNetworkConfigurationOutput values.
@@ -26183,9 +26184,10 @@ type AgentcoreBrowserNetworkConfigurationInput interface {
 }
 
 type AgentcoreBrowserNetworkConfigurationArgs struct {
-	// Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
-	NetworkMode       pulumi.StringInput                                            `pulumi:"networkMode"`
-	NetworkModeConfig AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput `pulumi:"networkModeConfig"`
+	// Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
+	NetworkMode pulumi.StringInput `pulumi:"networkMode"`
+	// VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
+	VpcConfig AgentcoreBrowserNetworkConfigurationVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
 func (AgentcoreBrowserNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -26265,15 +26267,16 @@ func (o AgentcoreBrowserNetworkConfigurationOutput) ToAgentcoreBrowserNetworkCon
 	}).(AgentcoreBrowserNetworkConfigurationPtrOutput)
 }
 
-// Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+// Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
 func (o AgentcoreBrowserNetworkConfigurationOutput) NetworkMode() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreBrowserNetworkConfiguration) string { return v.NetworkMode }).(pulumi.StringOutput)
 }
 
-func (o AgentcoreBrowserNetworkConfigurationOutput) NetworkModeConfig() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
-	return o.ApplyT(func(v AgentcoreBrowserNetworkConfiguration) *AgentcoreBrowserNetworkConfigurationNetworkModeConfig {
-		return v.NetworkModeConfig
-	}).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput)
+// VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
+func (o AgentcoreBrowserNetworkConfigurationOutput) VpcConfig() AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreBrowserNetworkConfiguration) *AgentcoreBrowserNetworkConfigurationVpcConfig {
+		return v.VpcConfig
+	}).(AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput)
 }
 
 type AgentcoreBrowserNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -26300,7 +26303,7 @@ func (o AgentcoreBrowserNetworkConfigurationPtrOutput) Elem() AgentcoreBrowserNe
 	}).(AgentcoreBrowserNetworkConfigurationOutput)
 }
 
-// Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+// Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
 func (o AgentcoreBrowserNetworkConfigurationPtrOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfiguration) *string {
 		if v == nil {
@@ -26310,147 +26313,155 @@ func (o AgentcoreBrowserNetworkConfigurationPtrOutput) NetworkMode() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AgentcoreBrowserNetworkConfigurationPtrOutput) NetworkModeConfig() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
-	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfiguration) *AgentcoreBrowserNetworkConfigurationNetworkModeConfig {
+// VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
+func (o AgentcoreBrowserNetworkConfigurationPtrOutput) VpcConfig() AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfiguration) *AgentcoreBrowserNetworkConfigurationVpcConfig {
 		if v == nil {
 			return nil
 		}
-		return v.NetworkModeConfig
-	}).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput)
+		return v.VpcConfig
+	}).(AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput)
 }
 
-type AgentcoreBrowserNetworkConfigurationNetworkModeConfig struct {
+type AgentcoreBrowserNetworkConfigurationVpcConfig struct {
+	// Set of security group IDs for the VPC configuration.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	Subnets        []string `pulumi:"subnets"`
+	// Set of subnet IDs for the VPC configuration.
+	Subnets []string `pulumi:"subnets"`
 }
 
-// AgentcoreBrowserNetworkConfigurationNetworkModeConfigInput is an input type that accepts AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs and AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput values.
-// You can construct a concrete instance of `AgentcoreBrowserNetworkConfigurationNetworkModeConfigInput` via:
+// AgentcoreBrowserNetworkConfigurationVpcConfigInput is an input type that accepts AgentcoreBrowserNetworkConfigurationVpcConfigArgs and AgentcoreBrowserNetworkConfigurationVpcConfigOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserNetworkConfigurationVpcConfigInput` via:
 //
-//	AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs{...}
-type AgentcoreBrowserNetworkConfigurationNetworkModeConfigInput interface {
+//	AgentcoreBrowserNetworkConfigurationVpcConfigArgs{...}
+type AgentcoreBrowserNetworkConfigurationVpcConfigInput interface {
 	pulumi.Input
 
-	ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput
-	ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutputWithContext(context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput
+	ToAgentcoreBrowserNetworkConfigurationVpcConfigOutput() AgentcoreBrowserNetworkConfigurationVpcConfigOutput
+	ToAgentcoreBrowserNetworkConfigurationVpcConfigOutputWithContext(context.Context) AgentcoreBrowserNetworkConfigurationVpcConfigOutput
 }
 
-type AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs struct {
+type AgentcoreBrowserNetworkConfigurationVpcConfigArgs struct {
+	// Set of security group IDs for the VPC configuration.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
+	// Set of subnet IDs for the VPC configuration.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
-func (AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+func (AgentcoreBrowserNetworkConfigurationVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationVpcConfig)(nil)).Elem()
 }
 
-func (i AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput {
-	return i.ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutputWithContext(context.Background())
+func (i AgentcoreBrowserNetworkConfigurationVpcConfigArgs) ToAgentcoreBrowserNetworkConfigurationVpcConfigOutput() AgentcoreBrowserNetworkConfigurationVpcConfigOutput {
+	return i.ToAgentcoreBrowserNetworkConfigurationVpcConfigOutputWithContext(context.Background())
 }
 
-func (i AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput)
+func (i AgentcoreBrowserNetworkConfigurationVpcConfigArgs) ToAgentcoreBrowserNetworkConfigurationVpcConfigOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationVpcConfigOutput)
 }
 
-func (i AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
-	return i.ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Background())
+func (i AgentcoreBrowserNetworkConfigurationVpcConfigArgs) ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput() AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput {
+	return i.ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutputWithContext(context.Background())
 }
 
-func (i AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput).ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx)
+func (i AgentcoreBrowserNetworkConfigurationVpcConfigArgs) ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationVpcConfigOutput).ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutputWithContext(ctx)
 }
 
-// AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput is an input type that accepts AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs, AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtr and AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput values.
-// You can construct a concrete instance of `AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput` via:
+// AgentcoreBrowserNetworkConfigurationVpcConfigPtrInput is an input type that accepts AgentcoreBrowserNetworkConfigurationVpcConfigArgs, AgentcoreBrowserNetworkConfigurationVpcConfigPtr and AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserNetworkConfigurationVpcConfigPtrInput` via:
 //
-//	        AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs{...}
+//	        AgentcoreBrowserNetworkConfigurationVpcConfigArgs{...}
 //
 //	or:
 //
 //	        nil
-type AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput interface {
+type AgentcoreBrowserNetworkConfigurationVpcConfigPtrInput interface {
 	pulumi.Input
 
-	ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput
-	ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput
+	ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput() AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput
+	ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutputWithContext(context.Context) AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput
 }
 
-type agentcoreBrowserNetworkConfigurationNetworkModeConfigPtrType AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs
+type agentcoreBrowserNetworkConfigurationVpcConfigPtrType AgentcoreBrowserNetworkConfigurationVpcConfigArgs
 
-func AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtr(v *AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput {
-	return (*agentcoreBrowserNetworkConfigurationNetworkModeConfigPtrType)(v)
+func AgentcoreBrowserNetworkConfigurationVpcConfigPtr(v *AgentcoreBrowserNetworkConfigurationVpcConfigArgs) AgentcoreBrowserNetworkConfigurationVpcConfigPtrInput {
+	return (*agentcoreBrowserNetworkConfigurationVpcConfigPtrType)(v)
 }
 
-func (*agentcoreBrowserNetworkConfigurationNetworkModeConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreBrowserNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+func (*agentcoreBrowserNetworkConfigurationVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserNetworkConfigurationVpcConfig)(nil)).Elem()
 }
 
-func (i *agentcoreBrowserNetworkConfigurationNetworkModeConfigPtrType) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
-	return i.ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Background())
+func (i *agentcoreBrowserNetworkConfigurationVpcConfigPtrType) ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput() AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput {
+	return i.ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *agentcoreBrowserNetworkConfigurationNetworkModeConfigPtrType) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput)
+func (i *agentcoreBrowserNetworkConfigurationVpcConfigPtrType) ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput)
 }
 
-type AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput struct{ *pulumi.OutputState }
+type AgentcoreBrowserNetworkConfigurationVpcConfigOutput struct{ *pulumi.OutputState }
 
-func (AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+func (AgentcoreBrowserNetworkConfigurationVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationVpcConfig)(nil)).Elem()
 }
 
-func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput {
+func (o AgentcoreBrowserNetworkConfigurationVpcConfigOutput) ToAgentcoreBrowserNetworkConfigurationVpcConfigOutput() AgentcoreBrowserNetworkConfigurationVpcConfigOutput {
 	return o
 }
 
-func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput {
+func (o AgentcoreBrowserNetworkConfigurationVpcConfigOutput) ToAgentcoreBrowserNetworkConfigurationVpcConfigOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationVpcConfigOutput {
 	return o
 }
 
-func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
-	return o.ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Background())
+func (o AgentcoreBrowserNetworkConfigurationVpcConfigOutput) ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput() AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput {
+	return o.ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutputWithContext(context.Background())
 }
 
-func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreBrowserNetworkConfigurationNetworkModeConfig) *AgentcoreBrowserNetworkConfigurationNetworkModeConfig {
+func (o AgentcoreBrowserNetworkConfigurationVpcConfigOutput) ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreBrowserNetworkConfigurationVpcConfig) *AgentcoreBrowserNetworkConfigurationVpcConfig {
 		return &v
-	}).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput)
+	}).(AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput)
 }
 
-func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreBrowserNetworkConfigurationNetworkModeConfig) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+// Set of security group IDs for the VPC configuration.
+func (o AgentcoreBrowserNetworkConfigurationVpcConfigOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreBrowserNetworkConfigurationVpcConfig) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) Subnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreBrowserNetworkConfigurationNetworkModeConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+// Set of subnet IDs for the VPC configuration.
+func (o AgentcoreBrowserNetworkConfigurationVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreBrowserNetworkConfigurationVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
-type AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput struct{ *pulumi.OutputState }
+type AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreBrowserNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+func (AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserNetworkConfigurationVpcConfig)(nil)).Elem()
 }
 
-func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+func (o AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput) ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput() AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput {
 	return o
 }
 
-func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+func (o AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput) ToAgentcoreBrowserNetworkConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput {
 	return o
 }
 
-func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) Elem() AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput {
-	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfigurationNetworkModeConfig) AgentcoreBrowserNetworkConfigurationNetworkModeConfig {
+func (o AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput) Elem() AgentcoreBrowserNetworkConfigurationVpcConfigOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfigurationVpcConfig) AgentcoreBrowserNetworkConfigurationVpcConfig {
 		if v != nil {
 			return *v
 		}
-		var ret AgentcoreBrowserNetworkConfigurationNetworkModeConfig
+		var ret AgentcoreBrowserNetworkConfigurationVpcConfig
 		return ret
-	}).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput)
+	}).(AgentcoreBrowserNetworkConfigurationVpcConfigOutput)
 }
 
-func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfigurationNetworkModeConfig) []string {
+// Set of security group IDs for the VPC configuration.
+func (o AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfigurationVpcConfig) []string {
 		if v == nil {
 			return nil
 		}
@@ -26458,8 +26469,9 @@ func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) Security
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfigurationNetworkModeConfig) []string {
+// Set of subnet IDs for the VPC configuration.
+func (o AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfigurationVpcConfig) []string {
 		if v == nil {
 			return nil
 		}
@@ -27859,7 +27871,7 @@ func (o AgentcoreGatewayProtocolConfigurationPtrOutput) Mcp() AgentcoreGatewayPr
 type AgentcoreGatewayProtocolConfigurationMcp struct {
 	// Instructions for the MCP protocol configuration.
 	Instructions *string `pulumi:"instructions"`
-	// Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+	// Search type for MCP. Valid values: `SEMANTIC`.
 	SearchType *string `pulumi:"searchType"`
 	// Set of supported MCP protocol versions.
 	SupportedVersions []string `pulumi:"supportedVersions"`
@@ -27879,7 +27891,7 @@ type AgentcoreGatewayProtocolConfigurationMcpInput interface {
 type AgentcoreGatewayProtocolConfigurationMcpArgs struct {
 	// Instructions for the MCP protocol configuration.
 	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
-	// Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+	// Search type for MCP. Valid values: `SEMANTIC`.
 	SearchType pulumi.StringPtrInput `pulumi:"searchType"`
 	// Set of supported MCP protocol versions.
 	SupportedVersions pulumi.StringArrayInput `pulumi:"supportedVersions"`
@@ -27967,7 +27979,7 @@ func (o AgentcoreGatewayProtocolConfigurationMcpOutput) Instructions() pulumi.St
 	return o.ApplyT(func(v AgentcoreGatewayProtocolConfigurationMcp) *string { return v.Instructions }).(pulumi.StringPtrOutput)
 }
 
-// Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+// Search type for MCP. Valid values: `SEMANTIC`.
 func (o AgentcoreGatewayProtocolConfigurationMcpOutput) SearchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayProtocolConfigurationMcp) *string { return v.SearchType }).(pulumi.StringPtrOutput)
 }
@@ -28011,7 +28023,7 @@ func (o AgentcoreGatewayProtocolConfigurationMcpPtrOutput) Instructions() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+// Search type for MCP. Valid values: `SEMANTIC`.
 func (o AgentcoreGatewayProtocolConfigurationMcpPtrOutput) SearchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayProtocolConfigurationMcp) *string {
 		if v == nil {
@@ -28847,6 +28859,8 @@ func (o AgentcoreGatewayTargetTargetConfigurationPtrOutput) Mcp() AgentcoreGatew
 type AgentcoreGatewayTargetTargetConfigurationMcp struct {
 	// Lambda function target configuration. See `lambda` below.
 	Lambda *AgentcoreGatewayTargetTargetConfigurationMcpLambda `pulumi:"lambda"`
+	// MCP server target configuration. See `mcpServer` below.
+	McpServer *AgentcoreGatewayTargetTargetConfigurationMcpMcpServer `pulumi:"mcpServer"`
 	// OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
 	OpenApiSchema *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema `pulumi:"openApiSchema"`
 	// Smithy model-based target configuration. See `apiSchemaConfiguration` below.
@@ -28867,6 +28881,8 @@ type AgentcoreGatewayTargetTargetConfigurationMcpInput interface {
 type AgentcoreGatewayTargetTargetConfigurationMcpArgs struct {
 	// Lambda function target configuration. See `lambda` below.
 	Lambda AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrInput `pulumi:"lambda"`
+	// MCP server target configuration. See `mcpServer` below.
+	McpServer AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrInput `pulumi:"mcpServer"`
 	// OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
 	OpenApiSchema AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrInput `pulumi:"openApiSchema"`
 	// Smithy model-based target configuration. See `apiSchemaConfiguration` below.
@@ -28957,6 +28973,13 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) Lambda() AgentcoreGa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput)
 }
 
+// MCP server target configuration. See `mcpServer` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) McpServer() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
+		return v.McpServer
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput)
+}
+
 // OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) OpenApiSchema() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema {
@@ -29003,6 +29026,16 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) Lambda() Agentcor
 		}
 		return v.Lambda
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput)
+}
+
+// MCP server target configuration. See `mcpServer` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) McpServer() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
+		if v == nil {
+			return nil
+		}
+		return v.McpServer
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput)
 }
 
 // OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
@@ -32858,6 +32891,143 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput)
 			return nil
 		}
 		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpMcpServer struct {
+	// Endpoint for the MCP server target configuration.
+	Endpoint string `pulumi:"endpoint"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpMcpServerInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs and AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpMcpServerInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpMcpServerInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs struct {
+	// Endpoint for the MCP server target configuration.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpMcpServer)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs, AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtr and AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrType AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs) AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpMcpServer)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpMcpServer)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpMcpServer) *AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput)
+}
+
+// Endpoint for the MCP server target configuration.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpMcpServer) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpMcpServer)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpMcpServer) AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpMcpServer
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput)
+}
+
+// Endpoint for the MCP server target configuration.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpMcpServer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -44115,8 +44285,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayInput)(nil)).Elem(), AgentcoreApiKeyCredentialProviderApiKeySecretArnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationInput)(nil)).Elem(), AgentcoreBrowserNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationPtrInput)(nil)).Elem(), AgentcoreBrowserNetworkConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationNetworkModeConfigInput)(nil)).Elem(), AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput)(nil)).Elem(), AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationVpcConfigInput)(nil)).Elem(), AgentcoreBrowserNetworkConfigurationVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationVpcConfigPtrInput)(nil)).Elem(), AgentcoreBrowserNetworkConfigurationVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserRecordingInput)(nil)).Elem(), AgentcoreBrowserRecordingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserRecordingPtrInput)(nil)).Elem(), AgentcoreBrowserRecordingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserRecordingS3LocationInput)(nil)).Elem(), AgentcoreBrowserRecordingS3LocationArgs{})
@@ -44193,6 +44363,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Input)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpMcpServerInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs{})
@@ -44697,8 +44869,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreBrowserNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentcoreBrowserNetworkConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput{})
-	pulumi.RegisterOutputType(AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserNetworkConfigurationVpcConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserNetworkConfigurationVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreBrowserRecordingOutput{})
 	pulumi.RegisterOutputType(AgentcoreBrowserRecordingPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreBrowserRecordingS3LocationOutput{})
@@ -44775,6 +44947,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput{})

@@ -9,6 +9,7 @@ import com.pulumi.aws.opensearch.outputs.GetDomainClusterConfig;
 import com.pulumi.aws.opensearch.outputs.GetDomainCognitoOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainEbsOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainEncryptionAtRest;
+import com.pulumi.aws.opensearch.outputs.GetDomainIdentityCenterOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainLogPublishingOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainNodeToNodeEncryption;
 import com.pulumi.aws.opensearch.outputs.GetDomainOffPeakWindowOptions;
@@ -22,8 +23,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainResult {
@@ -124,6 +123,11 @@ public final class GetDomainResult {
      */
     private String id;
     /**
+     * @return Configuration for enabling and managing IAM Identity Center integration within a domain.
+     * 
+     */
+    private List<GetDomainIdentityCenterOption> identityCenterOptions;
+    /**
      * @return Type of IP addresses supported by the endpoint for the domain.
      * 
      */
@@ -142,7 +146,7 @@ public final class GetDomainResult {
      * @return Off Peak update options
      * 
      */
-    private @Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions;
+    private GetDomainOffPeakWindowOptions offPeakWindowOptions;
     /**
      * @return Status of a configuration change in the domain.
      * 
@@ -308,6 +312,13 @@ public final class GetDomainResult {
         return this.id;
     }
     /**
+     * @return Configuration for enabling and managing IAM Identity Center integration within a domain.
+     * 
+     */
+    public List<GetDomainIdentityCenterOption> identityCenterOptions() {
+        return this.identityCenterOptions;
+    }
+    /**
      * @return Type of IP addresses supported by the endpoint for the domain.
      * 
      */
@@ -332,8 +343,8 @@ public final class GetDomainResult {
      * @return Off Peak update options
      * 
      */
-    public Optional<GetDomainOffPeakWindowOptions> offPeakWindowOptions() {
-        return Optional.ofNullable(this.offPeakWindowOptions);
+    public GetDomainOffPeakWindowOptions offPeakWindowOptions() {
+        return this.offPeakWindowOptions;
     }
     /**
      * @return Status of a configuration change in the domain.
@@ -403,10 +414,11 @@ public final class GetDomainResult {
         private String endpointV2;
         private String engineVersion;
         private String id;
+        private List<GetDomainIdentityCenterOption> identityCenterOptions;
         private String ipAddressType;
         private List<GetDomainLogPublishingOption> logPublishingOptions;
         private List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
-        private @Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions;
+        private GetDomainOffPeakWindowOptions offPeakWindowOptions;
         private Boolean processing;
         private String region;
         private List<GetDomainSnapshotOption> snapshotOptions;
@@ -436,6 +448,7 @@ public final class GetDomainResult {
     	      this.endpointV2 = defaults.endpointV2;
     	      this.engineVersion = defaults.engineVersion;
     	      this.id = defaults.id;
+    	      this.identityCenterOptions = defaults.identityCenterOptions;
     	      this.ipAddressType = defaults.ipAddressType;
     	      this.logPublishingOptions = defaults.logPublishingOptions;
     	      this.nodeToNodeEncryptions = defaults.nodeToNodeEncryptions;
@@ -627,6 +640,17 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
+        public Builder identityCenterOptions(List<GetDomainIdentityCenterOption> identityCenterOptions) {
+            if (identityCenterOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "identityCenterOptions");
+            }
+            this.identityCenterOptions = identityCenterOptions;
+            return this;
+        }
+        public Builder identityCenterOptions(GetDomainIdentityCenterOption... identityCenterOptions) {
+            return identityCenterOptions(List.of(identityCenterOptions));
+        }
+        @CustomType.Setter
         public Builder ipAddressType(String ipAddressType) {
             if (ipAddressType == null) {
               throw new MissingRequiredPropertyException("GetDomainResult", "ipAddressType");
@@ -657,8 +681,10 @@ public final class GetDomainResult {
             return nodeToNodeEncryptions(List.of(nodeToNodeEncryptions));
         }
         @CustomType.Setter
-        public Builder offPeakWindowOptions(@Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions) {
-
+        public Builder offPeakWindowOptions(GetDomainOffPeakWindowOptions offPeakWindowOptions) {
+            if (offPeakWindowOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "offPeakWindowOptions");
+            }
             this.offPeakWindowOptions = offPeakWindowOptions;
             return this;
         }
@@ -741,6 +767,7 @@ public final class GetDomainResult {
             _resultValue.endpointV2 = endpointV2;
             _resultValue.engineVersion = engineVersion;
             _resultValue.id = id;
+            _resultValue.identityCenterOptions = identityCenterOptions;
             _resultValue.ipAddressType = ipAddressType;
             _resultValue.logPublishingOptions = logPublishingOptions;
             _resultValue.nodeToNodeEncryptions = nodeToNodeEncryptions;

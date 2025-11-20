@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class EndpointConfigurationProductionVariantCoreDumpConfig
     {
         /// <summary>
-        /// The Amazon S3 bucket to send the core dump to.
+        /// S3 bucket to send the core dump to.
         /// </summary>
         public readonly string DestinationS3Uri;
         /// <summary>
-        /// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        /// KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
         /// </summary>
         public readonly string? KmsKeyId;
 

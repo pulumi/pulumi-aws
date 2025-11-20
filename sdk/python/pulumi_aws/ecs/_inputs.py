@@ -69,8 +69,12 @@ __all__ = [
     'ServiceDeploymentCircuitBreakerArgsDict',
     'ServiceDeploymentConfigurationArgs',
     'ServiceDeploymentConfigurationArgsDict',
+    'ServiceDeploymentConfigurationCanaryConfigurationArgs',
+    'ServiceDeploymentConfigurationCanaryConfigurationArgsDict',
     'ServiceDeploymentConfigurationLifecycleHookArgs',
     'ServiceDeploymentConfigurationLifecycleHookArgsDict',
+    'ServiceDeploymentConfigurationLinearConfigurationArgs',
+    'ServiceDeploymentConfigurationLinearConfigurationArgsDict',
     'ServiceDeploymentControllerArgs',
     'ServiceDeploymentControllerArgsDict',
     'ServiceLoadBalancerArgs',
@@ -2082,15 +2086,23 @@ if not MYPY:
     class ServiceDeploymentConfigurationArgsDict(TypedDict):
         bake_time_in_minutes: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+        Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
+        """
+        canary_configuration: NotRequired[pulumi.Input['ServiceDeploymentConfigurationCanaryConfigurationArgsDict']]
+        """
+        Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
         """
         lifecycle_hooks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentConfigurationLifecycleHookArgsDict']]]]
         """
         Configuration block for lifecycle hooks that are invoked during deployments. See below.
         """
+        linear_configuration: NotRequired[pulumi.Input['ServiceDeploymentConfigurationLinearConfigurationArgsDict']]
+        """
+        Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+        """
         strategy: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+        Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
         """
 elif False:
     ServiceDeploymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2099,17 +2111,25 @@ elif False:
 class ServiceDeploymentConfigurationArgs:
     def __init__(__self__, *,
                  bake_time_in_minutes: Optional[pulumi.Input[_builtins.str]] = None,
+                 canary_configuration: Optional[pulumi.Input['ServiceDeploymentConfigurationCanaryConfigurationArgs']] = None,
                  lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentConfigurationLifecycleHookArgs']]]] = None,
+                 linear_configuration: Optional[pulumi.Input['ServiceDeploymentConfigurationLinearConfigurationArgs']] = None,
                  strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] bake_time_in_minutes: Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+        :param pulumi.Input[_builtins.str] bake_time_in_minutes: Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
+        :param pulumi.Input['ServiceDeploymentConfigurationCanaryConfigurationArgs'] canary_configuration: Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentConfigurationLifecycleHookArgs']]] lifecycle_hooks: Configuration block for lifecycle hooks that are invoked during deployments. See below.
-        :param pulumi.Input[_builtins.str] strategy: Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+        :param pulumi.Input['ServiceDeploymentConfigurationLinearConfigurationArgs'] linear_configuration: Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+        :param pulumi.Input[_builtins.str] strategy: Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
         """
         if bake_time_in_minutes is not None:
             pulumi.set(__self__, "bake_time_in_minutes", bake_time_in_minutes)
+        if canary_configuration is not None:
+            pulumi.set(__self__, "canary_configuration", canary_configuration)
         if lifecycle_hooks is not None:
             pulumi.set(__self__, "lifecycle_hooks", lifecycle_hooks)
+        if linear_configuration is not None:
+            pulumi.set(__self__, "linear_configuration", linear_configuration)
         if strategy is not None:
             pulumi.set(__self__, "strategy", strategy)
 
@@ -2117,13 +2137,25 @@ class ServiceDeploymentConfigurationArgs:
     @pulumi.getter(name="bakeTimeInMinutes")
     def bake_time_in_minutes(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+        Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
         """
         return pulumi.get(self, "bake_time_in_minutes")
 
     @bake_time_in_minutes.setter
     def bake_time_in_minutes(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "bake_time_in_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="canaryConfiguration")
+    def canary_configuration(self) -> Optional[pulumi.Input['ServiceDeploymentConfigurationCanaryConfigurationArgs']]:
+        """
+        Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+        """
+        return pulumi.get(self, "canary_configuration")
+
+    @canary_configuration.setter
+    def canary_configuration(self, value: Optional[pulumi.Input['ServiceDeploymentConfigurationCanaryConfigurationArgs']]):
+        pulumi.set(self, "canary_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="lifecycleHooks")
@@ -2138,16 +2170,80 @@ class ServiceDeploymentConfigurationArgs:
         pulumi.set(self, "lifecycle_hooks", value)
 
     @_builtins.property
+    @pulumi.getter(name="linearConfiguration")
+    def linear_configuration(self) -> Optional[pulumi.Input['ServiceDeploymentConfigurationLinearConfigurationArgs']]:
+        """
+        Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+        """
+        return pulumi.get(self, "linear_configuration")
+
+    @linear_configuration.setter
+    def linear_configuration(self, value: Optional[pulumi.Input['ServiceDeploymentConfigurationLinearConfigurationArgs']]):
+        pulumi.set(self, "linear_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+        Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
         """
         return pulumi.get(self, "strategy")
 
     @strategy.setter
     def strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "strategy", value)
+
+
+if not MYPY:
+    class ServiceDeploymentConfigurationCanaryConfigurationArgsDict(TypedDict):
+        canary_bake_time_in_minutes: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
+        """
+        canary_percent: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
+        """
+elif False:
+    ServiceDeploymentConfigurationCanaryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceDeploymentConfigurationCanaryConfigurationArgs:
+    def __init__(__self__, *,
+                 canary_bake_time_in_minutes: Optional[pulumi.Input[_builtins.str]] = None,
+                 canary_percent: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.str] canary_bake_time_in_minutes: Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
+        :param pulumi.Input[_builtins.float] canary_percent: Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
+        """
+        if canary_bake_time_in_minutes is not None:
+            pulumi.set(__self__, "canary_bake_time_in_minutes", canary_bake_time_in_minutes)
+        if canary_percent is not None:
+            pulumi.set(__self__, "canary_percent", canary_percent)
+
+    @_builtins.property
+    @pulumi.getter(name="canaryBakeTimeInMinutes")
+    def canary_bake_time_in_minutes(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
+        """
+        return pulumi.get(self, "canary_bake_time_in_minutes")
+
+    @canary_bake_time_in_minutes.setter
+    def canary_bake_time_in_minutes(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "canary_bake_time_in_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="canaryPercent")
+    def canary_percent(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
+        """
+        return pulumi.get(self, "canary_percent")
+
+    @canary_percent.setter
+    def canary_percent(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "canary_percent", value)
 
 
 if not MYPY:
@@ -2240,6 +2336,58 @@ class ServiceDeploymentConfigurationLifecycleHookArgs:
 
 
 if not MYPY:
+    class ServiceDeploymentConfigurationLinearConfigurationArgsDict(TypedDict):
+        step_bake_time_in_minutes: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
+        """
+        step_percent: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
+        """
+elif False:
+    ServiceDeploymentConfigurationLinearConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceDeploymentConfigurationLinearConfigurationArgs:
+    def __init__(__self__, *,
+                 step_bake_time_in_minutes: Optional[pulumi.Input[_builtins.str]] = None,
+                 step_percent: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.str] step_bake_time_in_minutes: Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
+        :param pulumi.Input[_builtins.float] step_percent: Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
+        """
+        if step_bake_time_in_minutes is not None:
+            pulumi.set(__self__, "step_bake_time_in_minutes", step_bake_time_in_minutes)
+        if step_percent is not None:
+            pulumi.set(__self__, "step_percent", step_percent)
+
+    @_builtins.property
+    @pulumi.getter(name="stepBakeTimeInMinutes")
+    def step_bake_time_in_minutes(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
+        """
+        return pulumi.get(self, "step_bake_time_in_minutes")
+
+    @step_bake_time_in_minutes.setter
+    def step_bake_time_in_minutes(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "step_bake_time_in_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stepPercent")
+    def step_percent(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
+        """
+        return pulumi.get(self, "step_percent")
+
+    @step_percent.setter
+    def step_percent(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "step_percent", value)
+
+
+if not MYPY:
     class ServiceDeploymentControllerArgsDict(TypedDict):
         type: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -2284,8 +2432,6 @@ if not MYPY:
         advanced_configuration: NotRequired[pulumi.Input['ServiceLoadBalancerAdvancedConfigurationArgsDict']]
         """
         Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-
-        > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
         elb_name: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -2294,6 +2440,8 @@ if not MYPY:
         target_group_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
         ARN of the Load Balancer target group to associate with the service.
+
+        > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
 elif False:
     ServiceLoadBalancerArgsDict: TypeAlias = Mapping[str, Any]
@@ -2310,10 +2458,10 @@ class ServiceLoadBalancerArgs:
         :param pulumi.Input[_builtins.str] container_name: Name of the container to associate with the load balancer (as it appears in a container definition).
         :param pulumi.Input[_builtins.int] container_port: Port on the container to associate with the load balancer.
         :param pulumi.Input['ServiceLoadBalancerAdvancedConfigurationArgs'] advanced_configuration: Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-               
-               > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         :param pulumi.Input[_builtins.str] elb_name: Name of the ELB (Classic) to associate with the service.
         :param pulumi.Input[_builtins.str] target_group_arn: ARN of the Load Balancer target group to associate with the service.
+               
+               > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "container_port", container_port)
@@ -2353,8 +2501,6 @@ class ServiceLoadBalancerArgs:
     def advanced_configuration(self) -> Optional[pulumi.Input['ServiceLoadBalancerAdvancedConfigurationArgs']]:
         """
         Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-
-        > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
         return pulumi.get(self, "advanced_configuration")
 
@@ -2379,6 +2525,8 @@ class ServiceLoadBalancerArgs:
     def target_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         ARN of the Load Balancer target group to associate with the service.
+
+        > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
         return pulumi.get(self, "target_group_arn")
 
@@ -2481,12 +2629,12 @@ if not MYPY:
         subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         """
         Subnets associated with the task or service.
+
+        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         """
         assign_public_ip: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-
-        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         """
         security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
@@ -2503,9 +2651,9 @@ class ServiceNetworkConfigurationArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: Subnets associated with the task or service.
-        :param pulumi.Input[_builtins.bool] assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
                
                For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
+        :param pulumi.Input[_builtins.bool] assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -2519,6 +2667,8 @@ class ServiceNetworkConfigurationArgs:
     def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
         Subnets associated with the task or service.
+
+        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         """
         return pulumi.get(self, "subnets")
 
@@ -2531,8 +2681,6 @@ class ServiceNetworkConfigurationArgs:
     def assign_public_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-
-        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -2558,15 +2706,12 @@ if not MYPY:
         type: pulumi.Input[_builtins.str]
         """
         Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+
+        > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
         """
         field: NotRequired[pulumi.Input[_builtins.str]]
         """
-        For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-        which has the same effect), or any platform or custom attribute that is applied to a container instance.
-        For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-        needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-
-        > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+        For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
         """
 elif False:
     ServiceOrderedPlacementStrategyArgsDict: TypeAlias = Mapping[str, Any]
@@ -2578,12 +2723,9 @@ class ServiceOrderedPlacementStrategyArgs:
                  field: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
-        :param pulumi.Input[_builtins.str] field: For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-               which has the same effect), or any platform or custom attribute that is applied to a container instance.
-               For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-               needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
                
                > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+        :param pulumi.Input[_builtins.str] field: For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
         """
         pulumi.set(__self__, "type", type)
         if field is not None:
@@ -2594,6 +2736,8 @@ class ServiceOrderedPlacementStrategyArgs:
     def type(self) -> pulumi.Input[_builtins.str]:
         """
         Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+
+        > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
         """
         return pulumi.get(self, "type")
 
@@ -2605,12 +2749,7 @@ class ServiceOrderedPlacementStrategyArgs:
     @pulumi.getter
     def field(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-        which has the same effect), or any platform or custom attribute that is applied to a container instance.
-        For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-        needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-
-        > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+        For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
         """
         return pulumi.get(self, "field")
 

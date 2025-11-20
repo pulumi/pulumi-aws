@@ -372,6 +372,27 @@ class AgentcoreBrowser(pulumi.CustomResource):
             })
         ```
 
+        ### Browser with VPC Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        vpc_example = aws.bedrock.AgentcoreBrowser("vpc_example",
+            name="vpc-browser",
+            description="Browser with VPC configuration",
+            network_configuration={
+                "network_mode": "VPC",
+                "vpc_config": {
+                    "security_groups": ["sg-12345678"],
+                    "subnets": [
+                        "subnet-12345678",
+                        "subnet-87654321",
+                    ],
+                },
+            })
+        ```
+
         ### Browser with Execution Role and Recording
 
         ```python
@@ -448,6 +469,27 @@ class AgentcoreBrowser(pulumi.CustomResource):
             description="Browser for web data extraction",
             network_configuration={
                 "network_mode": "PUBLIC",
+            })
+        ```
+
+        ### Browser with VPC Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        vpc_example = aws.bedrock.AgentcoreBrowser("vpc_example",
+            name="vpc-browser",
+            description="Browser with VPC configuration",
+            network_configuration={
+                "network_mode": "VPC",
+                "vpc_config": {
+                    "security_groups": ["sg-12345678"],
+                    "subnets": [
+                        "subnet-12345678",
+                        "subnet-87654321",
+                    ],
+                },
             })
         ```
 

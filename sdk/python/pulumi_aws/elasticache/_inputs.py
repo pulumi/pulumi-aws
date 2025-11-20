@@ -25,6 +25,8 @@ __all__ = [
     'ParameterGroupParameterArgsDict',
     'ReplicationGroupLogDeliveryConfigurationArgs',
     'ReplicationGroupLogDeliveryConfigurationArgsDict',
+    'ReplicationGroupNodeGroupConfigurationArgs',
+    'ReplicationGroupNodeGroupConfigurationArgsDict',
     'ReservedCacheNodeRecurringChargeArgs',
     'ReservedCacheNodeRecurringChargeArgsDict',
     'ReservedCacheNodeTimeoutsArgs',
@@ -416,6 +418,158 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
     @log_type.setter
     def log_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "log_type", value)
+
+
+if not MYPY:
+    class ReplicationGroupNodeGroupConfigurationArgsDict(TypedDict):
+        node_group_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
+        """
+        primary_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Availability zone for the primary node.
+        """
+        primary_outpost_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ARN of the Outpost for the primary node.
+        """
+        replica_availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of availability zones for the replica nodes.
+        """
+        replica_count: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Number of replica nodes in this node group.
+        """
+        replica_outpost_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of ARNs of the Outposts for the replica nodes.
+        """
+        slots: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
+        """
+elif False:
+    ReplicationGroupNodeGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ReplicationGroupNodeGroupConfigurationArgs:
+    def __init__(__self__, *,
+                 node_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 replica_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 replica_outpost_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slots: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] node_group_id: ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
+        :param pulumi.Input[_builtins.str] primary_availability_zone: Availability zone for the primary node.
+        :param pulumi.Input[_builtins.str] primary_outpost_arn: ARN of the Outpost for the primary node.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replica_availability_zones: List of availability zones for the replica nodes.
+        :param pulumi.Input[_builtins.int] replica_count: Number of replica nodes in this node group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replica_outpost_arns: List of ARNs of the Outposts for the replica nodes.
+        :param pulumi.Input[_builtins.str] slots: Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
+        """
+        if node_group_id is not None:
+            pulumi.set(__self__, "node_group_id", node_group_id)
+        if primary_availability_zone is not None:
+            pulumi.set(__self__, "primary_availability_zone", primary_availability_zone)
+        if primary_outpost_arn is not None:
+            pulumi.set(__self__, "primary_outpost_arn", primary_outpost_arn)
+        if replica_availability_zones is not None:
+            pulumi.set(__self__, "replica_availability_zones", replica_availability_zones)
+        if replica_count is not None:
+            pulumi.set(__self__, "replica_count", replica_count)
+        if replica_outpost_arns is not None:
+            pulumi.set(__self__, "replica_outpost_arns", replica_outpost_arns)
+        if slots is not None:
+            pulumi.set(__self__, "slots", slots)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeGroupId")
+    def node_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
+        """
+        return pulumi.get(self, "node_group_id")
+
+    @node_group_id.setter
+    def node_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "node_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryAvailabilityZone")
+    def primary_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Availability zone for the primary node.
+        """
+        return pulumi.get(self, "primary_availability_zone")
+
+    @primary_availability_zone.setter
+    def primary_availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "primary_availability_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryOutpostArn")
+    def primary_outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the Outpost for the primary node.
+        """
+        return pulumi.get(self, "primary_outpost_arn")
+
+    @primary_outpost_arn.setter
+    def primary_outpost_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "primary_outpost_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicaAvailabilityZones")
+    def replica_availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of availability zones for the replica nodes.
+        """
+        return pulumi.get(self, "replica_availability_zones")
+
+    @replica_availability_zones.setter
+    def replica_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "replica_availability_zones", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicaCount")
+    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of replica nodes in this node group.
+        """
+        return pulumi.get(self, "replica_count")
+
+    @replica_count.setter
+    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "replica_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicaOutpostArns")
+    def replica_outpost_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of ARNs of the Outposts for the replica nodes.
+        """
+        return pulumi.get(self, "replica_outpost_arns")
+
+    @replica_outpost_arns.setter
+    def replica_outpost_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "replica_outpost_arns", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def slots(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
+        """
+        return pulumi.get(self, "slots")
+
+    @slots.setter
+    def slots(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "slots", value)
 
 
 if not MYPY:

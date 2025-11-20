@@ -1194,7 +1194,7 @@ if not MYPY:
         """
         plugin_name: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
         """
         service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -1244,7 +1244,7 @@ class EndpointPostgresSettingsArgs:
         :param pulumi.Input[_builtins.bool] map_jsonb_as_clob: Optional When true, DMS migrates JSONB values as CLOB.
         :param pulumi.Input[_builtins.str] map_long_varchar_as: Optional When true, DMS migrates LONG values as VARCHAR.
         :param pulumi.Input[_builtins.int] max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
-        :param pulumi.Input[_builtins.str] plugin_name: Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        :param pulumi.Input[_builtins.str] plugin_name: Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
         :param pulumi.Input[_builtins.str] service_access_role_arn: Specifies the IAM role to use to authenticate the connection.
         :param pulumi.Input[_builtins.str] slot_name: Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
         """
@@ -1469,7 +1469,7 @@ class EndpointPostgresSettingsArgs:
     @pulumi.getter(name="pluginName")
     def plugin_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
         """
         return pulumi.get(self, "plugin_name")
 

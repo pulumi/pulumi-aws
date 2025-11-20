@@ -133,6 +133,57 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// 
+    /// ### Redis OSS/Valkey Cluster Mode Enabled with Node Group Configuration
+    /// 
+    /// To create a cluster with specific availability zone placement and keyspace distribution:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ElastiCache.ReplicationGroup("example", new()
+    ///     {
+    ///         ReplicationGroupId = "tf-redis-cluster",
+    ///         Description = "example description",
+    ///         NodeType = "cache.t2.small",
+    ///         Port = 6379,
+    ///         ParameterGroupName = "default.redis3.2.cluster.on",
+    ///         AutomaticFailoverEnabled = true,
+    ///         NumNodeGroups = 2,
+    ///         NodeGroupConfigurations = new[]
+    ///         {
+    ///             new Aws.ElastiCache.Inputs.ReplicationGroupNodeGroupConfigurationArgs
+    ///             {
+    ///                 NodeGroupId = "0001",
+    ///                 PrimaryAvailabilityZone = "us-west-2a",
+    ///                 ReplicaAvailabilityZones = new[]
+    ///                 {
+    ///                     "us-west-2b",
+    ///                 },
+    ///                 ReplicaCount = 1,
+    ///                 Slots = "0-8191",
+    ///             },
+    ///             new Aws.ElastiCache.Inputs.ReplicationGroupNodeGroupConfigurationArgs
+    ///             {
+    ///                 NodeGroupId = "0002",
+    ///                 PrimaryAvailabilityZone = "us-west-2b",
+    ///                 ReplicaAvailabilityZones = new[]
+    ///                 {
+    ///                     "us-west-2a",
+    ///                 },
+    ///                 ReplicaCount = 1,
+    ///                 Slots = "8192-16383",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Redis Log Delivery configuration
     /// 
     /// ```csharp
@@ -421,6 +472,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("networkType")]
         public Output<string> NetworkType { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for node groups (shards). Can be specified only if `NumNodeGroups` is set. Conflicts with `PreferredCacheClusterAzs`. See Node Group Configuration below for more details.
+        /// </summary>
+        [Output("nodeGroupConfigurations")]
+        public Output<ImmutableArray<Outputs.ReplicationGroupNodeGroupConfiguration>> NodeGroupConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Instance class to be used.
@@ -778,6 +835,18 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("networkType")]
         public Input<string>? NetworkType { get; set; }
+
+        [Input("nodeGroupConfigurations")]
+        private InputList<Inputs.ReplicationGroupNodeGroupConfigurationArgs>? _nodeGroupConfigurations;
+
+        /// <summary>
+        /// Configuration block for node groups (shards). Can be specified only if `NumNodeGroups` is set. Conflicts with `PreferredCacheClusterAzs`. See Node Group Configuration below for more details.
+        /// </summary>
+        public InputList<Inputs.ReplicationGroupNodeGroupConfigurationArgs> NodeGroupConfigurations
+        {
+            get => _nodeGroupConfigurations ?? (_nodeGroupConfigurations = new InputList<Inputs.ReplicationGroupNodeGroupConfigurationArgs>());
+            set => _nodeGroupConfigurations = value;
+        }
 
         /// <summary>
         /// Instance class to be used.
@@ -1147,6 +1216,18 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("networkType")]
         public Input<string>? NetworkType { get; set; }
+
+        [Input("nodeGroupConfigurations")]
+        private InputList<Inputs.ReplicationGroupNodeGroupConfigurationGetArgs>? _nodeGroupConfigurations;
+
+        /// <summary>
+        /// Configuration block for node groups (shards). Can be specified only if `NumNodeGroups` is set. Conflicts with `PreferredCacheClusterAzs`. See Node Group Configuration below for more details.
+        /// </summary>
+        public InputList<Inputs.ReplicationGroupNodeGroupConfigurationGetArgs> NodeGroupConfigurations
+        {
+            get => _nodeGroupConfigurations ?? (_nodeGroupConfigurations = new InputList<Inputs.ReplicationGroupNodeGroupConfigurationGetArgs>());
+            set => _nodeGroupConfigurations = value;
+        }
 
         /// <summary>
         /// Instance class to be used.

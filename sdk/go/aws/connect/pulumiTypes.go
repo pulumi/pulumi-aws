@@ -2364,8 +2364,9 @@ func (o QuickConnectQuickConnectConfigUserConfigArrayOutput) Index(i pulumi.IntI
 type RoutingProfileMediaConcurrency struct {
 	// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
 	Channel string `pulumi:"channel"`
-	// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
-	Concurrency int `pulumi:"concurrency"`
+	// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
+	Concurrency          int                                                 `pulumi:"concurrency"`
+	CrossChannelBehavior *RoutingProfileMediaConcurrencyCrossChannelBehavior `pulumi:"crossChannelBehavior"`
 }
 
 // RoutingProfileMediaConcurrencyInput is an input type that accepts RoutingProfileMediaConcurrencyArgs and RoutingProfileMediaConcurrencyOutput values.
@@ -2382,8 +2383,9 @@ type RoutingProfileMediaConcurrencyInput interface {
 type RoutingProfileMediaConcurrencyArgs struct {
 	// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
 	Channel pulumi.StringInput `pulumi:"channel"`
-	// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
-	Concurrency pulumi.IntInput `pulumi:"concurrency"`
+	// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
+	Concurrency          pulumi.IntInput                                            `pulumi:"concurrency"`
+	CrossChannelBehavior RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrInput `pulumi:"crossChannelBehavior"`
 }
 
 func (RoutingProfileMediaConcurrencyArgs) ElementType() reflect.Type {
@@ -2442,9 +2444,15 @@ func (o RoutingProfileMediaConcurrencyOutput) Channel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingProfileMediaConcurrency) string { return v.Channel }).(pulumi.StringOutput)
 }
 
-// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
 func (o RoutingProfileMediaConcurrencyOutput) Concurrency() pulumi.IntOutput {
 	return o.ApplyT(func(v RoutingProfileMediaConcurrency) int { return v.Concurrency }).(pulumi.IntOutput)
+}
+
+func (o RoutingProfileMediaConcurrencyOutput) CrossChannelBehavior() RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput {
+	return o.ApplyT(func(v RoutingProfileMediaConcurrency) *RoutingProfileMediaConcurrencyCrossChannelBehavior {
+		return v.CrossChannelBehavior
+	}).(RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput)
 }
 
 type RoutingProfileMediaConcurrencyArrayOutput struct{ *pulumi.OutputState }
@@ -2465,6 +2473,143 @@ func (o RoutingProfileMediaConcurrencyArrayOutput) Index(i pulumi.IntInput) Rout
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingProfileMediaConcurrency {
 		return vs[0].([]RoutingProfileMediaConcurrency)[vs[1].(int)]
 	}).(RoutingProfileMediaConcurrencyOutput)
+}
+
+type RoutingProfileMediaConcurrencyCrossChannelBehavior struct {
+	// Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
+	BehaviorType string `pulumi:"behaviorType"`
+}
+
+// RoutingProfileMediaConcurrencyCrossChannelBehaviorInput is an input type that accepts RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs and RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput values.
+// You can construct a concrete instance of `RoutingProfileMediaConcurrencyCrossChannelBehaviorInput` via:
+//
+//	RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{...}
+type RoutingProfileMediaConcurrencyCrossChannelBehaviorInput interface {
+	pulumi.Input
+
+	ToRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput() RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput
+	ToRoutingProfileMediaConcurrencyCrossChannelBehaviorOutputWithContext(context.Context) RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput
+}
+
+type RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs struct {
+	// Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
+	BehaviorType pulumi.StringInput `pulumi:"behaviorType"`
+}
+
+func (RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileMediaConcurrencyCrossChannelBehavior)(nil)).Elem()
+}
+
+func (i RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput() RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput {
+	return i.ToRoutingProfileMediaConcurrencyCrossChannelBehaviorOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorOutputWithContext(ctx context.Context) RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput)
+}
+
+func (i RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput() RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput {
+	return i.ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutputWithContext(ctx context.Context) RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput).ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutputWithContext(ctx)
+}
+
+// RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrInput is an input type that accepts RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs, RoutingProfileMediaConcurrencyCrossChannelBehaviorPtr and RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput values.
+// You can construct a concrete instance of `RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrInput` via:
+//
+//	        RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput() RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput
+	ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutputWithContext(context.Context) RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput
+}
+
+type routingProfileMediaConcurrencyCrossChannelBehaviorPtrType RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs
+
+func RoutingProfileMediaConcurrencyCrossChannelBehaviorPtr(v *RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs) RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrInput {
+	return (*routingProfileMediaConcurrencyCrossChannelBehaviorPtrType)(v)
+}
+
+func (*routingProfileMediaConcurrencyCrossChannelBehaviorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingProfileMediaConcurrencyCrossChannelBehavior)(nil)).Elem()
+}
+
+func (i *routingProfileMediaConcurrencyCrossChannelBehaviorPtrType) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput() RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput {
+	return i.ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (i *routingProfileMediaConcurrencyCrossChannelBehaviorPtrType) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutputWithContext(ctx context.Context) RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput)
+}
+
+type RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileMediaConcurrencyCrossChannelBehavior)(nil)).Elem()
+}
+
+func (o RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput() RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput {
+	return o
+}
+
+func (o RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorOutputWithContext(ctx context.Context) RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput {
+	return o
+}
+
+func (o RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput() RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput {
+	return o.ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutputWithContext(ctx context.Context) RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingProfileMediaConcurrencyCrossChannelBehavior) *RoutingProfileMediaConcurrencyCrossChannelBehavior {
+		return &v
+	}).(RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput)
+}
+
+// Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
+func (o RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput) BehaviorType() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingProfileMediaConcurrencyCrossChannelBehavior) string { return v.BehaviorType }).(pulumi.StringOutput)
+}
+
+type RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingProfileMediaConcurrencyCrossChannelBehavior)(nil)).Elem()
+}
+
+func (o RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput() RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput {
+	return o
+}
+
+func (o RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput) ToRoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutputWithContext(ctx context.Context) RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput {
+	return o
+}
+
+func (o RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput) Elem() RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput {
+	return o.ApplyT(func(v *RoutingProfileMediaConcurrencyCrossChannelBehavior) RoutingProfileMediaConcurrencyCrossChannelBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingProfileMediaConcurrencyCrossChannelBehavior
+		return ret
+	}).(RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput)
+}
+
+// Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
+func (o RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput) BehaviorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingProfileMediaConcurrencyCrossChannelBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BehaviorType
+	}).(pulumi.StringPtrOutput)
 }
 
 type RoutingProfileQueueConfig struct {
@@ -6551,6 +6696,8 @@ type GetRoutingProfileMediaConcurrency struct {
 	Channel string `pulumi:"channel"`
 	// Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
 	Concurrency int `pulumi:"concurrency"`
+	// Configuration block for cross-channel behavior. Documented below.
+	CrossChannelBehaviors []GetRoutingProfileMediaConcurrencyCrossChannelBehavior `pulumi:"crossChannelBehaviors"`
 }
 
 // GetRoutingProfileMediaConcurrencyInput is an input type that accepts GetRoutingProfileMediaConcurrencyArgs and GetRoutingProfileMediaConcurrencyOutput values.
@@ -6569,6 +6716,8 @@ type GetRoutingProfileMediaConcurrencyArgs struct {
 	Channel pulumi.StringInput `pulumi:"channel"`
 	// Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
 	Concurrency pulumi.IntInput `pulumi:"concurrency"`
+	// Configuration block for cross-channel behavior. Documented below.
+	CrossChannelBehaviors GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayInput `pulumi:"crossChannelBehaviors"`
 }
 
 func (GetRoutingProfileMediaConcurrencyArgs) ElementType() reflect.Type {
@@ -6632,6 +6781,13 @@ func (o GetRoutingProfileMediaConcurrencyOutput) Concurrency() pulumi.IntOutput 
 	return o.ApplyT(func(v GetRoutingProfileMediaConcurrency) int { return v.Concurrency }).(pulumi.IntOutput)
 }
 
+// Configuration block for cross-channel behavior. Documented below.
+func (o GetRoutingProfileMediaConcurrencyOutput) CrossChannelBehaviors() GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput {
+	return o.ApplyT(func(v GetRoutingProfileMediaConcurrency) []GetRoutingProfileMediaConcurrencyCrossChannelBehavior {
+		return v.CrossChannelBehaviors
+	}).(GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput)
+}
+
 type GetRoutingProfileMediaConcurrencyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetRoutingProfileMediaConcurrencyArrayOutput) ElementType() reflect.Type {
@@ -6650,6 +6806,103 @@ func (o GetRoutingProfileMediaConcurrencyArrayOutput) Index(i pulumi.IntInput) G
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoutingProfileMediaConcurrency {
 		return vs[0].([]GetRoutingProfileMediaConcurrency)[vs[1].(int)]
 	}).(GetRoutingProfileMediaConcurrencyOutput)
+}
+
+type GetRoutingProfileMediaConcurrencyCrossChannelBehavior struct {
+	// Cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY`, `ROUTE_ANY_CHANNEL`.
+	BehaviorType string `pulumi:"behaviorType"`
+}
+
+// GetRoutingProfileMediaConcurrencyCrossChannelBehaviorInput is an input type that accepts GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArgs and GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput values.
+// You can construct a concrete instance of `GetRoutingProfileMediaConcurrencyCrossChannelBehaviorInput` via:
+//
+//	GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{...}
+type GetRoutingProfileMediaConcurrencyCrossChannelBehaviorInput interface {
+	pulumi.Input
+
+	ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput() GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput
+	ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutputWithContext(context.Context) GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput
+}
+
+type GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArgs struct {
+	// Cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY`, `ROUTE_ANY_CHANNEL`.
+	BehaviorType pulumi.StringInput `pulumi:"behaviorType"`
+}
+
+func (GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoutingProfileMediaConcurrencyCrossChannelBehavior)(nil)).Elem()
+}
+
+func (i GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArgs) ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput() GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput {
+	return i.ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutputWithContext(context.Background())
+}
+
+func (i GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArgs) ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutputWithContext(ctx context.Context) GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput)
+}
+
+// GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayInput is an input type that accepts GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArray and GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput values.
+// You can construct a concrete instance of `GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayInput` via:
+//
+//	GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArray{ GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{...} }
+type GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayInput interface {
+	pulumi.Input
+
+	ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput() GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput
+	ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutputWithContext(context.Context) GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput
+}
+
+type GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArray []GetRoutingProfileMediaConcurrencyCrossChannelBehaviorInput
+
+func (GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoutingProfileMediaConcurrencyCrossChannelBehavior)(nil)).Elem()
+}
+
+func (i GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArray) ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput() GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput {
+	return i.ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArray) ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutputWithContext(ctx context.Context) GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput)
+}
+
+type GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput struct{ *pulumi.OutputState }
+
+func (GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoutingProfileMediaConcurrencyCrossChannelBehavior)(nil)).Elem()
+}
+
+func (o GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput) ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput() GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput {
+	return o
+}
+
+func (o GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput) ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutputWithContext(ctx context.Context) GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput {
+	return o
+}
+
+// Cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY`, `ROUTE_ANY_CHANNEL`.
+func (o GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput) BehaviorType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoutingProfileMediaConcurrencyCrossChannelBehavior) string { return v.BehaviorType }).(pulumi.StringOutput)
+}
+
+type GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoutingProfileMediaConcurrencyCrossChannelBehavior)(nil)).Elem()
+}
+
+func (o GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput) ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput() GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput {
+	return o
+}
+
+func (o GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput) ToGetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutputWithContext(ctx context.Context) GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput {
+	return o
+}
+
+func (o GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput) Index(i pulumi.IntInput) GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoutingProfileMediaConcurrencyCrossChannelBehavior {
+		return vs[0].([]GetRoutingProfileMediaConcurrencyCrossChannelBehavior)[vs[1].(int)]
+	}).(GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput)
 }
 
 type GetRoutingProfileQueueConfig struct {
@@ -8543,6 +8796,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectQuickConnectConfigUserConfigArrayInput)(nil)).Elem(), QuickConnectQuickConnectConfigUserConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileMediaConcurrencyInput)(nil)).Elem(), RoutingProfileMediaConcurrencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileMediaConcurrencyArrayInput)(nil)).Elem(), RoutingProfileMediaConcurrencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileMediaConcurrencyCrossChannelBehaviorInput)(nil)).Elem(), RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrInput)(nil)).Elem(), RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileQueueConfigInput)(nil)).Elem(), RoutingProfileQueueConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileQueueConfigArrayInput)(nil)).Elem(), RoutingProfileQueueConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyGroupHierarchyPathInput)(nil)).Elem(), UserHierarchyGroupHierarchyPathArgs{})
@@ -8606,6 +8861,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetQuickConnectQuickConnectConfigUserConfigArrayInput)(nil)).Elem(), GetQuickConnectQuickConnectConfigUserConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoutingProfileMediaConcurrencyInput)(nil)).Elem(), GetRoutingProfileMediaConcurrencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoutingProfileMediaConcurrencyArrayInput)(nil)).Elem(), GetRoutingProfileMediaConcurrencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoutingProfileMediaConcurrencyCrossChannelBehaviorInput)(nil)).Elem(), GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayInput)(nil)).Elem(), GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoutingProfileQueueConfigInput)(nil)).Elem(), GetRoutingProfileQueueConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoutingProfileQueueConfigArrayInput)(nil)).Elem(), GetRoutingProfileQueueConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathArgs{})
@@ -8670,6 +8927,8 @@ func init() {
 	pulumi.RegisterOutputType(QuickConnectQuickConnectConfigUserConfigArrayOutput{})
 	pulumi.RegisterOutputType(RoutingProfileMediaConcurrencyOutput{})
 	pulumi.RegisterOutputType(RoutingProfileMediaConcurrencyArrayOutput{})
+	pulumi.RegisterOutputType(RoutingProfileMediaConcurrencyCrossChannelBehaviorOutput{})
+	pulumi.RegisterOutputType(RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(RoutingProfileQueueConfigOutput{})
 	pulumi.RegisterOutputType(RoutingProfileQueueConfigArrayOutput{})
 	pulumi.RegisterOutputType(UserHierarchyGroupHierarchyPathOutput{})
@@ -8733,6 +8992,8 @@ func init() {
 	pulumi.RegisterOutputType(GetQuickConnectQuickConnectConfigUserConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetRoutingProfileMediaConcurrencyOutput{})
 	pulumi.RegisterOutputType(GetRoutingProfileMediaConcurrencyArrayOutput{})
+	pulumi.RegisterOutputType(GetRoutingProfileMediaConcurrencyCrossChannelBehaviorOutput{})
+	pulumi.RegisterOutputType(GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(GetRoutingProfileQueueConfigOutput{})
 	pulumi.RegisterOutputType(GetRoutingProfileQueueConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathOutput{})

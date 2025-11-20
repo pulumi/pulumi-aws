@@ -64,7 +64,7 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Number of minutes after which memory events expire. Must be a positive integer.
+     * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
      * 
      * The following arguments are optional:
      * 
@@ -73,7 +73,7 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
     private @Nullable Output<Integer> eventExpiryDuration;
 
     /**
-     * @return Number of minutes after which memory events expire. Must be a positive integer.
+     * @return Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
      * 
      * The following arguments are optional:
      * 
@@ -261,7 +261,7 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param eventExpiryDuration Number of minutes after which memory events expire. Must be a positive integer.
+         * @param eventExpiryDuration Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
          * 
          * The following arguments are optional:
          * 
@@ -274,7 +274,7 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param eventExpiryDuration Number of minutes after which memory events expire. Must be a positive integer.
+         * @param eventExpiryDuration Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
          * 
          * The following arguments are optional:
          * 

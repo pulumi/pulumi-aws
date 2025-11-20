@@ -63,15 +63,15 @@ import javax.annotation.Nullable;
  * 
  *         var ca = new SelfSignedCert("ca", SelfSignedCertArgs.builder()
  *             .privateKeyPem(caPrivateKey.privateKeyPem())
- *             .subject(List.of(Map.ofEntries(
- *                 Map.entry("commonName", "example.com"),
- *                 Map.entry("organization", "ACME Examples, Inc")
- *             )))
+ *             .subject(SelfSignedCertSubjectArgs.builder()
+ *                 .commonName("example.com")
+ *                 .organization("ACME Examples, Inc")
+ *                 .build())
  *             .validityPeriodHours(12)
- *             .allowedUses(List.of(            
+ *             .allowedUses(            
  *                 "key_encipherment",
  *                 "digital_signature",
- *                 "server_auth"))
+ *                 "server_auth")
  *             .isCaCertificate(true)
  *             .build());
  * 
@@ -84,7 +84,9 @@ import javax.annotation.Nullable;
  * 
  *         var verification = new CertRequest("verification", CertRequestArgs.builder()
  *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
- *             .subject(List.of(Map.of("commonName", example.registrationCode())))
+ *             .subject(CertRequestSubjectArgs.builder()
+ *                 .commonName(example.registrationCode())
+ *                 .build())
  *             .build());
  * 
  *         var verificationLocallySignedCert = new LocallySignedCert("verificationLocallySignedCert", LocallySignedCertArgs.builder()
@@ -92,10 +94,10 @@ import javax.annotation.Nullable;
  *             .caPrivateKeyPem(caPrivateKey.privateKeyPem())
  *             .caCertPem(ca.certPem())
  *             .validityPeriodHours(12)
- *             .allowedUses(List.of(            
+ *             .allowedUses(            
  *                 "key_encipherment",
  *                 "digital_signature",
- *                 "server_auth"))
+ *                 "server_auth")
  *             .build());
  * 
  *         var exampleCaCertificate = new CaCertificate("exampleCaCertificate", CaCertificateArgs.builder()

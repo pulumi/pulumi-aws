@@ -186,6 +186,64 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
+    /// ### Linear Deployment Strategy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecs.Service("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
+    ///         DeploymentConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationArgs
+    ///         {
+    ///             Strategy = "LINEAR",
+    ///             BakeTimeInMinutes = "10",
+    ///             LinearConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationLinearConfigurationArgs
+    ///             {
+    ///                 StepPercent = 25,
+    ///                 StepBakeTimeInMinutes = "5",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Canary Deployment Strategy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecs.Service("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
+    ///         DeploymentConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationArgs
+    ///         {
+    ///             Strategy = "CANARY",
+    ///             BakeTimeInMinutes = "15",
+    ///             CanaryConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationCanaryConfigurationArgs
+    ///             {
+    ///                 CanaryPercent = 10,
+    ///                 CanaryBakeTimeInMinutes = "5",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Redeploy Service On Every Apply
     /// 
     /// The key used with `Triggers` is arbitrary.

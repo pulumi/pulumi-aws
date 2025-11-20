@@ -40,6 +40,7 @@ class ReplicationGroupArgs:
                  maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_az_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_group_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]] = None,
                  node_type: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  num_cache_clusters: Optional[pulumi.Input[_builtins.int]] = None,
@@ -95,6 +96,7 @@ class ReplicationGroupArgs:
                If `true`, `automatic_failover_enabled` must also be enabled.
                Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]] node_group_configurations: Configuration block for node groups (shards). Can be specified only if `num_node_groups` is set. Conflicts with `preferred_cache_cluster_azs`. See Node Group Configuration below for more details.
         :param pulumi.Input[_builtins.str] node_type: Instance class to be used.
                See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
                Required unless `global_replication_group_id` is set.
@@ -174,6 +176,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "multi_az_enabled", multi_az_enabled)
         if network_type is not None:
             pulumi.set(__self__, "network_type", network_type)
+        if node_group_configurations is not None:
+            pulumi.set(__self__, "node_group_configurations", node_group_configurations)
         if node_type is not None:
             pulumi.set(__self__, "node_type", node_type)
         if notification_topic_arn is not None:
@@ -457,6 +461,18 @@ class ReplicationGroupArgs:
     @network_type.setter
     def network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "network_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeGroupConfigurations")
+    def node_group_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]]:
+        """
+        Configuration block for node groups (shards). Can be specified only if `num_node_groups` is set. Conflicts with `preferred_cache_cluster_azs`. See Node Group Configuration below for more details.
+        """
+        return pulumi.get(self, "node_group_configurations")
+
+    @node_group_configurations.setter
+    def node_group_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]]):
+        pulumi.set(self, "node_group_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
@@ -758,6 +774,7 @@ class _ReplicationGroupState:
                  member_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  multi_az_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_group_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]] = None,
                  node_type: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  num_cache_clusters: Optional[pulumi.Input[_builtins.int]] = None,
@@ -821,6 +838,7 @@ class _ReplicationGroupState:
                If `true`, `automatic_failover_enabled` must also be enabled.
                Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]] node_group_configurations: Configuration block for node groups (shards). Can be specified only if `num_node_groups` is set. Conflicts with `preferred_cache_cluster_azs`. See Node Group Configuration below for more details.
         :param pulumi.Input[_builtins.str] node_type: Instance class to be used.
                See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
                Required unless `global_replication_group_id` is set.
@@ -914,6 +932,8 @@ class _ReplicationGroupState:
             pulumi.set(__self__, "multi_az_enabled", multi_az_enabled)
         if network_type is not None:
             pulumi.set(__self__, "network_type", network_type)
+        if node_group_configurations is not None:
+            pulumi.set(__self__, "node_group_configurations", node_group_configurations)
         if node_type is not None:
             pulumi.set(__self__, "node_type", node_type)
         if notification_topic_arn is not None:
@@ -1265,6 +1285,18 @@ class _ReplicationGroupState:
         pulumi.set(self, "network_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="nodeGroupConfigurations")
+    def node_group_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]]:
+        """
+        Configuration block for node groups (shards). Can be specified only if `num_node_groups` is set. Conflicts with `preferred_cache_cluster_azs`. See Node Group Configuration below for more details.
+        """
+        return pulumi.get(self, "node_group_configurations")
+
+    @node_group_configurations.setter
+    def node_group_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]]):
+        pulumi.set(self, "node_group_configurations", value)
+
+    @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1598,6 +1630,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_az_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_group_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]]] = None,
                  node_type: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  num_cache_clusters: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1711,6 +1744,40 @@ class ReplicationGroup(pulumi.CustomResource):
             automatic_failover_enabled=True,
             num_node_groups=2,
             replicas_per_node_group=1)
+        ```
+
+        ### Redis OSS/Valkey Cluster Mode Enabled with Node Group Configuration
+
+        To create a cluster with specific availability zone placement and keyspace distribution:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.ReplicationGroup("example",
+            replication_group_id="tf-redis-cluster",
+            description="example description",
+            node_type="cache.t2.small",
+            port=6379,
+            parameter_group_name="default.redis3.2.cluster.on",
+            automatic_failover_enabled=True,
+            num_node_groups=2,
+            node_group_configurations=[
+                {
+                    "node_group_id": "0001",
+                    "primary_availability_zone": "us-west-2a",
+                    "replica_availability_zones": ["us-west-2b"],
+                    "replica_count": 1,
+                    "slots": "0-8191",
+                },
+                {
+                    "node_group_id": "0002",
+                    "primary_availability_zone": "us-west-2b",
+                    "replica_availability_zones": ["us-west-2a"],
+                    "replica_count": 1,
+                    "slots": "8192-16383",
+                },
+            ])
         ```
 
         ### Redis Log Delivery configuration
@@ -1840,6 +1907,7 @@ class ReplicationGroup(pulumi.CustomResource):
                If `true`, `automatic_failover_enabled` must also be enabled.
                Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]] node_group_configurations: Configuration block for node groups (shards). Can be specified only if `num_node_groups` is set. Conflicts with `preferred_cache_cluster_azs`. See Node Group Configuration below for more details.
         :param pulumi.Input[_builtins.str] node_type: Instance class to be used.
                See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
                Required unless `global_replication_group_id` is set.
@@ -1981,6 +2049,40 @@ class ReplicationGroup(pulumi.CustomResource):
             replicas_per_node_group=1)
         ```
 
+        ### Redis OSS/Valkey Cluster Mode Enabled with Node Group Configuration
+
+        To create a cluster with specific availability zone placement and keyspace distribution:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.ReplicationGroup("example",
+            replication_group_id="tf-redis-cluster",
+            description="example description",
+            node_type="cache.t2.small",
+            port=6379,
+            parameter_group_name="default.redis3.2.cluster.on",
+            automatic_failover_enabled=True,
+            num_node_groups=2,
+            node_group_configurations=[
+                {
+                    "node_group_id": "0001",
+                    "primary_availability_zone": "us-west-2a",
+                    "replica_availability_zones": ["us-west-2b"],
+                    "replica_count": 1,
+                    "slots": "0-8191",
+                },
+                {
+                    "node_group_id": "0002",
+                    "primary_availability_zone": "us-west-2b",
+                    "replica_availability_zones": ["us-west-2a"],
+                    "replica_count": 1,
+                    "slots": "8192-16383",
+                },
+            ])
+        ```
+
         ### Redis Log Delivery configuration
 
         ```python
@@ -2108,6 +2210,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_az_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_group_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]]] = None,
                  node_type: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  num_cache_clusters: Optional[pulumi.Input[_builtins.int]] = None,
@@ -2159,6 +2262,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["multi_az_enabled"] = multi_az_enabled
             __props__.__dict__["network_type"] = network_type
+            __props__.__dict__["node_group_configurations"] = node_group_configurations
             __props__.__dict__["node_type"] = node_type
             __props__.__dict__["notification_topic_arn"] = notification_topic_arn
             __props__.__dict__["num_cache_clusters"] = num_cache_clusters
@@ -2224,6 +2328,7 @@ class ReplicationGroup(pulumi.CustomResource):
             member_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             multi_az_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             network_type: Optional[pulumi.Input[_builtins.str]] = None,
+            node_group_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]]] = None,
             node_type: Optional[pulumi.Input[_builtins.str]] = None,
             notification_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
             num_cache_clusters: Optional[pulumi.Input[_builtins.int]] = None,
@@ -2292,6 +2397,7 @@ class ReplicationGroup(pulumi.CustomResource):
                If `true`, `automatic_failover_enabled` must also be enabled.
                Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]] node_group_configurations: Configuration block for node groups (shards). Can be specified only if `num_node_groups` is set. Conflicts with `preferred_cache_cluster_azs`. See Node Group Configuration below for more details.
         :param pulumi.Input[_builtins.str] node_type: Instance class to be used.
                See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
                Required unless `global_replication_group_id` is set.
@@ -2365,6 +2471,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["member_clusters"] = member_clusters
         __props__.__dict__["multi_az_enabled"] = multi_az_enabled
         __props__.__dict__["network_type"] = network_type
+        __props__.__dict__["node_group_configurations"] = node_group_configurations
         __props__.__dict__["node_type"] = node_type
         __props__.__dict__["notification_topic_arn"] = notification_topic_arn
         __props__.__dict__["num_cache_clusters"] = num_cache_clusters
@@ -2595,6 +2702,14 @@ class ReplicationGroup(pulumi.CustomResource):
         The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         """
         return pulumi.get(self, "network_type")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeGroupConfigurations")
+    def node_group_configurations(self) -> pulumi.Output[Sequence['outputs.ReplicationGroupNodeGroupConfiguration']]:
+        """
+        Configuration block for node groups (shards). Can be specified only if `num_node_groups` is set. Conflicts with `preferred_cache_cluster_azs`. See Node Group Configuration below for more details.
+        """
+        return pulumi.get(self, "node_group_configurations")
 
     @_builtins.property
     @pulumi.getter(name="nodeType")

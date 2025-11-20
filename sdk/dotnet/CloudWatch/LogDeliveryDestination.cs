@@ -36,6 +36,25 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
+    /// ### X-Ray Trace Delivery
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var xray = new Aws.CloudWatch.LogDeliveryDestination("xray", new()
+    ///     {
+    ///         Name = "xray-traces",
+    ///         DeliveryDestinationType = "XRAY",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Logs Delivery Destination using the `name`. For example:
@@ -54,13 +73,13 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS resource that will receive the logs.
+        /// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
         /// </summary>
         [Output("deliveryDestinationConfiguration")]
         public Output<Outputs.LogDeliveryDestinationDeliveryDestinationConfiguration?> DeliveryDestinationConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+        /// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `DestinationResourceArn`.
         /// </summary>
         [Output("deliveryDestinationType")]
         public Output<string> DeliveryDestinationType { get; private set; } = null!;
@@ -142,10 +161,16 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogDeliveryDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS resource that will receive the logs.
+        /// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
         /// </summary>
         [Input("deliveryDestinationConfiguration")]
         public Input<Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs>? DeliveryDestinationConfiguration { get; set; }
+
+        /// <summary>
+        /// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `DestinationResourceArn`.
+        /// </summary>
+        [Input("deliveryDestinationType")]
+        public Input<string>? DeliveryDestinationType { get; set; }
 
         /// <summary>
         /// The name for this delivery destination.
@@ -192,13 +217,13 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The AWS resource that will receive the logs.
+        /// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
         /// </summary>
         [Input("deliveryDestinationConfiguration")]
         public Input<Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationGetArgs>? DeliveryDestinationConfiguration { get; set; }
 
         /// <summary>
-        /// Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+        /// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `DestinationResourceArn`.
         /// </summary>
         [Input("deliveryDestinationType")]
         public Input<string>? DeliveryDestinationType { get; set; }

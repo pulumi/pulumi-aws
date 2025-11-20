@@ -18,14 +18,14 @@ public final class EndpointConfigurationAsyncInferenceConfigArgs extends com.pul
     public static final EndpointConfigurationAsyncInferenceConfigArgs Empty = new EndpointConfigurationAsyncInferenceConfigArgs();
 
     /**
-     * Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
+     * Configures the behavior of the client used by SageMaker AI to interact with the model container during asynchronous inference.
      * 
      */
     @Import(name="clientConfig")
     private @Nullable Output<EndpointConfigurationAsyncInferenceConfigClientConfigArgs> clientConfig;
 
     /**
-     * @return Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
+     * @return Configures the behavior of the client used by SageMaker AI to interact with the model container during asynchronous inference.
      * 
      */
     public Optional<Output<EndpointConfigurationAsyncInferenceConfigClientConfigArgs>> clientConfig() {
@@ -33,14 +33,14 @@ public final class EndpointConfigurationAsyncInferenceConfigArgs extends com.pul
     }
 
     /**
-     * Specifies the configuration for asynchronous inference invocation outputs.
+     * Configuration for asynchronous inference invocation outputs.
      * 
      */
     @Import(name="outputConfig", required=true)
     private Output<EndpointConfigurationAsyncInferenceConfigOutputConfigArgs> outputConfig;
 
     /**
-     * @return Specifies the configuration for asynchronous inference invocation outputs.
+     * @return Configuration for asynchronous inference invocation outputs.
      * 
      */
     public Output<EndpointConfigurationAsyncInferenceConfigOutputConfigArgs> outputConfig() {
@@ -73,7 +73,7 @@ public final class EndpointConfigurationAsyncInferenceConfigArgs extends com.pul
         }
 
         /**
-         * @param clientConfig Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
+         * @param clientConfig Configures the behavior of the client used by SageMaker AI to interact with the model container during asynchronous inference.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class EndpointConfigurationAsyncInferenceConfigArgs extends com.pul
         }
 
         /**
-         * @param clientConfig Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
+         * @param clientConfig Configures the behavior of the client used by SageMaker AI to interact with the model container during asynchronous inference.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class EndpointConfigurationAsyncInferenceConfigArgs extends com.pul
         }
 
         /**
-         * @param outputConfig Specifies the configuration for asynchronous inference invocation outputs.
+         * @param outputConfig Configuration for asynchronous inference invocation outputs.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class EndpointConfigurationAsyncInferenceConfigArgs extends com.pul
         }
 
         /**
-         * @param outputConfig Specifies the configuration for asynchronous inference invocation outputs.
+         * @param outputConfig Configuration for asynchronous inference invocation outputs.
          * 
          * @return builder
          * 

@@ -15,9 +15,17 @@ public final class DomainAimlOptionsS3VectorsEngineArgs extends com.pulumi.resou
 
     public static final DomainAimlOptionsS3VectorsEngineArgs Empty = new DomainAimlOptionsS3VectorsEngineArgs();
 
+    /**
+     * Enables S3 vectors engine features.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Enables S3 vectors engine features.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -46,11 +54,23 @@ public final class DomainAimlOptionsS3VectorsEngineArgs extends com.pulumi.resou
             $ = new DomainAimlOptionsS3VectorsEngineArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Enables S3 vectors engine features.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Enables S3 vectors engine features.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

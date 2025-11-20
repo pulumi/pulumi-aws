@@ -13,7 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
     public sealed class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        /// The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         [Input("desiredState")]
         public Input<string>? DesiredState { get; set; }

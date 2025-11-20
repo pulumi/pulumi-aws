@@ -317,6 +317,9 @@ export class Domain extends pulumi.CustomResource {
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      */
     declare public readonly advancedSecurityOptions: pulumi.Output<outputs.opensearch.DomainAdvancedSecurityOptions>;
+    /**
+     * Configuration block for parameters required to enable all machine learning features. Detailed below.
+     */
     declare public readonly aimlOptions: pulumi.Output<outputs.opensearch.DomainAimlOptions>;
     /**
      * ARN of the domain.
@@ -382,6 +385,10 @@ export class Domain extends pulumi.CustomResource {
      * Defaults to the lastest version of OpenSearch.
      */
     declare public readonly engineVersion: pulumi.Output<string>;
+    /**
+     * Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+     */
+    declare public readonly identityCenterOptions: pulumi.Output<outputs.opensearch.DomainIdentityCenterOptions | undefined>;
     /**
      * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
      */
@@ -455,6 +462,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["endpoint"] = state?.endpoint;
             resourceInputs["endpointV2"] = state?.endpointV2;
             resourceInputs["engineVersion"] = state?.engineVersion;
+            resourceInputs["identityCenterOptions"] = state?.identityCenterOptions;
             resourceInputs["ipAddressType"] = state?.ipAddressType;
             resourceInputs["logPublishingOptions"] = state?.logPublishingOptions;
             resourceInputs["nodeToNodeEncryption"] = state?.nodeToNodeEncryption;
@@ -479,6 +487,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["ebsOptions"] = args?.ebsOptions;
             resourceInputs["encryptAtRest"] = args?.encryptAtRest;
             resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["identityCenterOptions"] = args?.identityCenterOptions;
             resourceInputs["ipAddressType"] = args?.ipAddressType;
             resourceInputs["logPublishingOptions"] = args?.logPublishingOptions;
             resourceInputs["nodeToNodeEncryption"] = args?.nodeToNodeEncryption;
@@ -518,6 +527,9 @@ export interface DomainState {
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      */
     advancedSecurityOptions?: pulumi.Input<inputs.opensearch.DomainAdvancedSecurityOptions>;
+    /**
+     * Configuration block for parameters required to enable all machine learning features. Detailed below.
+     */
     aimlOptions?: pulumi.Input<inputs.opensearch.DomainAimlOptions>;
     /**
      * ARN of the domain.
@@ -584,6 +596,10 @@ export interface DomainState {
      */
     engineVersion?: pulumi.Input<string>;
     /**
+     * Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+     */
+    identityCenterOptions?: pulumi.Input<inputs.opensearch.DomainIdentityCenterOptions>;
+    /**
      * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
      */
     ipAddressType?: pulumi.Input<string>;
@@ -641,6 +657,9 @@ export interface DomainArgs {
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      */
     advancedSecurityOptions?: pulumi.Input<inputs.opensearch.DomainAdvancedSecurityOptions>;
+    /**
+     * Configuration block for parameters required to enable all machine learning features. Detailed below.
+     */
     aimlOptions?: pulumi.Input<inputs.opensearch.DomainAimlOptions>;
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
@@ -678,6 +697,10 @@ export interface DomainArgs {
      * Defaults to the lastest version of OpenSearch.
      */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+     */
+    identityCenterOptions?: pulumi.Input<inputs.opensearch.DomainIdentityCenterOptions>;
     /**
      * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
      */

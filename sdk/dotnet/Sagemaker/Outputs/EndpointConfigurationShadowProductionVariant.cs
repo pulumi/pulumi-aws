@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class EndpointConfigurationShadowProductionVariant
     {
         /// <summary>
-        /// The size of the Elastic Inference (EI) instance to use for the production variant.
+        /// Size of the Elastic Inference (EI) instance to use for the production variant.
         /// </summary>
         public readonly string? AcceleratorType;
         /// <summary>
-        /// The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        /// Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         /// </summary>
         public readonly int? ContainerStartupHealthCheckTimeoutInSeconds;
         /// <summary>
-        /// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+        /// Core dump configuration from the model container when the process crashes. Fields are documented below.
         /// </summary>
         public readonly Outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig? CoreDumpConfig;
         /// <summary>
-        /// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+        /// Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `ModelName` is not set (Inference Components endpoint).
         /// </summary>
         public readonly bool? EnableSsmAccess;
         /// <summary>
-        /// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        /// Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
         /// </summary>
         public readonly string? InferenceAmiVersion;
         /// <summary>
@@ -38,39 +38,39 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly int? InitialInstanceCount;
         /// <summary>
-        /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+        /// Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `ModelName` is not set (Inference Components endpoint).
         /// </summary>
         public readonly double? InitialVariantWeight;
         /// <summary>
-        /// The type of instance to start.
+        /// Type of instance to start.
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
-        /// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+        /// Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
         /// </summary>
         public readonly Outputs.EndpointConfigurationShadowProductionVariantManagedInstanceScaling? ManagedInstanceScaling;
         /// <summary>
-        /// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        /// Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
         /// </summary>
         public readonly int? ModelDataDownloadTimeoutInSeconds;
         /// <summary>
-        /// The name of the model to use.
+        /// Name of the model to use. Required unless using Inference Components (in which case `ExecutionRoleArn` must be specified at the endpoint configuration level).
         /// </summary>
-        public readonly string ModelName;
+        public readonly string? ModelName;
         /// <summary>
-        /// Sets how the endpoint routes incoming traffic. See RoutingConfig below.
+        /// How the endpoint routes incoming traffic. See RoutingConfig below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointConfigurationShadowProductionVariantRoutingConfig> RoutingConfigs;
         /// <summary>
-        /// Specifies configuration for how an endpoint performs asynchronous inference.
+        /// How an endpoint performs asynchronous inference.
         /// </summary>
         public readonly Outputs.EndpointConfigurationShadowProductionVariantServerlessConfig? ServerlessConfig;
         /// <summary>
-        /// The name of the variant. If omitted, this provider will assign a random, unique name.
+        /// Name of the variant. If omitted, the provider will assign a random, unique name.
         /// </summary>
         public readonly string? VariantName;
         /// <summary>
-        /// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+        /// Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
         /// </summary>
         public readonly int? VolumeSizeInGb;
 
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             int? modelDataDownloadTimeoutInSeconds,
 
-            string modelName,
+            string? modelName,
 
             ImmutableArray<Outputs.EndpointConfigurationShadowProductionVariantRoutingConfig> routingConfigs,
 

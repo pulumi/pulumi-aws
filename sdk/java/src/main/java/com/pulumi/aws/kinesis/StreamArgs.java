@@ -81,6 +81,21 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+     * 
+     */
+    @Import(name="maxRecordSizeInKib")
+    private @Nullable Output<Integer> maxRecordSizeInKib;
+
+    /**
+     * @return The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+     * 
+     */
+    public Optional<Output<Integer>> maxRecordSizeInKib() {
+        return Optional.ofNullable(this.maxRecordSizeInKib);
+    }
+
+    /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      * 
      */
@@ -194,6 +209,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         this.encryptionType = $.encryptionType;
         this.enforceConsumerDeletion = $.enforceConsumerDeletion;
         this.kmsKeyId = $.kmsKeyId;
+        this.maxRecordSizeInKib = $.maxRecordSizeInKib;
         this.name = $.name;
         this.region = $.region;
         this.retentionPeriod = $.retentionPeriod;
@@ -303,6 +319,27 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
+        }
+
+        /**
+         * @param maxRecordSizeInKib The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxRecordSizeInKib(@Nullable Output<Integer> maxRecordSizeInKib) {
+            $.maxRecordSizeInKib = maxRecordSizeInKib;
+            return this;
+        }
+
+        /**
+         * @param maxRecordSizeInKib The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxRecordSizeInKib(Integer maxRecordSizeInKib) {
+            return maxRecordSizeInKib(Output.of(maxRecordSizeInKib));
         }
 
         /**

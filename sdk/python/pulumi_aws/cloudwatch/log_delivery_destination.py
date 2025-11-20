@@ -22,13 +22,15 @@ __all__ = ['LogDeliveryDestinationArgs', 'LogDeliveryDestination']
 class LogDeliveryDestinationArgs:
     def __init__(__self__, *,
                  delivery_destination_configuration: Optional[pulumi.Input['LogDeliveryDestinationDeliveryDestinationConfigurationArgs']] = None,
+                 delivery_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  output_format: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogDeliveryDestination resource.
-        :param pulumi.Input['LogDeliveryDestinationDeliveryDestinationConfigurationArgs'] delivery_destination_configuration: The AWS resource that will receive the logs.
+        :param pulumi.Input['LogDeliveryDestinationDeliveryDestinationConfigurationArgs'] delivery_destination_configuration: The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
+        :param pulumi.Input[_builtins.str] delivery_destination_type: The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destination_resource_arn`.
         :param pulumi.Input[_builtins.str] name: The name for this delivery destination.
         :param pulumi.Input[_builtins.str] output_format: The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -36,6 +38,8 @@ class LogDeliveryDestinationArgs:
         """
         if delivery_destination_configuration is not None:
             pulumi.set(__self__, "delivery_destination_configuration", delivery_destination_configuration)
+        if delivery_destination_type is not None:
+            pulumi.set(__self__, "delivery_destination_type", delivery_destination_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if output_format is not None:
@@ -49,13 +53,25 @@ class LogDeliveryDestinationArgs:
     @pulumi.getter(name="deliveryDestinationConfiguration")
     def delivery_destination_configuration(self) -> Optional[pulumi.Input['LogDeliveryDestinationDeliveryDestinationConfigurationArgs']]:
         """
-        The AWS resource that will receive the logs.
+        The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
         """
         return pulumi.get(self, "delivery_destination_configuration")
 
     @delivery_destination_configuration.setter
     def delivery_destination_configuration(self, value: Optional[pulumi.Input['LogDeliveryDestinationDeliveryDestinationConfigurationArgs']]):
         pulumi.set(self, "delivery_destination_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryDestinationType")
+    def delivery_destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destination_resource_arn`.
+        """
+        return pulumi.get(self, "delivery_destination_type")
+
+    @delivery_destination_type.setter
+    def delivery_destination_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delivery_destination_type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -120,8 +136,8 @@ class _LogDeliveryDestinationState:
         """
         Input properties used for looking up and filtering LogDeliveryDestination resources.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delivery destination.
-        :param pulumi.Input['LogDeliveryDestinationDeliveryDestinationConfigurationArgs'] delivery_destination_configuration: The AWS resource that will receive the logs.
-        :param pulumi.Input[_builtins.str] delivery_destination_type: Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+        :param pulumi.Input['LogDeliveryDestinationDeliveryDestinationConfigurationArgs'] delivery_destination_configuration: The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
+        :param pulumi.Input[_builtins.str] delivery_destination_type: The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destination_resource_arn`.
         :param pulumi.Input[_builtins.str] name: The name for this delivery destination.
         :param pulumi.Input[_builtins.str] output_format: The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -161,7 +177,7 @@ class _LogDeliveryDestinationState:
     @pulumi.getter(name="deliveryDestinationConfiguration")
     def delivery_destination_configuration(self) -> Optional[pulumi.Input['LogDeliveryDestinationDeliveryDestinationConfigurationArgs']]:
         """
-        The AWS resource that will receive the logs.
+        The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
         """
         return pulumi.get(self, "delivery_destination_configuration")
 
@@ -173,7 +189,7 @@ class _LogDeliveryDestinationState:
     @pulumi.getter(name="deliveryDestinationType")
     def delivery_destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+        The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destination_resource_arn`.
         """
         return pulumi.get(self, "delivery_destination_type")
 
@@ -249,6 +265,7 @@ class LogDeliveryDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_configuration: Optional[pulumi.Input[Union['LogDeliveryDestinationDeliveryDestinationConfigurationArgs', 'LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict']]] = None,
+                 delivery_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  output_format: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -272,6 +289,17 @@ class LogDeliveryDestination(pulumi.CustomResource):
             })
         ```
 
+        ### X-Ray Trace Delivery
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        xray = aws.cloudwatch.LogDeliveryDestination("xray",
+            name="xray-traces",
+            delivery_destination_type="XRAY")
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudWatch Logs Delivery Destination using the `name`. For example:
@@ -282,7 +310,8 @@ class LogDeliveryDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LogDeliveryDestinationDeliveryDestinationConfigurationArgs', 'LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict']] delivery_destination_configuration: The AWS resource that will receive the logs.
+        :param pulumi.Input[Union['LogDeliveryDestinationDeliveryDestinationConfigurationArgs', 'LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict']] delivery_destination_configuration: The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
+        :param pulumi.Input[_builtins.str] delivery_destination_type: The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destination_resource_arn`.
         :param pulumi.Input[_builtins.str] name: The name for this delivery destination.
         :param pulumi.Input[_builtins.str] output_format: The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -312,6 +341,17 @@ class LogDeliveryDestination(pulumi.CustomResource):
             })
         ```
 
+        ### X-Ray Trace Delivery
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        xray = aws.cloudwatch.LogDeliveryDestination("xray",
+            name="xray-traces",
+            delivery_destination_type="XRAY")
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudWatch Logs Delivery Destination using the `name`. For example:
@@ -336,6 +376,7 @@ class LogDeliveryDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_configuration: Optional[pulumi.Input[Union['LogDeliveryDestinationDeliveryDestinationConfigurationArgs', 'LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict']]] = None,
+                 delivery_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  output_format: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -350,12 +391,12 @@ class LogDeliveryDestination(pulumi.CustomResource):
             __props__ = LogDeliveryDestinationArgs.__new__(LogDeliveryDestinationArgs)
 
             __props__.__dict__["delivery_destination_configuration"] = delivery_destination_configuration
+            __props__.__dict__["delivery_destination_type"] = delivery_destination_type
             __props__.__dict__["name"] = name
             __props__.__dict__["output_format"] = output_format
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["delivery_destination_type"] = None
             __props__.__dict__["tags_all"] = None
         super(LogDeliveryDestination, __self__).__init__(
             'aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination',
@@ -383,8 +424,8 @@ class LogDeliveryDestination(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delivery destination.
-        :param pulumi.Input[Union['LogDeliveryDestinationDeliveryDestinationConfigurationArgs', 'LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict']] delivery_destination_configuration: The AWS resource that will receive the logs.
-        :param pulumi.Input[_builtins.str] delivery_destination_type: Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+        :param pulumi.Input[Union['LogDeliveryDestinationDeliveryDestinationConfigurationArgs', 'LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict']] delivery_destination_configuration: The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
+        :param pulumi.Input[_builtins.str] delivery_destination_type: The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destination_resource_arn`.
         :param pulumi.Input[_builtins.str] name: The name for this delivery destination.
         :param pulumi.Input[_builtins.str] output_format: The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -417,7 +458,7 @@ class LogDeliveryDestination(pulumi.CustomResource):
     @pulumi.getter(name="deliveryDestinationConfiguration")
     def delivery_destination_configuration(self) -> pulumi.Output[Optional['outputs.LogDeliveryDestinationDeliveryDestinationConfiguration']]:
         """
-        The AWS resource that will receive the logs.
+        The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
         """
         return pulumi.get(self, "delivery_destination_configuration")
 
@@ -425,7 +466,7 @@ class LogDeliveryDestination(pulumi.CustomResource):
     @pulumi.getter(name="deliveryDestinationType")
     def delivery_destination_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+        The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destination_resource_arn`.
         """
         return pulumi.get(self, "delivery_destination_type")
 

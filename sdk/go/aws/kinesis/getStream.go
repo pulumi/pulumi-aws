@@ -75,6 +75,8 @@ type LookupStreamResult struct {
 	Id string `pulumi:"id"`
 	// GUID for the customer-managed AWS KMS key to use for encryption.
 	KmsKeyId string `pulumi:"kmsKeyId"`
+	// The maximum size for a single data record in KiB.
+	MaxRecordSizeInKib int `pulumi:"maxRecordSizeInKib"`
 	// Name of the Kinesis Stream.
 	Name string `pulumi:"name"`
 	// List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
@@ -158,6 +160,11 @@ func (o LookupStreamResultOutput) Id() pulumi.StringOutput {
 // GUID for the customer-managed AWS KMS key to use for encryption.
 func (o LookupStreamResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// The maximum size for a single data record in KiB.
+func (o LookupStreamResultOutput) MaxRecordSizeInKib() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupStreamResult) int { return v.MaxRecordSizeInKib }).(pulumi.IntOutput)
 }
 
 // Name of the Kinesis Stream.

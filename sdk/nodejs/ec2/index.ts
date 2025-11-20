@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AllowedImagesSettingsArgs, AllowedImagesSettingsState } from "./allowedImagesSettings";
+export type AllowedImagesSettings = import("./allowedImagesSettings").AllowedImagesSettings;
+export const AllowedImagesSettings: typeof import("./allowedImagesSettings").AllowedImagesSettings = null as any;
+utilities.lazyLoad(exports, ["AllowedImagesSettings"], () => require("./allowedImagesSettings"));
+
 export { AmiArgs, AmiState } from "./ami";
 export type Ami = import("./ami").Ami;
 export const Ami: typeof import("./ami").Ami = null as any;
@@ -838,6 +843,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:ec2/allowedImagesSettings:AllowedImagesSettings":
+                return new AllowedImagesSettings(name, <any>undefined, { urn })
             case "aws:ec2/ami:Ami":
                 return new Ami(name, <any>undefined, { urn })
             case "aws:ec2/amiCopy:AmiCopy":
@@ -1045,6 +1052,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "ec2/allowedImagesSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/ami", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/amiCopy", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/amiFromInstance", _module)

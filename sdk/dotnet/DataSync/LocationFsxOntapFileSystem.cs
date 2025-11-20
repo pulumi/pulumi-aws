@@ -16,6 +16,37 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ### Basic Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.DataSync.LocationFsxOntapFileSystem("test", new()
+    ///     {
+    ///         FsxFilesystemArn = testAwsFsxOntapFileSystem.Arn,
+    ///         SecurityGroupArns = new[]
+    ///         {
+    ///             testAwsSecurityGroup.Arn,
+    ///         },
+    ///         StorageVirtualMachineArn = testAwsFsxOntapStorageVirtualMachine.Arn,
+    ///         Protocol = new Aws.DataSync.Inputs.LocationFsxOntapFileSystemProtocolArgs
+    ///         {
+    ///             Nfs = new Aws.DataSync.Inputs.LocationFsxOntapFileSystemProtocolNfsArgs
+    ///             {
+    ///                 MountOptions = new Aws.DataSync.Inputs.LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs
+    ///                 {
+    ///                     Version = "NFS3",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:

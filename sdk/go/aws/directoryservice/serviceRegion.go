@@ -59,6 +59,14 @@ import (
 // if err != nil {
 // return err
 // }
+// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+// Input: cidrBlock,
+// Newbits: 8,
+// Netnum: val0,
+// }, nil)
+// if err != nil {
+// return err
+// }
 // var exampleSubnet []*ec2.Subnet
 //
 //	for index := 0; index < 2; index++ {
@@ -69,12 +77,7 @@ import (
 // VpcId: exampleVpc.ID(),
 // AvailabilityZone: pulumi.String(available.Names[val0]),
 // CidrBlock: pulumi.String(exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
-// Input: cidrBlock,
-// Newbits: 8,
-// Netnum: val0,
-// }, nil))), nil
-// }).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
 // return invoke.Result, nil
 // }).(pulumi.StringPtrOutput)),
 // Tags: pulumi.StringMap{
@@ -121,6 +124,14 @@ import (
 // if err != nil {
 // return err
 // }
+// invokeCidrsubnet1, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+// Input: cidrBlock,
+// Newbits: 8,
+// Netnum: val0,
+// }, nil)
+// if err != nil {
+// return err
+// }
 // var example_secondarySubnet []*ec2.Subnet
 //
 //	for index := 0; index < 2; index++ {
@@ -131,12 +142,7 @@ import (
 // VpcId: example_secondary.ID(),
 // AvailabilityZone: pulumi.String(available_secondary.Names[val0]),
 // CidrBlock: pulumi.String(example_secondary.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
-// Input: cidrBlock,
-// Newbits: 8,
-// Netnum: val0,
-// }, nil))), nil
-// }).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
 // return invoke.Result, nil
 // }).(pulumi.StringPtrOutput)),
 // Tags: pulumi.StringMap{

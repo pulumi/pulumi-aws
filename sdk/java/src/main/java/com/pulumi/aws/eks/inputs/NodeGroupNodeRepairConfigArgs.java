@@ -3,9 +3,12 @@
 
 package com.pulumi.aws.eks.inputs;
 
+import com.pulumi.aws.eks.inputs.NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,24 +19,104 @@ public final class NodeGroupNodeRepairConfigArgs extends com.pulumi.resources.Re
     public static final NodeGroupNodeRepairConfigArgs Empty = new NodeGroupNodeRepairConfigArgs();
 
     /**
-     * Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+     * Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+     * @return Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `maxParallelNodesRepairedPercentage`.
+     * 
+     */
+    @Import(name="maxParallelNodesRepairedCount")
+    private @Nullable Output<Integer> maxParallelNodesRepairedCount;
+
+    /**
+     * @return Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `maxParallelNodesRepairedPercentage`.
+     * 
+     */
+    public Optional<Output<Integer>> maxParallelNodesRepairedCount() {
+        return Optional.ofNullable(this.maxParallelNodesRepairedCount);
+    }
+
+    /**
+     * Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `maxParallelNodesRepairedCount`.
+     * 
+     */
+    @Import(name="maxParallelNodesRepairedPercentage")
+    private @Nullable Output<Integer> maxParallelNodesRepairedPercentage;
+
+    /**
+     * @return Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `maxParallelNodesRepairedCount`.
+     * 
+     */
+    public Optional<Output<Integer>> maxParallelNodesRepairedPercentage() {
+        return Optional.ofNullable(this.maxParallelNodesRepairedPercentage);
+    }
+
+    /**
+     * Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdPercentage`.
+     * 
+     */
+    @Import(name="maxUnhealthyNodeThresholdCount")
+    private @Nullable Output<Integer> maxUnhealthyNodeThresholdCount;
+
+    /**
+     * @return Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdPercentage`.
+     * 
+     */
+    public Optional<Output<Integer>> maxUnhealthyNodeThresholdCount() {
+        return Optional.ofNullable(this.maxUnhealthyNodeThresholdCount);
+    }
+
+    /**
+     * Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdCount`.
+     * 
+     */
+    @Import(name="maxUnhealthyNodeThresholdPercentage")
+    private @Nullable Output<Integer> maxUnhealthyNodeThresholdPercentage;
+
+    /**
+     * @return Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdCount`.
+     * 
+     */
+    public Optional<Output<Integer>> maxUnhealthyNodeThresholdPercentage() {
+        return Optional.ofNullable(this.maxUnhealthyNodeThresholdPercentage);
+    }
+
+    /**
+     * Granular overrides for specific repair actions. See `nodeRepairConfigOverrides` below for details.
+     * 
+     */
+    @Import(name="nodeRepairConfigOverrides")
+    private @Nullable Output<List<NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs>> nodeRepairConfigOverrides;
+
+    /**
+     * @return Granular overrides for specific repair actions. See `nodeRepairConfigOverrides` below for details.
+     * 
+     */
+    public Optional<Output<List<NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs>>> nodeRepairConfigOverrides() {
+        return Optional.ofNullable(this.nodeRepairConfigOverrides);
+    }
+
     private NodeGroupNodeRepairConfigArgs() {}
 
     private NodeGroupNodeRepairConfigArgs(NodeGroupNodeRepairConfigArgs $) {
         this.enabled = $.enabled;
+        this.maxParallelNodesRepairedCount = $.maxParallelNodesRepairedCount;
+        this.maxParallelNodesRepairedPercentage = $.maxParallelNodesRepairedPercentage;
+        this.maxUnhealthyNodeThresholdCount = $.maxUnhealthyNodeThresholdCount;
+        this.maxUnhealthyNodeThresholdPercentage = $.maxUnhealthyNodeThresholdPercentage;
+        this.nodeRepairConfigOverrides = $.nodeRepairConfigOverrides;
     }
 
     public static Builder builder() {
@@ -55,7 +138,7 @@ public final class NodeGroupNodeRepairConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+         * @param enabled Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -66,13 +149,128 @@ public final class NodeGroupNodeRepairConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+         * @param enabled Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
          * 
          * @return builder
          * 
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param maxParallelNodesRepairedCount Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `maxParallelNodesRepairedPercentage`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxParallelNodesRepairedCount(@Nullable Output<Integer> maxParallelNodesRepairedCount) {
+            $.maxParallelNodesRepairedCount = maxParallelNodesRepairedCount;
+            return this;
+        }
+
+        /**
+         * @param maxParallelNodesRepairedCount Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `maxParallelNodesRepairedPercentage`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxParallelNodesRepairedCount(Integer maxParallelNodesRepairedCount) {
+            return maxParallelNodesRepairedCount(Output.of(maxParallelNodesRepairedCount));
+        }
+
+        /**
+         * @param maxParallelNodesRepairedPercentage Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `maxParallelNodesRepairedCount`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxParallelNodesRepairedPercentage(@Nullable Output<Integer> maxParallelNodesRepairedPercentage) {
+            $.maxParallelNodesRepairedPercentage = maxParallelNodesRepairedPercentage;
+            return this;
+        }
+
+        /**
+         * @param maxParallelNodesRepairedPercentage Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `maxParallelNodesRepairedCount`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxParallelNodesRepairedPercentage(Integer maxParallelNodesRepairedPercentage) {
+            return maxParallelNodesRepairedPercentage(Output.of(maxParallelNodesRepairedPercentage));
+        }
+
+        /**
+         * @param maxUnhealthyNodeThresholdCount Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdPercentage`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxUnhealthyNodeThresholdCount(@Nullable Output<Integer> maxUnhealthyNodeThresholdCount) {
+            $.maxUnhealthyNodeThresholdCount = maxUnhealthyNodeThresholdCount;
+            return this;
+        }
+
+        /**
+         * @param maxUnhealthyNodeThresholdCount Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdPercentage`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxUnhealthyNodeThresholdCount(Integer maxUnhealthyNodeThresholdCount) {
+            return maxUnhealthyNodeThresholdCount(Output.of(maxUnhealthyNodeThresholdCount));
+        }
+
+        /**
+         * @param maxUnhealthyNodeThresholdPercentage Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdCount`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxUnhealthyNodeThresholdPercentage(@Nullable Output<Integer> maxUnhealthyNodeThresholdPercentage) {
+            $.maxUnhealthyNodeThresholdPercentage = maxUnhealthyNodeThresholdPercentage;
+            return this;
+        }
+
+        /**
+         * @param maxUnhealthyNodeThresholdPercentage Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdCount`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxUnhealthyNodeThresholdPercentage(Integer maxUnhealthyNodeThresholdPercentage) {
+            return maxUnhealthyNodeThresholdPercentage(Output.of(maxUnhealthyNodeThresholdPercentage));
+        }
+
+        /**
+         * @param nodeRepairConfigOverrides Granular overrides for specific repair actions. See `nodeRepairConfigOverrides` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeRepairConfigOverrides(@Nullable Output<List<NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs>> nodeRepairConfigOverrides) {
+            $.nodeRepairConfigOverrides = nodeRepairConfigOverrides;
+            return this;
+        }
+
+        /**
+         * @param nodeRepairConfigOverrides Granular overrides for specific repair actions. See `nodeRepairConfigOverrides` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeRepairConfigOverrides(List<NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs> nodeRepairConfigOverrides) {
+            return nodeRepairConfigOverrides(Output.of(nodeRepairConfigOverrides));
+        }
+
+        /**
+         * @param nodeRepairConfigOverrides Granular overrides for specific repair actions. See `nodeRepairConfigOverrides` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeRepairConfigOverrides(NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs... nodeRepairConfigOverrides) {
+            return nodeRepairConfigOverrides(List.of(nodeRepairConfigOverrides));
         }
 
         public NodeGroupNodeRepairConfigArgs build() {

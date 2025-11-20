@@ -18,14 +18,14 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
     public static final EndpointConfigurationAsyncInferenceConfigOutputConfigArgs Empty = new EndpointConfigurationAsyncInferenceConfigOutputConfigArgs();
 
     /**
-     * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+     * KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+     * @return KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -33,14 +33,14 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
     }
 
     /**
-     * Specifies the configuration for notifications of inference results for asynchronous inference.
+     * Configuration for notifications of inference results for asynchronous inference.
      * 
      */
     @Import(name="notificationConfig")
     private @Nullable Output<EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs> notificationConfig;
 
     /**
-     * @return Specifies the configuration for notifications of inference results for asynchronous inference.
+     * @return Configuration for notifications of inference results for asynchronous inference.
      * 
      */
     public Optional<Output<EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs>> notificationConfig() {
@@ -48,14 +48,14 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
     }
 
     /**
-     * The Amazon S3 location to upload failure inference responses to.
+     * S3 location to upload failure inference responses to.
      * 
      */
     @Import(name="s3FailurePath")
     private @Nullable Output<String> s3FailurePath;
 
     /**
-     * @return The Amazon S3 location to upload failure inference responses to.
+     * @return S3 location to upload failure inference responses to.
      * 
      */
     public Optional<Output<String>> s3FailurePath() {
@@ -63,14 +63,14 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
     }
 
     /**
-     * The Amazon S3 location to upload inference responses to.
+     * S3 location to upload inference responses to.
      * 
      */
     @Import(name="s3OutputPath", required=true)
     private Output<String> s3OutputPath;
 
     /**
-     * @return The Amazon S3 location to upload inference responses to.
+     * @return S3 location to upload inference responses to.
      * 
      */
     public Output<String> s3OutputPath() {
@@ -105,7 +105,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
         }
 
         /**
-         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+         * @param kmsKeyId KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
         }
 
         /**
-         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+         * @param kmsKeyId KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
         }
 
         /**
-         * @param notificationConfig Specifies the configuration for notifications of inference results for asynchronous inference.
+         * @param notificationConfig Configuration for notifications of inference results for asynchronous inference.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
         }
 
         /**
-         * @param notificationConfig Specifies the configuration for notifications of inference results for asynchronous inference.
+         * @param notificationConfig Configuration for notifications of inference results for asynchronous inference.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
         }
 
         /**
-         * @param s3FailurePath The Amazon S3 location to upload failure inference responses to.
+         * @param s3FailurePath S3 location to upload failure inference responses to.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
         }
 
         /**
-         * @param s3FailurePath The Amazon S3 location to upload failure inference responses to.
+         * @param s3FailurePath S3 location to upload failure inference responses to.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
         }
 
         /**
-         * @param s3OutputPath The Amazon S3 location to upload inference responses to.
+         * @param s3OutputPath S3 location to upload inference responses to.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
         }
 
         /**
-         * @param s3OutputPath The Amazon S3 location to upload inference responses to.
+         * @param s3OutputPath S3 location to upload inference responses to.
          * 
          * @return builder
          * 

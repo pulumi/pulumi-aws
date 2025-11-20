@@ -58,6 +58,10 @@ export class SerialConsoleAccess extends pulumi.CustomResource {
      * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a SerialConsoleAccess resource with the given unique name, arguments, and options.
@@ -73,9 +77,11 @@ export class SerialConsoleAccess extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SerialConsoleAccessState | undefined;
             resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as SerialConsoleAccessArgs | undefined;
             resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SerialConsoleAccess.__pulumiType, name, resourceInputs, opts);
@@ -90,6 +96,10 @@ export interface SerialConsoleAccessState {
      * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -100,4 +110,8 @@ export interface SerialConsoleAccessArgs {
      * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -3,7 +3,9 @@
 
 package com.pulumi.aws.ecs.inputs;
 
+import com.pulumi.aws.ecs.inputs.ServiceDeploymentConfigurationCanaryConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.ServiceDeploymentConfigurationLifecycleHookArgs;
+import com.pulumi.aws.ecs.inputs.ServiceDeploymentConfigurationLinearConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -18,18 +20,33 @@ public final class ServiceDeploymentConfigurationArgs extends com.pulumi.resourc
     public static final ServiceDeploymentConfigurationArgs Empty = new ServiceDeploymentConfigurationArgs();
 
     /**
-     * Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+     * Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
      * 
      */
     @Import(name="bakeTimeInMinutes")
     private @Nullable Output<String> bakeTimeInMinutes;
 
     /**
-     * @return Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+     * @return Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
      * 
      */
     public Optional<Output<String>> bakeTimeInMinutes() {
         return Optional.ofNullable(this.bakeTimeInMinutes);
+    }
+
+    /**
+     * Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+     * 
+     */
+    @Import(name="canaryConfiguration")
+    private @Nullable Output<ServiceDeploymentConfigurationCanaryConfigurationArgs> canaryConfiguration;
+
+    /**
+     * @return Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+     * 
+     */
+    public Optional<Output<ServiceDeploymentConfigurationCanaryConfigurationArgs>> canaryConfiguration() {
+        return Optional.ofNullable(this.canaryConfiguration);
     }
 
     /**
@@ -48,14 +65,29 @@ public final class ServiceDeploymentConfigurationArgs extends com.pulumi.resourc
     }
 
     /**
-     * Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+     * Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+     * 
+     */
+    @Import(name="linearConfiguration")
+    private @Nullable Output<ServiceDeploymentConfigurationLinearConfigurationArgs> linearConfiguration;
+
+    /**
+     * @return Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+     * 
+     */
+    public Optional<Output<ServiceDeploymentConfigurationLinearConfigurationArgs>> linearConfiguration() {
+        return Optional.ofNullable(this.linearConfiguration);
+    }
+
+    /**
+     * Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
      * 
      */
     @Import(name="strategy")
     private @Nullable Output<String> strategy;
 
     /**
-     * @return Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+     * @return Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
      * 
      */
     public Optional<Output<String>> strategy() {
@@ -66,7 +98,9 @@ public final class ServiceDeploymentConfigurationArgs extends com.pulumi.resourc
 
     private ServiceDeploymentConfigurationArgs(ServiceDeploymentConfigurationArgs $) {
         this.bakeTimeInMinutes = $.bakeTimeInMinutes;
+        this.canaryConfiguration = $.canaryConfiguration;
         this.lifecycleHooks = $.lifecycleHooks;
+        this.linearConfiguration = $.linearConfiguration;
         this.strategy = $.strategy;
     }
 
@@ -89,7 +123,7 @@ public final class ServiceDeploymentConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param bakeTimeInMinutes Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+         * @param bakeTimeInMinutes Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
          * 
          * @return builder
          * 
@@ -100,13 +134,34 @@ public final class ServiceDeploymentConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param bakeTimeInMinutes Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+         * @param bakeTimeInMinutes Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
          * 
          * @return builder
          * 
          */
         public Builder bakeTimeInMinutes(String bakeTimeInMinutes) {
             return bakeTimeInMinutes(Output.of(bakeTimeInMinutes));
+        }
+
+        /**
+         * @param canaryConfiguration Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder canaryConfiguration(@Nullable Output<ServiceDeploymentConfigurationCanaryConfigurationArgs> canaryConfiguration) {
+            $.canaryConfiguration = canaryConfiguration;
+            return this;
+        }
+
+        /**
+         * @param canaryConfiguration Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder canaryConfiguration(ServiceDeploymentConfigurationCanaryConfigurationArgs canaryConfiguration) {
+            return canaryConfiguration(Output.of(canaryConfiguration));
         }
 
         /**
@@ -141,7 +196,28 @@ public final class ServiceDeploymentConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param strategy Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+         * @param linearConfiguration Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder linearConfiguration(@Nullable Output<ServiceDeploymentConfigurationLinearConfigurationArgs> linearConfiguration) {
+            $.linearConfiguration = linearConfiguration;
+            return this;
+        }
+
+        /**
+         * @param linearConfiguration Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder linearConfiguration(ServiceDeploymentConfigurationLinearConfigurationArgs linearConfiguration) {
+            return linearConfiguration(Output.of(linearConfiguration));
+        }
+
+        /**
+         * @param strategy Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
          * 
          * @return builder
          * 
@@ -152,7 +228,7 @@ public final class ServiceDeploymentConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param strategy Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+         * @param strategy Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
          * 
          * @return builder
          * 

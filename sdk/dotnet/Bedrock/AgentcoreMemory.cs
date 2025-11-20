@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleAgentcoreMemory = new Aws.Bedrock.AgentcoreMemory("example", new()
     ///     {
-    ///         Name = "example-memory",
+    ///         Name = "example_memory",
     ///         EventExpiryDuration = 30,
     ///     });
     /// 
@@ -72,6 +72,32 @@ namespace Pulumi.Aws.Bedrock
     /// ```
     /// 
     /// ### Memory with Custom Encryption and Role
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "KMS key for Bedrock AgentCore Memory",
+    ///     });
+    /// 
+    ///     var exampleAgentcoreMemory = new Aws.Bedrock.AgentcoreMemory("example", new()
+    ///     {
+    ///         Name = "example_memory",
+    ///         Description = "Memory for customer service agent",
+    ///         EventExpiryDuration = 60,
+    ///         EncryptionKeyArn = example.Arn,
+    ///         MemoryExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         ClientToken = "unique-client-token",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -103,7 +129,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> EncryptionKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Number of minutes after which memory events expire. Must be a positive integer.
+        /// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -202,7 +228,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? EncryptionKeyArn { get; set; }
 
         /// <summary>
-        /// Number of minutes after which memory events expire. Must be a positive integer.
+        /// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -269,7 +295,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? EncryptionKeyArn { get; set; }
 
         /// <summary>
-        /// Number of minutes after which memory events expire. Must be a positive integer.
+        /// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
         /// 
         /// The following arguments are optional:
         /// </summary>

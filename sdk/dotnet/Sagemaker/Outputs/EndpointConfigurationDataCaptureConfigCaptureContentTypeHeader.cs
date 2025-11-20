@@ -14,13 +14,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader
     {
         /// <summary>
-        /// The CSV content type headers to capture.
-        /// One of `CsvContentTypes` or `JsonContentTypes` is required.
+        /// CSV content type headers to capture. One of `CsvContentTypes` or `JsonContentTypes` is required.
         /// </summary>
         public readonly ImmutableArray<string> CsvContentTypes;
         /// <summary>
-        /// The JSON content type headers to capture.
-        /// One of `JsonContentTypes` or `CsvContentTypes` is required.
+        /// The JSON content type headers to capture. One of `JsonContentTypes` or `CsvContentTypes` is required.
         /// </summary>
         public readonly ImmutableArray<string> JsonContentTypes;
 

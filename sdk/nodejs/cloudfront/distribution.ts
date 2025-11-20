@@ -485,6 +485,10 @@ export class Distribution extends pulumi.CustomResource {
      */
     declare public readonly loggingConfig: pulumi.Output<outputs.cloudfront.DistributionLoggingConfig | undefined>;
     /**
+     * Whether V1 logging is enabled for the distribution.
+     */
+    declare public /*out*/ readonly loggingV1Enabled: pulumi.Output<boolean>;
+    /**
      * Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
      */
     declare public readonly orderedCacheBehaviors: pulumi.Output<outputs.cloudfront.DistributionOrderedCacheBehavior[] | undefined>;
@@ -576,6 +580,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["isIpv6Enabled"] = state?.isIpv6Enabled;
             resourceInputs["lastModifiedTime"] = state?.lastModifiedTime;
             resourceInputs["loggingConfig"] = state?.loggingConfig;
+            resourceInputs["loggingV1Enabled"] = state?.loggingV1Enabled;
             resourceInputs["orderedCacheBehaviors"] = state?.orderedCacheBehaviors;
             resourceInputs["originGroups"] = state?.originGroups;
             resourceInputs["origins"] = state?.origins;
@@ -637,6 +642,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["inProgressValidationBatches"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["loggingV1Enabled"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["trustedKeyGroups"] = undefined /*out*/;
@@ -723,6 +729,10 @@ export interface DistributionState {
      * The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
      */
     loggingConfig?: pulumi.Input<inputs.cloudfront.DistributionLoggingConfig>;
+    /**
+     * Whether V1 logging is enabled for the distribution.
+     */
+    loggingV1Enabled?: pulumi.Input<boolean>;
     /**
      * Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
      */

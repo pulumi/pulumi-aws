@@ -13,7 +13,13 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainAimlOptions
     {
+        /// <summary>
+        /// Configuration block for parameters required for natural language query generation on the specified domain.
+        /// </summary>
         public readonly Outputs.DomainAimlOptionsNaturalLanguageQueryGenerationOptions? NaturalLanguageQueryGenerationOptions;
+        /// <summary>
+        /// Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+        /// </summary>
         public readonly Outputs.DomainAimlOptionsS3VectorsEngine? S3VectorsEngine;
 
         [OutputConstructor]

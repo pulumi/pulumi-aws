@@ -283,6 +283,94 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Linear Deployment Strategy
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.Service;
+ * import com.pulumi.aws.ecs.ServiceArgs;
+ * import com.pulumi.aws.ecs.inputs.ServiceDeploymentConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.ServiceDeploymentConfigurationLinearConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Service("example", ServiceArgs.builder()
+ *             .name("example")
+ *             .cluster(exampleAwsEcsCluster.id())
+ *             .deploymentConfiguration(ServiceDeploymentConfigurationArgs.builder()
+ *                 .strategy("LINEAR")
+ *                 .bakeTimeInMinutes("10")
+ *                 .linearConfiguration(ServiceDeploymentConfigurationLinearConfigurationArgs.builder()
+ *                     .stepPercent(25.0)
+ *                     .stepBakeTimeInMinutes("5")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Canary Deployment Strategy
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.Service;
+ * import com.pulumi.aws.ecs.ServiceArgs;
+ * import com.pulumi.aws.ecs.inputs.ServiceDeploymentConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.ServiceDeploymentConfigurationCanaryConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Service("example", ServiceArgs.builder()
+ *             .name("example")
+ *             .cluster(exampleAwsEcsCluster.id())
+ *             .deploymentConfiguration(ServiceDeploymentConfigurationArgs.builder()
+ *                 .strategy("CANARY")
+ *                 .bakeTimeInMinutes("15")
+ *                 .canaryConfiguration(ServiceDeploymentConfigurationCanaryConfigurationArgs.builder()
+ *                     .canaryPercent(10.0)
+ *                     .canaryBakeTimeInMinutes("5")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Redeploy Service On Every Apply
  * 
  * The key used with `triggers` is arbitrary.

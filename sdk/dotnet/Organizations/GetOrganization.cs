@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Organizations
         ///     {
         ///         Statements = new[]
         ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///             {
         ///                 Effect = "Allow",
         ///                 Actions = new[]
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Organizations
         ///                 },
         ///                 Conditions = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
         ///                     {
         ///                         Test = "StringEquals",
         ///                         Variable = "aws:PrincipalOrgID",
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Organizations
         ///                 },
         ///                 Principals = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                     {
         ///                         Type = "AWS",
         ///                         Identifiers = new[]
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Organizations
         ///     {
         ///         Statements = new[]
         ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///             {
         ///                 Effect = "Allow",
         ///                 Actions = new[]
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Organizations
         ///                 },
         ///                 Conditions = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
         ///                     {
         ///                         Test = "StringEquals",
         ///                         Variable = "aws:PrincipalOrgID",
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Organizations
         ///                 },
         ///                 Principals = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                     {
         ///                         Type = "AWS",
         ///                         Identifiers = new[]
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Organizations
         ///     {
         ///         Statements = new[]
         ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///             {
         ///                 Effect = "Allow",
         ///                 Actions = new[]
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Organizations
         ///                 },
         ///                 Conditions = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
         ///                     {
         ///                         Test = "StringEquals",
         ///                         Variable = "aws:PrincipalOrgID",
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Organizations
         ///                 },
         ///                 Principals = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                     {
         ///                         Type = "AWS",
         ///                         Identifiers = new[]

@@ -2876,9 +2876,9 @@ class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs:
 
 if not MYPY:
     class LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict(TypedDict):
-        destination_resource_arn: pulumi.Input[_builtins.str]
+        destination_resource_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARN of the AWS destination that this delivery destination represents.
+        The ARN of the AWS destination that this delivery destination represents. Required when `delivery_destination_configuration` is specified.
         """
 elif False:
     LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2886,22 +2886,23 @@ elif False:
 @pulumi.input_type
 class LogDeliveryDestinationDeliveryDestinationConfigurationArgs:
     def __init__(__self__, *,
-                 destination_resource_arn: pulumi.Input[_builtins.str]):
+                 destination_resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] destination_resource_arn: The ARN of the AWS destination that this delivery destination represents.
+        :param pulumi.Input[_builtins.str] destination_resource_arn: The ARN of the AWS destination that this delivery destination represents. Required when `delivery_destination_configuration` is specified.
         """
-        pulumi.set(__self__, "destination_resource_arn", destination_resource_arn)
+        if destination_resource_arn is not None:
+            pulumi.set(__self__, "destination_resource_arn", destination_resource_arn)
 
     @_builtins.property
     @pulumi.getter(name="destinationResourceArn")
-    def destination_resource_arn(self) -> pulumi.Input[_builtins.str]:
+    def destination_resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the AWS destination that this delivery destination represents.
+        The ARN of the AWS destination that this delivery destination represents. Required when `delivery_destination_configuration` is specified.
         """
         return pulumi.get(self, "destination_resource_arn")
 
     @destination_resource_arn.setter
-    def destination_resource_arn(self, value: pulumi.Input[_builtins.str]):
+    def destination_resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "destination_resource_arn", value)
 
 

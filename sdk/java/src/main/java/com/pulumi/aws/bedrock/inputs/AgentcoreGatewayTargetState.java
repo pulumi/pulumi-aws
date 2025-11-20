@@ -19,14 +19,14 @@ public final class AgentcoreGatewayTargetState extends com.pulumi.resources.Reso
     public static final AgentcoreGatewayTargetState Empty = new AgentcoreGatewayTargetState();
 
     /**
-     * Configuration for authenticating requests to the target. See `credentialProviderConfiguration` below.
+     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
      * 
      */
     @Import(name="credentialProviderConfiguration")
     private @Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationArgs> credentialProviderConfiguration;
 
     /**
-     * @return Configuration for authenticating requests to the target. See `credentialProviderConfiguration` below.
+     * @return Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetCredentialProviderConfigurationArgs>> credentialProviderConfiguration() {
@@ -166,7 +166,7 @@ public final class AgentcoreGatewayTargetState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param credentialProviderConfiguration Configuration for authenticating requests to the target. See `credentialProviderConfiguration` below.
+         * @param credentialProviderConfiguration Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class AgentcoreGatewayTargetState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param credentialProviderConfiguration Configuration for authenticating requests to the target. See `credentialProviderConfiguration` below.
+         * @param credentialProviderConfiguration Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
          * 
          * @return builder
          * 

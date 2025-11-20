@@ -24,6 +24,49 @@ import javax.annotation.Nullable;
  * 
  * ### Basic Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.datasync.LocationFsxOntapFileSystem;
+ * import com.pulumi.aws.datasync.LocationFsxOntapFileSystemArgs;
+ * import com.pulumi.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolArgs;
+ * import com.pulumi.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolNfsArgs;
+ * import com.pulumi.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new LocationFsxOntapFileSystem("test", LocationFsxOntapFileSystemArgs.builder()
+ *             .fsxFilesystemArn(testAwsFsxOntapFileSystem.arn())
+ *             .securityGroupArns(testAwsSecurityGroup.arn())
+ *             .storageVirtualMachineArn(testAwsFsxOntapStorageVirtualMachine.arn())
+ *             .protocol(LocationFsxOntapFileSystemProtocolArgs.builder()
+ *                 .nfs(LocationFsxOntapFileSystemProtocolNfsArgs.builder()
+ *                     .mountOptions(LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs.builder()
+ *                         .version("NFS3")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:

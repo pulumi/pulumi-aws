@@ -19,10 +19,13 @@ namespace Pulumi.Aws.Connect.Inputs
         public Input<string> Channel { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+        /// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
         /// </summary>
         [Input("concurrency", required: true)]
         public Input<int> Concurrency { get; set; } = null!;
+
+        [Input("crossChannelBehavior")]
+        public Input<Inputs.RoutingProfileMediaConcurrencyCrossChannelBehaviorGetArgs>? CrossChannelBehavior { get; set; }
 
         public RoutingProfileMediaConcurrencyGetArgs()
         {

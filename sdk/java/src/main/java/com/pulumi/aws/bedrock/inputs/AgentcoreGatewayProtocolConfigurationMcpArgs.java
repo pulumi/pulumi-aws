@@ -32,14 +32,14 @@ public final class AgentcoreGatewayProtocolConfigurationMcpArgs extends com.pulu
     }
 
     /**
-     * Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+     * Search type for MCP. Valid values: `SEMANTIC`.
      * 
      */
     @Import(name="searchType")
     private @Nullable Output<String> searchType;
 
     /**
-     * @return Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+     * @return Search type for MCP. Valid values: `SEMANTIC`.
      * 
      */
     public Optional<Output<String>> searchType() {
@@ -109,7 +109,7 @@ public final class AgentcoreGatewayProtocolConfigurationMcpArgs extends com.pulu
         }
 
         /**
-         * @param searchType Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+         * @param searchType Search type for MCP. Valid values: `SEMANTIC`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class AgentcoreGatewayProtocolConfigurationMcpArgs extends com.pulu
         }
 
         /**
-         * @param searchType Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+         * @param searchType Search type for MCP. Valid values: `SEMANTIC`.
          * 
          * @return builder
          * 

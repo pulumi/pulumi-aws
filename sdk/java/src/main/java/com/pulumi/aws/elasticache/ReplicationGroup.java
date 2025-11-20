@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.elasticache.ReplicationGroupArgs;
 import com.pulumi.aws.elasticache.inputs.ReplicationGroupState;
 import com.pulumi.aws.elasticache.outputs.ReplicationGroupLogDeliveryConfiguration;
+import com.pulumi.aws.elasticache.outputs.ReplicationGroupNodeGroupConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -178,6 +179,63 @@ import javax.annotation.Nullable;
  *             .automaticFailoverEnabled(true)
  *             .numNodeGroups(2)
  *             .replicasPerNodeGroup(1)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Redis OSS/Valkey Cluster Mode Enabled with Node Group Configuration
+ * 
+ * To create a cluster with specific availability zone placement and keyspace distribution:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.ReplicationGroup;
+ * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
+ * import com.pulumi.aws.elasticache.inputs.ReplicationGroupNodeGroupConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()
+ *             .replicationGroupId("tf-redis-cluster")
+ *             .description("example description")
+ *             .nodeType("cache.t2.small")
+ *             .port(6379)
+ *             .parameterGroupName("default.redis3.2.cluster.on")
+ *             .automaticFailoverEnabled(true)
+ *             .numNodeGroups(2)
+ *             .nodeGroupConfigurations(            
+ *                 ReplicationGroupNodeGroupConfigurationArgs.builder()
+ *                     .nodeGroupId("0001")
+ *                     .primaryAvailabilityZone("us-west-2a")
+ *                     .replicaAvailabilityZones("us-west-2b")
+ *                     .replicaCount(1)
+ *                     .slots("0-8191")
+ *                     .build(),
+ *                 ReplicationGroupNodeGroupConfigurationArgs.builder()
+ *                     .nodeGroupId("0002")
+ *                     .primaryAvailabilityZone("us-west-2b")
+ *                     .replicaAvailabilityZones("us-west-2a")
+ *                     .replicaCount(1)
+ *                     .slots("8192-16383")
+ *                     .build())
  *             .build());
  * 
  *     }
@@ -717,6 +775,20 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<String> networkType() {
         return this.networkType;
+    }
+    /**
+     * Configuration block for node groups (shards). Can be specified only if `numNodeGroups` is set. Conflicts with `preferredCacheClusterAzs`. See Node Group Configuration below for more details.
+     * 
+     */
+    @Export(name="nodeGroupConfigurations", refs={List.class,ReplicationGroupNodeGroupConfiguration.class}, tree="[0,1]")
+    private Output<List<ReplicationGroupNodeGroupConfiguration>> nodeGroupConfigurations;
+
+    /**
+     * @return Configuration block for node groups (shards). Can be specified only if `numNodeGroups` is set. Conflicts with `preferredCacheClusterAzs`. See Node Group Configuration below for more details.
+     * 
+     */
+    public Output<List<ReplicationGroupNodeGroupConfiguration>> nodeGroupConfigurations() {
+        return this.nodeGroupConfigurations;
     }
     /**
      * Instance class to be used.

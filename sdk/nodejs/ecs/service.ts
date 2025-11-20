@@ -118,6 +118,46 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Linear Deployment Strategy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecs.Service("example", {
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
+ *     deploymentConfiguration: {
+ *         strategy: "LINEAR",
+ *         bakeTimeInMinutes: "10",
+ *         linearConfiguration: {
+ *             stepPercent: 25,
+ *             stepBakeTimeInMinutes: "5",
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Canary Deployment Strategy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecs.Service("example", {
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
+ *     deploymentConfiguration: {
+ *         strategy: "CANARY",
+ *         bakeTimeInMinutes: "15",
+ *         canaryConfiguration: {
+ *             canaryPercent: 10,
+ *             canaryBakeTimeInMinutes: "5",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ### Redeploy Service On Every Apply
  *
  * The key used with `triggers` is arbitrary.

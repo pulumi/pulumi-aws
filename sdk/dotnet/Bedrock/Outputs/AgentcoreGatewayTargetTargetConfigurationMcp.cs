@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda? Lambda;
         /// <summary>
+        /// MCP server target configuration. See `McpServer` below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer? McpServer;
+        /// <summary>
         /// OpenAPI schema-based target configuration. See `ApiSchemaConfiguration` below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema? OpenApiSchema;
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
         private AgentcoreGatewayTargetTargetConfigurationMcp(
             Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda? lambda,
 
+            Outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer? mcpServer,
+
             Outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema? openApiSchema,
 
             Outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel? smithyModel)
         {
             Lambda = lambda;
+            McpServer = mcpServer;
             OpenApiSchema = openApiSchema;
             SmithyModel = smithyModel;
         }

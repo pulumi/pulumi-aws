@@ -89,7 +89,7 @@ def get_policies(filter: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str filter: The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
+    :param _builtins.str filter: The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -119,7 +119,7 @@ def get_policies_output(filter: Optional[pulumi.Input[_builtins.str]] = None,
     ```
 
 
-    :param _builtins.str filter: The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
+    :param _builtins.str filter: The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
     """
     __args__ = dict()
     __args__['filter'] = filter

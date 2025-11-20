@@ -85,7 +85,7 @@ namespace Pulumi.Aws.SsoAdmin
     ///         Description = "Admin Group",
     ///     });
     /// 
-    ///     var accountAssignment = new Aws.SsoAdmin.AccountAssignment("account_assignment", new()
+    ///     var exampleAccountAssignment = new Aws.SsoAdmin.AccountAssignment("example", new()
     ///     {
     ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
     ///         PermissionSetArn = examplePermissionSet.Arn,
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.SsoAdmin
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSsoadminAccountAssignment,
+    ///             exampleAccountAssignment,
     ///         },
     ///     });
     /// 

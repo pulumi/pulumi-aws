@@ -17,8 +17,6 @@ public final class ServiceNetworkConfiguration {
     /**
      * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
      * 
-     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-     * 
      */
     private @Nullable Boolean assignPublicIp;
     /**
@@ -29,14 +27,14 @@ public final class ServiceNetworkConfiguration {
     /**
      * @return Subnets associated with the task or service.
      * 
+     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
+     * 
      */
     private List<String> subnets;
 
     private ServiceNetworkConfiguration() {}
     /**
      * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-     * 
-     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
      * 
      */
     public Optional<Boolean> assignPublicIp() {
@@ -51,6 +49,8 @@ public final class ServiceNetworkConfiguration {
     }
     /**
      * @return Subnets associated with the task or service.
+     * 
+     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
      * 
      */
     public List<String> subnets() {

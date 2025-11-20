@@ -105,6 +105,41 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Redis OSS/Valkey Cluster Mode Enabled with Node Group Configuration
+ *
+ * To create a cluster with specific availability zone placement and keyspace distribution:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.elasticache.ReplicationGroup("example", {
+ *     replicationGroupId: "tf-redis-cluster",
+ *     description: "example description",
+ *     nodeType: "cache.t2.small",
+ *     port: 6379,
+ *     parameterGroupName: "default.redis3.2.cluster.on",
+ *     automaticFailoverEnabled: true,
+ *     numNodeGroups: 2,
+ *     nodeGroupConfigurations: [
+ *         {
+ *             nodeGroupId: "0001",
+ *             primaryAvailabilityZone: "us-west-2a",
+ *             replicaAvailabilityZones: ["us-west-2b"],
+ *             replicaCount: 1,
+ *             slots: "0-8191",
+ *         },
+ *         {
+ *             nodeGroupId: "0002",
+ *             primaryAvailabilityZone: "us-west-2b",
+ *             replicaAvailabilityZones: ["us-west-2a"],
+ *             replicaCount: 1,
+ *             slots: "8192-16383",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ### Redis Log Delivery configuration
  *
  * ```typescript
@@ -341,6 +376,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     declare public readonly networkType: pulumi.Output<string>;
     /**
+     * Configuration block for node groups (shards). Can be specified only if `numNodeGroups` is set. Conflicts with `preferredCacheClusterAzs`. See Node Group Configuration below for more details.
+     */
+    declare public readonly nodeGroupConfigurations: pulumi.Output<outputs.elasticache.ReplicationGroupNodeGroupConfiguration[]>;
+    /**
      * Instance class to be used.
      * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
      * Required unless `globalReplicationGroupId` is set.
@@ -494,6 +533,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["memberClusters"] = state?.memberClusters;
             resourceInputs["multiAzEnabled"] = state?.multiAzEnabled;
             resourceInputs["networkType"] = state?.networkType;
+            resourceInputs["nodeGroupConfigurations"] = state?.nodeGroupConfigurations;
             resourceInputs["nodeType"] = state?.nodeType;
             resourceInputs["notificationTopicArn"] = state?.notificationTopicArn;
             resourceInputs["numCacheClusters"] = state?.numCacheClusters;
@@ -542,6 +582,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
             resourceInputs["multiAzEnabled"] = args?.multiAzEnabled;
             resourceInputs["networkType"] = args?.networkType;
+            resourceInputs["nodeGroupConfigurations"] = args?.nodeGroupConfigurations;
             resourceInputs["nodeType"] = args?.nodeType;
             resourceInputs["notificationTopicArn"] = args?.notificationTopicArn;
             resourceInputs["numCacheClusters"] = args?.numCacheClusters;
@@ -692,6 +733,10 @@ export interface ReplicationGroupState {
      * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
      */
     networkType?: pulumi.Input<string>;
+    /**
+     * Configuration block for node groups (shards). Can be specified only if `numNodeGroups` is set. Conflicts with `preferredCacheClusterAzs`. See Node Group Configuration below for more details.
+     */
+    nodeGroupConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupNodeGroupConfiguration>[]>;
     /**
      * Instance class to be used.
      * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
@@ -903,6 +948,10 @@ export interface ReplicationGroupArgs {
      * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
      */
     networkType?: pulumi.Input<string>;
+    /**
+     * Configuration block for node groups (shards). Can be specified only if `numNodeGroups` is set. Conflicts with `preferredCacheClusterAzs`. See Node Group Configuration below for more details.
+     */
+    nodeGroupConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupNodeGroupConfiguration>[]>;
     /**
      * Instance class to be used.
      * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).

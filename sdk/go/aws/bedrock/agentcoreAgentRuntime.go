@@ -94,7 +94,7 @@ import (
 // return err
 // }
 // _, err = bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
-// AgentRuntimeName: pulumi.String("example-agent-runtime"),
+// AgentRuntimeName: pulumi.String("example_agent_runtime"),
 // RoleArn: example.Arn,
 // AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
 // ContainerConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{
@@ -130,7 +130,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
-//				AgentRuntimeName: pulumi.String("example-agent-runtime"),
+//				AgentRuntimeName: pulumi.String("example_agent_runtime"),
 //				Description:      pulumi.String("Agent runtime with JWT authorization"),
 //				RoleArn:          pulumi.Any(exampleAwsIamRole.Arn),
 //				AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{

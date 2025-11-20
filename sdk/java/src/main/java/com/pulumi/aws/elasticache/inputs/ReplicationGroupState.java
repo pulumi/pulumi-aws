@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticache.inputs;
 
 import com.pulumi.aws.elasticache.inputs.ReplicationGroupLogDeliveryConfigurationArgs;
+import com.pulumi.aws.elasticache.inputs.ReplicationGroupNodeGroupConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -404,6 +405,21 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<String>> networkType() {
         return Optional.ofNullable(this.networkType);
+    }
+
+    /**
+     * Configuration block for node groups (shards). Can be specified only if `numNodeGroups` is set. Conflicts with `preferredCacheClusterAzs`. See Node Group Configuration below for more details.
+     * 
+     */
+    @Import(name="nodeGroupConfigurations")
+    private @Nullable Output<List<ReplicationGroupNodeGroupConfigurationArgs>> nodeGroupConfigurations;
+
+    /**
+     * @return Configuration block for node groups (shards). Can be specified only if `numNodeGroups` is set. Conflicts with `preferredCacheClusterAzs`. See Node Group Configuration below for more details.
+     * 
+     */
+    public Optional<Output<List<ReplicationGroupNodeGroupConfigurationArgs>>> nodeGroupConfigurations() {
+        return Optional.ofNullable(this.nodeGroupConfigurations);
     }
 
     /**
@@ -833,6 +849,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         this.memberClusters = $.memberClusters;
         this.multiAzEnabled = $.multiAzEnabled;
         this.networkType = $.networkType;
+        this.nodeGroupConfigurations = $.nodeGroupConfigurations;
         this.nodeType = $.nodeType;
         this.notificationTopicArn = $.notificationTopicArn;
         this.numCacheClusters = $.numCacheClusters;
@@ -1425,6 +1442,37 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
          */
         public Builder networkType(String networkType) {
             return networkType(Output.of(networkType));
+        }
+
+        /**
+         * @param nodeGroupConfigurations Configuration block for node groups (shards). Can be specified only if `numNodeGroups` is set. Conflicts with `preferredCacheClusterAzs`. See Node Group Configuration below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeGroupConfigurations(@Nullable Output<List<ReplicationGroupNodeGroupConfigurationArgs>> nodeGroupConfigurations) {
+            $.nodeGroupConfigurations = nodeGroupConfigurations;
+            return this;
+        }
+
+        /**
+         * @param nodeGroupConfigurations Configuration block for node groups (shards). Can be specified only if `numNodeGroups` is set. Conflicts with `preferredCacheClusterAzs`. See Node Group Configuration below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeGroupConfigurations(List<ReplicationGroupNodeGroupConfigurationArgs> nodeGroupConfigurations) {
+            return nodeGroupConfigurations(Output.of(nodeGroupConfigurations));
+        }
+
+        /**
+         * @param nodeGroupConfigurations Configuration block for node groups (shards). Can be specified only if `numNodeGroups` is set. Conflicts with `preferredCacheClusterAzs`. See Node Group Configuration below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeGroupConfigurations(ReplicationGroupNodeGroupConfigurationArgs... nodeGroupConfigurations) {
+            return nodeGroupConfigurations(List.of(nodeGroupConfigurations));
         }
 
         /**

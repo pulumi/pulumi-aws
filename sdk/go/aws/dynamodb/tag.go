@@ -31,51 +31,50 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			replica, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Replicas: dynamodb.TableReplicaTypeArray{
-//					&dynamodb.TableReplicaTypeArgs{
-//						RegionName: pulumi.String(replica.Name),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
-//				Text:    arn,
-//				Search:  current.Region,
-//				Replace: replica.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dynamodb.NewTag(ctx, "test", &dynamodb.TagArgs{
-//				ResourceArn: pulumi.String(example.Arn.ApplyT(func(arn string) (std.ReplaceResult, error) {
-//					return std.ReplaceResult(invokeReplace), nil
-//				}).(std.ReplaceResultOutput).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
-//					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Key:   pulumi.String("testkey"),
-//				Value: pulumi.String("testvalue"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// replica, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
+// Replicas: dynamodb.TableReplicaTypeArray{
+// &dynamodb.TableReplicaTypeArgs{
+// RegionName: pulumi.String(replica.Name),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
+// Text: arn,
+// Search: current.Region,
+// Replace: replica.Name,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// _, err = dynamodb.NewTag(ctx, "test", &dynamodb.TagArgs{
+// ResourceArn: pulumi.String(example.Arn.ApplyT(func(arn string) (std.ReplaceResult, error) {
+// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.ReplaceResultOutput).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
+// return invoke.Result, nil
+// }).(pulumi.StringPtrOutput)),
+// Key: pulumi.String("testkey"),
+// Value: pulumi.String("testvalue"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

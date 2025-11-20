@@ -597,6 +597,157 @@ func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntI
 	}).(ReplicationGroupLogDeliveryConfigurationOutput)
 }
 
+type ReplicationGroupNodeGroupConfiguration struct {
+	// ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
+	NodeGroupId *string `pulumi:"nodeGroupId"`
+	// Availability zone for the primary node.
+	PrimaryAvailabilityZone *string `pulumi:"primaryAvailabilityZone"`
+	// ARN of the Outpost for the primary node.
+	PrimaryOutpostArn *string `pulumi:"primaryOutpostArn"`
+	// List of availability zones for the replica nodes.
+	ReplicaAvailabilityZones []string `pulumi:"replicaAvailabilityZones"`
+	// Number of replica nodes in this node group.
+	ReplicaCount *int `pulumi:"replicaCount"`
+	// List of ARNs of the Outposts for the replica nodes.
+	ReplicaOutpostArns []string `pulumi:"replicaOutpostArns"`
+	// Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
+	Slots *string `pulumi:"slots"`
+}
+
+// ReplicationGroupNodeGroupConfigurationInput is an input type that accepts ReplicationGroupNodeGroupConfigurationArgs and ReplicationGroupNodeGroupConfigurationOutput values.
+// You can construct a concrete instance of `ReplicationGroupNodeGroupConfigurationInput` via:
+//
+//	ReplicationGroupNodeGroupConfigurationArgs{...}
+type ReplicationGroupNodeGroupConfigurationInput interface {
+	pulumi.Input
+
+	ToReplicationGroupNodeGroupConfigurationOutput() ReplicationGroupNodeGroupConfigurationOutput
+	ToReplicationGroupNodeGroupConfigurationOutputWithContext(context.Context) ReplicationGroupNodeGroupConfigurationOutput
+}
+
+type ReplicationGroupNodeGroupConfigurationArgs struct {
+	// ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
+	NodeGroupId pulumi.StringPtrInput `pulumi:"nodeGroupId"`
+	// Availability zone for the primary node.
+	PrimaryAvailabilityZone pulumi.StringPtrInput `pulumi:"primaryAvailabilityZone"`
+	// ARN of the Outpost for the primary node.
+	PrimaryOutpostArn pulumi.StringPtrInput `pulumi:"primaryOutpostArn"`
+	// List of availability zones for the replica nodes.
+	ReplicaAvailabilityZones pulumi.StringArrayInput `pulumi:"replicaAvailabilityZones"`
+	// Number of replica nodes in this node group.
+	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
+	// List of ARNs of the Outposts for the replica nodes.
+	ReplicaOutpostArns pulumi.StringArrayInput `pulumi:"replicaOutpostArns"`
+	// Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
+	Slots pulumi.StringPtrInput `pulumi:"slots"`
+}
+
+func (ReplicationGroupNodeGroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArgs) ToReplicationGroupNodeGroupConfigurationOutput() ReplicationGroupNodeGroupConfigurationOutput {
+	return i.ToReplicationGroupNodeGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArgs) ToReplicationGroupNodeGroupConfigurationOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupNodeGroupConfigurationOutput)
+}
+
+// ReplicationGroupNodeGroupConfigurationArrayInput is an input type that accepts ReplicationGroupNodeGroupConfigurationArray and ReplicationGroupNodeGroupConfigurationArrayOutput values.
+// You can construct a concrete instance of `ReplicationGroupNodeGroupConfigurationArrayInput` via:
+//
+//	ReplicationGroupNodeGroupConfigurationArray{ ReplicationGroupNodeGroupConfigurationArgs{...} }
+type ReplicationGroupNodeGroupConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToReplicationGroupNodeGroupConfigurationArrayOutput() ReplicationGroupNodeGroupConfigurationArrayOutput
+	ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(context.Context) ReplicationGroupNodeGroupConfigurationArrayOutput
+}
+
+type ReplicationGroupNodeGroupConfigurationArray []ReplicationGroupNodeGroupConfigurationInput
+
+func (ReplicationGroupNodeGroupConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArray) ToReplicationGroupNodeGroupConfigurationArrayOutput() ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return i.ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArray) ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupNodeGroupConfigurationArrayOutput)
+}
+
+type ReplicationGroupNodeGroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupNodeGroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (o ReplicationGroupNodeGroupConfigurationOutput) ToReplicationGroupNodeGroupConfigurationOutput() ReplicationGroupNodeGroupConfigurationOutput {
+	return o
+}
+
+func (o ReplicationGroupNodeGroupConfigurationOutput) ToReplicationGroupNodeGroupConfigurationOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationOutput {
+	return o
+}
+
+// ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
+func (o ReplicationGroupNodeGroupConfigurationOutput) NodeGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.NodeGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Availability zone for the primary node.
+func (o ReplicationGroupNodeGroupConfigurationOutput) PrimaryAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.PrimaryAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Outpost for the primary node.
+func (o ReplicationGroupNodeGroupConfigurationOutput) PrimaryOutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.PrimaryOutpostArn }).(pulumi.StringPtrOutput)
+}
+
+// List of availability zones for the replica nodes.
+func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaAvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) []string { return v.ReplicaAvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// Number of replica nodes in this node group.
+func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
+}
+
+// List of ARNs of the Outposts for the replica nodes.
+func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaOutpostArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) []string { return v.ReplicaOutpostArns }).(pulumi.StringArrayOutput)
+}
+
+// Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
+func (o ReplicationGroupNodeGroupConfigurationOutput) Slots() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.Slots }).(pulumi.StringPtrOutput)
+}
+
+type ReplicationGroupNodeGroupConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupNodeGroupConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (o ReplicationGroupNodeGroupConfigurationArrayOutput) ToReplicationGroupNodeGroupConfigurationArrayOutput() ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupNodeGroupConfigurationArrayOutput) ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupNodeGroupConfigurationArrayOutput) Index(i pulumi.IntInput) ReplicationGroupNodeGroupConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationGroupNodeGroupConfiguration {
+		return vs[0].([]ReplicationGroupNodeGroupConfiguration)[vs[1].(int)]
+	}).(ReplicationGroupNodeGroupConfigurationOutput)
+}
+
 type ReservedCacheNodeRecurringCharge struct {
 	RecurringChargeAmount    float64 `pulumi:"recurringChargeAmount"`
 	RecurringChargeFrequency string  `pulumi:"recurringChargeFrequency"`
@@ -2222,6 +2373,157 @@ func (o GetReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.I
 	}).(GetReplicationGroupLogDeliveryConfigurationOutput)
 }
 
+type GetReplicationGroupNodeGroupConfiguration struct {
+	// ID of the node group.
+	NodeGroupId string `pulumi:"nodeGroupId"`
+	// Availability Zone for the primary node.
+	PrimaryAvailabilityZone string `pulumi:"primaryAvailabilityZone"`
+	// Outpost ARN of the primary node.
+	PrimaryOutpostArn string `pulumi:"primaryOutpostArn"`
+	// List of Availability Zones for the replica nodes.
+	ReplicaAvailabilityZones []string `pulumi:"replicaAvailabilityZones"`
+	// Number of replica nodes in this node group.
+	ReplicaCount int `pulumi:"replicaCount"`
+	// List of outpost ARNs for the replica nodes.
+	ReplicaOutpostArns []string `pulumi:"replicaOutpostArns"`
+	// Keyspace for this node group (shard).
+	Slots string `pulumi:"slots"`
+}
+
+// GetReplicationGroupNodeGroupConfigurationInput is an input type that accepts GetReplicationGroupNodeGroupConfigurationArgs and GetReplicationGroupNodeGroupConfigurationOutput values.
+// You can construct a concrete instance of `GetReplicationGroupNodeGroupConfigurationInput` via:
+//
+//	GetReplicationGroupNodeGroupConfigurationArgs{...}
+type GetReplicationGroupNodeGroupConfigurationInput interface {
+	pulumi.Input
+
+	ToGetReplicationGroupNodeGroupConfigurationOutput() GetReplicationGroupNodeGroupConfigurationOutput
+	ToGetReplicationGroupNodeGroupConfigurationOutputWithContext(context.Context) GetReplicationGroupNodeGroupConfigurationOutput
+}
+
+type GetReplicationGroupNodeGroupConfigurationArgs struct {
+	// ID of the node group.
+	NodeGroupId pulumi.StringInput `pulumi:"nodeGroupId"`
+	// Availability Zone for the primary node.
+	PrimaryAvailabilityZone pulumi.StringInput `pulumi:"primaryAvailabilityZone"`
+	// Outpost ARN of the primary node.
+	PrimaryOutpostArn pulumi.StringInput `pulumi:"primaryOutpostArn"`
+	// List of Availability Zones for the replica nodes.
+	ReplicaAvailabilityZones pulumi.StringArrayInput `pulumi:"replicaAvailabilityZones"`
+	// Number of replica nodes in this node group.
+	ReplicaCount pulumi.IntInput `pulumi:"replicaCount"`
+	// List of outpost ARNs for the replica nodes.
+	ReplicaOutpostArns pulumi.StringArrayInput `pulumi:"replicaOutpostArns"`
+	// Keyspace for this node group (shard).
+	Slots pulumi.StringInput `pulumi:"slots"`
+}
+
+func (GetReplicationGroupNodeGroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (i GetReplicationGroupNodeGroupConfigurationArgs) ToGetReplicationGroupNodeGroupConfigurationOutput() GetReplicationGroupNodeGroupConfigurationOutput {
+	return i.ToGetReplicationGroupNodeGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetReplicationGroupNodeGroupConfigurationArgs) ToGetReplicationGroupNodeGroupConfigurationOutputWithContext(ctx context.Context) GetReplicationGroupNodeGroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationGroupNodeGroupConfigurationOutput)
+}
+
+// GetReplicationGroupNodeGroupConfigurationArrayInput is an input type that accepts GetReplicationGroupNodeGroupConfigurationArray and GetReplicationGroupNodeGroupConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetReplicationGroupNodeGroupConfigurationArrayInput` via:
+//
+//	GetReplicationGroupNodeGroupConfigurationArray{ GetReplicationGroupNodeGroupConfigurationArgs{...} }
+type GetReplicationGroupNodeGroupConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetReplicationGroupNodeGroupConfigurationArrayOutput() GetReplicationGroupNodeGroupConfigurationArrayOutput
+	ToGetReplicationGroupNodeGroupConfigurationArrayOutputWithContext(context.Context) GetReplicationGroupNodeGroupConfigurationArrayOutput
+}
+
+type GetReplicationGroupNodeGroupConfigurationArray []GetReplicationGroupNodeGroupConfigurationInput
+
+func (GetReplicationGroupNodeGroupConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (i GetReplicationGroupNodeGroupConfigurationArray) ToGetReplicationGroupNodeGroupConfigurationArrayOutput() GetReplicationGroupNodeGroupConfigurationArrayOutput {
+	return i.ToGetReplicationGroupNodeGroupConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetReplicationGroupNodeGroupConfigurationArray) ToGetReplicationGroupNodeGroupConfigurationArrayOutputWithContext(ctx context.Context) GetReplicationGroupNodeGroupConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationGroupNodeGroupConfigurationArrayOutput)
+}
+
+type GetReplicationGroupNodeGroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationGroupNodeGroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (o GetReplicationGroupNodeGroupConfigurationOutput) ToGetReplicationGroupNodeGroupConfigurationOutput() GetReplicationGroupNodeGroupConfigurationOutput {
+	return o
+}
+
+func (o GetReplicationGroupNodeGroupConfigurationOutput) ToGetReplicationGroupNodeGroupConfigurationOutputWithContext(ctx context.Context) GetReplicationGroupNodeGroupConfigurationOutput {
+	return o
+}
+
+// ID of the node group.
+func (o GetReplicationGroupNodeGroupConfigurationOutput) NodeGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) string { return v.NodeGroupId }).(pulumi.StringOutput)
+}
+
+// Availability Zone for the primary node.
+func (o GetReplicationGroupNodeGroupConfigurationOutput) PrimaryAvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) string { return v.PrimaryAvailabilityZone }).(pulumi.StringOutput)
+}
+
+// Outpost ARN of the primary node.
+func (o GetReplicationGroupNodeGroupConfigurationOutput) PrimaryOutpostArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) string { return v.PrimaryOutpostArn }).(pulumi.StringOutput)
+}
+
+// List of Availability Zones for the replica nodes.
+func (o GetReplicationGroupNodeGroupConfigurationOutput) ReplicaAvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) []string { return v.ReplicaAvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// Number of replica nodes in this node group.
+func (o GetReplicationGroupNodeGroupConfigurationOutput) ReplicaCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) int { return v.ReplicaCount }).(pulumi.IntOutput)
+}
+
+// List of outpost ARNs for the replica nodes.
+func (o GetReplicationGroupNodeGroupConfigurationOutput) ReplicaOutpostArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) []string { return v.ReplicaOutpostArns }).(pulumi.StringArrayOutput)
+}
+
+// Keyspace for this node group (shard).
+func (o GetReplicationGroupNodeGroupConfigurationOutput) Slots() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) string { return v.Slots }).(pulumi.StringOutput)
+}
+
+type GetReplicationGroupNodeGroupConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationGroupNodeGroupConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (o GetReplicationGroupNodeGroupConfigurationArrayOutput) ToGetReplicationGroupNodeGroupConfigurationArrayOutput() GetReplicationGroupNodeGroupConfigurationArrayOutput {
+	return o
+}
+
+func (o GetReplicationGroupNodeGroupConfigurationArrayOutput) ToGetReplicationGroupNodeGroupConfigurationArrayOutputWithContext(ctx context.Context) GetReplicationGroupNodeGroupConfigurationArrayOutput {
+	return o
+}
+
+func (o GetReplicationGroupNodeGroupConfigurationArrayOutput) Index(i pulumi.IntInput) GetReplicationGroupNodeGroupConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetReplicationGroupNodeGroupConfiguration {
+		return vs[0].([]GetReplicationGroupNodeGroupConfiguration)[vs[1].(int)]
+	}).(GetReplicationGroupNodeGroupConfigurationOutput)
+}
+
 type GetServerlessCacheCacheUsageLimits struct {
 	// The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
 	DataStorage GetServerlessCacheCacheUsageLimitsDataStorage `pulumi:"dataStorage"`
@@ -2651,6 +2953,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationArrayInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupNodeGroupConfigurationInput)(nil)).Elem(), ReplicationGroupNodeGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupNodeGroupConfigurationArrayInput)(nil)).Elem(), ReplicationGroupNodeGroupConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedCacheNodeRecurringChargeInput)(nil)).Elem(), ReservedCacheNodeRecurringChargeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedCacheNodeRecurringChargeArrayInput)(nil)).Elem(), ReservedCacheNodeRecurringChargeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedCacheNodeTimeoutsInput)(nil)).Elem(), ReservedCacheNodeTimeoutsArgs{})
@@ -2675,6 +2979,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLogDeliveryConfigurationArrayInput)(nil)).Elem(), GetClusterLogDeliveryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationGroupLogDeliveryConfigurationInput)(nil)).Elem(), GetReplicationGroupLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationGroupLogDeliveryConfigurationArrayInput)(nil)).Elem(), GetReplicationGroupLogDeliveryConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationGroupNodeGroupConfigurationInput)(nil)).Elem(), GetReplicationGroupNodeGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationGroupNodeGroupConfigurationArrayInput)(nil)).Elem(), GetReplicationGroupNodeGroupConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCacheCacheUsageLimitsInput)(nil)).Elem(), GetServerlessCacheCacheUsageLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCacheCacheUsageLimitsDataStorageInput)(nil)).Elem(), GetServerlessCacheCacheUsageLimitsDataStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCacheCacheUsageLimitsEcpuPerSecondInput)(nil)).Elem(), GetServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{})
@@ -2692,6 +2998,8 @@ func init() {
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupNodeGroupConfigurationOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupNodeGroupConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ReservedCacheNodeRecurringChargeOutput{})
 	pulumi.RegisterOutputType(ReservedCacheNodeRecurringChargeArrayOutput{})
 	pulumi.RegisterOutputType(ReservedCacheNodeTimeoutsOutput{})
@@ -2716,6 +3024,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterLogDeliveryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetReplicationGroupLogDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(GetReplicationGroupLogDeliveryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetReplicationGroupNodeGroupConfigurationOutput{})
+	pulumi.RegisterOutputType(GetReplicationGroupNodeGroupConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetServerlessCacheCacheUsageLimitsOutput{})
 	pulumi.RegisterOutputType(GetServerlessCacheCacheUsageLimitsDataStorageOutput{})
 	pulumi.RegisterOutputType(GetServerlessCacheCacheUsageLimitsEcpuPerSecondOutput{})

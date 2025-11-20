@@ -51,6 +51,8 @@ __all__ = [
     'QuickConnectQuickConnectConfigUserConfigArgsDict',
     'RoutingProfileMediaConcurrencyArgs',
     'RoutingProfileMediaConcurrencyArgsDict',
+    'RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs',
+    'RoutingProfileMediaConcurrencyCrossChannelBehaviorArgsDict',
     'RoutingProfileQueueConfigArgs',
     'RoutingProfileQueueConfigArgsDict',
     'UserHierarchyGroupHierarchyPathArgs',
@@ -1073,8 +1075,9 @@ if not MYPY:
         """
         concurrency: pulumi.Input[_builtins.int]
         """
-        Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+        Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
         """
+        cross_channel_behavior: NotRequired[pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgsDict']]
 elif False:
     RoutingProfileMediaConcurrencyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1082,13 +1085,16 @@ elif False:
 class RoutingProfileMediaConcurrencyArgs:
     def __init__(__self__, *,
                  channel: pulumi.Input[_builtins.str],
-                 concurrency: pulumi.Input[_builtins.int]):
+                 concurrency: pulumi.Input[_builtins.int],
+                 cross_channel_behavior: Optional[pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-        :param pulumi.Input[_builtins.int] concurrency: Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+        :param pulumi.Input[_builtins.int] concurrency: Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "concurrency", concurrency)
+        if cross_channel_behavior is not None:
+            pulumi.set(__self__, "cross_channel_behavior", cross_channel_behavior)
 
     @_builtins.property
     @pulumi.getter
@@ -1106,13 +1112,53 @@ class RoutingProfileMediaConcurrencyArgs:
     @pulumi.getter
     def concurrency(self) -> pulumi.Input[_builtins.int]:
         """
-        Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+        Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
         """
         return pulumi.get(self, "concurrency")
 
     @concurrency.setter
     def concurrency(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "concurrency", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossChannelBehavior")
+    def cross_channel_behavior(self) -> Optional[pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']]:
+        return pulumi.get(self, "cross_channel_behavior")
+
+    @cross_channel_behavior.setter
+    def cross_channel_behavior(self, value: Optional[pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']]):
+        pulumi.set(self, "cross_channel_behavior", value)
+
+
+if not MYPY:
+    class RoutingProfileMediaConcurrencyCrossChannelBehaviorArgsDict(TypedDict):
+        behavior_type: pulumi.Input[_builtins.str]
+        """
+        Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
+        """
+elif False:
+    RoutingProfileMediaConcurrencyCrossChannelBehaviorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs:
+    def __init__(__self__, *,
+                 behavior_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] behavior_type: Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
+        """
+        pulumi.set(__self__, "behavior_type", behavior_type)
+
+    @_builtins.property
+    @pulumi.getter(name="behaviorType")
+    def behavior_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
+        """
+        return pulumi.get(self, "behavior_type")
+
+    @behavior_type.setter
+    def behavior_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "behavior_type", value)
 
 
 if not MYPY:

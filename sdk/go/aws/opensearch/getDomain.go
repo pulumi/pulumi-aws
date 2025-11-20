@@ -52,8 +52,6 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 type LookupDomainArgs struct {
 	// Name of the domain.
 	DomainName string `pulumi:"domainName"`
-	// Off Peak update options
-	OffPeakWindowOptions *GetDomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags assigned to the domain.
@@ -101,6 +99,8 @@ type LookupDomainResult struct {
 	EngineVersion string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Configuration for enabling and managing IAM Identity Center integration within a domain.
+	IdentityCenterOptions []GetDomainIdentityCenterOption `pulumi:"identityCenterOptions"`
 	// Type of IP addresses supported by the endpoint for the domain.
 	IpAddressType string `pulumi:"ipAddressType"`
 	// Domain log publishing related options.
@@ -108,7 +108,7 @@ type LookupDomainResult struct {
 	// Domain in transit encryption related options.
 	NodeToNodeEncryptions []GetDomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryptions"`
 	// Off Peak update options
-	OffPeakWindowOptions *GetDomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
+	OffPeakWindowOptions GetDomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
 	// Status of a configuration change in the domain.
 	Processing bool   `pulumi:"processing"`
 	Region     string `pulumi:"region"`
@@ -135,8 +135,6 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 type LookupDomainOutputArgs struct {
 	// Name of the domain.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// Off Peak update options
-	OffPeakWindowOptions GetDomainOffPeakWindowOptionsPtrInput `pulumi:"offPeakWindowOptions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags assigned to the domain.
@@ -261,6 +259,11 @@ func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Configuration for enabling and managing IAM Identity Center integration within a domain.
+func (o LookupDomainResultOutput) IdentityCenterOptions() GetDomainIdentityCenterOptionArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []GetDomainIdentityCenterOption { return v.IdentityCenterOptions }).(GetDomainIdentityCenterOptionArrayOutput)
+}
+
 // Type of IP addresses supported by the endpoint for the domain.
 func (o LookupDomainResultOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.IpAddressType }).(pulumi.StringOutput)
@@ -277,8 +280,8 @@ func (o LookupDomainResultOutput) NodeToNodeEncryptions() GetDomainNodeToNodeEnc
 }
 
 // Off Peak update options
-func (o LookupDomainResultOutput) OffPeakWindowOptions() GetDomainOffPeakWindowOptionsPtrOutput {
-	return o.ApplyT(func(v LookupDomainResult) *GetDomainOffPeakWindowOptions { return v.OffPeakWindowOptions }).(GetDomainOffPeakWindowOptionsPtrOutput)
+func (o LookupDomainResultOutput) OffPeakWindowOptions() GetDomainOffPeakWindowOptionsOutput {
+	return o.ApplyT(func(v LookupDomainResult) GetDomainOffPeakWindowOptions { return v.OffPeakWindowOptions }).(GetDomainOffPeakWindowOptionsOutput)
 }
 
 // Status of a configuration change in the domain.

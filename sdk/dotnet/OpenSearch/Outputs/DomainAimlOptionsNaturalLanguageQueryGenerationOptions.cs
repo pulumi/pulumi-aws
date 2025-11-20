@@ -14,7 +14,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     public sealed class DomainAimlOptionsNaturalLanguageQueryGenerationOptions
     {
         /// <summary>
-        /// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        /// The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         public readonly string? DesiredState;
 

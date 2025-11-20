@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainAimlOptions {
+    /**
+     * @return Configuration block for parameters required for natural language query generation on the specified domain.
+     * 
+     */
     private @Nullable DomainAimlOptionsNaturalLanguageQueryGenerationOptions naturalLanguageQueryGenerationOptions;
+    /**
+     * @return Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+     * 
+     */
     private @Nullable DomainAimlOptionsS3VectorsEngine s3VectorsEngine;
 
     private DomainAimlOptions() {}
+    /**
+     * @return Configuration block for parameters required for natural language query generation on the specified domain.
+     * 
+     */
     public Optional<DomainAimlOptionsNaturalLanguageQueryGenerationOptions> naturalLanguageQueryGenerationOptions() {
         return Optional.ofNullable(this.naturalLanguageQueryGenerationOptions);
     }
+    /**
+     * @return Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+     * 
+     */
     public Optional<DomainAimlOptionsS3VectorsEngine> s3VectorsEngine() {
         return Optional.ofNullable(this.s3VectorsEngine);
     }

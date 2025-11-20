@@ -26,6 +26,18 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### X-Ray Trace Delivery
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const xray = new aws.cloudwatch.LogDeliveryDestination("xray", {
+ *     name: "xray-traces",
+ *     deliveryDestinationType: "XRAY",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Logs Delivery Destination using the `name`. For example:
@@ -67,13 +79,13 @@ export class LogDeliveryDestination extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The AWS resource that will receive the logs.
+     * The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
      */
     declare public readonly deliveryDestinationConfiguration: pulumi.Output<outputs.cloudwatch.LogDeliveryDestinationDeliveryDestinationConfiguration | undefined>;
     /**
-     * Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+     * The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
      */
-    declare public /*out*/ readonly deliveryDestinationType: pulumi.Output<string>;
+    declare public readonly deliveryDestinationType: pulumi.Output<string>;
     /**
      * The name for this delivery destination.
      */
@@ -119,12 +131,12 @@ export class LogDeliveryDestination extends pulumi.CustomResource {
         } else {
             const args = argsOrState as LogDeliveryDestinationArgs | undefined;
             resourceInputs["deliveryDestinationConfiguration"] = args?.deliveryDestinationConfiguration;
+            resourceInputs["deliveryDestinationType"] = args?.deliveryDestinationType;
             resourceInputs["name"] = args?.name;
             resourceInputs["outputFormat"] = args?.outputFormat;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["deliveryDestinationType"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -141,11 +153,11 @@ export interface LogDeliveryDestinationState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The AWS resource that will receive the logs.
+     * The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
      */
     deliveryDestinationConfiguration?: pulumi.Input<inputs.cloudwatch.LogDeliveryDestinationDeliveryDestinationConfiguration>;
     /**
-     * Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+     * The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
      */
     deliveryDestinationType?: pulumi.Input<string>;
     /**
@@ -175,9 +187,13 @@ export interface LogDeliveryDestinationState {
  */
 export interface LogDeliveryDestinationArgs {
     /**
-     * The AWS resource that will receive the logs.
+     * The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
      */
     deliveryDestinationConfiguration?: pulumi.Input<inputs.cloudwatch.LogDeliveryDestinationDeliveryDestinationConfiguration>;
+    /**
+     * The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
+     */
+    deliveryDestinationType?: pulumi.Input<string>;
     /**
      * The name for this delivery destination.
      */

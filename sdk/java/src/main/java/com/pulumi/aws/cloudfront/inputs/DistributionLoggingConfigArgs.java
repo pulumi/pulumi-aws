@@ -5,7 +5,6 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -18,29 +17,29 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
     public static final DistributionLoggingConfigArgs Empty = new DistributionLoggingConfigArgs();
 
     /**
-     * Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
+     * Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
      * 
      */
-    @Import(name="bucket", required=true)
-    private Output<String> bucket;
+    @Import(name="bucket")
+    private @Nullable Output<String> bucket;
 
     /**
-     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
+     * @return Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
      * 
      */
-    public Output<String> bucket() {
-        return this.bucket;
+    public Optional<Output<String>> bucket() {
+        return Optional.ofNullable(this.bucket);
     }
 
     /**
-     * Whether to include cookies in access logs (default: `false`).
+     * Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
      * 
      */
     @Import(name="includeCookies")
     private @Nullable Output<Boolean> includeCookies;
 
     /**
-     * @return Whether to include cookies in access logs (default: `false`).
+     * @return Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
      * 
      */
     public Optional<Output<Boolean>> includeCookies() {
@@ -48,14 +47,14 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+     * Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+     * @return Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -89,18 +88,18 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param bucket Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
+         * @param bucket Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
          * 
          * @return builder
          * 
          */
-        public Builder bucket(Output<String> bucket) {
+        public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
         /**
-         * @param bucket Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
+         * @param bucket Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
          * 
          * @return builder
          * 
@@ -110,7 +109,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param includeCookies Whether to include cookies in access logs (default: `false`).
+         * @param includeCookies Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
          * 
          * @return builder
          * 
@@ -121,7 +120,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param includeCookies Whether to include cookies in access logs (default: `false`).
+         * @param includeCookies Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
          * 
          * @return builder
          * 
@@ -131,7 +130,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param prefix Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+         * @param prefix Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
          * 
          * @return builder
          * 
@@ -142,7 +141,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param prefix Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+         * @param prefix Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
          * 
          * @return builder
          * 
@@ -152,9 +151,6 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         public DistributionLoggingConfigArgs build() {
-            if ($.bucket == null) {
-                throw new MissingRequiredPropertyException("DistributionLoggingConfigArgs", "bucket");
-            }
             return $;
         }
     }

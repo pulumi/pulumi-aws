@@ -13,8 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class EndpointConfigurationDataCaptureConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content type headers to capture.
-        /// See `CaptureContentTypeHeader` below.
+        /// Content type headers to capture. See `CaptureContentTypeHeader` below.
         /// </summary>
         [Input("captureContentTypeHeader")]
         public Input<Inputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs>? CaptureContentTypeHeader { get; set; }
@@ -23,7 +22,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.EndpointConfigurationDataCaptureConfigCaptureOptionArgs>? _captureOptions;
 
         /// <summary>
-        /// Specifies what data to capture. Fields are documented below.
+        /// What data to capture. Fields are documented below.
         /// </summary>
         public InputList<Inputs.EndpointConfigurationDataCaptureConfigCaptureOptionArgs> CaptureOptions
         {
@@ -32,7 +31,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The URL for S3 location where the captured data is stored.
+        /// URL for S3 location where the captured data is stored.
         /// </summary>
         [Input("destinationS3Uri", required: true)]
         public Input<string> DestinationS3Uri { get; set; } = null!;
@@ -50,7 +49,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<int> InitialSamplingPercentage { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
+        /// ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

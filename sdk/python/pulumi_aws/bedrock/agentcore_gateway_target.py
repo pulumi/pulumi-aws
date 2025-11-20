@@ -31,7 +31,7 @@ class AgentcoreGatewayTargetArgs:
         """
         The set of arguments for constructing a AgentcoreGatewayTarget resource.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
-        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs'] credential_provider_configuration: Configuration for authenticating requests to the target. See `credential_provider_configuration` below.
+        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs'] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
         :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
@@ -69,7 +69,7 @@ class AgentcoreGatewayTargetArgs:
     @pulumi.getter(name="credentialProviderConfiguration")
     def credential_provider_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs']]:
         """
-        Configuration for authenticating requests to the target. See `credential_provider_configuration` below.
+        Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         """
         return pulumi.get(self, "credential_provider_configuration")
 
@@ -150,7 +150,7 @@ class _AgentcoreGatewayTargetState:
                  timeouts: Optional[pulumi.Input['AgentcoreGatewayTargetTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreGatewayTarget resources.
-        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs'] credential_provider_configuration: Configuration for authenticating requests to the target. See `credential_provider_configuration` below.
+        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs'] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
@@ -181,7 +181,7 @@ class _AgentcoreGatewayTargetState:
     @pulumi.getter(name="credentialProviderConfiguration")
     def credential_provider_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs']]:
         """
-        Configuration for authenticating requests to the target. See `credential_provider_configuration` below.
+        Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         """
         return pulumi.get(self, "credential_provider_configuration")
 
@@ -293,6 +293,111 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         ## Example Usage
 
         ### Lambda Target with Gateway IAM Role
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        gateway_assume = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["bedrock-agentcore.amazonaws.com"],
+            }],
+        }])
+        gateway_role = aws.iam.Role("gateway_role",
+            name="bedrock-gateway-role",
+            assume_role_policy=gateway_assume.json)
+        lambda_assume = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["lambda.amazonaws.com"],
+            }],
+        }])
+        lambda_role = aws.iam.Role("lambda_role",
+            name="example-lambda-role",
+            assume_role_policy=lambda_assume.json)
+        example = aws.lambda_.Function("example",
+            code=pulumi.FileArchive("example.zip"),
+            name="example-function",
+            role=lambda_role.arn,
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
+        example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
+            name="example-gateway",
+            role_arn=gateway_role.arn,
+            authorizer_configuration={
+                "custom_jwt_authorizer": {
+                    "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
+                },
+            })
+        example_agentcore_gateway_target = aws.bedrock.AgentcoreGatewayTarget("example",
+            name="example-target",
+            gateway_identifier=example_agentcore_gateway.gateway_id,
+            description="Lambda function target for processing requests",
+            credential_provider_configuration={
+                "gateway_iam_role": {},
+            },
+            target_configuration={
+                "mcp": {
+                    "lambda_": {
+                        "lambda_arn": example.arn,
+                        "tool_schema": {
+                            "inline_payloads": [{
+                                "name": "process_request",
+                                "description": "Process incoming requests",
+                                "input_schema": {
+                                    "type": "object",
+                                    "description": "Request processing schema",
+                                    "properties": [
+                                        {
+                                            "name": "message",
+                                            "type": "string",
+                                            "description": "Message to process",
+                                            "required": True,
+                                        },
+                                        {
+                                            "name": "options",
+                                            "type": "object",
+                                            "properties": [
+                                                {
+                                                    "name": "priority",
+                                                    "type": "string",
+                                                },
+                                                {
+                                                    "name": "tags",
+                                                    "type": "array",
+                                                    "items": [{
+                                                        "type": "string",
+                                                    }],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                                "output_schema": {
+                                    "type": "object",
+                                    "properties": [
+                                        {
+                                            "name": "status",
+                                            "type": "string",
+                                            "required": True,
+                                        },
+                                        {
+                                            "name": "result",
+                                            "type": "string",
+                                        },
+                                    ],
+                                },
+                            }],
+                        },
+                    },
+                },
+            })
+        ```
 
         ### Target with API Key Authentication
 
@@ -454,7 +559,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']] credential_provider_configuration: Configuration for authenticating requests to the target. See `credential_provider_configuration` below.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
@@ -475,6 +580,111 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         ## Example Usage
 
         ### Lambda Target with Gateway IAM Role
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        gateway_assume = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["bedrock-agentcore.amazonaws.com"],
+            }],
+        }])
+        gateway_role = aws.iam.Role("gateway_role",
+            name="bedrock-gateway-role",
+            assume_role_policy=gateway_assume.json)
+        lambda_assume = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["lambda.amazonaws.com"],
+            }],
+        }])
+        lambda_role = aws.iam.Role("lambda_role",
+            name="example-lambda-role",
+            assume_role_policy=lambda_assume.json)
+        example = aws.lambda_.Function("example",
+            code=pulumi.FileArchive("example.zip"),
+            name="example-function",
+            role=lambda_role.arn,
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
+        example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
+            name="example-gateway",
+            role_arn=gateway_role.arn,
+            authorizer_configuration={
+                "custom_jwt_authorizer": {
+                    "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
+                },
+            })
+        example_agentcore_gateway_target = aws.bedrock.AgentcoreGatewayTarget("example",
+            name="example-target",
+            gateway_identifier=example_agentcore_gateway.gateway_id,
+            description="Lambda function target for processing requests",
+            credential_provider_configuration={
+                "gateway_iam_role": {},
+            },
+            target_configuration={
+                "mcp": {
+                    "lambda_": {
+                        "lambda_arn": example.arn,
+                        "tool_schema": {
+                            "inline_payloads": [{
+                                "name": "process_request",
+                                "description": "Process incoming requests",
+                                "input_schema": {
+                                    "type": "object",
+                                    "description": "Request processing schema",
+                                    "properties": [
+                                        {
+                                            "name": "message",
+                                            "type": "string",
+                                            "description": "Message to process",
+                                            "required": True,
+                                        },
+                                        {
+                                            "name": "options",
+                                            "type": "object",
+                                            "properties": [
+                                                {
+                                                    "name": "priority",
+                                                    "type": "string",
+                                                },
+                                                {
+                                                    "name": "tags",
+                                                    "type": "array",
+                                                    "items": [{
+                                                        "type": "string",
+                                                    }],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                                "output_schema": {
+                                    "type": "object",
+                                    "properties": [
+                                        {
+                                            "name": "status",
+                                            "type": "string",
+                                            "required": True,
+                                        },
+                                        {
+                                            "name": "result",
+                                            "type": "string",
+                                        },
+                                    ],
+                                },
+                            }],
+                        },
+                    },
+                },
+            })
+        ```
 
         ### Target with API Key Authentication
 
@@ -700,7 +910,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']] credential_provider_configuration: Configuration for authenticating requests to the target. See `credential_provider_configuration` below.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
@@ -728,7 +938,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
     @pulumi.getter(name="credentialProviderConfiguration")
     def credential_provider_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfiguration']]:
         """
-        Configuration for authenticating requests to the target. See `credential_provider_configuration` below.
+        Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         """
         return pulumi.get(self, "credential_provider_configuration")
 

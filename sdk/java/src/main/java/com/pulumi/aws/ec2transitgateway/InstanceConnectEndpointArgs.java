@@ -21,6 +21,21 @@ public final class InstanceConnectEndpointArgs extends com.pulumi.resources.Reso
     public static final InstanceConnectEndpointArgs Empty = new InstanceConnectEndpointArgs();
 
     /**
+     * IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
+    /**
      * Indicates whether your client&#39;s IP address is preserved as the source. Default: `true`.
      * 
      */
@@ -105,6 +120,7 @@ public final class InstanceConnectEndpointArgs extends com.pulumi.resources.Reso
     private InstanceConnectEndpointArgs() {}
 
     private InstanceConnectEndpointArgs(InstanceConnectEndpointArgs $) {
+        this.ipAddressType = $.ipAddressType;
         this.preserveClientIp = $.preserveClientIp;
         this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
@@ -129,6 +145,27 @@ public final class InstanceConnectEndpointArgs extends com.pulumi.resources.Reso
 
         public Builder(InstanceConnectEndpointArgs defaults) {
             $ = new InstanceConnectEndpointArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param ipAddressType IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         /**

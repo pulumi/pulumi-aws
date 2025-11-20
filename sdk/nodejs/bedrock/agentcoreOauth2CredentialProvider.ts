@@ -30,6 +30,26 @@ import * as utilities from "../utilities";
  *
  * ### Custom OAuth Provider with Discovery URL
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const auth0 = new aws.bedrock.AgentcoreOauth2CredentialProvider("auth0", {
+ *     name: "auth0-oauth-provider",
+ *     credentialProviderVendor: "CustomOauth2",
+ *     customOauth2ProviderConfig: [{
+ *         custom: [{
+ *             clientIdWo: "auth0-client-id",
+ *             clientSecretWo: "auth0-client-secret",
+ *             clientCredentialsWoVersion: 1,
+ *             oauthDiscovery: [{
+ *                 discoveryUrl: "https://dev-company.auth0.com/.well-known/openid-configuration",
+ *             }],
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
  * ### Custom OAuth Provider with Authorization Server Metadata
  *
  * ```typescript

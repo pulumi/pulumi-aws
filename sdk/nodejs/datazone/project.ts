@@ -12,6 +12,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.datazone.Project("test", {
+ *     domainId: testAwsDatazoneDomain.id,
+ *     glossaryTerms: ["2N8w6XJCwZf"],
+ *     name: "name",
+ *     description: "desc",
+ *     skipDeletionCheck: true,
+ * });
+ * ```
+ *
  * ### Basic Usage
  *
  * ```typescript

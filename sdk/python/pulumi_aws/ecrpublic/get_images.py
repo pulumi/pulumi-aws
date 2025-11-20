@@ -113,6 +113,18 @@ def get_images(image_ids: Optional[Sequence[Union['GetImagesImageIdArgs', 'GetIm
     """
     The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.ecrpublic.get_images(repository_name="my-public-repository")
+    pulumi.export("imageDigests", [img.digest for img in example.images if img.digest != None])
+    pulumi.export("imageTags", std.distinct(input=std.flatten(input=[img.tags for img in example.images]).result).result)
+    ```
+
 
     :param Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict']] image_ids: One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -141,6 +153,18 @@ def get_images_output(image_ids: Optional[pulumi.Input[Optional[Sequence[Union['
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagesResult]:
     """
     The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.ecrpublic.get_images(repository_name="my-public-repository")
+    pulumi.export("imageDigests", [img.digest for img in example.images if img.digest != None])
+    pulumi.export("imageTags", std.distinct(input=std.flatten(input=[img.tags for img in example.images]).result).result)
+    ```
 
 
     :param Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict']] image_ids: One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
