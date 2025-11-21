@@ -641,6 +641,32 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             })
         ```
 
+        ### Agent runtime artifact from S3 with Code Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreAgentRuntime("example",
+            agent_runtime_name="example_agent_runtime",
+            role_arn=example_aws_iam_role["arn"],
+            agent_runtime_artifact={
+                "code_configuration": {
+                    "entry_points": ["main.py"],
+                    "runtime": "PYTHON_3_13",
+                    "code": {
+                        "s3": {
+                            "bucket": "example-bucket",
+                            "prefix": "example-agent-runtime-code.zip",
+                        },
+                    },
+                },
+            },
+            network_configuration={
+                "network_mode": "PUBLIC",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Bedrock AgentCore Agent Runtime using `agent_runtime_id`. For example:
@@ -762,6 +788,32 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             },
             protocol_configuration={
                 "server_protocol": "MCP",
+            })
+        ```
+
+        ### Agent runtime artifact from S3 with Code Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreAgentRuntime("example",
+            agent_runtime_name="example_agent_runtime",
+            role_arn=example_aws_iam_role["arn"],
+            agent_runtime_artifact={
+                "code_configuration": {
+                    "entry_points": ["main.py"],
+                    "runtime": "PYTHON_3_13",
+                    "code": {
+                        "s3": {
+                            "bucket": "example-bucket",
+                            "prefix": "example-agent-runtime-code.zip",
+                        },
+                    },
+                },
+            },
+            network_configuration={
+                "network_mode": "PUBLIC",
             })
         ```
 

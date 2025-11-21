@@ -1216,6 +1216,20 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.tunnel2VgwInsideAddress;
     }
     /**
+     * Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+     * 
+     */
+    @Export(name="tunnelBandwidth", refs={String.class}, tree="[0]")
+    private Output<String> tunnelBandwidth;
+
+    /**
+     * @return Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+     * 
+     */
+    public Output<String> tunnelBandwidth() {
+        return this.tunnelBandwidth;
+    }
+    /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      * 
      */

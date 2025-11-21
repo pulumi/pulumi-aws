@@ -440,6 +440,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are &#34;error&#34;, &#34;warning&#34;, and &#34;disabled&#34;. When unset or &#34;disabled&#34;, tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+     * 
+     */
+    @Import(name="tagPolicyCompliance")
+    private @Nullable Output<String> tagPolicyCompliance;
+
+    /**
+     * @return The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are &#34;error&#34;, &#34;warning&#34;, and &#34;disabled&#34;. When unset or &#34;disabled&#34;, tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+     * 
+     */
+    public Optional<Output<String>> tagPolicyCompliance() {
+        return Optional.ofNullable(this.tagPolicyCompliance);
+    }
+
+    /**
      * session token. A session token is only required if you are
      * using temporary security credentials.
      * 
@@ -533,6 +548,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.skipRegionValidation = $.skipRegionValidation;
         this.skipRequestingAccountId = $.skipRequestingAccountId;
         this.stsRegion = $.stsRegion;
+        this.tagPolicyCompliance = $.tagPolicyCompliance;
         this.token = $.token;
         this.tokenBucketRateLimiterCapacity = $.tokenBucketRateLimiterCapacity;
         this.useDualstackEndpoint = $.useDualstackEndpoint;
@@ -1160,6 +1176,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder stsRegion(String stsRegion) {
             return stsRegion(Output.of(stsRegion));
+        }
+
+        /**
+         * @param tagPolicyCompliance The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are &#34;error&#34;, &#34;warning&#34;, and &#34;disabled&#34;. When unset or &#34;disabled&#34;, tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPolicyCompliance(@Nullable Output<String> tagPolicyCompliance) {
+            $.tagPolicyCompliance = tagPolicyCompliance;
+            return this;
+        }
+
+        /**
+         * @param tagPolicyCompliance The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are &#34;error&#34;, &#34;warning&#34;, and &#34;disabled&#34;. When unset or &#34;disabled&#34;, tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPolicyCompliance(String tagPolicyCompliance) {
+            return tagPolicyCompliance(Output.of(tagPolicyCompliance));
         }
 
         /**

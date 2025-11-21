@@ -14,6 +14,8 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
     /// 
+    /// &gt; **NOTE:** Starting in March 2026, Amazon S3 will automatically block server-side encryption with customer-provided keys (SSE-C) for all new buckets. Use the `BlockedEncryptionTypes` argument to manage this behavior. For more information, see the [SSE-C changes FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-s3-c-encryption-setting-faq.html).
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -46,6 +48,51 @@ namespace Pulumi.Aws.S3
     ///                 {
     ///                     KmsMasterKeyId = mykey.Arn,
     ///                     SseAlgorithm = "aws:kms",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Blocking SSE-C Uploads
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mykey = new Aws.Kms.Key("mykey", new()
+    ///     {
+    ///         Description = "This key is used to encrypt bucket objects",
+    ///         DeletionWindowInDays = 10,
+    ///     });
+    /// 
+    ///     var mybucket = new Aws.S3.Bucket("mybucket", new()
+    ///     {
+    ///         BucketName = "mybucket",
+    ///     });
+    /// 
+    ///     var example = new Aws.S3.BucketServerSideEncryptionConfiguration("example", new()
+    ///     {
+    ///         Bucket = mybucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleArgs
+    ///             {
+    ///                 ApplyServerSideEncryptionByDefault = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs
+    ///                 {
+    ///                     KmsMasterKeyId = mykey.Arn,
+    ///                     SseAlgorithm = "aws:kms",
+    ///                 },
+    ///                 BucketKeyEnabled = true,
+    ///                 BlockedEncryptionTypes = new[]
+    ///                 {
+    ///                     "SSE-C",
     ///                 },
     ///             },
     ///         },

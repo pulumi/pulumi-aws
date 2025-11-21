@@ -19908,6 +19908,8 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) TableNa
 }
 
 type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping struct {
+	// Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+	CustomMetadataField *string `pulumi:"customMetadataField"`
 	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField string `pulumi:"metadataField"`
 	// Name of the field in which Amazon Bedrock stores the ID for each entry.
@@ -19930,6 +19932,8 @@ type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingInput int
 }
 
 type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs struct {
+	// Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+	CustomMetadataField pulumi.StringPtrInput `pulumi:"customMetadataField"`
 	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField pulumi.StringInput `pulumi:"metadataField"`
 	// Name of the field in which Amazon Bedrock stores the ID for each entry.
@@ -20017,6 +20021,13 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput)
 }
 
+// Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) CustomMetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) *string {
+		return v.CustomMetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
 // Name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) MetadataField() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) string {
@@ -20065,6 +20076,16 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOut
 		var ret AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping
 		return ret
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput)
+}
+
+// Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) CustomMetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomMetadataField
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the field in which Amazon Bedrock stores metadata about the vector store.
@@ -24334,7 +24355,9 @@ func (o AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput) Ind
 }
 
 type AgentcoreAgentRuntimeAgentRuntimeArtifact struct {
-	// Container configuration block. See `containerConfiguration` below.
+	// Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
+	CodeConfiguration *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration `pulumi:"codeConfiguration"`
+	// Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
 	ContainerConfiguration *AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration `pulumi:"containerConfiguration"`
 }
 
@@ -24350,7 +24373,9 @@ type AgentcoreAgentRuntimeAgentRuntimeArtifactInput interface {
 }
 
 type AgentcoreAgentRuntimeAgentRuntimeArtifactArgs struct {
-	// Container configuration block. See `containerConfiguration` below.
+	// Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
+	CodeConfiguration AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrInput `pulumi:"codeConfiguration"`
+	// Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
 	ContainerConfiguration AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrInput `pulumi:"containerConfiguration"`
 }
 
@@ -24431,7 +24456,14 @@ func (o AgentcoreAgentRuntimeAgentRuntimeArtifactOutput) ToAgentcoreAgentRuntime
 	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput)
 }
 
-// Container configuration block. See `containerConfiguration` below.
+// Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactOutput) CodeConfiguration() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifact) *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration {
+		return v.CodeConfiguration
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput)
+}
+
+// Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
 func (o AgentcoreAgentRuntimeAgentRuntimeArtifactOutput) ContainerConfiguration() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifact) *AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration {
 		return v.ContainerConfiguration
@@ -24462,7 +24494,17 @@ func (o AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput) Elem() AgentcoreAgen
 	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactOutput)
 }
 
-// Container configuration block. See `containerConfiguration` below.
+// Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput) CodeConfiguration() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifact) *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CodeConfiguration
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput)
+}
+
+// Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
 func (o AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput) ContainerConfiguration() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifact) *AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration {
 		if v == nil {
@@ -24470,6 +24512,497 @@ func (o AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput) ContainerConfigurati
 		}
 		return v.ContainerConfiguration
 	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration struct {
+	// Configuration block for the source code location and configuration details. See `code` below.
+	Code *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode `pulumi:"code"`
+	// Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
+	EntryPoints []string `pulumi:"entryPoints"`
+	// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+	Runtime string `pulumi:"runtime"`
+}
+
+// AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationInput is an input type that accepts AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs and AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationInput` via:
+//
+//	AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs{...}
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutputWithContext(context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs struct {
+	// Configuration block for the source code location and configuration details. See `code` below.
+	Code AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrInput `pulumi:"code"`
+	// Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
+	EntryPoints pulumi.StringArrayInput `pulumi:"entryPoints"`
+	// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+	Runtime pulumi.StringInput `pulumi:"runtime"`
+}
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput)
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput).ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrInput is an input type that accepts AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs, AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtr and AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrInput` via:
+//
+//	        AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutputWithContext(context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput
+}
+
+type agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrType AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs
+
+func AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtr(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrInput {
+	return (*agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrType) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrType) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput {
+	return o.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration) *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration {
+		return &v
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput)
+}
+
+// Configuration block for the source code location and configuration details. See `code` below.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput) Code() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration) *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode {
+		return v.Code
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput)
+}
+
+// Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput) EntryPoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration) []string { return v.EntryPoints }).(pulumi.StringArrayOutput)
+}
+
+// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput) Runtime() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration) string { return v.Runtime }).(pulumi.StringOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput) Elem() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration
+		return ret
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput)
+}
+
+// Configuration block for the source code location and configuration details. See `code` below.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput) Code() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration) *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput)
+}
+
+// Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput) EntryPoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EntryPoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Runtime
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode struct {
+	// Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
+	S3 *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3 `pulumi:"s3"`
+}
+
+// AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeInput is an input type that accepts AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs and AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeInput` via:
+//
+//	AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs{...}
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutputWithContext(context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs struct {
+	// Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
+	S3 AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrInput `pulumi:"s3"`
+}
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput)
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput).ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrInput is an input type that accepts AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs, AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtr and AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrInput` via:
+//
+//	        AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutputWithContext(context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput
+}
+
+type agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrType AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs
+
+func AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtr(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrInput {
+	return (*agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrType) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrType) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput {
+	return o.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode) *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode {
+		return &v
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput)
+}
+
+// Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput) S3() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode) *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3 {
+		return v.S3
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput) Elem() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode
+		return ret
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput)
+}
+
+// Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput) S3() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode) *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3 struct {
+	// Name of the Amazon S3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
+	Prefix string `pulumi:"prefix"`
+	// Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
+	VersionId *string `pulumi:"versionId"`
+}
+
+// AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Input is an input type that accepts AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args and AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Input` via:
+//
+//	AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args{...}
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Input interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3OutputWithContext(context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args struct {
+	// Name of the Amazon S3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+}
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3OutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3OutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output)
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output).ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrInput is an input type that accepts AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args, AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Ptr and AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrInput` via:
+//
+//	        AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutputWithContext(context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput
+}
+
+type agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrType AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args
+
+func AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Ptr(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrInput {
+	return (*agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrType) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrType) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3OutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput {
+	return o.ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3) *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3 {
+		return &v
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput)
+}
+
+// Name of the Amazon S3 bucket.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput) Elem() AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3) AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3 {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3
+		return ret
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output)
+}
+
+// Name of the Amazon S3 bucket.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
 }
 
 type AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration struct {
@@ -39872,9 +40405,21 @@ func (o GuardrailContentPolicyConfigPtrOutput) TierConfigs() GuardrailContentPol
 }
 
 type GuardrailContentPolicyConfigFiltersConfig struct {
-	// Strength for filters.
+	// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+	InputAction *string `pulumi:"inputAction"`
+	// Toggles guardrail evaluation on input.
+	InputEnabled *bool `pulumi:"inputEnabled"`
+	// List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+	InputModalities []string `pulumi:"inputModalities"`
+	// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
 	InputStrength string `pulumi:"inputStrength"`
-	// Strength for filters.
+	// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+	OutputAction *string `pulumi:"outputAction"`
+	// Toggles guardrail evaluation on output.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
+	// List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+	OutputModalities []string `pulumi:"outputModalities"`
+	// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
 	OutputStrength string `pulumi:"outputStrength"`
 	// Type of contextual grounding filter.
 	Type string `pulumi:"type"`
@@ -39892,9 +40437,21 @@ type GuardrailContentPolicyConfigFiltersConfigInput interface {
 }
 
 type GuardrailContentPolicyConfigFiltersConfigArgs struct {
-	// Strength for filters.
+	// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+	InputAction pulumi.StringPtrInput `pulumi:"inputAction"`
+	// Toggles guardrail evaluation on input.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
+	// List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+	InputModalities pulumi.StringArrayInput `pulumi:"inputModalities"`
+	// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
 	InputStrength pulumi.StringInput `pulumi:"inputStrength"`
-	// Strength for filters.
+	// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+	OutputAction pulumi.StringPtrInput `pulumi:"outputAction"`
+	// Toggles guardrail evaluation on output.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
+	// List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+	OutputModalities pulumi.StringArrayInput `pulumi:"outputModalities"`
+	// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
 	OutputStrength pulumi.StringInput `pulumi:"outputStrength"`
 	// Type of contextual grounding filter.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -39951,12 +40508,42 @@ func (o GuardrailContentPolicyConfigFiltersConfigOutput) ToGuardrailContentPolic
 	return o
 }
 
-// Strength for filters.
+// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) InputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) *string { return v.InputAction }).(pulumi.StringPtrOutput)
+}
+
+// Toggles guardrail evaluation on input.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) InputModalities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) []string { return v.InputModalities }).(pulumi.StringArrayOutput)
+}
+
+// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
 func (o GuardrailContentPolicyConfigFiltersConfigOutput) InputStrength() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) string { return v.InputStrength }).(pulumi.StringOutput)
 }
 
-// Strength for filters.
+// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) OutputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) *string { return v.OutputAction }).(pulumi.StringPtrOutput)
+}
+
+// Toggles guardrail evaluation on output.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) OutputModalities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) []string { return v.OutputModalities }).(pulumi.StringArrayOutput)
+}
+
+// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
 func (o GuardrailContentPolicyConfigFiltersConfigOutput) OutputStrength() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) string { return v.OutputStrength }).(pulumi.StringOutput)
 }
@@ -44259,6 +44846,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextInputVariableArrayInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationTextInputVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Input)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationArgs{})
@@ -44843,6 +45436,12 @@ func init() {
 	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactOutput{})
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Output{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3PtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationOutput{})

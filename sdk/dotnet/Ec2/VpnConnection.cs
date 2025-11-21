@@ -592,6 +592,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Tunnel2VgwInsideAddress { get; private set; } = null!;
 
         /// <summary>
+        /// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `Standard` supports up to 1.25 Gbps per tunnel, while `Large` supports up to 5 Gbps per tunnel. Not supported when `VpnGatewayId` is specified, or `EnableAcceleration` is `True`.
+        /// </summary>
+        [Output("tunnelBandwidth")]
+        public Output<string> TunnelBandwidth { get; private set; } = null!;
+
+        /// <summary>
         /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `Ipv6` Supports only EC2 Transit Gateway.
         /// </summary>
         [Output("tunnelInsideIpVersion")]
@@ -1094,6 +1100,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("tunnel2StartupAction")]
         public Input<string>? Tunnel2StartupAction { get; set; }
+
+        /// <summary>
+        /// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `Standard` supports up to 1.25 Gbps per tunnel, while `Large` supports up to 5 Gbps per tunnel. Not supported when `VpnGatewayId` is specified, or `EnableAcceleration` is `True`.
+        /// </summary>
+        [Input("tunnelBandwidth")]
+        public Input<string>? TunnelBandwidth { get; set; }
 
         /// <summary>
         /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `Ipv6` Supports only EC2 Transit Gateway.
@@ -1678,6 +1690,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("tunnel2VgwInsideAddress")]
         public Input<string>? Tunnel2VgwInsideAddress { get; set; }
+
+        /// <summary>
+        /// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `Standard` supports up to 1.25 Gbps per tunnel, while `Large` supports up to 5 Gbps per tunnel. Not supported when `VpnGatewayId` is specified, or `EnableAcceleration` is `True`.
+        /// </summary>
+        [Input("tunnelBandwidth")]
+        public Input<string>? TunnelBandwidth { get; set; }
 
         /// <summary>
         /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `Ipv6` Supports only EC2 Transit Gateway.

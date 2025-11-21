@@ -4904,7 +4904,8 @@ type GetDbServersDbServer struct {
 	DisplayName string `pulumi:"displayName"`
 	// The ID of the Exadata infrastructure that hosts the database server.
 	ExadataInfrastructureId string `pulumi:"exadataInfrastructureId"`
-	Id                      string `pulumi:"id"`
+	// The unique identifier of the database server.
+	Id string `pulumi:"id"`
 	// The total number of CPU cores available on the database server.
 	MaxCpuCount int `pulumi:"maxCpuCount"`
 	// The total amount of local node storage, in gigabytes (GB), that's available on the database server.
@@ -4957,7 +4958,8 @@ type GetDbServersDbServerArgs struct {
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The ID of the Exadata infrastructure that hosts the database server.
 	ExadataInfrastructureId pulumi.StringInput `pulumi:"exadataInfrastructureId"`
-	Id                      pulumi.StringInput `pulumi:"id"`
+	// The unique identifier of the database server.
+	Id pulumi.StringInput `pulumi:"id"`
 	// The total number of CPU cores available on the database server.
 	MaxCpuCount pulumi.IntInput `pulumi:"maxCpuCount"`
 	// The total amount of local node storage, in gigabytes (GB), that's available on the database server.
@@ -5078,6 +5080,7 @@ func (o GetDbServersDbServerOutput) ExadataInfrastructureId() pulumi.StringOutpu
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.ExadataInfrastructureId }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the database server.
 func (o GetDbServersDbServerOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.Id }).(pulumi.StringOutput)
 }

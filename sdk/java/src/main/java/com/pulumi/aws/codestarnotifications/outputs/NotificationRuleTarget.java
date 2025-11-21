@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NotificationRuleTarget {
     /**
-     * @return The ARN of notification rule target. For example, a SNS Topic ARN.
+     * @return The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
      * 
      */
     private String address;
@@ -23,14 +23,14 @@ public final class NotificationRuleTarget {
      */
     private @Nullable String status;
     /**
-     * @return The type of the notification target. Default value is `SNS`.
+     * @return The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
      * 
      */
     private @Nullable String type;
 
     private NotificationRuleTarget() {}
     /**
-     * @return The ARN of notification rule target. For example, a SNS Topic ARN.
+     * @return The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
      * 
      */
     public String address() {
@@ -44,7 +44,7 @@ public final class NotificationRuleTarget {
         return Optional.ofNullable(this.status);
     }
     /**
-     * @return The type of the notification target. Default value is `SNS`.
+     * @return The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
      * 
      */
     public Optional<String> type() {

@@ -16,6 +16,8 @@ import (
 //
 // > **NOTE:** Destroying an `s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
 //
+// > **NOTE:** Starting in March 2026, Amazon S3 will automatically block server-side encryption with customer-provided keys (SSE-C) for all new buckets. Use the `blockedEncryptionTypes` argument to manage this behavior. For more information, see the [SSE-C changes FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-s3-c-encryption-setting-faq.html).
+//
 // ## Example Usage
 //
 // ```go
@@ -51,6 +53,58 @@ import (
 //						ApplyServerSideEncryptionByDefault: &s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{
 //							KmsMasterKeyId: mykey.Arn,
 //							SseAlgorithm:   pulumi.String("aws:kms"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Blocking SSE-C Uploads
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mykey, err := kms.NewKey(ctx, "mykey", &kms.KeyArgs{
+//				Description:          pulumi.String("This key is used to encrypt bucket objects"),
+//				DeletionWindowInDays: pulumi.Int(10),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mybucket, err := s3.NewBucket(ctx, "mybucket", &s3.BucketArgs{
+//				Bucket: pulumi.String("mybucket"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketServerSideEncryptionConfiguration(ctx, "example", &s3.BucketServerSideEncryptionConfigurationArgs{
+//				Bucket: mybucket.ID(),
+//				Rules: s3.BucketServerSideEncryptionConfigurationRuleArray{
+//					&s3.BucketServerSideEncryptionConfigurationRuleArgs{
+//						ApplyServerSideEncryptionByDefault: &s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{
+//							KmsMasterKeyId: mykey.Arn,
+//							SseAlgorithm:   pulumi.String("aws:kms"),
+//						},
+//						BucketKeyEnabled: pulumi.Bool(true),
+//						BlockedEncryptionTypes: pulumi.StringArray{
+//							pulumi.String("SSE-C"),
 //						},
 //					},
 //				},

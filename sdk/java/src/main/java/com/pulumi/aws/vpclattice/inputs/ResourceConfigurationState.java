@@ -51,6 +51,66 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
     }
 
     /**
+     * Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+     * 
+     */
+    @Import(name="customDomainName")
+    private @Nullable Output<String> customDomainName;
+
+    /**
+     * @return Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+     * 
+     */
+    public Optional<Output<String>> customDomainName() {
+        return Optional.ofNullable(this.customDomainName);
+    }
+
+    /**
+     * ARN of the domain verification.
+     * 
+     */
+    @Import(name="domainVerificationArn")
+    private @Nullable Output<String> domainVerificationArn;
+
+    /**
+     * @return ARN of the domain verification.
+     * 
+     */
+    public Optional<Output<String>> domainVerificationArn() {
+        return Optional.ofNullable(this.domainVerificationArn);
+    }
+
+    /**
+     * The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+     * 
+     */
+    @Import(name="domainVerificationId")
+    private @Nullable Output<String> domainVerificationId;
+
+    /**
+     * @return The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+     * 
+     */
+    public Optional<Output<String>> domainVerificationId() {
+        return Optional.ofNullable(this.domainVerificationId);
+    }
+
+    /**
+     * Domain verification status.
+     * 
+     */
+    @Import(name="domainVerificationStatus")
+    private @Nullable Output<String> domainVerificationStatus;
+
+    /**
+     * @return Domain verification status.
+     * 
+     */
+    public Optional<Output<String>> domainVerificationStatus() {
+        return Optional.ofNullable(this.domainVerificationStatus);
+    }
+
+    /**
      * Name for the Resource Configuration.
      * 
      */
@@ -216,6 +276,10 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
     private ResourceConfigurationState(ResourceConfigurationState $) {
         this.allowAssociationToShareableServiceNetwork = $.allowAssociationToShareableServiceNetwork;
         this.arn = $.arn;
+        this.customDomainName = $.customDomainName;
+        this.domainVerificationArn = $.domainVerificationArn;
+        this.domainVerificationId = $.domainVerificationId;
+        this.domainVerificationStatus = $.domainVerificationStatus;
         this.name = $.name;
         this.portRanges = $.portRanges;
         this.protocol = $.protocol;
@@ -287,6 +351,90 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param customDomainName Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customDomainName(@Nullable Output<String> customDomainName) {
+            $.customDomainName = customDomainName;
+            return this;
+        }
+
+        /**
+         * @param customDomainName Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customDomainName(String customDomainName) {
+            return customDomainName(Output.of(customDomainName));
+        }
+
+        /**
+         * @param domainVerificationArn ARN of the domain verification.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainVerificationArn(@Nullable Output<String> domainVerificationArn) {
+            $.domainVerificationArn = domainVerificationArn;
+            return this;
+        }
+
+        /**
+         * @param domainVerificationArn ARN of the domain verification.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainVerificationArn(String domainVerificationArn) {
+            return domainVerificationArn(Output.of(domainVerificationArn));
+        }
+
+        /**
+         * @param domainVerificationId The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainVerificationId(@Nullable Output<String> domainVerificationId) {
+            $.domainVerificationId = domainVerificationId;
+            return this;
+        }
+
+        /**
+         * @param domainVerificationId The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainVerificationId(String domainVerificationId) {
+            return domainVerificationId(Output.of(domainVerificationId));
+        }
+
+        /**
+         * @param domainVerificationStatus Domain verification status.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainVerificationStatus(@Nullable Output<String> domainVerificationStatus) {
+            $.domainVerificationStatus = domainVerificationStatus;
+            return this;
+        }
+
+        /**
+         * @param domainVerificationStatus Domain verification status.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainVerificationStatus(String domainVerificationStatus) {
+            return domainVerificationStatus(Output.of(domainVerificationStatus));
         }
 
         /**

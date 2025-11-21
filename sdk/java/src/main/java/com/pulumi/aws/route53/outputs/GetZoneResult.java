@@ -76,7 +76,7 @@ public final class GetZoneResult {
      * 
      */
     private Map<String,String> tags;
-    private String vpcId;
+    private @Nullable String vpcId;
     /**
      * @return The Hosted Zone identifier.
      * 
@@ -168,8 +168,8 @@ public final class GetZoneResult {
     public Map<String,String> tags() {
         return this.tags;
     }
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
     /**
      * @return The Hosted Zone identifier.
@@ -200,7 +200,7 @@ public final class GetZoneResult {
         private @Nullable Boolean privateZone;
         private Integer resourceRecordSetCount;
         private Map<String,String> tags;
-        private String vpcId;
+        private @Nullable String vpcId;
         private String zoneId;
         public Builder() {}
         public Builder(GetZoneResult defaults) {
@@ -319,10 +319,8 @@ public final class GetZoneResult {
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            if (vpcId == null) {
-              throw new MissingRequiredPropertyException("GetZoneResult", "vpcId");
-            }
+        public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }

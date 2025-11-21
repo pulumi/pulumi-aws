@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
         [Input("subnets", required: true)]
         private InputList<string>? _subnets;
+
+        /// <summary>
+        /// List of subnet IDs in the VPC to which you want to connect your training job or model.
+        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());

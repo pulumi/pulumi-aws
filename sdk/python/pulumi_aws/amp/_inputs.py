@@ -105,7 +105,7 @@ if not MYPY:
     class QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict(TypedDict):
         log_group_arn: pulumi.Input[_builtins.str]
         """
-        The ARN of the CloudWatch log group to which query logs will be sent.
+        The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
         """
 elif False:
     QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
@@ -115,7 +115,7 @@ class QueryLoggingConfigurationDestinationCloudwatchLogsArgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] log_group_arn: The ARN of the CloudWatch log group to which query logs will be sent.
+        :param pulumi.Input[_builtins.str] log_group_arn: The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
@@ -123,7 +123,7 @@ class QueryLoggingConfigurationDestinationCloudwatchLogsArgs:
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the CloudWatch log group to which query logs will be sent.
+        The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_group_arn")
 
@@ -727,7 +727,7 @@ if not MYPY:
     class WorkspaceLoggingConfigurationArgsDict(TypedDict):
         log_group_arn: pulumi.Input[_builtins.str]
         """
-        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
         """
 elif False:
     WorkspaceLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -737,7 +737,7 @@ class WorkspaceLoggingConfigurationArgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] log_group_arn: The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+        :param pulumi.Input[_builtins.str] log_group_arn: The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
@@ -745,7 +745,7 @@ class WorkspaceLoggingConfigurationArgs:
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_group_arn")
 

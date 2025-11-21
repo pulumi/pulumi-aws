@@ -1259,6 +1259,48 @@ class Listener(pulumi.CustomResource):
             ])
         ```
 
+        ### JWT Validation Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lb.Listener("test",
+            load_balancer_arn=test_aws_lb["id"],
+            protocol="HTTPS",
+            port=443,
+            ssl_policy="ELBSecurityPolicy-2016-08",
+            certificate_arn=test_aws_iam_server_certificate["arn"],
+            default_actions=[
+                {
+                    "type": "jwt-validation",
+                    "jwt_validation": {
+                        "issuer": "https://example.com",
+                        "jwks_endpoint": "https://example.com/.well-known/jwks.json",
+                        "additional_claims": [
+                            {
+                                "format": "string-array",
+                                "name": "claim_name1",
+                                "values": [
+                                    "value1",
+                                    "value2",
+                                ],
+                            },
+                            {
+                                "format": "single-string",
+                                "name": "claim_name2",
+                                "values": ["value1"],
+                            },
+                        ],
+                    },
+                },
+                {
+                    "target_group_arn": test_aws_lb_target_group["id"],
+                    "type": "forward",
+                },
+            ])
+        ```
+
         ### Gateway Load Balancer Listener
 
         ```python
@@ -1543,6 +1585,48 @@ class Listener(pulumi.CustomResource):
                 {
                     "type": "forward",
                     "target_group_arn": front_end_target_group.arn,
+                },
+            ])
+        ```
+
+        ### JWT Validation Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lb.Listener("test",
+            load_balancer_arn=test_aws_lb["id"],
+            protocol="HTTPS",
+            port=443,
+            ssl_policy="ELBSecurityPolicy-2016-08",
+            certificate_arn=test_aws_iam_server_certificate["arn"],
+            default_actions=[
+                {
+                    "type": "jwt-validation",
+                    "jwt_validation": {
+                        "issuer": "https://example.com",
+                        "jwks_endpoint": "https://example.com/.well-known/jwks.json",
+                        "additional_claims": [
+                            {
+                                "format": "string-array",
+                                "name": "claim_name1",
+                                "values": [
+                                    "value1",
+                                    "value2",
+                                ],
+                            },
+                            {
+                                "format": "single-string",
+                                "name": "claim_name2",
+                                "values": ["value1"],
+                            },
+                        ],
+                    },
+                },
+                {
+                    "target_group_arn": test_aws_lb_target_group["id"],
+                    "type": "forward",
                 },
             ])
         ```

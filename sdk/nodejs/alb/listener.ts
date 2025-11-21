@@ -196,6 +196,49 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### JWT Validation Action
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lb.Listener("test", {
+ *     loadBalancerArn: testAwsLb.id,
+ *     protocol: "HTTPS",
+ *     port: 443,
+ *     sslPolicy: "ELBSecurityPolicy-2016-08",
+ *     certificateArn: testAwsIamServerCertificate.arn,
+ *     defaultActions: [
+ *         {
+ *             type: "jwt-validation",
+ *             jwtValidation: {
+ *                 issuer: "https://example.com",
+ *                 jwksEndpoint: "https://example.com/.well-known/jwks.json",
+ *                 additionalClaims: [
+ *                     {
+ *                         format: "string-array",
+ *                         name: "claim_name1",
+ *                         values: [
+ *                             "value1",
+ *                             "value2",
+ *                         ],
+ *                     },
+ *                     {
+ *                         format: "single-string",
+ *                         name: "claim_name2",
+ *                         values: ["value1"],
+ *                     },
+ *                 ],
+ *             },
+ *         },
+ *         {
+ *             targetGroupArn: testAwsLbTargetGroup.id,
+ *             type: "forward",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ### Gateway Load Balancer Listener
  *
  * ```typescript

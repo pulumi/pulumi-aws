@@ -113,7 +113,11 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     */
+    declare public readonly cloudExadataInfrastructureArn: pulumi.Output<string>;
+    /**
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     declare public readonly cloudExadataInfrastructureId: pulumi.Output<string>;
     /**
@@ -224,7 +228,11 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ocid: pulumi.Output<string>;
     /**
-     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+     * The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     */
+    declare public readonly odbNetworkArn: pulumi.Output<string>;
+    /**
+     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     declare public readonly odbNetworkId: pulumi.Output<string>;
     /**
@@ -307,6 +315,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CloudVmClusterState | undefined;
             resourceInputs["arn"] = state?.arn;
+            resourceInputs["cloudExadataInfrastructureArn"] = state?.cloudExadataInfrastructureArn;
             resourceInputs["cloudExadataInfrastructureId"] = state?.cloudExadataInfrastructureId;
             resourceInputs["clusterName"] = state?.clusterName;
             resourceInputs["computeModel"] = state?.computeModel;
@@ -334,6 +343,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["ociResourceAnchorName"] = state?.ociResourceAnchorName;
             resourceInputs["ociUrl"] = state?.ociUrl;
             resourceInputs["ocid"] = state?.ocid;
+            resourceInputs["odbNetworkArn"] = state?.odbNetworkArn;
             resourceInputs["odbNetworkId"] = state?.odbNetworkId;
             resourceInputs["percentProgress"] = state?.percentProgress;
             resourceInputs["region"] = state?.region;
@@ -354,9 +364,6 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["vipIds"] = state?.vipIds;
         } else {
             const args = argsOrState as CloudVmClusterArgs | undefined;
-            if (args?.cloudExadataInfrastructureId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cloudExadataInfrastructureId'");
-            }
             if (args?.cpuCoreCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cpuCoreCount'");
             }
@@ -375,12 +382,10 @@ export class CloudVmCluster extends pulumi.CustomResource {
             if (args?.hostnamePrefix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostnamePrefix'");
             }
-            if (args?.odbNetworkId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'odbNetworkId'");
-            }
             if (args?.sshPublicKeys === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sshPublicKeys'");
             }
+            resourceInputs["cloudExadataInfrastructureArn"] = args?.cloudExadataInfrastructureArn;
             resourceInputs["cloudExadataInfrastructureId"] = args?.cloudExadataInfrastructureId;
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["cpuCoreCount"] = args?.cpuCoreCount;
@@ -395,6 +400,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["isSparseDiskgroupEnabled"] = args?.isSparseDiskgroupEnabled;
             resourceInputs["licenseModel"] = args?.licenseModel;
             resourceInputs["memorySizeInGbs"] = args?.memorySizeInGbs;
+            resourceInputs["odbNetworkArn"] = args?.odbNetworkArn;
             resourceInputs["odbNetworkId"] = args?.odbNetworkId;
             resourceInputs["region"] = args?.region;
             resourceInputs["scanListenerPortTcp"] = args?.scanListenerPortTcp;
@@ -442,7 +448,11 @@ export interface CloudVmClusterState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     */
+    cloudExadataInfrastructureArn?: pulumi.Input<string>;
+    /**
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     cloudExadataInfrastructureId?: pulumi.Input<string>;
     /**
@@ -553,7 +563,11 @@ export interface CloudVmClusterState {
      */
     ocid?: pulumi.Input<string>;
     /**
-     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+     * The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     */
+    odbNetworkArn?: pulumi.Input<string>;
+    /**
+     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     odbNetworkId?: pulumi.Input<string>;
     /**
@@ -628,9 +642,13 @@ export interface CloudVmClusterState {
  */
 export interface CloudVmClusterArgs {
     /**
-     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
-    cloudExadataInfrastructureId: pulumi.Input<string>;
+    cloudExadataInfrastructureArn?: pulumi.Input<string>;
+    /**
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     */
+    cloudExadataInfrastructureId?: pulumi.Input<string>;
     /**
      * The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
      */
@@ -686,9 +704,13 @@ export interface CloudVmClusterArgs {
      */
     memorySizeInGbs?: pulumi.Input<number>;
     /**
-     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+     * The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
-    odbNetworkId: pulumi.Input<string>;
+    odbNetworkArn?: pulumi.Input<string>;
+    /**
+     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     */
+    odbNetworkId?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

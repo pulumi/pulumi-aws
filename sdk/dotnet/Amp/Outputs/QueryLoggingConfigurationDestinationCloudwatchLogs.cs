@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Amp.Outputs
     public sealed class QueryLoggingConfigurationDestinationCloudwatchLogs
     {
         /// <summary>
-        /// The ARN of the CloudWatch log group to which query logs will be sent.
+        /// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
         /// </summary>
         public readonly string LogGroupArn;
 

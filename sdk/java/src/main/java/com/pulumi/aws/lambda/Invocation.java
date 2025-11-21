@@ -195,6 +195,16 @@ import javax.annotation.Nullable;
  * 
  * When the invocation resource is removed, the final invocation will have:
  * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import Lambda Invocation using the `function_name,qualifier,result_hash`. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:lambda/invocation:Invocation test_lambda my_test_lambda_function,$LATEST,b326b5062b2f0e69046810717534cb09
+ * ```
+ * Because it is not possible to retrieve previous invocations, during the next apply `terraform` will update the resource calling again the function.
+ * To compute the `result_hash`, it is necessary to hash it with the standard `md5` hash function.
+ * 
  */
 @ResourceType(type="aws:lambda/invocation:Invocation")
 public class Invocation extends com.pulumi.resources.CustomResource {

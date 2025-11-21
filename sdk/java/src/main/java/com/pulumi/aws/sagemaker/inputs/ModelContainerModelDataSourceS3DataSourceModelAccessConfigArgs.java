@@ -15,14 +15,14 @@ public final class ModelContainerModelDataSourceS3DataSourceModelAccessConfigArg
     public static final ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs Empty = new ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs();
 
     /**
-     * Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+     * Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
      * 
      */
     @Import(name="acceptEula", required=true)
     private Output<Boolean> acceptEula;
 
     /**
-     * @return Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+     * @return Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
      * 
      */
     public Output<Boolean> acceptEula() {
@@ -54,7 +54,7 @@ public final class ModelContainerModelDataSourceS3DataSourceModelAccessConfigArg
         }
 
         /**
-         * @param acceptEula Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+         * @param acceptEula Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ModelContainerModelDataSourceS3DataSourceModelAccessConfigArg
         }
 
         /**
-         * @param acceptEula Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+         * @param acceptEula Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
          * 
          * @return builder
          * 

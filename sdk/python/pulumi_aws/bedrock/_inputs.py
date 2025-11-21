@@ -341,6 +341,12 @@ __all__ = [
     'AgentPromptVariantTemplateConfigurationTextInputVariableArgsDict',
     'AgentcoreAgentRuntimeAgentRuntimeArtifactArgs',
     'AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgsDict',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgsDict',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3ArgsDict',
     'AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs',
     'AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgsDict',
     'AgentcoreAgentRuntimeAuthorizerConfigurationArgs',
@@ -7590,6 +7596,10 @@ if not MYPY:
         """
         Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
         """
+        custom_metadata_field: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+        """
 elif False:
     AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7599,17 +7609,21 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs:
                  metadata_field: pulumi.Input[_builtins.str],
                  primary_key_field: pulumi.Input[_builtins.str],
                  text_field: pulumi.Input[_builtins.str],
-                 vector_field: pulumi.Input[_builtins.str]):
+                 vector_field: pulumi.Input[_builtins.str],
+                 custom_metadata_field: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param pulumi.Input[_builtins.str] primary_key_field: Name of the field in which Amazon Bedrock stores the ID for each entry.
         :param pulumi.Input[_builtins.str] text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         :param pulumi.Input[_builtins.str] vector_field: Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        :param pulumi.Input[_builtins.str] custom_metadata_field: Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
         """
         pulumi.set(__self__, "metadata_field", metadata_field)
         pulumi.set(__self__, "primary_key_field", primary_key_field)
         pulumi.set(__self__, "text_field", text_field)
         pulumi.set(__self__, "vector_field", vector_field)
+        if custom_metadata_field is not None:
+            pulumi.set(__self__, "custom_metadata_field", custom_metadata_field)
 
     @_builtins.property
     @pulumi.getter(name="metadataField")
@@ -7658,6 +7672,18 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs:
     @vector_field.setter
     def vector_field(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vector_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customMetadataField")
+    def custom_metadata_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+        """
+        return pulumi.get(self, "custom_metadata_field")
+
+    @custom_metadata_field.setter
+    def custom_metadata_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "custom_metadata_field", value)
 
 
 if not MYPY:
@@ -9158,9 +9184,13 @@ class AgentPromptVariantTemplateConfigurationTextInputVariableArgs:
 
 if not MYPY:
     class AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict(TypedDict):
+        code_configuration: NotRequired[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgsDict']]
+        """
+        Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `code_configuration` or `container_configuration` must be specified. See `code_configuration` below.
+        """
         container_configuration: NotRequired[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgsDict']]
         """
-        Container configuration block. See `container_configuration` below.
+        Container configuration block for the agent artifact. Exactly one of `code_configuration` or `container_configuration` must be specified. See `container_configuration` below.
         """
 elif False:
     AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict: TypeAlias = Mapping[str, Any]
@@ -9168,24 +9198,212 @@ elif False:
 @pulumi.input_type
 class AgentcoreAgentRuntimeAgentRuntimeArtifactArgs:
     def __init__(__self__, *,
+                 code_configuration: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs']] = None,
                  container_configuration: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs']] = None):
         """
-        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs'] container_configuration: Container configuration block. See `container_configuration` below.
+        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs'] code_configuration: Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `code_configuration` or `container_configuration` must be specified. See `code_configuration` below.
+        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs'] container_configuration: Container configuration block for the agent artifact. Exactly one of `code_configuration` or `container_configuration` must be specified. See `container_configuration` below.
         """
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs']]:
+        """
+        Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `code_configuration` or `container_configuration` must be specified. See `code_configuration` below.
+        """
+        return pulumi.get(self, "code_configuration")
+
+    @code_configuration.setter
+    def code_configuration(self, value: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs']]):
+        pulumi.set(self, "code_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
     def container_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs']]:
         """
-        Container configuration block. See `container_configuration` below.
+        Container configuration block for the agent artifact. Exactly one of `code_configuration` or `container_configuration` must be specified. See `container_configuration` below.
         """
         return pulumi.get(self, "container_configuration")
 
     @container_configuration.setter
     def container_configuration(self, value: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs']]):
         pulumi.set(self, "container_configuration", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgsDict(TypedDict):
+        entry_points: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
+        """
+        runtime: pulumi.Input[_builtins.str]
+        """
+        Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+        """
+        code: NotRequired[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgsDict']]
+        """
+        Configuration block for the source code location and configuration details. See `code` below.
+        """
+elif False:
+    AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs:
+    def __init__(__self__, *,
+                 entry_points: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 runtime: pulumi.Input[_builtins.str],
+                 code: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entry_points: Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
+        :param pulumi.Input[_builtins.str] runtime: Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs'] code: Configuration block for the source code location and configuration details. See `code` below.
+        """
+        pulumi.set(__self__, "entry_points", entry_points)
+        pulumi.set(__self__, "runtime", runtime)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+
+    @_builtins.property
+    @pulumi.getter(name="entryPoints")
+    def entry_points(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
+        """
+        return pulumi.get(self, "entry_points")
+
+    @entry_points.setter
+    def entry_points(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "entry_points", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input[_builtins.str]:
+        """
+        Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "runtime", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs']]:
+        """
+        Configuration block for the source code location and configuration details. See `code` below.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs']]):
+        pulumi.set(self, "code", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgsDict(TypedDict):
+        s3: NotRequired[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3ArgsDict']]
+        """
+        Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
+        """
+elif False:
+    AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs:
+    def __init__(__self__, *,
+                 s3: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args']] = None):
+        """
+        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args'] s3: Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args']]:
+        """
+        Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3ArgsDict(TypedDict):
+        bucket: pulumi.Input[_builtins.str]
+        """
+        Name of the Amazon S3 bucket.
+        """
+        prefix: pulumi.Input[_builtins.str]
+        """
+        Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
+        """
+        version_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
+        """
+elif False:
+    AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 prefix: pulumi.Input[_builtins.str],
+                 version_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket: Name of the Amazon S3 bucket.
+        :param pulumi.Input[_builtins.str] prefix: Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
+        :param pulumi.Input[_builtins.str] version_id: Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "prefix", prefix)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[_builtins.str]:
+        """
+        Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
 
 
 if not MYPY:
@@ -15717,15 +15935,39 @@ if not MYPY:
     class GuardrailContentPolicyConfigFiltersConfigArgsDict(TypedDict):
         input_strength: pulumi.Input[_builtins.str]
         """
-        Strength for filters.
+        Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
         """
         output_strength: pulumi.Input[_builtins.str]
         """
-        Strength for filters.
+        Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
         """
         type: pulumi.Input[_builtins.str]
         """
         Type of contextual grounding filter.
+        """
+        input_action: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        """
+        input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Toggles guardrail evaluation on input.
+        """
+        input_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+        """
+        output_action: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        """
+        output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Toggles guardrail evaluation on output.
+        """
+        output_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
         """
 elif False:
     GuardrailContentPolicyConfigFiltersConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -15735,21 +15977,45 @@ class GuardrailContentPolicyConfigFiltersConfigArgs:
     def __init__(__self__, *,
                  input_strength: pulumi.Input[_builtins.str],
                  output_strength: pulumi.Input[_builtins.str],
-                 type: pulumi.Input[_builtins.str]):
+                 type: pulumi.Input[_builtins.str],
+                 input_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 input_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 input_modalities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 output_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 output_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 output_modalities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] input_strength: Strength for filters.
-        :param pulumi.Input[_builtins.str] output_strength: Strength for filters.
+        :param pulumi.Input[_builtins.str] input_strength: Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
+        :param pulumi.Input[_builtins.str] output_strength: Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
         :param pulumi.Input[_builtins.str] type: Type of contextual grounding filter.
+        :param pulumi.Input[_builtins.str] input_action: Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        :param pulumi.Input[_builtins.bool] input_enabled: Toggles guardrail evaluation on input.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] input_modalities: List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+        :param pulumi.Input[_builtins.str] output_action: Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        :param pulumi.Input[_builtins.bool] output_enabled: Toggles guardrail evaluation on output.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] output_modalities: List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
         """
         pulumi.set(__self__, "input_strength", input_strength)
         pulumi.set(__self__, "output_strength", output_strength)
         pulumi.set(__self__, "type", type)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
+        if input_modalities is not None:
+            pulumi.set(__self__, "input_modalities", input_modalities)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
+        if output_modalities is not None:
+            pulumi.set(__self__, "output_modalities", output_modalities)
 
     @_builtins.property
     @pulumi.getter(name="inputStrength")
     def input_strength(self) -> pulumi.Input[_builtins.str]:
         """
-        Strength for filters.
+        Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
         """
         return pulumi.get(self, "input_strength")
 
@@ -15761,7 +16027,7 @@ class GuardrailContentPolicyConfigFiltersConfigArgs:
     @pulumi.getter(name="outputStrength")
     def output_strength(self) -> pulumi.Input[_builtins.str]:
         """
-        Strength for filters.
+        Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
         """
         return pulumi.get(self, "output_strength")
 
@@ -15780,6 +16046,78 @@ class GuardrailContentPolicyConfigFiltersConfigArgs:
     @type.setter
     def type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        """
+        return pulumi.get(self, "input_action")
+
+    @input_action.setter
+    def input_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "input_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Toggles guardrail evaluation on input.
+        """
+        return pulumi.get(self, "input_enabled")
+
+    @input_enabled.setter
+    def input_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "input_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputModalities")
+    def input_modalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+        """
+        return pulumi.get(self, "input_modalities")
+
+    @input_modalities.setter
+    def input_modalities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "input_modalities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        """
+        return pulumi.get(self, "output_action")
+
+    @output_action.setter
+    def output_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "output_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Toggles guardrail evaluation on output.
+        """
+        return pulumi.get(self, "output_enabled")
+
+    @output_enabled.setter
+    def output_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "output_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputModalities")
+    def output_modalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+        """
+        return pulumi.get(self, "output_modalities")
+
+    @output_modalities.setter
+    def output_modalities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "output_modalities", value)
 
 
 if not MYPY:

@@ -22,6 +22,7 @@ __all__ = [
     'TableGlobalSecondaryIndex',
     'TableGlobalSecondaryIndexOnDemandThroughput',
     'TableGlobalSecondaryIndexWarmThroughput',
+    'TableGlobalTableWitness',
     'TableImportTable',
     'TableImportTableInputFormatOptions',
     'TableImportTableInputFormatOptionsCsv',
@@ -401,6 +402,42 @@ class TableGlobalSecondaryIndexWarmThroughput(dict):
         Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
         """
         return pulumi.get(self, "write_units_per_second")
+
+
+@pulumi.output_type
+class TableGlobalTableWitness(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionName":
+            suggest = "region_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableGlobalTableWitness. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableGlobalTableWitness.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableGlobalTableWitness.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str region_name: Name of the AWS Region that serves as a witness for the MRSC global table.
+        """
+        if region_name is not None:
+            pulumi.set(__self__, "region_name", region_name)
+
+    @_builtins.property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the AWS Region that serves as a witness for the MRSC global table.
+        """
+        return pulumi.get(self, "region_name")
 
 
 @pulumi.output_type

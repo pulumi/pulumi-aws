@@ -168,7 +168,7 @@ class GetZoneResult:
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> _builtins.str:
+    def vpc_id(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
@@ -231,16 +231,19 @@ def get_zone(name: Optional[_builtins.str] = None,
         records=["10.0.0.1"])
     ```
 
+    The following example shows how to get a Hosted Zone from a unique combination of its tags:
 
-    :param _builtins.str name: Hosted Zone name of the desired Hosted Zone.
-    :param _builtins.bool private_zone: Used with `name` field to get a private Hosted Zone.
-    :param Mapping[str, _builtins.str] tags: Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+
+    :param _builtins.str name: Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `private_zone`, `vpc_id` and `tags`.
+    :param _builtins.bool private_zone: Filter to only private Hosted Zones.
+    :param Mapping[str, _builtins.str] tags: A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
            
-           The arguments of this data source act as filters for querying the available
-           Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
-           Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
-    :param _builtins.str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
-    :param _builtins.str zone_id: Hosted Zone id of the desired Hosted Zone.
+           The arguments of this data source act as filters for querying the available Hosted Zone.
+           
+           - The given filter must match exactly one Hosted Zone.
+    :param _builtins.str vpc_id: Filter to private Hosted Zones associated with the specified `vpc_id`.
+    :param _builtins.str zone_id: and `name` are mutually exclusive.
+           - If you use the `name` argument for a private Hosted Zone, you need to set the `private_zone` argument to `true`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -295,16 +298,19 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None
         records=["10.0.0.1"])
     ```
 
+    The following example shows how to get a Hosted Zone from a unique combination of its tags:
 
-    :param _builtins.str name: Hosted Zone name of the desired Hosted Zone.
-    :param _builtins.bool private_zone: Used with `name` field to get a private Hosted Zone.
-    :param Mapping[str, _builtins.str] tags: Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+
+    :param _builtins.str name: Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `private_zone`, `vpc_id` and `tags`.
+    :param _builtins.bool private_zone: Filter to only private Hosted Zones.
+    :param Mapping[str, _builtins.str] tags: A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
            
-           The arguments of this data source act as filters for querying the available
-           Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
-           Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
-    :param _builtins.str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
-    :param _builtins.str zone_id: Hosted Zone id of the desired Hosted Zone.
+           The arguments of this data source act as filters for querying the available Hosted Zone.
+           
+           - The given filter must match exactly one Hosted Zone.
+    :param _builtins.str vpc_id: Filter to private Hosted Zones associated with the specified `vpc_id`.
+    :param _builtins.str zone_id: and `name` are mutually exclusive.
+           - If you use the `name` argument for a private Hosted Zone, you need to set the `private_zone` argument to `true`.
     """
     __args__ = dict()
     __args__['name'] = name
