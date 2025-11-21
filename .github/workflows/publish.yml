@@ -59,10 +59,8 @@ jobs:
     - name: Setup mise
       uses: jdx/mise-action@v3
       with:
-        # Latest working version. See https://github.com/jdx/mise/discussions/6781
-        version: 2025.10.16
+        version: 2025.11.6
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        cache_key: "mise-{{platform}}-${{ hashFiles('mise.lock') }}"
         cache_save: false
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@00943011d9042930efac3dcd3a170e4273319bc8 # v5.1.0
@@ -150,10 +148,8 @@ jobs:
     - name: Setup mise
       uses: jdx/mise-action@v3
       with:
-        # Latest working version. See https://github.com/jdx/mise/discussions/6781
-        version: 2025.10.16
+        version: 2025.11.6
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        cache_key: "mise-{{platform}}-{{file_hash}}"
         # only saving the cache in the prerequisites job
         cache_save: false
     - name: Setup Node
@@ -238,7 +234,7 @@ jobs:
         name: Fetch secrets from ESC
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
       - name: Dispatch Metadata build
-        uses: peter-evans/repository-dispatch@5fc4efd1a4797ddb68ffd0714a238564e4cc0e6f # v4
+        uses: peter-evans/repository-dispatch@28959ce8df70de7be546dd1250a005dd32156697 # v4
         with:
           token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
           repository: pulumi/registry

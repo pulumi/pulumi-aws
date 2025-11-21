@@ -35,10 +35,8 @@ jobs:
       - name: Setup mise
         uses: jdx/mise-action@v3
         with:
-          # Latest working version. See https://github.com/jdx/mise/discussions/6781
-          version: 2025.10.16
+          version: 2025.11.6
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          cache_key: "mise-{{platform}}-{{file_hash}}"
           # only saving the cache in the prerequisites job
           cache_save: false
 

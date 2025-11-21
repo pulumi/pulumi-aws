@@ -27,8 +27,7 @@ jobs:
     - name: Setup mise
       uses: jdx/mise-action@v3
       with:
-        # Latest working version. See https://github.com/jdx/mise/discussions/6781
-        version: 2025.10.16
+        version: 2025.11.6
         github_token: ${{ secrets.GITHUB_TOKEN }}
         cache_save: false # A different job handles caching our tools.
     - name: disarm go:embed directives to enable lint

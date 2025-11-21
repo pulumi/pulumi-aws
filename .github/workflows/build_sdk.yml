@@ -67,15 +67,13 @@ jobs:
       - name: Setup mise
         uses: jdx/mise-action@v3
         with:
-          # Latest working version. See https://github.com/jdx/mise/discussions/6781
-          version: 2025.10.16
+          version: 2025.11.6
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          cache_key: "mise-{{platform}}-{{file_hash}}"
           # only saving the cache in the prerequisites job
           cache_save: false
       - name: Setup Go Cache
         if: matrix.language == 'go' || contains(matrix.language, 'go')
-        uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
+        uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6
         with:
           cache-dependency-path: |
             provider/*.sum
@@ -108,10 +106,6 @@ jobs:
             sdk/nodejs/package.json
             sdk/python/pyproject.toml
             sdk/java/build.gradle
-            **/mise.lock
-            **/.config/mise.lock
-            **/mise.*.lock
-            **/.config/mise.*.lock
       - name: Commit ${{ matrix.language }} SDK changes for Renovate
         # If the worktree is dirty and this is a Renovate PR to bump
         # dependencies, commit the updated SDK and push it back to the PR. The
