@@ -115,7 +115,7 @@ jobs:
       with:
         environment: logins/pulumi-ci
     - name: Install prebuilt SDKs
-      run: make install_sdks
+      run: provider-sdk-builder install
     - name: Generate test shards
       run: |-
         cd examples

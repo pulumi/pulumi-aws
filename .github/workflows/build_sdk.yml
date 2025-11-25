@@ -71,11 +71,13 @@ jobs:
         with:
           version: 2025.11.6
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
+          cache_key: "mise-{{platform}}-{{file_hash}}"
           # only saving the cache in the prerequisites job
           cache_save: false
       - name: Setup Go Cache
         if: matrix.language == 'go' || contains(matrix.language, 'go')
-        uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6
+        uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5
         with:
           cache-dependency-path: |
             provider/*.sum
@@ -86,7 +88,7 @@ jobs:
       - name: Prepare local workspace
         run: make prepare_local_workspace
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
       - name: Download prerequisites
         uses: ./.github/actions/download-prerequisites
       - name: Update path
@@ -94,25 +96,12 @@ jobs:
       - name: Restore makefile progress
         run: make --touch provider schema
       - name: Build SDK
-        run: make build_${{ matrix.language }}
-
-      - name: Check worktree clean
-        id: worktreeClean
-        uses: pulumi/git-status-check-action@v1
-        with:
-          # Keep these in sync with the Renovate step below to avoid them getting checked in.
-          allowed-changes: |
-            sdk/**/pulumi-plugin.json
-            sdk/dotnet/*.csproj
-            sdk/go/**/pulumiUtilities.go
-            sdk/nodejs/package.json
-            sdk/python/pyproject.toml
-            sdk/java/build.gradle
+        run: make build_sdks SDK_LANG=${{ matrix.language }} 
       - name: Commit ${{ matrix.language }} SDK changes for Renovate
         # If the worktree is dirty and this is a Renovate PR to bump
         # dependencies, commit the updated SDK and push it back to the PR. The
         # job will still be marked as a failure.
-        if: failure() && steps.worktreeClean.outcome == 'failure' && contains(github.actor, 'renovate') && github.event_name == 'pull_request'
+        if: failure() && contains(github.actor, 'renovate') && github.event_name == 'pull_request'
         shell: bash
         run: |
           git diff --quiet -- sdk && echo "no changes to sdk" && exit
