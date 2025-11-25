@@ -39,6 +39,12 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<Inputs.ListenerRuleActionForwardGetArgs>? Forward { get; set; }
 
         /// <summary>
+        /// Information for creating a JWT validation action. Required if `Type` is `jwt-validation`.
+        /// </summary>
+        [Input("jwtValidation")]
+        public Input<Inputs.ListenerRuleActionJwtValidationGetArgs>? JwtValidation { get; set; }
+
+        /// <summary>
         /// Order for the action.
         /// The action with the lowest value for order is performed first.
         /// Valid values are between `1` and `50000`.
@@ -63,7 +69,7 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<string>? TargetGroupArn { get; set; }
 
         /// <summary>
-        /// The type of routing action. Valid values are `Forward`, `Redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        /// The type of routing action. Valid values are `Forward`, `Redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -133,14 +133,28 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * 
+     */
+    @Export(name="cloudExadataInfrastructureArn", refs={String.class}, tree="[0]")
+    private Output<String> cloudExadataInfrastructureArn;
+
+    /**
+     * @return The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * 
+     */
+    public Output<String> cloudExadataInfrastructureArn() {
+        return this.cloudExadataInfrastructureArn;
+    }
+    /**
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     @Export(name="cloudExadataInfrastructureId", refs={String.class}, tree="[0]")
     private Output<String> cloudExadataInfrastructureId;
 
     /**
-     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     public Output<String> cloudExadataInfrastructureId() {
@@ -517,14 +531,28 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.ocid;
     }
     /**
-     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+     * The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * 
+     */
+    @Export(name="odbNetworkArn", refs={String.class}, tree="[0]")
+    private Output<String> odbNetworkArn;
+
+    /**
+     * @return The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * 
+     */
+    public Output<String> odbNetworkArn() {
+        return this.odbNetworkArn;
+    }
+    /**
+     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     @Export(name="odbNetworkId", refs={String.class}, tree="[0]")
     private Output<String> odbNetworkId;
 
     /**
-     * @return The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+     * @return The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     public Output<String> odbNetworkId() {

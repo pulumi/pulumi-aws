@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccessLogSubscription{}
 	case "aws:vpclattice/authPolicy:AuthPolicy":
 		r = &AuthPolicy{}
+	case "aws:vpclattice/domainVerification:DomainVerification":
+		r = &DomainVerification{}
 	case "aws:vpclattice/listener:Listener":
 		r = &Listener{}
 	case "aws:vpclattice/listenerRule:ListenerRule":
@@ -70,6 +72,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"vpclattice/authPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpclattice/domainVerification",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -108,6 +108,33 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Agent runtime artifact from S3 with Code Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentcoreAgentRuntime("example", {
+ *     agentRuntimeName: "example_agent_runtime",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     agentRuntimeArtifact: {
+ *         codeConfiguration: {
+ *             entryPoints: ["main.py"],
+ *             runtime: "PYTHON_3_13",
+ *             code: {
+ *                 s3: {
+ *                     bucket: "example-bucket",
+ *                     prefix: "example-agent-runtime-code.zip",
+ *                 },
+ *             },
+ *         },
+ *     },
+ *     networkConfiguration: {
+ *         networkMode: "PUBLIC",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Bedrock AgentCore Agent Runtime using `agent_runtime_id`. For example:

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fsx.OpenZfsFileSystemArgs;
 import com.pulumi.aws.fsx.inputs.OpenZfsFileSystemState;
 import com.pulumi.aws.fsx.outputs.OpenZfsFileSystemDiskIopsConfiguration;
+import com.pulumi.aws.fsx.outputs.OpenZfsFileSystemReadCacheConfiguration;
 import com.pulumi.aws.fsx.outputs.OpenZfsFileSystemRootVolumeConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -311,6 +312,20 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preferredSubnetId);
     }
     /**
+     * Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+     * 
+     */
+    @Export(name="readCacheConfiguration", refs={OpenZfsFileSystemReadCacheConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ OpenZfsFileSystemReadCacheConfiguration> readCacheConfiguration;
+
+    /**
+     * @return Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+     * 
+     */
+    public Output<Optional<OpenZfsFileSystemReadCacheConfiguration>> readCacheConfiguration() {
+        return Codegen.optional(this.readCacheConfiguration);
+    }
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -395,28 +410,28 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipFinalBackup);
     }
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      * 
      */
     @Export(name="storageCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> storageCapacity;
 
     /**
-     * @return The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+     * @return The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      * 
      */
     public Output<Optional<Integer>> storageCapacity() {
         return Codegen.optional(this.storageCapacity);
     }
     /**
-     * The filesystem storage type. Only `SSD` is supported.
+     * The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageType;
 
     /**
-     * @return The filesystem storage type. Only `SSD` is supported.
+     * @return The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      * 
      */
     public Output<Optional<String>> storageType() {

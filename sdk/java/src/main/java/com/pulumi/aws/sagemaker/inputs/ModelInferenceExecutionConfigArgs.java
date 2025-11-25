@@ -15,14 +15,14 @@ public final class ModelInferenceExecutionConfigArgs extends com.pulumi.resource
     public static final ModelInferenceExecutionConfigArgs Empty = new ModelInferenceExecutionConfigArgs();
 
     /**
-     * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
      * 
      */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
     /**
-     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * @return How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
      * 
      */
     public Output<String> mode() {
@@ -54,7 +54,7 @@ public final class ModelInferenceExecutionConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param mode The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         * @param mode How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ModelInferenceExecutionConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param mode The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         * @param mode How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
          * 
          * @return builder
          * 

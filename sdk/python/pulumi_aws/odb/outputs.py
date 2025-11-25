@@ -1886,6 +1886,7 @@ class GetDbServersDbServerResult(dict):
         :param Sequence['GetDbServersDbServerDbServerPatchingDetailArgs'] db_server_patching_details: The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
         :param _builtins.str display_name: The user-friendly name of the database server. The name doesn't need to be unique.
         :param _builtins.str exadata_infrastructure_id: The ID of the Exadata infrastructure that hosts the database server.
+        :param _builtins.str id: The unique identifier of the database server.
         :param _builtins.int max_cpu_count: The total number of CPU cores available on the database server.
         :param _builtins.int max_db_node_storage_in_gbs: The total amount of local node storage, in gigabytes (GB), that's available on the database server.
         :param _builtins.int max_memory_in_gbs: The total amount of memory, in gigabytes (GB), that's available on the database server.
@@ -1993,6 +1994,9 @@ class GetDbServersDbServerResult(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        The unique identifier of the database server.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property

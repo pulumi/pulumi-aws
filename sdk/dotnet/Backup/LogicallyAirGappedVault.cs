@@ -52,6 +52,12 @@ namespace Pulumi.Aws.Backup
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+        /// </summary>
+        [Output("encryptionKeyArn")]
+        public Output<string> EncryptionKeyArn { get; private set; } = null!;
+
+        /// <summary>
         /// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         /// </summary>
         [Output("maxRetentionDays")]
@@ -137,6 +143,12 @@ namespace Pulumi.Aws.Backup
     public sealed class LogicallyAirGappedVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+        /// </summary>
+        [Input("encryptionKeyArn")]
+        public Input<string>? EncryptionKeyArn { get; set; }
+
+        /// <summary>
         /// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         /// </summary>
         [Input("maxRetentionDays", required: true)]
@@ -188,6 +200,12 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+        /// </summary>
+        [Input("encryptionKeyArn")]
+        public Input<string>? EncryptionKeyArn { get; set; }
 
         /// <summary>
         /// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.

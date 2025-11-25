@@ -57,6 +57,8 @@ import (
 //	}
 //
 // ```
+//
+// The following example shows how to get a Hosted Zone from a unique combination of its tags:
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupZoneResult
@@ -69,19 +71,20 @@ func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getZone.
 type LookupZoneArgs struct {
-	// Hosted Zone name of the desired Hosted Zone.
+	// Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `privateZone`, `vpcId` and `tags`.
 	Name *string `pulumi:"name"`
-	// Used with `name` field to get a private Hosted Zone.
+	// Filter to only private Hosted Zones.
 	PrivateZone *bool `pulumi:"privateZone"`
-	// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+	// A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
 	//
-	// The arguments of this data source act as filters for querying the available
-	// Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
-	// Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
+	// The arguments of this data source act as filters for querying the available Hosted Zone.
+	//
+	// - The given filter must match exactly one Hosted Zone.
 	Tags map[string]string `pulumi:"tags"`
-	// Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
+	// Filter to private Hosted Zones associated with the specified `vpcId`.
 	VpcId *string `pulumi:"vpcId"`
-	// Hosted Zone id of the desired Hosted Zone.
+	// and `name` are mutually exclusive.
+	// - If you use the `name` argument for a private Hosted Zone, you need to set the `privateZone` argument to `true`.
 	ZoneId *string `pulumi:"zoneId"`
 }
 
@@ -111,7 +114,7 @@ type LookupZoneResult struct {
 	ResourceRecordSetCount int `pulumi:"resourceRecordSetCount"`
 	// A map of tags assigned to the Hosted Zone.
 	Tags  map[string]string `pulumi:"tags"`
-	VpcId string            `pulumi:"vpcId"`
+	VpcId *string           `pulumi:"vpcId"`
 	// The Hosted Zone identifier.
 	ZoneId string `pulumi:"zoneId"`
 }
@@ -127,19 +130,20 @@ func LookupZoneOutput(ctx *pulumi.Context, args LookupZoneOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getZone.
 type LookupZoneOutputArgs struct {
-	// Hosted Zone name of the desired Hosted Zone.
+	// Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `privateZone`, `vpcId` and `tags`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Used with `name` field to get a private Hosted Zone.
+	// Filter to only private Hosted Zones.
 	PrivateZone pulumi.BoolPtrInput `pulumi:"privateZone"`
-	// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+	// A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
 	//
-	// The arguments of this data source act as filters for querying the available
-	// Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
-	// Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
+	// The arguments of this data source act as filters for querying the available Hosted Zone.
+	//
+	// - The given filter must match exactly one Hosted Zone.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
+	// Filter to private Hosted Zones associated with the specified `vpcId`.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
-	// Hosted Zone id of the desired Hosted Zone.
+	// and `name` are mutually exclusive.
+	// - If you use the `name` argument for a private Hosted Zone, you need to set the `privateZone` argument to `true`.
 	ZoneId pulumi.StringPtrInput `pulumi:"zoneId"`
 }
 
@@ -222,8 +226,8 @@ func (o LookupZoneResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupZoneResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupZoneResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupZoneResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupZoneResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupZoneResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 // The Hosted Zone identifier.

@@ -818,6 +818,21 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+     * 
+     */
+    @Import(name="tunnelBandwidth")
+    private @Nullable Output<String> tunnelBandwidth;
+
+    /**
+     * @return Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+     * 
+     */
+    public Optional<Output<String>> tunnelBandwidth() {
+        return Optional.ofNullable(this.tunnelBandwidth);
+    }
+
+    /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      * 
      */
@@ -918,6 +933,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         this.tunnel2RekeyMarginTimeSeconds = $.tunnel2RekeyMarginTimeSeconds;
         this.tunnel2ReplayWindowSize = $.tunnel2ReplayWindowSize;
         this.tunnel2StartupAction = $.tunnel2StartupAction;
+        this.tunnelBandwidth = $.tunnelBandwidth;
         this.tunnelInsideIpVersion = $.tunnelInsideIpVersion;
         this.type = $.type;
         this.vpnGatewayId = $.vpnGatewayId;
@@ -2192,6 +2208,27 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tunnel2StartupAction(String tunnel2StartupAction) {
             return tunnel2StartupAction(Output.of(tunnel2StartupAction));
+        }
+
+        /**
+         * @param tunnelBandwidth Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnelBandwidth(@Nullable Output<String> tunnelBandwidth) {
+            $.tunnelBandwidth = tunnelBandwidth;
+            return this;
+        }
+
+        /**
+         * @param tunnelBandwidth Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnelBandwidth(String tunnelBandwidth) {
+            return tunnelBandwidth(Output.of(tunnelBandwidth));
         }
 
         /**

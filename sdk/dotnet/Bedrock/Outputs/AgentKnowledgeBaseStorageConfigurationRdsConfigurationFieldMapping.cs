@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping
     {
         /// <summary>
+        /// Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+        /// </summary>
+        public readonly string? CustomMetadataField;
+        /// <summary>
         /// Name of the field in which Amazon Bedrock stores metadata about the vector store.
         /// </summary>
         public readonly string MetadataField;
@@ -32,6 +36,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping(
+            string? customMetadataField,
+
             string metadataField,
 
             string primaryKeyField,
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             string vectorField)
         {
+            CustomMetadataField = customMetadataField;
             MetadataField = metadataField;
             PrimaryKeyField = primaryKeyField;
             TextField = textField;

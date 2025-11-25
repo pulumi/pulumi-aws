@@ -14,16 +14,19 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class ModelPrimaryContainer
     {
         /// <summary>
-        /// The DNS host name for the container.
+        /// Additional data sources that are available to the model in addition to those specified in `ModelDataSource`. See Additional Model Data Source.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ModelPrimaryContainerAdditionalModelDataSource> AdditionalModelDataSources;
+        /// <summary>
+        /// DNS host name for the container.
         /// </summary>
         public readonly string? ContainerHostname;
         /// <summary>
         /// Environment variables for the Docker container.
-        /// A list of key value pairs.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Environment;
         /// <summary>
-        /// The registry path where the inference code image is stored in Amazon ECR.
+        /// Registry path where the inference code image is stored in Amazon ECR.
         /// </summary>
         public readonly string? Image;
         /// <summary>
@@ -31,23 +34,21 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.ModelPrimaryContainerImageConfig? ImageConfig;
         /// <summary>
-        /// The inference specification name in the model package version.
+        /// Inference specification name in the model package version.
         /// </summary>
         public readonly string? InferenceSpecificationName;
-        /// <summary>
-        /// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        /// </summary>
         public readonly string? Mode;
         /// <summary>
-        /// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+        /// Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
         /// </summary>
         public readonly Outputs.ModelPrimaryContainerModelDataSource? ModelDataSource;
         /// <summary>
-        /// The URL for the S3 location where model artifacts are stored.
+        /// URL for the S3 location where model artifacts are stored.
         /// </summary>
         public readonly string? ModelDataUrl;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the model package to use to create the model.
+        /// Amazon Resource Name (ARN) of the model package to use to create the model.
+        /// A list of key value pairs.
         /// </summary>
         public readonly string? ModelPackageName;
         /// <summary>
@@ -57,6 +58,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
         [OutputConstructor]
         private ModelPrimaryContainer(
+            ImmutableArray<Outputs.ModelPrimaryContainerAdditionalModelDataSource> additionalModelDataSources,
+
             string? containerHostname,
 
             ImmutableDictionary<string, string>? environment,
@@ -77,6 +80,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             Outputs.ModelPrimaryContainerMultiModelConfig? multiModelConfig)
         {
+            AdditionalModelDataSources = additionalModelDataSources;
             ContainerHostname = containerHostname;
             Environment = environment;
             Image = image;

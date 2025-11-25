@@ -75,6 +75,7 @@ class VpnConnectionArgs:
                  tunnel2_rekey_margin_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  tunnel2_replay_window_size: Optional[pulumi.Input[_builtins.int]] = None,
                  tunnel2_startup_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 tunnel_bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
                  tunnel_inside_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -133,6 +134,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[_builtins.int] tunnel2_rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
         :param pulumi.Input[_builtins.int] tunnel2_replay_window_size: The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
         :param pulumi.Input[_builtins.str] tunnel2_startup_action: The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        :param pulumi.Input[_builtins.str] tunnel_bandwidth: Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpn_gateway_id` is specified, or `enable_acceleration` is `true`.
         :param pulumi.Input[_builtins.str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
@@ -242,6 +244,8 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "tunnel2_replay_window_size", tunnel2_replay_window_size)
         if tunnel2_startup_action is not None:
             pulumi.set(__self__, "tunnel2_startup_action", tunnel2_startup_action)
+        if tunnel_bandwidth is not None:
+            pulumi.set(__self__, "tunnel_bandwidth", tunnel_bandwidth)
         if tunnel_inside_ip_version is not None:
             pulumi.set(__self__, "tunnel_inside_ip_version", tunnel_inside_ip_version)
         if vpn_gateway_id is not None:
@@ -896,6 +900,18 @@ class VpnConnectionArgs:
         pulumi.set(self, "tunnel2_startup_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="tunnelBandwidth")
+    def tunnel_bandwidth(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpn_gateway_id` is specified, or `enable_acceleration` is `true`.
+        """
+        return pulumi.get(self, "tunnel_bandwidth")
+
+    @tunnel_bandwidth.setter
+    def tunnel_bandwidth(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tunnel_bandwidth", value)
+
+    @_builtins.property
     @pulumi.getter(name="tunnelInsideIpVersion")
     def tunnel_inside_ip_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -994,6 +1010,7 @@ class _VpnConnectionState:
                  tunnel2_replay_window_size: Optional[pulumi.Input[_builtins.int]] = None,
                  tunnel2_startup_action: Optional[pulumi.Input[_builtins.str]] = None,
                  tunnel2_vgw_inside_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 tunnel_bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
                  tunnel_inside_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  vgw_telemetries: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVgwTelemetryArgs']]]] = None,
@@ -1071,6 +1088,7 @@ class _VpnConnectionState:
         :param pulumi.Input[_builtins.int] tunnel2_replay_window_size: The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
         :param pulumi.Input[_builtins.str] tunnel2_startup_action: The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         :param pulumi.Input[_builtins.str] tunnel2_vgw_inside_address: The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
+        :param pulumi.Input[_builtins.str] tunnel_bandwidth: Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpn_gateway_id` is specified, or `enable_acceleration` is `true`.
         :param pulumi.Input[_builtins.str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionVgwTelemetryArgs']]] vgw_telemetries: Telemetry for the VPN tunnels. Detailed below.
@@ -1218,6 +1236,8 @@ class _VpnConnectionState:
             pulumi.set(__self__, "tunnel2_startup_action", tunnel2_startup_action)
         if tunnel2_vgw_inside_address is not None:
             pulumi.set(__self__, "tunnel2_vgw_inside_address", tunnel2_vgw_inside_address)
+        if tunnel_bandwidth is not None:
+            pulumi.set(__self__, "tunnel_bandwidth", tunnel_bandwidth)
         if tunnel_inside_ip_version is not None:
             pulumi.set(__self__, "tunnel_inside_ip_version", tunnel_inside_ip_version)
         if type is not None:
@@ -2080,6 +2100,18 @@ class _VpnConnectionState:
         pulumi.set(self, "tunnel2_vgw_inside_address", value)
 
     @_builtins.property
+    @pulumi.getter(name="tunnelBandwidth")
+    def tunnel_bandwidth(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpn_gateway_id` is specified, or `enable_acceleration` is `true`.
+        """
+        return pulumi.get(self, "tunnel_bandwidth")
+
+    @tunnel_bandwidth.setter
+    def tunnel_bandwidth(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tunnel_bandwidth", value)
+
+    @_builtins.property
     @pulumi.getter(name="tunnelInsideIpVersion")
     def tunnel_inside_ip_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -2187,6 +2219,7 @@ class VpnConnection(pulumi.CustomResource):
                  tunnel2_rekey_margin_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  tunnel2_replay_window_size: Optional[pulumi.Input[_builtins.int]] = None,
                  tunnel2_startup_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 tunnel_bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
                  tunnel_inside_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2336,6 +2369,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] tunnel2_rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
         :param pulumi.Input[_builtins.int] tunnel2_replay_window_size: The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
         :param pulumi.Input[_builtins.str] tunnel2_startup_action: The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        :param pulumi.Input[_builtins.str] tunnel_bandwidth: Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpn_gateway_id` is specified, or `enable_acceleration` is `true`.
         :param pulumi.Input[_builtins.str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the Virtual Private Gateway.
@@ -2504,6 +2538,7 @@ class VpnConnection(pulumi.CustomResource):
                  tunnel2_rekey_margin_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  tunnel2_replay_window_size: Optional[pulumi.Input[_builtins.int]] = None,
                  tunnel2_startup_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 tunnel_bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
                  tunnel_inside_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2571,6 +2606,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["tunnel2_rekey_margin_time_seconds"] = tunnel2_rekey_margin_time_seconds
             __props__.__dict__["tunnel2_replay_window_size"] = tunnel2_replay_window_size
             __props__.__dict__["tunnel2_startup_action"] = tunnel2_startup_action
+            __props__.__dict__["tunnel_bandwidth"] = tunnel_bandwidth
             __props__.__dict__["tunnel_inside_ip_version"] = tunnel_inside_ip_version
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -2678,6 +2714,7 @@ class VpnConnection(pulumi.CustomResource):
             tunnel2_replay_window_size: Optional[pulumi.Input[_builtins.int]] = None,
             tunnel2_startup_action: Optional[pulumi.Input[_builtins.str]] = None,
             tunnel2_vgw_inside_address: Optional[pulumi.Input[_builtins.str]] = None,
+            tunnel_bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
             tunnel_inside_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
             type: Optional[pulumi.Input[_builtins.str]] = None,
             vgw_telemetries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVgwTelemetryArgs', 'VpnConnectionVgwTelemetryArgsDict']]]]] = None,
@@ -2760,6 +2797,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] tunnel2_replay_window_size: The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
         :param pulumi.Input[_builtins.str] tunnel2_startup_action: The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         :param pulumi.Input[_builtins.str] tunnel2_vgw_inside_address: The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
+        :param pulumi.Input[_builtins.str] tunnel_bandwidth: Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpn_gateway_id` is specified, or `enable_acceleration` is `true`.
         :param pulumi.Input[_builtins.str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVgwTelemetryArgs', 'VpnConnectionVgwTelemetryArgsDict']]]] vgw_telemetries: Telemetry for the VPN tunnels. Detailed below.
@@ -2840,6 +2878,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["tunnel2_replay_window_size"] = tunnel2_replay_window_size
         __props__.__dict__["tunnel2_startup_action"] = tunnel2_startup_action
         __props__.__dict__["tunnel2_vgw_inside_address"] = tunnel2_vgw_inside_address
+        __props__.__dict__["tunnel_bandwidth"] = tunnel_bandwidth
         __props__.__dict__["tunnel_inside_ip_version"] = tunnel_inside_ip_version
         __props__.__dict__["type"] = type
         __props__.__dict__["vgw_telemetries"] = vgw_telemetries
@@ -3413,6 +3452,14 @@ class VpnConnection(pulumi.CustomResource):
         The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
         """
         return pulumi.get(self, "tunnel2_vgw_inside_address")
+
+    @_builtins.property
+    @pulumi.getter(name="tunnelBandwidth")
+    def tunnel_bandwidth(self) -> pulumi.Output[_builtins.str]:
+        """
+        Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpn_gateway_id` is specified, or `enable_acceleration` is `true`.
+        """
+        return pulumi.get(self, "tunnel_bandwidth")
 
     @_builtins.property
     @pulumi.getter(name="tunnelInsideIpVersion")

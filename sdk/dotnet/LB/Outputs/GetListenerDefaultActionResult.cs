@@ -17,6 +17,7 @@ namespace Pulumi.Aws.LB.Outputs
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionAuthenticateOidcResult> AuthenticateOidcs;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionFixedResponseResult> FixedResponses;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionForwardResult> Forwards;
+        public readonly ImmutableArray<Outputs.GetListenerDefaultActionJwtValidationResult> JwtValidations;
         public readonly int Order;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionRedirectResult> Redirects;
         public readonly string TargetGroupArn;
@@ -32,6 +33,8 @@ namespace Pulumi.Aws.LB.Outputs
 
             ImmutableArray<Outputs.GetListenerDefaultActionForwardResult> forwards,
 
+            ImmutableArray<Outputs.GetListenerDefaultActionJwtValidationResult> jwtValidations,
+
             int order,
 
             ImmutableArray<Outputs.GetListenerDefaultActionRedirectResult> redirects,
@@ -44,6 +47,7 @@ namespace Pulumi.Aws.LB.Outputs
             AuthenticateOidcs = authenticateOidcs;
             FixedResponses = fixedResponses;
             Forwards = forwards;
+            JwtValidations = jwtValidations;
             Order = order;
             Redirects = redirects;
             TargetGroupArn = targetGroupArn;

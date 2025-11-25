@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.inputs;
 
 import com.pulumi.aws.fsx.inputs.OpenZfsFileSystemDiskIopsConfigurationArgs;
+import com.pulumi.aws.fsx.inputs.OpenZfsFileSystemReadCacheConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.OpenZfsFileSystemRootVolumeConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -277,6 +278,21 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+     * 
+     */
+    @Import(name="readCacheConfiguration")
+    private @Nullable Output<OpenZfsFileSystemReadCacheConfigurationArgs> readCacheConfiguration;
+
+    /**
+     * @return Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+     * 
+     */
+    public Optional<Output<OpenZfsFileSystemReadCacheConfigurationArgs>> readCacheConfiguration() {
+        return Optional.ofNullable(this.readCacheConfiguration);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -367,14 +383,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      * 
      */
     @Import(name="storageCapacity")
     private @Nullable Output<Integer> storageCapacity;
 
     /**
-     * @return The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+     * @return The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      * 
      */
     public Optional<Output<Integer>> storageCapacity() {
@@ -382,14 +398,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The filesystem storage type. Only `SSD` is supported.
+     * The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The filesystem storage type. Only `SSD` is supported.
+     * @return The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -510,6 +526,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         this.networkInterfaceIds = $.networkInterfaceIds;
         this.ownerId = $.ownerId;
         this.preferredSubnetId = $.preferredSubnetId;
+        this.readCacheConfiguration = $.readCacheConfiguration;
         this.region = $.region;
         this.rootVolumeConfiguration = $.rootVolumeConfiguration;
         this.rootVolumeId = $.rootVolumeId;
@@ -922,6 +939,27 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param readCacheConfiguration Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readCacheConfiguration(@Nullable Output<OpenZfsFileSystemReadCacheConfigurationArgs> readCacheConfiguration) {
+            $.readCacheConfiguration = readCacheConfiguration;
+            return this;
+        }
+
+        /**
+         * @param readCacheConfiguration Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readCacheConfiguration(OpenZfsFileSystemReadCacheConfigurationArgs readCacheConfiguration) {
+            return readCacheConfiguration(Output.of(readCacheConfiguration));
+        }
+
+        /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
@@ -1068,7 +1106,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
          * 
          * @return builder
          * 
@@ -1079,7 +1117,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
          * 
          * @return builder
          * 
@@ -1089,7 +1127,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageType The filesystem storage type. Only `SSD` is supported.
+         * @param storageType The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -1100,7 +1138,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageType The filesystem storage type. Only `SSD` is supported.
+         * @param storageType The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
          * 
          * @return builder
          * 

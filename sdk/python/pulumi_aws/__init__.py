@@ -2249,6 +2249,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "billing/view",
+  "fqn": "pulumi_aws.billing",
+  "classes": {
+   "aws:billing/view:View": "View"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "budgets/budget",
   "fqn": "pulumi_aws.budgets",
   "classes": {
@@ -12765,6 +12773,14 @@ _utilities.register(
   "fqn": "pulumi_aws.vpclattice",
   "classes": {
    "aws:vpclattice/authPolicy:AuthPolicy": "AuthPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/domainVerification",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/domainVerification:DomainVerification": "DomainVerification"
   }
  },
  {

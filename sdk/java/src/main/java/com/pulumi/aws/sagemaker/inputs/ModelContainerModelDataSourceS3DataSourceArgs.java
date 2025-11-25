@@ -33,14 +33,14 @@ public final class ModelContainerModelDataSourceS3DataSourceArgs extends com.pul
     }
 
     /**
-     * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+     * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
      * 
      */
     @Import(name="modelAccessConfig")
     private @Nullable Output<ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs> modelAccessConfig;
 
     /**
-     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
      * 
      */
     public Optional<Output<ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs>> modelAccessConfig() {
@@ -48,14 +48,14 @@ public final class ModelContainerModelDataSourceS3DataSourceArgs extends com.pul
     }
 
     /**
-     * The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+     * Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
      * 
      */
     @Import(name="s3DataType", required=true)
     private Output<String> s3DataType;
 
     /**
-     * @return The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+     * @return Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
      * 
      */
     public Output<String> s3DataType() {
@@ -126,7 +126,7 @@ public final class ModelContainerModelDataSourceS3DataSourceArgs extends com.pul
         }
 
         /**
-         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ModelContainerModelDataSourceS3DataSourceArgs extends com.pul
         }
 
         /**
-         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ModelContainerModelDataSourceS3DataSourceArgs extends com.pul
         }
 
         /**
-         * @param s3DataType The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+         * @param s3DataType Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ModelContainerModelDataSourceS3DataSourceArgs extends com.pul
         }
 
         /**
-         * @param s3DataType The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+         * @param s3DataType Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
          * 
          * @return builder
          * 

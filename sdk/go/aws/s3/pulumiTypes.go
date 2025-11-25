@@ -15540,6 +15540,8 @@ func (o BucketServerSideEncryptionConfigurationTypePtrOutput) Rule() BucketServe
 type BucketServerSideEncryptionConfigurationRule struct {
 	// Single object for setting server-side encryption by default. See below.
 	ApplyServerSideEncryptionByDefault *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault `pulumi:"applyServerSideEncryptionByDefault"`
+	// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+	BlockedEncryptionTypes []string `pulumi:"blockedEncryptionTypes"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
 }
@@ -15558,6 +15560,8 @@ type BucketServerSideEncryptionConfigurationRuleInput interface {
 type BucketServerSideEncryptionConfigurationRuleArgs struct {
 	// Single object for setting server-side encryption by default. See below.
 	ApplyServerSideEncryptionByDefault BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrInput `pulumi:"applyServerSideEncryptionByDefault"`
+	// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+	BlockedEncryptionTypes pulumi.StringArrayInput `pulumi:"blockedEncryptionTypes"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled pulumi.BoolPtrInput `pulumi:"bucketKeyEnabled"`
 }
@@ -15671,6 +15675,11 @@ func (o BucketServerSideEncryptionConfigurationRuleOutput) ApplyServerSideEncryp
 	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
 }
 
+// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+func (o BucketServerSideEncryptionConfigurationRuleOutput) BlockedEncryptionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRule) []string { return v.BlockedEncryptionTypes }).(pulumi.StringArrayOutput)
+}
+
 // Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 func (o BucketServerSideEncryptionConfigurationRuleOutput) BucketKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRule) *bool { return v.BucketKeyEnabled }).(pulumi.BoolPtrOutput)
@@ -15708,6 +15717,16 @@ func (o BucketServerSideEncryptionConfigurationRulePtrOutput) ApplyServerSideEnc
 		}
 		return v.ApplyServerSideEncryptionByDefault
 	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
+}
+
+// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+func (o BucketServerSideEncryptionConfigurationRulePtrOutput) BlockedEncryptionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlockedEncryptionTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -15903,6 +15922,8 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 type BucketServerSideEncryptionConfigurationV2Rule struct {
 	// Single object for setting server-side encryption by default. See below.
 	ApplyServerSideEncryptionByDefault *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault `pulumi:"applyServerSideEncryptionByDefault"`
+	// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+	BlockedEncryptionTypes []string `pulumi:"blockedEncryptionTypes"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
 }
@@ -15921,6 +15942,8 @@ type BucketServerSideEncryptionConfigurationV2RuleInput interface {
 type BucketServerSideEncryptionConfigurationV2RuleArgs struct {
 	// Single object for setting server-side encryption by default. See below.
 	ApplyServerSideEncryptionByDefault BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrInput `pulumi:"applyServerSideEncryptionByDefault"`
+	// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+	BlockedEncryptionTypes pulumi.StringArrayInput `pulumi:"blockedEncryptionTypes"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled pulumi.BoolPtrInput `pulumi:"bucketKeyEnabled"`
 }
@@ -15981,6 +16004,11 @@ func (o BucketServerSideEncryptionConfigurationV2RuleOutput) ApplyServerSideEncr
 	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationV2Rule) *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault {
 		return v.ApplyServerSideEncryptionByDefault
 	}).(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput)
+}
+
+// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+func (o BucketServerSideEncryptionConfigurationV2RuleOutput) BlockedEncryptionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationV2Rule) []string { return v.BlockedEncryptionTypes }).(pulumi.StringArrayOutput)
 }
 
 // Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.

@@ -109,9 +109,13 @@ import * as utilities from "../utilities";
  *
  * A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
  *
+ * You can configure a MRSC global table with three replicas, or with two replicas and one witness. A witness is a component of a MRSC global table that contains data written to global table replicas, and provides an optional alternative to a full replica while supporting MRSC's availability architecture. You cannot perform read or write operations on a witness. A witness is located in a different Region than the two replicas.
+ *
  * **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
  *
- * Consistency Mode (`consistencyMode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+ * Consistency Mode (`consistencyMode`) on the embedded `replica` allows you to configure consistency mode for Global Tables.
+ *
+ * ##### Consistency mode with 3 Replicas
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -137,6 +141,32 @@ import * as utilities from "../utilities";
  *             consistencyMode: "STRONG",
  *         },
  *     ],
+ * });
+ * ```
+ *
+ * ##### Consistency Mode with 2 Replicas and Witness Region
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.dynamodb.Table("example", {
+ *     name: "example",
+ *     hashKey: "TestTableHashKey",
+ *     billingMode: "PAY_PER_REQUEST",
+ *     streamEnabled: true,
+ *     streamViewType: "NEW_AND_OLD_IMAGES",
+ *     attributes: [{
+ *         name: "TestTableHashKey",
+ *         type: "S",
+ *     }],
+ *     replicas: [{
+ *         regionName: "us-east-2",
+ *         consistencyMode: "STRONG",
+ *     }],
+ *     globalTableWitness: {
+ *         regionName: "us-west-2",
+ *     },
  * });
  * ```
  *
@@ -243,6 +273,10 @@ export class Table extends pulumi.CustomResource {
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
     declare public readonly globalSecondaryIndexes: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
+    /**
+     * Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+     */
+    declare public readonly globalTableWitness: pulumi.Output<outputs.dynamodb.TableGlobalTableWitness>;
     /**
      * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      */
@@ -366,6 +400,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["billingMode"] = state?.billingMode;
             resourceInputs["deletionProtectionEnabled"] = state?.deletionProtectionEnabled;
             resourceInputs["globalSecondaryIndexes"] = state?.globalSecondaryIndexes;
+            resourceInputs["globalTableWitness"] = state?.globalTableWitness;
             resourceInputs["hashKey"] = state?.hashKey;
             resourceInputs["importTable"] = state?.importTable;
             resourceInputs["localSecondaryIndexes"] = state?.localSecondaryIndexes;
@@ -397,6 +432,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["billingMode"] = args?.billingMode;
             resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
             resourceInputs["globalSecondaryIndexes"] = args?.globalSecondaryIndexes;
+            resourceInputs["globalTableWitness"] = args?.globalTableWitness;
             resourceInputs["hashKey"] = args?.hashKey;
             resourceInputs["importTable"] = args?.importTable;
             resourceInputs["localSecondaryIndexes"] = args?.localSecondaryIndexes;
@@ -453,6 +489,10 @@ export interface TableState {
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndex>[]>;
+    /**
+     * Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+     */
+    globalTableWitness?: pulumi.Input<inputs.dynamodb.TableGlobalTableWitness>;
     /**
      * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      */
@@ -579,6 +619,10 @@ export interface TableArgs {
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndex>[]>;
+    /**
+     * Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+     */
+    globalTableWitness?: pulumi.Input<inputs.dynamodb.TableGlobalTableWitness>;
     /**
      * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      */

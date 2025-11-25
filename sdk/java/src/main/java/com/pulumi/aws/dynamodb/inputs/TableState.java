@@ -5,6 +5,7 @@ package com.pulumi.aws.dynamodb.inputs;
 
 import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
 import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
+import com.pulumi.aws.dynamodb.inputs.TableGlobalTableWitnessArgs;
 import com.pulumi.aws.dynamodb.inputs.TableImportTableArgs;
 import com.pulumi.aws.dynamodb.inputs.TableLocalSecondaryIndexArgs;
 import com.pulumi.aws.dynamodb.inputs.TableOnDemandThroughputArgs;
@@ -102,6 +103,21 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<TableGlobalSecondaryIndexArgs>>> globalSecondaryIndexes() {
         return Optional.ofNullable(this.globalSecondaryIndexes);
+    }
+
+    /**
+     * Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+     * 
+     */
+    @Import(name="globalTableWitness")
+    private @Nullable Output<TableGlobalTableWitnessArgs> globalTableWitness;
+
+    /**
+     * @return Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+     * 
+     */
+    public Optional<Output<TableGlobalTableWitnessArgs>> globalTableWitness() {
+        return Optional.ofNullable(this.globalTableWitness);
     }
 
     /**
@@ -495,6 +511,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.billingMode = $.billingMode;
         this.deletionProtectionEnabled = $.deletionProtectionEnabled;
         this.globalSecondaryIndexes = $.globalSecondaryIndexes;
+        this.globalTableWitness = $.globalTableWitness;
         this.hashKey = $.hashKey;
         this.importTable = $.importTable;
         this.localSecondaryIndexes = $.localSecondaryIndexes;
@@ -663,6 +680,27 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder globalSecondaryIndexes(TableGlobalSecondaryIndexArgs... globalSecondaryIndexes) {
             return globalSecondaryIndexes(List.of(globalSecondaryIndexes));
+        }
+
+        /**
+         * @param globalTableWitness Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalTableWitness(@Nullable Output<TableGlobalTableWitnessArgs> globalTableWitness) {
+            $.globalTableWitness = globalTableWitness;
+            return this;
+        }
+
+        /**
+         * @param globalTableWitness Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalTableWitness(TableGlobalTableWitnessArgs globalTableWitness) {
+            return globalTableWitness(Output.of(globalTableWitness));
         }
 
         /**

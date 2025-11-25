@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -12,14 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreAgentRuntimeAgentRuntimeArtifact {
     /**
-     * @return Container configuration block. See `containerConfiguration` below.
+     * @return Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
+     * 
+     */
+    private @Nullable AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration codeConfiguration;
+    /**
+     * @return Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
      * 
      */
     private @Nullable AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration containerConfiguration;
 
     private AgentcoreAgentRuntimeAgentRuntimeArtifact() {}
     /**
-     * @return Container configuration block. See `containerConfiguration` below.
+     * @return Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
+     * 
+     */
+    public Optional<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration> codeConfiguration() {
+        return Optional.ofNullable(this.codeConfiguration);
+    }
+    /**
+     * @return Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
      * 
      */
     public Optional<AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration> containerConfiguration() {
@@ -35,13 +48,21 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifact {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration codeConfiguration;
         private @Nullable AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration containerConfiguration;
         public Builder() {}
         public Builder(AgentcoreAgentRuntimeAgentRuntimeArtifact defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.codeConfiguration = defaults.codeConfiguration;
     	      this.containerConfiguration = defaults.containerConfiguration;
         }
 
+        @CustomType.Setter
+        public Builder codeConfiguration(@Nullable AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration codeConfiguration) {
+
+            this.codeConfiguration = codeConfiguration;
+            return this;
+        }
         @CustomType.Setter
         public Builder containerConfiguration(@Nullable AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration containerConfiguration) {
 
@@ -50,6 +71,7 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifact {
         }
         public AgentcoreAgentRuntimeAgentRuntimeArtifact build() {
             final var _resultValue = new AgentcoreAgentRuntimeAgentRuntimeArtifact();
+            _resultValue.codeConfiguration = codeConfiguration;
             _resultValue.containerConfiguration = containerConfiguration;
             return _resultValue;
         }

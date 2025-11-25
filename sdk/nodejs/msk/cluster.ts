@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.msk.Cluster("example", {
  *     clusterName: "example",
- *     kafkaVersion: "3.2.0",
+ *     kafkaVersion: "3.8.x",
  *     numberOfBrokerNodes: 3,
  *     brokerNodeGroupInfo: {
  *         instanceType: "kafka.m5.large",
@@ -136,7 +136,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.msk.Cluster("example", {
  *     clusterName: "example",
- *     kafkaVersion: "2.7.1",
+ *     kafkaVersion: "3.8.x",
  *     numberOfBrokerNodes: 3,
  *     brokerNodeGroupInfo: {
  *         instanceType: "kafka.m5.4xlarge",
@@ -288,6 +288,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly openMonitoring: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
+     * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     */
+    declare public readonly rebalancing: pulumi.Output<outputs.msk.ClusterRebalancing>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -348,6 +352,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["loggingInfo"] = state?.loggingInfo;
             resourceInputs["numberOfBrokerNodes"] = state?.numberOfBrokerNodes;
             resourceInputs["openMonitoring"] = state?.openMonitoring;
+            resourceInputs["rebalancing"] = state?.rebalancing;
             resourceInputs["region"] = state?.region;
             resourceInputs["storageMode"] = state?.storageMode;
             resourceInputs["tags"] = state?.tags;
@@ -375,6 +380,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["loggingInfo"] = args?.loggingInfo;
             resourceInputs["numberOfBrokerNodes"] = args?.numberOfBrokerNodes;
             resourceInputs["openMonitoring"] = args?.openMonitoring;
+            resourceInputs["rebalancing"] = args?.rebalancing;
             resourceInputs["region"] = args?.region;
             resourceInputs["storageMode"] = args?.storageMode;
             resourceInputs["tags"] = args?.tags;
@@ -497,6 +503,10 @@ export interface ClusterState {
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
+     * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     */
+    rebalancing?: pulumi.Input<inputs.msk.ClusterRebalancing>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
@@ -566,6 +576,10 @@ export interface ClusterArgs {
      * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
+    /**
+     * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     */
+    rebalancing?: pulumi.Input<inputs.msk.ClusterRebalancing>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -4644,6 +4644,162 @@ func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type OpenZfsFileSystemReadCacheConfiguration struct {
+	// Size of the file system's SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
+	Size *int `pulumi:"size"`
+	// Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+	SizingMode *string `pulumi:"sizingMode"`
+}
+
+// OpenZfsFileSystemReadCacheConfigurationInput is an input type that accepts OpenZfsFileSystemReadCacheConfigurationArgs and OpenZfsFileSystemReadCacheConfigurationOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemReadCacheConfigurationInput` via:
+//
+//	OpenZfsFileSystemReadCacheConfigurationArgs{...}
+type OpenZfsFileSystemReadCacheConfigurationInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemReadCacheConfigurationOutput() OpenZfsFileSystemReadCacheConfigurationOutput
+	ToOpenZfsFileSystemReadCacheConfigurationOutputWithContext(context.Context) OpenZfsFileSystemReadCacheConfigurationOutput
+}
+
+type OpenZfsFileSystemReadCacheConfigurationArgs struct {
+	// Size of the file system's SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
+	Size pulumi.IntPtrInput `pulumi:"size"`
+	// Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+	SizingMode pulumi.StringPtrInput `pulumi:"sizingMode"`
+}
+
+func (OpenZfsFileSystemReadCacheConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemReadCacheConfiguration)(nil)).Elem()
+}
+
+func (i OpenZfsFileSystemReadCacheConfigurationArgs) ToOpenZfsFileSystemReadCacheConfigurationOutput() OpenZfsFileSystemReadCacheConfigurationOutput {
+	return i.ToOpenZfsFileSystemReadCacheConfigurationOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemReadCacheConfigurationArgs) ToOpenZfsFileSystemReadCacheConfigurationOutputWithContext(ctx context.Context) OpenZfsFileSystemReadCacheConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemReadCacheConfigurationOutput)
+}
+
+func (i OpenZfsFileSystemReadCacheConfigurationArgs) ToOpenZfsFileSystemReadCacheConfigurationPtrOutput() OpenZfsFileSystemReadCacheConfigurationPtrOutput {
+	return i.ToOpenZfsFileSystemReadCacheConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemReadCacheConfigurationArgs) ToOpenZfsFileSystemReadCacheConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemReadCacheConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemReadCacheConfigurationOutput).ToOpenZfsFileSystemReadCacheConfigurationPtrOutputWithContext(ctx)
+}
+
+// OpenZfsFileSystemReadCacheConfigurationPtrInput is an input type that accepts OpenZfsFileSystemReadCacheConfigurationArgs, OpenZfsFileSystemReadCacheConfigurationPtr and OpenZfsFileSystemReadCacheConfigurationPtrOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemReadCacheConfigurationPtrInput` via:
+//
+//	        OpenZfsFileSystemReadCacheConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OpenZfsFileSystemReadCacheConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemReadCacheConfigurationPtrOutput() OpenZfsFileSystemReadCacheConfigurationPtrOutput
+	ToOpenZfsFileSystemReadCacheConfigurationPtrOutputWithContext(context.Context) OpenZfsFileSystemReadCacheConfigurationPtrOutput
+}
+
+type openZfsFileSystemReadCacheConfigurationPtrType OpenZfsFileSystemReadCacheConfigurationArgs
+
+func OpenZfsFileSystemReadCacheConfigurationPtr(v *OpenZfsFileSystemReadCacheConfigurationArgs) OpenZfsFileSystemReadCacheConfigurationPtrInput {
+	return (*openZfsFileSystemReadCacheConfigurationPtrType)(v)
+}
+
+func (*openZfsFileSystemReadCacheConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsFileSystemReadCacheConfiguration)(nil)).Elem()
+}
+
+func (i *openZfsFileSystemReadCacheConfigurationPtrType) ToOpenZfsFileSystemReadCacheConfigurationPtrOutput() OpenZfsFileSystemReadCacheConfigurationPtrOutput {
+	return i.ToOpenZfsFileSystemReadCacheConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *openZfsFileSystemReadCacheConfigurationPtrType) ToOpenZfsFileSystemReadCacheConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemReadCacheConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemReadCacheConfigurationPtrOutput)
+}
+
+type OpenZfsFileSystemReadCacheConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemReadCacheConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemReadCacheConfiguration)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemReadCacheConfigurationOutput) ToOpenZfsFileSystemReadCacheConfigurationOutput() OpenZfsFileSystemReadCacheConfigurationOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemReadCacheConfigurationOutput) ToOpenZfsFileSystemReadCacheConfigurationOutputWithContext(ctx context.Context) OpenZfsFileSystemReadCacheConfigurationOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemReadCacheConfigurationOutput) ToOpenZfsFileSystemReadCacheConfigurationPtrOutput() OpenZfsFileSystemReadCacheConfigurationPtrOutput {
+	return o.ToOpenZfsFileSystemReadCacheConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OpenZfsFileSystemReadCacheConfigurationOutput) ToOpenZfsFileSystemReadCacheConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemReadCacheConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenZfsFileSystemReadCacheConfiguration) *OpenZfsFileSystemReadCacheConfiguration {
+		return &v
+	}).(OpenZfsFileSystemReadCacheConfigurationPtrOutput)
+}
+
+// Size of the file system's SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
+func (o OpenZfsFileSystemReadCacheConfigurationOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemReadCacheConfiguration) *int { return v.Size }).(pulumi.IntPtrOutput)
+}
+
+// Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+func (o OpenZfsFileSystemReadCacheConfigurationOutput) SizingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemReadCacheConfiguration) *string { return v.SizingMode }).(pulumi.StringPtrOutput)
+}
+
+type OpenZfsFileSystemReadCacheConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemReadCacheConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsFileSystemReadCacheConfiguration)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemReadCacheConfigurationPtrOutput) ToOpenZfsFileSystemReadCacheConfigurationPtrOutput() OpenZfsFileSystemReadCacheConfigurationPtrOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemReadCacheConfigurationPtrOutput) ToOpenZfsFileSystemReadCacheConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemReadCacheConfigurationPtrOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemReadCacheConfigurationPtrOutput) Elem() OpenZfsFileSystemReadCacheConfigurationOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemReadCacheConfiguration) OpenZfsFileSystemReadCacheConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OpenZfsFileSystemReadCacheConfiguration
+		return ret
+	}).(OpenZfsFileSystemReadCacheConfigurationOutput)
+}
+
+// Size of the file system's SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
+func (o OpenZfsFileSystemReadCacheConfigurationPtrOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemReadCacheConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+func (o OpenZfsFileSystemReadCacheConfigurationPtrOutput) SizingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemReadCacheConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SizingMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type OpenZfsFileSystemRootVolumeConfiguration struct {
 	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
 	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
@@ -9145,6 +9301,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeTieringPolicyPtrInput)(nil)).Elem(), OntapVolumeTieringPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemDiskIopsConfigurationInput)(nil)).Elem(), OpenZfsFileSystemDiskIopsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemDiskIopsConfigurationPtrInput)(nil)).Elem(), OpenZfsFileSystemDiskIopsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemReadCacheConfigurationInput)(nil)).Elem(), OpenZfsFileSystemReadCacheConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemReadCacheConfigurationPtrInput)(nil)).Elem(), OpenZfsFileSystemReadCacheConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationInput)(nil)).Elem(), OpenZfsFileSystemRootVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationPtrInput)(nil)).Elem(), OpenZfsFileSystemRootVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationNfsExportsInput)(nil)).Elem(), OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs{})
@@ -9277,6 +9435,8 @@ func init() {
 	pulumi.RegisterOutputType(OntapVolumeTieringPolicyPtrOutput{})
 	pulumi.RegisterOutputType(OpenZfsFileSystemDiskIopsConfigurationOutput{})
 	pulumi.RegisterOutputType(OpenZfsFileSystemDiskIopsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemReadCacheConfigurationOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemReadCacheConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OpenZfsFileSystemRootVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(OpenZfsFileSystemRootVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput{})

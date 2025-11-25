@@ -5538,6 +5538,8 @@ class BucketServerSideEncryptionConfigurationRule(dict):
         suggest = None
         if key == "applyServerSideEncryptionByDefault":
             suggest = "apply_server_side_encryption_by_default"
+        elif key == "blockedEncryptionTypes":
+            suggest = "blocked_encryption_types"
         elif key == "bucketKeyEnabled":
             suggest = "bucket_key_enabled"
 
@@ -5554,13 +5556,17 @@ class BucketServerSideEncryptionConfigurationRule(dict):
 
     def __init__(__self__, *,
                  apply_server_side_encryption_by_default: Optional['outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault'] = None,
+                 blocked_encryption_types: Optional[Sequence[_builtins.str]] = None,
                  bucket_key_enabled: Optional[_builtins.bool] = None):
         """
         :param 'BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs' apply_server_side_encryption_by_default: Single object for setting server-side encryption by default. See below.
+        :param Sequence[_builtins.str] blocked_encryption_types: List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
         :param _builtins.bool bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         if apply_server_side_encryption_by_default is not None:
             pulumi.set(__self__, "apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
+        if blocked_encryption_types is not None:
+            pulumi.set(__self__, "blocked_encryption_types", blocked_encryption_types)
         if bucket_key_enabled is not None:
             pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
 
@@ -5571,6 +5577,14 @@ class BucketServerSideEncryptionConfigurationRule(dict):
         Single object for setting server-side encryption by default. See below.
         """
         return pulumi.get(self, "apply_server_side_encryption_by_default")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedEncryptionTypes")
+    def blocked_encryption_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+        """
+        return pulumi.get(self, "blocked_encryption_types")
 
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
@@ -5637,6 +5651,8 @@ class BucketServerSideEncryptionConfigurationV2Rule(dict):
         suggest = None
         if key == "applyServerSideEncryptionByDefault":
             suggest = "apply_server_side_encryption_by_default"
+        elif key == "blockedEncryptionTypes":
+            suggest = "blocked_encryption_types"
         elif key == "bucketKeyEnabled":
             suggest = "bucket_key_enabled"
 
@@ -5653,13 +5669,17 @@ class BucketServerSideEncryptionConfigurationV2Rule(dict):
 
     def __init__(__self__, *,
                  apply_server_side_encryption_by_default: Optional['outputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault'] = None,
+                 blocked_encryption_types: Optional[Sequence[_builtins.str]] = None,
                  bucket_key_enabled: Optional[_builtins.bool] = None):
         """
         :param 'BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs' apply_server_side_encryption_by_default: Single object for setting server-side encryption by default. See below.
+        :param Sequence[_builtins.str] blocked_encryption_types: List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
         :param _builtins.bool bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         if apply_server_side_encryption_by_default is not None:
             pulumi.set(__self__, "apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
+        if blocked_encryption_types is not None:
+            pulumi.set(__self__, "blocked_encryption_types", blocked_encryption_types)
         if bucket_key_enabled is not None:
             pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
 
@@ -5670,6 +5690,14 @@ class BucketServerSideEncryptionConfigurationV2Rule(dict):
         Single object for setting server-side encryption by default. See below.
         """
         return pulumi.get(self, "apply_server_side_encryption_by_default")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedEncryptionTypes")
+    def blocked_encryption_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+        """
+        return pulumi.get(self, "blocked_encryption_types")
 
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
