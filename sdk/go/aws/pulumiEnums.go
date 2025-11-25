@@ -16,6 +16,7 @@ type Region string
 const (
 	RegionAFSouth1     = Region("af-south-1")
 	RegionAPEast1      = Region("ap-east-1")
+	RegionAPEast2      = Region("ap-east-2")
 	RegionAPNortheast1 = Region("ap-northeast-1")
 	RegionAPNortheast2 = Region("ap-northeast-2")
 	RegionAPNortheast3 = Region("ap-northeast-3")
