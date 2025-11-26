@@ -268,7 +268,7 @@ func (o ExperimentTemplateActionParameterArrayOutput) Index(i pulumi.IntInput) E
 }
 
 type ExperimentTemplateActionTarget struct {
-	// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
+	// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
 	Key string `pulumi:"key"`
 	// Target name, referencing a corresponding target.
 	Value string `pulumi:"value"`
@@ -286,7 +286,7 @@ type ExperimentTemplateActionTargetInput interface {
 }
 
 type ExperimentTemplateActionTargetArgs struct {
-	// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
+	// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
 	Key pulumi.StringInput `pulumi:"key"`
 	// Target name, referencing a corresponding target.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -369,7 +369,7 @@ func (o ExperimentTemplateActionTargetOutput) ToExperimentTemplateActionTargetPt
 	}).(ExperimentTemplateActionTargetPtrOutput)
 }
 
-// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
+// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
 func (o ExperimentTemplateActionTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionTarget) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -403,7 +403,7 @@ func (o ExperimentTemplateActionTargetPtrOutput) Elem() ExperimentTemplateAction
 	}).(ExperimentTemplateActionTargetOutput)
 }
 
-// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
+// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
 func (o ExperimentTemplateActionTargetPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateActionTarget) *string {
 		if v == nil {
@@ -1492,7 +1492,7 @@ func (o ExperimentTemplateLogConfigurationPtrOutput) S3Configuration() Experimen
 }
 
 type ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration struct {
-	// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+	// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 	LogGroupArn string `pulumi:"logGroupArn"`
 }
 
@@ -1508,7 +1508,7 @@ type ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationInput interfac
 }
 
 type ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+	// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
 }
 
@@ -1589,7 +1589,7 @@ func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) ToE
 	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration) string { return v.LogGroupArn }).(pulumi.StringOutput)
 }
@@ -1618,7 +1618,7 @@ func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) 
 	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration) *string {
 		if v == nil {

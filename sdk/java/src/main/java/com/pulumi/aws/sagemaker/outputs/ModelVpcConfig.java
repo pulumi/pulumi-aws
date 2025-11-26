@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class ModelVpcConfig {
+    /**
+     * @return List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+     * 
+     */
     private List<String> securityGroupIds;
+    /**
+     * @return List of subnet IDs in the VPC to which you want to connect your training job or model.
+     * 
+     */
     private List<String> subnets;
 
     private ModelVpcConfig() {}
+    /**
+     * @return List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+     * 
+     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
+    /**
+     * @return List of subnet IDs in the VPC to which you want to connect your training job or model.
+     * 
+     */
     public List<String> subnets() {
         return this.subnets;
     }

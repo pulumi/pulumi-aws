@@ -112,7 +112,13 @@ namespace Pulumi.Aws.Odb
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        /// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// </summary>
+        [Output("cloudExadataInfrastructureArn")]
+        public Output<string> CloudExadataInfrastructureArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
         /// </summary>
         [Output("cloudExadataInfrastructureId")]
         public Output<string> CloudExadataInfrastructureId { get; private set; } = null!;
@@ -277,7 +283,13 @@ namespace Pulumi.Aws.Odb
         public Output<string> Ocid { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+        /// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// </summary>
+        [Output("odbNetworkArn")]
+        public Output<string> OdbNetworkArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
         /// </summary>
         [Output("odbNetworkId")]
         public Output<string> OdbNetworkId { get; private set; } = null!;
@@ -428,10 +440,16 @@ namespace Pulumi.Aws.Odb
     public sealed class CloudVmClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        /// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
         /// </summary>
-        [Input("cloudExadataInfrastructureId", required: true)]
-        public Input<string> CloudExadataInfrastructureId { get; set; } = null!;
+        [Input("cloudExadataInfrastructureArn")]
+        public Input<string>? CloudExadataInfrastructureArn { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// </summary>
+        [Input("cloudExadataInfrastructureId")]
+        public Input<string>? CloudExadataInfrastructureId { get; set; }
 
         /// <summary>
         /// The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
@@ -520,10 +538,16 @@ namespace Pulumi.Aws.Odb
         public Input<int>? MemorySizeInGbs { get; set; }
 
         /// <summary>
-        /// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+        /// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
         /// </summary>
-        [Input("odbNetworkId", required: true)]
-        public Input<string> OdbNetworkId { get; set; } = null!;
+        [Input("odbNetworkArn")]
+        public Input<string>? OdbNetworkArn { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// </summary>
+        [Input("odbNetworkId")]
+        public Input<string>? OdbNetworkId { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -585,7 +609,13 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        /// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// </summary>
+        [Input("cloudExadataInfrastructureArn")]
+        public Input<string>? CloudExadataInfrastructureArn { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
         /// </summary>
         [Input("cloudExadataInfrastructureId")]
         public Input<string>? CloudExadataInfrastructureId { get; set; }
@@ -762,7 +792,13 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Ocid { get; set; }
 
         /// <summary>
-        /// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+        /// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// </summary>
+        [Input("odbNetworkArn")]
+        public Input<string>? OdbNetworkArn { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
         /// </summary>
         [Input("odbNetworkId")]
         public Input<string>? OdbNetworkId { get; set; }

@@ -145,9 +145,13 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
     /// 
+    /// You can configure a MRSC global table with three replicas, or with two replicas and one witness. A witness is a component of a MRSC global table that contains data written to global table replicas, and provides an optional alternative to a full replica while supporting MRSC's availability architecture. You cannot perform read or write operations on a witness. A witness is located in a different Region than the two replicas.
+    /// 
     /// **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
     /// 
-    /// Consistency Mode (`ConsistencyMode`) is a new argument on the embedded `Replica` that allows you to configure consistency mode for Global Tables.
+    /// Consistency Mode (`ConsistencyMode`) on the embedded `Replica` allows you to configure consistency mode for Global Tables.
+    /// 
+    /// ##### Consistency mode with 3 Replicas
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -184,6 +188,48 @@ namespace Pulumi.Aws.DynamoDB
     ///                 RegionName = "us-west-2",
     ///                 ConsistencyMode = "STRONG",
     ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### Consistency Mode with 2 Replicas and Witness Region
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DynamoDB.Table("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         HashKey = "TestTableHashKey",
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///         Attributes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "TestTableHashKey",
+    ///                 Type = "S",
+    ///             },
+    ///         },
+    ///         Replicas = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             {
+    ///                 RegionName = "us-east-2",
+    ///                 ConsistencyMode = "STRONG",
+    ///             },
+    ///         },
+    ///         GlobalTableWitness = new Aws.DynamoDB.Inputs.TableGlobalTableWitnessArgs
+    ///         {
+    ///             RegionName = "us-west-2",
     ///         },
     ///     });
     /// 
@@ -304,6 +350,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Output("globalSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.TableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
+
+        /// <summary>
+        /// Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `Replica` with `ConsistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+        /// </summary>
+        [Output("globalTableWitness")]
+        public Output<Outputs.TableGlobalTableWitness> GlobalTableWitness { get; private set; } = null!;
 
         /// <summary>
         /// Attribute to use as the hash (partition) key. Must also be defined as an `Attribute`. See below.
@@ -542,6 +594,12 @@ namespace Pulumi.Aws.DynamoDB
         }
 
         /// <summary>
+        /// Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `Replica` with `ConsistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+        /// </summary>
+        [Input("globalTableWitness")]
+        public Input<Inputs.TableGlobalTableWitnessArgs>? GlobalTableWitness { get; set; }
+
+        /// <summary>
         /// Attribute to use as the hash (partition) key. Must also be defined as an `Attribute`. See below.
         /// </summary>
         [Input("hashKey")]
@@ -744,6 +802,12 @@ namespace Pulumi.Aws.DynamoDB
             get => _globalSecondaryIndexes ?? (_globalSecondaryIndexes = new InputList<Inputs.TableGlobalSecondaryIndexGetArgs>());
             set => _globalSecondaryIndexes = value;
         }
+
+        /// <summary>
+        /// Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `Replica` with `ConsistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+        /// </summary>
+        [Input("globalTableWitness")]
+        public Input<Inputs.TableGlobalTableWitnessGetArgs>? GlobalTableWitness { get; set; }
 
         /// <summary>
         /// Attribute to use as the hash (partition) key. Must also be defined as an `Attribute`. See below.

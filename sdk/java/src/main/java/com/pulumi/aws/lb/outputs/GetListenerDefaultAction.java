@@ -7,6 +7,7 @@ import com.pulumi.aws.lb.outputs.GetListenerDefaultActionAuthenticateCognito;
 import com.pulumi.aws.lb.outputs.GetListenerDefaultActionAuthenticateOidc;
 import com.pulumi.aws.lb.outputs.GetListenerDefaultActionFixedResponse;
 import com.pulumi.aws.lb.outputs.GetListenerDefaultActionForward;
+import com.pulumi.aws.lb.outputs.GetListenerDefaultActionJwtValidation;
 import com.pulumi.aws.lb.outputs.GetListenerDefaultActionRedirect;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -21,6 +22,7 @@ public final class GetListenerDefaultAction {
     private List<GetListenerDefaultActionAuthenticateOidc> authenticateOidcs;
     private List<GetListenerDefaultActionFixedResponse> fixedResponses;
     private List<GetListenerDefaultActionForward> forwards;
+    private List<GetListenerDefaultActionJwtValidation> jwtValidations;
     private Integer order;
     private List<GetListenerDefaultActionRedirect> redirects;
     private String targetGroupArn;
@@ -38,6 +40,9 @@ public final class GetListenerDefaultAction {
     }
     public List<GetListenerDefaultActionForward> forwards() {
         return this.forwards;
+    }
+    public List<GetListenerDefaultActionJwtValidation> jwtValidations() {
+        return this.jwtValidations;
     }
     public Integer order() {
         return this.order;
@@ -65,6 +70,7 @@ public final class GetListenerDefaultAction {
         private List<GetListenerDefaultActionAuthenticateOidc> authenticateOidcs;
         private List<GetListenerDefaultActionFixedResponse> fixedResponses;
         private List<GetListenerDefaultActionForward> forwards;
+        private List<GetListenerDefaultActionJwtValidation> jwtValidations;
         private Integer order;
         private List<GetListenerDefaultActionRedirect> redirects;
         private String targetGroupArn;
@@ -76,6 +82,7 @@ public final class GetListenerDefaultAction {
     	      this.authenticateOidcs = defaults.authenticateOidcs;
     	      this.fixedResponses = defaults.fixedResponses;
     	      this.forwards = defaults.forwards;
+    	      this.jwtValidations = defaults.jwtValidations;
     	      this.order = defaults.order;
     	      this.redirects = defaults.redirects;
     	      this.targetGroupArn = defaults.targetGroupArn;
@@ -127,6 +134,17 @@ public final class GetListenerDefaultAction {
             return forwards(List.of(forwards));
         }
         @CustomType.Setter
+        public Builder jwtValidations(List<GetListenerDefaultActionJwtValidation> jwtValidations) {
+            if (jwtValidations == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultAction", "jwtValidations");
+            }
+            this.jwtValidations = jwtValidations;
+            return this;
+        }
+        public Builder jwtValidations(GetListenerDefaultActionJwtValidation... jwtValidations) {
+            return jwtValidations(List.of(jwtValidations));
+        }
+        @CustomType.Setter
         public Builder order(Integer order) {
             if (order == null) {
               throw new MissingRequiredPropertyException("GetListenerDefaultAction", "order");
@@ -167,6 +185,7 @@ public final class GetListenerDefaultAction {
             _resultValue.authenticateOidcs = authenticateOidcs;
             _resultValue.fixedResponses = fixedResponses;
             _resultValue.forwards = forwards;
+            _resultValue.jwtValidations = jwtValidations;
             _resultValue.order = order;
             _resultValue.redirects = redirects;
             _resultValue.targetGroupArn = targetGroupArn;

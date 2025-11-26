@@ -421,6 +421,10 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tunnel2VgwInsideAddress: pulumi.Output<string>;
     /**
+     * Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+     */
+    declare public readonly tunnelBandwidth: pulumi.Output<string>;
+    /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      */
     declare public readonly tunnelInsideIpVersion: pulumi.Output<string>;
@@ -521,6 +525,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tunnel2ReplayWindowSize"] = state?.tunnel2ReplayWindowSize;
             resourceInputs["tunnel2StartupAction"] = state?.tunnel2StartupAction;
             resourceInputs["tunnel2VgwInsideAddress"] = state?.tunnel2VgwInsideAddress;
+            resourceInputs["tunnelBandwidth"] = state?.tunnelBandwidth;
             resourceInputs["tunnelInsideIpVersion"] = state?.tunnelInsideIpVersion;
             resourceInputs["type"] = state?.type;
             resourceInputs["vgwTelemetries"] = state?.vgwTelemetries;
@@ -586,6 +591,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tunnel2RekeyMarginTimeSeconds"] = args?.tunnel2RekeyMarginTimeSeconds;
             resourceInputs["tunnel2ReplayWindowSize"] = args?.tunnel2ReplayWindowSize;
             resourceInputs["tunnel2StartupAction"] = args?.tunnel2StartupAction;
+            resourceInputs["tunnelBandwidth"] = args?.tunnelBandwidth;
             resourceInputs["tunnelInsideIpVersion"] = args?.tunnelInsideIpVersion;
             resourceInputs["type"] = args?.type;
             resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
@@ -905,6 +911,10 @@ export interface VpnConnectionState {
      */
     tunnel2VgwInsideAddress?: pulumi.Input<string>;
     /**
+     * Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+     */
+    tunnelBandwidth?: pulumi.Input<string>;
+    /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      */
     tunnelInsideIpVersion?: pulumi.Input<string>;
@@ -1138,6 +1148,10 @@ export interface VpnConnectionArgs {
      * The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      */
     tunnel2StartupAction?: pulumi.Input<string>;
+    /**
+     * Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+     */
+    tunnelBandwidth?: pulumi.Input<string>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      */

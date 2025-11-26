@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:notifications/channelAssociation:ChannelAssociation")
 public class ChannelAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+     * ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+     * @return ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
      * 
      */
     public Output<String> arn() {

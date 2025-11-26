@@ -7,6 +7,7 @@ import com.pulumi.aws.lb.outputs.GetListenerRuleActionAuthenticateCognito;
 import com.pulumi.aws.lb.outputs.GetListenerRuleActionAuthenticateOidc;
 import com.pulumi.aws.lb.outputs.GetListenerRuleActionFixedResponse;
 import com.pulumi.aws.lb.outputs.GetListenerRuleActionForward;
+import com.pulumi.aws.lb.outputs.GetListenerRuleActionJwtValidation;
 import com.pulumi.aws.lb.outputs.GetListenerRuleActionRedirect;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -42,6 +43,12 @@ public final class GetListenerRuleAction {
      * 
      */
     private @Nullable List<GetListenerRuleActionForward> forwards;
+    /**
+     * @return An action to validate using JWT.
+     * Detailed below.
+     * 
+     */
+    private @Nullable List<GetListenerRuleActionJwtValidation> jwtValidations;
     /**
      * @return The evaluation order of the action.
      * 
@@ -93,6 +100,14 @@ public final class GetListenerRuleAction {
         return this.forwards == null ? List.of() : this.forwards;
     }
     /**
+     * @return An action to validate using JWT.
+     * Detailed below.
+     * 
+     */
+    public List<GetListenerRuleActionJwtValidation> jwtValidations() {
+        return this.jwtValidations == null ? List.of() : this.jwtValidations;
+    }
+    /**
      * @return The evaluation order of the action.
      * 
      */
@@ -128,6 +143,7 @@ public final class GetListenerRuleAction {
         private @Nullable List<GetListenerRuleActionAuthenticateOidc> authenticateOidcs;
         private @Nullable List<GetListenerRuleActionFixedResponse> fixedResponses;
         private @Nullable List<GetListenerRuleActionForward> forwards;
+        private @Nullable List<GetListenerRuleActionJwtValidation> jwtValidations;
         private Integer order;
         private @Nullable List<GetListenerRuleActionRedirect> redirects;
         private String type;
@@ -138,6 +154,7 @@ public final class GetListenerRuleAction {
     	      this.authenticateOidcs = defaults.authenticateOidcs;
     	      this.fixedResponses = defaults.fixedResponses;
     	      this.forwards = defaults.forwards;
+    	      this.jwtValidations = defaults.jwtValidations;
     	      this.order = defaults.order;
     	      this.redirects = defaults.redirects;
     	      this.type = defaults.type;
@@ -180,6 +197,15 @@ public final class GetListenerRuleAction {
             return forwards(List.of(forwards));
         }
         @CustomType.Setter
+        public Builder jwtValidations(@Nullable List<GetListenerRuleActionJwtValidation> jwtValidations) {
+
+            this.jwtValidations = jwtValidations;
+            return this;
+        }
+        public Builder jwtValidations(GetListenerRuleActionJwtValidation... jwtValidations) {
+            return jwtValidations(List.of(jwtValidations));
+        }
+        @CustomType.Setter
         public Builder order(Integer order) {
             if (order == null) {
               throw new MissingRequiredPropertyException("GetListenerRuleAction", "order");
@@ -210,6 +236,7 @@ public final class GetListenerRuleAction {
             _resultValue.authenticateOidcs = authenticateOidcs;
             _resultValue.fixedResponses = fixedResponses;
             _resultValue.forwards = forwards;
+            _resultValue.jwtValidations = jwtValidations;
             _resultValue.order = order;
             _resultValue.redirects = redirects;
             _resultValue.type = type;

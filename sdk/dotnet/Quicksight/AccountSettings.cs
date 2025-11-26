@@ -67,6 +67,12 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> DefaultNamespace { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.
         /// </summary>
         [Output("terminationProtectionEnabled")]
@@ -131,6 +137,12 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? DefaultNamespace { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.
         /// </summary>
         [Input("terminationProtectionEnabled")]
@@ -155,6 +167,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("defaultNamespace")]
         public Input<string>? DefaultNamespace { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.

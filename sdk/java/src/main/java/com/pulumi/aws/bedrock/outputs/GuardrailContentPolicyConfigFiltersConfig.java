@@ -5,18 +5,52 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GuardrailContentPolicyConfigFiltersConfig {
     /**
-     * @return Strength for filters.
+     * @return Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+     * 
+     */
+    private @Nullable String inputAction;
+    /**
+     * @return Toggles guardrail evaluation on input.
+     * 
+     */
+    private @Nullable Boolean inputEnabled;
+    /**
+     * @return List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+     * 
+     */
+    private @Nullable List<String> inputModalities;
+    /**
+     * @return Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
      * 
      */
     private String inputStrength;
     /**
-     * @return Strength for filters.
+     * @return Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+     * 
+     */
+    private @Nullable String outputAction;
+    /**
+     * @return Toggles guardrail evaluation on output.
+     * 
+     */
+    private @Nullable Boolean outputEnabled;
+    /**
+     * @return List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+     * 
+     */
+    private @Nullable List<String> outputModalities;
+    /**
+     * @return Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
      * 
      */
     private String outputStrength;
@@ -28,14 +62,56 @@ public final class GuardrailContentPolicyConfigFiltersConfig {
 
     private GuardrailContentPolicyConfigFiltersConfig() {}
     /**
-     * @return Strength for filters.
+     * @return Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+     * 
+     */
+    public Optional<String> inputAction() {
+        return Optional.ofNullable(this.inputAction);
+    }
+    /**
+     * @return Toggles guardrail evaluation on input.
+     * 
+     */
+    public Optional<Boolean> inputEnabled() {
+        return Optional.ofNullable(this.inputEnabled);
+    }
+    /**
+     * @return List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+     * 
+     */
+    public List<String> inputModalities() {
+        return this.inputModalities == null ? List.of() : this.inputModalities;
+    }
+    /**
+     * @return Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
      * 
      */
     public String inputStrength() {
         return this.inputStrength;
     }
     /**
-     * @return Strength for filters.
+     * @return Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+     * 
+     */
+    public Optional<String> outputAction() {
+        return Optional.ofNullable(this.outputAction);
+    }
+    /**
+     * @return Toggles guardrail evaluation on output.
+     * 
+     */
+    public Optional<Boolean> outputEnabled() {
+        return Optional.ofNullable(this.outputEnabled);
+    }
+    /**
+     * @return List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+     * 
+     */
+    public List<String> outputModalities() {
+        return this.outputModalities == null ? List.of() : this.outputModalities;
+    }
+    /**
+     * @return Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
      * 
      */
     public String outputStrength() {
@@ -58,17 +134,50 @@ public final class GuardrailContentPolicyConfigFiltersConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String inputAction;
+        private @Nullable Boolean inputEnabled;
+        private @Nullable List<String> inputModalities;
         private String inputStrength;
+        private @Nullable String outputAction;
+        private @Nullable Boolean outputEnabled;
+        private @Nullable List<String> outputModalities;
         private String outputStrength;
         private String type;
         public Builder() {}
         public Builder(GuardrailContentPolicyConfigFiltersConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.inputAction = defaults.inputAction;
+    	      this.inputEnabled = defaults.inputEnabled;
+    	      this.inputModalities = defaults.inputModalities;
     	      this.inputStrength = defaults.inputStrength;
+    	      this.outputAction = defaults.outputAction;
+    	      this.outputEnabled = defaults.outputEnabled;
+    	      this.outputModalities = defaults.outputModalities;
     	      this.outputStrength = defaults.outputStrength;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder inputAction(@Nullable String inputAction) {
+
+            this.inputAction = inputAction;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inputEnabled(@Nullable Boolean inputEnabled) {
+
+            this.inputEnabled = inputEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inputModalities(@Nullable List<String> inputModalities) {
+
+            this.inputModalities = inputModalities;
+            return this;
+        }
+        public Builder inputModalities(String... inputModalities) {
+            return inputModalities(List.of(inputModalities));
+        }
         @CustomType.Setter
         public Builder inputStrength(String inputStrength) {
             if (inputStrength == null) {
@@ -76,6 +185,27 @@ public final class GuardrailContentPolicyConfigFiltersConfig {
             }
             this.inputStrength = inputStrength;
             return this;
+        }
+        @CustomType.Setter
+        public Builder outputAction(@Nullable String outputAction) {
+
+            this.outputAction = outputAction;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder outputEnabled(@Nullable Boolean outputEnabled) {
+
+            this.outputEnabled = outputEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder outputModalities(@Nullable List<String> outputModalities) {
+
+            this.outputModalities = outputModalities;
+            return this;
+        }
+        public Builder outputModalities(String... outputModalities) {
+            return outputModalities(List.of(outputModalities));
         }
         @CustomType.Setter
         public Builder outputStrength(String outputStrength) {
@@ -95,7 +225,13 @@ public final class GuardrailContentPolicyConfigFiltersConfig {
         }
         public GuardrailContentPolicyConfigFiltersConfig build() {
             final var _resultValue = new GuardrailContentPolicyConfigFiltersConfig();
+            _resultValue.inputAction = inputAction;
+            _resultValue.inputEnabled = inputEnabled;
+            _resultValue.inputModalities = inputModalities;
             _resultValue.inputStrength = inputStrength;
+            _resultValue.outputAction = outputAction;
+            _resultValue.outputEnabled = outputEnabled;
+            _resultValue.outputModalities = outputModalities;
             _resultValue.outputStrength = outputStrength;
             _resultValue.type = type;
             return _resultValue;

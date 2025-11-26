@@ -5580,6 +5580,8 @@ public final class Route53Functions {
      * }
      * </pre>
      * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
+     * 
      */
     public static Output<GetZoneResult> getZone() {
         return getZone(GetZoneArgs.Empty, InvokeOptions.Empty);
@@ -5634,6 +5636,8 @@ public final class Route53Functions {
      * }
      * }
      * </pre>
+     * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain() {
@@ -5690,6 +5694,8 @@ public final class Route53Functions {
      * }
      * </pre>
      * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
+     * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args) {
         return getZone(args, InvokeOptions.Empty);
@@ -5744,6 +5750,8 @@ public final class Route53Functions {
      * }
      * }
      * </pre>
+     * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args) {
@@ -5800,6 +5808,8 @@ public final class Route53Functions {
      * }
      * </pre>
      * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
+     * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
@@ -5855,6 +5865,8 @@ public final class Route53Functions {
      * }
      * </pre>
      * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
+     * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
@@ -5909,6 +5921,8 @@ public final class Route53Functions {
      * }
      * }
      * </pre>
+     * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args, InvokeOptions options) {

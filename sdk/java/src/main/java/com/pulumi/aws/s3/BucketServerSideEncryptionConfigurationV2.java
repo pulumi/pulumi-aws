@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
  * 
+ * &gt; **NOTE:** Starting in March 2026, Amazon S3 will automatically block server-side encryption with customer-provided keys (SSE-C) for all new buckets. Use the `blockedEncryptionTypes` argument to manage this behavior. For more information, see the [SSE-C changes FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-s3-c-encryption-setting-faq.html).
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -68,6 +70,62 @@ import javax.annotation.Nullable;
  *                     .kmsMasterKeyId(mykey.arn())
  *                     .sseAlgorithm("aws:kms")
  *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Blocking SSE-C Uploads
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketServerSideEncryptionConfiguration;
+ * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleArgs;
+ * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mykey = new Key("mykey", KeyArgs.builder()
+ *             .description("This key is used to encrypt bucket objects")
+ *             .deletionWindowInDays(10)
+ *             .build());
+ * 
+ *         var mybucket = new Bucket("mybucket", BucketArgs.builder()
+ *             .bucket("mybucket")
+ *             .build());
+ * 
+ *         var example = new BucketServerSideEncryptionConfiguration("example", BucketServerSideEncryptionConfigurationArgs.builder()
+ *             .bucket(mybucket.id())
+ *             .rules(BucketServerSideEncryptionConfigurationRuleArgs.builder()
+ *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.builder()
+ *                     .kmsMasterKeyId(mykey.arn())
+ *                     .sseAlgorithm("aws:kms")
+ *                     .build())
+ *                 .bucketKeyEnabled(true)
+ *                 .blockedEncryptionTypes("SSE-C")
  *                 .build())
  *             .build());
  * 

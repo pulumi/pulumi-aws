@@ -358,6 +358,66 @@ import (
 //
 // ```
 //
+// ### JWT Validation Action
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lb.NewListener(ctx, "test", &lb.ListenerArgs{
+//				LoadBalancerArn: pulumi.Any(testAwsLb.Id),
+//				Protocol:        pulumi.String("HTTPS"),
+//				Port:            pulumi.Int(443),
+//				SslPolicy:       pulumi.String("ELBSecurityPolicy-2016-08"),
+//				CertificateArn:  pulumi.Any(testAwsIamServerCertificate.Arn),
+//				DefaultActions: lb.ListenerDefaultActionArray{
+//					&lb.ListenerDefaultActionArgs{
+//						Type: pulumi.String("jwt-validation"),
+//						JwtValidation: &lb.ListenerDefaultActionJwtValidationArgs{
+//							Issuer:       pulumi.String("https://example.com"),
+//							JwksEndpoint: pulumi.String("https://example.com/.well-known/jwks.json"),
+//							AdditionalClaims: lb.ListenerDefaultActionJwtValidationAdditionalClaimArray{
+//								&lb.ListenerDefaultActionJwtValidationAdditionalClaimArgs{
+//									Format: pulumi.String("string-array"),
+//									Name:   pulumi.String("claim_name1"),
+//									Values: pulumi.StringArray{
+//										pulumi.String("value1"),
+//										pulumi.String("value2"),
+//									},
+//								},
+//								&lb.ListenerDefaultActionJwtValidationAdditionalClaimArgs{
+//									Format: pulumi.String("single-string"),
+//									Name:   pulumi.String("claim_name2"),
+//									Values: pulumi.StringArray{
+//										pulumi.String("value1"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//					&lb.ListenerDefaultActionArgs{
+//						TargetGroupArn: pulumi.Any(testAwsLbTargetGroup.Id),
+//						Type:           pulumi.String("forward"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Gateway Load Balancer Listener
 //
 // ```go

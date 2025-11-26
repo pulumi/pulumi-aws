@@ -49,6 +49,7 @@ class ProviderArgs:
                  skip_region_validation: Optional[pulumi.Input[_builtins.bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[_builtins.bool]] = None,
                  sts_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag_policy_compliance: Optional[pulumi.Input[_builtins.str]] = None,
                  token: Optional[pulumi.Input[_builtins.str]] = None,
                  token_bucket_rate_limiter_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -89,6 +90,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         :param pulumi.Input[_builtins.str] sts_region: The region where AWS STS operations will take place. Examples
                are us-east-1 and us-west-2.
+        :param pulumi.Input[_builtins.str] tag_policy_compliance: The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
         :param pulumi.Input[_builtins.str] token: session token. A session token is only required if you are
                using temporary security credentials.
         :param pulumi.Input[_builtins.int] token_bucket_rate_limiter_capacity: The capacity of the AWS SDK's token bucket rate limiter.
@@ -159,6 +161,8 @@ class ProviderArgs:
             pulumi.set(__self__, "skip_requesting_account_id", skip_requesting_account_id)
         if sts_region is not None:
             pulumi.set(__self__, "sts_region", sts_region)
+        if tag_policy_compliance is not None:
+            pulumi.set(__self__, "tag_policy_compliance", tag_policy_compliance)
         if token is not None:
             pulumi.set(__self__, "token", token)
         if token_bucket_rate_limiter_capacity is not None:
@@ -512,6 +516,18 @@ class ProviderArgs:
         pulumi.set(self, "sts_region", value)
 
     @_builtins.property
+    @pulumi.getter(name="tagPolicyCompliance")
+    def tag_policy_compliance(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+        """
+        return pulumi.get(self, "tag_policy_compliance")
+
+    @tag_policy_compliance.setter
+    def tag_policy_compliance(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tag_policy_compliance", value)
+
+    @_builtins.property
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -596,6 +612,7 @@ class Provider(pulumi.ProviderResource):
                  skip_region_validation: Optional[pulumi.Input[_builtins.bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[_builtins.bool]] = None,
                  sts_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag_policy_compliance: Optional[pulumi.Input[_builtins.str]] = None,
                  token: Optional[pulumi.Input[_builtins.str]] = None,
                  token_bucket_rate_limiter_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -643,6 +660,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         :param pulumi.Input[_builtins.str] sts_region: The region where AWS STS operations will take place. Examples
                are us-east-1 and us-west-2.
+        :param pulumi.Input[_builtins.str] tag_policy_compliance: The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
         :param pulumi.Input[_builtins.str] token: session token. A session token is only required if you are
                using temporary security credentials.
         :param pulumi.Input[_builtins.int] token_bucket_rate_limiter_capacity: The capacity of the AWS SDK's token bucket rate limiter.
@@ -705,6 +723,7 @@ class Provider(pulumi.ProviderResource):
                  skip_region_validation: Optional[pulumi.Input[_builtins.bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[_builtins.bool]] = None,
                  sts_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag_policy_compliance: Optional[pulumi.Input[_builtins.str]] = None,
                  token: Optional[pulumi.Input[_builtins.str]] = None,
                  token_bucket_rate_limiter_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -753,6 +772,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["skip_region_validation"] = pulumi.Output.from_input(skip_region_validation).apply(pulumi.runtime.to_json) if skip_region_validation is not None else None
             __props__.__dict__["skip_requesting_account_id"] = pulumi.Output.from_input(skip_requesting_account_id).apply(pulumi.runtime.to_json) if skip_requesting_account_id is not None else None
             __props__.__dict__["sts_region"] = sts_region
+            __props__.__dict__["tag_policy_compliance"] = tag_policy_compliance
             __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
             __props__.__dict__["token_bucket_rate_limiter_capacity"] = pulumi.Output.from_input(token_bucket_rate_limiter_capacity).apply(pulumi.runtime.to_json) if token_bucket_rate_limiter_capacity is not None else None
             __props__.__dict__["use_dualstack_endpoint"] = pulumi.Output.from_input(use_dualstack_endpoint).apply(pulumi.runtime.to_json) if use_dualstack_endpoint is not None else None
@@ -873,6 +893,14 @@ class Provider(pulumi.ProviderResource):
         are us-east-1 and us-west-2.
         """
         return pulumi.get(self, "sts_region")
+
+    @_builtins.property
+    @pulumi.getter(name="tagPolicyCompliance")
+    def tag_policy_compliance(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+        """
+        return pulumi.get(self, "tag_policy_compliance")
 
     @_builtins.property
     @pulumi.getter

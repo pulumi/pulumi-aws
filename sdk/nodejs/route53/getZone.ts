@@ -29,6 +29,8 @@ import * as utilities from "../utilities";
  *     records: ["10.0.0.1"],
  * });
  * ```
+ *
+ * The following example shows how to get a Hosted Zone from a unique combination of its tags:
  */
 export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
     args = args || {};
@@ -47,27 +49,28 @@ export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetZoneArgs {
     /**
-     * Hosted Zone name of the desired Hosted Zone.
+     * Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `privateZone`, `vpcId` and `tags`.
      */
     name?: string;
     /**
-     * Used with `name` field to get a private Hosted Zone.
+     * Filter to only private Hosted Zones.
      */
     privateZone?: boolean;
     /**
-     * Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+     * A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
      *
-     * The arguments of this data source act as filters for querying the available
-     * Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
-     * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
+     * The arguments of this data source act as filters for querying the available Hosted Zone.
+     *
+     * - The given filter must match exactly one Hosted Zone.
      */
     tags?: {[key: string]: string};
     /**
-     * Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
+     * Filter to private Hosted Zones associated with the specified `vpcId`.
      */
     vpcId?: string;
     /**
-     * Hosted Zone id of the desired Hosted Zone.
+     * and `name` are mutually exclusive.
+     * - If you use the `name` argument for a private Hosted Zone, you need to set the `privateZone` argument to `true`.
      */
     zoneId?: string;
 }
@@ -124,7 +127,7 @@ export interface GetZoneResult {
      * A map of tags assigned to the Hosted Zone.
      */
     readonly tags: {[key: string]: string};
-    readonly vpcId: string;
+    readonly vpcId?: string;
     /**
      * The Hosted Zone identifier.
      */
@@ -155,6 +158,8 @@ export interface GetZoneResult {
  *     records: ["10.0.0.1"],
  * });
  * ```
+ *
+ * The following example shows how to get a Hosted Zone from a unique combination of its tags:
  */
 export function getZoneOutput(args?: GetZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetZoneResult> {
     args = args || {};
@@ -173,27 +178,28 @@ export function getZoneOutput(args?: GetZoneOutputArgs, opts?: pulumi.InvokeOutp
  */
 export interface GetZoneOutputArgs {
     /**
-     * Hosted Zone name of the desired Hosted Zone.
+     * Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `privateZone`, `vpcId` and `tags`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Used with `name` field to get a private Hosted Zone.
+     * Filter to only private Hosted Zones.
      */
     privateZone?: pulumi.Input<boolean>;
     /**
-     * Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+     * A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
      *
-     * The arguments of this data source act as filters for querying the available
-     * Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
-     * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
+     * The arguments of this data source act as filters for querying the available Hosted Zone.
+     *
+     * - The given filter must match exactly one Hosted Zone.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
+     * Filter to private Hosted Zones associated with the specified `vpcId`.
      */
     vpcId?: pulumi.Input<string>;
     /**
-     * Hosted Zone id of the desired Hosted Zone.
+     * and `name` are mutually exclusive.
+     * - If you use the `name` argument for a private Hosted Zone, you need to set the `privateZone` argument to `true`.
      */
     zoneId?: pulumi.Input<string>;
 }

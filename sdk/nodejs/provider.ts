@@ -86,6 +86,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly stsRegion: pulumi.Output<string | undefined>;
     /**
+     * The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+     */
+    declare public readonly tagPolicyCompliance: pulumi.Output<string | undefined>;
+    /**
      * session token. A session token is only required if you are
      * using temporary security credentials.
      */
@@ -131,6 +135,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["skipRegionValidation"] = pulumi.output((args?.skipRegionValidation) ?? true).apply(JSON.stringify);
             resourceInputs["skipRequestingAccountId"] = pulumi.output(args?.skipRequestingAccountId).apply(JSON.stringify);
             resourceInputs["stsRegion"] = args?.stsRegion;
+            resourceInputs["tagPolicyCompliance"] = args?.tagPolicyCompliance;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
             resourceInputs["tokenBucketRateLimiterCapacity"] = pulumi.output(args?.tokenBucketRateLimiterCapacity).apply(JSON.stringify);
             resourceInputs["useDualstackEndpoint"] = pulumi.output(args?.useDualstackEndpoint).apply(JSON.stringify);
@@ -267,6 +272,10 @@ export interface ProviderArgs {
      * are us-east-1 and us-west-2.
      */
     stsRegion?: pulumi.Input<string>;
+    /**
+     * The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+     */
+    tagPolicyCompliance?: pulumi.Input<string>;
     /**
      * session token. A session token is only required if you are
      * using temporary security credentials.

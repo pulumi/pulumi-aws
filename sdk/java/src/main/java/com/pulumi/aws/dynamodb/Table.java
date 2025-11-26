@@ -8,6 +8,7 @@ import com.pulumi.aws.dynamodb.TableArgs;
 import com.pulumi.aws.dynamodb.inputs.TableState;
 import com.pulumi.aws.dynamodb.outputs.TableAttribute;
 import com.pulumi.aws.dynamodb.outputs.TableGlobalSecondaryIndex;
+import com.pulumi.aws.dynamodb.outputs.TableGlobalTableWitness;
 import com.pulumi.aws.dynamodb.outputs.TableImportTable;
 import com.pulumi.aws.dynamodb.outputs.TableLocalSecondaryIndex;
 import com.pulumi.aws.dynamodb.outputs.TableOnDemandThroughput;
@@ -177,9 +178,13 @@ import javax.annotation.Nullable;
  * 
  * A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you&#39;re always reading the latest version of an item, irrespective of the Region in which you&#39;re performing the read.
  * 
+ * You can configure a MRSC global table with three replicas, or with two replicas and one witness. A witness is a component of a MRSC global table that contains data written to global table replicas, and provides an optional alternative to a full replica while supporting MRSC&#39;s availability architecture. You cannot perform read or write operations on a witness. A witness is located in a different Region than the two replicas.
+ * 
  * **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
  * 
- * Consistency Mode (`consistencyMode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+ * Consistency Mode (`consistencyMode`) on the embedded `replica` allows you to configure consistency mode for Global Tables.
+ * 
+ * ##### Consistency mode with 3 Replicas
  * 
  * <pre>
  * {@code
@@ -224,6 +229,57 @@ import javax.annotation.Nullable;
  *                     .regionName("us-west-2")
  *                     .consistencyMode("STRONG")
  *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ##### Consistency Mode with 2 Replicas and Witness Region
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.Table;
+ * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableGlobalTableWitnessArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Table("example", TableArgs.builder()
+ *             .name("example")
+ *             .hashKey("TestTableHashKey")
+ *             .billingMode("PAY_PER_REQUEST")
+ *             .streamEnabled(true)
+ *             .streamViewType("NEW_AND_OLD_IMAGES")
+ *             .attributes(TableAttributeArgs.builder()
+ *                 .name("TestTableHashKey")
+ *                 .type("S")
+ *                 .build())
+ *             .replicas(TableReplicaArgs.builder()
+ *                 .regionName("us-east-2")
+ *                 .consistencyMode("STRONG")
+ *                 .build())
+ *             .globalTableWitness(TableGlobalTableWitnessArgs.builder()
+ *                 .regionName("us-west-2")
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -393,6 +449,20 @@ public class Table extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<TableGlobalSecondaryIndex>>> globalSecondaryIndexes() {
         return Codegen.optional(this.globalSecondaryIndexes);
+    }
+    /**
+     * Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+     * 
+     */
+    @Export(name="globalTableWitness", refs={TableGlobalTableWitness.class}, tree="[0]")
+    private Output<TableGlobalTableWitness> globalTableWitness;
+
+    /**
+     * @return Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+     * 
+     */
+    public Output<TableGlobalTableWitness> globalTableWitness() {
+        return this.globalTableWitness;
     }
     /**
      * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.

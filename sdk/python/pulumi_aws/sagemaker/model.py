@@ -36,8 +36,8 @@ class ModelArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ModelContainerArgs']]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input['ModelInferenceExecutionConfigArgs'] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
-        :param pulumi.Input[_builtins.str] name: The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
-        :param pulumi.Input['ModelPrimaryContainerArgs'] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        :param pulumi.Input[_builtins.str] name: Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input['ModelPrimaryContainerArgs'] primary_container: Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ModelVpcConfigArgs'] vpc_config: Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
@@ -112,7 +112,7 @@ class ModelArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+        Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -124,7 +124,7 @@ class ModelArgs:
     @pulumi.getter(name="primaryContainer")
     def primary_container(self) -> Optional[pulumi.Input['ModelPrimaryContainerArgs']]:
         """
-        The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         """
         return pulumi.get(self, "primary_container")
 
@@ -185,13 +185,13 @@ class _ModelState:
                  vpc_config: Optional[pulumi.Input['ModelVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Model resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this model.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) assigned by AWS to this model.
         :param pulumi.Input[Sequence[pulumi.Input['ModelContainerArgs']]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input[_builtins.str] execution_role_arn: A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
         :param pulumi.Input['ModelInferenceExecutionConfigArgs'] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
-        :param pulumi.Input[_builtins.str] name: The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
-        :param pulumi.Input['ModelPrimaryContainerArgs'] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        :param pulumi.Input[_builtins.str] name: Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input['ModelPrimaryContainerArgs'] primary_container: Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -224,7 +224,7 @@ class _ModelState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this model.
+        Amazon Resource Name (ARN) assigned by AWS to this model.
         """
         return pulumi.get(self, "arn")
 
@@ -284,7 +284,7 @@ class _ModelState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+        Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -296,7 +296,7 @@ class _ModelState:
     @pulumi.getter(name="primaryContainer")
     def primary_container(self) -> Optional[pulumi.Input['ModelPrimaryContainerArgs']]:
         """
-        The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         """
         return pulumi.get(self, "primary_container")
 
@@ -370,11 +370,11 @@ class Model(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a SageMaker AI model resource.
+        Manages an Amazon SageMaker AI Model.
 
         ## Example Usage
 
-        Basic usage:
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -397,21 +397,12 @@ class Model(pulumi.CustomResource):
             })
         ```
 
-        ## Inference Execution Config
-
-        * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
-
-        ### VPC Config
-
-        * `security_group_ids` - (Required) List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
-        * `subnets` - (Required) List of subnet IDs in the VPC to which you want to connect your training job or model.
-
         ## Import
 
         Using `pulumi import`, import models using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:sagemaker/model:Model test_model model-foo
+        $ pulumi import aws:sagemaker/model:Model example model-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -420,8 +411,8 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input[_builtins.str] execution_role_arn: A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
         :param pulumi.Input[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict']] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
-        :param pulumi.Input[_builtins.str] name: The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
-        :param pulumi.Input[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        :param pulumi.Input[_builtins.str] name: Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']] primary_container: Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict']] vpc_config: Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
@@ -433,11 +424,11 @@ class Model(pulumi.CustomResource):
                  args: ModelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker AI model resource.
+        Manages an Amazon SageMaker AI Model.
 
         ## Example Usage
 
-        Basic usage:
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -460,21 +451,12 @@ class Model(pulumi.CustomResource):
             })
         ```
 
-        ## Inference Execution Config
-
-        * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
-
-        ### VPC Config
-
-        * `security_group_ids` - (Required) List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
-        * `subnets` - (Required) List of subnet IDs in the VPC to which you want to connect your training job or model.
-
         ## Import
 
         Using `pulumi import`, import models using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:sagemaker/model:Model test_model model-foo
+        $ pulumi import aws:sagemaker/model:Model example model-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -551,13 +533,13 @@ class Model(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this model.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) assigned by AWS to this model.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict']]]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input[_builtins.str] execution_role_arn: A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
         :param pulumi.Input[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict']] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
-        :param pulumi.Input[_builtins.str] name: The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
-        :param pulumi.Input[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        :param pulumi.Input[_builtins.str] name: Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']] primary_container: Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -584,7 +566,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this model.
+        Amazon Resource Name (ARN) assigned by AWS to this model.
         """
         return pulumi.get(self, "arn")
 
@@ -624,7 +606,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+        Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -632,7 +614,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter(name="primaryContainer")
     def primary_container(self) -> pulumi.Output[Optional['outputs.ModelPrimaryContainer']]:
         """
-        The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         """
         return pulumi.get(self, "primary_container")
 

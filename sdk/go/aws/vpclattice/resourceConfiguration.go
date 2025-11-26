@@ -94,6 +94,54 @@ import (
 //
 // ```
 //
+// ### With custom domain
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := vpclattice.NewDomainVerification(ctx, "example", &vpclattice.DomainVerificationArgs{
+//				DomainName: pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpclattice.NewResourceConfiguration(ctx, "example", &vpclattice.ResourceConfigurationArgs{
+//				Name:                      pulumi.String("Example"),
+//				ResourceGatewayIdentifier: pulumi.Any(exampleAwsVpclatticeResourceGateway.Id),
+//				CustomDomainName:          pulumi.String("custom.example.com"),
+//				DomainVerificationId:      example.ID(),
+//				PortRanges: pulumi.StringArray{
+//					pulumi.String("443"),
+//				},
+//				Protocol: pulumi.String("TCP"),
+//				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
+//					DnsResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{
+//						DomainName:    pulumi.String("test.example.com"),
+//						IpAddressType: pulumi.String("IPV4"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### ARN Example
 //
 // ```go
@@ -141,6 +189,14 @@ type ResourceConfiguration struct {
 	AllowAssociationToShareableServiceNetwork pulumi.BoolOutput `pulumi:"allowAssociationToShareableServiceNetwork"`
 	// ARN of the resource gateway.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
+	// ARN of the domain verification.
+	DomainVerificationArn pulumi.StringOutput `pulumi:"domainVerificationArn"`
+	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+	DomainVerificationId pulumi.StringOutput `pulumi:"domainVerificationId"`
+	// Domain verification status.
+	DomainVerificationStatus pulumi.StringOutput `pulumi:"domainVerificationStatus"`
 	// Name for the Resource Configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Port ranges to access the Resource either single port `80` or range `80-81` range.
@@ -200,6 +256,14 @@ type resourceConfigurationState struct {
 	AllowAssociationToShareableServiceNetwork *bool `pulumi:"allowAssociationToShareableServiceNetwork"`
 	// ARN of the resource gateway.
 	Arn *string `pulumi:"arn"`
+	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+	CustomDomainName *string `pulumi:"customDomainName"`
+	// ARN of the domain verification.
+	DomainVerificationArn *string `pulumi:"domainVerificationArn"`
+	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+	DomainVerificationId *string `pulumi:"domainVerificationId"`
+	// Domain verification status.
+	DomainVerificationStatus *string `pulumi:"domainVerificationStatus"`
 	// Name for the Resource Configuration.
 	Name *string `pulumi:"name"`
 	// Port ranges to access the Resource either single port `80` or range `80-81` range.
@@ -230,6 +294,14 @@ type ResourceConfigurationState struct {
 	AllowAssociationToShareableServiceNetwork pulumi.BoolPtrInput
 	// ARN of the resource gateway.
 	Arn pulumi.StringPtrInput
+	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+	CustomDomainName pulumi.StringPtrInput
+	// ARN of the domain verification.
+	DomainVerificationArn pulumi.StringPtrInput
+	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+	DomainVerificationId pulumi.StringPtrInput
+	// Domain verification status.
+	DomainVerificationStatus pulumi.StringPtrInput
 	// Name for the Resource Configuration.
 	Name pulumi.StringPtrInput
 	// Port ranges to access the Resource either single port `80` or range `80-81` range.
@@ -262,6 +334,10 @@ func (ResourceConfigurationState) ElementType() reflect.Type {
 type resourceConfigurationArgs struct {
 	// Allow or Deny the association of this resource to a shareable service network.
 	AllowAssociationToShareableServiceNetwork *bool `pulumi:"allowAssociationToShareableServiceNetwork"`
+	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+	CustomDomainName *string `pulumi:"customDomainName"`
+	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+	DomainVerificationId *string `pulumi:"domainVerificationId"`
 	// Name for the Resource Configuration.
 	Name *string `pulumi:"name"`
 	// Port ranges to access the Resource either single port `80` or range `80-81` range.
@@ -289,6 +365,10 @@ type resourceConfigurationArgs struct {
 type ResourceConfigurationArgs struct {
 	// Allow or Deny the association of this resource to a shareable service network.
 	AllowAssociationToShareableServiceNetwork pulumi.BoolPtrInput
+	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+	CustomDomainName pulumi.StringPtrInput
+	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+	DomainVerificationId pulumi.StringPtrInput
 	// Name for the Resource Configuration.
 	Name pulumi.StringPtrInput
 	// Port ranges to access the Resource either single port `80` or range `80-81` range.
@@ -407,6 +487,26 @@ func (o ResourceConfigurationOutput) AllowAssociationToShareableServiceNetwork()
 // ARN of the resource gateway.
 func (o ResourceConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+func (o ResourceConfigurationOutput) CustomDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the domain verification.
+func (o ResourceConfigurationOutput) DomainVerificationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.DomainVerificationArn }).(pulumi.StringOutput)
+}
+
+// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+func (o ResourceConfigurationOutput) DomainVerificationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.DomainVerificationId }).(pulumi.StringOutput)
+}
+
+// Domain verification status.
+func (o ResourceConfigurationOutput) DomainVerificationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.DomainVerificationStatus }).(pulumi.StringOutput)
 }
 
 // Name for the Resource Configuration.

@@ -40,6 +40,21 @@ public final class AccountSettingsState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
      * 
      */
@@ -66,6 +81,7 @@ public final class AccountSettingsState extends com.pulumi.resources.ResourceArg
     private AccountSettingsState(AccountSettingsState $) {
         this.awsAccountId = $.awsAccountId;
         this.defaultNamespace = $.defaultNamespace;
+        this.region = $.region;
         this.terminationProtectionEnabled = $.terminationProtectionEnabled;
         this.timeouts = $.timeouts;
     }
@@ -116,6 +132,27 @@ public final class AccountSettingsState extends com.pulumi.resources.ResourceArg
          */
         public Builder defaultNamespace(String defaultNamespace) {
             return defaultNamespace(Output.of(defaultNamespace));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

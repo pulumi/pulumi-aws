@@ -3,12 +3,14 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.ModelContainerAdditionalModelDataSourceArgs;
 import com.pulumi.aws.sagemaker.inputs.ModelContainerImageConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.ModelContainerModelDataSourceArgs;
 import com.pulumi.aws.sagemaker.inputs.ModelContainerMultiModelConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,14 +22,29 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
     public static final ModelContainerArgs Empty = new ModelContainerArgs();
 
     /**
-     * The DNS host name for the container.
+     * Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+     * 
+     */
+    @Import(name="additionalModelDataSources")
+    private @Nullable Output<List<ModelContainerAdditionalModelDataSourceArgs>> additionalModelDataSources;
+
+    /**
+     * @return Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+     * 
+     */
+    public Optional<Output<List<ModelContainerAdditionalModelDataSourceArgs>>> additionalModelDataSources() {
+        return Optional.ofNullable(this.additionalModelDataSources);
+    }
+
+    /**
+     * DNS host name for the container.
      * 
      */
     @Import(name="containerHostname")
     private @Nullable Output<String> containerHostname;
 
     /**
-     * @return The DNS host name for the container.
+     * @return DNS host name for the container.
      * 
      */
     public Optional<Output<String>> containerHostname() {
@@ -36,7 +53,6 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
 
     /**
      * Environment variables for the Docker container.
-     * A list of key value pairs.
      * 
      */
     @Import(name="environment")
@@ -44,7 +60,6 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
 
     /**
      * @return Environment variables for the Docker container.
-     * A list of key value pairs.
      * 
      */
     public Optional<Output<Map<String,String>>> environment() {
@@ -52,14 +67,14 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The registry path where the inference code image is stored in Amazon ECR.
+     * Registry path where the inference code image is stored in Amazon ECR.
      * 
      */
     @Import(name="image")
     private @Nullable Output<String> image;
 
     /**
-     * @return The registry path where the inference code image is stored in Amazon ECR.
+     * @return Registry path where the inference code image is stored in Amazon ECR.
      * 
      */
     public Optional<Output<String>> image() {
@@ -82,14 +97,14 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The inference specification name in the model package version.
+     * Inference specification name in the model package version.
      * 
      */
     @Import(name="inferenceSpecificationName")
     private @Nullable Output<String> inferenceSpecificationName;
 
     /**
-     * @return The inference specification name in the model package version.
+     * @return Inference specification name in the model package version.
      * 
      */
     public Optional<Output<String>> inferenceSpecificationName() {
@@ -97,14 +112,14 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * @return Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -112,14 +127,14 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+     * Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
      * 
      */
     @Import(name="modelDataSource")
     private @Nullable Output<ModelContainerModelDataSourceArgs> modelDataSource;
 
     /**
-     * @return The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+     * @return Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
      * 
      */
     public Optional<Output<ModelContainerModelDataSourceArgs>> modelDataSource() {
@@ -127,14 +142,14 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The URL for the S3 location where model artifacts are stored.
+     * URL for the S3 location where model artifacts are stored.
      * 
      */
     @Import(name="modelDataUrl")
     private @Nullable Output<String> modelDataUrl;
 
     /**
-     * @return The URL for the S3 location where model artifacts are stored.
+     * @return URL for the S3 location where model artifacts are stored.
      * 
      */
     public Optional<Output<String>> modelDataUrl() {
@@ -142,14 +157,16 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the model package to use to create the model.
+     * Amazon Resource Name (ARN) of the model package to use to create the model.
+     * A list of key value pairs.
      * 
      */
     @Import(name="modelPackageName")
     private @Nullable Output<String> modelPackageName;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the model package to use to create the model.
+     * @return Amazon Resource Name (ARN) of the model package to use to create the model.
+     * A list of key value pairs.
      * 
      */
     public Optional<Output<String>> modelPackageName() {
@@ -174,6 +191,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
     private ModelContainerArgs() {}
 
     private ModelContainerArgs(ModelContainerArgs $) {
+        this.additionalModelDataSources = $.additionalModelDataSources;
         this.containerHostname = $.containerHostname;
         this.environment = $.environment;
         this.image = $.image;
@@ -205,7 +223,38 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param containerHostname The DNS host name for the container.
+         * @param additionalModelDataSources Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalModelDataSources(@Nullable Output<List<ModelContainerAdditionalModelDataSourceArgs>> additionalModelDataSources) {
+            $.additionalModelDataSources = additionalModelDataSources;
+            return this;
+        }
+
+        /**
+         * @param additionalModelDataSources Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalModelDataSources(List<ModelContainerAdditionalModelDataSourceArgs> additionalModelDataSources) {
+            return additionalModelDataSources(Output.of(additionalModelDataSources));
+        }
+
+        /**
+         * @param additionalModelDataSources Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalModelDataSources(ModelContainerAdditionalModelDataSourceArgs... additionalModelDataSources) {
+            return additionalModelDataSources(List.of(additionalModelDataSources));
+        }
+
+        /**
+         * @param containerHostname DNS host name for the container.
          * 
          * @return builder
          * 
@@ -216,7 +265,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param containerHostname The DNS host name for the container.
+         * @param containerHostname DNS host name for the container.
          * 
          * @return builder
          * 
@@ -227,7 +276,6 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param environment Environment variables for the Docker container.
-         * A list of key value pairs.
          * 
          * @return builder
          * 
@@ -239,7 +287,6 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param environment Environment variables for the Docker container.
-         * A list of key value pairs.
          * 
          * @return builder
          * 
@@ -249,7 +296,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param image The registry path where the inference code image is stored in Amazon ECR.
+         * @param image Registry path where the inference code image is stored in Amazon ECR.
          * 
          * @return builder
          * 
@@ -260,7 +307,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param image The registry path where the inference code image is stored in Amazon ECR.
+         * @param image Registry path where the inference code image is stored in Amazon ECR.
          * 
          * @return builder
          * 
@@ -291,7 +338,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param inferenceSpecificationName The inference specification name in the model package version.
+         * @param inferenceSpecificationName Inference specification name in the model package version.
          * 
          * @return builder
          * 
@@ -302,7 +349,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param inferenceSpecificationName The inference specification name in the model package version.
+         * @param inferenceSpecificationName Inference specification name in the model package version.
          * 
          * @return builder
          * 
@@ -312,7 +359,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param mode The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         * @param mode Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
          * 
          * @return builder
          * 
@@ -323,7 +370,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param mode The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         * @param mode Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
          * 
          * @return builder
          * 
@@ -333,7 +380,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param modelDataSource The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+         * @param modelDataSource Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
          * 
          * @return builder
          * 
@@ -344,7 +391,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param modelDataSource The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+         * @param modelDataSource Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
          * 
          * @return builder
          * 
@@ -354,7 +401,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param modelDataUrl The URL for the S3 location where model artifacts are stored.
+         * @param modelDataUrl URL for the S3 location where model artifacts are stored.
          * 
          * @return builder
          * 
@@ -365,7 +412,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param modelDataUrl The URL for the S3 location where model artifacts are stored.
+         * @param modelDataUrl URL for the S3 location where model artifacts are stored.
          * 
          * @return builder
          * 
@@ -375,7 +422,8 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param modelPackageName The Amazon Resource Name (ARN) of the model package to use to create the model.
+         * @param modelPackageName Amazon Resource Name (ARN) of the model package to use to create the model.
+         * A list of key value pairs.
          * 
          * @return builder
          * 
@@ -386,7 +434,8 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param modelPackageName The Amazon Resource Name (ARN) of the model package to use to create the model.
+         * @param modelPackageName Amazon Resource Name (ARN) of the model package to use to create the model.
+         * A list of key value pairs.
          * 
          * @return builder
          * 

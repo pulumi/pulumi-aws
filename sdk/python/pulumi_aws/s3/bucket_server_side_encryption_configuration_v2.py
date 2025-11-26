@@ -181,6 +181,8 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
 
         > **NOTE:** Destroying an `s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
 
+        > **NOTE:** Starting in March 2026, Amazon S3 will automatically block server-side encryption with customer-provided keys (SSE-C) for all new buckets. Use the `blocked_encryption_types` argument to manage this behavior. For more information, see the [SSE-C changes FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-s3-c-encryption-setting-faq.html).
+
         ## Example Usage
 
         ```python
@@ -198,6 +200,28 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
                     "kms_master_key_id": mykey.arn,
                     "sse_algorithm": "aws:kms",
                 },
+            }])
+        ```
+
+        ### Blocking SSE-C Uploads
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mykey = aws.kms.Key("mykey",
+            description="This key is used to encrypt bucket objects",
+            deletion_window_in_days=10)
+        mybucket = aws.s3.Bucket("mybucket", bucket="mybucket")
+        example = aws.s3.BucketServerSideEncryptionConfiguration("example",
+            bucket=mybucket.id,
+            rules=[{
+                "apply_server_side_encryption_by_default": {
+                    "kms_master_key_id": mykey.arn,
+                    "sse_algorithm": "aws:kms",
+                },
+                "bucket_key_enabled": True,
+                "blocked_encryption_types": ["SSE-C"],
             }])
         ```
 
@@ -261,6 +285,8 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
 
         > **NOTE:** Destroying an `s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
 
+        > **NOTE:** Starting in March 2026, Amazon S3 will automatically block server-side encryption with customer-provided keys (SSE-C) for all new buckets. Use the `blocked_encryption_types` argument to manage this behavior. For more information, see the [SSE-C changes FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-s3-c-encryption-setting-faq.html).
+
         ## Example Usage
 
         ```python
@@ -278,6 +304,28 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
                     "kms_master_key_id": mykey.arn,
                     "sse_algorithm": "aws:kms",
                 },
+            }])
+        ```
+
+        ### Blocking SSE-C Uploads
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mykey = aws.kms.Key("mykey",
+            description="This key is used to encrypt bucket objects",
+            deletion_window_in_days=10)
+        mybucket = aws.s3.Bucket("mybucket", bucket="mybucket")
+        example = aws.s3.BucketServerSideEncryptionConfiguration("example",
+            bucket=mybucket.id,
+            rules=[{
+                "apply_server_side_encryption_by_default": {
+                    "kms_master_key_id": mykey.arn,
+                    "sse_algorithm": "aws:kms",
+                },
+                "bucket_key_enabled": True,
+                "blocked_encryption_types": ["SSE-C"],
             }])
         ```
 
