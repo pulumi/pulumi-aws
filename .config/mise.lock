@@ -89,7 +89,7 @@ version = "6.9.1"
 backend = "vfox-pulumi:pulumi/pulumi-github"
 
 [[tools."vfox-pulumi:pulumi/pulumi-kubernetes"]]
-version = "4.24.0"
+version = "4.24.1"
 backend = "vfox-pulumi:pulumi/pulumi-kubernetes"
 
 [[tools."vfox-pulumi:pulumi/pulumi-local"]]

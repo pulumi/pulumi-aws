@@ -1455,6 +1455,10 @@
     {
       "old": "Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Terraform operations and use their results in other resources or outputs.\n",
       "new": "Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.\n"
+    },
+    {
+      "old": "Because it is not possible to retrieve previous invocations, during the next apply `terraform` will update the resource calling again the function.\n",
+      "new": "Because it is not possible to retrieve previous invocations, during the next apply `TODO` will update the resource calling again the function.\n"
     }
   ],
   "lambda_layer_version.html.markdown": [
