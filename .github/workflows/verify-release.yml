@@ -58,7 +58,7 @@ jobs:
       - name: Configure Git to checkout files with long names
         run: git config --global core.longpaths true
       - name: Checkout Repo
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           persist-credentials: false      
       - env:
@@ -94,7 +94,7 @@ jobs:
           node-version: 20.x
           registry-url: https://registry.npmjs.org
       - name: Install Go
-        uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
+        uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6
         with:
           go-version: "1.21.x"
           cache-dependency-path: |
@@ -104,6 +104,9 @@ jobs:
             sdk/*.sum
             *.sum
           cache: true
+      - name: Set Go Toolchain to auto explicitly
+        run: |
+          echo "GOTOOLCHAIN=auto" >> "$GITHUB_ENV"
       - name: Install Pulumi CLI
         uses: pulumi/actions@d7ceb0215da5a14ec84f50b703365ddf0194a9c8 # v6
         with:
