@@ -32,6 +32,7 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			// aws partition
 			{Value: "af-south-1", Name: "AFSouth1"},         // Africa (Cape Town)
 			{Value: "ap-east-1", Name: "APEast1"},           // Asia Pacific (Hong Kong)
+			{Value: "ap-east-2", Name: "APEast2"},           // Asia Pacific (Taipei)
 			{Value: "ap-northeast-1", Name: "APNortheast1"}, // Asia Pacific (Tokyo)
 			{Value: "ap-northeast-2", Name: "APNortheast2"}, // Asia Pacific (Seoul)
 			{Value: "ap-northeast-3", Name: "APNortheast3"}, // Asia Pacific (Osaka)
