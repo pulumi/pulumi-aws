@@ -70,7 +70,6 @@ jobs:
           MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:
           version: 2025.11.6
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           github_token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
           cache_key: "mise-{{platform}}-{{file_hash}}"
           # only saving the cache in the prerequisites job
