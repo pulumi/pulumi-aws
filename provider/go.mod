@@ -36,6 +36,8 @@ replace (
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.21.0
 )
 
+replace github.com/pulumi/pulumi-aws/sdk/v7 => ../sdk
+
 require (
 	cloud.google.com/go v0.112.1 // indirect
 	cloud.google.com/go/compute/metadata v0.7.0 // indirect
