@@ -45,7 +45,7 @@ jobs:
           swap-storage: false
           dotnet: false
       - name: Checkout Repo
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
           submodules: true
           persist-credentials: false      
@@ -70,7 +70,7 @@ jobs:
           MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:
           version: 2025.11.6
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
           # only saving the cache in the prerequisites job
           cache_save: false
       - name: Setup Go Cache
