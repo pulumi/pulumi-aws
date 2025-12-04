@@ -341,8 +341,6 @@ import (
 //
 // Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
 //
-// console
-//
 // % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
 type VpcEndpoint struct {
 	pulumi.CustomResourceState

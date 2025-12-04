@@ -917,8 +917,6 @@ class VpcEndpoint(pulumi.CustomResource):
 
         Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
 
-        console
-
         % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
 
         :param str resource_name: The name of the resource.
@@ -1112,8 +1110,6 @@ class VpcEndpoint(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
-
-        console
 
         % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
 

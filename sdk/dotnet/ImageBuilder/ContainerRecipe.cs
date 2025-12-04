@@ -72,8 +72,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_imagebuilder_container_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
     /// </summary>
     [AwsResourceType("aws:imagebuilder/containerRecipe:ContainerRecipe")]

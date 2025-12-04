@@ -10,12 +10,12 @@ import java.lang.String;
 import java.util.Objects;
 
 @CustomType
-public final class GetCloudVmClusterIormConfigCachDbPlan {
+public final class CloudVmClusterIormConfigCacheDbPlan {
     private String dbName;
     private String flashCacheLimit;
     private Integer share;
 
-    private GetCloudVmClusterIormConfigCachDbPlan() {}
+    private CloudVmClusterIormConfigCacheDbPlan() {}
     public String dbName() {
         return this.dbName;
     }
@@ -30,7 +30,7 @@ public final class GetCloudVmClusterIormConfigCachDbPlan {
         return new Builder();
     }
 
-    public static Builder builder(GetCloudVmClusterIormConfigCachDbPlan defaults) {
+    public static Builder builder(CloudVmClusterIormConfigCacheDbPlan defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -39,7 +39,7 @@ public final class GetCloudVmClusterIormConfigCachDbPlan {
         private String flashCacheLimit;
         private Integer share;
         public Builder() {}
-        public Builder(GetCloudVmClusterIormConfigCachDbPlan defaults) {
+        public Builder(CloudVmClusterIormConfigCacheDbPlan defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dbName = defaults.dbName;
     	      this.flashCacheLimit = defaults.flashCacheLimit;
@@ -49,7 +49,7 @@ public final class GetCloudVmClusterIormConfigCachDbPlan {
         @CustomType.Setter
         public Builder dbName(String dbName) {
             if (dbName == null) {
-              throw new MissingRequiredPropertyException("GetCloudVmClusterIormConfigCachDbPlan", "dbName");
+              throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCacheDbPlan", "dbName");
             }
             this.dbName = dbName;
             return this;
@@ -57,7 +57,7 @@ public final class GetCloudVmClusterIormConfigCachDbPlan {
         @CustomType.Setter
         public Builder flashCacheLimit(String flashCacheLimit) {
             if (flashCacheLimit == null) {
-              throw new MissingRequiredPropertyException("GetCloudVmClusterIormConfigCachDbPlan", "flashCacheLimit");
+              throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCacheDbPlan", "flashCacheLimit");
             }
             this.flashCacheLimit = flashCacheLimit;
             return this;
@@ -65,13 +65,13 @@ public final class GetCloudVmClusterIormConfigCachDbPlan {
         @CustomType.Setter
         public Builder share(Integer share) {
             if (share == null) {
-              throw new MissingRequiredPropertyException("GetCloudVmClusterIormConfigCachDbPlan", "share");
+              throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCacheDbPlan", "share");
             }
             this.share = share;
             return this;
         }
-        public GetCloudVmClusterIormConfigCachDbPlan build() {
-            final var _resultValue = new GetCloudVmClusterIormConfigCachDbPlan();
+        public CloudVmClusterIormConfigCacheDbPlan build() {
+            final var _resultValue = new CloudVmClusterIormConfigCacheDbPlan();
             _resultValue.dbName = dbName;
             _resultValue.flashCacheLimit = flashCacheLimit;
             _resultValue.share = share;

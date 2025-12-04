@@ -98,8 +98,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For example:
  * 
- * console
- * 
  * % pulumi import aws_iam_role_policy.example role_of_mypolicy_name:mypolicy_name
  * 
  */

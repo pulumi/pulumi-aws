@@ -264,8 +264,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
  * 
- * console
- * 
  * % pulumi import aws_ssm_maintenance_window_task.example &lt;window_id&gt;/&lt;window_task_id&gt;
  * 
  */

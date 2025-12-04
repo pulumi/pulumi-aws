@@ -51,8 +51,6 @@ namespace Pulumi.Aws.Kms
     /// 
     /// Using `pulumi import`, import KMS aliases using the `name`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_kms_alias.a alias/my-key-alias
     /// </summary>
     [AwsResourceType("aws:kms/alias:Alias")]

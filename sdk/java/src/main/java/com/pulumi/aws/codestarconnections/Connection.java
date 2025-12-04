@@ -102,8 +102,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import CodeStar connections using the ARN. For example:
  * 
- * console
- * 
  * % pulumi import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
  * 
  */

@@ -37,8 +37,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
  *
- * console
- *
  * % pulumi import aws_datasync_location_smb.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
  */
 export class LocationSmb extends pulumi.CustomResource {

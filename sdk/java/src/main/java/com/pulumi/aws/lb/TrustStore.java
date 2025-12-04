@@ -81,8 +81,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  * 
- * console
- * 
  * % pulumi import aws_lb_trust_store.example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
  * 
  */

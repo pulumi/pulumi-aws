@@ -340,8 +340,6 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
 
         Using `pulumi import`, import SSM Maintenance Window targets using `WINDOW_ID/WINDOW_TARGET_ID`. For example:
 
-        console
-
         % pulumi import aws_ssm_maintenance_window_target.example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
 
         :param str resource_name: The name of the resource.
@@ -427,8 +425,6 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import SSM Maintenance Window targets using `WINDOW_ID/WINDOW_TARGET_ID`. For example:
-
-        console
 
         % pulumi import aws_ssm_maintenance_window_target.example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
 

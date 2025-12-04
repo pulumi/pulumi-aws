@@ -242,8 +242,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import CodeBuild Project using the `name`. For example:
  *
- * console
- *
  * % pulumi import aws_codebuild_project.name project-name
  */
 export class Project extends pulumi.CustomResource {

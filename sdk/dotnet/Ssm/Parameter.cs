@@ -91,8 +91,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_ssm_parameter.example /my_path/my_paramname
     /// </summary>
     [AwsResourceType("aws:ssm/parameter:Parameter")]

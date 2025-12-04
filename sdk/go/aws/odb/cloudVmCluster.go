@@ -146,7 +146,7 @@ type CloudVmCluster struct {
 	// The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
 	HostnamePrefixComputed pulumi.StringOutput `pulumi:"hostnamePrefixComputed"`
 	// The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
-	IormConfigCaches CloudVmClusterIormConfigCachArrayOutput `pulumi:"iormConfigCaches"`
+	IormConfigCaches CloudVmClusterIormConfigCacheArrayOutput `pulumi:"iormConfigCaches"`
 	// Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
 	IsLocalBackupEnabled pulumi.BoolOutput `pulumi:"isLocalBackupEnabled"`
 	// Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
@@ -299,7 +299,7 @@ type cloudVmClusterState struct {
 	// The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
 	HostnamePrefixComputed *string `pulumi:"hostnamePrefixComputed"`
 	// The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
-	IormConfigCaches []CloudVmClusterIormConfigCach `pulumi:"iormConfigCaches"`
+	IormConfigCaches []CloudVmClusterIormConfigCache `pulumi:"iormConfigCaches"`
 	// Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
 	IsLocalBackupEnabled *bool `pulumi:"isLocalBackupEnabled"`
 	// Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
@@ -396,7 +396,7 @@ type CloudVmClusterState struct {
 	// The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
 	HostnamePrefixComputed pulumi.StringPtrInput
 	// The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
-	IormConfigCaches CloudVmClusterIormConfigCachArrayInput
+	IormConfigCaches CloudVmClusterIormConfigCacheArrayInput
 	// Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
 	IsLocalBackupEnabled pulumi.BoolPtrInput
 	// Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
@@ -727,8 +727,8 @@ func (o CloudVmClusterOutput) HostnamePrefixComputed() pulumi.StringOutput {
 }
 
 // The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
-func (o CloudVmClusterOutput) IormConfigCaches() CloudVmClusterIormConfigCachArrayOutput {
-	return o.ApplyT(func(v *CloudVmCluster) CloudVmClusterIormConfigCachArrayOutput { return v.IormConfigCaches }).(CloudVmClusterIormConfigCachArrayOutput)
+func (o CloudVmClusterOutput) IormConfigCaches() CloudVmClusterIormConfigCacheArrayOutput {
+	return o.ApplyT(func(v *CloudVmCluster) CloudVmClusterIormConfigCacheArrayOutput { return v.IormConfigCaches }).(CloudVmClusterIormConfigCacheArrayOutput)
 }
 
 // Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.

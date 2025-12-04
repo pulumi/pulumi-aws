@@ -124,8 +124,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import SSO Admin Application using the `id`. For example:
  * 
- * console
- * 
  * % pulumi import aws_ssoadmin_application.example arn:aws:sso::123456789012:application/id-12345678
  * 
  */

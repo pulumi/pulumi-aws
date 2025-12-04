@@ -581,8 +581,6 @@ class Instance(pulumi.CustomResource):
 
         Using `pulumi import`, import Connect instances using the `id`. For example:
 
-        console
-
         % pulumi import aws_connect_instance.example f1288a1f-6193-445a-b47e-af739b2
 
         :param str resource_name: The name of the resource.
@@ -671,8 +669,6 @@ class Instance(pulumi.CustomResource):
         - `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Connect instances using the `id`. For example:
-
-        console
 
         % pulumi import aws_connect_instance.example f1288a1f-6193-445a-b47e-af739b2
 

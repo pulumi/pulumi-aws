@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Odb
         /// The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
         /// </summary>
         [Output("iormConfigCaches")]
-        public Output<ImmutableArray<Outputs.CloudVmClusterIormConfigCach>> IormConfigCaches { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CloudVmClusterIormConfigCache>> IormConfigCaches { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
@@ -690,14 +690,14 @@ namespace Pulumi.Aws.Odb
         public Input<string>? HostnamePrefixComputed { get; set; }
 
         [Input("iormConfigCaches")]
-        private InputList<Inputs.CloudVmClusterIormConfigCachGetArgs>? _iormConfigCaches;
+        private InputList<Inputs.CloudVmClusterIormConfigCacheGetArgs>? _iormConfigCaches;
 
         /// <summary>
         /// The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
         /// </summary>
-        public InputList<Inputs.CloudVmClusterIormConfigCachGetArgs> IormConfigCaches
+        public InputList<Inputs.CloudVmClusterIormConfigCacheGetArgs> IormConfigCaches
         {
-            get => _iormConfigCaches ?? (_iormConfigCaches = new InputList<Inputs.CloudVmClusterIormConfigCachGetArgs>());
+            get => _iormConfigCaches ?? (_iormConfigCaches = new InputList<Inputs.CloudVmClusterIormConfigCacheGetArgs>());
             set => _iormConfigCaches = value;
         }
 

@@ -49,8 +49,6 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_ivs_recording_configuration.example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
     /// </summary>
     [AwsResourceType("aws:ivs/recordingConfiguration:RecordingConfiguration")]

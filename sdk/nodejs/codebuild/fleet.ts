@@ -52,8 +52,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
  *
- * console
- *
  * % pulumi import aws_codebuild_fleet.name fleet-name
  */
 export class Fleet extends pulumi.CustomResource {

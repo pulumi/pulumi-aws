@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.odb.outputs;
 
-import com.pulumi.aws.odb.outputs.CloudVmClusterIormConfigCachDbPlan;
+import com.pulumi.aws.odb.outputs.GetCloudVmClusterIormConfigCacheDbPlan;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -11,14 +11,14 @@ import java.util.List;
 import java.util.Objects;
 
 @CustomType
-public final class CloudVmClusterIormConfigCach {
-    private List<CloudVmClusterIormConfigCachDbPlan> dbPlans;
+public final class GetCloudVmClusterIormConfigCache {
+    private List<GetCloudVmClusterIormConfigCacheDbPlan> dbPlans;
     private String lifecycleDetails;
     private String lifecycleState;
     private String objective;
 
-    private CloudVmClusterIormConfigCach() {}
-    public List<CloudVmClusterIormConfigCachDbPlan> dbPlans() {
+    private GetCloudVmClusterIormConfigCache() {}
+    public List<GetCloudVmClusterIormConfigCacheDbPlan> dbPlans() {
         return this.dbPlans;
     }
     public String lifecycleDetails() {
@@ -35,17 +35,17 @@ public final class CloudVmClusterIormConfigCach {
         return new Builder();
     }
 
-    public static Builder builder(CloudVmClusterIormConfigCach defaults) {
+    public static Builder builder(GetCloudVmClusterIormConfigCache defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<CloudVmClusterIormConfigCachDbPlan> dbPlans;
+        private List<GetCloudVmClusterIormConfigCacheDbPlan> dbPlans;
         private String lifecycleDetails;
         private String lifecycleState;
         private String objective;
         public Builder() {}
-        public Builder(CloudVmClusterIormConfigCach defaults) {
+        public Builder(GetCloudVmClusterIormConfigCache defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dbPlans = defaults.dbPlans;
     	      this.lifecycleDetails = defaults.lifecycleDetails;
@@ -54,20 +54,20 @@ public final class CloudVmClusterIormConfigCach {
         }
 
         @CustomType.Setter
-        public Builder dbPlans(List<CloudVmClusterIormConfigCachDbPlan> dbPlans) {
+        public Builder dbPlans(List<GetCloudVmClusterIormConfigCacheDbPlan> dbPlans) {
             if (dbPlans == null) {
-              throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCach", "dbPlans");
+              throw new MissingRequiredPropertyException("GetCloudVmClusterIormConfigCache", "dbPlans");
             }
             this.dbPlans = dbPlans;
             return this;
         }
-        public Builder dbPlans(CloudVmClusterIormConfigCachDbPlan... dbPlans) {
+        public Builder dbPlans(GetCloudVmClusterIormConfigCacheDbPlan... dbPlans) {
             return dbPlans(List.of(dbPlans));
         }
         @CustomType.Setter
         public Builder lifecycleDetails(String lifecycleDetails) {
             if (lifecycleDetails == null) {
-              throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCach", "lifecycleDetails");
+              throw new MissingRequiredPropertyException("GetCloudVmClusterIormConfigCache", "lifecycleDetails");
             }
             this.lifecycleDetails = lifecycleDetails;
             return this;
@@ -75,7 +75,7 @@ public final class CloudVmClusterIormConfigCach {
         @CustomType.Setter
         public Builder lifecycleState(String lifecycleState) {
             if (lifecycleState == null) {
-              throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCach", "lifecycleState");
+              throw new MissingRequiredPropertyException("GetCloudVmClusterIormConfigCache", "lifecycleState");
             }
             this.lifecycleState = lifecycleState;
             return this;
@@ -83,13 +83,13 @@ public final class CloudVmClusterIormConfigCach {
         @CustomType.Setter
         public Builder objective(String objective) {
             if (objective == null) {
-              throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCach", "objective");
+              throw new MissingRequiredPropertyException("GetCloudVmClusterIormConfigCache", "objective");
             }
             this.objective = objective;
             return this;
         }
-        public CloudVmClusterIormConfigCach build() {
-            final var _resultValue = new CloudVmClusterIormConfigCach();
+        public GetCloudVmClusterIormConfigCache build() {
+            final var _resultValue = new GetCloudVmClusterIormConfigCache();
             _resultValue.dbPlans = dbPlans;
             _resultValue.lifecycleDetails = lifecycleDetails;
             _resultValue.lifecycleState = lifecycleState;

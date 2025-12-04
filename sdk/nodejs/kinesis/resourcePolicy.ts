@@ -48,8 +48,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
  *
- * console
- *
  * % pulumi import aws_kinesis_resource_policy.example arn:aws:kinesis:us-west-2:123456789012:stream/example
  */
 export class ResourcePolicy extends pulumi.CustomResource {

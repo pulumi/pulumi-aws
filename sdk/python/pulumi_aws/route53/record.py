@@ -787,13 +787,9 @@ class Record(pulumi.CustomResource):
 
         Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
 
-        console
-
         % pulumi import aws_route53_record.example Z4KAPRWWNC7JR_dev_NS
 
         If the record also contains a set identifier, append it:
-
-        console
 
         % pulumi import aws_route53_record.example Z4KAPRWWNC7JR_dev_NS_dev
 
@@ -1017,13 +1013,9 @@ class Record(pulumi.CustomResource):
 
         Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
 
-        console
-
         % pulumi import aws_route53_record.example Z4KAPRWWNC7JR_dev_NS
 
         If the record also contains a set identifier, append it:
-
-        console
 
         % pulumi import aws_route53_record.example Z4KAPRWWNC7JR_dev_NS_dev
 

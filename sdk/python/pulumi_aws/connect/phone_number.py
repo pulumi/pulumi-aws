@@ -396,8 +396,6 @@ class PhoneNumber(pulumi.CustomResource):
 
         Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
 
-        console
-
         % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
 
         :param str resource_name: The name of the resource.
@@ -478,8 +476,6 @@ class PhoneNumber(pulumi.CustomResource):
         - `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
-
-        console
 
         % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
 

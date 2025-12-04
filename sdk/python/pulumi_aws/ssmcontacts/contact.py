@@ -291,8 +291,6 @@ class Contact(pulumi.CustomResource):
 
         Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 
-        console
-
         % pulumi import aws_ssmcontacts_contact.example {ARNValue}
 
         :param str resource_name: The name of the resource.
@@ -356,8 +354,6 @@ class Contact(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the contact.
 
         Using `pulumi import`, import SSM Contact using the `ARN`. For example:
-
-        console
 
         % pulumi import aws_ssmcontacts_contact.example {ARNValue}
 

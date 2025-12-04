@@ -362,8 +362,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// Using `pulumi import`, import SSM associations using the `association_id`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
     /// </summary>
     [AwsResourceType("aws:ssm/association:Association")]

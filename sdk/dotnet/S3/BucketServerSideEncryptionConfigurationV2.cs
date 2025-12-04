@@ -86,13 +86,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name
     /// 
     /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// console
     /// 
     /// % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name,123456789012
     /// </summary>

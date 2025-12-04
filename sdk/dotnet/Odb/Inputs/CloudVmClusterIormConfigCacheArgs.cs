@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Odb.Inputs
 {
 
-    public sealed class CloudVmClusterIormConfigCachGetArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudVmClusterIormConfigCacheArgs : global::Pulumi.ResourceArgs
     {
         [Input("dbPlans", required: true)]
-        private InputList<Inputs.CloudVmClusterIormConfigCachDbPlanGetArgs>? _dbPlans;
-        public InputList<Inputs.CloudVmClusterIormConfigCachDbPlanGetArgs> DbPlans
+        private InputList<Inputs.CloudVmClusterIormConfigCacheDbPlanArgs>? _dbPlans;
+        public InputList<Inputs.CloudVmClusterIormConfigCacheDbPlanArgs> DbPlans
         {
-            get => _dbPlans ?? (_dbPlans = new InputList<Inputs.CloudVmClusterIormConfigCachDbPlanGetArgs>());
+            get => _dbPlans ?? (_dbPlans = new InputList<Inputs.CloudVmClusterIormConfigCacheDbPlanArgs>());
             set => _dbPlans = value;
         }
 
@@ -29,9 +29,9 @@ namespace Pulumi.Aws.Odb.Inputs
         [Input("objective", required: true)]
         public Input<string> Objective { get; set; } = null!;
 
-        public CloudVmClusterIormConfigCachGetArgs()
+        public CloudVmClusterIormConfigCacheArgs()
         {
         }
-        public static new CloudVmClusterIormConfigCachGetArgs Empty => new CloudVmClusterIormConfigCachGetArgs();
+        public static new CloudVmClusterIormConfigCacheArgs Empty => new CloudVmClusterIormConfigCacheArgs();
     }
 }

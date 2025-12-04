@@ -58,8 +58,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
  *
- * console
- *
  * % pulumi import aws_datasync_agent.example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
  */
 export class Agent extends pulumi.CustomResource {

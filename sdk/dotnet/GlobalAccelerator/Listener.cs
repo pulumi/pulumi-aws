@@ -63,8 +63,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_globalaccelerator_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/listener:Listener")]

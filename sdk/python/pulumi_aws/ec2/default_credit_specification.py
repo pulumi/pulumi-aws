@@ -183,8 +183,6 @@ class DefaultCreditSpecification(pulumi.CustomResource):
 
         Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
 
-        console
-
         % pulumi import aws_ec2_default_credit_specification.example t2
 
         :param str resource_name: The name of the resource.
@@ -218,8 +216,6 @@ class DefaultCreditSpecification(pulumi.CustomResource):
         ## Import
 
         Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
-
-        console
 
         % pulumi import aws_ec2_default_credit_specification.example t2
 

@@ -373,7 +373,7 @@ class _CloudVmClusterState:
                  gi_version_computed: Optional[pulumi.Input[_builtins.str]] = None,
                  hostname_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  hostname_prefix_computed: Optional[pulumi.Input[_builtins.str]] = None,
-                 iorm_config_caches: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCachArgs']]]] = None,
+                 iorm_config_caches: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCacheArgs']]]] = None,
                  is_local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  last_update_history_entry_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -424,7 +424,7 @@ class _CloudVmClusterState:
         :param pulumi.Input[_builtins.str] gi_version_computed: A complete software version of Oracle Grid Infrastructure (GI).
         :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] hostname_prefix_computed: The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCachArgs']]] iorm_config_caches: The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCacheArgs']]] iorm_config_caches: The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_sparse_diskgroup_enabled: Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] last_update_history_entry_id: The OCID of the most recent maintenance update history entry.
@@ -755,14 +755,14 @@ class _CloudVmClusterState:
 
     @_builtins.property
     @pulumi.getter(name="iormConfigCaches")
-    def iorm_config_caches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCachArgs']]]]:
+    def iorm_config_caches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCacheArgs']]]]:
         """
         The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
         """
         return pulumi.get(self, "iorm_config_caches")
 
     @iorm_config_caches.setter
-    def iorm_config_caches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCachArgs']]]]):
+    def iorm_config_caches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCacheArgs']]]]):
         pulumi.set(self, "iorm_config_caches", value)
 
     @_builtins.property
@@ -1436,7 +1436,7 @@ class CloudVmCluster(pulumi.CustomResource):
             gi_version_computed: Optional[pulumi.Input[_builtins.str]] = None,
             hostname_prefix: Optional[pulumi.Input[_builtins.str]] = None,
             hostname_prefix_computed: Optional[pulumi.Input[_builtins.str]] = None,
-            iorm_config_caches: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIormConfigCachArgs', 'CloudVmClusterIormConfigCachArgsDict']]]]] = None,
+            iorm_config_caches: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIormConfigCacheArgs', 'CloudVmClusterIormConfigCacheArgsDict']]]]] = None,
             is_local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             is_sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             last_update_history_entry_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1492,7 +1492,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gi_version_computed: A complete software version of Oracle Grid Infrastructure (GI).
         :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] hostname_prefix_computed: The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIormConfigCachArgs', 'CloudVmClusterIormConfigCachArgsDict']]]] iorm_config_caches: The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIormConfigCacheArgs', 'CloudVmClusterIormConfigCacheArgsDict']]]] iorm_config_caches: The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_sparse_diskgroup_enabled: Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] last_update_history_entry_id: The OCID of the most recent maintenance update history entry.
@@ -1714,7 +1714,7 @@ class CloudVmCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="iormConfigCaches")
-    def iorm_config_caches(self) -> pulumi.Output[Sequence['outputs.CloudVmClusterIormConfigCach']]:
+    def iorm_config_caches(self) -> pulumi.Output[Sequence['outputs.CloudVmClusterIormConfigCache']]:
         """
         The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
         """
