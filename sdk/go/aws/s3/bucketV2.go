@@ -65,8 +65,6 @@ import (
 //
 // Using `pulumi import`, import S3 bucket using the `bucket`. For example:
 //
-// console
-//
 // % pulumi import aws_s3_bucket.example bucket-name
 //
 // Deprecated: s3.BucketV2 has been deprecated in favor of s3.Bucket

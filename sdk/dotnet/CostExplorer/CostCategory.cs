@@ -101,8 +101,6 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_ce_cost_category.example costCategoryARN
     /// </summary>
     [AwsResourceType("aws:costexplorer/costCategory:CostCategory")]

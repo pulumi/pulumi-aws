@@ -151,8 +151,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
  *
- * console
- *
  * % pulumi import aws_ssm_maintenance_window_task.example <window_id>/<window_task_id>
  */
 export class MaintenanceWindowTask extends pulumi.CustomResource {

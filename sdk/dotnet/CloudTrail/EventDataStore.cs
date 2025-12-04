@@ -118,8 +118,6 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// Using `pulumi import`, import event data stores using their `arn`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_cloudtrail_event_data_store.example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
     /// </summary>
     [AwsResourceType("aws:cloudtrail/eventDataStore:EventDataStore")]

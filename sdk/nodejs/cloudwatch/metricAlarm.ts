@@ -225,8 +225,6 @@ import {Topic} from "../sns";
  *
  * Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
  *
- * console
- *
  * % pulumi import aws_cloudwatch_metric_alarm.example alarm-12345
  */
 export class MetricAlarm extends pulumi.CustomResource {

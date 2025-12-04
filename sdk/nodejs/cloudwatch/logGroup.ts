@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
  *
- * console
- *
  * % pulumi import aws_cloudwatch_log_group.example yada
  */
 export class LogGroup extends pulumi.CustomResource {

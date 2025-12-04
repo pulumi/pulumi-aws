@@ -250,8 +250,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import SSM associations using the `association_id`. For example:
  *
- * console
- *
  * % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
  */
 export class Association extends pulumi.CustomResource {

@@ -11,16 +11,16 @@ namespace Pulumi.Aws.Odb.Outputs
 {
 
     [OutputType]
-    public sealed class GetCloudVmClusterIormConfigCachResult
+    public sealed class GetCloudVmClusterIormConfigCacheResult
     {
-        public readonly ImmutableArray<Outputs.GetCloudVmClusterIormConfigCachDbPlanResult> DbPlans;
+        public readonly ImmutableArray<Outputs.GetCloudVmClusterIormConfigCacheDbPlanResult> DbPlans;
         public readonly string LifecycleDetails;
         public readonly string LifecycleState;
         public readonly string Objective;
 
         [OutputConstructor]
-        private GetCloudVmClusterIormConfigCachResult(
-            ImmutableArray<Outputs.GetCloudVmClusterIormConfigCachDbPlanResult> dbPlans,
+        private GetCloudVmClusterIormConfigCacheResult(
+            ImmutableArray<Outputs.GetCloudVmClusterIormConfigCacheDbPlanResult> dbPlans,
 
             string lifecycleDetails,
 

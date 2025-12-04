@@ -664,8 +664,6 @@ class Parameter(pulumi.CustomResource):
 
         Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
 
-        console
-
         % pulumi import aws_ssm_parameter.example /my_path/my_paramname
 
         :param str resource_name: The name of the resource.
@@ -758,8 +756,6 @@ class Parameter(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
-
-        console
 
         % pulumi import aws_ssm_parameter.example /my_path/my_paramname
 

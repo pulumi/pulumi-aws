@@ -291,8 +291,6 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
         Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
 
-        console
-
         % pulumi import aws_codeartifact_repository_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
 
         :param str resource_name: The name of the resource.
@@ -350,8 +348,6 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
 
         Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
-
-        console
 
         % pulumi import aws_codeartifact_repository_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
 

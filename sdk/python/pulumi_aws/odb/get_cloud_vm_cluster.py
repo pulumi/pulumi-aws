@@ -282,7 +282,7 @@ class GetCloudVmClusterResult:
 
     @_builtins.property
     @pulumi.getter(name="iormConfigCaches")
-    def iorm_config_caches(self) -> Sequence['outputs.GetCloudVmClusterIormConfigCachResult']:
+    def iorm_config_caches(self) -> Sequence['outputs.GetCloudVmClusterIormConfigCacheResult']:
         """
         The ExadataIormConfig cache details for the VM cluster.
         """

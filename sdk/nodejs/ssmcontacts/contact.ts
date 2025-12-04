@@ -53,8 +53,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import SSM Contact using the `ARN`. For example:
  *
- * console
- *
  * % pulumi import aws_ssmcontacts_contact.example {ARNValue}
  */
 export class Contact extends pulumi.CustomResource {

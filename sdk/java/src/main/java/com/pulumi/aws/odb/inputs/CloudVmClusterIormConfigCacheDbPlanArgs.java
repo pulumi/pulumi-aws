@@ -11,9 +11,9 @@ import java.lang.String;
 import java.util.Objects;
 
 
-public final class CloudVmClusterIormConfigCachDbPlanArgs extends com.pulumi.resources.ResourceArgs {
+public final class CloudVmClusterIormConfigCacheDbPlanArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final CloudVmClusterIormConfigCachDbPlanArgs Empty = new CloudVmClusterIormConfigCachDbPlanArgs();
+    public static final CloudVmClusterIormConfigCacheDbPlanArgs Empty = new CloudVmClusterIormConfigCacheDbPlanArgs();
 
     @Import(name="dbName", required=true)
     private Output<String> dbName;
@@ -36,9 +36,9 @@ public final class CloudVmClusterIormConfigCachDbPlanArgs extends com.pulumi.res
         return this.share;
     }
 
-    private CloudVmClusterIormConfigCachDbPlanArgs() {}
+    private CloudVmClusterIormConfigCacheDbPlanArgs() {}
 
-    private CloudVmClusterIormConfigCachDbPlanArgs(CloudVmClusterIormConfigCachDbPlanArgs $) {
+    private CloudVmClusterIormConfigCacheDbPlanArgs(CloudVmClusterIormConfigCacheDbPlanArgs $) {
         this.dbName = $.dbName;
         this.flashCacheLimit = $.flashCacheLimit;
         this.share = $.share;
@@ -47,19 +47,19 @@ public final class CloudVmClusterIormConfigCachDbPlanArgs extends com.pulumi.res
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(CloudVmClusterIormConfigCachDbPlanArgs defaults) {
+    public static Builder builder(CloudVmClusterIormConfigCacheDbPlanArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private CloudVmClusterIormConfigCachDbPlanArgs $;
+        private CloudVmClusterIormConfigCacheDbPlanArgs $;
 
         public Builder() {
-            $ = new CloudVmClusterIormConfigCachDbPlanArgs();
+            $ = new CloudVmClusterIormConfigCacheDbPlanArgs();
         }
 
-        public Builder(CloudVmClusterIormConfigCachDbPlanArgs defaults) {
-            $ = new CloudVmClusterIormConfigCachDbPlanArgs(Objects.requireNonNull(defaults));
+        public Builder(CloudVmClusterIormConfigCacheDbPlanArgs defaults) {
+            $ = new CloudVmClusterIormConfigCacheDbPlanArgs(Objects.requireNonNull(defaults));
         }
 
         public Builder dbName(Output<String> dbName) {
@@ -89,15 +89,15 @@ public final class CloudVmClusterIormConfigCachDbPlanArgs extends com.pulumi.res
             return share(Output.of(share));
         }
 
-        public CloudVmClusterIormConfigCachDbPlanArgs build() {
+        public CloudVmClusterIormConfigCacheDbPlanArgs build() {
             if ($.dbName == null) {
-                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCachDbPlanArgs", "dbName");
+                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCacheDbPlanArgs", "dbName");
             }
             if ($.flashCacheLimit == null) {
-                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCachDbPlanArgs", "flashCacheLimit");
+                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCacheDbPlanArgs", "flashCacheLimit");
             }
             if ($.share == null) {
-                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCachDbPlanArgs", "share");
+                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCacheDbPlanArgs", "share");
             }
             return $;
         }

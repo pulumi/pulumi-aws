@@ -333,8 +333,6 @@ namespace Pulumi.Aws.Sns
     /// 
     /// Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_sns_topic_subscription.user_updates_sqs_target arn:aws:sns:us-west-2:123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
     /// </summary>
     [AwsResourceType("aws:sns/topicSubscription:TopicSubscription")]

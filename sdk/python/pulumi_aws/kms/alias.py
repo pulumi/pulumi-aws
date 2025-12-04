@@ -239,8 +239,6 @@ class Alias(pulumi.CustomResource):
 
         Using `pulumi import`, import KMS aliases using the `name`. For example:
 
-        console
-
         % pulumi import aws_kms_alias.a alias/my-key-alias
 
         :param str resource_name: The name of the resource.
@@ -289,8 +287,6 @@ class Alias(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import KMS aliases using the `name`. For example:
-
-        console
 
         % pulumi import aws_kms_alias.a alias/my-key-alias
 

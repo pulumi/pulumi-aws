@@ -72,8 +72,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
  *
- * console
- *
  * % pulumi import aws_ssm_parameter.example /my_path/my_paramname
  */
 export class Parameter extends pulumi.CustomResource {

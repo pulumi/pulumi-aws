@@ -63,8 +63,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
  *
- * console
- *
  * % pulumi import aws_cloudwatch_event_rule.example example-event-bus/capture-console-sign-in
  */
 export class EventRule extends pulumi.CustomResource {

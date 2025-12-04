@@ -356,8 +356,6 @@ class CapacityProvider(pulumi.CustomResource):
 
         Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
 
-        console
-
         % pulumi import aws_ecs_capacity_provider.example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
 
         :param str resource_name: The name of the resource.
@@ -459,8 +457,6 @@ class CapacityProvider(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the ECS capacity provider.
 
         Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
-
-        console
 
         % pulumi import aws_ecs_capacity_provider.example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
 

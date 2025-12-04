@@ -303,8 +303,6 @@ class Organization(pulumi.CustomResource):
 
         Using `pulumi import`, import the AWS organization using the `id`. For example:
 
-        console
-
         % pulumi import aws_organizations_organization.example o-1234567
 
         :param str resource_name: The name of the resource.
@@ -353,8 +351,6 @@ class Organization(pulumi.CustomResource):
         * `account_id` (String) AWS Account where this resource is managed.
 
         Using `pulumi import`, import the AWS organization using the `id`. For example:
-
-        console
 
         % pulumi import aws_organizations_organization.example o-1234567
 

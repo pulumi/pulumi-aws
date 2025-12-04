@@ -81,8 +81,6 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// Using `pulumi import`, import SSM Contact using the `ARN`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_ssmcontacts_contact.example {ARNValue}
     /// </summary>
     [AwsResourceType("aws:ssmcontacts/contact:Contact")]

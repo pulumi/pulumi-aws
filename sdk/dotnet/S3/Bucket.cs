@@ -57,8 +57,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// Using `pulumi import`, import S3 bucket using the `bucket`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_s3_bucket.example bucket-name
     /// </summary>
     [AwsResourceType("aws:s3/bucket:Bucket")]

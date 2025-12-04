@@ -69,8 +69,6 @@ import (
 //
 // Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
 //
-// console
-//
 // % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 type CustomRoutingListener struct {
 	pulumi.CustomResourceState

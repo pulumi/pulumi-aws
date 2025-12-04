@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Odb.Inputs
 {
 
-    public sealed class CloudVmClusterIormConfigCachDbPlanArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudVmClusterIormConfigCacheDbPlanArgs : global::Pulumi.ResourceArgs
     {
         [Input("dbName", required: true)]
         public Input<string> DbName { get; set; } = null!;
@@ -21,9 +21,9 @@ namespace Pulumi.Aws.Odb.Inputs
         [Input("share", required: true)]
         public Input<int> Share { get; set; } = null!;
 
-        public CloudVmClusterIormConfigCachDbPlanArgs()
+        public CloudVmClusterIormConfigCacheDbPlanArgs()
         {
         }
-        public static new CloudVmClusterIormConfigCachDbPlanArgs Empty => new CloudVmClusterIormConfigCachDbPlanArgs();
+        public static new CloudVmClusterIormConfigCacheDbPlanArgs Empty => new CloudVmClusterIormConfigCacheDbPlanArgs();
     }
 }

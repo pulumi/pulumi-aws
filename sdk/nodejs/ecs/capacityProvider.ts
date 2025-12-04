@@ -94,8 +94,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
  *
- * console
- *
  * % pulumi import aws_ecs_capacity_provider.example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
  */
 export class CapacityProvider extends pulumi.CustomResource {

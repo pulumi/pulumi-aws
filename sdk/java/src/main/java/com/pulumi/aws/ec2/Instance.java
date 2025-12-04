@@ -386,8 +386,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import instances using the `id`. For example:
  * 
- * console
- * 
  * % pulumi import aws_instance.web i-12345678
  * 
  */

@@ -63,8 +63,6 @@ import (
 //
 // Using `pulumi import`, import KMS aliases using the `name`. For example:
 //
-// console
-//
 // % pulumi import aws_kms_alias.a alias/my-key-alias
 type Alias struct {
 	pulumi.CustomResourceState

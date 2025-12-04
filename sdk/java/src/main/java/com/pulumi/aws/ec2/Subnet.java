@@ -119,8 +119,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import subnets using the subnet `id`. For example:
  * 
- * console
- * 
  * % pulumi import aws_subnet.example subnet-9d4a7b6c
  * 
  */

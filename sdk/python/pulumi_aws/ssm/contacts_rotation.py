@@ -428,8 +428,6 @@ class ContactsRotation(pulumi.CustomResource):
 
         Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
 
-        console
-
         % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
 
         :param str resource_name: The name of the resource.
@@ -567,8 +565,6 @@ class ContactsRotation(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
 
         Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
-
-        console
 
         % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
 

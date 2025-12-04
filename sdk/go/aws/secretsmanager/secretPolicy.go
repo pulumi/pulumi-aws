@@ -85,8 +85,6 @@ import (
 //
 // Using `pulumi import`, import `aws_secretsmanager_secret_policy` using the secret Amazon Resource Name (ARN). For example:
 //
-// console
-//
 // % pulumi import aws_secretsmanager_secret_policy.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
 type SecretPolicy struct {
 	pulumi.CustomResourceState

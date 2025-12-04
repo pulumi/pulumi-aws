@@ -123,8 +123,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  *
- * console
- *
  * % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
  */
 export class TargetGroup extends pulumi.CustomResource {

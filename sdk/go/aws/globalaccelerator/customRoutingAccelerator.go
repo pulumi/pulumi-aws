@@ -59,8 +59,6 @@ import (
 //
 // Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:
 //
-// console
-//
 // % pulumi import aws_globalaccelerator_custom_routing_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 type CustomRoutingAccelerator struct {
 	pulumi.CustomResourceState

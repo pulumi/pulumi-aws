@@ -1762,8 +1762,6 @@ class Function(pulumi.CustomResource):
 
         Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 
-        console
-
         % pulumi import aws_lambda_function.example example
 
         :param str resource_name: The name of the resource.
@@ -2193,8 +2191,6 @@ class Function(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
-
-        console
 
         % pulumi import aws_lambda_function.example example
 

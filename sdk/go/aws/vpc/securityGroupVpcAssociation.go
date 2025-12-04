@@ -59,8 +59,6 @@ import (
 //
 // Using `pulumi import`, import a Security Group VPC Association using the `security_group_id` and `vpc_id` arguments, separated by a comma (`,`). For example:
 //
-// console
-//
 // % pulumi import aws_vpc_security_group_vpc_association.example sg-12345,vpc-67890
 type SecurityGroupVpcAssociation struct {
 	pulumi.CustomResourceState

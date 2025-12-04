@@ -1273,8 +1273,6 @@ class LoadBalancer(pulumi.CustomResource):
 
         Using `pulumi import`, import LBs using their ARN. For example:
 
-        console
-
         % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
 
         :param str resource_name: The name of the resource.
@@ -1419,8 +1417,6 @@ class LoadBalancer(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the load balancer.
 
         Using `pulumi import`, import LBs using their ARN. For example:
-
-        console
 
         % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
 

@@ -727,8 +727,6 @@ class TopicSubscription(pulumi.CustomResource):
 
         Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
 
-        console
-
         % pulumi import aws_sns_topic_subscription.user_updates_sqs_target arn:aws:sns:us-west-2:123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
 
         :param str resource_name: The name of the resource.
@@ -944,8 +942,6 @@ class TopicSubscription(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the SNS topic subscription.
 
         Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
-
-        console
 
         % pulumi import aws_sns_topic_subscription.user_updates_sqs_target arn:aws:sns:us-west-2:123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
 

@@ -11,14 +11,14 @@ namespace Pulumi.Aws.Odb.Outputs
 {
 
     [OutputType]
-    public sealed class GetCloudVmClusterIormConfigCachDbPlanResult
+    public sealed class CloudVmClusterIormConfigCacheDbPlan
     {
         public readonly string DbName;
         public readonly string FlashCacheLimit;
         public readonly int Share;
 
         [OutputConstructor]
-        private GetCloudVmClusterIormConfigCachDbPlanResult(
+        private CloudVmClusterIormConfigCacheDbPlan(
             string dbName,
 
             string flashCacheLimit,

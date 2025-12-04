@@ -96,7 +96,7 @@ type LookupCloudVmClusterResult struct {
 	HostnamePrefixComputed string `pulumi:"hostnamePrefixComputed"`
 	Id                     string `pulumi:"id"`
 	// The ExadataIormConfig cache details for the VM cluster.
-	IormConfigCaches []GetCloudVmClusterIormConfigCach `pulumi:"iormConfigCaches"`
+	IormConfigCaches []GetCloudVmClusterIormConfigCache `pulumi:"iormConfigCaches"`
 	// Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
 	IsLocalBackupEnabled bool `pulumi:"isLocalBackupEnabled"`
 	// Indicates whether the VM cluster is configured with a sparse disk group.
@@ -267,8 +267,8 @@ func (o LookupCloudVmClusterResultOutput) Id() pulumi.StringOutput {
 }
 
 // The ExadataIormConfig cache details for the VM cluster.
-func (o LookupCloudVmClusterResultOutput) IormConfigCaches() GetCloudVmClusterIormConfigCachArrayOutput {
-	return o.ApplyT(func(v LookupCloudVmClusterResult) []GetCloudVmClusterIormConfigCach { return v.IormConfigCaches }).(GetCloudVmClusterIormConfigCachArrayOutput)
+func (o LookupCloudVmClusterResultOutput) IormConfigCaches() GetCloudVmClusterIormConfigCacheArrayOutput {
+	return o.ApplyT(func(v LookupCloudVmClusterResult) []GetCloudVmClusterIormConfigCache { return v.IormConfigCaches }).(GetCloudVmClusterIormConfigCacheArrayOutput)
 }
 
 // Indicates whether database backups to local Exadata storage is enabled for the VM cluster.

@@ -116,8 +116,6 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_ecr_lifecycle_policy.example tf-example
     /// </summary>
     [AwsResourceType("aws:ecr/lifecyclePolicy:LifecyclePolicy")]

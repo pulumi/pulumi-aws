@@ -51,8 +51,6 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// Using `pulumi import`, import SageMaker AI User Profiles using the `arn`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_sagemaker_user_profile.example arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
     /// </summary>
     [AwsResourceType("aws:sagemaker/userProfile:UserProfile")]

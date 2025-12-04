@@ -182,7 +182,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
     /**
      * The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
      */
-    declare public /*out*/ readonly iormConfigCaches: pulumi.Output<outputs.odb.CloudVmClusterIormConfigCach[]>;
+    declare public /*out*/ readonly iormConfigCaches: pulumi.Output<outputs.odb.CloudVmClusterIormConfigCache[]>;
     /**
      * Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
      */
@@ -511,7 +511,7 @@ export interface CloudVmClusterState {
     /**
      * The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
      */
-    iormConfigCaches?: pulumi.Input<pulumi.Input<inputs.odb.CloudVmClusterIormConfigCach>[]>;
+    iormConfigCaches?: pulumi.Input<pulumi.Input<inputs.odb.CloudVmClusterIormConfigCache>[]>;
     /**
      * Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
      */

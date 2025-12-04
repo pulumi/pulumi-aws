@@ -384,8 +384,6 @@ class LogGroup(pulumi.CustomResource):
 
         Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
 
-        console
-
         % pulumi import aws_cloudwatch_log_group.example yada
 
         :param str resource_name: The name of the resource.
@@ -441,8 +439,6 @@ class LogGroup(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
-
-        console
 
         % pulumi import aws_cloudwatch_log_group.example yada
 

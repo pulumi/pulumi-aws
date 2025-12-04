@@ -56,8 +56,6 @@ import (
 //
 // Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:
 //
-// console
-//
 // % pulumi import aws_apprunner_auto_scaling_configuration_version.example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
 type AutoScalingConfigurationVersion struct {
 	pulumi.CustomResourceState

@@ -319,8 +319,6 @@ class Connection(pulumi.CustomResource):
 
         Using `pulumi import`, import CodeConnections connection using the ARN. For example:
 
-        console
-
         % pulumi import aws_codeconnections_connection.test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
 
         :param str resource_name: The name of the resource.
@@ -364,8 +362,6 @@ class Connection(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections connection.
 
         Using `pulumi import`, import CodeConnections connection using the ARN. For example:
-
-        console
 
         % pulumi import aws_codeconnections_connection.test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
 

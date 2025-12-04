@@ -195,8 +195,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
  *
- * console
- *
  * % pulumi import aws_ssm_patch_baseline.example pb-12345678
  */
 export class PatchBaseline extends pulumi.CustomResource {

@@ -123,8 +123,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Route Tables using the route table `id`. For example:
  *
- * console
- *
  * % pulumi import aws_route_table.public_rt rtb-4e616f6d69
  */
 export class RouteTable extends pulumi.CustomResource {

@@ -195,8 +195,6 @@ class Policy(pulumi.CustomResource):
 
         Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
 
-        console
-
         % pulumi import aws_acmpca_policy.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
 
         :param str resource_name: The name of the resource.
@@ -269,8 +267,6 @@ class Policy(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
 
         Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
-
-        console
 
         % pulumi import aws_acmpca_policy.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
 

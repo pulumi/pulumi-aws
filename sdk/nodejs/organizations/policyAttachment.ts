@@ -63,8 +63,6 @@ import * as utilities from "../utilities";
  *
  * With an account target:
  *
- * console
- *
  * % pulumi import aws_organizations_policy_attachment.example 123456789012:p-12345678
  */
 export class PolicyAttachment extends pulumi.CustomResource {

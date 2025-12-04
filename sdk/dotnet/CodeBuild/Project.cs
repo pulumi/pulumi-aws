@@ -347,8 +347,6 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// Using `pulumi import`, import CodeBuild Project using the `name`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_codebuild_project.name project-name
     /// </summary>
     [AwsResourceType("aws:codebuild/project:Project")]

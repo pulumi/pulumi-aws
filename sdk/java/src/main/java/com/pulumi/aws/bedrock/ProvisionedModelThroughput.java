@@ -66,8 +66,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import Provisioned Throughput using the `provisioned_model_arn`. For example:
  * 
- * console
- * 
  * % pulumi import aws_bedrock_provisioned_model_throughput.example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
  * 
  */

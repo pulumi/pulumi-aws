@@ -241,25 +241,17 @@ namespace Pulumi.Aws.S3
     /// 
     /// [canned ACL][1] (i.e. predefined grant), import using the `bucket`:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_s3_bucket_acl.example bucket-name
     /// 
     /// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
-    /// 
-    /// console
     /// 
     /// % pulumi import aws_s3_bucket_acl.example bucket-name,private
     /// 
     /// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_s3_bucket_acl.example bucket-name,123456789012
     /// 
     /// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
-    /// 
-    /// console
     /// 
     /// % pulumi import aws_s3_bucket_acl.example bucket-name,123456789012,private
     /// 

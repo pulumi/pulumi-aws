@@ -51,8 +51,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_cloudwatch_log_group.example yada
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logGroup:LogGroup")]

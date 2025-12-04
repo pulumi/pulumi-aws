@@ -110,8 +110,6 @@ import (
 //
 // Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
 //
-// console
-//
 // % pulumi import aws_ssm_parameter.example /my_path/my_paramname
 type Parameter struct {
 	pulumi.CustomResourceState

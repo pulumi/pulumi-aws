@@ -102,8 +102,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
  * 
- * console
- * 
  * % pulumi import aws_ecr_repository_policy.example example
  * 
  */

@@ -224,8 +224,6 @@ class Registry(pulumi.CustomResource):
 
         Using `pulumi import`, import Glue Registries using `arn`. For example:
 
-        console
-
         % pulumi import aws_glue_registry.example arn:aws:glue:us-west-2:123456789012:registry/example
 
         :param str resource_name: The name of the resource.
@@ -262,8 +260,6 @@ class Registry(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the Glue registry.
 
         Using `pulumi import`, import Glue Registries using `arn`. For example:
-
-        console
 
         % pulumi import aws_glue_registry.example arn:aws:glue:us-west-2:123456789012:registry/example
 
