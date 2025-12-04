@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
  *
- * console
- *
  * % pulumi import aws_dx_gateway.example abcd1234-dcba-5678-be23-cdef9876ab45
  */
 export class Gateway extends pulumi.CustomResource {

@@ -104,8 +104,6 @@ import (
 //
 // Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
 //
-// console
-//
 // % pulumi import aws_ce_anomaly_monitor.example costAnomalyMonitorARN
 type AnomalyMonitor struct {
 	pulumi.CustomResourceState

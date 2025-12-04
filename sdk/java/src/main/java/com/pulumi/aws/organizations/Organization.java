@@ -75,8 +75,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import the AWS organization using the `id`. For example:
  * 
- * console
- * 
  * % pulumi import aws_organizations_organization.example o-1234567
  * 
  */

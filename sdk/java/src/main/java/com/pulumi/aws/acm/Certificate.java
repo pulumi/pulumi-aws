@@ -171,8 +171,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import certificates using their ARN. For example:
  * 
- * console
- * 
  * % pulumi import aws_acm_certificate.example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
  * 
  */

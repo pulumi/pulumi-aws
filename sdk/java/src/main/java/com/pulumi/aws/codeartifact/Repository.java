@@ -164,8 +164,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
  * 
- * console
- * 
  * % pulumi import aws_codeartifact_repository.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
  * 
  */

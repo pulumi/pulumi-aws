@@ -56,8 +56,6 @@ import (
 //
 // Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
 //
-// console
-//
 // % pulumi import aws_cloudfront_key_value_store.example example_store
 type KeyValueStore struct {
 	pulumi.CustomResourceState

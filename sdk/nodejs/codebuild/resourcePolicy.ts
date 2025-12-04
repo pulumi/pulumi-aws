@@ -55,8 +55,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
  *
- * console
- *
  * % pulumi import aws_codebuild_resource_policy.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
  */
 export class ResourcePolicy extends pulumi.CustomResource {

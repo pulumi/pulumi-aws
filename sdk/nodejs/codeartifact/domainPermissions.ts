@@ -45,8 +45,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
  *
- * console
- *
  * % pulumi import aws_codeartifact_domain_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
  */
 export class DomainPermissions extends pulumi.CustomResource {

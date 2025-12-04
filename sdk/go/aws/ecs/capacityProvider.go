@@ -141,8 +141,6 @@ import (
 //
 // Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
 //
-// console
-//
 // % pulumi import aws_ecs_capacity_provider.example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
 type CapacityProvider struct {
 	pulumi.CustomResourceState

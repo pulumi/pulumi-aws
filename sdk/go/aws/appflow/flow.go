@@ -191,8 +191,6 @@ import (
 //
 // Using `pulumi import`, import AppFlow flows using the `name`. For example:
 //
-// console
-//
 // % pulumi import aws_appflow_flow.example example-flow
 type Flow struct {
 	pulumi.CustomResourceState

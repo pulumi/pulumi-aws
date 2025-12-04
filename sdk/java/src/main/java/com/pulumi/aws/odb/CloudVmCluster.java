@@ -7,7 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.odb.CloudVmClusterArgs;
 import com.pulumi.aws.odb.inputs.CloudVmClusterState;
 import com.pulumi.aws.odb.outputs.CloudVmClusterDataCollectionOptions;
-import com.pulumi.aws.odb.outputs.CloudVmClusterIormConfigCach;
+import com.pulumi.aws.odb.outputs.CloudVmClusterIormConfigCache;
 import com.pulumi.aws.odb.outputs.CloudVmClusterTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -366,14 +366,14 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
      * The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
      * 
      */
-    @Export(name="iormConfigCaches", refs={List.class,CloudVmClusterIormConfigCach.class}, tree="[0,1]")
-    private Output<List<CloudVmClusterIormConfigCach>> iormConfigCaches;
+    @Export(name="iormConfigCaches", refs={List.class,CloudVmClusterIormConfigCache.class}, tree="[0,1]")
+    private Output<List<CloudVmClusterIormConfigCache>> iormConfigCaches;
 
     /**
      * @return The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
      * 
      */
-    public Output<List<CloudVmClusterIormConfigCach>> iormConfigCaches() {
+    public Output<List<CloudVmClusterIormConfigCache>> iormConfigCaches() {
         return this.iormConfigCaches;
     }
     /**

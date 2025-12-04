@@ -427,8 +427,6 @@ class Repository(pulumi.CustomResource):
 
         Using `pulumi import`, import ECR Repositories using the `name`. For example:
 
-        console
-
         % pulumi import aws_ecr_repository.service test-service
 
         :param str resource_name: The name of the resource.
@@ -502,8 +500,6 @@ class Repository(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import ECR Repositories using the `name`. For example:
-
-        console
 
         % pulumi import aws_ecr_repository.service test-service
 

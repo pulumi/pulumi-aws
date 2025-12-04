@@ -96,8 +96,6 @@ import (
 //
 // Using `pulumi import`, import ECR Repositories using the `name`. For example:
 //
-// console
-//
 // % pulumi import aws_ecr_repository.service test-service
 type Repository struct {
 	pulumi.CustomResourceState

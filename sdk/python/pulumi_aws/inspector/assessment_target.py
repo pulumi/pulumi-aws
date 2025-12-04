@@ -182,8 +182,6 @@ class AssessmentTarget(pulumi.CustomResource):
 
         Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
 
-        console
-
         % pulumi import aws_inspector_assessment_target.example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
 
         :param str resource_name: The name of the resource.
@@ -225,8 +223,6 @@ class AssessmentTarget(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment target.
 
         Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
-
-        console
 
         % pulumi import aws_inspector_assessment_target.example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
 

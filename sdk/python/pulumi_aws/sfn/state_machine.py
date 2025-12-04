@@ -670,8 +670,6 @@ class StateMachine(pulumi.CustomResource):
 
         Using `pulumi import`, import State Machines using the `arn`. For example:
 
-        console
-
         % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
 
         :param str resource_name: The name of the resource.
@@ -845,8 +843,6 @@ class StateMachine(pulumi.CustomResource):
         - `arn` (String) ARN of the state machine.
 
         Using `pulumi import`, import State Machines using the `arn`. For example:
-
-        console
 
         % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
 

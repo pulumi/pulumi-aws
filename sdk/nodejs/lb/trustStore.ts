@@ -43,8 +43,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  *
- * console
- *
  * % pulumi import aws_lb_trust_store.example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
  */
 export class TrustStore extends pulumi.CustomResource {

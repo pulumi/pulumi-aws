@@ -55,8 +55,6 @@ import (
 //
 // Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
 //
-// console
-//
 // % pulumi import aws_organizations_organizational_unit.example ou-1234567
 type OrganizationalUnit struct {
 	pulumi.CustomResourceState

@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import KMS aliases using the `name`. For example:
  *
- * console
- *
  * % pulumi import aws_kms_alias.a alias/my-key-alias
  */
 export class Alias extends pulumi.CustomResource {

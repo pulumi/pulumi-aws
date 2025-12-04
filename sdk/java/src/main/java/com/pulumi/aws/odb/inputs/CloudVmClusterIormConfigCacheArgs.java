@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.odb.inputs;
 
-import com.pulumi.aws.odb.inputs.CloudVmClusterIormConfigCachDbPlanArgs;
+import com.pulumi.aws.odb.inputs.CloudVmClusterIormConfigCacheDbPlanArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.Objects;
 
 
-public final class CloudVmClusterIormConfigCachArgs extends com.pulumi.resources.ResourceArgs {
+public final class CloudVmClusterIormConfigCacheArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final CloudVmClusterIormConfigCachArgs Empty = new CloudVmClusterIormConfigCachArgs();
+    public static final CloudVmClusterIormConfigCacheArgs Empty = new CloudVmClusterIormConfigCacheArgs();
 
     @Import(name="dbPlans", required=true)
-    private Output<List<CloudVmClusterIormConfigCachDbPlanArgs>> dbPlans;
+    private Output<List<CloudVmClusterIormConfigCacheDbPlanArgs>> dbPlans;
 
-    public Output<List<CloudVmClusterIormConfigCachDbPlanArgs>> dbPlans() {
+    public Output<List<CloudVmClusterIormConfigCacheDbPlanArgs>> dbPlans() {
         return this.dbPlans;
     }
 
@@ -44,9 +44,9 @@ public final class CloudVmClusterIormConfigCachArgs extends com.pulumi.resources
         return this.objective;
     }
 
-    private CloudVmClusterIormConfigCachArgs() {}
+    private CloudVmClusterIormConfigCacheArgs() {}
 
-    private CloudVmClusterIormConfigCachArgs(CloudVmClusterIormConfigCachArgs $) {
+    private CloudVmClusterIormConfigCacheArgs(CloudVmClusterIormConfigCacheArgs $) {
         this.dbPlans = $.dbPlans;
         this.lifecycleDetails = $.lifecycleDetails;
         this.lifecycleState = $.lifecycleState;
@@ -56,31 +56,31 @@ public final class CloudVmClusterIormConfigCachArgs extends com.pulumi.resources
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(CloudVmClusterIormConfigCachArgs defaults) {
+    public static Builder builder(CloudVmClusterIormConfigCacheArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private CloudVmClusterIormConfigCachArgs $;
+        private CloudVmClusterIormConfigCacheArgs $;
 
         public Builder() {
-            $ = new CloudVmClusterIormConfigCachArgs();
+            $ = new CloudVmClusterIormConfigCacheArgs();
         }
 
-        public Builder(CloudVmClusterIormConfigCachArgs defaults) {
-            $ = new CloudVmClusterIormConfigCachArgs(Objects.requireNonNull(defaults));
+        public Builder(CloudVmClusterIormConfigCacheArgs defaults) {
+            $ = new CloudVmClusterIormConfigCacheArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder dbPlans(Output<List<CloudVmClusterIormConfigCachDbPlanArgs>> dbPlans) {
+        public Builder dbPlans(Output<List<CloudVmClusterIormConfigCacheDbPlanArgs>> dbPlans) {
             $.dbPlans = dbPlans;
             return this;
         }
 
-        public Builder dbPlans(List<CloudVmClusterIormConfigCachDbPlanArgs> dbPlans) {
+        public Builder dbPlans(List<CloudVmClusterIormConfigCacheDbPlanArgs> dbPlans) {
             return dbPlans(Output.of(dbPlans));
         }
 
-        public Builder dbPlans(CloudVmClusterIormConfigCachDbPlanArgs... dbPlans) {
+        public Builder dbPlans(CloudVmClusterIormConfigCacheDbPlanArgs... dbPlans) {
             return dbPlans(List.of(dbPlans));
         }
 
@@ -111,18 +111,18 @@ public final class CloudVmClusterIormConfigCachArgs extends com.pulumi.resources
             return objective(Output.of(objective));
         }
 
-        public CloudVmClusterIormConfigCachArgs build() {
+        public CloudVmClusterIormConfigCacheArgs build() {
             if ($.dbPlans == null) {
-                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCachArgs", "dbPlans");
+                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCacheArgs", "dbPlans");
             }
             if ($.lifecycleDetails == null) {
-                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCachArgs", "lifecycleDetails");
+                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCacheArgs", "lifecycleDetails");
             }
             if ($.lifecycleState == null) {
-                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCachArgs", "lifecycleState");
+                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCacheArgs", "lifecycleState");
             }
             if ($.objective == null) {
-                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCachArgs", "objective");
+                throw new MissingRequiredPropertyException("CloudVmClusterIormConfigCacheArgs", "objective");
             }
             return $;
         }

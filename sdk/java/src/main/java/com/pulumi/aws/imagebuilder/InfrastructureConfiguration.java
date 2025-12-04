@@ -85,8 +85,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
  * 
- * console
- * 
  * % pulumi import aws_imagebuilder_infrastructure_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
  * 
  */

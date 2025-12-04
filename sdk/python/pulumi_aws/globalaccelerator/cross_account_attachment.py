@@ -284,8 +284,6 @@ class CrossAccountAttachment(pulumi.CustomResource):
 
         Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
 
-        console
-
         % pulumi import aws_globalaccelerator_cross_account_attachment.example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
 
         :param str resource_name: The name of the resource.
@@ -341,8 +339,6 @@ class CrossAccountAttachment(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
 
         Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
-
-        console
 
         % pulumi import aws_globalaccelerator_cross_account_attachment.example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
 

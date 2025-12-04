@@ -99,8 +99,6 @@ namespace Pulumi.Aws.Connect
     /// 
     /// Using `pulumi import`, import Connect instances using the `id`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_connect_instance.example f1288a1f-6193-445a-b47e-af739b2
     /// </summary>
     [AwsResourceType("aws:connect/instance:Instance")]

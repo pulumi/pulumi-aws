@@ -110,8 +110,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
  * 
- * console
- * 
  * % pulumi import aws_codebuild_report_group.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
  * 
  */

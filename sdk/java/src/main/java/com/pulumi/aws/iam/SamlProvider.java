@@ -66,8 +66,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
  * 
- * console
- * 
  * % pulumi import aws_iam_saml_provider.default arn:aws:iam::123456789012:saml-provider/SAMLADFS
  * 
  */

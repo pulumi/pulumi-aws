@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Odb
         /// <summary>
         /// The ExadataIormConfig cache details for the VM cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetCloudVmClusterIormConfigCachResult> IormConfigCaches;
+        public readonly ImmutableArray<Outputs.GetCloudVmClusterIormConfigCacheResult> IormConfigCaches;
         /// <summary>
         /// Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
         /// </summary>
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.Odb
 
             string id,
 
-            ImmutableArray<Outputs.GetCloudVmClusterIormConfigCachResult> iormConfigCaches,
+            ImmutableArray<Outputs.GetCloudVmClusterIormConfigCacheResult> iormConfigCaches,
 
             bool isLocalBackupEnabled,
 

@@ -50,8 +50,6 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// 
     /// Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
     /// 
-    /// console
-    /// 
     ///  % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
     /// </summary>
     [AwsResourceType("aws:verifiedpermissions/schema:Schema")]

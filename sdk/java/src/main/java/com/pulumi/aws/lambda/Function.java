@@ -687,8 +687,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
  * 
- * console
- * 
  * % pulumi import aws_lambda_function.example example
  * 
  */

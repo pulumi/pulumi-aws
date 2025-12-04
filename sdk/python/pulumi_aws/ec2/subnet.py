@@ -770,8 +770,6 @@ class Subnet(pulumi.CustomResource):
 
         Using `pulumi import`, import subnets using the subnet `id`. For example:
 
-        console
-
         % pulumi import aws_subnet.example subnet-9d4a7b6c
 
         :param str resource_name: The name of the resource.
@@ -859,8 +857,6 @@ class Subnet(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import subnets using the subnet `id`. For example:
-
-        console
 
         % pulumi import aws_subnet.example subnet-9d4a7b6c
 

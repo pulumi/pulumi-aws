@@ -682,8 +682,6 @@ class ContainerRecipe(pulumi.CustomResource):
 
         Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
 
-        console
-
         % pulumi import aws_imagebuilder_container_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
 
         :param str resource_name: The name of the resource.
@@ -758,8 +756,6 @@ class ContainerRecipe(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the Image Builder container recipe.
 
         Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
-
-        console
 
         % pulumi import aws_imagebuilder_container_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
 

@@ -180,8 +180,6 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// Using `pulumi import`, import SQS Queues using the queue `url`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_sqs_queue.example https://queue.amazonaws.com/80398EXAMPLE/MyQueue
     /// </summary>
     [AwsResourceType("aws:sqs/queue:Queue")]

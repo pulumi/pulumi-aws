@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
  *
- * console
- *
  * % pulumi import aws_organizations_delegated_administrator.example 123456789012/config.amazonaws.com
  */
 export class DelegatedAdministrator extends pulumi.CustomResource {
