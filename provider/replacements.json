@@ -1458,7 +1458,7 @@
     },
     {
       "old": "Because it is not possible to retrieve previous invocations, during the next apply `terraform` will update the resource calling again the function.\n",
-      "new": "Because it is not possible to retrieve previous invocations, during the next apply `TODO` will update the resource calling again the function.\n"
+      "new": "Because it is not possible to retrieve previous invocations, during the next update Pulumi will update the resource calling again the function.\n"
     }
   ],
   "lambda_layer_version.html.markdown": [
