@@ -47,7 +47,7 @@ jobs:
           dotnet: false
           large-packages: false
       - name: Checkout Repo
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
           submodules: true
           persist-credentials: false      
@@ -62,16 +62,16 @@ jobs:
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
       # Without ldid cross-compiling Node binaries on a Linux worker intended to work on darwin-arm64 fails to sign the
       # binaries properly and they do not work as expected. See https://github.com/pulumi/pulumi-awsx/issues/1490
-      - uses: MOZGIII/install-ldid-action@v1
+      - uses: MOZGIII/install-ldid-action@d5ab465f3a66a4d60a59882b935eb30e18e8d043 # v1
         with:
           tag: v2.1.5-procursus2
       - name: Setup mise
-        uses: jdx/mise-action@v3
+        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3
         env:
           MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:
           version: 2025.11.6
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
           # only saving the cache in the prerequisites job
           cache_save: false
       # Based on https://github.com/actions/cache/blob/main/examples.md#go---modules
@@ -86,7 +86,7 @@ jobs:
         run: |
           echo "path=$(go env GOMODCACHE)" >> "${GITHUB_OUTPUT}"
       - name: Go Cache
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: |
             ${{ steps.gocache.outputs.path }}
