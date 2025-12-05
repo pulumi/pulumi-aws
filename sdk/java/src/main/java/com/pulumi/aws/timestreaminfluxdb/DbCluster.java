@@ -222,6 +222,73 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Usage with InfluxDB V3
+ * 
+ * For InfluxDB V3 clusters, you can create a cluster without providing `allocatedStorage`, `bucket`, `organization`, `username`, `password`, or `deploymentType` by specifying a `dbParameterGroupIdentifier` such as `&#34;InfluxDBV3Core&#34;`. The following example shows how to create an InfluxDB V3 cluster:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.timestreaminfluxdb.DbCluster;
+ * import com.pulumi.aws.timestreaminfluxdb.DbClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DbCluster("example", DbClusterArgs.builder()
+ *             .name("example-v3-cluster")
+ *             .dbInstanceType("db.influx.large")
+ *             .dbParameterGroupIdentifier("InfluxDBV3Core")
+ *             .vpcSubnetIds(            
+ *                 example1.id(),
+ *                 example2.id())
+ *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Cluster Type Requirements
+ * 
+ * ### InfluxDB V2 Clusters (default)
+ * 
+ * The following arguments are **required** for InfluxDB V2 clusters:
+ * 
+ * * `allocatedStorage`
+ * * `bucket`
+ * * `deploymentType`
+ * * `organization`
+ * * `password`
+ * * `username`
+ * 
+ * The `deploymentType` argument defaults to `&#34;MULTI_NODE_READ_REPLICAS&#34;` for InfluxDB V2 clusters when not specified.
+ * 
+ * ### InfluxDB V3 Clusters (when using V3 parameter groups)
+ * 
+ * The following arguments are **forbidden** for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group):
+ * 
+ * * `allocatedStorage`
+ * * `bucket`
+ * * `deploymentType`
+ * * `organization`
+ * * `password`
+ * * `username`
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Timestream for InfluxDB cluster using its identifier. For example:
@@ -234,18 +301,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:timestreaminfluxdb/dbCluster:DbCluster")
 public class DbCluster extends com.pulumi.resources.CustomResource {
     /**
-     * Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `dbStorageType` places restrictions on this argument&#39;s minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
+     * Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `dbStorageType` places restrictions on this argument&#39;s minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
-    private Output<Integer> allocatedStorage;
+    private Output</* @Nullable */ Integer> allocatedStorage;
 
     /**
-     * @return Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `dbStorageType` places restrictions on this argument&#39;s minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
+     * @return Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `dbStorageType` places restrictions on this argument&#39;s minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
-    public Output<Integer> allocatedStorage() {
-        return this.allocatedStorage;
+    public Output<Optional<Integer>> allocatedStorage() {
+        return Codegen.optional(this.allocatedStorage);
     }
     /**
      * ARN of the Timestream for InfluxDB cluster.
@@ -262,18 +329,18 @@ public class DbCluster extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
-    private Output<String> bucket;
+    private Output</* @Nullable */ String> bucket;
 
     /**
-     * @return Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * @return Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
-    public Output<String> bucket() {
-        return this.bucket;
+    public Output<Optional<String>> bucket() {
+        return Codegen.optional(this.bucket);
     }
     /**
      * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
@@ -318,14 +385,14 @@ public class DbCluster extends com.pulumi.resources.CustomResource {
         return this.dbStorageType;
     }
     /**
-     * Specifies the type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`.
+     * Specifies the type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output<String> deploymentType;
 
     /**
-     * @return Specifies the type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`.
+     * @return Specifies the type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
     public Output<String> deploymentType() {
@@ -346,6 +413,20 @@ public class DbCluster extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
+     * Database engine type of the DB cluster.
+     * 
+     */
+    @Export(name="engineType", refs={String.class}, tree="[0]")
+    private Output<String> engineType;
+
+    /**
+     * @return Database engine type of the DB cluster.
+     * 
+     */
+    public Output<String> engineType() {
+        return this.engineType;
+    }
+    /**
      * Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
      * 
      */
@@ -360,14 +441,14 @@ public class DbCluster extends com.pulumi.resources.CustomResource {
         return this.failoverMode;
     }
     /**
-     * ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+     * ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. For InfluxDB V2 clusters, the secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. For InfluxDB V3 clusters, the secret contains the InfluxDB admin token.
      * 
      */
     @Export(name="influxAuthParametersSecretArn", refs={String.class}, tree="[0]")
     private Output<String> influxAuthParametersSecretArn;
 
     /**
-     * @return ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+     * @return ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. For InfluxDB V2 clusters, the secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. For InfluxDB V3 clusters, the secret contains the InfluxDB admin token.
      * 
      */
     public Output<String> influxAuthParametersSecretArn() {
@@ -416,32 +497,32 @@ public class DbCluster extends com.pulumi.resources.CustomResource {
         return this.networkType;
     }
     /**
-     * Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
     @Export(name="organization", refs={String.class}, tree="[0]")
-    private Output<String> organization;
+    private Output</* @Nullable */ String> organization;
 
     /**
-     * @return Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * @return Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
-    public Output<String> organization() {
-        return this.organization;
+    public Output<Optional<String>> organization() {
+        return Codegen.optional(this.organization);
     }
     /**
-     * Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
-    private Output<String> password;
+    private Output</* @Nullable */ String> password;
 
     /**
-     * @return Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * @return Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Output<Optional<String>> password() {
+        return Codegen.optional(this.password);
     }
     /**
      * The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
@@ -534,18 +615,18 @@ public class DbCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Username of the initial admin user created in InfluxDB. Must start with a letter and can&#39;t end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * Username of the initial admin user created in InfluxDB. Must start with a letter and can&#39;t end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
-    private Output<String> username;
+    private Output</* @Nullable */ String> username;
 
     /**
-     * @return Username of the initial admin user created in InfluxDB. Must start with a letter and can&#39;t end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * @return Username of the initial admin user created in InfluxDB. Must start with a letter and can&#39;t end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    public Output<Optional<String>> username() {
+        return Codegen.optional(this.username);
     }
     /**
      * List of VPC security group IDs to associate with the cluster.

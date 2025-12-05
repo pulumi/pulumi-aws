@@ -130,6 +130,7 @@ class _SubnetGroupState:
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 supported_network_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -140,6 +141,7 @@ class _SubnetGroupState:
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_network_types: The network type of the docDB subnet group (`IPV4` or `DUAL`).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -157,6 +159,8 @@ class _SubnetGroupState:
             pulumi.set(__self__, "region", region)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if supported_network_types is not None:
+            pulumi.set(__self__, "supported_network_types", supported_network_types)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -233,6 +237,18 @@ class _SubnetGroupState:
     @subnet_ids.setter
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedNetworkTypes")
+    def supported_network_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The network type of the docDB subnet group (`IPV4` or `DUAL`).
+        """
+        return pulumi.get(self, "supported_network_types")
+
+    @supported_network_types.setter
+    def supported_network_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "supported_network_types", value)
 
     @_builtins.property
     @pulumi.getter
@@ -384,6 +400,7 @@ class SubnetGroup(pulumi.CustomResource):
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["supported_network_types"] = None
             __props__.__dict__["tags_all"] = None
         super(SubnetGroup, __self__).__init__(
             'aws:docdb/subnetGroup:SubnetGroup',
@@ -401,6 +418,7 @@ class SubnetGroup(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            supported_network_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'SubnetGroup':
         """
@@ -416,6 +434,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_network_types: The network type of the docDB subnet group (`IPV4` or `DUAL`).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -429,6 +448,7 @@ class SubnetGroup(pulumi.CustomResource):
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["region"] = region
         __props__.__dict__["subnet_ids"] = subnet_ids
+        __props__.__dict__["supported_network_types"] = supported_network_types
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return SubnetGroup(resource_name, opts=opts, __props__=__props__)
@@ -480,6 +500,14 @@ class SubnetGroup(pulumi.CustomResource):
         A list of VPC subnet IDs.
         """
         return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedNetworkTypes")
+    def supported_network_types(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        The network type of the docDB subnet group (`IPV4` or `DUAL`).
+        """
+        return pulumi.get(self, "supported_network_types")
 
     @_builtins.property
     @pulumi.getter

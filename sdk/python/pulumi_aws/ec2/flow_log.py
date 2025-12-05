@@ -30,6 +30,7 @@ class FlowLogArgs:
                  log_format: Optional[pulumi.Input[_builtins.str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 regional_nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -49,14 +50,15 @@ class FlowLogArgs:
                Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
                When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
+               
+               > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         if deliver_cross_account_role is not None:
             pulumi.set(__self__, "deliver_cross_account_role", deliver_cross_account_role)
@@ -76,6 +78,8 @@ class FlowLogArgs:
             pulumi.set(__self__, "max_aggregation_interval", max_aggregation_interval)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if regional_nat_gateway_id is not None:
+            pulumi.set(__self__, "regional_nat_gateway_id", regional_nat_gateway_id)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
@@ -200,6 +204,18 @@ class FlowLogArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="regionalNatGatewayId")
+    def regional_nat_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Regional NAT Gateway ID to attach to.
+        """
+        return pulumi.get(self, "regional_nat_gateway_id")
+
+    @regional_nat_gateway_id.setter
+    def regional_nat_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "regional_nat_gateway_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -216,8 +232,6 @@ class FlowLogArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         return pulumi.get(self, "tags")
 
@@ -229,7 +243,7 @@ class FlowLogArgs:
     @pulumi.getter(name="trafficType")
     def traffic_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         """
         return pulumi.get(self, "traffic_type")
 
@@ -266,6 +280,8 @@ class FlowLogArgs:
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         VPC ID to attach to.
+
+        > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -287,6 +303,7 @@ class _FlowLogState:
                  log_format: Optional[pulumi.Input[_builtins.str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 regional_nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -308,15 +325,16 @@ class _FlowLogState:
                Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
                When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
+               
+               > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -338,6 +356,8 @@ class _FlowLogState:
             pulumi.set(__self__, "max_aggregation_interval", max_aggregation_interval)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if regional_nat_gateway_id is not None:
+            pulumi.set(__self__, "regional_nat_gateway_id", regional_nat_gateway_id)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
@@ -476,6 +496,18 @@ class _FlowLogState:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="regionalNatGatewayId")
+    def regional_nat_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Regional NAT Gateway ID to attach to.
+        """
+        return pulumi.get(self, "regional_nat_gateway_id")
+
+    @regional_nat_gateway_id.setter
+    def regional_nat_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "regional_nat_gateway_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -492,8 +524,6 @@ class _FlowLogState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         return pulumi.get(self, "tags")
 
@@ -517,7 +547,7 @@ class _FlowLogState:
     @pulumi.getter(name="trafficType")
     def traffic_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         """
         return pulumi.get(self, "traffic_type")
 
@@ -554,6 +584,8 @@ class _FlowLogState:
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         VPC ID to attach to.
+
+        > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -577,6 +609,7 @@ class FlowLog(pulumi.CustomResource):
                  log_format: Optional[pulumi.Input[_builtins.str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 regional_nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -781,14 +814,15 @@ class FlowLog(pulumi.CustomResource):
                Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
                When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
+               
+               > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         ...
     @overload
@@ -1004,6 +1038,7 @@ class FlowLog(pulumi.CustomResource):
                  log_format: Optional[pulumi.Input[_builtins.str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 regional_nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1028,6 +1063,7 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["log_format"] = log_format
             __props__.__dict__["max_aggregation_interval"] = max_aggregation_interval
             __props__.__dict__["region"] = region
+            __props__.__dict__["regional_nat_gateway_id"] = regional_nat_gateway_id
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_type"] = traffic_type
@@ -1056,6 +1092,7 @@ class FlowLog(pulumi.CustomResource):
             log_format: Optional[pulumi.Input[_builtins.str]] = None,
             max_aggregation_interval: Optional[pulumi.Input[_builtins.int]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
+            regional_nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
             subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1082,15 +1119,16 @@ class FlowLog(pulumi.CustomResource):
                Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
                When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
+               
+               > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1106,6 +1144,7 @@ class FlowLog(pulumi.CustomResource):
         __props__.__dict__["log_format"] = log_format
         __props__.__dict__["max_aggregation_interval"] = max_aggregation_interval
         __props__.__dict__["region"] = region
+        __props__.__dict__["regional_nat_gateway_id"] = regional_nat_gateway_id
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -1198,6 +1237,14 @@ class FlowLog(pulumi.CustomResource):
         return pulumi.get(self, "region")
 
     @_builtins.property
+    @pulumi.getter(name="regionalNatGatewayId")
+    def regional_nat_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Regional NAT Gateway ID to attach to.
+        """
+        return pulumi.get(self, "regional_nat_gateway_id")
+
+    @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -1210,8 +1257,6 @@ class FlowLog(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         return pulumi.get(self, "tags")
 
@@ -1227,7 +1272,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="trafficType")
     def traffic_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         """
         return pulumi.get(self, "traffic_type")
 
@@ -1252,6 +1297,8 @@ class FlowLog(pulumi.CustomResource):
     def vpc_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         VPC ID to attach to.
+
+        > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         return pulumi.get(self, "vpc_id")
 

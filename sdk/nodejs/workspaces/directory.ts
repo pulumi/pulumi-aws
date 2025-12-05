@@ -281,6 +281,10 @@ export class Directory extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
+     * Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+     */
+    declare public readonly tenancy: pulumi.Output<string>;
+    /**
      * Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
      *
      * > **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
@@ -341,6 +345,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["subnetIds"] = state?.subnetIds;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["tenancy"] = state?.tenancy;
             resourceInputs["userIdentityType"] = state?.userIdentityType;
             resourceInputs["workspaceAccessProperties"] = state?.workspaceAccessProperties;
             resourceInputs["workspaceCreationProperties"] = state?.workspaceCreationProperties;
@@ -359,6 +364,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["selfServicePermissions"] = args?.selfServicePermissions;
             resourceInputs["subnetIds"] = args?.subnetIds;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenancy"] = args?.tenancy;
             resourceInputs["userIdentityType"] = args?.userIdentityType;
             resourceInputs["workspaceAccessProperties"] = args?.workspaceAccessProperties;
             resourceInputs["workspaceCreationProperties"] = args?.workspaceCreationProperties;
@@ -453,6 +459,10 @@ export interface DirectoryState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+     */
+    tenancy?: pulumi.Input<string>;
+    /**
      * Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
      *
      * > **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
@@ -524,6 +534,10 @@ export interface DirectoryArgs {
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+     */
+    tenancy?: pulumi.Input<string>;
     /**
      * Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
      *

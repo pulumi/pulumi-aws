@@ -159,6 +159,9 @@ __all__ = [
     'HubS3StorageConfig',
     'HumanTaskUIUiTemplate',
     'ModelContainer',
+    'ModelContainerAdditionalModelDataSource',
+    'ModelContainerAdditionalModelDataSourceS3DataSource',
+    'ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig',
     'ModelContainerImageConfig',
     'ModelContainerImageConfigRepositoryAuthConfig',
     'ModelContainerModelDataSource',
@@ -167,6 +170,9 @@ __all__ = [
     'ModelContainerMultiModelConfig',
     'ModelInferenceExecutionConfig',
     'ModelPrimaryContainer',
+    'ModelPrimaryContainerAdditionalModelDataSource',
+    'ModelPrimaryContainerAdditionalModelDataSourceS3DataSource',
+    'ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig',
     'ModelPrimaryContainerImageConfig',
     'ModelPrimaryContainerImageConfigRepositoryAuthConfig',
     'ModelPrimaryContainerModelDataSource',
@@ -8893,7 +8899,9 @@ class ModelContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "containerHostname":
+        if key == "additionalModelDataSources":
+            suggest = "additional_model_data_sources"
+        elif key == "containerHostname":
             suggest = "container_hostname"
         elif key == "imageConfig":
             suggest = "image_config"
@@ -8920,6 +8928,7 @@ class ModelContainer(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 additional_model_data_sources: Optional[Sequence['outputs.ModelContainerAdditionalModelDataSource']] = None,
                  container_hostname: Optional[_builtins.str] = None,
                  environment: Optional[Mapping[str, _builtins.str]] = None,
                  image: Optional[_builtins.str] = None,
@@ -8931,18 +8940,21 @@ class ModelContainer(dict):
                  model_package_name: Optional[_builtins.str] = None,
                  multi_model_config: Optional['outputs.ModelContainerMultiModelConfig'] = None):
         """
-        :param _builtins.str container_hostname: The DNS host name for the container.
+        :param Sequence['ModelContainerAdditionalModelDataSourceArgs'] additional_model_data_sources: Additional data sources that are available to the model in addition to those specified in `model_data_source`. See Additional Model Data Source.
+        :param _builtins.str container_hostname: DNS host name for the container.
         :param Mapping[str, _builtins.str] environment: Environment variables for the Docker container.
-               A list of key value pairs.
-        :param _builtins.str image: The registry path where the inference code image is stored in Amazon ECR.
+        :param _builtins.str image: Registry path where the inference code image is stored in Amazon ECR.
         :param 'ModelContainerImageConfigArgs' image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
-        :param _builtins.str inference_specification_name: The inference specification name in the model package version.
-        :param _builtins.str mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        :param 'ModelContainerModelDataSourceArgs' model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
-        :param _builtins.str model_data_url: The URL for the S3 location where model artifacts are stored.
-        :param _builtins.str model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
+        :param _builtins.str inference_specification_name: Inference specification name in the model package version.
+        :param _builtins.str mode: Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
+        :param 'ModelContainerModelDataSourceArgs' model_data_source: Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+        :param _builtins.str model_data_url: URL for the S3 location where model artifacts are stored.
+        :param _builtins.str model_package_name: Amazon Resource Name (ARN) of the model package to use to create the model.
+               A list of key value pairs.
         :param 'ModelContainerMultiModelConfigArgs' multi_model_config: Specifies additional configuration for multi-model endpoints. see Multi Model Config.
         """
+        if additional_model_data_sources is not None:
+            pulumi.set(__self__, "additional_model_data_sources", additional_model_data_sources)
         if container_hostname is not None:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
@@ -8965,10 +8977,18 @@ class ModelContainer(dict):
             pulumi.set(__self__, "multi_model_config", multi_model_config)
 
     @_builtins.property
+    @pulumi.getter(name="additionalModelDataSources")
+    def additional_model_data_sources(self) -> Optional[Sequence['outputs.ModelContainerAdditionalModelDataSource']]:
+        """
+        Additional data sources that are available to the model in addition to those specified in `model_data_source`. See Additional Model Data Source.
+        """
+        return pulumi.get(self, "additional_model_data_sources")
+
+    @_builtins.property
     @pulumi.getter(name="containerHostname")
     def container_hostname(self) -> Optional[_builtins.str]:
         """
-        The DNS host name for the container.
+        DNS host name for the container.
         """
         return pulumi.get(self, "container_hostname")
 
@@ -8977,7 +8997,6 @@ class ModelContainer(dict):
     def environment(self) -> Optional[Mapping[str, _builtins.str]]:
         """
         Environment variables for the Docker container.
-        A list of key value pairs.
         """
         return pulumi.get(self, "environment")
 
@@ -8985,7 +9004,7 @@ class ModelContainer(dict):
     @pulumi.getter
     def image(self) -> Optional[_builtins.str]:
         """
-        The registry path where the inference code image is stored in Amazon ECR.
+        Registry path where the inference code image is stored in Amazon ECR.
         """
         return pulumi.get(self, "image")
 
@@ -9001,7 +9020,7 @@ class ModelContainer(dict):
     @pulumi.getter(name="inferenceSpecificationName")
     def inference_specification_name(self) -> Optional[_builtins.str]:
         """
-        The inference specification name in the model package version.
+        Inference specification name in the model package version.
         """
         return pulumi.get(self, "inference_specification_name")
 
@@ -9009,7 +9028,7 @@ class ModelContainer(dict):
     @pulumi.getter
     def mode(self) -> Optional[_builtins.str]:
         """
-        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
         """
         return pulumi.get(self, "mode")
 
@@ -9017,7 +9036,7 @@ class ModelContainer(dict):
     @pulumi.getter(name="modelDataSource")
     def model_data_source(self) -> Optional['outputs.ModelContainerModelDataSource']:
         """
-        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+        Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
         """
         return pulumi.get(self, "model_data_source")
 
@@ -9025,7 +9044,7 @@ class ModelContainer(dict):
     @pulumi.getter(name="modelDataUrl")
     def model_data_url(self) -> Optional[_builtins.str]:
         """
-        The URL for the S3 location where model artifacts are stored.
+        URL for the S3 location where model artifacts are stored.
         """
         return pulumi.get(self, "model_data_url")
 
@@ -9033,7 +9052,8 @@ class ModelContainer(dict):
     @pulumi.getter(name="modelPackageName")
     def model_package_name(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the model package to use to create the model.
+        Amazon Resource Name (ARN) of the model package to use to create the model.
+        A list of key value pairs.
         """
         return pulumi.get(self, "model_package_name")
 
@@ -9044,6 +9064,164 @@ class ModelContainer(dict):
         Specifies additional configuration for multi-model endpoints. see Multi Model Config.
         """
         return pulumi.get(self, "multi_model_config")
+
+
+@pulumi.output_type
+class ModelContainerAdditionalModelDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelName":
+            suggest = "channel_name"
+        elif key == "s3DataSources":
+            suggest = "s3_data_sources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelContainerAdditionalModelDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelContainerAdditionalModelDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelContainerAdditionalModelDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_name: _builtins.str,
+                 s3_data_sources: Sequence['outputs.ModelContainerAdditionalModelDataSourceS3DataSource']):
+        """
+        :param _builtins.str channel_name: Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/<channel_name>/`.
+        :param Sequence['ModelContainerAdditionalModelDataSourceS3DataSourceArgs'] s3_data_sources: S3 location of model data to deploy. See S3 Data Source.
+        """
+        pulumi.set(__self__, "channel_name", channel_name)
+        pulumi.set(__self__, "s3_data_sources", s3_data_sources)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> _builtins.str:
+        """
+        Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/<channel_name>/`.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSources")
+    def s3_data_sources(self) -> Sequence['outputs.ModelContainerAdditionalModelDataSourceS3DataSource']:
+        """
+        S3 location of model data to deploy. See S3 Data Source.
+        """
+        return pulumi.get(self, "s3_data_sources")
+
+
+@pulumi.output_type
+class ModelContainerAdditionalModelDataSourceS3DataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compressionType":
+            suggest = "compression_type"
+        elif key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "modelAccessConfig":
+            suggest = "model_access_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelContainerAdditionalModelDataSourceS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelContainerAdditionalModelDataSourceS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelContainerAdditionalModelDataSourceS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression_type: _builtins.str,
+                 s3_data_type: _builtins.str,
+                 s3_uri: _builtins.str,
+                 model_access_config: Optional['outputs.ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig'] = None):
+        """
+        :param _builtins.str compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
+        :param _builtins.str s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        :param _builtins.str s3_uri: The S3 path of model data to deploy.
+        :param 'ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        """
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> _builtins.str:
+        """
+        How the model data is prepared. Allowed values are: `None` and `Gzip`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> _builtins.str:
+        """
+        Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        The S3 path of model data to deploy.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional['outputs.ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig']:
+        """
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        """
+        return pulumi.get(self, "model_access_config")
+
+
+@pulumi.output_type
+class ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptEula":
+            suggest = "accept_eula"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accept_eula: _builtins.bool):
+        """
+        :param _builtins.bool accept_eula: Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> _builtins.bool:
+        """
+        Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+        return pulumi.get(self, "accept_eula")
 
 
 @pulumi.output_type
@@ -9117,7 +9295,7 @@ class ModelContainerImageConfigRepositoryAuthConfig(dict):
     def __init__(__self__, *,
                  repository_credentials_provider_arn: _builtins.str):
         """
-        :param _builtins.str repository_credentials_provider_arn: The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+        :param _builtins.str repository_credentials_provider_arn: Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
         """
         pulumi.set(__self__, "repository_credentials_provider_arn", repository_credentials_provider_arn)
 
@@ -9125,7 +9303,7 @@ class ModelContainerImageConfigRepositoryAuthConfig(dict):
     @pulumi.getter(name="repositoryCredentialsProviderArn")
     def repository_credentials_provider_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+        Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
         """
         return pulumi.get(self, "repository_credentials_provider_arn")
 
@@ -9152,7 +9330,7 @@ class ModelContainerModelDataSource(dict):
     def __init__(__self__, *,
                  s3_data_sources: Sequence['outputs.ModelContainerModelDataSourceS3DataSource']):
         """
-        :param Sequence['ModelContainerModelDataSourceS3DataSourceArgs'] s3_data_sources: The S3 location of model data to deploy.
+        :param Sequence['ModelContainerModelDataSourceS3DataSourceArgs'] s3_data_sources: S3 location of model data to deploy. See S3 Data Source.
         """
         pulumi.set(__self__, "s3_data_sources", s3_data_sources)
 
@@ -9160,7 +9338,7 @@ class ModelContainerModelDataSource(dict):
     @pulumi.getter(name="s3DataSources")
     def s3_data_sources(self) -> Sequence['outputs.ModelContainerModelDataSourceS3DataSource']:
         """
-        The S3 location of model data to deploy.
+        S3 location of model data to deploy. See S3 Data Source.
         """
         return pulumi.get(self, "s3_data_sources")
 
@@ -9197,9 +9375,9 @@ class ModelContainerModelDataSourceS3DataSource(dict):
                  model_access_config: Optional['outputs.ModelContainerModelDataSourceS3DataSourceModelAccessConfig'] = None):
         """
         :param _builtins.str compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
-        :param _builtins.str s3_data_type: The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        :param _builtins.str s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param _builtins.str s3_uri: The S3 path of model data to deploy.
-        :param 'ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+        :param 'ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
@@ -9219,7 +9397,7 @@ class ModelContainerModelDataSourceS3DataSource(dict):
     @pulumi.getter(name="s3DataType")
     def s3_data_type(self) -> _builtins.str:
         """
-        The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         """
         return pulumi.get(self, "s3_data_type")
 
@@ -9235,7 +9413,7 @@ class ModelContainerModelDataSourceS3DataSource(dict):
     @pulumi.getter(name="modelAccessConfig")
     def model_access_config(self) -> Optional['outputs.ModelContainerModelDataSourceS3DataSourceModelAccessConfig']:
         """
-        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
         """
         return pulumi.get(self, "model_access_config")
 
@@ -9262,7 +9440,7 @@ class ModelContainerModelDataSourceS3DataSourceModelAccessConfig(dict):
     def __init__(__self__, *,
                  accept_eula: _builtins.bool):
         """
-        :param _builtins.bool accept_eula: Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        :param _builtins.bool accept_eula: Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
         """
         pulumi.set(__self__, "accept_eula", accept_eula)
 
@@ -9270,7 +9448,7 @@ class ModelContainerModelDataSourceS3DataSourceModelAccessConfig(dict):
     @pulumi.getter(name="acceptEula")
     def accept_eula(self) -> _builtins.bool:
         """
-        Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
         """
         return pulumi.get(self, "accept_eula")
 
@@ -9316,7 +9494,7 @@ class ModelInferenceExecutionConfig(dict):
     def __init__(__self__, *,
                  mode: _builtins.str):
         """
-        :param _builtins.str mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        :param _builtins.str mode: How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
         """
         pulumi.set(__self__, "mode", mode)
 
@@ -9324,7 +9502,7 @@ class ModelInferenceExecutionConfig(dict):
     @pulumi.getter
     def mode(self) -> _builtins.str:
         """
-        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
         """
         return pulumi.get(self, "mode")
 
@@ -9334,7 +9512,9 @@ class ModelPrimaryContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "containerHostname":
+        if key == "additionalModelDataSources":
+            suggest = "additional_model_data_sources"
+        elif key == "containerHostname":
             suggest = "container_hostname"
         elif key == "imageConfig":
             suggest = "image_config"
@@ -9361,6 +9541,7 @@ class ModelPrimaryContainer(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 additional_model_data_sources: Optional[Sequence['outputs.ModelPrimaryContainerAdditionalModelDataSource']] = None,
                  container_hostname: Optional[_builtins.str] = None,
                  environment: Optional[Mapping[str, _builtins.str]] = None,
                  image: Optional[_builtins.str] = None,
@@ -9372,18 +9553,20 @@ class ModelPrimaryContainer(dict):
                  model_package_name: Optional[_builtins.str] = None,
                  multi_model_config: Optional['outputs.ModelPrimaryContainerMultiModelConfig'] = None):
         """
-        :param _builtins.str container_hostname: The DNS host name for the container.
+        :param Sequence['ModelPrimaryContainerAdditionalModelDataSourceArgs'] additional_model_data_sources: Additional data sources that are available to the model in addition to those specified in `model_data_source`. See Additional Model Data Source.
+        :param _builtins.str container_hostname: DNS host name for the container.
         :param Mapping[str, _builtins.str] environment: Environment variables for the Docker container.
-               A list of key value pairs.
-        :param _builtins.str image: The registry path where the inference code image is stored in Amazon ECR.
+        :param _builtins.str image: Registry path where the inference code image is stored in Amazon ECR.
         :param 'ModelPrimaryContainerImageConfigArgs' image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
-        :param _builtins.str inference_specification_name: The inference specification name in the model package version.
-        :param _builtins.str mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        :param 'ModelPrimaryContainerModelDataSourceArgs' model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
-        :param _builtins.str model_data_url: The URL for the S3 location where model artifacts are stored.
-        :param _builtins.str model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
+        :param _builtins.str inference_specification_name: Inference specification name in the model package version.
+        :param 'ModelPrimaryContainerModelDataSourceArgs' model_data_source: Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+        :param _builtins.str model_data_url: URL for the S3 location where model artifacts are stored.
+        :param _builtins.str model_package_name: Amazon Resource Name (ARN) of the model package to use to create the model.
+               A list of key value pairs.
         :param 'ModelPrimaryContainerMultiModelConfigArgs' multi_model_config: Specifies additional configuration for multi-model endpoints. see Multi Model Config.
         """
+        if additional_model_data_sources is not None:
+            pulumi.set(__self__, "additional_model_data_sources", additional_model_data_sources)
         if container_hostname is not None:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
@@ -9406,10 +9589,18 @@ class ModelPrimaryContainer(dict):
             pulumi.set(__self__, "multi_model_config", multi_model_config)
 
     @_builtins.property
+    @pulumi.getter(name="additionalModelDataSources")
+    def additional_model_data_sources(self) -> Optional[Sequence['outputs.ModelPrimaryContainerAdditionalModelDataSource']]:
+        """
+        Additional data sources that are available to the model in addition to those specified in `model_data_source`. See Additional Model Data Source.
+        """
+        return pulumi.get(self, "additional_model_data_sources")
+
+    @_builtins.property
     @pulumi.getter(name="containerHostname")
     def container_hostname(self) -> Optional[_builtins.str]:
         """
-        The DNS host name for the container.
+        DNS host name for the container.
         """
         return pulumi.get(self, "container_hostname")
 
@@ -9418,7 +9609,6 @@ class ModelPrimaryContainer(dict):
     def environment(self) -> Optional[Mapping[str, _builtins.str]]:
         """
         Environment variables for the Docker container.
-        A list of key value pairs.
         """
         return pulumi.get(self, "environment")
 
@@ -9426,7 +9616,7 @@ class ModelPrimaryContainer(dict):
     @pulumi.getter
     def image(self) -> Optional[_builtins.str]:
         """
-        The registry path where the inference code image is stored in Amazon ECR.
+        Registry path where the inference code image is stored in Amazon ECR.
         """
         return pulumi.get(self, "image")
 
@@ -9442,23 +9632,20 @@ class ModelPrimaryContainer(dict):
     @pulumi.getter(name="inferenceSpecificationName")
     def inference_specification_name(self) -> Optional[_builtins.str]:
         """
-        The inference specification name in the model package version.
+        Inference specification name in the model package version.
         """
         return pulumi.get(self, "inference_specification_name")
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> Optional[_builtins.str]:
-        """
-        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        """
         return pulumi.get(self, "mode")
 
     @_builtins.property
     @pulumi.getter(name="modelDataSource")
     def model_data_source(self) -> Optional['outputs.ModelPrimaryContainerModelDataSource']:
         """
-        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+        Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
         """
         return pulumi.get(self, "model_data_source")
 
@@ -9466,7 +9653,7 @@ class ModelPrimaryContainer(dict):
     @pulumi.getter(name="modelDataUrl")
     def model_data_url(self) -> Optional[_builtins.str]:
         """
-        The URL for the S3 location where model artifacts are stored.
+        URL for the S3 location where model artifacts are stored.
         """
         return pulumi.get(self, "model_data_url")
 
@@ -9474,7 +9661,8 @@ class ModelPrimaryContainer(dict):
     @pulumi.getter(name="modelPackageName")
     def model_package_name(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the model package to use to create the model.
+        Amazon Resource Name (ARN) of the model package to use to create the model.
+        A list of key value pairs.
         """
         return pulumi.get(self, "model_package_name")
 
@@ -9485,6 +9673,164 @@ class ModelPrimaryContainer(dict):
         Specifies additional configuration for multi-model endpoints. see Multi Model Config.
         """
         return pulumi.get(self, "multi_model_config")
+
+
+@pulumi.output_type
+class ModelPrimaryContainerAdditionalModelDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelName":
+            suggest = "channel_name"
+        elif key == "s3DataSources":
+            suggest = "s3_data_sources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPrimaryContainerAdditionalModelDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPrimaryContainerAdditionalModelDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPrimaryContainerAdditionalModelDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_name: _builtins.str,
+                 s3_data_sources: Sequence['outputs.ModelPrimaryContainerAdditionalModelDataSourceS3DataSource']):
+        """
+        :param _builtins.str channel_name: Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/<channel_name>/`.
+        :param Sequence['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs'] s3_data_sources: S3 location of model data to deploy. See S3 Data Source.
+        """
+        pulumi.set(__self__, "channel_name", channel_name)
+        pulumi.set(__self__, "s3_data_sources", s3_data_sources)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> _builtins.str:
+        """
+        Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/<channel_name>/`.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSources")
+    def s3_data_sources(self) -> Sequence['outputs.ModelPrimaryContainerAdditionalModelDataSourceS3DataSource']:
+        """
+        S3 location of model data to deploy. See S3 Data Source.
+        """
+        return pulumi.get(self, "s3_data_sources")
+
+
+@pulumi.output_type
+class ModelPrimaryContainerAdditionalModelDataSourceS3DataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compressionType":
+            suggest = "compression_type"
+        elif key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "modelAccessConfig":
+            suggest = "model_access_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPrimaryContainerAdditionalModelDataSourceS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPrimaryContainerAdditionalModelDataSourceS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPrimaryContainerAdditionalModelDataSourceS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression_type: _builtins.str,
+                 s3_data_type: _builtins.str,
+                 s3_uri: _builtins.str,
+                 model_access_config: Optional['outputs.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig'] = None):
+        """
+        :param _builtins.str compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
+        :param _builtins.str s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        :param _builtins.str s3_uri: The S3 path of model data to deploy.
+        :param 'ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        """
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> _builtins.str:
+        """
+        How the model data is prepared. Allowed values are: `None` and `Gzip`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> _builtins.str:
+        """
+        Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        The S3 path of model data to deploy.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional['outputs.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig']:
+        """
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        """
+        return pulumi.get(self, "model_access_config")
+
+
+@pulumi.output_type
+class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptEula":
+            suggest = "accept_eula"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accept_eula: _builtins.bool):
+        """
+        :param _builtins.bool accept_eula: Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> _builtins.bool:
+        """
+        Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+        return pulumi.get(self, "accept_eula")
 
 
 @pulumi.output_type
@@ -9558,7 +9904,7 @@ class ModelPrimaryContainerImageConfigRepositoryAuthConfig(dict):
     def __init__(__self__, *,
                  repository_credentials_provider_arn: _builtins.str):
         """
-        :param _builtins.str repository_credentials_provider_arn: The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+        :param _builtins.str repository_credentials_provider_arn: Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
         """
         pulumi.set(__self__, "repository_credentials_provider_arn", repository_credentials_provider_arn)
 
@@ -9566,7 +9912,7 @@ class ModelPrimaryContainerImageConfigRepositoryAuthConfig(dict):
     @pulumi.getter(name="repositoryCredentialsProviderArn")
     def repository_credentials_provider_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+        Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
         """
         return pulumi.get(self, "repository_credentials_provider_arn")
 
@@ -9593,7 +9939,7 @@ class ModelPrimaryContainerModelDataSource(dict):
     def __init__(__self__, *,
                  s3_data_sources: Sequence['outputs.ModelPrimaryContainerModelDataSourceS3DataSource']):
         """
-        :param Sequence['ModelPrimaryContainerModelDataSourceS3DataSourceArgs'] s3_data_sources: The S3 location of model data to deploy.
+        :param Sequence['ModelPrimaryContainerModelDataSourceS3DataSourceArgs'] s3_data_sources: S3 location of model data to deploy. See S3 Data Source.
         """
         pulumi.set(__self__, "s3_data_sources", s3_data_sources)
 
@@ -9601,7 +9947,7 @@ class ModelPrimaryContainerModelDataSource(dict):
     @pulumi.getter(name="s3DataSources")
     def s3_data_sources(self) -> Sequence['outputs.ModelPrimaryContainerModelDataSourceS3DataSource']:
         """
-        The S3 location of model data to deploy.
+        S3 location of model data to deploy. See S3 Data Source.
         """
         return pulumi.get(self, "s3_data_sources")
 
@@ -9638,9 +9984,9 @@ class ModelPrimaryContainerModelDataSourceS3DataSource(dict):
                  model_access_config: Optional['outputs.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig'] = None):
         """
         :param _builtins.str compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
-        :param _builtins.str s3_data_type: The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        :param _builtins.str s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param _builtins.str s3_uri: The S3 path of model data to deploy.
-        :param 'ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+        :param 'ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
@@ -9660,7 +10006,7 @@ class ModelPrimaryContainerModelDataSourceS3DataSource(dict):
     @pulumi.getter(name="s3DataType")
     def s3_data_type(self) -> _builtins.str:
         """
-        The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         """
         return pulumi.get(self, "s3_data_type")
 
@@ -9676,7 +10022,7 @@ class ModelPrimaryContainerModelDataSourceS3DataSource(dict):
     @pulumi.getter(name="modelAccessConfig")
     def model_access_config(self) -> Optional['outputs.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig']:
         """
-        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
         """
         return pulumi.get(self, "model_access_config")
 
@@ -9703,7 +10049,7 @@ class ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig(dict):
     def __init__(__self__, *,
                  accept_eula: _builtins.bool):
         """
-        :param _builtins.bool accept_eula: Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        :param _builtins.bool accept_eula: Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
         """
         pulumi.set(__self__, "accept_eula", accept_eula)
 
@@ -9711,7 +10057,7 @@ class ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig(dict):
     @pulumi.getter(name="acceptEula")
     def accept_eula(self) -> _builtins.bool:
         """
-        Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
         """
         return pulumi.get(self, "accept_eula")
 
@@ -9774,17 +10120,27 @@ class ModelVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Sequence[_builtins.str],
                  subnets: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] security_group_ids: List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+        :param Sequence[_builtins.str] subnets: List of subnet IDs in the VPC to which you want to connect your training job or model.
+        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
+        """
+        List of subnet IDs in the VPC to which you want to connect your training job or model.
+        """
         return pulumi.get(self, "subnets")
 
 

@@ -91,6 +91,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rolesanywhere/profile:Profile")
 public class Profile extends com.pulumi.resources.CustomResource {
     /**
+     * Whether or not a custom role session name is accepted.
+     * 
+     */
+    @Export(name="acceptRoleSessionName", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> acceptRoleSessionName;
+
+    /**
+     * @return Whether or not a custom role session name is accepted.
+     * 
+     */
+    public Output<Optional<Boolean>> acceptRoleSessionName() {
+        return Codegen.optional(this.acceptRoleSessionName);
+    }
+    /**
      * Amazon Resource Name (ARN) of the Profile
      * 
      */

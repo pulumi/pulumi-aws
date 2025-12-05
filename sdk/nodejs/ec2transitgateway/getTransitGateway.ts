@@ -106,6 +106,10 @@ export interface GetTransitGatewayResult {
      * Whether DNS support is enabled
      */
     readonly dnsSupport: string;
+    /**
+     * Whether encryption support for VPC Encryption Control is enabled.
+     */
+    readonly encryptionSupport: string;
     readonly filters?: outputs.ec2transitgateway.GetTransitGatewayFilter[];
     /**
      * EC2 Transit Gateway identifier

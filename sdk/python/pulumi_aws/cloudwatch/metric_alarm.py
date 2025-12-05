@@ -1087,8 +1087,6 @@ class MetricAlarm(pulumi.CustomResource):
 
         Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
 
-        console
-
         % pulumi import aws_cloudwatch_metric_alarm.example alarm-12345
 
         :param str resource_name: The name of the resource.
@@ -1343,8 +1341,6 @@ class MetricAlarm(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
-
-        console
 
         % pulumi import aws_cloudwatch_metric_alarm.example alarm-12345
 

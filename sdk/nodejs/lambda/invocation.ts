@@ -102,6 +102,16 @@ import * as utilities from "../utilities";
  * If the `databaseUrl` changes, the Lambda will be invoked again with:
  *
  * When the invocation resource is removed, the final invocation will have:
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import Lambda Invocation using the `function_name,qualifier,result_hash`. For example:
+ *
+ * ```sh
+ * $ pulumi import aws:lambda/invocation:Invocation test_lambda my_test_lambda_function,$LATEST,b326b5062b2f0e69046810717534cb09
+ * ```
+ * Because it is not possible to retrieve previous invocations, during the next update Pulumi will update the resource calling again the function.
+ * To compute the `result_hash`, it is necessary to hash it with the standard `md5` hash function.
  */
 export class Invocation extends pulumi.CustomResource {
     /**
@@ -157,6 +167,10 @@ export class Invocation extends pulumi.CustomResource {
      * String result of the Lambda function invocation.
      */
     declare public /*out*/ readonly result: pulumi.Output<string>;
+    /**
+     * Tenant Id to serve invocations from specified tenant.
+     */
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     declare public readonly terraformKey: pulumi.Output<string | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -182,6 +196,7 @@ export class Invocation extends pulumi.CustomResource {
             resourceInputs["qualifier"] = state?.qualifier;
             resourceInputs["region"] = state?.region;
             resourceInputs["result"] = state?.result;
+            resourceInputs["tenantId"] = state?.tenantId;
             resourceInputs["terraformKey"] = state?.terraformKey;
             resourceInputs["triggers"] = state?.triggers;
         } else {
@@ -197,6 +212,7 @@ export class Invocation extends pulumi.CustomResource {
             resourceInputs["lifecycleScope"] = args?.lifecycleScope;
             resourceInputs["qualifier"] = args?.qualifier;
             resourceInputs["region"] = args?.region;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["terraformKey"] = args?.terraformKey;
             resourceInputs["triggers"] = args?.triggers;
             resourceInputs["result"] = undefined /*out*/;
@@ -236,6 +252,10 @@ export interface InvocationState {
      * String result of the Lambda function invocation.
      */
     result?: pulumi.Input<string>;
+    /**
+     * Tenant Id to serve invocations from specified tenant.
+     */
+    tenantId?: pulumi.Input<string>;
     terraformKey?: pulumi.Input<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -269,6 +289,10 @@ export interface InvocationArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Tenant Id to serve invocations from specified tenant.
+     */
+    tenantId?: pulumi.Input<string>;
     terraformKey?: pulumi.Input<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.

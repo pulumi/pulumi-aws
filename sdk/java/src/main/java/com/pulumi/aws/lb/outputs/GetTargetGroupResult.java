@@ -41,6 +41,7 @@ public final class GetTargetGroupResult {
     private Integer slowStart;
     private GetTargetGroupStickiness stickiness;
     private Map<String,String> tags;
+    private Integer targetControlPort;
     private String targetType;
     private String vpcId;
 
@@ -112,6 +113,9 @@ public final class GetTargetGroupResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    public Integer targetControlPort() {
+        return this.targetControlPort;
+    }
     public String targetType() {
         return this.targetType;
     }
@@ -149,6 +153,7 @@ public final class GetTargetGroupResult {
         private Integer slowStart;
         private GetTargetGroupStickiness stickiness;
         private Map<String,String> tags;
+        private Integer targetControlPort;
         private String targetType;
         private String vpcId;
         public Builder() {}
@@ -175,6 +180,7 @@ public final class GetTargetGroupResult {
     	      this.slowStart = defaults.slowStart;
     	      this.stickiness = defaults.stickiness;
     	      this.tags = defaults.tags;
+    	      this.targetControlPort = defaults.targetControlPort;
     	      this.targetType = defaults.targetType;
     	      this.vpcId = defaults.vpcId;
         }
@@ -351,6 +357,14 @@ public final class GetTargetGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder targetControlPort(Integer targetControlPort) {
+            if (targetControlPort == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "targetControlPort");
+            }
+            this.targetControlPort = targetControlPort;
+            return this;
+        }
+        @CustomType.Setter
         public Builder targetType(String targetType) {
             if (targetType == null) {
               throw new MissingRequiredPropertyException("GetTargetGroupResult", "targetType");
@@ -389,6 +403,7 @@ public final class GetTargetGroupResult {
             _resultValue.slowStart = slowStart;
             _resultValue.stickiness = stickiness;
             _resultValue.tags = tags;
+            _resultValue.targetControlPort = targetControlPort;
             _resultValue.targetType = targetType;
             _resultValue.vpcId = vpcId;
             return _resultValue;

@@ -67,6 +67,8 @@ type TransitGateway struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport pulumi.StringPtrOutput `pulumi:"dnsSupport"`
+	// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+	EncryptionSupport pulumi.StringOutput `pulumi:"encryptionSupport"`
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport pulumi.StringPtrOutput `pulumi:"multicastSupport"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
@@ -135,6 +137,8 @@ type transitGatewayState struct {
 	Description *string `pulumi:"description"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport *string `pulumi:"dnsSupport"`
+	// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+	EncryptionSupport *string `pulumi:"encryptionSupport"`
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport *string `pulumi:"multicastSupport"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
@@ -174,6 +178,8 @@ type TransitGatewayState struct {
 	Description pulumi.StringPtrInput
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport pulumi.StringPtrInput
+	// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+	EncryptionSupport pulumi.StringPtrInput
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport pulumi.StringPtrInput
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
@@ -213,6 +219,8 @@ type transitGatewayArgs struct {
 	Description *string `pulumi:"description"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport *string `pulumi:"dnsSupport"`
+	// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+	EncryptionSupport *string `pulumi:"encryptionSupport"`
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport *string `pulumi:"multicastSupport"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -243,6 +251,8 @@ type TransitGatewayArgs struct {
 	Description pulumi.StringPtrInput
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport pulumi.StringPtrInput
+	// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+	EncryptionSupport pulumi.StringPtrInput
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -384,6 +394,11 @@ func (o TransitGatewayOutput) Description() pulumi.StringPtrOutput {
 // Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 func (o TransitGatewayOutput) DnsSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DnsSupport }).(pulumi.StringPtrOutput)
+}
+
+// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+func (o TransitGatewayOutput) EncryptionSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.EncryptionSupport }).(pulumi.StringOutput)
 }
 
 // Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.

@@ -4,12 +4,14 @@
 package com.pulumi.aws.bedrock;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayAuthorizerConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayInterceptorConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayProtocolConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -78,6 +80,21 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> exceptionLevel() {
         return Optional.ofNullable(this.exceptionLevel);
+    }
+
+    /**
+     * List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+     * 
+     */
+    @Import(name="interceptorConfigurations", required=true)
+    private Output<List<AgentcoreGatewayInterceptorConfigurationArgs>> interceptorConfigurations;
+
+    /**
+     * @return List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+     * 
+     */
+    public Output<List<AgentcoreGatewayInterceptorConfigurationArgs>> interceptorConfigurations() {
+        return this.interceptorConfigurations;
     }
 
     /**
@@ -203,6 +220,7 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
         this.authorizerType = $.authorizerType;
         this.description = $.description;
         this.exceptionLevel = $.exceptionLevel;
+        this.interceptorConfigurations = $.interceptorConfigurations;
         this.kmsKeyArn = $.kmsKeyArn;
         this.name = $.name;
         this.protocolConfiguration = $.protocolConfiguration;
@@ -313,6 +331,37 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder exceptionLevel(String exceptionLevel) {
             return exceptionLevel(Output.of(exceptionLevel));
+        }
+
+        /**
+         * @param interceptorConfigurations List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interceptorConfigurations(Output<List<AgentcoreGatewayInterceptorConfigurationArgs>> interceptorConfigurations) {
+            $.interceptorConfigurations = interceptorConfigurations;
+            return this;
+        }
+
+        /**
+         * @param interceptorConfigurations List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interceptorConfigurations(List<AgentcoreGatewayInterceptorConfigurationArgs> interceptorConfigurations) {
+            return interceptorConfigurations(Output.of(interceptorConfigurations));
+        }
+
+        /**
+         * @param interceptorConfigurations List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interceptorConfigurations(AgentcoreGatewayInterceptorConfigurationArgs... interceptorConfigurations) {
+            return interceptorConfigurations(List.of(interceptorConfigurations));
         }
 
         /**
@@ -478,6 +527,9 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
         public AgentcoreGatewayArgs build() {
             if ($.authorizerType == null) {
                 throw new MissingRequiredPropertyException("AgentcoreGatewayArgs", "authorizerType");
+            }
+            if ($.interceptorConfigurations == null) {
+                throw new MissingRequiredPropertyException("AgentcoreGatewayArgs", "interceptorConfigurations");
             }
             if ($.protocolType == null) {
                 throw new MissingRequiredPropertyException("AgentcoreGatewayArgs", "protocolType");

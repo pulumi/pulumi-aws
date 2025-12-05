@@ -217,6 +217,7 @@ namespace Pulumi.Aws.LB
         public readonly bool EnableXffClientPort;
         public readonly bool EnableZonalShift;
         public readonly string EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerHealthCheckLogResult> HealthCheckLogs;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -276,6 +277,8 @@ namespace Pulumi.Aws.LB
 
             string enforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
 
+            ImmutableArray<Outputs.GetLoadBalancerHealthCheckLogResult> healthCheckLogs,
+
             string id,
 
             int idleTimeout,
@@ -328,6 +331,7 @@ namespace Pulumi.Aws.LB
             EnableXffClientPort = enableXffClientPort;
             EnableZonalShift = enableZonalShift;
             EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+            HealthCheckLogs = healthCheckLogs;
             Id = id;
             IdleTimeout = idleTimeout;
             Internal = @internal;

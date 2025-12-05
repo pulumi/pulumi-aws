@@ -102,6 +102,43 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Cross-region enabled AWS services
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var s3 = new VpcEndpoint("s3", VpcEndpointArgs.builder()
+ *             .region("us-west-2")
+ *             .vpcId(main.id())
+ *             .serviceName("com.amazonaws.us-east-2.s3")
+ *             .serviceRegion("us-east-2")
+ *             .tags(Map.of("Environment", "test"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Interface Endpoint Type
  * 
  * <pre>
@@ -381,8 +418,6 @@ import javax.annotation.Nullable;
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
- * 
- * console
  * 
  * % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
  * 

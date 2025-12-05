@@ -87,6 +87,10 @@ export class TransitGateway extends pulumi.CustomResource {
      */
     declare public readonly dnsSupport: pulumi.Output<string | undefined>;
     /**
+     * Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+     */
+    declare public readonly encryptionSupport: pulumi.Output<string>;
+    /**
      * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     declare public readonly multicastSupport: pulumi.Output<string | undefined>;
@@ -144,6 +148,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["defaultRouteTablePropagation"] = state?.defaultRouteTablePropagation;
             resourceInputs["description"] = state?.description;
             resourceInputs["dnsSupport"] = state?.dnsSupport;
+            resourceInputs["encryptionSupport"] = state?.encryptionSupport;
             resourceInputs["multicastSupport"] = state?.multicastSupport;
             resourceInputs["ownerId"] = state?.ownerId;
             resourceInputs["propagationDefaultRouteTableId"] = state?.propagationDefaultRouteTableId;
@@ -161,6 +166,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["defaultRouteTablePropagation"] = args?.defaultRouteTablePropagation;
             resourceInputs["description"] = args?.description;
             resourceInputs["dnsSupport"] = args?.dnsSupport;
+            resourceInputs["encryptionSupport"] = args?.encryptionSupport;
             resourceInputs["multicastSupport"] = args?.multicastSupport;
             resourceInputs["region"] = args?.region;
             resourceInputs["securityGroupReferencingSupport"] = args?.securityGroupReferencingSupport;
@@ -216,6 +222,10 @@ export interface TransitGatewayState {
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     dnsSupport?: pulumi.Input<string>;
+    /**
+     * Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+     */
+    encryptionSupport?: pulumi.Input<string>;
     /**
      * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
      */
@@ -284,6 +294,10 @@ export interface TransitGatewayArgs {
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     dnsSupport?: pulumi.Input<string>;
+    /**
+     * Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+     */
+    encryptionSupport?: pulumi.Input<string>;
     /**
      * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
      */

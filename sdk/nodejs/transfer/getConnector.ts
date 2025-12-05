@@ -59,6 +59,10 @@ export interface GetConnectorResult {
      * Structure containing the parameters for an AS2 connector object. Contains the following attributes:
      */
     readonly as2Configs: outputs.transfer.GetConnectorAs2Config[];
+    /**
+     * Egress configuration for the connector. Contains the following attributes:
+     */
+    readonly egressConfigs: outputs.transfer.GetConnectorEgressConfig[];
     readonly id: string;
     /**
      * ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.

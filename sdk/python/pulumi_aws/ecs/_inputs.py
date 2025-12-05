@@ -21,6 +21,8 @@ __all__ = [
     'CapacityProviderAutoScalingGroupProviderManagedScalingArgsDict',
     'CapacityProviderManagedInstancesProviderArgs',
     'CapacityProviderManagedInstancesProviderArgsDict',
+    'CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs',
+    'CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgsDict',
     'CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs',
     'CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgsDict',
     'CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs',
@@ -61,6 +63,24 @@ __all__ = [
     'ClusterServiceConnectDefaultsArgsDict',
     'ClusterSettingArgs',
     'ClusterSettingArgsDict',
+    'ExpressGatewayServiceIngressPathArgs',
+    'ExpressGatewayServiceIngressPathArgsDict',
+    'ExpressGatewayServiceNetworkConfigurationArgs',
+    'ExpressGatewayServiceNetworkConfigurationArgsDict',
+    'ExpressGatewayServicePrimaryContainerArgs',
+    'ExpressGatewayServicePrimaryContainerArgsDict',
+    'ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs',
+    'ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgsDict',
+    'ExpressGatewayServicePrimaryContainerEnvironmentArgs',
+    'ExpressGatewayServicePrimaryContainerEnvironmentArgsDict',
+    'ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs',
+    'ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgsDict',
+    'ExpressGatewayServicePrimaryContainerSecretArgs',
+    'ExpressGatewayServicePrimaryContainerSecretArgsDict',
+    'ExpressGatewayServiceScalingTargetArgs',
+    'ExpressGatewayServiceScalingTargetArgsDict',
+    'ExpressGatewayServiceTimeoutsArgs',
+    'ExpressGatewayServiceTimeoutsArgsDict',
     'ServiceAlarmsArgs',
     'ServiceAlarmsArgsDict',
     'ServiceCapacityProviderStrategyArgs',
@@ -388,6 +408,10 @@ if not MYPY:
         """
         The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
         """
+        infrastructure_optimization: NotRequired[pulumi.Input['CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgsDict']]
+        """
+        Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+        """
         propagate_tags: NotRequired[pulumi.Input[_builtins.str]]
         """
         Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
@@ -400,14 +424,18 @@ class CapacityProviderManagedInstancesProviderArgs:
     def __init__(__self__, *,
                  infrastructure_role_arn: pulumi.Input[_builtins.str],
                  instance_launch_template: pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs'],
+                 infrastructure_optimization: Optional[pulumi.Input['CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs']] = None,
                  propagate_tags: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
         :param pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs'] instance_launch_template: The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+        :param pulumi.Input['CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs'] infrastructure_optimization: Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
         :param pulumi.Input[_builtins.str] propagate_tags: Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
         """
         pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
         pulumi.set(__self__, "instance_launch_template", instance_launch_template)
+        if infrastructure_optimization is not None:
+            pulumi.set(__self__, "infrastructure_optimization", infrastructure_optimization)
         if propagate_tags is not None:
             pulumi.set(__self__, "propagate_tags", propagate_tags)
 
@@ -436,6 +464,18 @@ class CapacityProviderManagedInstancesProviderArgs:
         pulumi.set(self, "instance_launch_template", value)
 
     @_builtins.property
+    @pulumi.getter(name="infrastructureOptimization")
+    def infrastructure_optimization(self) -> Optional[pulumi.Input['CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs']]:
+        """
+        Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+        """
+        return pulumi.get(self, "infrastructure_optimization")
+
+    @infrastructure_optimization.setter
+    def infrastructure_optimization(self, value: Optional[pulumi.Input['CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs']]):
+        pulumi.set(self, "infrastructure_optimization", value)
+
+    @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -446,6 +486,44 @@ class CapacityProviderManagedInstancesProviderArgs:
     @propagate_tags.setter
     def propagate_tags(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "propagate_tags", value)
+
+
+if not MYPY:
+    class CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgsDict(TypedDict):
+        scale_in_after: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
+        * Not set (null) - Uses the default optimization behavior.
+        * `-1` - Disables automatic infrastructure optimization.
+        """
+elif False:
+    CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs:
+    def __init__(__self__, *,
+                 scale_in_after: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] scale_in_after: This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
+               * Not set (null) - Uses the default optimization behavior.
+               * `-1` - Disables automatic infrastructure optimization.
+        """
+        if scale_in_after is not None:
+            pulumi.set(__self__, "scale_in_after", scale_in_after)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleInAfter")
+    def scale_in_after(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
+        * Not set (null) - Uses the default optimization behavior.
+        * `-1` - Disables automatic infrastructure optimization.
+        """
+        return pulumi.get(self, "scale_in_after")
+
+    @scale_in_after.setter
+    def scale_in_after(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "scale_in_after", value)
 
 
 if not MYPY:
@@ -1890,6 +1968,547 @@ class ClusterSettingArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ExpressGatewayServiceIngressPathArgsDict(TypedDict):
+        access_type: pulumi.Input[_builtins.str]
+        endpoint: pulumi.Input[_builtins.str]
+elif False:
+    ExpressGatewayServiceIngressPathArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExpressGatewayServiceIngressPathArgs:
+    def __init__(__self__, *,
+                 access_type: pulumi.Input[_builtins.str],
+                 endpoint: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "access_type", access_type)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "access_type")
+
+    @access_type.setter
+    def access_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "access_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
+
+
+if not MYPY:
+    class ExpressGatewayServiceNetworkConfigurationArgsDict(TypedDict):
+        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Security groups associated with the task. If not specified, the default security group for the VPC is used.
+        """
+        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
+        """
+elif False:
+    ExpressGatewayServiceNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExpressGatewayServiceNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: Security groups associated with the task. If not specified, the default security group for the VPC is used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Security groups associated with the task. If not specified, the default security group for the VPC is used.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnets", value)
+
+
+if not MYPY:
+    class ExpressGatewayServicePrimaryContainerArgsDict(TypedDict):
+        image: pulumi.Input[_builtins.str]
+        """
+        Docker image to use for the container.
+        """
+        aws_logs_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgsDict']]]]
+        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Command to run in the container. Overrides the default command from the Docker image.
+        """
+        container_port: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Port on which the container listens for connections.
+        """
+        environments: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerEnvironmentArgsDict']]]]
+        repository_credentials: NotRequired[pulumi.Input['ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgsDict']]
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerSecretArgsDict']]]]
+elif False:
+    ExpressGatewayServicePrimaryContainerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExpressGatewayServicePrimaryContainerArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[_builtins.str],
+                 aws_logs_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs']]]] = None,
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 container_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 environments: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerEnvironmentArgs']]]] = None,
+                 repository_credentials: Optional[pulumi.Input['ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs']] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerSecretArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] image: Docker image to use for the container.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: Command to run in the container. Overrides the default command from the Docker image.
+        :param pulumi.Input[_builtins.int] container_port: Port on which the container listens for connections.
+        """
+        pulumi.set(__self__, "image", image)
+        if aws_logs_configurations is not None:
+            pulumi.set(__self__, "aws_logs_configurations", aws_logs_configurations)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if container_port is not None:
+            pulumi.set(__self__, "container_port", container_port)
+        if environments is not None:
+            pulumi.set(__self__, "environments", environments)
+        if repository_credentials is not None:
+            pulumi.set(__self__, "repository_credentials", repository_credentials)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[_builtins.str]:
+        """
+        Docker image to use for the container.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "image", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsLogsConfigurations")
+    def aws_logs_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs']]]]:
+        return pulumi.get(self, "aws_logs_configurations")
+
+    @aws_logs_configurations.setter
+    def aws_logs_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs']]]]):
+        pulumi.set(self, "aws_logs_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Command to run in the container. Overrides the default command from the Docker image.
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "commands", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerPort")
+    def container_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Port on which the container listens for connections.
+        """
+        return pulumi.get(self, "container_port")
+
+    @container_port.setter
+    def container_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "container_port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerEnvironmentArgs']]]]:
+        return pulumi.get(self, "environments")
+
+    @environments.setter
+    def environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerEnvironmentArgs']]]]):
+        pulumi.set(self, "environments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryCredentials")
+    def repository_credentials(self) -> Optional[pulumi.Input['ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs']]:
+        return pulumi.get(self, "repository_credentials")
+
+    @repository_credentials.setter
+    def repository_credentials(self, value: Optional[pulumi.Input['ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs']]):
+        pulumi.set(self, "repository_credentials", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerSecretArgs']]]]:
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServicePrimaryContainerSecretArgs']]]]):
+        pulumi.set(self, "secrets", value)
+
+
+if not MYPY:
+    class ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgsDict(TypedDict):
+        log_group: pulumi.Input[_builtins.str]
+        """
+        CloudWatch log group name.
+        """
+        log_stream_prefix: pulumi.Input[_builtins.str]
+        """
+        Prefix for log stream names. If not specified, a default prefix will be used.
+        """
+elif False:
+    ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs:
+    def __init__(__self__, *,
+                 log_group: pulumi.Input[_builtins.str],
+                 log_stream_prefix: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] log_group: CloudWatch log group name.
+        :param pulumi.Input[_builtins.str] log_stream_prefix: Prefix for log stream names. If not specified, a default prefix will be used.
+        """
+        pulumi.set(__self__, "log_group", log_group)
+        pulumi.set(__self__, "log_stream_prefix", log_stream_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> pulumi.Input[_builtins.str]:
+        """
+        CloudWatch log group name.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logStreamPrefix")
+    def log_stream_prefix(self) -> pulumi.Input[_builtins.str]:
+        """
+        Prefix for log stream names. If not specified, a default prefix will be used.
+        """
+        return pulumi.get(self, "log_stream_prefix")
+
+    @log_stream_prefix.setter
+    def log_stream_prefix(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_stream_prefix", value)
+
+
+if not MYPY:
+    class ExpressGatewayServicePrimaryContainerEnvironmentArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the environment variable.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the environment variable.
+        """
+elif False:
+    ExpressGatewayServicePrimaryContainerEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExpressGatewayServicePrimaryContainerEnvironmentArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the environment variable.
+        :param pulumi.Input[_builtins.str] value: Value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgsDict(TypedDict):
+        credentials_parameter: pulumi.Input[_builtins.str]
+        """
+        ARN of the AWS Systems Manager parameter containing the repository credentials.
+        """
+elif False:
+    ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs:
+    def __init__(__self__, *,
+                 credentials_parameter: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] credentials_parameter: ARN of the AWS Systems Manager parameter containing the repository credentials.
+        """
+        pulumi.set(__self__, "credentials_parameter", credentials_parameter)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsParameter")
+    def credentials_parameter(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AWS Systems Manager parameter containing the repository credentials.
+        """
+        return pulumi.get(self, "credentials_parameter")
+
+    @credentials_parameter.setter
+    def credentials_parameter(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "credentials_parameter", value)
+
+
+if not MYPY:
+    class ExpressGatewayServicePrimaryContainerSecretArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        value_from: pulumi.Input[_builtins.str]
+        """
+        ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
+        """
+elif False:
+    ExpressGatewayServicePrimaryContainerSecretArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExpressGatewayServicePrimaryContainerSecretArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value_from: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] value_from: ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
+        """
+        return pulumi.get(self, "value_from")
+
+    @value_from.setter
+    def value_from(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value_from", value)
+
+
+if not MYPY:
+    class ExpressGatewayServiceScalingTargetArgsDict(TypedDict):
+        auto_scaling_metric: pulumi.Input[_builtins.str]
+        """
+        Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+        """
+        auto_scaling_target_value: pulumi.Input[_builtins.int]
+        """
+        Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
+        """
+        max_task_count: pulumi.Input[_builtins.int]
+        """
+        Maximum number of tasks to run.
+        """
+        min_task_count: pulumi.Input[_builtins.int]
+        """
+        Minimum number of tasks to run.
+        """
+elif False:
+    ExpressGatewayServiceScalingTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExpressGatewayServiceScalingTargetArgs:
+    def __init__(__self__, *,
+                 auto_scaling_metric: pulumi.Input[_builtins.str],
+                 auto_scaling_target_value: pulumi.Input[_builtins.int],
+                 max_task_count: pulumi.Input[_builtins.int],
+                 min_task_count: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] auto_scaling_metric: Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+        :param pulumi.Input[_builtins.int] auto_scaling_target_value: Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
+        :param pulumi.Input[_builtins.int] max_task_count: Maximum number of tasks to run.
+        :param pulumi.Input[_builtins.int] min_task_count: Minimum number of tasks to run.
+        """
+        pulumi.set(__self__, "auto_scaling_metric", auto_scaling_metric)
+        pulumi.set(__self__, "auto_scaling_target_value", auto_scaling_target_value)
+        pulumi.set(__self__, "max_task_count", max_task_count)
+        pulumi.set(__self__, "min_task_count", min_task_count)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingMetric")
+    def auto_scaling_metric(self) -> pulumi.Input[_builtins.str]:
+        """
+        Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+        """
+        return pulumi.get(self, "auto_scaling_metric")
+
+    @auto_scaling_metric.setter
+    def auto_scaling_metric(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "auto_scaling_metric", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingTargetValue")
+    def auto_scaling_target_value(self) -> pulumi.Input[_builtins.int]:
+        """
+        Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
+        """
+        return pulumi.get(self, "auto_scaling_target_value")
+
+    @auto_scaling_target_value.setter
+    def auto_scaling_target_value(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "auto_scaling_target_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxTaskCount")
+    def max_task_count(self) -> pulumi.Input[_builtins.int]:
+        """
+        Maximum number of tasks to run.
+        """
+        return pulumi.get(self, "max_task_count")
+
+    @max_task_count.setter
+    def max_task_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_task_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minTaskCount")
+    def min_task_count(self) -> pulumi.Input[_builtins.int]:
+        """
+        Minimum number of tasks to run.
+        """
+        return pulumi.get(self, "min_task_count")
+
+    @min_task_count.setter
+    def min_task_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "min_task_count", value)
+
+
+if not MYPY:
+    class ExpressGatewayServiceTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    ExpressGatewayServiceTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExpressGatewayServiceTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 if not MYPY:

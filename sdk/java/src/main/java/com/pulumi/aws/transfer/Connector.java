@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.transfer.ConnectorArgs;
 import com.pulumi.aws.transfer.inputs.ConnectorState;
 import com.pulumi.aws.transfer.outputs.ConnectorAs2Config;
+import com.pulumi.aws.transfer.outputs.ConnectorEgressConfig;
 import com.pulumi.aws.transfer.outputs.ConnectorSftpConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -106,6 +107,52 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### SFTP Connector with VPC Lattice
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.transfer.Connector;
+ * import com.pulumi.aws.transfer.ConnectorArgs;
+ * import com.pulumi.aws.transfer.inputs.ConnectorSftpConfigArgs;
+ * import com.pulumi.aws.transfer.inputs.ConnectorEgressConfigArgs;
+ * import com.pulumi.aws.transfer.inputs.ConnectorEgressConfigVpcLatticeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Connector("example", ConnectorArgs.builder()
+ *             .accessRole(test.arn())
+ *             .sftpConfig(ConnectorSftpConfigArgs.builder()
+ *                 .trustedHostKeys("ssh-rsa AAAAB3NYourKeysHere")
+ *                 .userSecretId(exampleAwsSecretsmanagerSecret.id())
+ *                 .build())
+ *             .egressConfig(ConnectorEgressConfigArgs.builder()
+ *                 .vpcLattice(ConnectorEgressConfigVpcLatticeArgs.builder()
+ *                     .resourceConfigurationArn("arn:aws:vpc-lattice:us-east-1:123456789012:resourceconfiguration/rcfg-12345678901234567")
+ *                     .portNumber(22)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
@@ -172,6 +219,20 @@ public class Connector extends com.pulumi.resources.CustomResource {
      */
     public Output<String> connectorId() {
         return this.connectorId;
+    }
+    /**
+     * Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+     * 
+     */
+    @Export(name="egressConfig", refs={ConnectorEgressConfig.class}, tree="[0]")
+    private Output</* @Nullable */ ConnectorEgressConfig> egressConfig;
+
+    /**
+     * @return Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+     * 
+     */
+    public Output<Optional<ConnectorEgressConfig>> egressConfig() {
+        return Codegen.optional(this.egressConfig);
     }
     /**
      * The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
@@ -250,18 +311,18 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The URL of the partners AS2 endpoint or SFTP endpoint.
+     * The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
-    private Output<String> url;
+    private Output</* @Nullable */ String> url;
 
     /**
-     * @return The URL of the partners AS2 endpoint or SFTP endpoint.
+     * @return The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Output<Optional<String>> url() {
+        return Codegen.optional(this.url);
     }
 
     /**

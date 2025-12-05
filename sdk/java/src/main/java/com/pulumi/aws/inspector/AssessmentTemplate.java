@@ -76,8 +76,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
  * 
- * console
- * 
  * % pulumi import aws_inspector_assessment_template.example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
  * 
  */

@@ -20,6 +20,21 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProfileArgs Empty = new ProfileArgs();
 
     /**
+     * Whether or not a custom role session name is accepted.
+     * 
+     */
+    @Import(name="acceptRoleSessionName")
+    private @Nullable Output<Boolean> acceptRoleSessionName;
+
+    /**
+     * @return Whether or not a custom role session name is accepted.
+     * 
+     */
+    public Optional<Output<Boolean>> acceptRoleSessionName() {
+        return Optional.ofNullable(this.acceptRoleSessionName);
+    }
+
+    /**
      * The number of seconds the vended session credentials are valid for. Defaults to 3600.
      * 
      */
@@ -142,6 +157,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
     private ProfileArgs() {}
 
     private ProfileArgs(ProfileArgs $) {
+        this.acceptRoleSessionName = $.acceptRoleSessionName;
         this.durationSeconds = $.durationSeconds;
         this.enabled = $.enabled;
         this.managedPolicyArns = $.managedPolicyArns;
@@ -168,6 +184,27 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ProfileArgs defaults) {
             $ = new ProfileArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param acceptRoleSessionName Whether or not a custom role session name is accepted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceptRoleSessionName(@Nullable Output<Boolean> acceptRoleSessionName) {
+            $.acceptRoleSessionName = acceptRoleSessionName;
+            return this;
+        }
+
+        /**
+         * @param acceptRoleSessionName Whether or not a custom role session name is accepted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceptRoleSessionName(Boolean acceptRoleSessionName) {
+            return acceptRoleSessionName(Output.of(acceptRoleSessionName));
         }
 
         /**

@@ -27,6 +27,8 @@ __all__ = [
     'TableGlobalSecondaryIndexOnDemandThroughputArgsDict',
     'TableGlobalSecondaryIndexWarmThroughputArgs',
     'TableGlobalSecondaryIndexWarmThroughputArgsDict',
+    'TableGlobalTableWitnessArgs',
+    'TableGlobalTableWitnessArgsDict',
     'TableImportTableArgs',
     'TableImportTableArgsDict',
     'TableImportTableInputFormatOptionsArgs',
@@ -476,6 +478,38 @@ class TableGlobalSecondaryIndexWarmThroughputArgs:
     @write_units_per_second.setter
     def write_units_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "write_units_per_second", value)
+
+
+if not MYPY:
+    class TableGlobalTableWitnessArgsDict(TypedDict):
+        region_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Name of the AWS Region that serves as a witness for the MRSC global table.
+        """
+elif False:
+    TableGlobalTableWitnessArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableGlobalTableWitnessArgs:
+    def __init__(__self__, *,
+                 region_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] region_name: Name of the AWS Region that serves as a witness for the MRSC global table.
+        """
+        if region_name is not None:
+            pulumi.set(__self__, "region_name", region_name)
+
+    @_builtins.property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the AWS Region that serves as a witness for the MRSC global table.
+        """
+        return pulumi.get(self, "region_name")
+
+    @region_name.setter
+    def region_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "region_name", value)
 
 
 if not MYPY:

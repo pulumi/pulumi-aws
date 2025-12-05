@@ -25,6 +25,7 @@ class PlanArgs:
                  advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 scan_settings: Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Plan resource.
@@ -32,6 +33,7 @@ class PlanArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]] advanced_backup_settings: An object that specifies backup options for each resource type.
         :param pulumi.Input[_builtins.str] name: The display name of a backup plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]] scan_settings: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "rules", rules)
@@ -41,6 +43,8 @@ class PlanArgs:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if scan_settings is not None:
+            pulumi.set(__self__, "scan_settings", scan_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -93,6 +97,18 @@ class PlanArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="scanSettings")
+    def scan_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]]:
+        """
+        Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+        """
+        return pulumi.get(self, "scan_settings")
+
+    @scan_settings.setter
+    def scan_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]]):
+        pulumi.set(self, "scan_settings", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -113,6 +129,7 @@ class _PlanState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]]] = None,
+                 scan_settings: Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None):
@@ -123,6 +140,7 @@ class _PlanState:
         :param pulumi.Input[_builtins.str] name: The display name of a backup plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]] scan_settings: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version: Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
@@ -137,6 +155,8 @@ class _PlanState:
             pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
+        if scan_settings is not None:
+            pulumi.set(__self__, "scan_settings", scan_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -205,6 +225,18 @@ class _PlanState:
         pulumi.set(self, "rules", value)
 
     @_builtins.property
+    @pulumi.getter(name="scanSettings")
+    def scan_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]]:
+        """
+        Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+        """
+        return pulumi.get(self, "scan_settings")
+
+    @scan_settings.setter
+    def scan_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]]):
+        pulumi.set(self, "scan_settings", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -251,6 +283,7 @@ class Plan(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]]] = None,
+                 scan_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -294,6 +327,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The display name of a backup plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict']]]] scan_settings: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -356,6 +390,7 @@ class Plan(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]]] = None,
+                 scan_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -372,6 +407,7 @@ class Plan(pulumi.CustomResource):
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules
+            __props__.__dict__["scan_settings"] = scan_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -391,6 +427,7 @@ class Plan(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]]] = None,
+            scan_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             version: Optional[pulumi.Input[_builtins.str]] = None) -> 'Plan':
@@ -406,6 +443,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The display name of a backup plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict']]]] scan_settings: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version: Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
@@ -419,6 +457,7 @@ class Plan(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
         __props__.__dict__["rules"] = rules
+        __props__.__dict__["scan_settings"] = scan_settings
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["version"] = version
@@ -463,6 +502,14 @@ class Plan(pulumi.CustomResource):
         A rule object that specifies a scheduled task that is used to back up a selection of resources.
         """
         return pulumi.get(self, "rules")
+
+    @_builtins.property
+    @pulumi.getter(name="scanSettings")
+    def scan_settings(self) -> pulumi.Output[Optional[Sequence['outputs.PlanScanSetting']]]:
+        """
+        Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+        """
+        return pulumi.get(self, "scan_settings")
 
     @_builtins.property
     @pulumi.getter

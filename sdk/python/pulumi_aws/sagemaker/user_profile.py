@@ -352,8 +352,6 @@ class UserProfile(pulumi.CustomResource):
 
         Using `pulumi import`, import SageMaker AI User Profiles using the `arn`. For example:
 
-        console
-
         % pulumi import aws_sagemaker_user_profile.example arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
 
         :param str resource_name: The name of the resource.
@@ -405,8 +403,6 @@ class UserProfile(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import SageMaker AI User Profiles using the `arn`. For example:
-
-        console
 
         % pulumi import aws_sagemaker_user_profile.example arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
 

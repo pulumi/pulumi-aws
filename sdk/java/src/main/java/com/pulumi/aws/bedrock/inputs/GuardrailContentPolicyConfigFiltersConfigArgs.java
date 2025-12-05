@@ -6,8 +6,12 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,14 +19,59 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
     public static final GuardrailContentPolicyConfigFiltersConfigArgs Empty = new GuardrailContentPolicyConfigFiltersConfigArgs();
 
     /**
-     * Strength for filters.
+     * Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+     * 
+     */
+    @Import(name="inputAction")
+    private @Nullable Output<String> inputAction;
+
+    /**
+     * @return Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+     * 
+     */
+    public Optional<Output<String>> inputAction() {
+        return Optional.ofNullable(this.inputAction);
+    }
+
+    /**
+     * Toggles guardrail evaluation on input.
+     * 
+     */
+    @Import(name="inputEnabled")
+    private @Nullable Output<Boolean> inputEnabled;
+
+    /**
+     * @return Toggles guardrail evaluation on input.
+     * 
+     */
+    public Optional<Output<Boolean>> inputEnabled() {
+        return Optional.ofNullable(this.inputEnabled);
+    }
+
+    /**
+     * List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+     * 
+     */
+    @Import(name="inputModalities")
+    private @Nullable Output<List<String>> inputModalities;
+
+    /**
+     * @return List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+     * 
+     */
+    public Optional<Output<List<String>>> inputModalities() {
+        return Optional.ofNullable(this.inputModalities);
+    }
+
+    /**
+     * Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
      * 
      */
     @Import(name="inputStrength", required=true)
     private Output<String> inputStrength;
 
     /**
-     * @return Strength for filters.
+     * @return Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
      * 
      */
     public Output<String> inputStrength() {
@@ -30,14 +79,59 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
     }
 
     /**
-     * Strength for filters.
+     * Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+     * 
+     */
+    @Import(name="outputAction")
+    private @Nullable Output<String> outputAction;
+
+    /**
+     * @return Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+     * 
+     */
+    public Optional<Output<String>> outputAction() {
+        return Optional.ofNullable(this.outputAction);
+    }
+
+    /**
+     * Toggles guardrail evaluation on output.
+     * 
+     */
+    @Import(name="outputEnabled")
+    private @Nullable Output<Boolean> outputEnabled;
+
+    /**
+     * @return Toggles guardrail evaluation on output.
+     * 
+     */
+    public Optional<Output<Boolean>> outputEnabled() {
+        return Optional.ofNullable(this.outputEnabled);
+    }
+
+    /**
+     * List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+     * 
+     */
+    @Import(name="outputModalities")
+    private @Nullable Output<List<String>> outputModalities;
+
+    /**
+     * @return List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+     * 
+     */
+    public Optional<Output<List<String>>> outputModalities() {
+        return Optional.ofNullable(this.outputModalities);
+    }
+
+    /**
+     * Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
      * 
      */
     @Import(name="outputStrength", required=true)
     private Output<String> outputStrength;
 
     /**
-     * @return Strength for filters.
+     * @return Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
      * 
      */
     public Output<String> outputStrength() {
@@ -62,7 +156,13 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
     private GuardrailContentPolicyConfigFiltersConfigArgs() {}
 
     private GuardrailContentPolicyConfigFiltersConfigArgs(GuardrailContentPolicyConfigFiltersConfigArgs $) {
+        this.inputAction = $.inputAction;
+        this.inputEnabled = $.inputEnabled;
+        this.inputModalities = $.inputModalities;
         this.inputStrength = $.inputStrength;
+        this.outputAction = $.outputAction;
+        this.outputEnabled = $.outputEnabled;
+        this.outputModalities = $.outputModalities;
         this.outputStrength = $.outputStrength;
         this.type = $.type;
     }
@@ -86,7 +186,80 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
         }
 
         /**
-         * @param inputStrength Strength for filters.
+         * @param inputAction Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inputAction(@Nullable Output<String> inputAction) {
+            $.inputAction = inputAction;
+            return this;
+        }
+
+        /**
+         * @param inputAction Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inputAction(String inputAction) {
+            return inputAction(Output.of(inputAction));
+        }
+
+        /**
+         * @param inputEnabled Toggles guardrail evaluation on input.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inputEnabled(@Nullable Output<Boolean> inputEnabled) {
+            $.inputEnabled = inputEnabled;
+            return this;
+        }
+
+        /**
+         * @param inputEnabled Toggles guardrail evaluation on input.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inputEnabled(Boolean inputEnabled) {
+            return inputEnabled(Output.of(inputEnabled));
+        }
+
+        /**
+         * @param inputModalities List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inputModalities(@Nullable Output<List<String>> inputModalities) {
+            $.inputModalities = inputModalities;
+            return this;
+        }
+
+        /**
+         * @param inputModalities List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inputModalities(List<String> inputModalities) {
+            return inputModalities(Output.of(inputModalities));
+        }
+
+        /**
+         * @param inputModalities List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inputModalities(String... inputModalities) {
+            return inputModalities(List.of(inputModalities));
+        }
+
+        /**
+         * @param inputStrength Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
          * 
          * @return builder
          * 
@@ -97,7 +270,7 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
         }
 
         /**
-         * @param inputStrength Strength for filters.
+         * @param inputStrength Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
          * 
          * @return builder
          * 
@@ -107,7 +280,80 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
         }
 
         /**
-         * @param outputStrength Strength for filters.
+         * @param outputAction Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputAction(@Nullable Output<String> outputAction) {
+            $.outputAction = outputAction;
+            return this;
+        }
+
+        /**
+         * @param outputAction Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputAction(String outputAction) {
+            return outputAction(Output.of(outputAction));
+        }
+
+        /**
+         * @param outputEnabled Toggles guardrail evaluation on output.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputEnabled(@Nullable Output<Boolean> outputEnabled) {
+            $.outputEnabled = outputEnabled;
+            return this;
+        }
+
+        /**
+         * @param outputEnabled Toggles guardrail evaluation on output.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputEnabled(Boolean outputEnabled) {
+            return outputEnabled(Output.of(outputEnabled));
+        }
+
+        /**
+         * @param outputModalities List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputModalities(@Nullable Output<List<String>> outputModalities) {
+            $.outputModalities = outputModalities;
+            return this;
+        }
+
+        /**
+         * @param outputModalities List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputModalities(List<String> outputModalities) {
+            return outputModalities(Output.of(outputModalities));
+        }
+
+        /**
+         * @param outputModalities List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputModalities(String... outputModalities) {
+            return outputModalities(List.of(outputModalities));
+        }
+
+        /**
+         * @param outputStrength Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
          * 
          * @return builder
          * 
@@ -118,7 +364,7 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
         }
 
         /**
-         * @param outputStrength Strength for filters.
+         * @param outputStrength Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
          * 
          * @return builder
          * 

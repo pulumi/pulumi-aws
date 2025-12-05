@@ -221,6 +221,20 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.delegationSetId);
     }
     /**
+     * Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    @Export(name="enableAcceleratedRecovery", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableAcceleratedRecovery;
+
+    /**
+     * @return Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    public Output<Boolean> enableAcceleratedRecovery() {
+        return this.enableAcceleratedRecovery;
+    }
+    /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      * 
      */

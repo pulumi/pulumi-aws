@@ -34,6 +34,21 @@ public final class LogGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
+     * 
+     */
+    @Import(name="deletionProtectionEnabled")
+    private @Nullable Output<Boolean> deletionProtectionEnabled;
+
+    /**
+     * @return Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
+     * 
+     */
+    public Optional<Output<Boolean>> deletionProtectionEnabled() {
+        return Optional.ofNullable(this.deletionProtectionEnabled);
+    }
+
+    /**
      * The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
      * AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
      * permissions for the CMK whenever the encrypted data is requested.
@@ -180,6 +195,7 @@ public final class LogGroupState extends com.pulumi.resources.ResourceArgs {
 
     private LogGroupState(LogGroupState $) {
         this.arn = $.arn;
+        this.deletionProtectionEnabled = $.deletionProtectionEnabled;
         this.kmsKeyId = $.kmsKeyId;
         this.logGroupClass = $.logGroupClass;
         this.name = $.name;
@@ -228,6 +244,27 @@ public final class LogGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param deletionProtectionEnabled Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtectionEnabled(@Nullable Output<Boolean> deletionProtectionEnabled) {
+            $.deletionProtectionEnabled = deletionProtectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param deletionProtectionEnabled Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtectionEnabled(Boolean deletionProtectionEnabled) {
+            return deletionProtectionEnabled(Output.of(deletionProtectionEnabled));
         }
 
         /**

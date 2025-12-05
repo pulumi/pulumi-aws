@@ -84,14 +84,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     * Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     * @return Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -99,14 +99,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+     * Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      * 
      */
     @Import(name="primaryContainer")
     private @Nullable Output<ModelPrimaryContainerArgs> primaryContainer;
 
     /**
-     * @return The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+     * @return Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      * 
      */
     public Optional<Output<ModelPrimaryContainerArgs>> primaryContainer() {
@@ -285,7 +285,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+         * @param name Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+         * @param name Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryContainer The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+         * @param primaryContainer Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryContainer The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+         * @param primaryContainer Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
          * 
          * @return builder
          * 

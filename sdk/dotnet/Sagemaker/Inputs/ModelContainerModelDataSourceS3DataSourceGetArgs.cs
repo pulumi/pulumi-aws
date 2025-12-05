@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> CompressionType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`ModelAccessConfig` configuration block]. see Model Access Config.
+        /// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`ModelAccessConfig` configuration block]. See Model Access Config.
         /// </summary>
         [Input("modelAccessConfig")]
         public Input<Inputs.ModelContainerModelDataSourceS3DataSourceModelAccessConfigGetArgs>? ModelAccessConfig { get; set; }
 
         /// <summary>
-        /// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        /// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         /// </summary>
         [Input("s3DataType", required: true)]
         public Input<string> S3DataType { get; set; } = null!;

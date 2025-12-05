@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+        /// </summary>
+        [Input("customMetadataField")]
+        public Input<string>? CustomMetadataField { get; set; }
+
+        /// <summary>
         /// Name of the field in which Amazon Bedrock stores metadata about the vector store.
         /// </summary>
         [Input("metadataField", required: true)]

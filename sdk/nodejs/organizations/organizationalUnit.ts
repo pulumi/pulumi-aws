@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
  *
- * console
- *
  * % pulumi import aws_organizations_organizational_unit.example ou-1234567
  */
 export class OrganizationalUnit extends pulumi.CustomResource {

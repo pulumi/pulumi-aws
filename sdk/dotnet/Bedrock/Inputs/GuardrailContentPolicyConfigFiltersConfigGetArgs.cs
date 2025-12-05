@@ -13,13 +13,61 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class GuardrailContentPolicyConfigFiltersConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Strength for filters.
+        /// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        /// </summary>
+        [Input("inputAction")]
+        public Input<string>? InputAction { get; set; }
+
+        /// <summary>
+        /// Toggles guardrail evaluation on input.
+        /// </summary>
+        [Input("inputEnabled")]
+        public Input<bool>? InputEnabled { get; set; }
+
+        [Input("inputModalities")]
+        private InputList<string>? _inputModalities;
+
+        /// <summary>
+        /// List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+        /// </summary>
+        public InputList<string> InputModalities
+        {
+            get => _inputModalities ?? (_inputModalities = new InputList<string>());
+            set => _inputModalities = value;
+        }
+
+        /// <summary>
+        /// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
         /// </summary>
         [Input("inputStrength", required: true)]
         public Input<string> InputStrength { get; set; } = null!;
 
         /// <summary>
-        /// Strength for filters.
+        /// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        /// </summary>
+        [Input("outputAction")]
+        public Input<string>? OutputAction { get; set; }
+
+        /// <summary>
+        /// Toggles guardrail evaluation on output.
+        /// </summary>
+        [Input("outputEnabled")]
+        public Input<bool>? OutputEnabled { get; set; }
+
+        [Input("outputModalities")]
+        private InputList<string>? _outputModalities;
+
+        /// <summary>
+        /// List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+        /// </summary>
+        public InputList<string> OutputModalities
+        {
+            get => _outputModalities ?? (_outputModalities = new InputList<string>());
+            set => _outputModalities = value;
+        }
+
+        /// <summary>
+        /// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
         /// </summary>
         [Input("outputStrength", required: true)]
         public Input<string> OutputStrength { get; set; } = null!;

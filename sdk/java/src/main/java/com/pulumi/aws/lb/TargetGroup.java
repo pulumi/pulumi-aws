@@ -286,8 +286,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  * 
- * console
- * 
  * % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
  * 
  */
@@ -620,6 +618,20 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+     * 
+     */
+    @Export(name="targetControlPort", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> targetControlPort;
+
+    /**
+     * @return Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+     * 
+     */
+    public Output<Optional<Integer>> targetControlPort() {
+        return Codegen.optional(this.targetControlPort);
     }
     /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.

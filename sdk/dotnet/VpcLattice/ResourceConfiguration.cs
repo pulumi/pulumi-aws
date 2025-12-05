@@ -85,6 +85,49 @@ namespace Pulumi.Aws.VpcLattice
     /// });
     /// ```
     /// 
+    /// ### With custom domain
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.VpcLattice.DomainVerification("example", new()
+    ///     {
+    ///         DomainName = "example.com",
+    ///     });
+    /// 
+    ///     var exampleResourceConfiguration = new Aws.VpcLattice.ResourceConfiguration("example", new()
+    ///     {
+    ///         Name = "Example",
+    ///         ResourceGatewayIdentifier = exampleAwsVpclatticeResourceGateway.Id,
+    ///         CustomDomainName = "custom.example.com",
+    ///         DomainVerificationId = example.Id,
+    ///         PortRanges = new[]
+    ///         {
+    ///             "443",
+    ///         },
+    ///         Protocol = "TCP",
+    ///         ResourceConfigurationDefinition = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs
+    ///         {
+    ///             DnsResource = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs
+    ///             {
+    ///                 DomainName = "test.example.com",
+    ///                 IpAddressType = "IPV4",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### ARN Example
     /// 
     /// ```csharp
@@ -134,6 +177,30 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom domain name for your resource configuration. Additionally, provide a `DomainVerificationId` to prove your ownership of a domain.
+        /// </summary>
+        [Output("customDomainName")]
+        public Output<string?> CustomDomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the domain verification.
+        /// </summary>
+        [Output("domainVerificationArn")]
+        public Output<string> DomainVerificationArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        /// </summary>
+        [Output("domainVerificationId")]
+        public Output<string> DomainVerificationId { get; private set; } = null!;
+
+        /// <summary>
+        /// Domain verification status.
+        /// </summary>
+        [Output("domainVerificationStatus")]
+        public Output<string> DomainVerificationStatus { get; private set; } = null!;
 
         /// <summary>
         /// Name for the Resource Configuration.
@@ -253,6 +320,18 @@ namespace Pulumi.Aws.VpcLattice
         public Input<bool>? AllowAssociationToShareableServiceNetwork { get; set; }
 
         /// <summary>
+        /// Custom domain name for your resource configuration. Additionally, provide a `DomainVerificationId` to prove your ownership of a domain.
+        /// </summary>
+        [Input("customDomainName")]
+        public Input<string>? CustomDomainName { get; set; }
+
+        /// <summary>
+        /// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        /// </summary>
+        [Input("domainVerificationId")]
+        public Input<string>? DomainVerificationId { get; set; }
+
+        /// <summary>
         /// Name for the Resource Configuration.
         /// </summary>
         [Input("name")]
@@ -342,6 +421,30 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Custom domain name for your resource configuration. Additionally, provide a `DomainVerificationId` to prove your ownership of a domain.
+        /// </summary>
+        [Input("customDomainName")]
+        public Input<string>? CustomDomainName { get; set; }
+
+        /// <summary>
+        /// ARN of the domain verification.
+        /// </summary>
+        [Input("domainVerificationArn")]
+        public Input<string>? DomainVerificationArn { get; set; }
+
+        /// <summary>
+        /// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        /// </summary>
+        [Input("domainVerificationId")]
+        public Input<string>? DomainVerificationId { get; set; }
+
+        /// <summary>
+        /// Domain verification status.
+        /// </summary>
+        [Input("domainVerificationStatus")]
+        public Input<string>? DomainVerificationStatus { get; set; }
 
         /// <summary>
         /// Name for the Resource Configuration.

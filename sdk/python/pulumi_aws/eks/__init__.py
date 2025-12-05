@@ -9,6 +9,7 @@ import typing
 from .access_entry import *
 from .access_policy_association import *
 from .addon import *
+from .capability import *
 from .cluster import *
 from .fargate_profile import *
 from .get_access_entry import *

@@ -69,7 +69,20 @@ namespace Pulumi.Aws.Kms
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         /// </summary>
         [Output("plaintext")]
-        public Output<string> Plaintext { get; private set; } = null!;
+        public Output<string?> Plaintext { get; private set; } = null!;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+        /// </summary>
+        [Output("plaintextWo")]
+        public Output<string?> PlaintextWo { get; private set; } = null!;
+
+        /// <summary>
+        /// Used together with `PlaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+        /// </summary>
+        [Output("plaintextWoVersion")]
+        public Output<string?> PlaintextWoVersion { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -103,6 +116,7 @@ namespace Pulumi.Aws.Kms
                 AdditionalSecretOutputs =
                 {
                     "plaintext",
+                    "plaintextWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,7 +159,7 @@ namespace Pulumi.Aws.Kms
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
-        [Input("plaintext", required: true)]
+        [Input("plaintext")]
         private Input<string>? _plaintext;
 
         /// <summary>
@@ -160,6 +174,29 @@ namespace Pulumi.Aws.Kms
                 _plaintext = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("plaintextWo")]
+        private Input<string>? _plaintextWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+        /// </summary>
+        public Input<string>? PlaintextWo
+        {
+            get => _plaintextWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _plaintextWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Used together with `PlaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+        /// </summary>
+        [Input("plaintextWoVersion")]
+        public Input<string>? PlaintextWoVersion { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -214,6 +251,29 @@ namespace Pulumi.Aws.Kms
                 _plaintext = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("plaintextWo")]
+        private Input<string>? _plaintextWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+        /// </summary>
+        public Input<string>? PlaintextWo
+        {
+            get => _plaintextWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _plaintextWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Used together with `PlaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+        /// </summary>
+        [Input("plaintextWoVersion")]
+        public Input<string>? PlaintextWoVersion { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

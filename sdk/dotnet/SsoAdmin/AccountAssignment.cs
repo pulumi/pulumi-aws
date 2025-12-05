@@ -162,7 +162,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         /// </summary>
         [Output("targetType")]
-        public Output<string?> TargetType { get; private set; } = null!;
+        public Output<string> TargetType { get; private set; } = null!;
 
 
         /// <summary>
@@ -249,8 +249,8 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         /// </summary>
-        [Input("targetType")]
-        public Input<string>? TargetType { get; set; }
+        [Input("targetType", required: true)]
+        public Input<string> TargetType { get; set; } = null!;
 
         public AccountAssignmentArgs()
         {

@@ -263,6 +263,94 @@ namespace Pulumi.Aws.ApiGateway
     /// });
     /// ```
     /// 
+    /// ## VPC Link V2 with Application Load Balancer
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ApiGatewayV2.VpcLink("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             exampleAwsSecurityGroup.Id,
+    ///         },
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Aws.LB.LoadBalancer("example", new()
+    ///     {
+    ///         Name = "example-alb",
+    ///         Internal = true,
+    ///         LoadBalancerType = "application",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             exampleAwsSecurityGroup.Id,
+    ///         },
+    ///         Subnets = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///     });
+    /// 
+    ///     var exampleListener = new Aws.LB.Listener("example", new()
+    ///     {
+    ///         LoadBalancerArn = exampleLoadBalancer.Arn,
+    ///         Port = 80,
+    ///         Protocol = "HTTP",
+    ///         DefaultActions = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///             {
+    ///                 Type = "fixed-response",
+    ///                 FixedResponse = new Aws.LB.Inputs.ListenerDefaultActionFixedResponseArgs
+    ///                 {
+    ///                     ContentType = "text/plain",
+    ///                     MessageBody = "OK",
+    ///                     StatusCode = "200",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleResource = new Aws.ApiGateway.Resource("example", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         ParentId = exampleRestApi.RootResourceId,
+    ///         PathPart = "example",
+    ///     });
+    /// 
+    ///     var exampleMethod = new Aws.ApiGateway.Method("example", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         ResourceId = exampleResource.Id,
+    ///         HttpMethod = "GET",
+    ///         Authorization = "NONE",
+    ///     });
+    /// 
+    ///     var exampleIntegration = new Aws.ApiGateway.Integration("example", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         ResourceId = exampleResource.Id,
+    ///         HttpMethod = exampleMethod.HttpMethod,
+    ///         IntegrationHttpMethod = "GET",
+    ///         Type = "HTTP_PROXY",
+    ///         ConnectionType = "VPC_LINK",
+    ///         ConnectionId = example.Id,
+    ///         IntegrationTarget = exampleLoadBalancer.Arn,
+    ///         Uri = "http://example.com",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
@@ -328,6 +416,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> IntegrationHttpMethod { get; private set; } = null!;
 
         /// <summary>
+        /// The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `Uri` is used to set the Host header.
+        /// </summary>
+        [Output("integrationTarget")]
+        public Output<string?> IntegrationTarget { get; private set; } = null!;
+
+        /// <summary>
         /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `RequestTemplates` is used.
         /// </summary>
         [Output("passthroughBehavior")]
@@ -357,6 +451,13 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        /// Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+        /// </summary>
+        [Output("responseTransferMode")]
+        public Output<string> ResponseTransferMode { get; private set; } = null!;
 
         /// <summary>
         /// ID of the associated REST API.
@@ -496,6 +597,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? IntegrationHttpMethod { get; set; }
 
         /// <summary>
+        /// The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `Uri` is used to set the Host header.
+        /// </summary>
+        [Input("integrationTarget")]
+        public Input<string>? IntegrationTarget { get; set; }
+
+        /// <summary>
         /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `RequestTemplates` is used.
         /// </summary>
         [Input("passthroughBehavior")]
@@ -537,6 +644,13 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        /// Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+        /// </summary>
+        [Input("responseTransferMode")]
+        public Input<string>? ResponseTransferMode { get; set; }
 
         /// <summary>
         /// ID of the associated REST API.
@@ -638,6 +752,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? IntegrationHttpMethod { get; set; }
 
         /// <summary>
+        /// The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `Uri` is used to set the Host header.
+        /// </summary>
+        [Input("integrationTarget")]
+        public Input<string>? IntegrationTarget { get; set; }
+
+        /// <summary>
         /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `RequestTemplates` is used.
         /// </summary>
         [Input("passthroughBehavior")]
@@ -679,6 +799,13 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
+
+        /// <summary>
+        /// Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        /// Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+        /// </summary>
+        [Input("responseTransferMode")]
+        public Input<string>? ResponseTransferMode { get; set; }
 
         /// <summary>
         /// ID of the associated REST API.

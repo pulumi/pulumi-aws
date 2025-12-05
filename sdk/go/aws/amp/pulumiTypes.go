@@ -124,7 +124,7 @@ func (o QueryLoggingConfigurationDestinationArrayOutput) Index(i pulumi.IntInput
 }
 
 type QueryLoggingConfigurationDestinationCloudwatchLogs struct {
-	// The ARN of the CloudWatch log group to which query logs will be sent.
+	// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 	LogGroupArn string `pulumi:"logGroupArn"`
 }
 
@@ -140,7 +140,7 @@ type QueryLoggingConfigurationDestinationCloudwatchLogsInput interface {
 }
 
 type QueryLoggingConfigurationDestinationCloudwatchLogsArgs struct {
-	// The ARN of the CloudWatch log group to which query logs will be sent.
+	// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
 }
 
@@ -221,7 +221,7 @@ func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ToQueryLogging
 	}).(QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput)
 }
 
-// The ARN of the CloudWatch log group to which query logs will be sent.
+// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryLoggingConfigurationDestinationCloudwatchLogs) string { return v.LogGroupArn }).(pulumi.StringOutput)
 }
@@ -250,7 +250,7 @@ func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) Elem() Quer
 	}).(QueryLoggingConfigurationDestinationCloudwatchLogsOutput)
 }
 
-// The ARN of the CloudWatch log group to which query logs will be sent.
+// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryLoggingConfigurationDestinationCloudwatchLogs) *string {
 		if v == nil {
@@ -2062,7 +2062,7 @@ func (o WorkspaceConfigurationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput
 }
 
 type WorkspaceLoggingConfiguration struct {
-	// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+	// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 	LogGroupArn string `pulumi:"logGroupArn"`
 }
 
@@ -2078,7 +2078,7 @@ type WorkspaceLoggingConfigurationInput interface {
 }
 
 type WorkspaceLoggingConfigurationArgs struct {
-	// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+	// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
 }
 
@@ -2159,7 +2159,7 @@ func (o WorkspaceLoggingConfigurationOutput) ToWorkspaceLoggingConfigurationPtrO
 	}).(WorkspaceLoggingConfigurationPtrOutput)
 }
 
-// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 func (o WorkspaceLoggingConfigurationOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceLoggingConfiguration) string { return v.LogGroupArn }).(pulumi.StringOutput)
 }
@@ -2188,7 +2188,7 @@ func (o WorkspaceLoggingConfigurationPtrOutput) Elem() WorkspaceLoggingConfigura
 	}).(WorkspaceLoggingConfigurationOutput)
 }
 
-// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 func (o WorkspaceLoggingConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceLoggingConfiguration) *string {
 		if v == nil {

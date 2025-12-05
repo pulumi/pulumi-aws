@@ -87,8 +87,6 @@ import (
 //
 // Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
 //
-// console
-//
 // % pulumi import aws_iam_openid_connect_provider.default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
 type OpenIdConnectProvider struct {
 	pulumi.CustomResourceState

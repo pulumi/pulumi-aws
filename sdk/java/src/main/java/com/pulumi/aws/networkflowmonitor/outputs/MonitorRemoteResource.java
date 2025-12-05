@@ -16,7 +16,7 @@ public final class MonitorRemoteResource {
      */
     private String identifier;
     /**
-     * @return The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+     * @return The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
      * 
      */
     private String type;
@@ -30,7 +30,7 @@ public final class MonitorRemoteResource {
         return this.identifier;
     }
     /**
-     * @return The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+     * @return The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
      * 
      */
     public String type() {

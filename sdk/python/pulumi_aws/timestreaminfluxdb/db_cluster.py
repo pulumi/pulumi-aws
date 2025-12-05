@@ -21,14 +21,11 @@ __all__ = ['DbClusterArgs', 'DbCluster']
 @pulumi.input_type
 class DbClusterArgs:
     def __init__(__self__, *,
-                 allocated_storage: pulumi.Input[_builtins.int],
-                 bucket: pulumi.Input[_builtins.str],
                  db_instance_type: pulumi.Input[_builtins.str],
-                 organization: pulumi.Input[_builtins.str],
-                 password: pulumi.Input[_builtins.str],
-                 username: pulumi.Input[_builtins.str],
                  vpc_security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 allocated_storage: Optional[pulumi.Input[_builtins.int]] = None,
+                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  db_parameter_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  db_storage_type: Optional[pulumi.Input[_builtins.str]] = None,
                  deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -36,43 +33,45 @@ class DbClusterArgs:
                  log_delivery_configuration: Optional[pulumi.Input['DbClusterLogDeliveryConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 organization: Optional[pulumi.Input[_builtins.str]] = None,
+                 password: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['DbClusterTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['DbClusterTimeoutsArgs']] = None,
+                 username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DbCluster resource.
-        :param pulumi.Input[_builtins.int] allocated_storage: Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
-        :param pulumi.Input[_builtins.str] bucket: Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         :param pulumi.Input[_builtins.str] db_instance_type: Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
-        :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
-        :param pulumi.Input[_builtins.str] password: Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
-        :param pulumi.Input[_builtins.str] username: Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security group IDs to associate with the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: List of VPC subnet IDs to associate with the cluster. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.int] allocated_storage: Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        :param pulumi.Input[_builtins.str] bucket: Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] db_parameter_group_identifier: ID of the DB parameter group assigned to your cluster. This argument is updatable. If added to an existing Timestream for InfluxDB cluster or given a new value, will cause an in-place update to the cluster. However, if a cluster already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the cluster to be destroyed and recreated.
         :param pulumi.Input[_builtins.str] db_storage_type: Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400.
-        :param pulumi.Input[_builtins.str] deployment_type: Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`.
+        :param pulumi.Input[_builtins.str] deployment_type: Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] failover_mode: Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
         :param pulumi.Input['DbClusterLogDeliveryConfigurationArgs'] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
         :param pulumi.Input[_builtins.str] name: Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         :param pulumi.Input[_builtins.str] network_type: Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+        :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        :param pulumi.Input[_builtins.str] password: Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
         :param pulumi.Input[_builtins.int] port: The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] username: Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
-        pulumi.set(__self__, "allocated_storage", allocated_storage)
-        pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "db_instance_type", db_instance_type)
-        pulumi.set(__self__, "organization", organization)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
         pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+        if allocated_storage is not None:
+            pulumi.set(__self__, "allocated_storage", allocated_storage)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
         if db_parameter_group_identifier is not None:
             pulumi.set(__self__, "db_parameter_group_identifier", db_parameter_group_identifier)
         if db_storage_type is not None:
@@ -87,6 +86,10 @@ class DbClusterArgs:
             pulumi.set(__self__, "name", name)
         if network_type is not None:
             pulumi.set(__self__, "network_type", network_type)
+        if organization is not None:
+            pulumi.set(__self__, "organization", organization)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if publicly_accessible is not None:
@@ -97,30 +100,8 @@ class DbClusterArgs:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
-
-    @_builtins.property
-    @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> pulumi.Input[_builtins.int]:
-        """
-        Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
-        """
-        return pulumi.get(self, "allocated_storage")
-
-    @allocated_storage.setter
-    def allocated_storage(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "allocated_storage", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
-        """
-        return pulumi.get(self, "bucket")
-
-    @bucket.setter
-    def bucket(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "bucket", value)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceType")
@@ -133,42 +114,6 @@ class DbClusterArgs:
     @db_instance_type.setter
     def db_instance_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "db_instance_type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def organization(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
-        """
-        return pulumi.get(self, "organization")
-
-    @organization.setter
-    def organization(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "organization", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[_builtins.str]:
-        """
-        Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "password", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def username(self) -> pulumi.Input[_builtins.str]:
-        """
-        Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "username", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
@@ -195,6 +140,30 @@ class DbClusterArgs:
     @vpc_subnet_ids.setter
     def vpc_subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "vpc_subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allocatedStorage")
+    def allocated_storage(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        """
+        return pulumi.get(self, "allocated_storage")
+
+    @allocated_storage.setter
+    def allocated_storage(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "allocated_storage", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="dbParameterGroupIdentifier")
@@ -224,7 +193,7 @@ class DbClusterArgs:
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`.
+        Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
         return pulumi.get(self, "deployment_type")
 
@@ -279,6 +248,30 @@ class DbClusterArgs:
     @network_type.setter
     def network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "network_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        """
+        return pulumi.get(self, "organization")
+
+    @organization.setter
+    def organization(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "organization", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
@@ -337,6 +330,18 @@ class DbClusterArgs:
     def timeouts(self, value: Optional[pulumi.Input['DbClusterTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "username", value)
+
 
 @pulumi.input_type
 class _DbClusterState:
@@ -349,6 +354,7 @@ class _DbClusterState:
                  db_storage_type: Optional[pulumi.Input[_builtins.str]] = None,
                  deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 engine_type: Optional[pulumi.Input[_builtins.str]] = None,
                  failover_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  influx_auth_parameters_secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  log_delivery_configuration: Optional[pulumi.Input['DbClusterLogDeliveryConfigurationArgs']] = None,
@@ -368,28 +374,29 @@ class _DbClusterState:
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DbCluster resources.
-        :param pulumi.Input[_builtins.int] allocated_storage: Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
+        :param pulumi.Input[_builtins.int] allocated_storage: Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] arn: ARN of the Timestream for InfluxDB cluster.
-        :param pulumi.Input[_builtins.str] bucket: Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        :param pulumi.Input[_builtins.str] bucket: Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] db_instance_type: Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
         :param pulumi.Input[_builtins.str] db_parameter_group_identifier: ID of the DB parameter group assigned to your cluster. This argument is updatable. If added to an existing Timestream for InfluxDB cluster or given a new value, will cause an in-place update to the cluster. However, if a cluster already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the cluster to be destroyed and recreated.
         :param pulumi.Input[_builtins.str] db_storage_type: Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400.
-        :param pulumi.Input[_builtins.str] deployment_type: Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`.
+        :param pulumi.Input[_builtins.str] deployment_type: Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] endpoint: Endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
+        :param pulumi.Input[_builtins.str] engine_type: Database engine type of the DB cluster.
         :param pulumi.Input[_builtins.str] failover_mode: Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
-        :param pulumi.Input[_builtins.str] influx_auth_parameters_secret_arn: ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+        :param pulumi.Input[_builtins.str] influx_auth_parameters_secret_arn: ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. For InfluxDB V2 clusters, the secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. For InfluxDB V3 clusters, the secret contains the InfluxDB admin token.
         :param pulumi.Input['DbClusterLogDeliveryConfigurationArgs'] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
         :param pulumi.Input[_builtins.str] name: Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         :param pulumi.Input[_builtins.str] network_type: Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
-        :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
-        :param pulumi.Input[_builtins.str] password: Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        :param pulumi.Input[_builtins.str] password: Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
         :param pulumi.Input[_builtins.int] port: The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
         :param pulumi.Input[_builtins.str] reader_endpoint: The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] username: Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        :param pulumi.Input[_builtins.str] username: Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security group IDs to associate with the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: List of VPC subnet IDs to associate with the cluster. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
                
@@ -411,6 +418,8 @@ class _DbClusterState:
             pulumi.set(__self__, "deployment_type", deployment_type)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if engine_type is not None:
+            pulumi.set(__self__, "engine_type", engine_type)
         if failover_mode is not None:
             pulumi.set(__self__, "failover_mode", failover_mode)
         if influx_auth_parameters_secret_arn is not None:
@@ -450,7 +459,7 @@ class _DbClusterState:
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
+        Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -474,7 +483,7 @@ class _DbClusterState:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
         return pulumi.get(self, "bucket")
 
@@ -522,7 +531,7 @@ class _DbClusterState:
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`.
+        Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
         return pulumi.get(self, "deployment_type")
 
@@ -543,6 +552,18 @@ class _DbClusterState:
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
+    @pulumi.getter(name="engineType")
+    def engine_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Database engine type of the DB cluster.
+        """
+        return pulumi.get(self, "engine_type")
+
+    @engine_type.setter
+    def engine_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "engine_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="failoverMode")
     def failover_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -558,7 +579,7 @@ class _DbClusterState:
     @pulumi.getter(name="influxAuthParametersSecretArn")
     def influx_auth_parameters_secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+        ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. For InfluxDB V2 clusters, the secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. For InfluxDB V3 clusters, the secret contains the InfluxDB admin token.
         """
         return pulumi.get(self, "influx_auth_parameters_secret_arn")
 
@@ -606,7 +627,7 @@ class _DbClusterState:
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
         return pulumi.get(self, "organization")
 
@@ -618,7 +639,7 @@ class _DbClusterState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
         """
         return pulumi.get(self, "password")
 
@@ -711,7 +732,7 @@ class _DbClusterState:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
         return pulumi.get(self, "username")
 
@@ -879,6 +900,51 @@ class DbCluster(pulumi.CustomResource):
             })
         ```
 
+        ### Usage with InfluxDB V3
+
+        For InfluxDB V3 clusters, you can create a cluster without providing `allocated_storage`, `bucket`, `organization`, `username`, `password`, or `deployment_type` by specifying a `db_parameter_group_identifier` such as `"InfluxDBV3Core"`. The following example shows how to create an InfluxDB V3 cluster:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.timestreaminfluxdb.DbCluster("example",
+            name="example-v3-cluster",
+            db_instance_type="db.influx.large",
+            db_parameter_group_identifier="InfluxDBV3Core",
+            vpc_subnet_ids=[
+                example1["id"],
+                example2["id"],
+            ],
+            vpc_security_group_ids=[example_aws_security_group["id"]])
+        ```
+
+        ## Cluster Type Requirements
+
+        ### InfluxDB V2 Clusters (default)
+
+        The following arguments are **required** for InfluxDB V2 clusters:
+
+        * `allocated_storage`
+        * `bucket`
+        * `deployment_type`
+        * `organization`
+        * `password`
+        * `username`
+
+        The `deployment_type` argument defaults to `"MULTI_NODE_READ_REPLICAS"` for InfluxDB V2 clusters when not specified.
+
+        ### InfluxDB V3 Clusters (when using V3 parameter groups)
+
+        The following arguments are **forbidden** for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group):
+
+        * `allocated_storage`
+        * `bucket`
+        * `deployment_type`
+        * `organization`
+        * `password`
+        * `username`
+
         ## Import
 
         Using `pulumi import`, import Timestream for InfluxDB cluster using its identifier. For example:
@@ -889,23 +955,23 @@ class DbCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] allocated_storage: Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
-        :param pulumi.Input[_builtins.str] bucket: Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        :param pulumi.Input[_builtins.int] allocated_storage: Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        :param pulumi.Input[_builtins.str] bucket: Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] db_instance_type: Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
         :param pulumi.Input[_builtins.str] db_parameter_group_identifier: ID of the DB parameter group assigned to your cluster. This argument is updatable. If added to an existing Timestream for InfluxDB cluster or given a new value, will cause an in-place update to the cluster. However, if a cluster already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the cluster to be destroyed and recreated.
         :param pulumi.Input[_builtins.str] db_storage_type: Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400.
-        :param pulumi.Input[_builtins.str] deployment_type: Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`.
+        :param pulumi.Input[_builtins.str] deployment_type: Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] failover_mode: Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
         :param pulumi.Input[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict']] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
         :param pulumi.Input[_builtins.str] name: Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         :param pulumi.Input[_builtins.str] network_type: Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
-        :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
-        :param pulumi.Input[_builtins.str] password: Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        :param pulumi.Input[_builtins.str] password: Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
         :param pulumi.Input[_builtins.int] port: The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] username: Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        :param pulumi.Input[_builtins.str] username: Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security group IDs to associate with the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: List of VPC subnet IDs to associate with the cluster. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
                
@@ -1023,6 +1089,51 @@ class DbCluster(pulumi.CustomResource):
             })
         ```
 
+        ### Usage with InfluxDB V3
+
+        For InfluxDB V3 clusters, you can create a cluster without providing `allocated_storage`, `bucket`, `organization`, `username`, `password`, or `deployment_type` by specifying a `db_parameter_group_identifier` such as `"InfluxDBV3Core"`. The following example shows how to create an InfluxDB V3 cluster:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.timestreaminfluxdb.DbCluster("example",
+            name="example-v3-cluster",
+            db_instance_type="db.influx.large",
+            db_parameter_group_identifier="InfluxDBV3Core",
+            vpc_subnet_ids=[
+                example1["id"],
+                example2["id"],
+            ],
+            vpc_security_group_ids=[example_aws_security_group["id"]])
+        ```
+
+        ## Cluster Type Requirements
+
+        ### InfluxDB V2 Clusters (default)
+
+        The following arguments are **required** for InfluxDB V2 clusters:
+
+        * `allocated_storage`
+        * `bucket`
+        * `deployment_type`
+        * `organization`
+        * `password`
+        * `username`
+
+        The `deployment_type` argument defaults to `"MULTI_NODE_READ_REPLICAS"` for InfluxDB V2 clusters when not specified.
+
+        ### InfluxDB V3 Clusters (when using V3 parameter groups)
+
+        The following arguments are **forbidden** for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group):
+
+        * `allocated_storage`
+        * `bucket`
+        * `deployment_type`
+        * `organization`
+        * `password`
+        * `username`
+
         ## Import
 
         Using `pulumi import`, import Timestream for InfluxDB cluster using its identifier. For example:
@@ -1075,11 +1186,7 @@ class DbCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DbClusterArgs.__new__(DbClusterArgs)
 
-            if allocated_storage is None and not opts.urn:
-                raise TypeError("Missing required property 'allocated_storage'")
             __props__.__dict__["allocated_storage"] = allocated_storage
-            if bucket is None and not opts.urn:
-                raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
             if db_instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'db_instance_type'")
@@ -1091,19 +1198,13 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["log_delivery_configuration"] = log_delivery_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["network_type"] = network_type
-            if organization is None and not opts.urn:
-                raise TypeError("Missing required property 'organization'")
             __props__.__dict__["organization"] = organization
-            if password is None and not opts.urn:
-                raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["port"] = port
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
-            if username is None and not opts.urn:
-                raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
             if vpc_security_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_security_group_ids'")
@@ -1113,6 +1214,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["vpc_subnet_ids"] = vpc_subnet_ids
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
+            __props__.__dict__["engine_type"] = None
             __props__.__dict__["influx_auth_parameters_secret_arn"] = None
             __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["tags_all"] = None
@@ -1136,6 +1238,7 @@ class DbCluster(pulumi.CustomResource):
             db_storage_type: Optional[pulumi.Input[_builtins.str]] = None,
             deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
             endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+            engine_type: Optional[pulumi.Input[_builtins.str]] = None,
             failover_mode: Optional[pulumi.Input[_builtins.str]] = None,
             influx_auth_parameters_secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
             log_delivery_configuration: Optional[pulumi.Input[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict']]] = None,
@@ -1160,28 +1263,29 @@ class DbCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] allocated_storage: Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
+        :param pulumi.Input[_builtins.int] allocated_storage: Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] arn: ARN of the Timestream for InfluxDB cluster.
-        :param pulumi.Input[_builtins.str] bucket: Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        :param pulumi.Input[_builtins.str] bucket: Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] db_instance_type: Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
         :param pulumi.Input[_builtins.str] db_parameter_group_identifier: ID of the DB parameter group assigned to your cluster. This argument is updatable. If added to an existing Timestream for InfluxDB cluster or given a new value, will cause an in-place update to the cluster. However, if a cluster already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the cluster to be destroyed and recreated.
         :param pulumi.Input[_builtins.str] db_storage_type: Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400.
-        :param pulumi.Input[_builtins.str] deployment_type: Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`.
+        :param pulumi.Input[_builtins.str] deployment_type: Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] endpoint: Endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
+        :param pulumi.Input[_builtins.str] engine_type: Database engine type of the DB cluster.
         :param pulumi.Input[_builtins.str] failover_mode: Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
-        :param pulumi.Input[_builtins.str] influx_auth_parameters_secret_arn: ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+        :param pulumi.Input[_builtins.str] influx_auth_parameters_secret_arn: ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. For InfluxDB V2 clusters, the secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. For InfluxDB V3 clusters, the secret contains the InfluxDB admin token.
         :param pulumi.Input[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict']] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
         :param pulumi.Input[_builtins.str] name: Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         :param pulumi.Input[_builtins.str] network_type: Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
-        :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
-        :param pulumi.Input[_builtins.str] password: Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        :param pulumi.Input[_builtins.str] password: Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
         :param pulumi.Input[_builtins.int] port: The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
         :param pulumi.Input[_builtins.str] reader_endpoint: The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] username: Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        :param pulumi.Input[_builtins.str] username: Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security group IDs to associate with the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: List of VPC subnet IDs to associate with the cluster. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
                
@@ -1199,6 +1303,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["db_storage_type"] = db_storage_type
         __props__.__dict__["deployment_type"] = deployment_type
         __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["engine_type"] = engine_type
         __props__.__dict__["failover_mode"] = failover_mode
         __props__.__dict__["influx_auth_parameters_secret_arn"] = influx_auth_parameters_secret_arn
         __props__.__dict__["log_delivery_configuration"] = log_delivery_configuration
@@ -1220,9 +1325,9 @@ class DbCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> pulumi.Output[_builtins.int]:
+    def allocated_storage(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
+        Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -1236,9 +1341,9 @@ class DbCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> pulumi.Output[_builtins.str]:
+    def bucket(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
         return pulumi.get(self, "bucket")
 
@@ -1270,7 +1375,7 @@ class DbCluster(pulumi.CustomResource):
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`.
+        Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
         return pulumi.get(self, "deployment_type")
 
@@ -1281,6 +1386,14 @@ class DbCluster(pulumi.CustomResource):
         Endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
         """
         return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="engineType")
+    def engine_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Database engine type of the DB cluster.
+        """
+        return pulumi.get(self, "engine_type")
 
     @_builtins.property
     @pulumi.getter(name="failoverMode")
@@ -1294,7 +1407,7 @@ class DbCluster(pulumi.CustomResource):
     @pulumi.getter(name="influxAuthParametersSecretArn")
     def influx_auth_parameters_secret_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+        ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. For InfluxDB V2 clusters, the secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. For InfluxDB V3 clusters, the secret contains the InfluxDB admin token.
         """
         return pulumi.get(self, "influx_auth_parameters_secret_arn")
 
@@ -1324,17 +1437,17 @@ class DbCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> pulumi.Output[_builtins.str]:
+    def organization(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
         return pulumi.get(self, "organization")
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> pulumi.Output[_builtins.str]:
+    def password(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
         """
         return pulumi.get(self, "password")
 
@@ -1393,9 +1506,9 @@ class DbCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> pulumi.Output[_builtins.str]:
+    def username(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
+        Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         """
         return pulumi.get(self, "username")
 

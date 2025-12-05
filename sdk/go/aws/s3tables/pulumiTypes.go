@@ -646,6 +646,240 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSetting
 	}).(pulumi.IntPtrOutput)
 }
 
+type TableBucketReplicationRule struct {
+	// Replication destination. See Destination below for more details.
+	Destinations []TableBucketReplicationRuleDestination `pulumi:"destinations"`
+}
+
+// TableBucketReplicationRuleInput is an input type that accepts TableBucketReplicationRuleArgs and TableBucketReplicationRuleOutput values.
+// You can construct a concrete instance of `TableBucketReplicationRuleInput` via:
+//
+//	TableBucketReplicationRuleArgs{...}
+type TableBucketReplicationRuleInput interface {
+	pulumi.Input
+
+	ToTableBucketReplicationRuleOutput() TableBucketReplicationRuleOutput
+	ToTableBucketReplicationRuleOutputWithContext(context.Context) TableBucketReplicationRuleOutput
+}
+
+type TableBucketReplicationRuleArgs struct {
+	// Replication destination. See Destination below for more details.
+	Destinations TableBucketReplicationRuleDestinationArrayInput `pulumi:"destinations"`
+}
+
+func (TableBucketReplicationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketReplicationRule)(nil)).Elem()
+}
+
+func (i TableBucketReplicationRuleArgs) ToTableBucketReplicationRuleOutput() TableBucketReplicationRuleOutput {
+	return i.ToTableBucketReplicationRuleOutputWithContext(context.Background())
+}
+
+func (i TableBucketReplicationRuleArgs) ToTableBucketReplicationRuleOutputWithContext(ctx context.Context) TableBucketReplicationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationRuleOutput)
+}
+
+func (i TableBucketReplicationRuleArgs) ToTableBucketReplicationRulePtrOutput() TableBucketReplicationRulePtrOutput {
+	return i.ToTableBucketReplicationRulePtrOutputWithContext(context.Background())
+}
+
+func (i TableBucketReplicationRuleArgs) ToTableBucketReplicationRulePtrOutputWithContext(ctx context.Context) TableBucketReplicationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationRuleOutput).ToTableBucketReplicationRulePtrOutputWithContext(ctx)
+}
+
+// TableBucketReplicationRulePtrInput is an input type that accepts TableBucketReplicationRuleArgs, TableBucketReplicationRulePtr and TableBucketReplicationRulePtrOutput values.
+// You can construct a concrete instance of `TableBucketReplicationRulePtrInput` via:
+//
+//	        TableBucketReplicationRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableBucketReplicationRulePtrInput interface {
+	pulumi.Input
+
+	ToTableBucketReplicationRulePtrOutput() TableBucketReplicationRulePtrOutput
+	ToTableBucketReplicationRulePtrOutputWithContext(context.Context) TableBucketReplicationRulePtrOutput
+}
+
+type tableBucketReplicationRulePtrType TableBucketReplicationRuleArgs
+
+func TableBucketReplicationRulePtr(v *TableBucketReplicationRuleArgs) TableBucketReplicationRulePtrInput {
+	return (*tableBucketReplicationRulePtrType)(v)
+}
+
+func (*tableBucketReplicationRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketReplicationRule)(nil)).Elem()
+}
+
+func (i *tableBucketReplicationRulePtrType) ToTableBucketReplicationRulePtrOutput() TableBucketReplicationRulePtrOutput {
+	return i.ToTableBucketReplicationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *tableBucketReplicationRulePtrType) ToTableBucketReplicationRulePtrOutputWithContext(ctx context.Context) TableBucketReplicationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationRulePtrOutput)
+}
+
+type TableBucketReplicationRuleOutput struct{ *pulumi.OutputState }
+
+func (TableBucketReplicationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketReplicationRule)(nil)).Elem()
+}
+
+func (o TableBucketReplicationRuleOutput) ToTableBucketReplicationRuleOutput() TableBucketReplicationRuleOutput {
+	return o
+}
+
+func (o TableBucketReplicationRuleOutput) ToTableBucketReplicationRuleOutputWithContext(ctx context.Context) TableBucketReplicationRuleOutput {
+	return o
+}
+
+func (o TableBucketReplicationRuleOutput) ToTableBucketReplicationRulePtrOutput() TableBucketReplicationRulePtrOutput {
+	return o.ToTableBucketReplicationRulePtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketReplicationRuleOutput) ToTableBucketReplicationRulePtrOutputWithContext(ctx context.Context) TableBucketReplicationRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableBucketReplicationRule) *TableBucketReplicationRule {
+		return &v
+	}).(TableBucketReplicationRulePtrOutput)
+}
+
+// Replication destination. See Destination below for more details.
+func (o TableBucketReplicationRuleOutput) Destinations() TableBucketReplicationRuleDestinationArrayOutput {
+	return o.ApplyT(func(v TableBucketReplicationRule) []TableBucketReplicationRuleDestination { return v.Destinations }).(TableBucketReplicationRuleDestinationArrayOutput)
+}
+
+type TableBucketReplicationRulePtrOutput struct{ *pulumi.OutputState }
+
+func (TableBucketReplicationRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketReplicationRule)(nil)).Elem()
+}
+
+func (o TableBucketReplicationRulePtrOutput) ToTableBucketReplicationRulePtrOutput() TableBucketReplicationRulePtrOutput {
+	return o
+}
+
+func (o TableBucketReplicationRulePtrOutput) ToTableBucketReplicationRulePtrOutputWithContext(ctx context.Context) TableBucketReplicationRulePtrOutput {
+	return o
+}
+
+func (o TableBucketReplicationRulePtrOutput) Elem() TableBucketReplicationRuleOutput {
+	return o.ApplyT(func(v *TableBucketReplicationRule) TableBucketReplicationRule {
+		if v != nil {
+			return *v
+		}
+		var ret TableBucketReplicationRule
+		return ret
+	}).(TableBucketReplicationRuleOutput)
+}
+
+// Replication destination. See Destination below for more details.
+func (o TableBucketReplicationRulePtrOutput) Destinations() TableBucketReplicationRuleDestinationArrayOutput {
+	return o.ApplyT(func(v *TableBucketReplicationRule) []TableBucketReplicationRuleDestination {
+		if v == nil {
+			return nil
+		}
+		return v.Destinations
+	}).(TableBucketReplicationRuleDestinationArrayOutput)
+}
+
+type TableBucketReplicationRuleDestination struct {
+	// ARN of destination table bucket to replicate source tables to.
+	DestinationTableBucketArn string `pulumi:"destinationTableBucketArn"`
+}
+
+// TableBucketReplicationRuleDestinationInput is an input type that accepts TableBucketReplicationRuleDestinationArgs and TableBucketReplicationRuleDestinationOutput values.
+// You can construct a concrete instance of `TableBucketReplicationRuleDestinationInput` via:
+//
+//	TableBucketReplicationRuleDestinationArgs{...}
+type TableBucketReplicationRuleDestinationInput interface {
+	pulumi.Input
+
+	ToTableBucketReplicationRuleDestinationOutput() TableBucketReplicationRuleDestinationOutput
+	ToTableBucketReplicationRuleDestinationOutputWithContext(context.Context) TableBucketReplicationRuleDestinationOutput
+}
+
+type TableBucketReplicationRuleDestinationArgs struct {
+	// ARN of destination table bucket to replicate source tables to.
+	DestinationTableBucketArn pulumi.StringInput `pulumi:"destinationTableBucketArn"`
+}
+
+func (TableBucketReplicationRuleDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketReplicationRuleDestination)(nil)).Elem()
+}
+
+func (i TableBucketReplicationRuleDestinationArgs) ToTableBucketReplicationRuleDestinationOutput() TableBucketReplicationRuleDestinationOutput {
+	return i.ToTableBucketReplicationRuleDestinationOutputWithContext(context.Background())
+}
+
+func (i TableBucketReplicationRuleDestinationArgs) ToTableBucketReplicationRuleDestinationOutputWithContext(ctx context.Context) TableBucketReplicationRuleDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationRuleDestinationOutput)
+}
+
+// TableBucketReplicationRuleDestinationArrayInput is an input type that accepts TableBucketReplicationRuleDestinationArray and TableBucketReplicationRuleDestinationArrayOutput values.
+// You can construct a concrete instance of `TableBucketReplicationRuleDestinationArrayInput` via:
+//
+//	TableBucketReplicationRuleDestinationArray{ TableBucketReplicationRuleDestinationArgs{...} }
+type TableBucketReplicationRuleDestinationArrayInput interface {
+	pulumi.Input
+
+	ToTableBucketReplicationRuleDestinationArrayOutput() TableBucketReplicationRuleDestinationArrayOutput
+	ToTableBucketReplicationRuleDestinationArrayOutputWithContext(context.Context) TableBucketReplicationRuleDestinationArrayOutput
+}
+
+type TableBucketReplicationRuleDestinationArray []TableBucketReplicationRuleDestinationInput
+
+func (TableBucketReplicationRuleDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableBucketReplicationRuleDestination)(nil)).Elem()
+}
+
+func (i TableBucketReplicationRuleDestinationArray) ToTableBucketReplicationRuleDestinationArrayOutput() TableBucketReplicationRuleDestinationArrayOutput {
+	return i.ToTableBucketReplicationRuleDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i TableBucketReplicationRuleDestinationArray) ToTableBucketReplicationRuleDestinationArrayOutputWithContext(ctx context.Context) TableBucketReplicationRuleDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationRuleDestinationArrayOutput)
+}
+
+type TableBucketReplicationRuleDestinationOutput struct{ *pulumi.OutputState }
+
+func (TableBucketReplicationRuleDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketReplicationRuleDestination)(nil)).Elem()
+}
+
+func (o TableBucketReplicationRuleDestinationOutput) ToTableBucketReplicationRuleDestinationOutput() TableBucketReplicationRuleDestinationOutput {
+	return o
+}
+
+func (o TableBucketReplicationRuleDestinationOutput) ToTableBucketReplicationRuleDestinationOutputWithContext(ctx context.Context) TableBucketReplicationRuleDestinationOutput {
+	return o
+}
+
+// ARN of destination table bucket to replicate source tables to.
+func (o TableBucketReplicationRuleDestinationOutput) DestinationTableBucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TableBucketReplicationRuleDestination) string { return v.DestinationTableBucketArn }).(pulumi.StringOutput)
+}
+
+type TableBucketReplicationRuleDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (TableBucketReplicationRuleDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableBucketReplicationRuleDestination)(nil)).Elem()
+}
+
+func (o TableBucketReplicationRuleDestinationArrayOutput) ToTableBucketReplicationRuleDestinationArrayOutput() TableBucketReplicationRuleDestinationArrayOutput {
+	return o
+}
+
+func (o TableBucketReplicationRuleDestinationArrayOutput) ToTableBucketReplicationRuleDestinationArrayOutputWithContext(ctx context.Context) TableBucketReplicationRuleDestinationArrayOutput {
+	return o
+}
+
+func (o TableBucketReplicationRuleDestinationArrayOutput) Index(i pulumi.IntInput) TableBucketReplicationRuleDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableBucketReplicationRuleDestination {
+		return vs[0].([]TableBucketReplicationRuleDestination)[vs[1].(int)]
+	}).(TableBucketReplicationRuleDestinationOutput)
+}
+
 type TableEncryptionConfiguration struct {
 	// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
@@ -2149,6 +2383,240 @@ func (o TableMetadataIcebergSchemaFieldArrayOutput) Index(i pulumi.IntInput) Tab
 	}).(TableMetadataIcebergSchemaFieldOutput)
 }
 
+type TableReplicationRule struct {
+	// Replication destination. See Destination below for more details.
+	Destinations []TableReplicationRuleDestination `pulumi:"destinations"`
+}
+
+// TableReplicationRuleInput is an input type that accepts TableReplicationRuleArgs and TableReplicationRuleOutput values.
+// You can construct a concrete instance of `TableReplicationRuleInput` via:
+//
+//	TableReplicationRuleArgs{...}
+type TableReplicationRuleInput interface {
+	pulumi.Input
+
+	ToTableReplicationRuleOutput() TableReplicationRuleOutput
+	ToTableReplicationRuleOutputWithContext(context.Context) TableReplicationRuleOutput
+}
+
+type TableReplicationRuleArgs struct {
+	// Replication destination. See Destination below for more details.
+	Destinations TableReplicationRuleDestinationArrayInput `pulumi:"destinations"`
+}
+
+func (TableReplicationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableReplicationRule)(nil)).Elem()
+}
+
+func (i TableReplicationRuleArgs) ToTableReplicationRuleOutput() TableReplicationRuleOutput {
+	return i.ToTableReplicationRuleOutputWithContext(context.Background())
+}
+
+func (i TableReplicationRuleArgs) ToTableReplicationRuleOutputWithContext(ctx context.Context) TableReplicationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableReplicationRuleOutput)
+}
+
+func (i TableReplicationRuleArgs) ToTableReplicationRulePtrOutput() TableReplicationRulePtrOutput {
+	return i.ToTableReplicationRulePtrOutputWithContext(context.Background())
+}
+
+func (i TableReplicationRuleArgs) ToTableReplicationRulePtrOutputWithContext(ctx context.Context) TableReplicationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableReplicationRuleOutput).ToTableReplicationRulePtrOutputWithContext(ctx)
+}
+
+// TableReplicationRulePtrInput is an input type that accepts TableReplicationRuleArgs, TableReplicationRulePtr and TableReplicationRulePtrOutput values.
+// You can construct a concrete instance of `TableReplicationRulePtrInput` via:
+//
+//	        TableReplicationRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableReplicationRulePtrInput interface {
+	pulumi.Input
+
+	ToTableReplicationRulePtrOutput() TableReplicationRulePtrOutput
+	ToTableReplicationRulePtrOutputWithContext(context.Context) TableReplicationRulePtrOutput
+}
+
+type tableReplicationRulePtrType TableReplicationRuleArgs
+
+func TableReplicationRulePtr(v *TableReplicationRuleArgs) TableReplicationRulePtrInput {
+	return (*tableReplicationRulePtrType)(v)
+}
+
+func (*tableReplicationRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableReplicationRule)(nil)).Elem()
+}
+
+func (i *tableReplicationRulePtrType) ToTableReplicationRulePtrOutput() TableReplicationRulePtrOutput {
+	return i.ToTableReplicationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *tableReplicationRulePtrType) ToTableReplicationRulePtrOutputWithContext(ctx context.Context) TableReplicationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableReplicationRulePtrOutput)
+}
+
+type TableReplicationRuleOutput struct{ *pulumi.OutputState }
+
+func (TableReplicationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableReplicationRule)(nil)).Elem()
+}
+
+func (o TableReplicationRuleOutput) ToTableReplicationRuleOutput() TableReplicationRuleOutput {
+	return o
+}
+
+func (o TableReplicationRuleOutput) ToTableReplicationRuleOutputWithContext(ctx context.Context) TableReplicationRuleOutput {
+	return o
+}
+
+func (o TableReplicationRuleOutput) ToTableReplicationRulePtrOutput() TableReplicationRulePtrOutput {
+	return o.ToTableReplicationRulePtrOutputWithContext(context.Background())
+}
+
+func (o TableReplicationRuleOutput) ToTableReplicationRulePtrOutputWithContext(ctx context.Context) TableReplicationRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableReplicationRule) *TableReplicationRule {
+		return &v
+	}).(TableReplicationRulePtrOutput)
+}
+
+// Replication destination. See Destination below for more details.
+func (o TableReplicationRuleOutput) Destinations() TableReplicationRuleDestinationArrayOutput {
+	return o.ApplyT(func(v TableReplicationRule) []TableReplicationRuleDestination { return v.Destinations }).(TableReplicationRuleDestinationArrayOutput)
+}
+
+type TableReplicationRulePtrOutput struct{ *pulumi.OutputState }
+
+func (TableReplicationRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableReplicationRule)(nil)).Elem()
+}
+
+func (o TableReplicationRulePtrOutput) ToTableReplicationRulePtrOutput() TableReplicationRulePtrOutput {
+	return o
+}
+
+func (o TableReplicationRulePtrOutput) ToTableReplicationRulePtrOutputWithContext(ctx context.Context) TableReplicationRulePtrOutput {
+	return o
+}
+
+func (o TableReplicationRulePtrOutput) Elem() TableReplicationRuleOutput {
+	return o.ApplyT(func(v *TableReplicationRule) TableReplicationRule {
+		if v != nil {
+			return *v
+		}
+		var ret TableReplicationRule
+		return ret
+	}).(TableReplicationRuleOutput)
+}
+
+// Replication destination. See Destination below for more details.
+func (o TableReplicationRulePtrOutput) Destinations() TableReplicationRuleDestinationArrayOutput {
+	return o.ApplyT(func(v *TableReplicationRule) []TableReplicationRuleDestination {
+		if v == nil {
+			return nil
+		}
+		return v.Destinations
+	}).(TableReplicationRuleDestinationArrayOutput)
+}
+
+type TableReplicationRuleDestination struct {
+	// ARN of destination table bucket to replicate source tables to.
+	DestinationTableBucketArn string `pulumi:"destinationTableBucketArn"`
+}
+
+// TableReplicationRuleDestinationInput is an input type that accepts TableReplicationRuleDestinationArgs and TableReplicationRuleDestinationOutput values.
+// You can construct a concrete instance of `TableReplicationRuleDestinationInput` via:
+//
+//	TableReplicationRuleDestinationArgs{...}
+type TableReplicationRuleDestinationInput interface {
+	pulumi.Input
+
+	ToTableReplicationRuleDestinationOutput() TableReplicationRuleDestinationOutput
+	ToTableReplicationRuleDestinationOutputWithContext(context.Context) TableReplicationRuleDestinationOutput
+}
+
+type TableReplicationRuleDestinationArgs struct {
+	// ARN of destination table bucket to replicate source tables to.
+	DestinationTableBucketArn pulumi.StringInput `pulumi:"destinationTableBucketArn"`
+}
+
+func (TableReplicationRuleDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableReplicationRuleDestination)(nil)).Elem()
+}
+
+func (i TableReplicationRuleDestinationArgs) ToTableReplicationRuleDestinationOutput() TableReplicationRuleDestinationOutput {
+	return i.ToTableReplicationRuleDestinationOutputWithContext(context.Background())
+}
+
+func (i TableReplicationRuleDestinationArgs) ToTableReplicationRuleDestinationOutputWithContext(ctx context.Context) TableReplicationRuleDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableReplicationRuleDestinationOutput)
+}
+
+// TableReplicationRuleDestinationArrayInput is an input type that accepts TableReplicationRuleDestinationArray and TableReplicationRuleDestinationArrayOutput values.
+// You can construct a concrete instance of `TableReplicationRuleDestinationArrayInput` via:
+//
+//	TableReplicationRuleDestinationArray{ TableReplicationRuleDestinationArgs{...} }
+type TableReplicationRuleDestinationArrayInput interface {
+	pulumi.Input
+
+	ToTableReplicationRuleDestinationArrayOutput() TableReplicationRuleDestinationArrayOutput
+	ToTableReplicationRuleDestinationArrayOutputWithContext(context.Context) TableReplicationRuleDestinationArrayOutput
+}
+
+type TableReplicationRuleDestinationArray []TableReplicationRuleDestinationInput
+
+func (TableReplicationRuleDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableReplicationRuleDestination)(nil)).Elem()
+}
+
+func (i TableReplicationRuleDestinationArray) ToTableReplicationRuleDestinationArrayOutput() TableReplicationRuleDestinationArrayOutput {
+	return i.ToTableReplicationRuleDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i TableReplicationRuleDestinationArray) ToTableReplicationRuleDestinationArrayOutputWithContext(ctx context.Context) TableReplicationRuleDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableReplicationRuleDestinationArrayOutput)
+}
+
+type TableReplicationRuleDestinationOutput struct{ *pulumi.OutputState }
+
+func (TableReplicationRuleDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableReplicationRuleDestination)(nil)).Elem()
+}
+
+func (o TableReplicationRuleDestinationOutput) ToTableReplicationRuleDestinationOutput() TableReplicationRuleDestinationOutput {
+	return o
+}
+
+func (o TableReplicationRuleDestinationOutput) ToTableReplicationRuleDestinationOutputWithContext(ctx context.Context) TableReplicationRuleDestinationOutput {
+	return o
+}
+
+// ARN of destination table bucket to replicate source tables to.
+func (o TableReplicationRuleDestinationOutput) DestinationTableBucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TableReplicationRuleDestination) string { return v.DestinationTableBucketArn }).(pulumi.StringOutput)
+}
+
+type TableReplicationRuleDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (TableReplicationRuleDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableReplicationRuleDestination)(nil)).Elem()
+}
+
+func (o TableReplicationRuleDestinationArrayOutput) ToTableReplicationRuleDestinationArrayOutput() TableReplicationRuleDestinationArrayOutput {
+	return o
+}
+
+func (o TableReplicationRuleDestinationArrayOutput) ToTableReplicationRuleDestinationArrayOutputWithContext(ctx context.Context) TableReplicationRuleDestinationArrayOutput {
+	return o
+}
+
+func (o TableReplicationRuleDestinationArrayOutput) Index(i pulumi.IntInput) TableReplicationRuleDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableReplicationRuleDestination {
+		return vs[0].([]TableReplicationRuleDestination)[vs[1].(int)]
+	}).(TableReplicationRuleDestinationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationPtrInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
@@ -2158,6 +2626,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrInput)(nil)).Elem(), TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsInput)(nil)).Elem(), TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrInput)(nil)).Elem(), TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationRuleInput)(nil)).Elem(), TableBucketReplicationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationRulePtrInput)(nil)).Elem(), TableBucketReplicationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationRuleDestinationInput)(nil)).Elem(), TableBucketReplicationRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationRuleDestinationArrayInput)(nil)).Elem(), TableBucketReplicationRuleDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionConfigurationInput)(nil)).Elem(), TableEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionConfigurationPtrInput)(nil)).Elem(), TableEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMaintenanceConfigurationInput)(nil)).Elem(), TableMaintenanceConfigurationArgs{})
@@ -2178,6 +2650,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataIcebergSchemaPtrInput)(nil)).Elem(), TableMetadataIcebergSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataIcebergSchemaFieldInput)(nil)).Elem(), TableMetadataIcebergSchemaFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataIcebergSchemaFieldArrayInput)(nil)).Elem(), TableMetadataIcebergSchemaFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableReplicationRuleInput)(nil)).Elem(), TableReplicationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableReplicationRulePtrInput)(nil)).Elem(), TableReplicationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableReplicationRuleDestinationInput)(nil)).Elem(), TableReplicationRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableReplicationRuleDestinationArrayInput)(nil)).Elem(), TableReplicationRuleDestinationArray{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketMaintenanceConfigurationOutput{})
@@ -2186,6 +2662,10 @@ func init() {
 	pulumi.RegisterOutputType(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput{})
 	pulumi.RegisterOutputType(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput{})
+	pulumi.RegisterOutputType(TableBucketReplicationRuleOutput{})
+	pulumi.RegisterOutputType(TableBucketReplicationRulePtrOutput{})
+	pulumi.RegisterOutputType(TableBucketReplicationRuleDestinationOutput{})
+	pulumi.RegisterOutputType(TableBucketReplicationRuleDestinationArrayOutput{})
 	pulumi.RegisterOutputType(TableEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(TableEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableMaintenanceConfigurationOutput{})
@@ -2206,4 +2686,8 @@ func init() {
 	pulumi.RegisterOutputType(TableMetadataIcebergSchemaPtrOutput{})
 	pulumi.RegisterOutputType(TableMetadataIcebergSchemaFieldOutput{})
 	pulumi.RegisterOutputType(TableMetadataIcebergSchemaFieldArrayOutput{})
+	pulumi.RegisterOutputType(TableReplicationRuleOutput{})
+	pulumi.RegisterOutputType(TableReplicationRulePtrOutput{})
+	pulumi.RegisterOutputType(TableReplicationRuleDestinationOutput{})
+	pulumi.RegisterOutputType(TableReplicationRuleDestinationArrayOutput{})
 }

@@ -39,8 +39,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
  *
- * console
- *
  * % pulumi import aws_globalaccelerator_custom_routing_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
  */
 export class CustomRoutingEndpointGroup extends pulumi.CustomResource {

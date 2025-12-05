@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccessPolicyAssociation{}
 	case "aws:eks/addon:Addon":
 		r = &Addon{}
+	case "aws:eks/capability:Capability":
+		r = &Capability{}
 	case "aws:eks/cluster:Cluster":
 		r = &Cluster{}
 	case "aws:eks/fargateProfile:FargateProfile":
@@ -63,6 +65,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"eks/addon",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"eks/capability",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

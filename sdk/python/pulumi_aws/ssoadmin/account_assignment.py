@@ -24,8 +24,8 @@ class AccountAssignmentArgs:
                  principal_id: pulumi.Input[_builtins.str],
                  principal_type: pulumi.Input[_builtins.str],
                  target_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_type: pulumi.Input[_builtins.str],
+                 region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountAssignment resource.
         :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
@@ -33,18 +33,17 @@ class AccountAssignmentArgs:
         :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
         :param pulumi.Input[_builtins.str] principal_type: The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
         :param pulumi.Input[_builtins.str] target_id: An AWS account identifier, typically a 10-12 digit string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "permission_set_arn", permission_set_arn)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "principal_type", principal_type)
         pulumi.set(__self__, "target_id", target_id)
+        pulumi.set(__self__, "target_type", target_type)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if target_type is not None:
-            pulumi.set(__self__, "target_type", target_type)
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")
@@ -107,6 +106,18 @@ class AccountAssignmentArgs:
         pulumi.set(self, "target_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -117,18 +128,6 @@ class AccountAssignmentArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
-
-    @_builtins.property
-    @pulumi.getter(name="targetType")
-    def target_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-        """
-        return pulumi.get(self, "target_type")
-
-    @target_type.setter
-    def target_type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "target_type", value)
 
 
 @pulumi.input_type
@@ -464,6 +463,8 @@ class AccountAssignment(pulumi.CustomResource):
             if target_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_id'")
             __props__.__dict__["target_id"] = target_id
+            if target_type is None and not opts.urn:
+                raise TypeError("Missing required property 'target_type'")
             __props__.__dict__["target_type"] = target_type
         super(AccountAssignment, __self__).__init__(
             'aws:ssoadmin/accountAssignment:AccountAssignment',
@@ -560,7 +561,7 @@ class AccountAssignment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def target_type(self) -> pulumi.Output[_builtins.str]:
         """
         The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         """

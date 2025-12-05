@@ -67,8 +67,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import CodeConnections connection using the ARN. For example:
  * 
- * console
- * 
  * % pulumi import aws_codeconnections_connection.test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
  * 
  */

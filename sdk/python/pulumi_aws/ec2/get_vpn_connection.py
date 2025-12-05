@@ -28,7 +28,7 @@ class GetVpnConnectionResult:
     """
     A collection of values returned by getVpnConnection.
     """
-    def __init__(__self__, category=None, core_network_arn=None, core_network_attachment_arn=None, customer_gateway_configuration=None, customer_gateway_id=None, filters=None, gateway_association_state=None, id=None, pre_shared_key_arn=None, region=None, routes=None, state=None, tags=None, transit_gateway_id=None, type=None, vgw_telemetries=None, vpn_connection_id=None, vpn_gateway_id=None):
+    def __init__(__self__, category=None, core_network_arn=None, core_network_attachment_arn=None, customer_gateway_configuration=None, customer_gateway_id=None, filters=None, gateway_association_state=None, id=None, pre_shared_key_arn=None, region=None, routes=None, state=None, tags=None, transit_gateway_id=None, type=None, vgw_telemetries=None, vpn_concentrator_id=None, vpn_connection_id=None, vpn_gateway_id=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
@@ -77,6 +77,9 @@ class GetVpnConnectionResult:
         if vgw_telemetries and not isinstance(vgw_telemetries, list):
             raise TypeError("Expected argument 'vgw_telemetries' to be a list")
         pulumi.set(__self__, "vgw_telemetries", vgw_telemetries)
+        if vpn_concentrator_id and not isinstance(vpn_concentrator_id, str):
+            raise TypeError("Expected argument 'vpn_concentrator_id' to be a str")
+        pulumi.set(__self__, "vpn_concentrator_id", vpn_concentrator_id)
         if vpn_connection_id and not isinstance(vpn_connection_id, str):
             raise TypeError("Expected argument 'vpn_connection_id' to be a str")
         pulumi.set(__self__, "vpn_connection_id", vpn_connection_id)
@@ -207,6 +210,14 @@ class GetVpnConnectionResult:
         return pulumi.get(self, "vgw_telemetries")
 
     @_builtins.property
+    @pulumi.getter(name="vpnConcentratorId")
+    def vpn_concentrator_id(self) -> _builtins.str:
+        """
+        ID of a VPN concentrator associated with the VPN connection.
+        """
+        return pulumi.get(self, "vpn_concentrator_id")
+
+    @_builtins.property
     @pulumi.getter(name="vpnConnectionId")
     def vpn_connection_id(self) -> _builtins.str:
         return pulumi.get(self, "vpn_connection_id")
@@ -242,6 +253,7 @@ class AwaitableGetVpnConnectionResult(GetVpnConnectionResult):
             transit_gateway_id=self.transit_gateway_id,
             type=self.type,
             vgw_telemetries=self.vgw_telemetries,
+            vpn_concentrator_id=self.vpn_concentrator_id,
             vpn_connection_id=self.vpn_connection_id,
             vpn_gateway_id=self.vpn_gateway_id)
 
@@ -307,6 +319,7 @@ def get_vpn_connection(filters: Optional[Sequence[Union['GetVpnConnectionFilterA
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         type=pulumi.get(__ret__, 'type'),
         vgw_telemetries=pulumi.get(__ret__, 'vgw_telemetries'),
+        vpn_concentrator_id=pulumi.get(__ret__, 'vpn_concentrator_id'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
 def get_vpn_connection_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpnConnectionFilterArgs', 'GetVpnConnectionFilterArgsDict']]]]] = None,
@@ -369,5 +382,6 @@ def get_vpn_connection_output(filters: Optional[pulumi.Input[Optional[Sequence[U
         transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
         type=pulumi.get(__response__, 'type'),
         vgw_telemetries=pulumi.get(__response__, 'vgw_telemetries'),
+        vpn_concentrator_id=pulumi.get(__response__, 'vpn_concentrator_id'),
         vpn_connection_id=pulumi.get(__response__, 'vpn_connection_id'),
         vpn_gateway_id=pulumi.get(__response__, 'vpn_gateway_id')))

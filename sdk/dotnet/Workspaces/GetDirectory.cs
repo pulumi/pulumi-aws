@@ -210,6 +210,10 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+        /// </summary>
+        public readonly string Tenancy;
+        /// <summary>
         /// The user identity type for the WorkSpaces directory.
         /// </summary>
         public readonly string UserIdentityType;
@@ -274,6 +278,8 @@ namespace Pulumi.Aws.Workspaces
 
             ImmutableDictionary<string, string> tags,
 
+            string tenancy,
+
             string userIdentityType,
 
             ImmutableArray<Outputs.GetDirectoryWorkspaceAccessPropertyResult> workspaceAccessProperties,
@@ -305,6 +311,7 @@ namespace Pulumi.Aws.Workspaces
             SelfServicePermissions = selfServicePermissions;
             SubnetIds = subnetIds;
             Tags = tags;
+            Tenancy = tenancy;
             UserIdentityType = userIdentityType;
             WorkspaceAccessProperties = workspaceAccessProperties;
             WorkspaceCreationProperties = workspaceCreationProperties;

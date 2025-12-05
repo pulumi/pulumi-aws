@@ -119,8 +119,6 @@ import (
 //
 // Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
 //
-// console
-//
 // % pulumi import aws_batch_job_queue.test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
 type JobQueue struct {
 	pulumi.CustomResourceState

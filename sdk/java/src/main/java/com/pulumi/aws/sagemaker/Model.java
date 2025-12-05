@@ -22,11 +22,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker AI model resource.
+ * Manages an Amazon SageMaker AI Model.
  * 
  * ## Example Usage
  * 
- * Basic usage:
+ * ### Basic Usage
  * 
  * <pre>
  * {@code
@@ -88,35 +88,26 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Inference Execution Config
- * 
- * * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
- * 
- * ### VPC Config
- * 
- * * `securityGroupIds` - (Required) List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
- * * `subnets` - (Required) List of subnet IDs in the VPC to which you want to connect your training job or model.
- * 
  * ## Import
  * 
  * Using `pulumi import`, import models using the `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:sagemaker/model:Model test_model model-foo
+ * $ pulumi import aws:sagemaker/model:Model example model-foo
  * ```
  * 
  */
 @ResourceType(type="aws:sagemaker/model:Model")
 public class Model extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this model.
+     * Amazon Resource Name (ARN) assigned by AWS to this model.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this model.
+     * @return Amazon Resource Name (ARN) assigned by AWS to this model.
      * 
      */
     public Output<String> arn() {
@@ -179,28 +170,28 @@ public class Model extends com.pulumi.resources.CustomResource {
         return this.inferenceExecutionConfig;
     }
     /**
-     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     * Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     * @return Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+     * Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      * 
      */
     @Export(name="primaryContainer", refs={ModelPrimaryContainer.class}, tree="[0]")
     private Output</* @Nullable */ ModelPrimaryContainer> primaryContainer;
 
     /**
-     * @return The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+     * @return Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      * 
      */
     public Output<Optional<ModelPrimaryContainer>> primaryContainer() {

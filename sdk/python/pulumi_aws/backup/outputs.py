@@ -25,6 +25,8 @@ __all__ = [
     'PlanRuleCopyAction',
     'PlanRuleCopyActionLifecycle',
     'PlanRuleLifecycle',
+    'PlanRuleScanAction',
+    'PlanScanSetting',
     'ReportPlanReportDeliveryChannel',
     'ReportPlanReportSetting',
     'RestoreTestingPlanRecoveryPointSelection',
@@ -44,6 +46,8 @@ __all__ = [
     'GetPlanRuleCopyActionResult',
     'GetPlanRuleCopyActionLifecycleResult',
     'GetPlanRuleLifecycleResult',
+    'GetPlanRuleScanActionResult',
+    'GetPlanScanSettingResult',
     'GetReportPlanReportDeliveryChannelResult',
     'GetReportPlanReportSettingResult',
 ]
@@ -284,10 +288,14 @@ class PlanRule(dict):
             suggest = "enable_continuous_backup"
         elif key == "recoveryPointTags":
             suggest = "recovery_point_tags"
+        elif key == "scanActions":
+            suggest = "scan_actions"
         elif key == "scheduleExpressionTimezone":
             suggest = "schedule_expression_timezone"
         elif key == "startWindow":
             suggest = "start_window"
+        elif key == "targetLogicallyAirGappedBackupVaultArn":
+            suggest = "target_logically_air_gapped_backup_vault_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanRule. Access the value via the '{suggest}' property getter instead.")
@@ -308,9 +316,11 @@ class PlanRule(dict):
                  enable_continuous_backup: Optional[_builtins.bool] = None,
                  lifecycle: Optional['outputs.PlanRuleLifecycle'] = None,
                  recovery_point_tags: Optional[Mapping[str, _builtins.str]] = None,
+                 scan_actions: Optional[Sequence['outputs.PlanRuleScanAction']] = None,
                  schedule: Optional[_builtins.str] = None,
                  schedule_expression_timezone: Optional[_builtins.str] = None,
-                 start_window: Optional[_builtins.int] = None):
+                 start_window: Optional[_builtins.int] = None,
+                 target_logically_air_gapped_backup_vault_arn: Optional[_builtins.str] = None):
         """
         :param _builtins.str rule_name: An display name for a backup rule.
         :param _builtins.str target_vault_name: The name of a logical container where backups are stored.
@@ -319,9 +329,11 @@ class PlanRule(dict):
         :param _builtins.bool enable_continuous_backup: Enable continuous backups for supported resources.
         :param 'PlanRuleLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         :param Mapping[str, _builtins.str] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
+        :param Sequence['PlanRuleScanActionArgs'] scan_actions: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
         :param _builtins.str schedule: A CRON expression specifying when AWS Backup initiates a backup job.
         :param _builtins.str schedule_expression_timezone: The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
         :param _builtins.int start_window: The amount of time in minutes before beginning a backup.
+        :param _builtins.str target_logically_air_gapped_backup_vault_arn: The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
         """
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "target_vault_name", target_vault_name)
@@ -335,12 +347,16 @@ class PlanRule(dict):
             pulumi.set(__self__, "lifecycle", lifecycle)
         if recovery_point_tags is not None:
             pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
+        if scan_actions is not None:
+            pulumi.set(__self__, "scan_actions", scan_actions)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if schedule_expression_timezone is not None:
             pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
         if start_window is not None:
             pulumi.set(__self__, "start_window", start_window)
+        if target_logically_air_gapped_backup_vault_arn is not None:
+            pulumi.set(__self__, "target_logically_air_gapped_backup_vault_arn", target_logically_air_gapped_backup_vault_arn)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
@@ -399,6 +415,14 @@ class PlanRule(dict):
         return pulumi.get(self, "recovery_point_tags")
 
     @_builtins.property
+    @pulumi.getter(name="scanActions")
+    def scan_actions(self) -> Optional[Sequence['outputs.PlanRuleScanAction']]:
+        """
+        Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+        """
+        return pulumi.get(self, "scan_actions")
+
+    @_builtins.property
     @pulumi.getter
     def schedule(self) -> Optional[_builtins.str]:
         """
@@ -421,6 +445,14 @@ class PlanRule(dict):
         The amount of time in minutes before beginning a backup.
         """
         return pulumi.get(self, "start_window")
+
+    @_builtins.property
+    @pulumi.getter(name="targetLogicallyAirGappedBackupVaultArn")
+    def target_logically_air_gapped_backup_vault_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+        """
+        return pulumi.get(self, "target_logically_air_gapped_backup_vault_arn")
 
 
 @pulumi.output_type
@@ -596,6 +628,115 @@ class PlanRuleLifecycle(dict):
         This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
         """
         return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
+
+
+@pulumi.output_type
+class PlanRuleScanAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "malwareScanner":
+            suggest = "malware_scanner"
+        elif key == "scanMode":
+            suggest = "scan_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanRuleScanAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanRuleScanAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanRuleScanAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 malware_scanner: _builtins.str,
+                 scan_mode: _builtins.str):
+        """
+        :param _builtins.str malware_scanner: Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
+        :param _builtins.str scan_mode: Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
+        """
+        pulumi.set(__self__, "malware_scanner", malware_scanner)
+        pulumi.set(__self__, "scan_mode", scan_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="malwareScanner")
+    def malware_scanner(self) -> _builtins.str:
+        """
+        Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
+        """
+        return pulumi.get(self, "malware_scanner")
+
+    @_builtins.property
+    @pulumi.getter(name="scanMode")
+    def scan_mode(self) -> _builtins.str:
+        """
+        Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
+        """
+        return pulumi.get(self, "scan_mode")
+
+
+@pulumi.output_type
+class PlanScanSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "malwareScanner":
+            suggest = "malware_scanner"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
+        elif key == "scannerRoleArn":
+            suggest = "scanner_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanScanSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanScanSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanScanSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 malware_scanner: _builtins.str,
+                 resource_types: Sequence[_builtins.str],
+                 scanner_role_arn: _builtins.str):
+        """
+        :param _builtins.str malware_scanner: Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
+        :param Sequence[_builtins.str] resource_types: List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
+        :param _builtins.str scanner_role_arn: ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
+        """
+        pulumi.set(__self__, "malware_scanner", malware_scanner)
+        pulumi.set(__self__, "resource_types", resource_types)
+        pulumi.set(__self__, "scanner_role_arn", scanner_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="malwareScanner")
+    def malware_scanner(self) -> _builtins.str:
+        """
+        Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
+        """
+        return pulumi.get(self, "malware_scanner")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Sequence[_builtins.str]:
+        """
+        List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @_builtins.property
+    @pulumi.getter(name="scannerRoleArn")
+    def scanner_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
+        """
+        return pulumi.get(self, "scanner_role_arn")
 
 
 @pulumi.output_type
@@ -1306,9 +1447,11 @@ class GetPlanRuleResult(dict):
                  enable_continuous_backup: _builtins.bool,
                  lifecycles: Sequence['outputs.GetPlanRuleLifecycleResult'],
                  rule_name: _builtins.str,
+                 scan_actions: Sequence['outputs.GetPlanRuleScanActionResult'],
                  schedule: _builtins.str,
                  schedule_expression_timezone: _builtins.str,
                  start_window: _builtins.int,
+                 target_logically_air_gapped_backup_vault_arn: _builtins.str,
                  target_vault_name: _builtins.str,
                  recovery_point_tags: Optional[Mapping[str, _builtins.str]] = None):
         pulumi.set(__self__, "completion_window", completion_window)
@@ -1316,9 +1459,11 @@ class GetPlanRuleResult(dict):
         pulumi.set(__self__, "enable_continuous_backup", enable_continuous_backup)
         pulumi.set(__self__, "lifecycles", lifecycles)
         pulumi.set(__self__, "rule_name", rule_name)
+        pulumi.set(__self__, "scan_actions", scan_actions)
         pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
         pulumi.set(__self__, "start_window", start_window)
+        pulumi.set(__self__, "target_logically_air_gapped_backup_vault_arn", target_logically_air_gapped_backup_vault_arn)
         pulumi.set(__self__, "target_vault_name", target_vault_name)
         if recovery_point_tags is not None:
             pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
@@ -1349,6 +1494,11 @@ class GetPlanRuleResult(dict):
         return pulumi.get(self, "rule_name")
 
     @_builtins.property
+    @pulumi.getter(name="scanActions")
+    def scan_actions(self) -> Sequence['outputs.GetPlanRuleScanActionResult']:
+        return pulumi.get(self, "scan_actions")
+
+    @_builtins.property
     @pulumi.getter
     def schedule(self) -> _builtins.str:
         return pulumi.get(self, "schedule")
@@ -1362,6 +1512,11 @@ class GetPlanRuleResult(dict):
     @pulumi.getter(name="startWindow")
     def start_window(self) -> _builtins.int:
         return pulumi.get(self, "start_window")
+
+    @_builtins.property
+    @pulumi.getter(name="targetLogicallyAirGappedBackupVaultArn")
+    def target_logically_air_gapped_backup_vault_arn(self) -> _builtins.str:
+        return pulumi.get(self, "target_logically_air_gapped_backup_vault_arn")
 
     @_builtins.property
     @pulumi.getter(name="targetVaultName")
@@ -1443,6 +1598,51 @@ class GetPlanRuleLifecycleResult(dict):
     @pulumi.getter(name="optInToArchiveForSupportedResources")
     def opt_in_to_archive_for_supported_resources(self) -> _builtins.bool:
         return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
+
+
+@pulumi.output_type
+class GetPlanRuleScanActionResult(dict):
+    def __init__(__self__, *,
+                 malware_scanner: _builtins.str,
+                 scan_mode: _builtins.str):
+        pulumi.set(__self__, "malware_scanner", malware_scanner)
+        pulumi.set(__self__, "scan_mode", scan_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="malwareScanner")
+    def malware_scanner(self) -> _builtins.str:
+        return pulumi.get(self, "malware_scanner")
+
+    @_builtins.property
+    @pulumi.getter(name="scanMode")
+    def scan_mode(self) -> _builtins.str:
+        return pulumi.get(self, "scan_mode")
+
+
+@pulumi.output_type
+class GetPlanScanSettingResult(dict):
+    def __init__(__self__, *,
+                 malware_scanner: _builtins.str,
+                 resource_types: Sequence[_builtins.str],
+                 scanner_role_arn: _builtins.str):
+        pulumi.set(__self__, "malware_scanner", malware_scanner)
+        pulumi.set(__self__, "resource_types", resource_types)
+        pulumi.set(__self__, "scanner_role_arn", scanner_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="malwareScanner")
+    def malware_scanner(self) -> _builtins.str:
+        return pulumi.get(self, "malware_scanner")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "resource_types")
+
+    @_builtins.property
+    @pulumi.getter(name="scannerRoleArn")
+    def scanner_role_arn(self) -> _builtins.str:
+        return pulumi.get(self, "scanner_role_arn")
 
 
 @pulumi.output_type

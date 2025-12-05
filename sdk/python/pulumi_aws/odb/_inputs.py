@@ -35,10 +35,10 @@ __all__ = [
     'CloudExadataInfrastructureTimeoutsArgsDict',
     'CloudVmClusterDataCollectionOptionsArgs',
     'CloudVmClusterDataCollectionOptionsArgsDict',
-    'CloudVmClusterIormConfigCachArgs',
-    'CloudVmClusterIormConfigCachArgsDict',
-    'CloudVmClusterIormConfigCachDbPlanArgs',
-    'CloudVmClusterIormConfigCachDbPlanArgsDict',
+    'CloudVmClusterIormConfigCacheArgs',
+    'CloudVmClusterIormConfigCacheArgsDict',
+    'CloudVmClusterIormConfigCacheDbPlanArgs',
+    'CloudVmClusterIormConfigCacheDbPlanArgsDict',
     'CloudVmClusterTimeoutsArgs',
     'CloudVmClusterTimeoutsArgsDict',
     'NetworkManagedServiceArgs',
@@ -683,18 +683,18 @@ class CloudVmClusterDataCollectionOptionsArgs:
 
 
 if not MYPY:
-    class CloudVmClusterIormConfigCachArgsDict(TypedDict):
-        db_plans: pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCachDbPlanArgsDict']]]
+    class CloudVmClusterIormConfigCacheArgsDict(TypedDict):
+        db_plans: pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCacheDbPlanArgsDict']]]
         lifecycle_details: pulumi.Input[_builtins.str]
         lifecycle_state: pulumi.Input[_builtins.str]
         objective: pulumi.Input[_builtins.str]
 elif False:
-    CloudVmClusterIormConfigCachArgsDict: TypeAlias = Mapping[str, Any]
+    CloudVmClusterIormConfigCacheArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class CloudVmClusterIormConfigCachArgs:
+class CloudVmClusterIormConfigCacheArgs:
     def __init__(__self__, *,
-                 db_plans: pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCachDbPlanArgs']]],
+                 db_plans: pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCacheDbPlanArgs']]],
                  lifecycle_details: pulumi.Input[_builtins.str],
                  lifecycle_state: pulumi.Input[_builtins.str],
                  objective: pulumi.Input[_builtins.str]):
@@ -705,11 +705,11 @@ class CloudVmClusterIormConfigCachArgs:
 
     @_builtins.property
     @pulumi.getter(name="dbPlans")
-    def db_plans(self) -> pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCachDbPlanArgs']]]:
+    def db_plans(self) -> pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCacheDbPlanArgs']]]:
         return pulumi.get(self, "db_plans")
 
     @db_plans.setter
-    def db_plans(self, value: pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCachDbPlanArgs']]]):
+    def db_plans(self, value: pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCacheDbPlanArgs']]]):
         pulumi.set(self, "db_plans", value)
 
     @_builtins.property
@@ -741,15 +741,15 @@ class CloudVmClusterIormConfigCachArgs:
 
 
 if not MYPY:
-    class CloudVmClusterIormConfigCachDbPlanArgsDict(TypedDict):
+    class CloudVmClusterIormConfigCacheDbPlanArgsDict(TypedDict):
         db_name: pulumi.Input[_builtins.str]
         flash_cache_limit: pulumi.Input[_builtins.str]
         share: pulumi.Input[_builtins.int]
 elif False:
-    CloudVmClusterIormConfigCachDbPlanArgsDict: TypeAlias = Mapping[str, Any]
+    CloudVmClusterIormConfigCacheDbPlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class CloudVmClusterIormConfigCachDbPlanArgs:
+class CloudVmClusterIormConfigCacheDbPlanArgs:
     def __init__(__self__, *,
                  db_name: pulumi.Input[_builtins.str],
                  flash_cache_limit: pulumi.Input[_builtins.str],

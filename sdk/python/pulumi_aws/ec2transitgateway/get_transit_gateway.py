@@ -28,7 +28,7 @@ class GetTransitGatewayResult:
     """
     A collection of values returned by getTransitGateway.
     """
-    def __init__(__self__, amazon_side_asn=None, arn=None, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, filters=None, id=None, multicast_support=None, owner_id=None, propagation_default_route_table_id=None, region=None, security_group_referencing_support=None, tags=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
+    def __init__(__self__, amazon_side_asn=None, arn=None, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, encryption_support=None, filters=None, id=None, multicast_support=None, owner_id=None, propagation_default_route_table_id=None, region=None, security_group_referencing_support=None, tags=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
         if amazon_side_asn and not isinstance(amazon_side_asn, int):
             raise TypeError("Expected argument 'amazon_side_asn' to be a int")
         pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
@@ -53,6 +53,9 @@ class GetTransitGatewayResult:
         if dns_support and not isinstance(dns_support, str):
             raise TypeError("Expected argument 'dns_support' to be a str")
         pulumi.set(__self__, "dns_support", dns_support)
+        if encryption_support and not isinstance(encryption_support, str):
+            raise TypeError("Expected argument 'encryption_support' to be a str")
+        pulumi.set(__self__, "encryption_support", encryption_support)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -149,6 +152,14 @@ class GetTransitGatewayResult:
         return pulumi.get(self, "dns_support")
 
     @_builtins.property
+    @pulumi.getter(name="encryptionSupport")
+    def encryption_support(self) -> _builtins.str:
+        """
+        Whether encryption support for VPC Encryption Control is enabled.
+        """
+        return pulumi.get(self, "encryption_support")
+
+    @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.GetTransitGatewayFilterResult']]:
         return pulumi.get(self, "filters")
@@ -237,6 +248,7 @@ class AwaitableGetTransitGatewayResult(GetTransitGatewayResult):
             default_route_table_propagation=self.default_route_table_propagation,
             description=self.description,
             dns_support=self.dns_support,
+            encryption_support=self.encryption_support,
             filters=self.filters,
             id=self.id,
             multicast_support=self.multicast_support,
@@ -303,6 +315,7 @@ def get_transit_gateway(filters: Optional[Sequence[Union['GetTransitGatewayFilte
         default_route_table_propagation=pulumi.get(__ret__, 'default_route_table_propagation'),
         description=pulumi.get(__ret__, 'description'),
         dns_support=pulumi.get(__ret__, 'dns_support'),
+        encryption_support=pulumi.get(__ret__, 'encryption_support'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         multicast_support=pulumi.get(__ret__, 'multicast_support'),
@@ -366,6 +379,7 @@ def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[
         default_route_table_propagation=pulumi.get(__response__, 'default_route_table_propagation'),
         description=pulumi.get(__response__, 'description'),
         dns_support=pulumi.get(__response__, 'dns_support'),
+        encryption_support=pulumi.get(__response__, 'encryption_support'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         multicast_support=pulumi.get(__response__, 'multicast_support'),

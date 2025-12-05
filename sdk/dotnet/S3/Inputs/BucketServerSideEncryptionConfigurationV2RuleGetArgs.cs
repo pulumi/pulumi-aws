@@ -18,6 +18,18 @@ namespace Pulumi.Aws.S3.Inputs
         [Input("applyServerSideEncryptionByDefault")]
         public Input<Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultGetArgs>? ApplyServerSideEncryptionByDefault { get; set; }
 
+        [Input("blockedEncryptionTypes")]
+        private InputList<string>? _blockedEncryptionTypes;
+
+        /// <summary>
+        /// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+        /// </summary>
+        public InputList<string> BlockedEncryptionTypes
+        {
+            get => _blockedEncryptionTypes ?? (_blockedEncryptionTypes = new InputList<string>());
+            set => _blockedEncryptionTypes = value;
+        }
+
         /// <summary>
         /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         /// </summary>

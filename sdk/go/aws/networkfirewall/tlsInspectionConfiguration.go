@@ -407,8 +407,6 @@ import (
 //
 // Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
 //
-// console
-//
 // % pulumi import aws_networkfirewall_tls_inspection_configuration.example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
 type TlsInspectionConfiguration struct {
 	pulumi.CustomResourceState

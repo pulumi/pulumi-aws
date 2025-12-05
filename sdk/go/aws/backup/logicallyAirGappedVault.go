@@ -56,6 +56,8 @@ type LogicallyAirGappedVault struct {
 
 	// The ARN of the Logically Air Gapped Backup Vault.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+	EncryptionKeyArn pulumi.StringOutput `pulumi:"encryptionKeyArn"`
 	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays pulumi.IntOutput `pulumi:"maxRetentionDays"`
 	// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
@@ -109,6 +111,8 @@ func GetLogicallyAirGappedVault(ctx *pulumi.Context,
 type logicallyAirGappedVaultState struct {
 	// The ARN of the Logically Air Gapped Backup Vault.
 	Arn *string `pulumi:"arn"`
+	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
 	// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
@@ -127,6 +131,8 @@ type logicallyAirGappedVaultState struct {
 type LogicallyAirGappedVaultState struct {
 	// The ARN of the Logically Air Gapped Backup Vault.
 	Arn pulumi.StringPtrInput
+	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+	EncryptionKeyArn pulumi.StringPtrInput
 	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays pulumi.IntPtrInput
 	// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
@@ -147,6 +153,8 @@ func (LogicallyAirGappedVaultState) ElementType() reflect.Type {
 }
 
 type logicallyAirGappedVaultArgs struct {
+	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays int `pulumi:"maxRetentionDays"`
 	// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
@@ -162,6 +170,8 @@ type logicallyAirGappedVaultArgs struct {
 
 // The set of arguments for constructing a LogicallyAirGappedVault resource.
 type LogicallyAirGappedVaultArgs struct {
+	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+	EncryptionKeyArn pulumi.StringPtrInput
 	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays pulumi.IntInput
 	// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
@@ -265,6 +275,11 @@ func (o LogicallyAirGappedVaultOutput) ToLogicallyAirGappedVaultOutputWithContex
 // The ARN of the Logically Air Gapped Backup Vault.
 func (o LogicallyAirGappedVaultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+func (o LogicallyAirGappedVaultOutput) EncryptionKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringOutput { return v.EncryptionKeyArn }).(pulumi.StringOutput)
 }
 
 // Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.

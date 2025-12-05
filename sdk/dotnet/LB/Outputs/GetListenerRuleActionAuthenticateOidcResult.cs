@@ -27,7 +27,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// OIDC issuer identifier of the IdP.
+        /// Issuer of the JWT.
         /// </summary>
         public readonly string Issuer;
         /// <summary>

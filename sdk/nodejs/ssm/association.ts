@@ -250,8 +250,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import SSM associations using the `association_id`. For example:
  *
- * console
- *
  * % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
  */
 export class Association extends pulumi.CustomResource {
@@ -302,6 +300,10 @@ export class Association extends pulumi.CustomResource {
      * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      */
     declare public readonly automationTargetParameterName: pulumi.Output<string | undefined>;
+    /**
+     * One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+     */
+    declare public readonly calendarNames: pulumi.Output<string[] | undefined>;
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */
@@ -379,6 +381,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["associationId"] = state?.associationId;
             resourceInputs["associationName"] = state?.associationName;
             resourceInputs["automationTargetParameterName"] = state?.automationTargetParameterName;
+            resourceInputs["calendarNames"] = state?.calendarNames;
             resourceInputs["complianceSeverity"] = state?.complianceSeverity;
             resourceInputs["documentVersion"] = state?.documentVersion;
             resourceInputs["maxConcurrency"] = state?.maxConcurrency;
@@ -398,6 +401,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["applyOnlyAtCronInterval"] = args?.applyOnlyAtCronInterval;
             resourceInputs["associationName"] = args?.associationName;
             resourceInputs["automationTargetParameterName"] = args?.automationTargetParameterName;
+            resourceInputs["calendarNames"] = args?.calendarNames;
             resourceInputs["complianceSeverity"] = args?.complianceSeverity;
             resourceInputs["documentVersion"] = args?.documentVersion;
             resourceInputs["maxConcurrency"] = args?.maxConcurrency;
@@ -444,6 +448,10 @@ export interface AssociationState {
      * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      */
     automationTargetParameterName?: pulumi.Input<string>;
+    /**
+     * One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+     */
+    calendarNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */
@@ -520,6 +528,10 @@ export interface AssociationArgs {
      * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      */
     automationTargetParameterName?: pulumi.Input<string>;
+    /**
+     * One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+     */
+    calendarNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */

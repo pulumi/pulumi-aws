@@ -25,7 +25,7 @@ if not MYPY:
     class NotificationRuleTargetArgsDict(TypedDict):
         address: pulumi.Input[_builtins.str]
         """
-        The ARN of notification rule target. For example, a SNS Topic ARN.
+        The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
         """
         status: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -33,7 +33,7 @@ if not MYPY:
         """
         type: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The type of the notification target. Default value is `SNS`.
+        The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
         """
 elif False:
     NotificationRuleTargetArgsDict: TypeAlias = Mapping[str, Any]
@@ -45,9 +45,9 @@ class NotificationRuleTargetArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] address: The ARN of notification rule target. For example, a SNS Topic ARN.
+        :param pulumi.Input[_builtins.str] address: The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
         :param pulumi.Input[_builtins.str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        :param pulumi.Input[_builtins.str] type: The type of the notification target. Default value is `SNS`.
+        :param pulumi.Input[_builtins.str] type: The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
         """
         pulumi.set(__self__, "address", address)
         if status is not None:
@@ -59,7 +59,7 @@ class NotificationRuleTargetArgs:
     @pulumi.getter
     def address(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of notification rule target. For example, a SNS Topic ARN.
+        The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
         """
         return pulumi.get(self, "address")
 
@@ -83,7 +83,7 @@ class NotificationRuleTargetArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of the notification target. Default value is `SNS`.
+        The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
         """
         return pulumi.get(self, "type")
 

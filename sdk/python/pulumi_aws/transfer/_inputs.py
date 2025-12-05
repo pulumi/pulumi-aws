@@ -21,6 +21,10 @@ __all__ = [
     'AccessPosixProfileArgsDict',
     'ConnectorAs2ConfigArgs',
     'ConnectorAs2ConfigArgsDict',
+    'ConnectorEgressConfigArgs',
+    'ConnectorEgressConfigArgsDict',
+    'ConnectorEgressConfigVpcLatticeArgs',
+    'ConnectorEgressConfigVpcLatticeArgsDict',
     'ConnectorSftpConfigArgs',
     'ConnectorSftpConfigArgsDict',
     'ServerEndpointDetailsArgs',
@@ -385,6 +389,89 @@ class ConnectorAs2ConfigArgs:
     @message_subject.setter
     def message_subject(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "message_subject", value)
+
+
+if not MYPY:
+    class ConnectorEgressConfigArgsDict(TypedDict):
+        vpc_lattice: NotRequired[pulumi.Input['ConnectorEgressConfigVpcLatticeArgsDict']]
+        """
+        VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+        """
+elif False:
+    ConnectorEgressConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectorEgressConfigArgs:
+    def __init__(__self__, *,
+                 vpc_lattice: Optional[pulumi.Input['ConnectorEgressConfigVpcLatticeArgs']] = None):
+        """
+        :param pulumi.Input['ConnectorEgressConfigVpcLatticeArgs'] vpc_lattice: VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+        """
+        if vpc_lattice is not None:
+            pulumi.set(__self__, "vpc_lattice", vpc_lattice)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcLattice")
+    def vpc_lattice(self) -> Optional[pulumi.Input['ConnectorEgressConfigVpcLatticeArgs']]:
+        """
+        VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+        """
+        return pulumi.get(self, "vpc_lattice")
+
+    @vpc_lattice.setter
+    def vpc_lattice(self, value: Optional[pulumi.Input['ConnectorEgressConfigVpcLatticeArgs']]):
+        pulumi.set(self, "vpc_lattice", value)
+
+
+if not MYPY:
+    class ConnectorEgressConfigVpcLatticeArgsDict(TypedDict):
+        resource_configuration_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
+        """
+        port_number: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
+        """
+elif False:
+    ConnectorEgressConfigVpcLatticeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectorEgressConfigVpcLatticeArgs:
+    def __init__(__self__, *,
+                 resource_configuration_arn: pulumi.Input[_builtins.str],
+                 port_number: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] resource_configuration_arn: ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
+        :param pulumi.Input[_builtins.int] port_number: Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
+        """
+        pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
+        if port_number is not None:
+            pulumi.set(__self__, "port_number", port_number)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationArn")
+    def resource_configuration_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
+        """
+        return pulumi.get(self, "resource_configuration_arn")
+
+    @resource_configuration_arn.setter
+    def resource_configuration_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_configuration_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="portNumber")
+    def port_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
+        """
+        return pulumi.get(self, "port_number")
+
+    @port_number.setter
+    def port_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "port_number", value)
 
 
 if not MYPY:

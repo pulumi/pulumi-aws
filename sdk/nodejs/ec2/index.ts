@@ -115,6 +115,11 @@ export type EipDomainName = import("./eipDomainName").EipDomainName;
 export const EipDomainName: typeof import("./eipDomainName").EipDomainName = null as any;
 utilities.lazyLoad(exports, ["EipDomainName"], () => require("./eipDomainName"));
 
+export { EncryptionControlArgs, EncryptionControlState } from "./encryptionControl";
+export type EncryptionControl = import("./encryptionControl").EncryptionControl;
+export const EncryptionControl: typeof import("./encryptionControl").EncryptionControl = null as any;
+utilities.lazyLoad(exports, ["EncryptionControl"], () => require("./encryptionControl"));
+
 export { FleetArgs, FleetState } from "./fleet";
 export type Fleet = import("./fleet").Fleet;
 export const Fleet: typeof import("./fleet").Fleet = null as any;
@@ -700,6 +705,11 @@ export type VpcDhcpOptionsAssociation = import("./vpcDhcpOptionsAssociation").Vp
 export const VpcDhcpOptionsAssociation: typeof import("./vpcDhcpOptionsAssociation").VpcDhcpOptionsAssociation = null as any;
 utilities.lazyLoad(exports, ["VpcDhcpOptionsAssociation"], () => require("./vpcDhcpOptionsAssociation"));
 
+export { VpcEncryptionControlArgs, VpcEncryptionControlState } from "./vpcEncryptionControl";
+export type VpcEncryptionControl = import("./vpcEncryptionControl").VpcEncryptionControl;
+export const VpcEncryptionControl: typeof import("./vpcEncryptionControl").VpcEncryptionControl = null as any;
+utilities.lazyLoad(exports, ["VpcEncryptionControl"], () => require("./vpcEncryptionControl"));
+
 export { VpcEndpointArgs, VpcEndpointState } from "./vpcEndpoint";
 export type VpcEndpoint = import("./vpcEndpoint").VpcEndpoint;
 export const VpcEndpoint: typeof import("./vpcEndpoint").VpcEndpoint = null as any;
@@ -810,6 +820,11 @@ export type VpcPeeringConnectionAccepter = import("./vpcPeeringConnectionAccepte
 export const VpcPeeringConnectionAccepter: typeof import("./vpcPeeringConnectionAccepter").VpcPeeringConnectionAccepter = null as any;
 utilities.lazyLoad(exports, ["VpcPeeringConnectionAccepter"], () => require("./vpcPeeringConnectionAccepter"));
 
+export { VpnConcentratorArgs, VpnConcentratorState } from "./vpnConcentrator";
+export type VpnConcentrator = import("./vpnConcentrator").VpnConcentrator;
+export const VpnConcentrator: typeof import("./vpnConcentrator").VpnConcentrator = null as any;
+utilities.lazyLoad(exports, ["VpnConcentrator"], () => require("./vpnConcentrator"));
+
 export { VpnConnectionArgs, VpnConnectionState } from "./vpnConnection";
 export type VpnConnection = import("./vpnConnection").VpnConnection;
 export const VpnConnection: typeof import("./vpnConnection").VpnConnection = null as any;
@@ -887,6 +902,8 @@ const _module = {
                 return new EipAssociation(name, <any>undefined, { urn })
             case "aws:ec2/eipDomainName:EipDomainName":
                 return new EipDomainName(name, <any>undefined, { urn })
+            case "aws:ec2/encryptionControl:EncryptionControl":
+                return new EncryptionControl(name, <any>undefined, { urn })
             case "aws:ec2/fleet:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
             case "aws:ec2/flowLog:FlowLog":
@@ -993,6 +1010,8 @@ const _module = {
                 return new VpcDhcpOptions(name, <any>undefined, { urn })
             case "aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation":
                 return new VpcDhcpOptionsAssociation(name, <any>undefined, { urn })
+            case "aws:ec2/vpcEncryptionControl:VpcEncryptionControl":
+                return new VpcEncryptionControl(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpoint:VpcEndpoint":
                 return new VpcEndpoint(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter":
@@ -1037,6 +1056,8 @@ const _module = {
                 return new VpcPeeringConnection(name, <any>undefined, { urn })
             case "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter":
                 return new VpcPeeringConnectionAccepter(name, <any>undefined, { urn })
+            case "aws:ec2/vpnConcentrator:VpnConcentrator":
+                return new VpnConcentrator(name, <any>undefined, { urn })
             case "aws:ec2/vpnConnection:VpnConnection":
                 return new VpnConnection(name, <any>undefined, { urn })
             case "aws:ec2/vpnConnectionRoute:VpnConnectionRoute":
@@ -1074,6 +1095,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/egressOnlyInternetGateway", _m
 pulumi.runtime.registerResourceModule("aws", "ec2/eip", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/eipAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/eipDomainName", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/encryptionControl", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/fleet", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/flowLog", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/imageBlockPublicAccess", _module)
@@ -1127,6 +1149,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/vpcBlockPublicAccessExclusion"
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcBlockPublicAccessOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcDhcpOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcDhcpOptionsAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcEncryptionControl", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointConnectionAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointConnectionNotification", _module)
@@ -1149,6 +1172,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv6CidrBlockAssociation", 
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcNetworkPerformanceMetricSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcPeeringConnection", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcPeeringConnectionAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpnConcentrator", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpnConnection", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpnConnectionRoute", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpnGateway", _module)

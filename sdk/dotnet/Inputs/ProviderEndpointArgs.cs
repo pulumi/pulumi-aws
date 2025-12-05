@@ -159,6 +159,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("arczonalshift")]
+        public Input<string>? Arczonalshift { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("athena")]
         public Input<string>? Athena { get; set; }
 
@@ -1095,12 +1101,6 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("lookoutmetrics")]
-        public Input<string>? Lookoutmetrics { get; set; }
-
-        /// <summary>
-        /// Use this to override the default service endpoint URL
-        /// </summary>
         [Input("m2")]
         public Input<string>? M2 { get; set; }
 
@@ -1187,6 +1187,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("mwaa")]
         public Input<string>? Mwaa { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("mwaaserverless")]
+        public Input<string>? Mwaaserverless { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
@@ -1391,6 +1397,18 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("rds")]
         public Input<string>? Rds { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("rdsdata")]
+        public Input<string>? Rdsdata { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("rdsdataservice")]
+        public Input<string>? Rdsdataservice { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

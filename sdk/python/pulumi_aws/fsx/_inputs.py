@@ -79,6 +79,8 @@ __all__ = [
     'OntapVolumeTieringPolicyArgsDict',
     'OpenZfsFileSystemDiskIopsConfigurationArgs',
     'OpenZfsFileSystemDiskIopsConfigurationArgsDict',
+    'OpenZfsFileSystemReadCacheConfigurationArgs',
+    'OpenZfsFileSystemReadCacheConfigurationArgsDict',
     'OpenZfsFileSystemRootVolumeConfigurationArgs',
     'OpenZfsFileSystemRootVolumeConfigurationArgsDict',
     'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs',
@@ -2146,6 +2148,58 @@ class OpenZfsFileSystemDiskIopsConfigurationArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "mode", value)
+
+
+if not MYPY:
+    class OpenZfsFileSystemReadCacheConfigurationArgsDict(TypedDict):
+        size: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Size of the file system's SSD read cache, in gibibytes (GiB). Required when `sizing_mode` is set to `USER_PROVISIONED`. Must not be set when any other `sizing_mode` is used.
+        """
+        sizing_mode: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+        """
+elif False:
+    OpenZfsFileSystemReadCacheConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OpenZfsFileSystemReadCacheConfigurationArgs:
+    def __init__(__self__, *,
+                 size: Optional[pulumi.Input[_builtins.int]] = None,
+                 sizing_mode: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] size: Size of the file system's SSD read cache, in gibibytes (GiB). Required when `sizing_mode` is set to `USER_PROVISIONED`. Must not be set when any other `sizing_mode` is used.
+        :param pulumi.Input[_builtins.str] sizing_mode: Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if sizing_mode is not None:
+            pulumi.set(__self__, "sizing_mode", sizing_mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Size of the file system's SSD read cache, in gibibytes (GiB). Required when `sizing_mode` is set to `USER_PROVISIONED`. Must not be set when any other `sizing_mode` is used.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sizingMode")
+    def sizing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+        """
+        return pulumi.get(self, "sizing_mode")
+
+    @sizing_mode.setter
+    def sizing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sizing_mode", value)
 
 
 if not MYPY:

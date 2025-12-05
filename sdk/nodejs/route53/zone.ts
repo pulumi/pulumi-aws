@@ -129,6 +129,10 @@ export class Zone extends pulumi.CustomResource {
      */
     declare public readonly delegationSetId: pulumi.Output<string | undefined>;
     /**
+     * Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+     */
+    declare public readonly enableAcceleratedRecovery: pulumi.Output<boolean>;
+    /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      */
     declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
@@ -178,6 +182,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["comment"] = state?.comment;
             resourceInputs["delegationSetId"] = state?.delegationSetId;
+            resourceInputs["enableAcceleratedRecovery"] = state?.enableAcceleratedRecovery;
             resourceInputs["forceDestroy"] = state?.forceDestroy;
             resourceInputs["name"] = state?.name;
             resourceInputs["nameServers"] = state?.nameServers;
@@ -190,6 +195,7 @@ export class Zone extends pulumi.CustomResource {
             const args = argsOrState as ZoneArgs | undefined;
             resourceInputs["comment"] = (args?.comment) ?? "Managed by Pulumi";
             resourceInputs["delegationSetId"] = args?.delegationSetId;
+            resourceInputs["enableAcceleratedRecovery"] = args?.enableAcceleratedRecovery;
             resourceInputs["forceDestroy"] = args?.forceDestroy;
             resourceInputs["name"] = args?.name;
             resourceInputs["tags"] = args?.tags;
@@ -221,6 +227,10 @@ export interface ZoneState {
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
     delegationSetId?: pulumi.Input<string>;
+    /**
+     * Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+     */
+    enableAcceleratedRecovery?: pulumi.Input<boolean>;
     /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      */
@@ -268,6 +278,10 @@ export interface ZoneArgs {
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
     delegationSetId?: pulumi.Input<string>;
+    /**
+     * Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+     */
+    enableAcceleratedRecovery?: pulumi.Input<boolean>;
     /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      */

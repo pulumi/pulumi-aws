@@ -20,20 +20,30 @@ __all__ = ['CiphertextArgs', 'Ciphertext']
 class CiphertextArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[_builtins.str],
-                 plaintext: pulumi.Input[_builtins.str],
                  context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 plaintext: Optional[pulumi.Input[_builtins.str]] = None,
+                 plaintext_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 plaintext_wo_version: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Ciphertext resource.
         :param pulumi.Input[_builtins.str] key_id: Globally unique key ID for the customer master key.
-        :param pulumi.Input[_builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] context: An optional mapping that makes up the encryption context.
+        :param pulumi.Input[_builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+        :param pulumi.Input[_builtins.str] plaintext_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+        :param pulumi.Input[_builtins.str] plaintext_wo_version: Used together with `plaintext_wo` to trigger a replacement. Modify this value when a replacement is required.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "plaintext", plaintext)
         if context is not None:
             pulumi.set(__self__, "context", context)
+        if plaintext is not None:
+            pulumi.set(__self__, "plaintext", plaintext)
+        if plaintext_wo is not None:
+            pulumi.set(__self__, "plaintext_wo", plaintext_wo)
+        if plaintext_wo_version is not None:
+            pulumi.set(__self__, "plaintext_wo_version", plaintext_wo_version)
         if region is not None:
             pulumi.set(__self__, "region", region)
 
@@ -51,18 +61,6 @@ class CiphertextArgs:
 
     @_builtins.property
     @pulumi.getter
-    def plaintext(self) -> pulumi.Input[_builtins.str]:
-        """
-        Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-        """
-        return pulumi.get(self, "plaintext")
-
-    @plaintext.setter
-    def plaintext(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "plaintext", value)
-
-    @_builtins.property
-    @pulumi.getter
     def context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         An optional mapping that makes up the encryption context.
@@ -72,6 +70,43 @@ class CiphertextArgs:
     @context.setter
     def context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "context", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def plaintext(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+        """
+        return pulumi.get(self, "plaintext")
+
+    @plaintext.setter
+    def plaintext(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "plaintext", value)
+
+    @_builtins.property
+    @pulumi.getter(name="plaintextWo")
+    def plaintext_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+        """
+        return pulumi.get(self, "plaintext_wo")
+
+    @plaintext_wo.setter
+    def plaintext_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "plaintext_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="plaintextWoVersion")
+    def plaintext_wo_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Used together with `plaintext_wo` to trigger a replacement. Modify this value when a replacement is required.
+        """
+        return pulumi.get(self, "plaintext_wo_version")
+
+    @plaintext_wo_version.setter
+    def plaintext_wo_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "plaintext_wo_version", value)
 
     @_builtins.property
     @pulumi.getter
@@ -93,6 +128,8 @@ class _CiphertextState:
                  context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext: Optional[pulumi.Input[_builtins.str]] = None,
+                 plaintext_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 plaintext_wo_version: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ciphertext resources.
@@ -100,6 +137,9 @@ class _CiphertextState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[_builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[_builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+        :param pulumi.Input[_builtins.str] plaintext_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+        :param pulumi.Input[_builtins.str] plaintext_wo_version: Used together with `plaintext_wo` to trigger a replacement. Modify this value when a replacement is required.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if ciphertext_blob is not None:
@@ -110,6 +150,10 @@ class _CiphertextState:
             pulumi.set(__self__, "key_id", key_id)
         if plaintext is not None:
             pulumi.set(__self__, "plaintext", plaintext)
+        if plaintext_wo is not None:
+            pulumi.set(__self__, "plaintext_wo", plaintext_wo)
+        if plaintext_wo_version is not None:
+            pulumi.set(__self__, "plaintext_wo_version", plaintext_wo_version)
         if region is not None:
             pulumi.set(__self__, "region", region)
 
@@ -162,6 +206,31 @@ class _CiphertextState:
         pulumi.set(self, "plaintext", value)
 
     @_builtins.property
+    @pulumi.getter(name="plaintextWo")
+    def plaintext_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+        """
+        return pulumi.get(self, "plaintext_wo")
+
+    @plaintext_wo.setter
+    def plaintext_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "plaintext_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="plaintextWoVersion")
+    def plaintext_wo_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Used together with `plaintext_wo` to trigger a replacement. Modify this value when a replacement is required.
+        """
+        return pulumi.get(self, "plaintext_wo_version")
+
+    @plaintext_wo_version.setter
+    def plaintext_wo_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "plaintext_wo_version", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -183,6 +252,8 @@ class Ciphertext(pulumi.CustomResource):
                  context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext: Optional[pulumi.Input[_builtins.str]] = None,
+                 plaintext_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 plaintext_wo_version: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -214,6 +285,9 @@ class Ciphertext(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[_builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[_builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+        :param pulumi.Input[_builtins.str] plaintext_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+        :param pulumi.Input[_builtins.str] plaintext_wo_version: Used together with `plaintext_wo` to trigger a replacement. Modify this value when a replacement is required.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -264,6 +338,8 @@ class Ciphertext(pulumi.CustomResource):
                  context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext: Optional[pulumi.Input[_builtins.str]] = None,
+                 plaintext_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 plaintext_wo_version: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -278,12 +354,12 @@ class Ciphertext(pulumi.CustomResource):
             if key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_id'")
             __props__.__dict__["key_id"] = key_id
-            if plaintext is None and not opts.urn:
-                raise TypeError("Missing required property 'plaintext'")
             __props__.__dict__["plaintext"] = None if plaintext is None else pulumi.Output.secret(plaintext)
+            __props__.__dict__["plaintext_wo"] = None if plaintext_wo is None else pulumi.Output.secret(plaintext_wo)
+            __props__.__dict__["plaintext_wo_version"] = plaintext_wo_version
             __props__.__dict__["region"] = region
             __props__.__dict__["ciphertext_blob"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["plaintext"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["plaintext", "plaintextWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Ciphertext, __self__).__init__(
             'aws:kms/ciphertext:Ciphertext',
@@ -299,6 +375,8 @@ class Ciphertext(pulumi.CustomResource):
             context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             key_id: Optional[pulumi.Input[_builtins.str]] = None,
             plaintext: Optional[pulumi.Input[_builtins.str]] = None,
+            plaintext_wo: Optional[pulumi.Input[_builtins.str]] = None,
+            plaintext_wo_version: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None) -> 'Ciphertext':
         """
         Get an existing Ciphertext resource's state with the given name, id, and optional extra
@@ -311,6 +389,9 @@ class Ciphertext(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[_builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[_builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+        :param pulumi.Input[_builtins.str] plaintext_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+        :param pulumi.Input[_builtins.str] plaintext_wo_version: Used together with `plaintext_wo` to trigger a replacement. Modify this value when a replacement is required.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -321,6 +402,8 @@ class Ciphertext(pulumi.CustomResource):
         __props__.__dict__["context"] = context
         __props__.__dict__["key_id"] = key_id
         __props__.__dict__["plaintext"] = plaintext
+        __props__.__dict__["plaintext_wo"] = plaintext_wo
+        __props__.__dict__["plaintext_wo_version"] = plaintext_wo_version
         __props__.__dict__["region"] = region
         return Ciphertext(resource_name, opts=opts, __props__=__props__)
 
@@ -350,11 +433,28 @@ class Ciphertext(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def plaintext(self) -> pulumi.Output[_builtins.str]:
+    def plaintext(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         """
         return pulumi.get(self, "plaintext")
+
+    @_builtins.property
+    @pulumi.getter(name="plaintextWo")
+    def plaintext_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+        """
+        return pulumi.get(self, "plaintext_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="plaintextWoVersion")
+    def plaintext_wo_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Used together with `plaintext_wo` to trigger a replacement. Modify this value when a replacement is required.
+        """
+        return pulumi.get(self, "plaintext_wo_version")
 
     @_builtins.property
     @pulumi.getter

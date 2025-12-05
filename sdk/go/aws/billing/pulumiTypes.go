@@ -13,6 +13,770 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ViewDataFilterExpression struct {
+	// Dimension to use for `expression`. Refer to #dimensions for more details.
+	Dimensions *ViewDataFilterExpressionDimensions `pulumi:"dimensions"`
+	// List of key value map specifying tags associated to the billing view being created.
+	Tags []ViewDataFilterExpressionTag `pulumi:"tags"`
+	// Time range to use for `expression`. Refer to #time-range for more details.
+	TimeRange *ViewDataFilterExpressionTimeRange `pulumi:"timeRange"`
+}
+
+// ViewDataFilterExpressionInput is an input type that accepts ViewDataFilterExpressionArgs and ViewDataFilterExpressionOutput values.
+// You can construct a concrete instance of `ViewDataFilterExpressionInput` via:
+//
+//	ViewDataFilterExpressionArgs{...}
+type ViewDataFilterExpressionInput interface {
+	pulumi.Input
+
+	ToViewDataFilterExpressionOutput() ViewDataFilterExpressionOutput
+	ToViewDataFilterExpressionOutputWithContext(context.Context) ViewDataFilterExpressionOutput
+}
+
+type ViewDataFilterExpressionArgs struct {
+	// Dimension to use for `expression`. Refer to #dimensions for more details.
+	Dimensions ViewDataFilterExpressionDimensionsPtrInput `pulumi:"dimensions"`
+	// List of key value map specifying tags associated to the billing view being created.
+	Tags ViewDataFilterExpressionTagArrayInput `pulumi:"tags"`
+	// Time range to use for `expression`. Refer to #time-range for more details.
+	TimeRange ViewDataFilterExpressionTimeRangePtrInput `pulumi:"timeRange"`
+}
+
+func (ViewDataFilterExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewDataFilterExpression)(nil)).Elem()
+}
+
+func (i ViewDataFilterExpressionArgs) ToViewDataFilterExpressionOutput() ViewDataFilterExpressionOutput {
+	return i.ToViewDataFilterExpressionOutputWithContext(context.Background())
+}
+
+func (i ViewDataFilterExpressionArgs) ToViewDataFilterExpressionOutputWithContext(ctx context.Context) ViewDataFilterExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDataFilterExpressionOutput)
+}
+
+func (i ViewDataFilterExpressionArgs) ToViewDataFilterExpressionPtrOutput() ViewDataFilterExpressionPtrOutput {
+	return i.ToViewDataFilterExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i ViewDataFilterExpressionArgs) ToViewDataFilterExpressionPtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDataFilterExpressionOutput).ToViewDataFilterExpressionPtrOutputWithContext(ctx)
+}
+
+// ViewDataFilterExpressionPtrInput is an input type that accepts ViewDataFilterExpressionArgs, ViewDataFilterExpressionPtr and ViewDataFilterExpressionPtrOutput values.
+// You can construct a concrete instance of `ViewDataFilterExpressionPtrInput` via:
+//
+//	        ViewDataFilterExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ViewDataFilterExpressionPtrInput interface {
+	pulumi.Input
+
+	ToViewDataFilterExpressionPtrOutput() ViewDataFilterExpressionPtrOutput
+	ToViewDataFilterExpressionPtrOutputWithContext(context.Context) ViewDataFilterExpressionPtrOutput
+}
+
+type viewDataFilterExpressionPtrType ViewDataFilterExpressionArgs
+
+func ViewDataFilterExpressionPtr(v *ViewDataFilterExpressionArgs) ViewDataFilterExpressionPtrInput {
+	return (*viewDataFilterExpressionPtrType)(v)
+}
+
+func (*viewDataFilterExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewDataFilterExpression)(nil)).Elem()
+}
+
+func (i *viewDataFilterExpressionPtrType) ToViewDataFilterExpressionPtrOutput() ViewDataFilterExpressionPtrOutput {
+	return i.ToViewDataFilterExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *viewDataFilterExpressionPtrType) ToViewDataFilterExpressionPtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDataFilterExpressionPtrOutput)
+}
+
+type ViewDataFilterExpressionOutput struct{ *pulumi.OutputState }
+
+func (ViewDataFilterExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewDataFilterExpression)(nil)).Elem()
+}
+
+func (o ViewDataFilterExpressionOutput) ToViewDataFilterExpressionOutput() ViewDataFilterExpressionOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionOutput) ToViewDataFilterExpressionOutputWithContext(ctx context.Context) ViewDataFilterExpressionOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionOutput) ToViewDataFilterExpressionPtrOutput() ViewDataFilterExpressionPtrOutput {
+	return o.ToViewDataFilterExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o ViewDataFilterExpressionOutput) ToViewDataFilterExpressionPtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ViewDataFilterExpression) *ViewDataFilterExpression {
+		return &v
+	}).(ViewDataFilterExpressionPtrOutput)
+}
+
+// Dimension to use for `expression`. Refer to #dimensions for more details.
+func (o ViewDataFilterExpressionOutput) Dimensions() ViewDataFilterExpressionDimensionsPtrOutput {
+	return o.ApplyT(func(v ViewDataFilterExpression) *ViewDataFilterExpressionDimensions { return v.Dimensions }).(ViewDataFilterExpressionDimensionsPtrOutput)
+}
+
+// List of key value map specifying tags associated to the billing view being created.
+func (o ViewDataFilterExpressionOutput) Tags() ViewDataFilterExpressionTagArrayOutput {
+	return o.ApplyT(func(v ViewDataFilterExpression) []ViewDataFilterExpressionTag { return v.Tags }).(ViewDataFilterExpressionTagArrayOutput)
+}
+
+// Time range to use for `expression`. Refer to #time-range for more details.
+func (o ViewDataFilterExpressionOutput) TimeRange() ViewDataFilterExpressionTimeRangePtrOutput {
+	return o.ApplyT(func(v ViewDataFilterExpression) *ViewDataFilterExpressionTimeRange { return v.TimeRange }).(ViewDataFilterExpressionTimeRangePtrOutput)
+}
+
+type ViewDataFilterExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (ViewDataFilterExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewDataFilterExpression)(nil)).Elem()
+}
+
+func (o ViewDataFilterExpressionPtrOutput) ToViewDataFilterExpressionPtrOutput() ViewDataFilterExpressionPtrOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionPtrOutput) ToViewDataFilterExpressionPtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionPtrOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionPtrOutput) Elem() ViewDataFilterExpressionOutput {
+	return o.ApplyT(func(v *ViewDataFilterExpression) ViewDataFilterExpression {
+		if v != nil {
+			return *v
+		}
+		var ret ViewDataFilterExpression
+		return ret
+	}).(ViewDataFilterExpressionOutput)
+}
+
+// Dimension to use for `expression`. Refer to #dimensions for more details.
+func (o ViewDataFilterExpressionPtrOutput) Dimensions() ViewDataFilterExpressionDimensionsPtrOutput {
+	return o.ApplyT(func(v *ViewDataFilterExpression) *ViewDataFilterExpressionDimensions {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(ViewDataFilterExpressionDimensionsPtrOutput)
+}
+
+// List of key value map specifying tags associated to the billing view being created.
+func (o ViewDataFilterExpressionPtrOutput) Tags() ViewDataFilterExpressionTagArrayOutput {
+	return o.ApplyT(func(v *ViewDataFilterExpression) []ViewDataFilterExpressionTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(ViewDataFilterExpressionTagArrayOutput)
+}
+
+// Time range to use for `expression`. Refer to #time-range for more details.
+func (o ViewDataFilterExpressionPtrOutput) TimeRange() ViewDataFilterExpressionTimeRangePtrOutput {
+	return o.ApplyT(func(v *ViewDataFilterExpression) *ViewDataFilterExpressionTimeRange {
+		if v == nil {
+			return nil
+		}
+		return v.TimeRange
+	}).(ViewDataFilterExpressionTimeRangePtrOutput)
+}
+
+type ViewDataFilterExpressionDimensions struct {
+	// Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+	Key string `pulumi:"key"`
+	// List of metadata values that you can use to filter and group your results.
+	Values []string `pulumi:"values"`
+}
+
+// ViewDataFilterExpressionDimensionsInput is an input type that accepts ViewDataFilterExpressionDimensionsArgs and ViewDataFilterExpressionDimensionsOutput values.
+// You can construct a concrete instance of `ViewDataFilterExpressionDimensionsInput` via:
+//
+//	ViewDataFilterExpressionDimensionsArgs{...}
+type ViewDataFilterExpressionDimensionsInput interface {
+	pulumi.Input
+
+	ToViewDataFilterExpressionDimensionsOutput() ViewDataFilterExpressionDimensionsOutput
+	ToViewDataFilterExpressionDimensionsOutputWithContext(context.Context) ViewDataFilterExpressionDimensionsOutput
+}
+
+type ViewDataFilterExpressionDimensionsArgs struct {
+	// Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+	Key pulumi.StringInput `pulumi:"key"`
+	// List of metadata values that you can use to filter and group your results.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ViewDataFilterExpressionDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewDataFilterExpressionDimensions)(nil)).Elem()
+}
+
+func (i ViewDataFilterExpressionDimensionsArgs) ToViewDataFilterExpressionDimensionsOutput() ViewDataFilterExpressionDimensionsOutput {
+	return i.ToViewDataFilterExpressionDimensionsOutputWithContext(context.Background())
+}
+
+func (i ViewDataFilterExpressionDimensionsArgs) ToViewDataFilterExpressionDimensionsOutputWithContext(ctx context.Context) ViewDataFilterExpressionDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDataFilterExpressionDimensionsOutput)
+}
+
+func (i ViewDataFilterExpressionDimensionsArgs) ToViewDataFilterExpressionDimensionsPtrOutput() ViewDataFilterExpressionDimensionsPtrOutput {
+	return i.ToViewDataFilterExpressionDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i ViewDataFilterExpressionDimensionsArgs) ToViewDataFilterExpressionDimensionsPtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDataFilterExpressionDimensionsOutput).ToViewDataFilterExpressionDimensionsPtrOutputWithContext(ctx)
+}
+
+// ViewDataFilterExpressionDimensionsPtrInput is an input type that accepts ViewDataFilterExpressionDimensionsArgs, ViewDataFilterExpressionDimensionsPtr and ViewDataFilterExpressionDimensionsPtrOutput values.
+// You can construct a concrete instance of `ViewDataFilterExpressionDimensionsPtrInput` via:
+//
+//	        ViewDataFilterExpressionDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ViewDataFilterExpressionDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToViewDataFilterExpressionDimensionsPtrOutput() ViewDataFilterExpressionDimensionsPtrOutput
+	ToViewDataFilterExpressionDimensionsPtrOutputWithContext(context.Context) ViewDataFilterExpressionDimensionsPtrOutput
+}
+
+type viewDataFilterExpressionDimensionsPtrType ViewDataFilterExpressionDimensionsArgs
+
+func ViewDataFilterExpressionDimensionsPtr(v *ViewDataFilterExpressionDimensionsArgs) ViewDataFilterExpressionDimensionsPtrInput {
+	return (*viewDataFilterExpressionDimensionsPtrType)(v)
+}
+
+func (*viewDataFilterExpressionDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewDataFilterExpressionDimensions)(nil)).Elem()
+}
+
+func (i *viewDataFilterExpressionDimensionsPtrType) ToViewDataFilterExpressionDimensionsPtrOutput() ViewDataFilterExpressionDimensionsPtrOutput {
+	return i.ToViewDataFilterExpressionDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *viewDataFilterExpressionDimensionsPtrType) ToViewDataFilterExpressionDimensionsPtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDataFilterExpressionDimensionsPtrOutput)
+}
+
+type ViewDataFilterExpressionDimensionsOutput struct{ *pulumi.OutputState }
+
+func (ViewDataFilterExpressionDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewDataFilterExpressionDimensions)(nil)).Elem()
+}
+
+func (o ViewDataFilterExpressionDimensionsOutput) ToViewDataFilterExpressionDimensionsOutput() ViewDataFilterExpressionDimensionsOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionDimensionsOutput) ToViewDataFilterExpressionDimensionsOutputWithContext(ctx context.Context) ViewDataFilterExpressionDimensionsOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionDimensionsOutput) ToViewDataFilterExpressionDimensionsPtrOutput() ViewDataFilterExpressionDimensionsPtrOutput {
+	return o.ToViewDataFilterExpressionDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o ViewDataFilterExpressionDimensionsOutput) ToViewDataFilterExpressionDimensionsPtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ViewDataFilterExpressionDimensions) *ViewDataFilterExpressionDimensions {
+		return &v
+	}).(ViewDataFilterExpressionDimensionsPtrOutput)
+}
+
+// Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+func (o ViewDataFilterExpressionDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewDataFilterExpressionDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// List of metadata values that you can use to filter and group your results.
+func (o ViewDataFilterExpressionDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ViewDataFilterExpressionDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ViewDataFilterExpressionDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ViewDataFilterExpressionDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewDataFilterExpressionDimensions)(nil)).Elem()
+}
+
+func (o ViewDataFilterExpressionDimensionsPtrOutput) ToViewDataFilterExpressionDimensionsPtrOutput() ViewDataFilterExpressionDimensionsPtrOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionDimensionsPtrOutput) ToViewDataFilterExpressionDimensionsPtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionDimensionsPtrOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionDimensionsPtrOutput) Elem() ViewDataFilterExpressionDimensionsOutput {
+	return o.ApplyT(func(v *ViewDataFilterExpressionDimensions) ViewDataFilterExpressionDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret ViewDataFilterExpressionDimensions
+		return ret
+	}).(ViewDataFilterExpressionDimensionsOutput)
+}
+
+// Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+func (o ViewDataFilterExpressionDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewDataFilterExpressionDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of metadata values that you can use to filter and group your results.
+func (o ViewDataFilterExpressionDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ViewDataFilterExpressionDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ViewDataFilterExpressionTag struct {
+	// Key of the tag.
+	Key string `pulumi:"key"`
+	// List of values for the tag.
+	Values []string `pulumi:"values"`
+}
+
+// ViewDataFilterExpressionTagInput is an input type that accepts ViewDataFilterExpressionTagArgs and ViewDataFilterExpressionTagOutput values.
+// You can construct a concrete instance of `ViewDataFilterExpressionTagInput` via:
+//
+//	ViewDataFilterExpressionTagArgs{...}
+type ViewDataFilterExpressionTagInput interface {
+	pulumi.Input
+
+	ToViewDataFilterExpressionTagOutput() ViewDataFilterExpressionTagOutput
+	ToViewDataFilterExpressionTagOutputWithContext(context.Context) ViewDataFilterExpressionTagOutput
+}
+
+type ViewDataFilterExpressionTagArgs struct {
+	// Key of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// List of values for the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ViewDataFilterExpressionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewDataFilterExpressionTag)(nil)).Elem()
+}
+
+func (i ViewDataFilterExpressionTagArgs) ToViewDataFilterExpressionTagOutput() ViewDataFilterExpressionTagOutput {
+	return i.ToViewDataFilterExpressionTagOutputWithContext(context.Background())
+}
+
+func (i ViewDataFilterExpressionTagArgs) ToViewDataFilterExpressionTagOutputWithContext(ctx context.Context) ViewDataFilterExpressionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDataFilterExpressionTagOutput)
+}
+
+// ViewDataFilterExpressionTagArrayInput is an input type that accepts ViewDataFilterExpressionTagArray and ViewDataFilterExpressionTagArrayOutput values.
+// You can construct a concrete instance of `ViewDataFilterExpressionTagArrayInput` via:
+//
+//	ViewDataFilterExpressionTagArray{ ViewDataFilterExpressionTagArgs{...} }
+type ViewDataFilterExpressionTagArrayInput interface {
+	pulumi.Input
+
+	ToViewDataFilterExpressionTagArrayOutput() ViewDataFilterExpressionTagArrayOutput
+	ToViewDataFilterExpressionTagArrayOutputWithContext(context.Context) ViewDataFilterExpressionTagArrayOutput
+}
+
+type ViewDataFilterExpressionTagArray []ViewDataFilterExpressionTagInput
+
+func (ViewDataFilterExpressionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ViewDataFilterExpressionTag)(nil)).Elem()
+}
+
+func (i ViewDataFilterExpressionTagArray) ToViewDataFilterExpressionTagArrayOutput() ViewDataFilterExpressionTagArrayOutput {
+	return i.ToViewDataFilterExpressionTagArrayOutputWithContext(context.Background())
+}
+
+func (i ViewDataFilterExpressionTagArray) ToViewDataFilterExpressionTagArrayOutputWithContext(ctx context.Context) ViewDataFilterExpressionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDataFilterExpressionTagArrayOutput)
+}
+
+type ViewDataFilterExpressionTagOutput struct{ *pulumi.OutputState }
+
+func (ViewDataFilterExpressionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewDataFilterExpressionTag)(nil)).Elem()
+}
+
+func (o ViewDataFilterExpressionTagOutput) ToViewDataFilterExpressionTagOutput() ViewDataFilterExpressionTagOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionTagOutput) ToViewDataFilterExpressionTagOutputWithContext(ctx context.Context) ViewDataFilterExpressionTagOutput {
+	return o
+}
+
+// Key of the tag.
+func (o ViewDataFilterExpressionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewDataFilterExpressionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// List of values for the tag.
+func (o ViewDataFilterExpressionTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ViewDataFilterExpressionTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ViewDataFilterExpressionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ViewDataFilterExpressionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ViewDataFilterExpressionTag)(nil)).Elem()
+}
+
+func (o ViewDataFilterExpressionTagArrayOutput) ToViewDataFilterExpressionTagArrayOutput() ViewDataFilterExpressionTagArrayOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionTagArrayOutput) ToViewDataFilterExpressionTagArrayOutputWithContext(ctx context.Context) ViewDataFilterExpressionTagArrayOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionTagArrayOutput) Index(i pulumi.IntInput) ViewDataFilterExpressionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ViewDataFilterExpressionTag {
+		return vs[0].([]ViewDataFilterExpressionTag)[vs[1].(int)]
+	}).(ViewDataFilterExpressionTagOutput)
+}
+
+type ViewDataFilterExpressionTimeRange struct {
+	// Inclusive end date of the time range.
+	BeginDateInclusive string `pulumi:"beginDateInclusive"`
+	EndDateInclusive   string `pulumi:"endDateInclusive"`
+}
+
+// ViewDataFilterExpressionTimeRangeInput is an input type that accepts ViewDataFilterExpressionTimeRangeArgs and ViewDataFilterExpressionTimeRangeOutput values.
+// You can construct a concrete instance of `ViewDataFilterExpressionTimeRangeInput` via:
+//
+//	ViewDataFilterExpressionTimeRangeArgs{...}
+type ViewDataFilterExpressionTimeRangeInput interface {
+	pulumi.Input
+
+	ToViewDataFilterExpressionTimeRangeOutput() ViewDataFilterExpressionTimeRangeOutput
+	ToViewDataFilterExpressionTimeRangeOutputWithContext(context.Context) ViewDataFilterExpressionTimeRangeOutput
+}
+
+type ViewDataFilterExpressionTimeRangeArgs struct {
+	// Inclusive end date of the time range.
+	BeginDateInclusive pulumi.StringInput `pulumi:"beginDateInclusive"`
+	EndDateInclusive   pulumi.StringInput `pulumi:"endDateInclusive"`
+}
+
+func (ViewDataFilterExpressionTimeRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewDataFilterExpressionTimeRange)(nil)).Elem()
+}
+
+func (i ViewDataFilterExpressionTimeRangeArgs) ToViewDataFilterExpressionTimeRangeOutput() ViewDataFilterExpressionTimeRangeOutput {
+	return i.ToViewDataFilterExpressionTimeRangeOutputWithContext(context.Background())
+}
+
+func (i ViewDataFilterExpressionTimeRangeArgs) ToViewDataFilterExpressionTimeRangeOutputWithContext(ctx context.Context) ViewDataFilterExpressionTimeRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDataFilterExpressionTimeRangeOutput)
+}
+
+func (i ViewDataFilterExpressionTimeRangeArgs) ToViewDataFilterExpressionTimeRangePtrOutput() ViewDataFilterExpressionTimeRangePtrOutput {
+	return i.ToViewDataFilterExpressionTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i ViewDataFilterExpressionTimeRangeArgs) ToViewDataFilterExpressionTimeRangePtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDataFilterExpressionTimeRangeOutput).ToViewDataFilterExpressionTimeRangePtrOutputWithContext(ctx)
+}
+
+// ViewDataFilterExpressionTimeRangePtrInput is an input type that accepts ViewDataFilterExpressionTimeRangeArgs, ViewDataFilterExpressionTimeRangePtr and ViewDataFilterExpressionTimeRangePtrOutput values.
+// You can construct a concrete instance of `ViewDataFilterExpressionTimeRangePtrInput` via:
+//
+//	        ViewDataFilterExpressionTimeRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ViewDataFilterExpressionTimeRangePtrInput interface {
+	pulumi.Input
+
+	ToViewDataFilterExpressionTimeRangePtrOutput() ViewDataFilterExpressionTimeRangePtrOutput
+	ToViewDataFilterExpressionTimeRangePtrOutputWithContext(context.Context) ViewDataFilterExpressionTimeRangePtrOutput
+}
+
+type viewDataFilterExpressionTimeRangePtrType ViewDataFilterExpressionTimeRangeArgs
+
+func ViewDataFilterExpressionTimeRangePtr(v *ViewDataFilterExpressionTimeRangeArgs) ViewDataFilterExpressionTimeRangePtrInput {
+	return (*viewDataFilterExpressionTimeRangePtrType)(v)
+}
+
+func (*viewDataFilterExpressionTimeRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewDataFilterExpressionTimeRange)(nil)).Elem()
+}
+
+func (i *viewDataFilterExpressionTimeRangePtrType) ToViewDataFilterExpressionTimeRangePtrOutput() ViewDataFilterExpressionTimeRangePtrOutput {
+	return i.ToViewDataFilterExpressionTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i *viewDataFilterExpressionTimeRangePtrType) ToViewDataFilterExpressionTimeRangePtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDataFilterExpressionTimeRangePtrOutput)
+}
+
+type ViewDataFilterExpressionTimeRangeOutput struct{ *pulumi.OutputState }
+
+func (ViewDataFilterExpressionTimeRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewDataFilterExpressionTimeRange)(nil)).Elem()
+}
+
+func (o ViewDataFilterExpressionTimeRangeOutput) ToViewDataFilterExpressionTimeRangeOutput() ViewDataFilterExpressionTimeRangeOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionTimeRangeOutput) ToViewDataFilterExpressionTimeRangeOutputWithContext(ctx context.Context) ViewDataFilterExpressionTimeRangeOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionTimeRangeOutput) ToViewDataFilterExpressionTimeRangePtrOutput() ViewDataFilterExpressionTimeRangePtrOutput {
+	return o.ToViewDataFilterExpressionTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (o ViewDataFilterExpressionTimeRangeOutput) ToViewDataFilterExpressionTimeRangePtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionTimeRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ViewDataFilterExpressionTimeRange) *ViewDataFilterExpressionTimeRange {
+		return &v
+	}).(ViewDataFilterExpressionTimeRangePtrOutput)
+}
+
+// Inclusive end date of the time range.
+func (o ViewDataFilterExpressionTimeRangeOutput) BeginDateInclusive() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewDataFilterExpressionTimeRange) string { return v.BeginDateInclusive }).(pulumi.StringOutput)
+}
+
+func (o ViewDataFilterExpressionTimeRangeOutput) EndDateInclusive() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewDataFilterExpressionTimeRange) string { return v.EndDateInclusive }).(pulumi.StringOutput)
+}
+
+type ViewDataFilterExpressionTimeRangePtrOutput struct{ *pulumi.OutputState }
+
+func (ViewDataFilterExpressionTimeRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewDataFilterExpressionTimeRange)(nil)).Elem()
+}
+
+func (o ViewDataFilterExpressionTimeRangePtrOutput) ToViewDataFilterExpressionTimeRangePtrOutput() ViewDataFilterExpressionTimeRangePtrOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionTimeRangePtrOutput) ToViewDataFilterExpressionTimeRangePtrOutputWithContext(ctx context.Context) ViewDataFilterExpressionTimeRangePtrOutput {
+	return o
+}
+
+func (o ViewDataFilterExpressionTimeRangePtrOutput) Elem() ViewDataFilterExpressionTimeRangeOutput {
+	return o.ApplyT(func(v *ViewDataFilterExpressionTimeRange) ViewDataFilterExpressionTimeRange {
+		if v != nil {
+			return *v
+		}
+		var ret ViewDataFilterExpressionTimeRange
+		return ret
+	}).(ViewDataFilterExpressionTimeRangeOutput)
+}
+
+// Inclusive end date of the time range.
+func (o ViewDataFilterExpressionTimeRangePtrOutput) BeginDateInclusive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewDataFilterExpressionTimeRange) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BeginDateInclusive
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ViewDataFilterExpressionTimeRangePtrOutput) EndDateInclusive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewDataFilterExpressionTimeRange) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndDateInclusive
+	}).(pulumi.StringPtrOutput)
+}
+
+type ViewTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ViewTimeoutsInput is an input type that accepts ViewTimeoutsArgs and ViewTimeoutsOutput values.
+// You can construct a concrete instance of `ViewTimeoutsInput` via:
+//
+//	ViewTimeoutsArgs{...}
+type ViewTimeoutsInput interface {
+	pulumi.Input
+
+	ToViewTimeoutsOutput() ViewTimeoutsOutput
+	ToViewTimeoutsOutputWithContext(context.Context) ViewTimeoutsOutput
+}
+
+type ViewTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ViewTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewTimeouts)(nil)).Elem()
+}
+
+func (i ViewTimeoutsArgs) ToViewTimeoutsOutput() ViewTimeoutsOutput {
+	return i.ToViewTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ViewTimeoutsArgs) ToViewTimeoutsOutputWithContext(ctx context.Context) ViewTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewTimeoutsOutput)
+}
+
+func (i ViewTimeoutsArgs) ToViewTimeoutsPtrOutput() ViewTimeoutsPtrOutput {
+	return i.ToViewTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ViewTimeoutsArgs) ToViewTimeoutsPtrOutputWithContext(ctx context.Context) ViewTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewTimeoutsOutput).ToViewTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ViewTimeoutsPtrInput is an input type that accepts ViewTimeoutsArgs, ViewTimeoutsPtr and ViewTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ViewTimeoutsPtrInput` via:
+//
+//	        ViewTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ViewTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToViewTimeoutsPtrOutput() ViewTimeoutsPtrOutput
+	ToViewTimeoutsPtrOutputWithContext(context.Context) ViewTimeoutsPtrOutput
+}
+
+type viewTimeoutsPtrType ViewTimeoutsArgs
+
+func ViewTimeoutsPtr(v *ViewTimeoutsArgs) ViewTimeoutsPtrInput {
+	return (*viewTimeoutsPtrType)(v)
+}
+
+func (*viewTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewTimeouts)(nil)).Elem()
+}
+
+func (i *viewTimeoutsPtrType) ToViewTimeoutsPtrOutput() ViewTimeoutsPtrOutput {
+	return i.ToViewTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *viewTimeoutsPtrType) ToViewTimeoutsPtrOutputWithContext(ctx context.Context) ViewTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewTimeoutsPtrOutput)
+}
+
+type ViewTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ViewTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewTimeouts)(nil)).Elem()
+}
+
+func (o ViewTimeoutsOutput) ToViewTimeoutsOutput() ViewTimeoutsOutput {
+	return o
+}
+
+func (o ViewTimeoutsOutput) ToViewTimeoutsOutputWithContext(ctx context.Context) ViewTimeoutsOutput {
+	return o
+}
+
+func (o ViewTimeoutsOutput) ToViewTimeoutsPtrOutput() ViewTimeoutsPtrOutput {
+	return o.ToViewTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ViewTimeoutsOutput) ToViewTimeoutsPtrOutputWithContext(ctx context.Context) ViewTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ViewTimeouts) *ViewTimeouts {
+		return &v
+	}).(ViewTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ViewTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ViewTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ViewTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ViewTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ViewTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ViewTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ViewTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ViewTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewTimeouts)(nil)).Elem()
+}
+
+func (o ViewTimeoutsPtrOutput) ToViewTimeoutsPtrOutput() ViewTimeoutsPtrOutput {
+	return o
+}
+
+func (o ViewTimeoutsPtrOutput) ToViewTimeoutsPtrOutputWithContext(ctx context.Context) ViewTimeoutsPtrOutput {
+	return o
+}
+
+func (o ViewTimeoutsPtrOutput) Elem() ViewTimeoutsOutput {
+	return o.ApplyT(func(v *ViewTimeouts) ViewTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ViewTimeouts
+		return ret
+	}).(ViewTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ViewTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ViewTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ViewTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetViewsBillingView struct {
 	// ARN of the billing view.
 	Arn             string `pulumi:"arn"`
@@ -144,8 +908,28 @@ func (o GetViewsBillingViewArrayOutput) Index(i pulumi.IntInput) GetViewsBilling
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewDataFilterExpressionInput)(nil)).Elem(), ViewDataFilterExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewDataFilterExpressionPtrInput)(nil)).Elem(), ViewDataFilterExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewDataFilterExpressionDimensionsInput)(nil)).Elem(), ViewDataFilterExpressionDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewDataFilterExpressionDimensionsPtrInput)(nil)).Elem(), ViewDataFilterExpressionDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewDataFilterExpressionTagInput)(nil)).Elem(), ViewDataFilterExpressionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewDataFilterExpressionTagArrayInput)(nil)).Elem(), ViewDataFilterExpressionTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewDataFilterExpressionTimeRangeInput)(nil)).Elem(), ViewDataFilterExpressionTimeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewDataFilterExpressionTimeRangePtrInput)(nil)).Elem(), ViewDataFilterExpressionTimeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewTimeoutsInput)(nil)).Elem(), ViewTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewTimeoutsPtrInput)(nil)).Elem(), ViewTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetViewsBillingViewInput)(nil)).Elem(), GetViewsBillingViewArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetViewsBillingViewArrayInput)(nil)).Elem(), GetViewsBillingViewArray{})
+	pulumi.RegisterOutputType(ViewDataFilterExpressionOutput{})
+	pulumi.RegisterOutputType(ViewDataFilterExpressionPtrOutput{})
+	pulumi.RegisterOutputType(ViewDataFilterExpressionDimensionsOutput{})
+	pulumi.RegisterOutputType(ViewDataFilterExpressionDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(ViewDataFilterExpressionTagOutput{})
+	pulumi.RegisterOutputType(ViewDataFilterExpressionTagArrayOutput{})
+	pulumi.RegisterOutputType(ViewDataFilterExpressionTimeRangeOutput{})
+	pulumi.RegisterOutputType(ViewDataFilterExpressionTimeRangePtrOutput{})
+	pulumi.RegisterOutputType(ViewTimeoutsOutput{})
+	pulumi.RegisterOutputType(ViewTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetViewsBillingViewOutput{})
 	pulumi.RegisterOutputType(GetViewsBillingViewArrayOutput{})
 }

@@ -265,13 +265,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// Import using the `id`, which is the bucket name and the key together:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_s3_object.example some-bucket-name/some/key.txt
     /// 
     /// Import using S3 URL syntax:
-    /// 
-    /// console
     /// 
     /// % pulumi import aws_s3_object.example s3://some-bucket-name/some/key.txt
     /// </summary>

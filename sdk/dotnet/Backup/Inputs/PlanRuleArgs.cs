@@ -60,6 +60,18 @@ namespace Pulumi.Aws.Backup.Inputs
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
+        [Input("scanActions")]
+        private InputList<Inputs.PlanRuleScanActionArgs>? _scanActions;
+
+        /// <summary>
+        /// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+        /// </summary>
+        public InputList<Inputs.PlanRuleScanActionArgs> ScanActions
+        {
+            get => _scanActions ?? (_scanActions = new InputList<Inputs.PlanRuleScanActionArgs>());
+            set => _scanActions = value;
+        }
+
         /// <summary>
         /// A CRON expression specifying when AWS Backup initiates a backup job.
         /// </summary>
@@ -77,6 +89,12 @@ namespace Pulumi.Aws.Backup.Inputs
         /// </summary>
         [Input("startWindow")]
         public Input<int>? StartWindow { get; set; }
+
+        /// <summary>
+        /// The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+        /// </summary>
+        [Input("targetLogicallyAirGappedBackupVaultArn")]
+        public Input<string>? TargetLogicallyAirGappedBackupVaultArn { get; set; }
 
         /// <summary>
         /// The name of a logical container where backups are stored.

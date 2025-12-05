@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.NatGatewayArgs;
 import com.pulumi.aws.ec2.inputs.NatGatewayState;
+import com.pulumi.aws.ec2.outputs.NatGatewayAvailabilityZoneAddress;
+import com.pulumi.aws.ec2.outputs.NatGatewayRegionalNatGatewayAddress;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -167,6 +169,130 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Regional NAT Gateway with auto mode
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.InternetGateway;
+ * import com.pulumi.aws.ec2.InternetGatewayArgs;
+ * import com.pulumi.aws.ec2.NatGateway;
+ * import com.pulumi.aws.ec2.NatGatewayArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .build());
+ * 
+ *         var example = new Vpc("example", VpcArgs.builder()
+ *             .cidrBlock("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var exampleInternetGateway = new InternetGateway("exampleInternetGateway", InternetGatewayArgs.builder()
+ *             .vpcId(example.id())
+ *             .build());
+ * 
+ *         var exampleNatGateway = new NatGateway("exampleNatGateway", NatGatewayArgs.builder()
+ *             .vpcId(example.id())
+ *             .availabilityMode("regional")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Regional NAT Gateway with manual mode
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.InternetGateway;
+ * import com.pulumi.aws.ec2.InternetGatewayArgs;
+ * import com.pulumi.aws.ec2.Eip;
+ * import com.pulumi.aws.ec2.EipArgs;
+ * import com.pulumi.aws.ec2.NatGateway;
+ * import com.pulumi.aws.ec2.NatGatewayArgs;
+ * import com.pulumi.aws.ec2.inputs.NatGatewayAvailabilityZoneAddressArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .build());
+ * 
+ *         var example = new Vpc("example", VpcArgs.builder()
+ *             .cidrBlock("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var exampleInternetGateway = new InternetGateway("exampleInternetGateway", InternetGatewayArgs.builder()
+ *             .vpcId(example.id())
+ *             .build());
+ * 
+ *         for (var i = 0; i < 3; i++) {
+ *             new Eip("exampleEip-" + i, EipArgs.builder()
+ *                 .domain("vpc")
+ *                 .build());
+ * 
+ *         
+ * }
+ *         var exampleNatGateway = new NatGateway("exampleNatGateway", NatGatewayArgs.builder()
+ *             .vpcId(example.id())
+ *             .availabilityMode("regional")
+ *             .availabilityZoneAddresses(            
+ *                 NatGatewayAvailabilityZoneAddressArgs.builder()
+ *                     .allocationIds(exampleEip[0].id())
+ *                     .availabilityZone(available.names()[0])
+ *                     .build(),
+ *                 NatGatewayAvailabilityZoneAddressArgs.builder()
+ *                     .allocationIds(                    
+ *                         exampleEip[1].id(),
+ *                         exampleEip[2].id())
+ *                     .availabilityZone(available.names()[1])
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import NAT Gateways using the `id`. For example:
@@ -179,56 +305,112 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/natGateway:NatGateway")
 public class NatGateway extends com.pulumi.resources.CustomResource {
     /**
-     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
+     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
      * 
      */
     @Export(name="allocationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allocationId;
 
     /**
-     * @return The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
+     * @return The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
      * 
      */
     public Output<Optional<String>> allocationId() {
         return Codegen.optional(this.allocationId);
     }
     /**
-     * The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivityType` is `public`.
+     * Association ID of the Elastic IP address.
      * 
      */
     @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
     /**
-     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivityType` is `public`.
+     * @return Association ID of the Elastic IP address.
      * 
      */
     public Output<String> associationId() {
         return this.associationId;
     }
     /**
-     * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
+     * (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
+     * 
+     */
+    @Export(name="autoProvisionZones", refs={String.class}, tree="[0]")
+    private Output<String> autoProvisionZones;
+
+    /**
+     * @return (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
+     * 
+     */
+    public Output<String> autoProvisionZones() {
+        return this.autoProvisionZones;
+    }
+    /**
+     * (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+     * 
+     */
+    @Export(name="autoScalingIps", refs={String.class}, tree="[0]")
+    private Output<String> autoScalingIps;
+
+    /**
+     * @return (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+     * 
+     */
+    public Output<String> autoScalingIps() {
+        return this.autoScalingIps;
+    }
+    /**
+     * Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
+     * 
+     */
+    @Export(name="availabilityMode", refs={String.class}, tree="[0]")
+    private Output<String> availabilityMode;
+
+    /**
+     * @return Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
+     * 
+     */
+    public Output<String> availabilityMode() {
+        return this.availabilityMode;
+    }
+    /**
+     * Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availabilityZoneAddress` below for details.
+     * 
+     */
+    @Export(name="availabilityZoneAddresses", refs={List.class,NatGatewayAvailabilityZoneAddress.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<NatGatewayAvailabilityZoneAddress>> availabilityZoneAddresses;
+
+    /**
+     * @return Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availabilityZoneAddress` below for details.
+     * 
+     */
+    public Output<Optional<List<NatGatewayAvailabilityZoneAddress>>> availabilityZoneAddresses() {
+        return Codegen.optional(this.availabilityZoneAddresses);
+    }
+    /**
+     * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availabilityMode` is set to `regional`, this must be set to `public`. Defaults to `public`.
      * 
      */
     @Export(name="connectivityType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectivityType;
 
     /**
-     * @return Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
+     * @return Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availabilityMode` is set to `regional`, this must be set to `public`. Defaults to `public`.
      * 
      */
     public Output<Optional<String>> connectivityType() {
         return Codegen.optional(this.connectivityType);
     }
     /**
-     * The ID of the network interface associated with the NAT Gateway.
+     * ID of the network interface.
      * 
      */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**
-     * @return The ID of the network interface associated with the NAT Gateway.
+     * @return ID of the network interface.
      * 
      */
     public Output<String> networkInterfaceId() {
@@ -249,14 +431,14 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return this.privateIp;
     }
     /**
-     * The Elastic IP address associated with the NAT Gateway.
+     * Public IP address.
      * 
      */
     @Export(name="publicIp", refs={String.class}, tree="[0]")
     private Output<String> publicIp;
 
     /**
-     * @return The Elastic IP address associated with the NAT Gateway.
+     * @return Public IP address.
      * 
      */
     public Output<String> publicIp() {
@@ -277,6 +459,40 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
+     * (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
+     * 
+     */
+    @Export(name="regionalNatGatewayAddresses", refs={List.class,NatGatewayRegionalNatGatewayAddress.class}, tree="[0,1]")
+    private Output<List<NatGatewayRegionalNatGatewayAddress>> regionalNatGatewayAddresses;
+
+    /**
+     * @return (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
+     * 
+     */
+    public Output<List<NatGatewayRegionalNatGatewayAddress>> regionalNatGatewayAddresses() {
+        return this.regionalNatGatewayAddresses;
+    }
+    @Export(name="regionalNatGatewayAutoMode", refs={String.class}, tree="[0]")
+    private Output<String> regionalNatGatewayAutoMode;
+
+    public Output<String> regionalNatGatewayAutoMode() {
+        return this.regionalNatGatewayAutoMode;
+    }
+    /**
+     * (regional NAT gateways only) ID of the automatically created route table.
+     * 
+     */
+    @Export(name="routeTableId", refs={String.class}, tree="[0]")
+    private Output<String> routeTableId;
+
+    /**
+     * @return (regional NAT gateways only) ID of the automatically created route table.
+     * 
+     */
+    public Output<String> routeTableId() {
+        return this.routeTableId;
+    }
+    /**
      * A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
      * 
      */
@@ -291,14 +507,14 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return this.secondaryAllocationIds;
     }
     /**
-     * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+     * The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
      * 
      */
     @Export(name="secondaryPrivateIpAddressCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> secondaryPrivateIpAddressCount;
 
     /**
-     * @return [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+     * @return The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
      * 
      */
     public Output<Integer> secondaryPrivateIpAddressCount() {
@@ -319,18 +535,18 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return this.secondaryPrivateIpAddresses;
     }
     /**
-     * The Subnet ID of the subnet in which to place the NAT Gateway.
+     * The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availabilityMode` is set to `zonal`. Must not be set when `availabilityMode` is set to `regional`.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
-    private Output<String> subnetId;
+    private Output</* @Nullable */ String> subnetId;
 
     /**
-     * @return The Subnet ID of the subnet in which to place the NAT Gateway.
+     * @return The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availabilityMode` is set to `zonal`. Must not be set when `availabilityMode` is set to `regional`.
      * 
      */
-    public Output<String> subnetId() {
-        return this.subnetId;
+    public Output<Optional<String>> subnetId() {
+        return Codegen.optional(this.subnetId);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -360,6 +576,20 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * VPC ID where this NAT Gateway will be created. Required when `availabilityMode` is set to `regional`.
+     * 
+     */
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
+    private Output<String> vpcId;
+
+    /**
+     * @return VPC ID where this NAT Gateway will be created. Required when `availabilityMode` is set to `regional`.
+     * 
+     */
+    public Output<String> vpcId() {
+        return this.vpcId;
+    }
 
     /**
      *
@@ -373,7 +603,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NatGateway(java.lang.String name, NatGatewayArgs args) {
+    public NatGateway(java.lang.String name, @Nullable NatGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -382,7 +612,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NatGateway(java.lang.String name, NatGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public NatGateway(java.lang.String name, @Nullable NatGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/natGateway:NatGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -390,7 +620,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         super("aws:ec2/natGateway:NatGateway", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static NatGatewayArgs makeArgs(NatGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static NatGatewayArgs makeArgs(@Nullable NatGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

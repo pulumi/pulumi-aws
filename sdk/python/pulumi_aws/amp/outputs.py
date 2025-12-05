@@ -103,7 +103,7 @@ class QueryLoggingConfigurationDestinationCloudwatchLogs(dict):
     def __init__(__self__, *,
                  log_group_arn: _builtins.str):
         """
-        :param _builtins.str log_group_arn: The ARN of the CloudWatch log group to which query logs will be sent.
+        :param _builtins.str log_group_arn: The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
@@ -111,7 +111,7 @@ class QueryLoggingConfigurationDestinationCloudwatchLogs(dict):
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> _builtins.str:
         """
-        The ARN of the CloudWatch log group to which query logs will be sent.
+        The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_group_arn")
 
@@ -596,7 +596,7 @@ class WorkspaceLoggingConfiguration(dict):
     def __init__(__self__, *,
                  log_group_arn: _builtins.str):
         """
-        :param _builtins.str log_group_arn: The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+        :param _builtins.str log_group_arn: The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
@@ -604,7 +604,7 @@ class WorkspaceLoggingConfiguration(dict):
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> _builtins.str:
         """
-        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_group_arn")
 

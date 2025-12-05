@@ -137,7 +137,7 @@ export class AccountAssignment extends pulumi.CustomResource {
     /**
      * The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      */
-    declare public readonly targetType: pulumi.Output<string | undefined>;
+    declare public readonly targetType: pulumi.Output<string>;
 
     /**
      * Create a AccountAssignment resource with the given unique name, arguments, and options.
@@ -175,6 +175,9 @@ export class AccountAssignment extends pulumi.CustomResource {
             }
             if (args?.targetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
+            }
+            if (args?.targetType === undefined && !opts.urn) {
+                throw new Error("Missing required property 'targetType'");
             }
             resourceInputs["instanceArn"] = args?.instanceArn;
             resourceInputs["permissionSetArn"] = args?.permissionSetArn;
@@ -254,5 +257,5 @@ export interface AccountAssignmentArgs {
     /**
      * The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      */
-    targetType?: pulumi.Input<string>;
+    targetType: pulumi.Input<string>;
 }

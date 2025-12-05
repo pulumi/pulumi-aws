@@ -55,8 +55,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
  *
- * console
- *
  * % pulumi import aws_comprehend_entity_recognizer.example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
  */
 export class EntityRecognizer extends pulumi.CustomResource {

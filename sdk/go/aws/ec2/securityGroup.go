@@ -344,8 +344,6 @@ import (
 //
 // Using `pulumi import`, import Security Groups using the security group `id`. For example:
 //
-// console
-//
 // % pulumi import aws_security_group.example sg-903004f8
 type SecurityGroup struct {
 	pulumi.CustomResourceState

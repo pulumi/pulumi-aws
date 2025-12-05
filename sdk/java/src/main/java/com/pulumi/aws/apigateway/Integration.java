@@ -303,6 +303,106 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## VPC Link V2 with Application Load Balancer
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigatewayv2.VpcLink;
+ * import com.pulumi.aws.apigatewayv2.VpcLinkArgs;
+ * import com.pulumi.aws.lb.LoadBalancer;
+ * import com.pulumi.aws.lb.LoadBalancerArgs;
+ * import com.pulumi.aws.lb.Listener;
+ * import com.pulumi.aws.lb.ListenerArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionFixedResponseArgs;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.Resource;
+ * import com.pulumi.aws.apigateway.ResourceArgs;
+ * import com.pulumi.aws.apigateway.Method;
+ * import com.pulumi.aws.apigateway.MethodArgs;
+ * import com.pulumi.aws.apigateway.Integration;
+ * import com.pulumi.aws.apigateway.IntegrationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VpcLink("example", VpcLinkArgs.builder()
+ *             .name("example")
+ *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .build());
+ * 
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
+ *             .name("example-alb")
+ *             .internal(true)
+ *             .loadBalancerType("application")
+ *             .securityGroups(exampleAwsSecurityGroup.id())
+ *             .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .build());
+ * 
+ *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
+ *             .loadBalancerArn(exampleLoadBalancer.arn())
+ *             .port(80)
+ *             .protocol("HTTP")
+ *             .defaultActions(ListenerDefaultActionArgs.builder()
+ *                 .type("fixed-response")
+ *                 .fixedResponse(ListenerDefaultActionFixedResponseArgs.builder()
+ *                     .contentType("text/plain")
+ *                     .messageBody("OK")
+ *                     .statusCode("200")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleRestApi = new RestApi("exampleRestApi", RestApiArgs.builder()
+ *             .name("example")
+ *             .build());
+ * 
+ *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
+ *             .restApi(exampleRestApi.id())
+ *             .parentId(exampleRestApi.rootResourceId())
+ *             .pathPart("example")
+ *             .build());
+ * 
+ *         var exampleMethod = new Method("exampleMethod", MethodArgs.builder()
+ *             .restApi(exampleRestApi.id())
+ *             .resourceId(exampleResource.id())
+ *             .httpMethod("GET")
+ *             .authorization("NONE")
+ *             .build());
+ * 
+ *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
+ *             .restApi(exampleRestApi.id())
+ *             .resourceId(exampleResource.id())
+ *             .httpMethod(exampleMethod.httpMethod())
+ *             .integrationHttpMethod("GET")
+ *             .type("HTTP_PROXY")
+ *             .connectionType("VPC_LINK")
+ *             .connectionId(example.id())
+ *             .integrationTarget(exampleLoadBalancer.arn())
+ *             .uri("http://example.com")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_api_gateway_integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
@@ -437,6 +537,20 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.integrationHttpMethod);
     }
     /**
+     * The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+     * 
+     */
+    @Export(name="integrationTarget", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> integrationTarget;
+
+    /**
+     * @return The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+     * 
+     */
+    public Output<Optional<String>> integrationTarget() {
+        return Codegen.optional(this.integrationTarget);
+    }
+    /**
      * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      * 
      */
@@ -507,6 +621,22 @@ public class Integration extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceId() {
         return this.resourceId;
+    }
+    /**
+     * Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+     * Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+     * 
+     */
+    @Export(name="responseTransferMode", refs={String.class}, tree="[0]")
+    private Output<String> responseTransferMode;
+
+    /**
+     * @return Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+     * Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+     * 
+     */
+    public Output<String> responseTransferMode() {
+        return this.responseTransferMode;
     }
     /**
      * ID of the associated REST API.

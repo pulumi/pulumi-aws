@@ -32,6 +32,8 @@ __all__ = [
     'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgsDict',
     'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs',
     'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgsDict',
+    'BucketAbacAbacStatusArgs',
+    'BucketAbacAbacStatusArgsDict',
     'BucketAclAccessControlPolicyArgs',
     'BucketAclAccessControlPolicyArgsDict',
     'BucketAclAccessControlPolicyGrantArgs',
@@ -338,6 +340,8 @@ __all__ = [
     'ObjectCopyOverrideProviderDefaultTagsArgsDict',
     'PolicyDocumentArgs',
     'PolicyDocumentArgsDict',
+    'VectorsVectorBucketEncryptionConfigurationArgs',
+    'VectorsVectorBucketEncryptionConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -737,6 +741,43 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDes
     @prefix.setter
     def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "prefix", value)
+
+
+if not MYPY:
+    class BucketAbacAbacStatusArgsDict(TypedDict):
+        status: pulumi.Input[_builtins.str]
+        """
+        ABAC status of the general purpose bucket.
+        Valid values are `Enabled` and `Disabled`.
+        By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+        """
+elif False:
+    BucketAbacAbacStatusArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketAbacAbacStatusArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] status: ABAC status of the general purpose bucket.
+               Valid values are `Enabled` and `Disabled`.
+               By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[_builtins.str]:
+        """
+        ABAC status of the general purpose bucket.
+        Valid values are `Enabled` and `Disabled`.
+        By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:
@@ -7310,6 +7351,10 @@ if not MYPY:
         """
         Single object for setting server-side encryption by default. See below.
         """
+        blocked_encryption_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+        """
         bucket_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -7321,13 +7366,17 @@ elif False:
 class BucketServerSideEncryptionConfigurationRuleArgs:
     def __init__(__self__, *,
                  apply_server_side_encryption_by_default: Optional[pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs']] = None,
+                 blocked_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bucket_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs'] apply_server_side_encryption_by_default: Single object for setting server-side encryption by default. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_encryption_types: List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         if apply_server_side_encryption_by_default is not None:
             pulumi.set(__self__, "apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
+        if blocked_encryption_types is not None:
+            pulumi.set(__self__, "blocked_encryption_types", blocked_encryption_types)
         if bucket_key_enabled is not None:
             pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
 
@@ -7342,6 +7391,18 @@ class BucketServerSideEncryptionConfigurationRuleArgs:
     @apply_server_side_encryption_by_default.setter
     def apply_server_side_encryption_by_default(self, value: Optional[pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs']]):
         pulumi.set(self, "apply_server_side_encryption_by_default", value)
+
+    @_builtins.property
+    @pulumi.getter(name="blockedEncryptionTypes")
+    def blocked_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+        """
+        return pulumi.get(self, "blocked_encryption_types")
+
+    @blocked_encryption_types.setter
+    def blocked_encryption_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "blocked_encryption_types", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
@@ -7413,6 +7474,10 @@ if not MYPY:
         """
         Single object for setting server-side encryption by default. See below.
         """
+        blocked_encryption_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+        """
         bucket_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -7424,13 +7489,17 @@ elif False:
 class BucketServerSideEncryptionConfigurationV2RuleArgs:
     def __init__(__self__, *,
                  apply_server_side_encryption_by_default: Optional[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs']] = None,
+                 blocked_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bucket_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs'] apply_server_side_encryption_by_default: Single object for setting server-side encryption by default. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_encryption_types: List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         if apply_server_side_encryption_by_default is not None:
             pulumi.set(__self__, "apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
+        if blocked_encryption_types is not None:
+            pulumi.set(__self__, "blocked_encryption_types", blocked_encryption_types)
         if bucket_key_enabled is not None:
             pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
 
@@ -7445,6 +7514,18 @@ class BucketServerSideEncryptionConfigurationV2RuleArgs:
     @apply_server_side_encryption_by_default.setter
     def apply_server_side_encryption_by_default(self, value: Optional[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs']]):
         pulumi.set(self, "apply_server_side_encryption_by_default", value)
+
+    @_builtins.property
+    @pulumi.getter(name="blockedEncryptionTypes")
+    def blocked_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+        """
+        return pulumi.get(self, "blocked_encryption_types")
+
+    @blocked_encryption_types.setter
+    def blocked_encryption_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "blocked_encryption_types", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
@@ -10748,5 +10829,55 @@ class PolicyDocumentArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class VectorsVectorBucketEncryptionConfigurationArgsDict(TypedDict):
+        kms_key_arn: pulumi.Input[_builtins.str]
+        """
+        AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sse_type` is set to `aws:kms`.
+        """
+        sse_type: pulumi.Input[_builtins.str]
+        """
+        Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
+        """
+elif False:
+    VectorsVectorBucketEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VectorsVectorBucketEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_arn: pulumi.Input[_builtins.str],
+                 sse_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] kms_key_arn: AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sse_type` is set to `aws:kms`.
+        :param pulumi.Input[_builtins.str] sse_type: Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        pulumi.set(__self__, "sse_type", sse_type)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sse_type` is set to `aws:kms`.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sseType")
+    def sse_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
+        """
+        return pulumi.get(self, "sse_type")
+
+    @sse_type.setter
+    def sse_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sse_type", value)
 
 

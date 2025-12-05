@@ -32,6 +32,10 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly Outputs.ListenerRuleActionForward? Forward;
         /// <summary>
+        /// Information for creating a JWT validation action. Required if `Type` is `jwt-validation`.
+        /// </summary>
+        public readonly Outputs.ListenerRuleActionJwtValidation? JwtValidation;
+        /// <summary>
         /// Order for the action.
         /// The action with the lowest value for order is performed first.
         /// Valid values are between `1` and `50000`.
@@ -50,7 +54,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly string? TargetGroupArn;
         /// <summary>
-        /// The type of routing action. Valid values are `Forward`, `Redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        /// The type of routing action. Valid values are `Forward`, `Redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
         /// </summary>
         public readonly string Type;
 
@@ -64,6 +68,8 @@ namespace Pulumi.Aws.LB.Outputs
 
             Outputs.ListenerRuleActionForward? forward,
 
+            Outputs.ListenerRuleActionJwtValidation? jwtValidation,
+
             int? order,
 
             Outputs.ListenerRuleActionRedirect? redirect,
@@ -76,6 +82,7 @@ namespace Pulumi.Aws.LB.Outputs
             AuthenticateOidc = authenticateOidc;
             FixedResponse = fixedResponse;
             Forward = forward;
+            JwtValidation = jwtValidation;
             Order = order;
             Redirect = redirect;
             TargetGroupArn = targetGroupArn;

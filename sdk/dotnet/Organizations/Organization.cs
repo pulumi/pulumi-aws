@@ -53,8 +53,6 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// Using `pulumi import`, import the AWS organization using the `id`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_organizations_organization.example o-1234567
     /// </summary>
     [AwsResourceType("aws:organizations/organization:Organization")]
@@ -79,7 +77,7 @@ namespace Pulumi.Aws.Organizations
         public Output<ImmutableArray<string>> AwsServiceAccessPrincipals { get; private set; } = null!;
 
         /// <summary>
-        /// List of Organizations policy types to enable in the Organization Root. Organization must have `FeatureSet` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `CHATBOT_POLICY`, `DECLARATIVE_POLICY_EC2`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+        /// List of Organizations policy types to enable in the Organization Root. Organization must have `FeatureSet` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `CHATBOT_POLICY`, `DECLARATIVE_POLICY_EC2`, `INSPECTOR_POLICY`, `RESOURCE_CONTROL_POLICY`, `SECURITYHUB_POLICY`, `SERVICE_CONTROL_POLICY`, `TAG_POLICY` and `UPGRADE_ROLLOUT_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html). To enable `INSPECTOR_POLICY`, `AwsServiceAccessPrincipals` must include `inspector2.amazonaws.com`. To enable `SECURITYHUB_POLICY`, `AwsServiceAccessPrincipals` must include `securityhub.amazonaws.com`.
         /// </summary>
         [Output("enabledPolicyTypes")]
         public Output<ImmutableArray<string>> EnabledPolicyTypes { get; private set; } = null!;
@@ -188,7 +186,7 @@ namespace Pulumi.Aws.Organizations
         private InputList<string>? _enabledPolicyTypes;
 
         /// <summary>
-        /// List of Organizations policy types to enable in the Organization Root. Organization must have `FeatureSet` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `CHATBOT_POLICY`, `DECLARATIVE_POLICY_EC2`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+        /// List of Organizations policy types to enable in the Organization Root. Organization must have `FeatureSet` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `CHATBOT_POLICY`, `DECLARATIVE_POLICY_EC2`, `INSPECTOR_POLICY`, `RESOURCE_CONTROL_POLICY`, `SECURITYHUB_POLICY`, `SERVICE_CONTROL_POLICY`, `TAG_POLICY` and `UPGRADE_ROLLOUT_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html). To enable `INSPECTOR_POLICY`, `AwsServiceAccessPrincipals` must include `inspector2.amazonaws.com`. To enable `SECURITYHUB_POLICY`, `AwsServiceAccessPrincipals` must include `securityhub.amazonaws.com`.
         /// </summary>
         public InputList<string> EnabledPolicyTypes
         {
@@ -244,7 +242,7 @@ namespace Pulumi.Aws.Organizations
         private InputList<string>? _enabledPolicyTypes;
 
         /// <summary>
-        /// List of Organizations policy types to enable in the Organization Root. Organization must have `FeatureSet` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `CHATBOT_POLICY`, `DECLARATIVE_POLICY_EC2`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+        /// List of Organizations policy types to enable in the Organization Root. Organization must have `FeatureSet` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `CHATBOT_POLICY`, `DECLARATIVE_POLICY_EC2`, `INSPECTOR_POLICY`, `RESOURCE_CONTROL_POLICY`, `SECURITYHUB_POLICY`, `SERVICE_CONTROL_POLICY`, `TAG_POLICY` and `UPGRADE_ROLLOUT_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html). To enable `INSPECTOR_POLICY`, `AwsServiceAccessPrincipals` must include `inspector2.amazonaws.com`. To enable `SECURITYHUB_POLICY`, `AwsServiceAccessPrincipals` must include `securityhub.amazonaws.com`.
         /// </summary>
         public InputList<string> EnabledPolicyTypes
         {

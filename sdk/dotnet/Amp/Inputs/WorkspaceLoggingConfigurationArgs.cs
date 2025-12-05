@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Amp.Inputs
     public sealed class WorkspaceLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+        /// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
         /// </summary>
         [Input("logGroupArn", required: true)]
         public Input<string> LogGroupArn { get; set; } = null!;

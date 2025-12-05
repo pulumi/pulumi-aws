@@ -171,6 +171,48 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### Agent runtime artifact from S3 with Code Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreAgentRuntime("example", new()
+    ///     {
+    ///         AgentRuntimeName = "example_agent_runtime",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         AgentRuntimeArtifact = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs
+    ///         {
+    ///             CodeConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs
+    ///             {
+    ///                 EntryPoints = new[]
+    ///                 {
+    ///                     "main.py",
+    ///                 },
+    ///                 Runtime = "PYTHON_3_13",
+    ///                 Code = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs
+    ///                 {
+    ///                     S3 = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args
+    ///                     {
+    ///                         Bucket = "example-bucket",
+    ///                         Prefix = "example-agent-runtime-code.zip",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs
+    ///         {
+    ///             NetworkMode = "PUBLIC",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Bedrock AgentCore Agent Runtime using `agent_runtime_id`. For example:

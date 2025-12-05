@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
  *
- * console
- *
  * % pulumi import aws_cloudwatch_log_group.example yada
  */
 export class LogGroup extends pulumi.CustomResource {
@@ -74,6 +72,10 @@ export class LogGroup extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
+     */
+    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean>;
     /**
      * The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
      * AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
@@ -129,6 +131,7 @@ export class LogGroup extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as LogGroupState | undefined;
             resourceInputs["arn"] = state?.arn;
+            resourceInputs["deletionProtectionEnabled"] = state?.deletionProtectionEnabled;
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
             resourceInputs["logGroupClass"] = state?.logGroupClass;
             resourceInputs["name"] = state?.name;
@@ -140,6 +143,7 @@ export class LogGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as LogGroupArgs | undefined;
+            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["logGroupClass"] = args?.logGroupClass;
             resourceInputs["name"] = args?.name;
@@ -164,6 +168,10 @@ export interface LogGroupState {
      * The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
+     */
+    deletionProtectionEnabled?: pulumi.Input<boolean>;
     /**
      * The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
      * AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
@@ -210,6 +218,10 @@ export interface LogGroupState {
  * The set of arguments for constructing a LogGroup resource.
  */
 export interface LogGroupArgs {
+    /**
+     * Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
+     */
+    deletionProtectionEnabled?: pulumi.Input<boolean>;
     /**
      * The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
      * AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires

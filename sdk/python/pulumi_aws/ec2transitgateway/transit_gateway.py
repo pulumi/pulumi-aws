@@ -25,6 +25,7 @@ class TransitGatewayArgs:
                  default_route_table_propagation: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_support: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_support: Optional[pulumi.Input[_builtins.str]] = None,
                  multicast_support: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_group_referencing_support: Optional[pulumi.Input[_builtins.str]] = None,
@@ -41,6 +42,7 @@ class TransitGatewayArgs:
         :param pulumi.Input[_builtins.str] default_route_table_propagation: Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[_builtins.str] description: Description of the EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        :param pulumi.Input[_builtins.str] encryption_support: Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
         :param pulumi.Input[_builtins.str] multicast_support: Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -60,6 +62,8 @@ class TransitGatewayArgs:
             pulumi.set(__self__, "description", description)
         if dns_support is not None:
             pulumi.set(__self__, "dns_support", dns_support)
+        if encryption_support is not None:
+            pulumi.set(__self__, "encryption_support", encryption_support)
         if multicast_support is not None:
             pulumi.set(__self__, "multicast_support", multicast_support)
         if region is not None:
@@ -148,6 +152,18 @@ class TransitGatewayArgs:
         pulumi.set(self, "dns_support", value)
 
     @_builtins.property
+    @pulumi.getter(name="encryptionSupport")
+    def encryption_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+        """
+        return pulumi.get(self, "encryption_support")
+
+    @encryption_support.setter
+    def encryption_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_support", value)
+
+    @_builtins.property
     @pulumi.getter(name="multicastSupport")
     def multicast_support(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -231,6 +247,7 @@ class _TransitGatewayState:
                  default_route_table_propagation: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_support: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_support: Optional[pulumi.Input[_builtins.str]] = None,
                  multicast_support: Optional[pulumi.Input[_builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[_builtins.str]] = None,
                  propagation_default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -252,6 +269,7 @@ class _TransitGatewayState:
         :param pulumi.Input[_builtins.str] default_route_table_propagation: Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[_builtins.str] description: Description of the EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        :param pulumi.Input[_builtins.str] encryption_support: Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
         :param pulumi.Input[_builtins.str] multicast_support: Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] owner_id: Identifier of the AWS account that owns the EC2 Transit Gateway
         :param pulumi.Input[_builtins.str] propagation_default_route_table_id: Identifier of the default propagation route table
@@ -278,6 +296,8 @@ class _TransitGatewayState:
             pulumi.set(__self__, "description", description)
         if dns_support is not None:
             pulumi.set(__self__, "dns_support", dns_support)
+        if encryption_support is not None:
+            pulumi.set(__self__, "encryption_support", encryption_support)
         if multicast_support is not None:
             pulumi.set(__self__, "multicast_support", multicast_support)
         if owner_id is not None:
@@ -394,6 +414,18 @@ class _TransitGatewayState:
     @dns_support.setter
     def dns_support(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dns_support", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionSupport")
+    def encryption_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+        """
+        return pulumi.get(self, "encryption_support")
+
+    @encryption_support.setter
+    def encryption_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_support", value)
 
     @_builtins.property
     @pulumi.getter(name="multicastSupport")
@@ -516,6 +548,7 @@ class TransitGateway(pulumi.CustomResource):
                  default_route_table_propagation: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_support: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_support: Optional[pulumi.Input[_builtins.str]] = None,
                  multicast_support: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_group_referencing_support: Optional[pulumi.Input[_builtins.str]] = None,
@@ -553,6 +586,7 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_route_table_propagation: Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[_builtins.str] description: Description of the EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        :param pulumi.Input[_builtins.str] encryption_support: Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
         :param pulumi.Input[_builtins.str] multicast_support: Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -607,6 +641,7 @@ class TransitGateway(pulumi.CustomResource):
                  default_route_table_propagation: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_support: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_support: Optional[pulumi.Input[_builtins.str]] = None,
                  multicast_support: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_group_referencing_support: Optional[pulumi.Input[_builtins.str]] = None,
@@ -628,6 +663,7 @@ class TransitGateway(pulumi.CustomResource):
             __props__.__dict__["default_route_table_propagation"] = default_route_table_propagation
             __props__.__dict__["description"] = description
             __props__.__dict__["dns_support"] = dns_support
+            __props__.__dict__["encryption_support"] = encryption_support
             __props__.__dict__["multicast_support"] = multicast_support
             __props__.__dict__["region"] = region
             __props__.__dict__["security_group_referencing_support"] = security_group_referencing_support
@@ -657,6 +693,7 @@ class TransitGateway(pulumi.CustomResource):
             default_route_table_propagation: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             dns_support: Optional[pulumi.Input[_builtins.str]] = None,
+            encryption_support: Optional[pulumi.Input[_builtins.str]] = None,
             multicast_support: Optional[pulumi.Input[_builtins.str]] = None,
             owner_id: Optional[pulumi.Input[_builtins.str]] = None,
             propagation_default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -683,6 +720,7 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_route_table_propagation: Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[_builtins.str] description: Description of the EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        :param pulumi.Input[_builtins.str] encryption_support: Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
         :param pulumi.Input[_builtins.str] multicast_support: Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] owner_id: Identifier of the AWS account that owns the EC2 Transit Gateway
         :param pulumi.Input[_builtins.str] propagation_default_route_table_id: Identifier of the default propagation route table
@@ -705,6 +743,7 @@ class TransitGateway(pulumi.CustomResource):
         __props__.__dict__["default_route_table_propagation"] = default_route_table_propagation
         __props__.__dict__["description"] = description
         __props__.__dict__["dns_support"] = dns_support
+        __props__.__dict__["encryption_support"] = encryption_support
         __props__.__dict__["multicast_support"] = multicast_support
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["propagation_default_route_table_id"] = propagation_default_route_table_id
@@ -781,6 +820,14 @@ class TransitGateway(pulumi.CustomResource):
         Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
         return pulumi.get(self, "dns_support")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionSupport")
+    def encryption_support(self) -> pulumi.Output[_builtins.str]:
+        """
+        Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+        """
+        return pulumi.get(self, "encryption_support")
 
     @_builtins.property
     @pulumi.getter(name="multicastSupport")

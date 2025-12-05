@@ -8,6 +8,7 @@ import com.pulumi.aws.backup.PlanArgs;
 import com.pulumi.aws.backup.inputs.PlanState;
 import com.pulumi.aws.backup.outputs.PlanAdvancedBackupSetting;
 import com.pulumi.aws.backup.outputs.PlanRule;
+import com.pulumi.aws.backup.outputs.PlanScanSetting;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -149,6 +150,20 @@ public class Plan extends com.pulumi.resources.CustomResource {
      */
     public Output<List<PlanRule>> rules() {
         return this.rules;
+    }
+    /**
+     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+     * 
+     */
+    @Export(name="scanSettings", refs={List.class,PlanScanSetting.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<PlanScanSetting>> scanSettings;
+
+    /**
+     * @return Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+     * 
+     */
+    public Output<Optional<List<PlanScanSetting>>> scanSettings() {
+        return Codegen.optional(this.scanSettings);
     }
     /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

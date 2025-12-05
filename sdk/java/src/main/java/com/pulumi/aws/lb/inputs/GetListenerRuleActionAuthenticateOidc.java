@@ -63,14 +63,14 @@ public final class GetListenerRuleActionAuthenticateOidc extends com.pulumi.reso
     }
 
     /**
-     * OIDC issuer identifier of the IdP.
+     * Issuer of the JWT.
      * 
      */
     @Import(name="issuer", required=true)
     private String issuer;
 
     /**
-     * @return OIDC issuer identifier of the IdP.
+     * @return Issuer of the JWT.
      * 
      */
     public String issuer() {
@@ -235,7 +235,7 @@ public final class GetListenerRuleActionAuthenticateOidc extends com.pulumi.reso
         }
 
         /**
-         * @param issuer OIDC issuer identifier of the IdP.
+         * @param issuer Issuer of the JWT.
          * 
          * @return builder
          * 

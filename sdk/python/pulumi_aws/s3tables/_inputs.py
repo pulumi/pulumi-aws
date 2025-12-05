@@ -23,6 +23,10 @@ __all__ = [
     'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgsDict',
     'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs',
     'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgsDict',
+    'TableBucketReplicationRuleArgs',
+    'TableBucketReplicationRuleArgsDict',
+    'TableBucketReplicationRuleDestinationArgs',
+    'TableBucketReplicationRuleDestinationArgsDict',
     'TableEncryptionConfigurationArgs',
     'TableEncryptionConfigurationArgsDict',
     'TableMaintenanceConfigurationArgs',
@@ -43,6 +47,10 @@ __all__ = [
     'TableMetadataIcebergSchemaArgsDict',
     'TableMetadataIcebergSchemaFieldArgs',
     'TableMetadataIcebergSchemaFieldArgsDict',
+    'TableReplicationRuleArgs',
+    'TableReplicationRuleArgsDict',
+    'TableReplicationRuleDestinationArgs',
+    'TableReplicationRuleDestinationArgsDict',
 ]
 
 MYPY = False
@@ -241,6 +249,69 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsA
     @unreferenced_days.setter
     def unreferenced_days(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "unreferenced_days", value)
+
+
+if not MYPY:
+    class TableBucketReplicationRuleArgsDict(TypedDict):
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgsDict']]]]
+        """
+        Replication destination. See Destination below for more details.
+        """
+elif False:
+    TableBucketReplicationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableBucketReplicationRuleArgs:
+    def __init__(__self__, *,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgs']]] destinations: Replication destination. See Destination below for more details.
+        """
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgs']]]]:
+        """
+        Replication destination. See Destination below for more details.
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgs']]]]):
+        pulumi.set(self, "destinations", value)
+
+
+if not MYPY:
+    class TableBucketReplicationRuleDestinationArgsDict(TypedDict):
+        destination_table_bucket_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of destination table bucket to replicate source tables to.
+        """
+elif False:
+    TableBucketReplicationRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableBucketReplicationRuleDestinationArgs:
+    def __init__(__self__, *,
+                 destination_table_bucket_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] destination_table_bucket_arn: ARN of destination table bucket to replicate source tables to.
+        """
+        pulumi.set(__self__, "destination_table_bucket_arn", destination_table_bucket_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTableBucketArn")
+    def destination_table_bucket_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of destination table bucket to replicate source tables to.
+        """
+        return pulumi.get(self, "destination_table_bucket_arn")
+
+    @destination_table_bucket_arn.setter
+    def destination_table_bucket_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_table_bucket_arn", value)
 
 
 if not MYPY:
@@ -722,5 +793,68 @@ class TableMetadataIcebergSchemaFieldArgs:
     @required.setter
     def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class TableReplicationRuleArgsDict(TypedDict):
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgsDict']]]]
+        """
+        Replication destination. See Destination below for more details.
+        """
+elif False:
+    TableReplicationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableReplicationRuleArgs:
+    def __init__(__self__, *,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgs']]] destinations: Replication destination. See Destination below for more details.
+        """
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgs']]]]:
+        """
+        Replication destination. See Destination below for more details.
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgs']]]]):
+        pulumi.set(self, "destinations", value)
+
+
+if not MYPY:
+    class TableReplicationRuleDestinationArgsDict(TypedDict):
+        destination_table_bucket_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of destination table bucket to replicate source tables to.
+        """
+elif False:
+    TableReplicationRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableReplicationRuleDestinationArgs:
+    def __init__(__self__, *,
+                 destination_table_bucket_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] destination_table_bucket_arn: ARN of destination table bucket to replicate source tables to.
+        """
+        pulumi.set(__self__, "destination_table_bucket_arn", destination_table_bucket_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTableBucketArn")
+    def destination_table_bucket_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of destination table bucket to replicate source tables to.
+        """
+        return pulumi.get(self, "destination_table_bucket_arn")
+
+    @destination_table_bucket_arn.setter
+    def destination_table_bucket_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_table_bucket_arn", value)
 
 

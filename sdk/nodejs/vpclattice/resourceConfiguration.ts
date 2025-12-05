@@ -57,6 +57,32 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With custom domain
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.vpclattice.DomainVerification("example", {domainName: "example.com"});
+ * const exampleResourceConfiguration = new aws.vpclattice.ResourceConfiguration("example", {
+ *     name: "Example",
+ *     resourceGatewayIdentifier: exampleAwsVpclatticeResourceGateway.id,
+ *     customDomainName: "custom.example.com",
+ *     domainVerificationId: example.id,
+ *     portRanges: ["443"],
+ *     protocol: "TCP",
+ *     resourceConfigurationDefinition: {
+ *         dnsResource: {
+ *             domainName: "test.example.com",
+ *             ipAddressType: "IPV4",
+ *         },
+ *     },
+ *     tags: {
+ *         Environment: "Example",
+ *     },
+ * });
+ * ```
+ *
  * ### ARN Example
  *
  * ```typescript
@@ -120,6 +146,22 @@ export class ResourceConfiguration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+     */
+    declare public readonly customDomainName: pulumi.Output<string | undefined>;
+    /**
+     * ARN of the domain verification.
+     */
+    declare public /*out*/ readonly domainVerificationArn: pulumi.Output<string>;
+    /**
+     * The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+     */
+    declare public readonly domainVerificationId: pulumi.Output<string>;
+    /**
+     * Domain verification status.
+     */
+    declare public /*out*/ readonly domainVerificationStatus: pulumi.Output<string>;
+    /**
      * Name for the Resource Configuration.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -178,6 +220,10 @@ export class ResourceConfiguration extends pulumi.CustomResource {
             const state = argsOrState as ResourceConfigurationState | undefined;
             resourceInputs["allowAssociationToShareableServiceNetwork"] = state?.allowAssociationToShareableServiceNetwork;
             resourceInputs["arn"] = state?.arn;
+            resourceInputs["customDomainName"] = state?.customDomainName;
+            resourceInputs["domainVerificationArn"] = state?.domainVerificationArn;
+            resourceInputs["domainVerificationId"] = state?.domainVerificationId;
+            resourceInputs["domainVerificationStatus"] = state?.domainVerificationStatus;
             resourceInputs["name"] = state?.name;
             resourceInputs["portRanges"] = state?.portRanges;
             resourceInputs["protocol"] = state?.protocol;
@@ -192,6 +238,8 @@ export class ResourceConfiguration extends pulumi.CustomResource {
         } else {
             const args = argsOrState as ResourceConfigurationArgs | undefined;
             resourceInputs["allowAssociationToShareableServiceNetwork"] = args?.allowAssociationToShareableServiceNetwork;
+            resourceInputs["customDomainName"] = args?.customDomainName;
+            resourceInputs["domainVerificationId"] = args?.domainVerificationId;
             resourceInputs["name"] = args?.name;
             resourceInputs["portRanges"] = args?.portRanges;
             resourceInputs["protocol"] = args?.protocol;
@@ -203,6 +251,8 @@ export class ResourceConfiguration extends pulumi.CustomResource {
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["domainVerificationArn"] = undefined /*out*/;
+            resourceInputs["domainVerificationStatus"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -222,6 +272,22 @@ export interface ResourceConfigurationState {
      * ARN of the resource gateway.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+     */
+    customDomainName?: pulumi.Input<string>;
+    /**
+     * ARN of the domain verification.
+     */
+    domainVerificationArn?: pulumi.Input<string>;
+    /**
+     * The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+     */
+    domainVerificationId?: pulumi.Input<string>;
+    /**
+     * Domain verification status.
+     */
+    domainVerificationStatus?: pulumi.Input<string>;
     /**
      * Name for the Resource Configuration.
      */
@@ -275,6 +341,14 @@ export interface ResourceConfigurationArgs {
      * Allow or Deny the association of this resource to a shareable service network.
      */
     allowAssociationToShareableServiceNetwork?: pulumi.Input<boolean>;
+    /**
+     * Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+     */
+    customDomainName?: pulumi.Input<string>;
+    /**
+     * The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+     */
+    domainVerificationId?: pulumi.Input<string>;
     /**
      * Name for the Resource Configuration.
      */

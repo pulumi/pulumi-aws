@@ -167,8 +167,6 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
 
         Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
 
-        console
-
         % pulumi import aws_ssoadmin_application_assignment_configuration.example arn:aws:sso::123456789012:application/id-12345678
 
         :param str resource_name: The name of the resource.
@@ -213,8 +211,6 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
 
         Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
-
-        console
 
         % pulumi import aws_ssoadmin_application_assignment_configuration.example arn:aws:sso::123456789012:application/id-12345678
 

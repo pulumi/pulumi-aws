@@ -5,6 +5,7 @@ package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.aws.backup.outputs.PlanRuleCopyAction;
 import com.pulumi.aws.backup.outputs.PlanRuleLifecycle;
+import com.pulumi.aws.backup.outputs.PlanRuleScanAction;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -49,6 +50,11 @@ public final class PlanRule {
      */
     private String ruleName;
     /**
+     * @return Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+     * 
+     */
+    private @Nullable List<PlanRuleScanAction> scanActions;
+    /**
      * @return A CRON expression specifying when AWS Backup initiates a backup job.
      * 
      */
@@ -63,6 +69,11 @@ public final class PlanRule {
      * 
      */
     private @Nullable Integer startWindow;
+    /**
+     * @return The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+     * 
+     */
+    private @Nullable String targetLogicallyAirGappedBackupVaultArn;
     /**
      * @return The name of a logical container where backups are stored.
      * 
@@ -113,6 +124,13 @@ public final class PlanRule {
         return this.ruleName;
     }
     /**
+     * @return Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+     * 
+     */
+    public List<PlanRuleScanAction> scanActions() {
+        return this.scanActions == null ? List.of() : this.scanActions;
+    }
+    /**
      * @return A CRON expression specifying when AWS Backup initiates a backup job.
      * 
      */
@@ -132,6 +150,13 @@ public final class PlanRule {
      */
     public Optional<Integer> startWindow() {
         return Optional.ofNullable(this.startWindow);
+    }
+    /**
+     * @return The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+     * 
+     */
+    public Optional<String> targetLogicallyAirGappedBackupVaultArn() {
+        return Optional.ofNullable(this.targetLogicallyAirGappedBackupVaultArn);
     }
     /**
      * @return The name of a logical container where backups are stored.
@@ -156,9 +181,11 @@ public final class PlanRule {
         private @Nullable PlanRuleLifecycle lifecycle;
         private @Nullable Map<String,String> recoveryPointTags;
         private String ruleName;
+        private @Nullable List<PlanRuleScanAction> scanActions;
         private @Nullable String schedule;
         private @Nullable String scheduleExpressionTimezone;
         private @Nullable Integer startWindow;
+        private @Nullable String targetLogicallyAirGappedBackupVaultArn;
         private String targetVaultName;
         public Builder() {}
         public Builder(PlanRule defaults) {
@@ -169,9 +196,11 @@ public final class PlanRule {
     	      this.lifecycle = defaults.lifecycle;
     	      this.recoveryPointTags = defaults.recoveryPointTags;
     	      this.ruleName = defaults.ruleName;
+    	      this.scanActions = defaults.scanActions;
     	      this.schedule = defaults.schedule;
     	      this.scheduleExpressionTimezone = defaults.scheduleExpressionTimezone;
     	      this.startWindow = defaults.startWindow;
+    	      this.targetLogicallyAirGappedBackupVaultArn = defaults.targetLogicallyAirGappedBackupVaultArn;
     	      this.targetVaultName = defaults.targetVaultName;
         }
 
@@ -217,6 +246,15 @@ public final class PlanRule {
             return this;
         }
         @CustomType.Setter
+        public Builder scanActions(@Nullable List<PlanRuleScanAction> scanActions) {
+
+            this.scanActions = scanActions;
+            return this;
+        }
+        public Builder scanActions(PlanRuleScanAction... scanActions) {
+            return scanActions(List.of(scanActions));
+        }
+        @CustomType.Setter
         public Builder schedule(@Nullable String schedule) {
 
             this.schedule = schedule;
@@ -235,6 +273,12 @@ public final class PlanRule {
             return this;
         }
         @CustomType.Setter
+        public Builder targetLogicallyAirGappedBackupVaultArn(@Nullable String targetLogicallyAirGappedBackupVaultArn) {
+
+            this.targetLogicallyAirGappedBackupVaultArn = targetLogicallyAirGappedBackupVaultArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder targetVaultName(String targetVaultName) {
             if (targetVaultName == null) {
               throw new MissingRequiredPropertyException("PlanRule", "targetVaultName");
@@ -250,9 +294,11 @@ public final class PlanRule {
             _resultValue.lifecycle = lifecycle;
             _resultValue.recoveryPointTags = recoveryPointTags;
             _resultValue.ruleName = ruleName;
+            _resultValue.scanActions = scanActions;
             _resultValue.schedule = schedule;
             _resultValue.scheduleExpressionTimezone = scheduleExpressionTimezone;
             _resultValue.startWindow = startWindow;
+            _resultValue.targetLogicallyAirGappedBackupVaultArn = targetLogicallyAirGappedBackupVaultArn;
             _resultValue.targetVaultName = targetVaultName;
             return _resultValue;
         }

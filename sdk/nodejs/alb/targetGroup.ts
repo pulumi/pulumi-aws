@@ -123,8 +123,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  *
- * console
- *
  * % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
  */
 export class TargetGroup extends pulumi.CustomResource {
@@ -251,6 +249,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
+     * Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+     */
+    declare public readonly targetControlPort: pulumi.Output<number | undefined>;
+    /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      */
     declare public readonly targetFailovers: pulumi.Output<outputs.alb.TargetGroupTargetFailover[]>;
@@ -317,6 +319,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["stickiness"] = state?.stickiness;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["targetControlPort"] = state?.targetControlPort;
             resourceInputs["targetFailovers"] = state?.targetFailovers;
             resourceInputs["targetGroupHealth"] = state?.targetGroupHealth;
             resourceInputs["targetHealthStates"] = state?.targetHealthStates;
@@ -343,6 +346,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["slowStart"] = args?.slowStart;
             resourceInputs["stickiness"] = args?.stickiness;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetControlPort"] = args?.targetControlPort;
             resourceInputs["targetFailovers"] = args?.targetFailovers;
             resourceInputs["targetGroupHealth"] = args?.targetGroupHealth;
             resourceInputs["targetHealthStates"] = args?.targetHealthStates;
@@ -460,6 +464,10 @@ export interface TargetGroupState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+     */
+    targetControlPort?: pulumi.Input<number>;
+    /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      */
     targetFailovers?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetFailover>[]>;
@@ -574,6 +582,10 @@ export interface TargetGroupArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+     */
+    targetControlPort?: pulumi.Input<number>;
     /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      */

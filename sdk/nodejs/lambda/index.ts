@@ -10,6 +10,11 @@ export type Alias = import("./alias").Alias;
 export const Alias: typeof import("./alias").Alias = null as any;
 utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
 
+export { CapacityProviderArgs, CapacityProviderState } from "./capacityProvider";
+export type CapacityProvider = import("./capacityProvider").CapacityProvider;
+export const CapacityProvider: typeof import("./capacityProvider").CapacityProvider = null as any;
+utilities.lazyLoad(exports, ["CapacityProvider"], () => require("./capacityProvider"));
+
 export { CodeSigningConfigArgs, CodeSigningConfigState } from "./codeSigningConfig";
 export type CodeSigningConfig = import("./codeSigningConfig").CodeSigningConfig;
 export const CodeSigningConfig: typeof import("./codeSigningConfig").CodeSigningConfig = null as any;
@@ -116,6 +121,8 @@ const _module = {
         switch (type) {
             case "aws:lambda/alias:Alias":
                 return new Alias(name, <any>undefined, { urn })
+            case "aws:lambda/capacityProvider:CapacityProvider":
+                return new CapacityProvider(name, <any>undefined, { urn })
             case "aws:lambda/codeSigningConfig:CodeSigningConfig":
                 return new CodeSigningConfig(name, <any>undefined, { urn })
             case "aws:lambda/eventSourceMapping:EventSourceMapping":
@@ -146,6 +153,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "lambda/alias", _module)
+pulumi.runtime.registerResourceModule("aws", "lambda/capacityProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/codeSigningConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/eventSourceMapping", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/function", _module)

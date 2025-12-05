@@ -341,12 +341,16 @@ type VpnConnection struct {
 	Tunnel2StartupAction pulumi.StringPtrOutput `pulumi:"tunnel2StartupAction"`
 	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
 	Tunnel2VgwInsideAddress pulumi.StringOutput `pulumi:"tunnel2VgwInsideAddress"`
+	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+	TunnelBandwidth pulumi.StringOutput `pulumi:"tunnelBandwidth"`
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 	TunnelInsideIpVersion pulumi.StringOutput `pulumi:"tunnelInsideIpVersion"`
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Telemetry for the VPN tunnels. Detailed below.
 	VgwTelemetries VpnConnectionVgwTelemetryArrayOutput `pulumi:"vgwTelemetries"`
+	// ID of the VPN concentrator to associate with the VPN connection.
+	VpnConcentratorId pulumi.StringPtrOutput `pulumi:"vpnConcentratorId"`
 	// The ID of the Virtual Private Gateway.
 	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
 }
@@ -541,12 +545,16 @@ type vpnConnectionState struct {
 	Tunnel2StartupAction *string `pulumi:"tunnel2StartupAction"`
 	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
 	Tunnel2VgwInsideAddress *string `pulumi:"tunnel2VgwInsideAddress"`
+	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+	TunnelBandwidth *string `pulumi:"tunnelBandwidth"`
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 	TunnelInsideIpVersion *string `pulumi:"tunnelInsideIpVersion"`
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
 	Type *string `pulumi:"type"`
 	// Telemetry for the VPN tunnels. Detailed below.
 	VgwTelemetries []VpnConnectionVgwTelemetry `pulumi:"vgwTelemetries"`
+	// ID of the VPN concentrator to associate with the VPN connection.
+	VpnConcentratorId *string `pulumi:"vpnConcentratorId"`
 	// The ID of the Virtual Private Gateway.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
@@ -694,12 +702,16 @@ type VpnConnectionState struct {
 	Tunnel2StartupAction pulumi.StringPtrInput
 	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
 	Tunnel2VgwInsideAddress pulumi.StringPtrInput
+	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+	TunnelBandwidth pulumi.StringPtrInput
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 	TunnelInsideIpVersion pulumi.StringPtrInput
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
 	Type pulumi.StringPtrInput
 	// Telemetry for the VPN tunnels. Detailed below.
 	VgwTelemetries VpnConnectionVgwTelemetryArrayInput
+	// ID of the VPN concentrator to associate with the VPN connection.
+	VpnConcentratorId pulumi.StringPtrInput
 	// The ID of the Virtual Private Gateway.
 	VpnGatewayId pulumi.StringPtrInput
 }
@@ -815,10 +827,14 @@ type vpnConnectionArgs struct {
 	Tunnel2ReplayWindowSize *int `pulumi:"tunnel2ReplayWindowSize"`
 	// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
 	Tunnel2StartupAction *string `pulumi:"tunnel2StartupAction"`
+	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+	TunnelBandwidth *string `pulumi:"tunnelBandwidth"`
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 	TunnelInsideIpVersion *string `pulumi:"tunnelInsideIpVersion"`
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
 	Type string `pulumi:"type"`
+	// ID of the VPN concentrator to associate with the VPN connection.
+	VpnConcentratorId *string `pulumi:"vpnConcentratorId"`
 	// The ID of the Virtual Private Gateway.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
@@ -931,10 +947,14 @@ type VpnConnectionArgs struct {
 	Tunnel2ReplayWindowSize pulumi.IntPtrInput
 	// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
 	Tunnel2StartupAction pulumi.StringPtrInput
+	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+	TunnelBandwidth pulumi.StringPtrInput
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 	TunnelInsideIpVersion pulumi.StringPtrInput
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
 	Type pulumi.StringInput
+	// ID of the VPN concentrator to associate with the VPN connection.
+	VpnConcentratorId pulumi.StringPtrInput
 	// The ID of the Virtual Private Gateway.
 	VpnGatewayId pulumi.StringPtrInput
 }
@@ -1381,6 +1401,11 @@ func (o VpnConnectionOutput) Tunnel2VgwInsideAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel2VgwInsideAddress }).(pulumi.StringOutput)
 }
 
+// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+func (o VpnConnectionOutput) TunnelBandwidth() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.TunnelBandwidth }).(pulumi.StringOutput)
+}
+
 // Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 func (o VpnConnectionOutput) TunnelInsideIpVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.TunnelInsideIpVersion }).(pulumi.StringOutput)
@@ -1394,6 +1419,11 @@ func (o VpnConnectionOutput) Type() pulumi.StringOutput {
 // Telemetry for the VPN tunnels. Detailed below.
 func (o VpnConnectionOutput) VgwTelemetries() VpnConnectionVgwTelemetryArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) VpnConnectionVgwTelemetryArrayOutput { return v.VgwTelemetries }).(VpnConnectionVgwTelemetryArrayOutput)
+}
+
+// ID of the VPN concentrator to associate with the VPN connection.
+func (o VpnConnectionOutput) VpnConcentratorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.VpnConcentratorId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Virtual Private Gateway.

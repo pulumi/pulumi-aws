@@ -11,6 +11,7 @@ from .access_point import *
 from .account_public_access_block import *
 from .analytics_configuration import *
 from .bucket import *
+from .bucket_abac import *
 from .bucket_accelerate_configuration import *
 from .bucket_accelerate_configuration_v2 import *
 from .bucket_acl import *
@@ -55,5 +56,8 @@ from .get_object import *
 from .get_objects import *
 from .inventory import *
 from .object_copy import *
+from .vectors_index import *
+from .vectors_vector_bucket import *
+from .vectors_vector_bucket_policy import *
 from ._inputs import *
 from . import outputs

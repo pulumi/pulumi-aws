@@ -27,6 +27,10 @@ __all__ = [
     'WorkgroupConfigurationEngineVersionArgsDict',
     'WorkgroupConfigurationIdentityCenterConfigurationArgs',
     'WorkgroupConfigurationIdentityCenterConfigurationArgsDict',
+    'WorkgroupConfigurationManagedQueryResultsConfigurationArgs',
+    'WorkgroupConfigurationManagedQueryResultsConfigurationArgsDict',
+    'WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs',
+    'WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgsDict',
     'WorkgroupConfigurationResultConfigurationArgs',
     'WorkgroupConfigurationResultConfigurationArgsDict',
     'WorkgroupConfigurationResultConfigurationAclConfigurationArgs',
@@ -219,6 +223,10 @@ if not MYPY:
         """
         Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
         """
+        managed_query_results_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationArgsDict']]
+        """
+        Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+        """
         publish_cloudwatch_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
@@ -242,6 +250,7 @@ class WorkgroupConfigurationArgs:
                  engine_version: Optional[pulumi.Input['WorkgroupConfigurationEngineVersionArgs']] = None,
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
                  identity_center_configuration: Optional[pulumi.Input['WorkgroupConfigurationIdentityCenterConfigurationArgs']] = None,
+                 managed_query_results_configuration: Optional[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationArgs']] = None,
                  publish_cloudwatch_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  requester_pays_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  result_configuration: Optional[pulumi.Input['WorkgroupConfigurationResultConfigurationArgs']] = None):
@@ -251,6 +260,7 @@ class WorkgroupConfigurationArgs:
         :param pulumi.Input['WorkgroupConfigurationEngineVersionArgs'] engine_version: Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
         :param pulumi.Input[_builtins.str] execution_role: Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
         :param pulumi.Input['WorkgroupConfigurationIdentityCenterConfigurationArgs'] identity_center_configuration: Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+        :param pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationArgs'] managed_query_results_configuration: Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
         :param pulumi.Input[_builtins.bool] publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] requester_pays_enabled: If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         :param pulumi.Input['WorkgroupConfigurationResultConfigurationArgs'] result_configuration: Configuration block with result settings. See Result Configuration below.
@@ -265,6 +275,8 @@ class WorkgroupConfigurationArgs:
             pulumi.set(__self__, "execution_role", execution_role)
         if identity_center_configuration is not None:
             pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
+        if managed_query_results_configuration is not None:
+            pulumi.set(__self__, "managed_query_results_configuration", managed_query_results_configuration)
         if publish_cloudwatch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloudwatch_metrics_enabled", publish_cloudwatch_metrics_enabled)
         if requester_pays_enabled is not None:
@@ -331,6 +343,18 @@ class WorkgroupConfigurationArgs:
     @identity_center_configuration.setter
     def identity_center_configuration(self, value: Optional[pulumi.Input['WorkgroupConfigurationIdentityCenterConfigurationArgs']]):
         pulumi.set(self, "identity_center_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedQueryResultsConfiguration")
+    def managed_query_results_configuration(self) -> Optional[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationArgs']]:
+        """
+        Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+        """
+        return pulumi.get(self, "managed_query_results_configuration")
+
+    @managed_query_results_configuration.setter
+    def managed_query_results_configuration(self, value: Optional[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationArgs']]):
+        pulumi.set(self, "managed_query_results_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="publishCloudwatchMetricsEnabled")
@@ -471,6 +495,90 @@ class WorkgroupConfigurationIdentityCenterConfigurationArgs:
     @identity_center_instance_arn.setter
     def identity_center_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "identity_center_instance_arn", value)
+
+
+if not MYPY:
+    class WorkgroupConfigurationManagedQueryResultsConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
+        """
+        encryption_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgsDict']]
+        """
+        Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
+        """
+elif False:
+    WorkgroupConfigurationManagedQueryResultsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkgroupConfigurationManagedQueryResultsConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 encryption_configuration: Optional[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
+        :param pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs'] encryption_configuration: Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs']]:
+        """
+        Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
+
+
+if not MYPY:
+    class WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgsDict(TypedDict):
+        kms_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        KMS key ARN for encrypting managed query results.
+        """
+elif False:
+    WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] kms_key: KMS key ARN for encrypting managed query results.
+        """
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        KMS key ARN for encrypting managed query results.
+        """
+        return pulumi.get(self, "kms_key")
+
+    @kms_key.setter
+    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key", value)
 
 
 if not MYPY:

@@ -19,12 +19,12 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSource {
      */
     private String compressionType;
     /**
-     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
      * 
      */
     private @Nullable ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig modelAccessConfig;
     /**
-     * @return The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+     * @return Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
      * 
      */
     private String s3DataType;
@@ -43,14 +43,14 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSource {
         return this.compressionType;
     }
     /**
-     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
      * 
      */
     public Optional<ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig> modelAccessConfig() {
         return Optional.ofNullable(this.modelAccessConfig);
     }
     /**
-     * @return The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+     * @return Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
      * 
      */
     public String s3DataType() {

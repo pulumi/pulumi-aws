@@ -27,7 +27,7 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancer_arns=None, load_balancing_algorithm_type=None, load_balancing_anomaly_mitigation=None, load_balancing_cross_zone_enabled=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, region=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancer_arns=None, load_balancing_algorithm_type=None, load_balancing_anomaly_mitigation=None, load_balancing_cross_zone_enabled=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, region=None, slow_start=None, stickiness=None, tags=None, target_control_port=None, target_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -91,6 +91,9 @@ class GetTargetGroupResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if target_control_port and not isinstance(target_control_port, int):
+            raise TypeError("Expected argument 'target_control_port' to be a int")
+        pulumi.set(__self__, "target_control_port", target_control_port)
         if target_type and not isinstance(target_type, str):
             raise TypeError("Expected argument 'target_type' to be a str")
         pulumi.set(__self__, "target_type", target_type)
@@ -207,6 +210,11 @@ class GetTargetGroupResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="targetControlPort")
+    def target_control_port(self) -> _builtins.int:
+        return pulumi.get(self, "target_control_port")
+
+    @_builtins.property
     @pulumi.getter(name="targetType")
     def target_type(self) -> _builtins.str:
         return pulumi.get(self, "target_type")
@@ -244,6 +252,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             slow_start=self.slow_start,
             stickiness=self.stickiness,
             tags=self.tags,
+            target_control_port=self.target_control_port,
             target_type=self.target_type,
             vpc_id=self.vpc_id)
 
@@ -319,6 +328,7 @@ def get_target_group(arn: Optional[_builtins.str] = None,
         slow_start=pulumi.get(__ret__, 'slow_start'),
         stickiness=pulumi.get(__ret__, 'stickiness'),
         tags=pulumi.get(__ret__, 'tags'),
+        target_control_port=pulumi.get(__ret__, 'target_control_port'),
         target_type=pulumi.get(__ret__, 'target_type'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_target_group_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -391,5 +401,6 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]]
         slow_start=pulumi.get(__response__, 'slow_start'),
         stickiness=pulumi.get(__response__, 'stickiness'),
         tags=pulumi.get(__response__, 'tags'),
+        target_control_port=pulumi.get(__response__, 'target_control_port'),
         target_type=pulumi.get(__response__, 'target_type'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

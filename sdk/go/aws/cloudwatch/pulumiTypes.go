@@ -7305,6 +7305,3976 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Value() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type LogTransformerTransformerConfig struct {
+	// Adds new key-value pairs to the log event. See `addKeys` below for details.
+	AddKeys *LogTransformerTransformerConfigAddKeys `pulumi:"addKeys"`
+	// Copies values within a log event. See `copyValue` below for details.
+	CopyValue *LogTransformerTransformerConfigCopyValue `pulumi:"copyValue"`
+	// Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
+	Csvs []LogTransformerTransformerConfigCsv `pulumi:"csvs"`
+	// Converts a datetime string into a format that you specify. See `dateTimeConverter` below for details.
+	DateTimeConverters []LogTransformerTransformerConfigDateTimeConverter `pulumi:"dateTimeConverters"`
+	// Deletes entry from a log event. See `deleteKeys` below for details.
+	DeleteKeys []LogTransformerTransformerConfigDeleteKey `pulumi:"deleteKeys"`
+	// Parses and structures unstructured data by using pattern matching. See `grok` below for details.
+	Grok *LogTransformerTransformerConfigGrok `pulumi:"grok"`
+	// Converts list of objects that contain key fields into a map of target keys. See `listToMap` below for details.
+	ListToMaps []LogTransformerTransformerConfigListToMap `pulumi:"listToMaps"`
+	// Converts a string to lowercase. See `lowerCaseString` below for details.
+	LowerCaseStrings []LogTransformerTransformerConfigLowerCaseString `pulumi:"lowerCaseStrings"`
+	// Moves a key from one field to another. See `moveKeys` below for details.
+	MoveKeys []LogTransformerTransformerConfigMoveKey `pulumi:"moveKeys"`
+	// Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parseCloudfront` below for details.
+	ParseCloudfront *LogTransformerTransformerConfigParseCloudfront `pulumi:"parseCloudfront"`
+	// Parses log events that are in JSON format. See `parseJson` below for details.
+	ParseJsons []LogTransformerTransformerConfigParseJson `pulumi:"parseJsons"`
+	// Parses a specified field in the original log event into key-value pairs. See `parseKeyValue` below for details.
+	ParseKeyValues []LogTransformerTransformerConfigParseKeyValue `pulumi:"parseKeyValues"`
+	// Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parsePostgres` below for details.
+	ParsePostgres *LogTransformerTransformerConfigParsePostgres `pulumi:"parsePostgres"`
+	// Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parseRoute53` below for details.
+	ParseRoute53 *LogTransformerTransformerConfigParseRoute53 `pulumi:"parseRoute53"`
+	// Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parseToOcsf` below for details.
+	ParseToOcsf *LogTransformerTransformerConfigParseToOcsf `pulumi:"parseToOcsf"`
+	// Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parseVpc` below for details.
+	ParseVpc *LogTransformerTransformerConfigParseVpc `pulumi:"parseVpc"`
+	// Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parseWaf` below for details.
+	ParseWaf *LogTransformerTransformerConfigParseWaf `pulumi:"parseWaf"`
+	// Renames keys in a log event. See `renameKeys` below for details.
+	RenameKeys []LogTransformerTransformerConfigRenameKey `pulumi:"renameKeys"`
+	// Splits a field into an array of strings using a delimiting character. See `splitString` below for details.
+	SplitStrings []LogTransformerTransformerConfigSplitString `pulumi:"splitStrings"`
+	// Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substituteString` below for details.
+	SubstituteStrings []LogTransformerTransformerConfigSubstituteString `pulumi:"substituteStrings"`
+	// Removes leading and trailing whitespace from a string. See `trimString` below for details.
+	TrimStrings []LogTransformerTransformerConfigTrimString `pulumi:"trimStrings"`
+	// Converts a value type associated with the specified key to the specified type. See `typeConverter` below for details.
+	TypeConverters []LogTransformerTransformerConfigTypeConverter `pulumi:"typeConverters"`
+	// Converts a string to uppercase. See `upperCaseString` below for details.
+	UpperCaseStrings []LogTransformerTransformerConfigUpperCaseString `pulumi:"upperCaseStrings"`
+}
+
+// LogTransformerTransformerConfigInput is an input type that accepts LogTransformerTransformerConfigArgs and LogTransformerTransformerConfigOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigInput` via:
+//
+//	LogTransformerTransformerConfigArgs{...}
+type LogTransformerTransformerConfigInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigOutput() LogTransformerTransformerConfigOutput
+	ToLogTransformerTransformerConfigOutputWithContext(context.Context) LogTransformerTransformerConfigOutput
+}
+
+type LogTransformerTransformerConfigArgs struct {
+	// Adds new key-value pairs to the log event. See `addKeys` below for details.
+	AddKeys LogTransformerTransformerConfigAddKeysPtrInput `pulumi:"addKeys"`
+	// Copies values within a log event. See `copyValue` below for details.
+	CopyValue LogTransformerTransformerConfigCopyValuePtrInput `pulumi:"copyValue"`
+	// Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
+	Csvs LogTransformerTransformerConfigCsvArrayInput `pulumi:"csvs"`
+	// Converts a datetime string into a format that you specify. See `dateTimeConverter` below for details.
+	DateTimeConverters LogTransformerTransformerConfigDateTimeConverterArrayInput `pulumi:"dateTimeConverters"`
+	// Deletes entry from a log event. See `deleteKeys` below for details.
+	DeleteKeys LogTransformerTransformerConfigDeleteKeyArrayInput `pulumi:"deleteKeys"`
+	// Parses and structures unstructured data by using pattern matching. See `grok` below for details.
+	Grok LogTransformerTransformerConfigGrokPtrInput `pulumi:"grok"`
+	// Converts list of objects that contain key fields into a map of target keys. See `listToMap` below for details.
+	ListToMaps LogTransformerTransformerConfigListToMapArrayInput `pulumi:"listToMaps"`
+	// Converts a string to lowercase. See `lowerCaseString` below for details.
+	LowerCaseStrings LogTransformerTransformerConfigLowerCaseStringArrayInput `pulumi:"lowerCaseStrings"`
+	// Moves a key from one field to another. See `moveKeys` below for details.
+	MoveKeys LogTransformerTransformerConfigMoveKeyArrayInput `pulumi:"moveKeys"`
+	// Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parseCloudfront` below for details.
+	ParseCloudfront LogTransformerTransformerConfigParseCloudfrontPtrInput `pulumi:"parseCloudfront"`
+	// Parses log events that are in JSON format. See `parseJson` below for details.
+	ParseJsons LogTransformerTransformerConfigParseJsonArrayInput `pulumi:"parseJsons"`
+	// Parses a specified field in the original log event into key-value pairs. See `parseKeyValue` below for details.
+	ParseKeyValues LogTransformerTransformerConfigParseKeyValueArrayInput `pulumi:"parseKeyValues"`
+	// Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parsePostgres` below for details.
+	ParsePostgres LogTransformerTransformerConfigParsePostgresPtrInput `pulumi:"parsePostgres"`
+	// Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parseRoute53` below for details.
+	ParseRoute53 LogTransformerTransformerConfigParseRoute53PtrInput `pulumi:"parseRoute53"`
+	// Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parseToOcsf` below for details.
+	ParseToOcsf LogTransformerTransformerConfigParseToOcsfPtrInput `pulumi:"parseToOcsf"`
+	// Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parseVpc` below for details.
+	ParseVpc LogTransformerTransformerConfigParseVpcPtrInput `pulumi:"parseVpc"`
+	// Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parseWaf` below for details.
+	ParseWaf LogTransformerTransformerConfigParseWafPtrInput `pulumi:"parseWaf"`
+	// Renames keys in a log event. See `renameKeys` below for details.
+	RenameKeys LogTransformerTransformerConfigRenameKeyArrayInput `pulumi:"renameKeys"`
+	// Splits a field into an array of strings using a delimiting character. See `splitString` below for details.
+	SplitStrings LogTransformerTransformerConfigSplitStringArrayInput `pulumi:"splitStrings"`
+	// Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substituteString` below for details.
+	SubstituteStrings LogTransformerTransformerConfigSubstituteStringArrayInput `pulumi:"substituteStrings"`
+	// Removes leading and trailing whitespace from a string. See `trimString` below for details.
+	TrimStrings LogTransformerTransformerConfigTrimStringArrayInput `pulumi:"trimStrings"`
+	// Converts a value type associated with the specified key to the specified type. See `typeConverter` below for details.
+	TypeConverters LogTransformerTransformerConfigTypeConverterArrayInput `pulumi:"typeConverters"`
+	// Converts a string to uppercase. See `upperCaseString` below for details.
+	UpperCaseStrings LogTransformerTransformerConfigUpperCaseStringArrayInput `pulumi:"upperCaseStrings"`
+}
+
+func (LogTransformerTransformerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfig)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigArgs) ToLogTransformerTransformerConfigOutput() LogTransformerTransformerConfigOutput {
+	return i.ToLogTransformerTransformerConfigOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigArgs) ToLogTransformerTransformerConfigOutputWithContext(ctx context.Context) LogTransformerTransformerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigOutput)
+}
+
+// LogTransformerTransformerConfigArrayInput is an input type that accepts LogTransformerTransformerConfigArray and LogTransformerTransformerConfigArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigArrayInput` via:
+//
+//	LogTransformerTransformerConfigArray{ LogTransformerTransformerConfigArgs{...} }
+type LogTransformerTransformerConfigArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigArrayOutput() LogTransformerTransformerConfigArrayOutput
+	ToLogTransformerTransformerConfigArrayOutputWithContext(context.Context) LogTransformerTransformerConfigArrayOutput
+}
+
+type LogTransformerTransformerConfigArray []LogTransformerTransformerConfigInput
+
+func (LogTransformerTransformerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfig)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigArray) ToLogTransformerTransformerConfigArrayOutput() LogTransformerTransformerConfigArrayOutput {
+	return i.ToLogTransformerTransformerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigArray) ToLogTransformerTransformerConfigArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigArrayOutput)
+}
+
+type LogTransformerTransformerConfigOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfig)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigOutput) ToLogTransformerTransformerConfigOutput() LogTransformerTransformerConfigOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigOutput) ToLogTransformerTransformerConfigOutputWithContext(ctx context.Context) LogTransformerTransformerConfigOutput {
+	return o
+}
+
+// Adds new key-value pairs to the log event. See `addKeys` below for details.
+func (o LogTransformerTransformerConfigOutput) AddKeys() LogTransformerTransformerConfigAddKeysPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) *LogTransformerTransformerConfigAddKeys { return v.AddKeys }).(LogTransformerTransformerConfigAddKeysPtrOutput)
+}
+
+// Copies values within a log event. See `copyValue` below for details.
+func (o LogTransformerTransformerConfigOutput) CopyValue() LogTransformerTransformerConfigCopyValuePtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) *LogTransformerTransformerConfigCopyValue { return v.CopyValue }).(LogTransformerTransformerConfigCopyValuePtrOutput)
+}
+
+// Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
+func (o LogTransformerTransformerConfigOutput) Csvs() LogTransformerTransformerConfigCsvArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigCsv { return v.Csvs }).(LogTransformerTransformerConfigCsvArrayOutput)
+}
+
+// Converts a datetime string into a format that you specify. See `dateTimeConverter` below for details.
+func (o LogTransformerTransformerConfigOutput) DateTimeConverters() LogTransformerTransformerConfigDateTimeConverterArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigDateTimeConverter {
+		return v.DateTimeConverters
+	}).(LogTransformerTransformerConfigDateTimeConverterArrayOutput)
+}
+
+// Deletes entry from a log event. See `deleteKeys` below for details.
+func (o LogTransformerTransformerConfigOutput) DeleteKeys() LogTransformerTransformerConfigDeleteKeyArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigDeleteKey {
+		return v.DeleteKeys
+	}).(LogTransformerTransformerConfigDeleteKeyArrayOutput)
+}
+
+// Parses and structures unstructured data by using pattern matching. See `grok` below for details.
+func (o LogTransformerTransformerConfigOutput) Grok() LogTransformerTransformerConfigGrokPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) *LogTransformerTransformerConfigGrok { return v.Grok }).(LogTransformerTransformerConfigGrokPtrOutput)
+}
+
+// Converts list of objects that contain key fields into a map of target keys. See `listToMap` below for details.
+func (o LogTransformerTransformerConfigOutput) ListToMaps() LogTransformerTransformerConfigListToMapArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigListToMap {
+		return v.ListToMaps
+	}).(LogTransformerTransformerConfigListToMapArrayOutput)
+}
+
+// Converts a string to lowercase. See `lowerCaseString` below for details.
+func (o LogTransformerTransformerConfigOutput) LowerCaseStrings() LogTransformerTransformerConfigLowerCaseStringArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigLowerCaseString {
+		return v.LowerCaseStrings
+	}).(LogTransformerTransformerConfigLowerCaseStringArrayOutput)
+}
+
+// Moves a key from one field to another. See `moveKeys` below for details.
+func (o LogTransformerTransformerConfigOutput) MoveKeys() LogTransformerTransformerConfigMoveKeyArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigMoveKey { return v.MoveKeys }).(LogTransformerTransformerConfigMoveKeyArrayOutput)
+}
+
+// Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parseCloudfront` below for details.
+func (o LogTransformerTransformerConfigOutput) ParseCloudfront() LogTransformerTransformerConfigParseCloudfrontPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) *LogTransformerTransformerConfigParseCloudfront {
+		return v.ParseCloudfront
+	}).(LogTransformerTransformerConfigParseCloudfrontPtrOutput)
+}
+
+// Parses log events that are in JSON format. See `parseJson` below for details.
+func (o LogTransformerTransformerConfigOutput) ParseJsons() LogTransformerTransformerConfigParseJsonArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigParseJson {
+		return v.ParseJsons
+	}).(LogTransformerTransformerConfigParseJsonArrayOutput)
+}
+
+// Parses a specified field in the original log event into key-value pairs. See `parseKeyValue` below for details.
+func (o LogTransformerTransformerConfigOutput) ParseKeyValues() LogTransformerTransformerConfigParseKeyValueArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigParseKeyValue {
+		return v.ParseKeyValues
+	}).(LogTransformerTransformerConfigParseKeyValueArrayOutput)
+}
+
+// Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parsePostgres` below for details.
+func (o LogTransformerTransformerConfigOutput) ParsePostgres() LogTransformerTransformerConfigParsePostgresPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) *LogTransformerTransformerConfigParsePostgres {
+		return v.ParsePostgres
+	}).(LogTransformerTransformerConfigParsePostgresPtrOutput)
+}
+
+// Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parseRoute53` below for details.
+func (o LogTransformerTransformerConfigOutput) ParseRoute53() LogTransformerTransformerConfigParseRoute53PtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) *LogTransformerTransformerConfigParseRoute53 {
+		return v.ParseRoute53
+	}).(LogTransformerTransformerConfigParseRoute53PtrOutput)
+}
+
+// Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parseToOcsf` below for details.
+func (o LogTransformerTransformerConfigOutput) ParseToOcsf() LogTransformerTransformerConfigParseToOcsfPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) *LogTransformerTransformerConfigParseToOcsf {
+		return v.ParseToOcsf
+	}).(LogTransformerTransformerConfigParseToOcsfPtrOutput)
+}
+
+// Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parseVpc` below for details.
+func (o LogTransformerTransformerConfigOutput) ParseVpc() LogTransformerTransformerConfigParseVpcPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) *LogTransformerTransformerConfigParseVpc { return v.ParseVpc }).(LogTransformerTransformerConfigParseVpcPtrOutput)
+}
+
+// Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parseWaf` below for details.
+func (o LogTransformerTransformerConfigOutput) ParseWaf() LogTransformerTransformerConfigParseWafPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) *LogTransformerTransformerConfigParseWaf { return v.ParseWaf }).(LogTransformerTransformerConfigParseWafPtrOutput)
+}
+
+// Renames keys in a log event. See `renameKeys` below for details.
+func (o LogTransformerTransformerConfigOutput) RenameKeys() LogTransformerTransformerConfigRenameKeyArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigRenameKey {
+		return v.RenameKeys
+	}).(LogTransformerTransformerConfigRenameKeyArrayOutput)
+}
+
+// Splits a field into an array of strings using a delimiting character. See `splitString` below for details.
+func (o LogTransformerTransformerConfigOutput) SplitStrings() LogTransformerTransformerConfigSplitStringArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigSplitString {
+		return v.SplitStrings
+	}).(LogTransformerTransformerConfigSplitStringArrayOutput)
+}
+
+// Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substituteString` below for details.
+func (o LogTransformerTransformerConfigOutput) SubstituteStrings() LogTransformerTransformerConfigSubstituteStringArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigSubstituteString {
+		return v.SubstituteStrings
+	}).(LogTransformerTransformerConfigSubstituteStringArrayOutput)
+}
+
+// Removes leading and trailing whitespace from a string. See `trimString` below for details.
+func (o LogTransformerTransformerConfigOutput) TrimStrings() LogTransformerTransformerConfigTrimStringArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigTrimString {
+		return v.TrimStrings
+	}).(LogTransformerTransformerConfigTrimStringArrayOutput)
+}
+
+// Converts a value type associated with the specified key to the specified type. See `typeConverter` below for details.
+func (o LogTransformerTransformerConfigOutput) TypeConverters() LogTransformerTransformerConfigTypeConverterArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigTypeConverter {
+		return v.TypeConverters
+	}).(LogTransformerTransformerConfigTypeConverterArrayOutput)
+}
+
+// Converts a string to uppercase. See `upperCaseString` below for details.
+func (o LogTransformerTransformerConfigOutput) UpperCaseStrings() LogTransformerTransformerConfigUpperCaseStringArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfig) []LogTransformerTransformerConfigUpperCaseString {
+		return v.UpperCaseStrings
+	}).(LogTransformerTransformerConfigUpperCaseStringArrayOutput)
+}
+
+type LogTransformerTransformerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfig)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigArrayOutput) ToLogTransformerTransformerConfigArrayOutput() LogTransformerTransformerConfigArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigArrayOutput) ToLogTransformerTransformerConfigArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfig {
+		return vs[0].([]LogTransformerTransformerConfig)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigOutput)
+}
+
+type LogTransformerTransformerConfigAddKeys struct {
+	// Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `addKeys` `entry` below for details.
+	Entries []LogTransformerTransformerConfigAddKeysEntry `pulumi:"entries"`
+}
+
+// LogTransformerTransformerConfigAddKeysInput is an input type that accepts LogTransformerTransformerConfigAddKeysArgs and LogTransformerTransformerConfigAddKeysOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigAddKeysInput` via:
+//
+//	LogTransformerTransformerConfigAddKeysArgs{...}
+type LogTransformerTransformerConfigAddKeysInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigAddKeysOutput() LogTransformerTransformerConfigAddKeysOutput
+	ToLogTransformerTransformerConfigAddKeysOutputWithContext(context.Context) LogTransformerTransformerConfigAddKeysOutput
+}
+
+type LogTransformerTransformerConfigAddKeysArgs struct {
+	// Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `addKeys` `entry` below for details.
+	Entries LogTransformerTransformerConfigAddKeysEntryArrayInput `pulumi:"entries"`
+}
+
+func (LogTransformerTransformerConfigAddKeysArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigAddKeys)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigAddKeysArgs) ToLogTransformerTransformerConfigAddKeysOutput() LogTransformerTransformerConfigAddKeysOutput {
+	return i.ToLogTransformerTransformerConfigAddKeysOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigAddKeysArgs) ToLogTransformerTransformerConfigAddKeysOutputWithContext(ctx context.Context) LogTransformerTransformerConfigAddKeysOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigAddKeysOutput)
+}
+
+func (i LogTransformerTransformerConfigAddKeysArgs) ToLogTransformerTransformerConfigAddKeysPtrOutput() LogTransformerTransformerConfigAddKeysPtrOutput {
+	return i.ToLogTransformerTransformerConfigAddKeysPtrOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigAddKeysArgs) ToLogTransformerTransformerConfigAddKeysPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigAddKeysPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigAddKeysOutput).ToLogTransformerTransformerConfigAddKeysPtrOutputWithContext(ctx)
+}
+
+// LogTransformerTransformerConfigAddKeysPtrInput is an input type that accepts LogTransformerTransformerConfigAddKeysArgs, LogTransformerTransformerConfigAddKeysPtr and LogTransformerTransformerConfigAddKeysPtrOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigAddKeysPtrInput` via:
+//
+//	        LogTransformerTransformerConfigAddKeysArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogTransformerTransformerConfigAddKeysPtrInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigAddKeysPtrOutput() LogTransformerTransformerConfigAddKeysPtrOutput
+	ToLogTransformerTransformerConfigAddKeysPtrOutputWithContext(context.Context) LogTransformerTransformerConfigAddKeysPtrOutput
+}
+
+type logTransformerTransformerConfigAddKeysPtrType LogTransformerTransformerConfigAddKeysArgs
+
+func LogTransformerTransformerConfigAddKeysPtr(v *LogTransformerTransformerConfigAddKeysArgs) LogTransformerTransformerConfigAddKeysPtrInput {
+	return (*logTransformerTransformerConfigAddKeysPtrType)(v)
+}
+
+func (*logTransformerTransformerConfigAddKeysPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigAddKeys)(nil)).Elem()
+}
+
+func (i *logTransformerTransformerConfigAddKeysPtrType) ToLogTransformerTransformerConfigAddKeysPtrOutput() LogTransformerTransformerConfigAddKeysPtrOutput {
+	return i.ToLogTransformerTransformerConfigAddKeysPtrOutputWithContext(context.Background())
+}
+
+func (i *logTransformerTransformerConfigAddKeysPtrType) ToLogTransformerTransformerConfigAddKeysPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigAddKeysPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigAddKeysPtrOutput)
+}
+
+type LogTransformerTransformerConfigAddKeysOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigAddKeysOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigAddKeys)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigAddKeysOutput) ToLogTransformerTransformerConfigAddKeysOutput() LogTransformerTransformerConfigAddKeysOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigAddKeysOutput) ToLogTransformerTransformerConfigAddKeysOutputWithContext(ctx context.Context) LogTransformerTransformerConfigAddKeysOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigAddKeysOutput) ToLogTransformerTransformerConfigAddKeysPtrOutput() LogTransformerTransformerConfigAddKeysPtrOutput {
+	return o.ToLogTransformerTransformerConfigAddKeysPtrOutputWithContext(context.Background())
+}
+
+func (o LogTransformerTransformerConfigAddKeysOutput) ToLogTransformerTransformerConfigAddKeysPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigAddKeysPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogTransformerTransformerConfigAddKeys) *LogTransformerTransformerConfigAddKeys {
+		return &v
+	}).(LogTransformerTransformerConfigAddKeysPtrOutput)
+}
+
+// Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `addKeys` `entry` below for details.
+func (o LogTransformerTransformerConfigAddKeysOutput) Entries() LogTransformerTransformerConfigAddKeysEntryArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigAddKeys) []LogTransformerTransformerConfigAddKeysEntry {
+		return v.Entries
+	}).(LogTransformerTransformerConfigAddKeysEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigAddKeysPtrOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigAddKeysPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigAddKeys)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigAddKeysPtrOutput) ToLogTransformerTransformerConfigAddKeysPtrOutput() LogTransformerTransformerConfigAddKeysPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigAddKeysPtrOutput) ToLogTransformerTransformerConfigAddKeysPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigAddKeysPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigAddKeysPtrOutput) Elem() LogTransformerTransformerConfigAddKeysOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigAddKeys) LogTransformerTransformerConfigAddKeys {
+		if v != nil {
+			return *v
+		}
+		var ret LogTransformerTransformerConfigAddKeys
+		return ret
+	}).(LogTransformerTransformerConfigAddKeysOutput)
+}
+
+// Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `addKeys` `entry` below for details.
+func (o LogTransformerTransformerConfigAddKeysPtrOutput) Entries() LogTransformerTransformerConfigAddKeysEntryArrayOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigAddKeys) []LogTransformerTransformerConfigAddKeysEntry {
+		if v == nil {
+			return nil
+		}
+		return v.Entries
+	}).(LogTransformerTransformerConfigAddKeysEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigAddKeysEntry struct {
+	// Specifies the key with the value that will be converted to a different type.
+	Key string `pulumi:"key"`
+	// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+	// * `renameTo` - (Required) Specifies the new name of the key.
+	OverwriteIfExists *bool `pulumi:"overwriteIfExists"`
+	// Specifies the value of the new entry to be added to the log event.
+	Value string `pulumi:"value"`
+}
+
+// LogTransformerTransformerConfigAddKeysEntryInput is an input type that accepts LogTransformerTransformerConfigAddKeysEntryArgs and LogTransformerTransformerConfigAddKeysEntryOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigAddKeysEntryInput` via:
+//
+//	LogTransformerTransformerConfigAddKeysEntryArgs{...}
+type LogTransformerTransformerConfigAddKeysEntryInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigAddKeysEntryOutput() LogTransformerTransformerConfigAddKeysEntryOutput
+	ToLogTransformerTransformerConfigAddKeysEntryOutputWithContext(context.Context) LogTransformerTransformerConfigAddKeysEntryOutput
+}
+
+type LogTransformerTransformerConfigAddKeysEntryArgs struct {
+	// Specifies the key with the value that will be converted to a different type.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+	// * `renameTo` - (Required) Specifies the new name of the key.
+	OverwriteIfExists pulumi.BoolPtrInput `pulumi:"overwriteIfExists"`
+	// Specifies the value of the new entry to be added to the log event.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LogTransformerTransformerConfigAddKeysEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigAddKeysEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigAddKeysEntryArgs) ToLogTransformerTransformerConfigAddKeysEntryOutput() LogTransformerTransformerConfigAddKeysEntryOutput {
+	return i.ToLogTransformerTransformerConfigAddKeysEntryOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigAddKeysEntryArgs) ToLogTransformerTransformerConfigAddKeysEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigAddKeysEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigAddKeysEntryOutput)
+}
+
+// LogTransformerTransformerConfigAddKeysEntryArrayInput is an input type that accepts LogTransformerTransformerConfigAddKeysEntryArray and LogTransformerTransformerConfigAddKeysEntryArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigAddKeysEntryArrayInput` via:
+//
+//	LogTransformerTransformerConfigAddKeysEntryArray{ LogTransformerTransformerConfigAddKeysEntryArgs{...} }
+type LogTransformerTransformerConfigAddKeysEntryArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigAddKeysEntryArrayOutput() LogTransformerTransformerConfigAddKeysEntryArrayOutput
+	ToLogTransformerTransformerConfigAddKeysEntryArrayOutputWithContext(context.Context) LogTransformerTransformerConfigAddKeysEntryArrayOutput
+}
+
+type LogTransformerTransformerConfigAddKeysEntryArray []LogTransformerTransformerConfigAddKeysEntryInput
+
+func (LogTransformerTransformerConfigAddKeysEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigAddKeysEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigAddKeysEntryArray) ToLogTransformerTransformerConfigAddKeysEntryArrayOutput() LogTransformerTransformerConfigAddKeysEntryArrayOutput {
+	return i.ToLogTransformerTransformerConfigAddKeysEntryArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigAddKeysEntryArray) ToLogTransformerTransformerConfigAddKeysEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigAddKeysEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigAddKeysEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigAddKeysEntryOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigAddKeysEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigAddKeysEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigAddKeysEntryOutput) ToLogTransformerTransformerConfigAddKeysEntryOutput() LogTransformerTransformerConfigAddKeysEntryOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigAddKeysEntryOutput) ToLogTransformerTransformerConfigAddKeysEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigAddKeysEntryOutput {
+	return o
+}
+
+// Specifies the key with the value that will be converted to a different type.
+func (o LogTransformerTransformerConfigAddKeysEntryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigAddKeysEntry) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+// * `renameTo` - (Required) Specifies the new name of the key.
+func (o LogTransformerTransformerConfigAddKeysEntryOutput) OverwriteIfExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigAddKeysEntry) *bool { return v.OverwriteIfExists }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the value of the new entry to be added to the log event.
+func (o LogTransformerTransformerConfigAddKeysEntryOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigAddKeysEntry) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LogTransformerTransformerConfigAddKeysEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigAddKeysEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigAddKeysEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigAddKeysEntryArrayOutput) ToLogTransformerTransformerConfigAddKeysEntryArrayOutput() LogTransformerTransformerConfigAddKeysEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigAddKeysEntryArrayOutput) ToLogTransformerTransformerConfigAddKeysEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigAddKeysEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigAddKeysEntryArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigAddKeysEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigAddKeysEntry {
+		return vs[0].([]LogTransformerTransformerConfigAddKeysEntry)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigAddKeysEntryOutput)
+}
+
+type LogTransformerTransformerConfigCopyValue struct {
+	// Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copyValue` `entry` below for details.
+	Entries []LogTransformerTransformerConfigCopyValueEntry `pulumi:"entries"`
+}
+
+// LogTransformerTransformerConfigCopyValueInput is an input type that accepts LogTransformerTransformerConfigCopyValueArgs and LogTransformerTransformerConfigCopyValueOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigCopyValueInput` via:
+//
+//	LogTransformerTransformerConfigCopyValueArgs{...}
+type LogTransformerTransformerConfigCopyValueInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigCopyValueOutput() LogTransformerTransformerConfigCopyValueOutput
+	ToLogTransformerTransformerConfigCopyValueOutputWithContext(context.Context) LogTransformerTransformerConfigCopyValueOutput
+}
+
+type LogTransformerTransformerConfigCopyValueArgs struct {
+	// Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copyValue` `entry` below for details.
+	Entries LogTransformerTransformerConfigCopyValueEntryArrayInput `pulumi:"entries"`
+}
+
+func (LogTransformerTransformerConfigCopyValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigCopyValue)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigCopyValueArgs) ToLogTransformerTransformerConfigCopyValueOutput() LogTransformerTransformerConfigCopyValueOutput {
+	return i.ToLogTransformerTransformerConfigCopyValueOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigCopyValueArgs) ToLogTransformerTransformerConfigCopyValueOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCopyValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigCopyValueOutput)
+}
+
+func (i LogTransformerTransformerConfigCopyValueArgs) ToLogTransformerTransformerConfigCopyValuePtrOutput() LogTransformerTransformerConfigCopyValuePtrOutput {
+	return i.ToLogTransformerTransformerConfigCopyValuePtrOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigCopyValueArgs) ToLogTransformerTransformerConfigCopyValuePtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCopyValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigCopyValueOutput).ToLogTransformerTransformerConfigCopyValuePtrOutputWithContext(ctx)
+}
+
+// LogTransformerTransformerConfigCopyValuePtrInput is an input type that accepts LogTransformerTransformerConfigCopyValueArgs, LogTransformerTransformerConfigCopyValuePtr and LogTransformerTransformerConfigCopyValuePtrOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigCopyValuePtrInput` via:
+//
+//	        LogTransformerTransformerConfigCopyValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogTransformerTransformerConfigCopyValuePtrInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigCopyValuePtrOutput() LogTransformerTransformerConfigCopyValuePtrOutput
+	ToLogTransformerTransformerConfigCopyValuePtrOutputWithContext(context.Context) LogTransformerTransformerConfigCopyValuePtrOutput
+}
+
+type logTransformerTransformerConfigCopyValuePtrType LogTransformerTransformerConfigCopyValueArgs
+
+func LogTransformerTransformerConfigCopyValuePtr(v *LogTransformerTransformerConfigCopyValueArgs) LogTransformerTransformerConfigCopyValuePtrInput {
+	return (*logTransformerTransformerConfigCopyValuePtrType)(v)
+}
+
+func (*logTransformerTransformerConfigCopyValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigCopyValue)(nil)).Elem()
+}
+
+func (i *logTransformerTransformerConfigCopyValuePtrType) ToLogTransformerTransformerConfigCopyValuePtrOutput() LogTransformerTransformerConfigCopyValuePtrOutput {
+	return i.ToLogTransformerTransformerConfigCopyValuePtrOutputWithContext(context.Background())
+}
+
+func (i *logTransformerTransformerConfigCopyValuePtrType) ToLogTransformerTransformerConfigCopyValuePtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCopyValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigCopyValuePtrOutput)
+}
+
+type LogTransformerTransformerConfigCopyValueOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigCopyValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigCopyValue)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigCopyValueOutput) ToLogTransformerTransformerConfigCopyValueOutput() LogTransformerTransformerConfigCopyValueOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigCopyValueOutput) ToLogTransformerTransformerConfigCopyValueOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCopyValueOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigCopyValueOutput) ToLogTransformerTransformerConfigCopyValuePtrOutput() LogTransformerTransformerConfigCopyValuePtrOutput {
+	return o.ToLogTransformerTransformerConfigCopyValuePtrOutputWithContext(context.Background())
+}
+
+func (o LogTransformerTransformerConfigCopyValueOutput) ToLogTransformerTransformerConfigCopyValuePtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCopyValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogTransformerTransformerConfigCopyValue) *LogTransformerTransformerConfigCopyValue {
+		return &v
+	}).(LogTransformerTransformerConfigCopyValuePtrOutput)
+}
+
+// Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copyValue` `entry` below for details.
+func (o LogTransformerTransformerConfigCopyValueOutput) Entries() LogTransformerTransformerConfigCopyValueEntryArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigCopyValue) []LogTransformerTransformerConfigCopyValueEntry {
+		return v.Entries
+	}).(LogTransformerTransformerConfigCopyValueEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigCopyValuePtrOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigCopyValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigCopyValue)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigCopyValuePtrOutput) ToLogTransformerTransformerConfigCopyValuePtrOutput() LogTransformerTransformerConfigCopyValuePtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigCopyValuePtrOutput) ToLogTransformerTransformerConfigCopyValuePtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCopyValuePtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigCopyValuePtrOutput) Elem() LogTransformerTransformerConfigCopyValueOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigCopyValue) LogTransformerTransformerConfigCopyValue {
+		if v != nil {
+			return *v
+		}
+		var ret LogTransformerTransformerConfigCopyValue
+		return ret
+	}).(LogTransformerTransformerConfigCopyValueOutput)
+}
+
+// Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copyValue` `entry` below for details.
+func (o LogTransformerTransformerConfigCopyValuePtrOutput) Entries() LogTransformerTransformerConfigCopyValueEntryArrayOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigCopyValue) []LogTransformerTransformerConfigCopyValueEntry {
+		if v == nil {
+			return nil
+		}
+		return v.Entries
+	}).(LogTransformerTransformerConfigCopyValueEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigCopyValueEntry struct {
+	// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+	// * `renameTo` - (Required) Specifies the new name of the key.
+	OverwriteIfExists *bool `pulumi:"overwriteIfExists"`
+	// Specifies the key to modify.
+	Source string `pulumi:"source"`
+	// Specifies the key to move to.
+	Target string `pulumi:"target"`
+}
+
+// LogTransformerTransformerConfigCopyValueEntryInput is an input type that accepts LogTransformerTransformerConfigCopyValueEntryArgs and LogTransformerTransformerConfigCopyValueEntryOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigCopyValueEntryInput` via:
+//
+//	LogTransformerTransformerConfigCopyValueEntryArgs{...}
+type LogTransformerTransformerConfigCopyValueEntryInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigCopyValueEntryOutput() LogTransformerTransformerConfigCopyValueEntryOutput
+	ToLogTransformerTransformerConfigCopyValueEntryOutputWithContext(context.Context) LogTransformerTransformerConfigCopyValueEntryOutput
+}
+
+type LogTransformerTransformerConfigCopyValueEntryArgs struct {
+	// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+	// * `renameTo` - (Required) Specifies the new name of the key.
+	OverwriteIfExists pulumi.BoolPtrInput `pulumi:"overwriteIfExists"`
+	// Specifies the key to modify.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Specifies the key to move to.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (LogTransformerTransformerConfigCopyValueEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigCopyValueEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigCopyValueEntryArgs) ToLogTransformerTransformerConfigCopyValueEntryOutput() LogTransformerTransformerConfigCopyValueEntryOutput {
+	return i.ToLogTransformerTransformerConfigCopyValueEntryOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigCopyValueEntryArgs) ToLogTransformerTransformerConfigCopyValueEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCopyValueEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigCopyValueEntryOutput)
+}
+
+// LogTransformerTransformerConfigCopyValueEntryArrayInput is an input type that accepts LogTransformerTransformerConfigCopyValueEntryArray and LogTransformerTransformerConfigCopyValueEntryArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigCopyValueEntryArrayInput` via:
+//
+//	LogTransformerTransformerConfigCopyValueEntryArray{ LogTransformerTransformerConfigCopyValueEntryArgs{...} }
+type LogTransformerTransformerConfigCopyValueEntryArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigCopyValueEntryArrayOutput() LogTransformerTransformerConfigCopyValueEntryArrayOutput
+	ToLogTransformerTransformerConfigCopyValueEntryArrayOutputWithContext(context.Context) LogTransformerTransformerConfigCopyValueEntryArrayOutput
+}
+
+type LogTransformerTransformerConfigCopyValueEntryArray []LogTransformerTransformerConfigCopyValueEntryInput
+
+func (LogTransformerTransformerConfigCopyValueEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigCopyValueEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigCopyValueEntryArray) ToLogTransformerTransformerConfigCopyValueEntryArrayOutput() LogTransformerTransformerConfigCopyValueEntryArrayOutput {
+	return i.ToLogTransformerTransformerConfigCopyValueEntryArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigCopyValueEntryArray) ToLogTransformerTransformerConfigCopyValueEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCopyValueEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigCopyValueEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigCopyValueEntryOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigCopyValueEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigCopyValueEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigCopyValueEntryOutput) ToLogTransformerTransformerConfigCopyValueEntryOutput() LogTransformerTransformerConfigCopyValueEntryOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigCopyValueEntryOutput) ToLogTransformerTransformerConfigCopyValueEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCopyValueEntryOutput {
+	return o
+}
+
+// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+// * `renameTo` - (Required) Specifies the new name of the key.
+func (o LogTransformerTransformerConfigCopyValueEntryOutput) OverwriteIfExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigCopyValueEntry) *bool { return v.OverwriteIfExists }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the key to modify.
+func (o LogTransformerTransformerConfigCopyValueEntryOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigCopyValueEntry) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// Specifies the key to move to.
+func (o LogTransformerTransformerConfigCopyValueEntryOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigCopyValueEntry) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type LogTransformerTransformerConfigCopyValueEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigCopyValueEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigCopyValueEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigCopyValueEntryArrayOutput) ToLogTransformerTransformerConfigCopyValueEntryArrayOutput() LogTransformerTransformerConfigCopyValueEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigCopyValueEntryArrayOutput) ToLogTransformerTransformerConfigCopyValueEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCopyValueEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigCopyValueEntryArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigCopyValueEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigCopyValueEntry {
+		return vs[0].([]LogTransformerTransformerConfigCopyValueEntry)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigCopyValueEntryOutput)
+}
+
+type LogTransformerTransformerConfigCsv struct {
+	// Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column2 ...]`) are used.
+	Columns []string `pulumi:"columns"`
+	// Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
+	Delimiter *string `pulumi:"delimiter"`
+	// Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `"` character.
+	QuoteCharacter *string `pulumi:"quoteCharacter"`
+	// Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+	Source *string `pulumi:"source"`
+}
+
+// LogTransformerTransformerConfigCsvInput is an input type that accepts LogTransformerTransformerConfigCsvArgs and LogTransformerTransformerConfigCsvOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigCsvInput` via:
+//
+//	LogTransformerTransformerConfigCsvArgs{...}
+type LogTransformerTransformerConfigCsvInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigCsvOutput() LogTransformerTransformerConfigCsvOutput
+	ToLogTransformerTransformerConfigCsvOutputWithContext(context.Context) LogTransformerTransformerConfigCsvOutput
+}
+
+type LogTransformerTransformerConfigCsvArgs struct {
+	// Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column2 ...]`) are used.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+	// Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `"` character.
+	QuoteCharacter pulumi.StringPtrInput `pulumi:"quoteCharacter"`
+	// Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (LogTransformerTransformerConfigCsvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigCsv)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigCsvArgs) ToLogTransformerTransformerConfigCsvOutput() LogTransformerTransformerConfigCsvOutput {
+	return i.ToLogTransformerTransformerConfigCsvOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigCsvArgs) ToLogTransformerTransformerConfigCsvOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCsvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigCsvOutput)
+}
+
+// LogTransformerTransformerConfigCsvArrayInput is an input type that accepts LogTransformerTransformerConfigCsvArray and LogTransformerTransformerConfigCsvArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigCsvArrayInput` via:
+//
+//	LogTransformerTransformerConfigCsvArray{ LogTransformerTransformerConfigCsvArgs{...} }
+type LogTransformerTransformerConfigCsvArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigCsvArrayOutput() LogTransformerTransformerConfigCsvArrayOutput
+	ToLogTransformerTransformerConfigCsvArrayOutputWithContext(context.Context) LogTransformerTransformerConfigCsvArrayOutput
+}
+
+type LogTransformerTransformerConfigCsvArray []LogTransformerTransformerConfigCsvInput
+
+func (LogTransformerTransformerConfigCsvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigCsv)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigCsvArray) ToLogTransformerTransformerConfigCsvArrayOutput() LogTransformerTransformerConfigCsvArrayOutput {
+	return i.ToLogTransformerTransformerConfigCsvArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigCsvArray) ToLogTransformerTransformerConfigCsvArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCsvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigCsvArrayOutput)
+}
+
+type LogTransformerTransformerConfigCsvOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigCsvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigCsv)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigCsvOutput) ToLogTransformerTransformerConfigCsvOutput() LogTransformerTransformerConfigCsvOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigCsvOutput) ToLogTransformerTransformerConfigCsvOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCsvOutput {
+	return o
+}
+
+// Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column2 ...]`) are used.
+func (o LogTransformerTransformerConfigCsvOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigCsv) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
+func (o LogTransformerTransformerConfigCsvOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigCsv) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `"` character.
+func (o LogTransformerTransformerConfigCsvOutput) QuoteCharacter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigCsv) *string { return v.QuoteCharacter }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigCsvOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigCsv) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigCsvArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigCsvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigCsv)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigCsvArrayOutput) ToLogTransformerTransformerConfigCsvArrayOutput() LogTransformerTransformerConfigCsvArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigCsvArrayOutput) ToLogTransformerTransformerConfigCsvArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigCsvArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigCsvArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigCsvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigCsv {
+		return vs[0].([]LogTransformerTransformerConfigCsv)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigCsvOutput)
+}
+
+type LogTransformerTransformerConfigDateTimeConverter struct {
+	// Specifies the locale of the source field. Defaults to `locale.ROOT`.
+	Locale *string `pulumi:"locale"`
+	// Specifies the list of patterns to match against the `source` field.
+	MatchPatterns []string `pulumi:"matchPatterns"`
+	// Specifies the key to apply the date conversion to.
+	Source string `pulumi:"source"`
+	// Specifies the time zone of the source field. Defaults to `UTC`.
+	SourceTimezone *string `pulumi:"sourceTimezone"`
+	// Specifies the JSON field to store the result in.
+	Target string `pulumi:"target"`
+	// Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd'T'HH:mm:ss.SSS'Z`.
+	TargetFormat *string `pulumi:"targetFormat"`
+	// Specifies the time zone of the target field. Defaults to `UTC`.
+	TargetTimezone *string `pulumi:"targetTimezone"`
+}
+
+// LogTransformerTransformerConfigDateTimeConverterInput is an input type that accepts LogTransformerTransformerConfigDateTimeConverterArgs and LogTransformerTransformerConfigDateTimeConverterOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigDateTimeConverterInput` via:
+//
+//	LogTransformerTransformerConfigDateTimeConverterArgs{...}
+type LogTransformerTransformerConfigDateTimeConverterInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigDateTimeConverterOutput() LogTransformerTransformerConfigDateTimeConverterOutput
+	ToLogTransformerTransformerConfigDateTimeConverterOutputWithContext(context.Context) LogTransformerTransformerConfigDateTimeConverterOutput
+}
+
+type LogTransformerTransformerConfigDateTimeConverterArgs struct {
+	// Specifies the locale of the source field. Defaults to `locale.ROOT`.
+	Locale pulumi.StringPtrInput `pulumi:"locale"`
+	// Specifies the list of patterns to match against the `source` field.
+	MatchPatterns pulumi.StringArrayInput `pulumi:"matchPatterns"`
+	// Specifies the key to apply the date conversion to.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Specifies the time zone of the source field. Defaults to `UTC`.
+	SourceTimezone pulumi.StringPtrInput `pulumi:"sourceTimezone"`
+	// Specifies the JSON field to store the result in.
+	Target pulumi.StringInput `pulumi:"target"`
+	// Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd'T'HH:mm:ss.SSS'Z`.
+	TargetFormat pulumi.StringPtrInput `pulumi:"targetFormat"`
+	// Specifies the time zone of the target field. Defaults to `UTC`.
+	TargetTimezone pulumi.StringPtrInput `pulumi:"targetTimezone"`
+}
+
+func (LogTransformerTransformerConfigDateTimeConverterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigDateTimeConverter)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigDateTimeConverterArgs) ToLogTransformerTransformerConfigDateTimeConverterOutput() LogTransformerTransformerConfigDateTimeConverterOutput {
+	return i.ToLogTransformerTransformerConfigDateTimeConverterOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigDateTimeConverterArgs) ToLogTransformerTransformerConfigDateTimeConverterOutputWithContext(ctx context.Context) LogTransformerTransformerConfigDateTimeConverterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigDateTimeConverterOutput)
+}
+
+// LogTransformerTransformerConfigDateTimeConverterArrayInput is an input type that accepts LogTransformerTransformerConfigDateTimeConverterArray and LogTransformerTransformerConfigDateTimeConverterArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigDateTimeConverterArrayInput` via:
+//
+//	LogTransformerTransformerConfigDateTimeConverterArray{ LogTransformerTransformerConfigDateTimeConverterArgs{...} }
+type LogTransformerTransformerConfigDateTimeConverterArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigDateTimeConverterArrayOutput() LogTransformerTransformerConfigDateTimeConverterArrayOutput
+	ToLogTransformerTransformerConfigDateTimeConverterArrayOutputWithContext(context.Context) LogTransformerTransformerConfigDateTimeConverterArrayOutput
+}
+
+type LogTransformerTransformerConfigDateTimeConverterArray []LogTransformerTransformerConfigDateTimeConverterInput
+
+func (LogTransformerTransformerConfigDateTimeConverterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigDateTimeConverter)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigDateTimeConverterArray) ToLogTransformerTransformerConfigDateTimeConverterArrayOutput() LogTransformerTransformerConfigDateTimeConverterArrayOutput {
+	return i.ToLogTransformerTransformerConfigDateTimeConverterArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigDateTimeConverterArray) ToLogTransformerTransformerConfigDateTimeConverterArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigDateTimeConverterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigDateTimeConverterArrayOutput)
+}
+
+type LogTransformerTransformerConfigDateTimeConverterOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigDateTimeConverterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigDateTimeConverter)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigDateTimeConverterOutput) ToLogTransformerTransformerConfigDateTimeConverterOutput() LogTransformerTransformerConfigDateTimeConverterOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigDateTimeConverterOutput) ToLogTransformerTransformerConfigDateTimeConverterOutputWithContext(ctx context.Context) LogTransformerTransformerConfigDateTimeConverterOutput {
+	return o
+}
+
+// Specifies the locale of the source field. Defaults to `locale.ROOT`.
+func (o LogTransformerTransformerConfigDateTimeConverterOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigDateTimeConverter) *string { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the list of patterns to match against the `source` field.
+func (o LogTransformerTransformerConfigDateTimeConverterOutput) MatchPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigDateTimeConverter) []string { return v.MatchPatterns }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the key to apply the date conversion to.
+func (o LogTransformerTransformerConfigDateTimeConverterOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigDateTimeConverter) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// Specifies the time zone of the source field. Defaults to `UTC`.
+func (o LogTransformerTransformerConfigDateTimeConverterOutput) SourceTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigDateTimeConverter) *string { return v.SourceTimezone }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the JSON field to store the result in.
+func (o LogTransformerTransformerConfigDateTimeConverterOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigDateTimeConverter) string { return v.Target }).(pulumi.StringOutput)
+}
+
+// Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd'T'HH:mm:ss.SSS'Z`.
+func (o LogTransformerTransformerConfigDateTimeConverterOutput) TargetFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigDateTimeConverter) *string { return v.TargetFormat }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the time zone of the target field. Defaults to `UTC`.
+func (o LogTransformerTransformerConfigDateTimeConverterOutput) TargetTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigDateTimeConverter) *string { return v.TargetTimezone }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigDateTimeConverterArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigDateTimeConverterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigDateTimeConverter)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigDateTimeConverterArrayOutput) ToLogTransformerTransformerConfigDateTimeConverterArrayOutput() LogTransformerTransformerConfigDateTimeConverterArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigDateTimeConverterArrayOutput) ToLogTransformerTransformerConfigDateTimeConverterArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigDateTimeConverterArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigDateTimeConverterArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigDateTimeConverterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigDateTimeConverter {
+		return vs[0].([]LogTransformerTransformerConfigDateTimeConverter)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigDateTimeConverterOutput)
+}
+
+type LogTransformerTransformerConfigDeleteKey struct {
+	// Specifies the keys to be deleted.
+	WithKeys []string `pulumi:"withKeys"`
+}
+
+// LogTransformerTransformerConfigDeleteKeyInput is an input type that accepts LogTransformerTransformerConfigDeleteKeyArgs and LogTransformerTransformerConfigDeleteKeyOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigDeleteKeyInput` via:
+//
+//	LogTransformerTransformerConfigDeleteKeyArgs{...}
+type LogTransformerTransformerConfigDeleteKeyInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigDeleteKeyOutput() LogTransformerTransformerConfigDeleteKeyOutput
+	ToLogTransformerTransformerConfigDeleteKeyOutputWithContext(context.Context) LogTransformerTransformerConfigDeleteKeyOutput
+}
+
+type LogTransformerTransformerConfigDeleteKeyArgs struct {
+	// Specifies the keys to be deleted.
+	WithKeys pulumi.StringArrayInput `pulumi:"withKeys"`
+}
+
+func (LogTransformerTransformerConfigDeleteKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigDeleteKey)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigDeleteKeyArgs) ToLogTransformerTransformerConfigDeleteKeyOutput() LogTransformerTransformerConfigDeleteKeyOutput {
+	return i.ToLogTransformerTransformerConfigDeleteKeyOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigDeleteKeyArgs) ToLogTransformerTransformerConfigDeleteKeyOutputWithContext(ctx context.Context) LogTransformerTransformerConfigDeleteKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigDeleteKeyOutput)
+}
+
+// LogTransformerTransformerConfigDeleteKeyArrayInput is an input type that accepts LogTransformerTransformerConfigDeleteKeyArray and LogTransformerTransformerConfigDeleteKeyArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigDeleteKeyArrayInput` via:
+//
+//	LogTransformerTransformerConfigDeleteKeyArray{ LogTransformerTransformerConfigDeleteKeyArgs{...} }
+type LogTransformerTransformerConfigDeleteKeyArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigDeleteKeyArrayOutput() LogTransformerTransformerConfigDeleteKeyArrayOutput
+	ToLogTransformerTransformerConfigDeleteKeyArrayOutputWithContext(context.Context) LogTransformerTransformerConfigDeleteKeyArrayOutput
+}
+
+type LogTransformerTransformerConfigDeleteKeyArray []LogTransformerTransformerConfigDeleteKeyInput
+
+func (LogTransformerTransformerConfigDeleteKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigDeleteKey)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigDeleteKeyArray) ToLogTransformerTransformerConfigDeleteKeyArrayOutput() LogTransformerTransformerConfigDeleteKeyArrayOutput {
+	return i.ToLogTransformerTransformerConfigDeleteKeyArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigDeleteKeyArray) ToLogTransformerTransformerConfigDeleteKeyArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigDeleteKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigDeleteKeyArrayOutput)
+}
+
+type LogTransformerTransformerConfigDeleteKeyOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigDeleteKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigDeleteKey)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigDeleteKeyOutput) ToLogTransformerTransformerConfigDeleteKeyOutput() LogTransformerTransformerConfigDeleteKeyOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigDeleteKeyOutput) ToLogTransformerTransformerConfigDeleteKeyOutputWithContext(ctx context.Context) LogTransformerTransformerConfigDeleteKeyOutput {
+	return o
+}
+
+// Specifies the keys to be deleted.
+func (o LogTransformerTransformerConfigDeleteKeyOutput) WithKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigDeleteKey) []string { return v.WithKeys }).(pulumi.StringArrayOutput)
+}
+
+type LogTransformerTransformerConfigDeleteKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigDeleteKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigDeleteKey)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigDeleteKeyArrayOutput) ToLogTransformerTransformerConfigDeleteKeyArrayOutput() LogTransformerTransformerConfigDeleteKeyArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigDeleteKeyArrayOutput) ToLogTransformerTransformerConfigDeleteKeyArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigDeleteKeyArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigDeleteKeyArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigDeleteKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigDeleteKey {
+		return vs[0].([]LogTransformerTransformerConfigDeleteKey)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigDeleteKeyOutput)
+}
+
+type LogTransformerTransformerConfigGrok struct {
+	// Specifies the grok pattern to match against the log event.
+	Match string `pulumi:"match"`
+	// Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+	Source *string `pulumi:"source"`
+}
+
+// LogTransformerTransformerConfigGrokInput is an input type that accepts LogTransformerTransformerConfigGrokArgs and LogTransformerTransformerConfigGrokOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigGrokInput` via:
+//
+//	LogTransformerTransformerConfigGrokArgs{...}
+type LogTransformerTransformerConfigGrokInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigGrokOutput() LogTransformerTransformerConfigGrokOutput
+	ToLogTransformerTransformerConfigGrokOutputWithContext(context.Context) LogTransformerTransformerConfigGrokOutput
+}
+
+type LogTransformerTransformerConfigGrokArgs struct {
+	// Specifies the grok pattern to match against the log event.
+	Match pulumi.StringInput `pulumi:"match"`
+	// Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (LogTransformerTransformerConfigGrokArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigGrok)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigGrokArgs) ToLogTransformerTransformerConfigGrokOutput() LogTransformerTransformerConfigGrokOutput {
+	return i.ToLogTransformerTransformerConfigGrokOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigGrokArgs) ToLogTransformerTransformerConfigGrokOutputWithContext(ctx context.Context) LogTransformerTransformerConfigGrokOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigGrokOutput)
+}
+
+func (i LogTransformerTransformerConfigGrokArgs) ToLogTransformerTransformerConfigGrokPtrOutput() LogTransformerTransformerConfigGrokPtrOutput {
+	return i.ToLogTransformerTransformerConfigGrokPtrOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigGrokArgs) ToLogTransformerTransformerConfigGrokPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigGrokPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigGrokOutput).ToLogTransformerTransformerConfigGrokPtrOutputWithContext(ctx)
+}
+
+// LogTransformerTransformerConfigGrokPtrInput is an input type that accepts LogTransformerTransformerConfigGrokArgs, LogTransformerTransformerConfigGrokPtr and LogTransformerTransformerConfigGrokPtrOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigGrokPtrInput` via:
+//
+//	        LogTransformerTransformerConfigGrokArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogTransformerTransformerConfigGrokPtrInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigGrokPtrOutput() LogTransformerTransformerConfigGrokPtrOutput
+	ToLogTransformerTransformerConfigGrokPtrOutputWithContext(context.Context) LogTransformerTransformerConfigGrokPtrOutput
+}
+
+type logTransformerTransformerConfigGrokPtrType LogTransformerTransformerConfigGrokArgs
+
+func LogTransformerTransformerConfigGrokPtr(v *LogTransformerTransformerConfigGrokArgs) LogTransformerTransformerConfigGrokPtrInput {
+	return (*logTransformerTransformerConfigGrokPtrType)(v)
+}
+
+func (*logTransformerTransformerConfigGrokPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigGrok)(nil)).Elem()
+}
+
+func (i *logTransformerTransformerConfigGrokPtrType) ToLogTransformerTransformerConfigGrokPtrOutput() LogTransformerTransformerConfigGrokPtrOutput {
+	return i.ToLogTransformerTransformerConfigGrokPtrOutputWithContext(context.Background())
+}
+
+func (i *logTransformerTransformerConfigGrokPtrType) ToLogTransformerTransformerConfigGrokPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigGrokPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigGrokPtrOutput)
+}
+
+type LogTransformerTransformerConfigGrokOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigGrokOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigGrok)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigGrokOutput) ToLogTransformerTransformerConfigGrokOutput() LogTransformerTransformerConfigGrokOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigGrokOutput) ToLogTransformerTransformerConfigGrokOutputWithContext(ctx context.Context) LogTransformerTransformerConfigGrokOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigGrokOutput) ToLogTransformerTransformerConfigGrokPtrOutput() LogTransformerTransformerConfigGrokPtrOutput {
+	return o.ToLogTransformerTransformerConfigGrokPtrOutputWithContext(context.Background())
+}
+
+func (o LogTransformerTransformerConfigGrokOutput) ToLogTransformerTransformerConfigGrokPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigGrokPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogTransformerTransformerConfigGrok) *LogTransformerTransformerConfigGrok {
+		return &v
+	}).(LogTransformerTransformerConfigGrokPtrOutput)
+}
+
+// Specifies the grok pattern to match against the log event.
+func (o LogTransformerTransformerConfigGrokOutput) Match() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigGrok) string { return v.Match }).(pulumi.StringOutput)
+}
+
+// Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigGrokOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigGrok) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigGrokPtrOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigGrokPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigGrok)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigGrokPtrOutput) ToLogTransformerTransformerConfigGrokPtrOutput() LogTransformerTransformerConfigGrokPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigGrokPtrOutput) ToLogTransformerTransformerConfigGrokPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigGrokPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigGrokPtrOutput) Elem() LogTransformerTransformerConfigGrokOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigGrok) LogTransformerTransformerConfigGrok {
+		if v != nil {
+			return *v
+		}
+		var ret LogTransformerTransformerConfigGrok
+		return ret
+	}).(LogTransformerTransformerConfigGrokOutput)
+}
+
+// Specifies the grok pattern to match against the log event.
+func (o LogTransformerTransformerConfigGrokPtrOutput) Match() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigGrok) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Match
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigGrokPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigGrok) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigListToMap struct {
+	// Specifies whether the list will be flattened into single items. Defaults to `false`.
+	Flatten *bool `pulumi:"flatten"`
+	// Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
+	FlattenedElement *string `pulumi:"flattenedElement"`
+	// Specifies the key of the field to be extracted as keys in the generated map.
+	Key string `pulumi:"key"`
+	// Specifies the key in the log event that has a list of objects that will be converted to a map.
+	Source string `pulumi:"source"`
+	// Specifies the key of the field that will hold the generated map.
+	Target *string `pulumi:"target"`
+	// Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
+	ValueKey *string `pulumi:"valueKey"`
+}
+
+// LogTransformerTransformerConfigListToMapInput is an input type that accepts LogTransformerTransformerConfigListToMap and LogTransformerTransformerConfigListToMapOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigListToMapInput` via:
+//
+//	LogTransformerTransformerConfigListToMap{ "key": LogTransformerTransformerConfigListToArgs{...} }
+type LogTransformerTransformerConfigListToMapInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigListToMapOutput() LogTransformerTransformerConfigListToMapOutput
+	ToLogTransformerTransformerConfigListToMapOutputWithContext(context.Context) LogTransformerTransformerConfigListToMapOutput
+}
+
+type LogTransformerTransformerConfigListToMapArgs struct {
+	// Specifies whether the list will be flattened into single items. Defaults to `false`.
+	Flatten pulumi.BoolPtrInput `pulumi:"flatten"`
+	// Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
+	FlattenedElement pulumi.StringPtrInput `pulumi:"flattenedElement"`
+	// Specifies the key of the field to be extracted as keys in the generated map.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies the key in the log event that has a list of objects that will be converted to a map.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Specifies the key of the field that will hold the generated map.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
+	ValueKey pulumi.StringPtrInput `pulumi:"valueKey"`
+}
+
+func (LogTransformerTransformerConfigListToMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigListToMap)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigListToMapArgs) ToLogTransformerTransformerConfigListToMapOutput() LogTransformerTransformerConfigListToMapOutput {
+	return i.ToLogTransformerTransformerConfigListToMapOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigListToMapArgs) ToLogTransformerTransformerConfigListToMapOutputWithContext(ctx context.Context) LogTransformerTransformerConfigListToMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigListToMapOutput)
+}
+
+// LogTransformerTransformerConfigListToMapArrayInput is an input type that accepts LogTransformerTransformerConfigListToMapArray and LogTransformerTransformerConfigListToMapArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigListToMapArrayInput` via:
+//
+//	LogTransformerTransformerConfigListToMapArray{ LogTransformerTransformerConfigListToMapArgs{...} }
+type LogTransformerTransformerConfigListToMapArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigListToMapArrayOutput() LogTransformerTransformerConfigListToMapArrayOutput
+	ToLogTransformerTransformerConfigListToMapArrayOutputWithContext(context.Context) LogTransformerTransformerConfigListToMapArrayOutput
+}
+
+type LogTransformerTransformerConfigListToMapArray []LogTransformerTransformerConfigListToMapInput
+
+func (LogTransformerTransformerConfigListToMapArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigListToMap)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigListToMapArray) ToLogTransformerTransformerConfigListToMapArrayOutput() LogTransformerTransformerConfigListToMapArrayOutput {
+	return i.ToLogTransformerTransformerConfigListToMapArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigListToMapArray) ToLogTransformerTransformerConfigListToMapArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigListToMapArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigListToMapArrayOutput)
+}
+
+type LogTransformerTransformerConfigListToMapOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigListToMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigListToMap)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigListToMapOutput) ToLogTransformerTransformerConfigListToMapOutput() LogTransformerTransformerConfigListToMapOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigListToMapOutput) ToLogTransformerTransformerConfigListToMapOutputWithContext(ctx context.Context) LogTransformerTransformerConfigListToMapOutput {
+	return o
+}
+
+// Specifies whether the list will be flattened into single items. Defaults to `false`.
+func (o LogTransformerTransformerConfigListToMapOutput) Flatten() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigListToMap) *bool { return v.Flatten }).(pulumi.BoolPtrOutput)
+}
+
+// Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
+func (o LogTransformerTransformerConfigListToMapOutput) FlattenedElement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigListToMap) *string { return v.FlattenedElement }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the key of the field to be extracted as keys in the generated map.
+func (o LogTransformerTransformerConfigListToMapOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigListToMap) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies the key in the log event that has a list of objects that will be converted to a map.
+func (o LogTransformerTransformerConfigListToMapOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigListToMap) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// Specifies the key of the field that will hold the generated map.
+func (o LogTransformerTransformerConfigListToMapOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigListToMap) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
+func (o LogTransformerTransformerConfigListToMapOutput) ValueKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigListToMap) *string { return v.ValueKey }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigListToMapArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigListToMapArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigListToMap)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigListToMapArrayOutput) ToLogTransformerTransformerConfigListToMapArrayOutput() LogTransformerTransformerConfigListToMapArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigListToMapArrayOutput) ToLogTransformerTransformerConfigListToMapArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigListToMapArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigListToMapArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigListToMapOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigListToMap {
+		return vs[0].([]LogTransformerTransformerConfigListToMap)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigListToMapOutput)
+}
+
+type LogTransformerTransformerConfigLowerCaseString struct {
+	// Specifies the keys of the fields to convert to lowercase.
+	WithKeys []string `pulumi:"withKeys"`
+}
+
+// LogTransformerTransformerConfigLowerCaseStringInput is an input type that accepts LogTransformerTransformerConfigLowerCaseStringArgs and LogTransformerTransformerConfigLowerCaseStringOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigLowerCaseStringInput` via:
+//
+//	LogTransformerTransformerConfigLowerCaseStringArgs{...}
+type LogTransformerTransformerConfigLowerCaseStringInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigLowerCaseStringOutput() LogTransformerTransformerConfigLowerCaseStringOutput
+	ToLogTransformerTransformerConfigLowerCaseStringOutputWithContext(context.Context) LogTransformerTransformerConfigLowerCaseStringOutput
+}
+
+type LogTransformerTransformerConfigLowerCaseStringArgs struct {
+	// Specifies the keys of the fields to convert to lowercase.
+	WithKeys pulumi.StringArrayInput `pulumi:"withKeys"`
+}
+
+func (LogTransformerTransformerConfigLowerCaseStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigLowerCaseString)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigLowerCaseStringArgs) ToLogTransformerTransformerConfigLowerCaseStringOutput() LogTransformerTransformerConfigLowerCaseStringOutput {
+	return i.ToLogTransformerTransformerConfigLowerCaseStringOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigLowerCaseStringArgs) ToLogTransformerTransformerConfigLowerCaseStringOutputWithContext(ctx context.Context) LogTransformerTransformerConfigLowerCaseStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigLowerCaseStringOutput)
+}
+
+// LogTransformerTransformerConfigLowerCaseStringArrayInput is an input type that accepts LogTransformerTransformerConfigLowerCaseStringArray and LogTransformerTransformerConfigLowerCaseStringArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigLowerCaseStringArrayInput` via:
+//
+//	LogTransformerTransformerConfigLowerCaseStringArray{ LogTransformerTransformerConfigLowerCaseStringArgs{...} }
+type LogTransformerTransformerConfigLowerCaseStringArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigLowerCaseStringArrayOutput() LogTransformerTransformerConfigLowerCaseStringArrayOutput
+	ToLogTransformerTransformerConfigLowerCaseStringArrayOutputWithContext(context.Context) LogTransformerTransformerConfigLowerCaseStringArrayOutput
+}
+
+type LogTransformerTransformerConfigLowerCaseStringArray []LogTransformerTransformerConfigLowerCaseStringInput
+
+func (LogTransformerTransformerConfigLowerCaseStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigLowerCaseString)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigLowerCaseStringArray) ToLogTransformerTransformerConfigLowerCaseStringArrayOutput() LogTransformerTransformerConfigLowerCaseStringArrayOutput {
+	return i.ToLogTransformerTransformerConfigLowerCaseStringArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigLowerCaseStringArray) ToLogTransformerTransformerConfigLowerCaseStringArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigLowerCaseStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigLowerCaseStringArrayOutput)
+}
+
+type LogTransformerTransformerConfigLowerCaseStringOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigLowerCaseStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigLowerCaseString)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigLowerCaseStringOutput) ToLogTransformerTransformerConfigLowerCaseStringOutput() LogTransformerTransformerConfigLowerCaseStringOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigLowerCaseStringOutput) ToLogTransformerTransformerConfigLowerCaseStringOutputWithContext(ctx context.Context) LogTransformerTransformerConfigLowerCaseStringOutput {
+	return o
+}
+
+// Specifies the keys of the fields to convert to lowercase.
+func (o LogTransformerTransformerConfigLowerCaseStringOutput) WithKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigLowerCaseString) []string { return v.WithKeys }).(pulumi.StringArrayOutput)
+}
+
+type LogTransformerTransformerConfigLowerCaseStringArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigLowerCaseStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigLowerCaseString)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigLowerCaseStringArrayOutput) ToLogTransformerTransformerConfigLowerCaseStringArrayOutput() LogTransformerTransformerConfigLowerCaseStringArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigLowerCaseStringArrayOutput) ToLogTransformerTransformerConfigLowerCaseStringArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigLowerCaseStringArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigLowerCaseStringArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigLowerCaseStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigLowerCaseString {
+		return vs[0].([]LogTransformerTransformerConfigLowerCaseString)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigLowerCaseStringOutput)
+}
+
+type LogTransformerTransformerConfigMoveKey struct {
+	// Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `moveKeys` `entry` below for details.
+	Entries []LogTransformerTransformerConfigMoveKeyEntry `pulumi:"entries"`
+}
+
+// LogTransformerTransformerConfigMoveKeyInput is an input type that accepts LogTransformerTransformerConfigMoveKeyArgs and LogTransformerTransformerConfigMoveKeyOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigMoveKeyInput` via:
+//
+//	LogTransformerTransformerConfigMoveKeyArgs{...}
+type LogTransformerTransformerConfigMoveKeyInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigMoveKeyOutput() LogTransformerTransformerConfigMoveKeyOutput
+	ToLogTransformerTransformerConfigMoveKeyOutputWithContext(context.Context) LogTransformerTransformerConfigMoveKeyOutput
+}
+
+type LogTransformerTransformerConfigMoveKeyArgs struct {
+	// Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `moveKeys` `entry` below for details.
+	Entries LogTransformerTransformerConfigMoveKeyEntryArrayInput `pulumi:"entries"`
+}
+
+func (LogTransformerTransformerConfigMoveKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigMoveKey)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigMoveKeyArgs) ToLogTransformerTransformerConfigMoveKeyOutput() LogTransformerTransformerConfigMoveKeyOutput {
+	return i.ToLogTransformerTransformerConfigMoveKeyOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigMoveKeyArgs) ToLogTransformerTransformerConfigMoveKeyOutputWithContext(ctx context.Context) LogTransformerTransformerConfigMoveKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigMoveKeyOutput)
+}
+
+// LogTransformerTransformerConfigMoveKeyArrayInput is an input type that accepts LogTransformerTransformerConfigMoveKeyArray and LogTransformerTransformerConfigMoveKeyArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigMoveKeyArrayInput` via:
+//
+//	LogTransformerTransformerConfigMoveKeyArray{ LogTransformerTransformerConfigMoveKeyArgs{...} }
+type LogTransformerTransformerConfigMoveKeyArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigMoveKeyArrayOutput() LogTransformerTransformerConfigMoveKeyArrayOutput
+	ToLogTransformerTransformerConfigMoveKeyArrayOutputWithContext(context.Context) LogTransformerTransformerConfigMoveKeyArrayOutput
+}
+
+type LogTransformerTransformerConfigMoveKeyArray []LogTransformerTransformerConfigMoveKeyInput
+
+func (LogTransformerTransformerConfigMoveKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigMoveKey)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigMoveKeyArray) ToLogTransformerTransformerConfigMoveKeyArrayOutput() LogTransformerTransformerConfigMoveKeyArrayOutput {
+	return i.ToLogTransformerTransformerConfigMoveKeyArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigMoveKeyArray) ToLogTransformerTransformerConfigMoveKeyArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigMoveKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigMoveKeyArrayOutput)
+}
+
+type LogTransformerTransformerConfigMoveKeyOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigMoveKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigMoveKey)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigMoveKeyOutput) ToLogTransformerTransformerConfigMoveKeyOutput() LogTransformerTransformerConfigMoveKeyOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigMoveKeyOutput) ToLogTransformerTransformerConfigMoveKeyOutputWithContext(ctx context.Context) LogTransformerTransformerConfigMoveKeyOutput {
+	return o
+}
+
+// Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `moveKeys` `entry` below for details.
+func (o LogTransformerTransformerConfigMoveKeyOutput) Entries() LogTransformerTransformerConfigMoveKeyEntryArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigMoveKey) []LogTransformerTransformerConfigMoveKeyEntry {
+		return v.Entries
+	}).(LogTransformerTransformerConfigMoveKeyEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigMoveKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigMoveKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigMoveKey)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigMoveKeyArrayOutput) ToLogTransformerTransformerConfigMoveKeyArrayOutput() LogTransformerTransformerConfigMoveKeyArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigMoveKeyArrayOutput) ToLogTransformerTransformerConfigMoveKeyArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigMoveKeyArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigMoveKeyArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigMoveKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigMoveKey {
+		return vs[0].([]LogTransformerTransformerConfigMoveKey)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigMoveKeyOutput)
+}
+
+type LogTransformerTransformerConfigMoveKeyEntry struct {
+	// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+	// * `renameTo` - (Required) Specifies the new name of the key.
+	OverwriteIfExists *bool `pulumi:"overwriteIfExists"`
+	// Specifies the key to modify.
+	Source string `pulumi:"source"`
+	// Specifies the key to move to.
+	Target string `pulumi:"target"`
+}
+
+// LogTransformerTransformerConfigMoveKeyEntryInput is an input type that accepts LogTransformerTransformerConfigMoveKeyEntryArgs and LogTransformerTransformerConfigMoveKeyEntryOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigMoveKeyEntryInput` via:
+//
+//	LogTransformerTransformerConfigMoveKeyEntryArgs{...}
+type LogTransformerTransformerConfigMoveKeyEntryInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigMoveKeyEntryOutput() LogTransformerTransformerConfigMoveKeyEntryOutput
+	ToLogTransformerTransformerConfigMoveKeyEntryOutputWithContext(context.Context) LogTransformerTransformerConfigMoveKeyEntryOutput
+}
+
+type LogTransformerTransformerConfigMoveKeyEntryArgs struct {
+	// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+	// * `renameTo` - (Required) Specifies the new name of the key.
+	OverwriteIfExists pulumi.BoolPtrInput `pulumi:"overwriteIfExists"`
+	// Specifies the key to modify.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Specifies the key to move to.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (LogTransformerTransformerConfigMoveKeyEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigMoveKeyEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigMoveKeyEntryArgs) ToLogTransformerTransformerConfigMoveKeyEntryOutput() LogTransformerTransformerConfigMoveKeyEntryOutput {
+	return i.ToLogTransformerTransformerConfigMoveKeyEntryOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigMoveKeyEntryArgs) ToLogTransformerTransformerConfigMoveKeyEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigMoveKeyEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigMoveKeyEntryOutput)
+}
+
+// LogTransformerTransformerConfigMoveKeyEntryArrayInput is an input type that accepts LogTransformerTransformerConfigMoveKeyEntryArray and LogTransformerTransformerConfigMoveKeyEntryArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigMoveKeyEntryArrayInput` via:
+//
+//	LogTransformerTransformerConfigMoveKeyEntryArray{ LogTransformerTransformerConfigMoveKeyEntryArgs{...} }
+type LogTransformerTransformerConfigMoveKeyEntryArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigMoveKeyEntryArrayOutput() LogTransformerTransformerConfigMoveKeyEntryArrayOutput
+	ToLogTransformerTransformerConfigMoveKeyEntryArrayOutputWithContext(context.Context) LogTransformerTransformerConfigMoveKeyEntryArrayOutput
+}
+
+type LogTransformerTransformerConfigMoveKeyEntryArray []LogTransformerTransformerConfigMoveKeyEntryInput
+
+func (LogTransformerTransformerConfigMoveKeyEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigMoveKeyEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigMoveKeyEntryArray) ToLogTransformerTransformerConfigMoveKeyEntryArrayOutput() LogTransformerTransformerConfigMoveKeyEntryArrayOutput {
+	return i.ToLogTransformerTransformerConfigMoveKeyEntryArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigMoveKeyEntryArray) ToLogTransformerTransformerConfigMoveKeyEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigMoveKeyEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigMoveKeyEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigMoveKeyEntryOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigMoveKeyEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigMoveKeyEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigMoveKeyEntryOutput) ToLogTransformerTransformerConfigMoveKeyEntryOutput() LogTransformerTransformerConfigMoveKeyEntryOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigMoveKeyEntryOutput) ToLogTransformerTransformerConfigMoveKeyEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigMoveKeyEntryOutput {
+	return o
+}
+
+// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+// * `renameTo` - (Required) Specifies the new name of the key.
+func (o LogTransformerTransformerConfigMoveKeyEntryOutput) OverwriteIfExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigMoveKeyEntry) *bool { return v.OverwriteIfExists }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the key to modify.
+func (o LogTransformerTransformerConfigMoveKeyEntryOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigMoveKeyEntry) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// Specifies the key to move to.
+func (o LogTransformerTransformerConfigMoveKeyEntryOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigMoveKeyEntry) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type LogTransformerTransformerConfigMoveKeyEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigMoveKeyEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigMoveKeyEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigMoveKeyEntryArrayOutput) ToLogTransformerTransformerConfigMoveKeyEntryArrayOutput() LogTransformerTransformerConfigMoveKeyEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigMoveKeyEntryArrayOutput) ToLogTransformerTransformerConfigMoveKeyEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigMoveKeyEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigMoveKeyEntryArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigMoveKeyEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigMoveKeyEntry {
+		return vs[0].([]LogTransformerTransformerConfigMoveKeyEntry)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigMoveKeyEntryOutput)
+}
+
+type LogTransformerTransformerConfigParseCloudfront struct {
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source *string `pulumi:"source"`
+}
+
+// LogTransformerTransformerConfigParseCloudfrontInput is an input type that accepts LogTransformerTransformerConfigParseCloudfrontArgs and LogTransformerTransformerConfigParseCloudfrontOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseCloudfrontInput` via:
+//
+//	LogTransformerTransformerConfigParseCloudfrontArgs{...}
+type LogTransformerTransformerConfigParseCloudfrontInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseCloudfrontOutput() LogTransformerTransformerConfigParseCloudfrontOutput
+	ToLogTransformerTransformerConfigParseCloudfrontOutputWithContext(context.Context) LogTransformerTransformerConfigParseCloudfrontOutput
+}
+
+type LogTransformerTransformerConfigParseCloudfrontArgs struct {
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (LogTransformerTransformerConfigParseCloudfrontArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseCloudfront)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigParseCloudfrontArgs) ToLogTransformerTransformerConfigParseCloudfrontOutput() LogTransformerTransformerConfigParseCloudfrontOutput {
+	return i.ToLogTransformerTransformerConfigParseCloudfrontOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseCloudfrontArgs) ToLogTransformerTransformerConfigParseCloudfrontOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseCloudfrontOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseCloudfrontOutput)
+}
+
+func (i LogTransformerTransformerConfigParseCloudfrontArgs) ToLogTransformerTransformerConfigParseCloudfrontPtrOutput() LogTransformerTransformerConfigParseCloudfrontPtrOutput {
+	return i.ToLogTransformerTransformerConfigParseCloudfrontPtrOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseCloudfrontArgs) ToLogTransformerTransformerConfigParseCloudfrontPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseCloudfrontPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseCloudfrontOutput).ToLogTransformerTransformerConfigParseCloudfrontPtrOutputWithContext(ctx)
+}
+
+// LogTransformerTransformerConfigParseCloudfrontPtrInput is an input type that accepts LogTransformerTransformerConfigParseCloudfrontArgs, LogTransformerTransformerConfigParseCloudfrontPtr and LogTransformerTransformerConfigParseCloudfrontPtrOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseCloudfrontPtrInput` via:
+//
+//	        LogTransformerTransformerConfigParseCloudfrontArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogTransformerTransformerConfigParseCloudfrontPtrInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseCloudfrontPtrOutput() LogTransformerTransformerConfigParseCloudfrontPtrOutput
+	ToLogTransformerTransformerConfigParseCloudfrontPtrOutputWithContext(context.Context) LogTransformerTransformerConfigParseCloudfrontPtrOutput
+}
+
+type logTransformerTransformerConfigParseCloudfrontPtrType LogTransformerTransformerConfigParseCloudfrontArgs
+
+func LogTransformerTransformerConfigParseCloudfrontPtr(v *LogTransformerTransformerConfigParseCloudfrontArgs) LogTransformerTransformerConfigParseCloudfrontPtrInput {
+	return (*logTransformerTransformerConfigParseCloudfrontPtrType)(v)
+}
+
+func (*logTransformerTransformerConfigParseCloudfrontPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParseCloudfront)(nil)).Elem()
+}
+
+func (i *logTransformerTransformerConfigParseCloudfrontPtrType) ToLogTransformerTransformerConfigParseCloudfrontPtrOutput() LogTransformerTransformerConfigParseCloudfrontPtrOutput {
+	return i.ToLogTransformerTransformerConfigParseCloudfrontPtrOutputWithContext(context.Background())
+}
+
+func (i *logTransformerTransformerConfigParseCloudfrontPtrType) ToLogTransformerTransformerConfigParseCloudfrontPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseCloudfrontPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseCloudfrontPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseCloudfrontOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseCloudfrontOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseCloudfront)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseCloudfrontOutput) ToLogTransformerTransformerConfigParseCloudfrontOutput() LogTransformerTransformerConfigParseCloudfrontOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseCloudfrontOutput) ToLogTransformerTransformerConfigParseCloudfrontOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseCloudfrontOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseCloudfrontOutput) ToLogTransformerTransformerConfigParseCloudfrontPtrOutput() LogTransformerTransformerConfigParseCloudfrontPtrOutput {
+	return o.ToLogTransformerTransformerConfigParseCloudfrontPtrOutputWithContext(context.Background())
+}
+
+func (o LogTransformerTransformerConfigParseCloudfrontOutput) ToLogTransformerTransformerConfigParseCloudfrontPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseCloudfrontPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogTransformerTransformerConfigParseCloudfront) *LogTransformerTransformerConfigParseCloudfront {
+		return &v
+	}).(LogTransformerTransformerConfigParseCloudfrontPtrOutput)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParseCloudfrontOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseCloudfront) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseCloudfrontPtrOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseCloudfrontPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParseCloudfront)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseCloudfrontPtrOutput) ToLogTransformerTransformerConfigParseCloudfrontPtrOutput() LogTransformerTransformerConfigParseCloudfrontPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseCloudfrontPtrOutput) ToLogTransformerTransformerConfigParseCloudfrontPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseCloudfrontPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseCloudfrontPtrOutput) Elem() LogTransformerTransformerConfigParseCloudfrontOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseCloudfront) LogTransformerTransformerConfigParseCloudfront {
+		if v != nil {
+			return *v
+		}
+		var ret LogTransformerTransformerConfigParseCloudfront
+		return ret
+	}).(LogTransformerTransformerConfigParseCloudfrontOutput)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParseCloudfrontPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseCloudfront) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseJson struct {
+	// Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
+	Destination *string `pulumi:"destination"`
+	// Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+	Source *string `pulumi:"source"`
+}
+
+// LogTransformerTransformerConfigParseJsonInput is an input type that accepts LogTransformerTransformerConfigParseJsonArgs and LogTransformerTransformerConfigParseJsonOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseJsonInput` via:
+//
+//	LogTransformerTransformerConfigParseJsonArgs{...}
+type LogTransformerTransformerConfigParseJsonInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseJsonOutput() LogTransformerTransformerConfigParseJsonOutput
+	ToLogTransformerTransformerConfigParseJsonOutputWithContext(context.Context) LogTransformerTransformerConfigParseJsonOutput
+}
+
+type LogTransformerTransformerConfigParseJsonArgs struct {
+	// Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
+	Destination pulumi.StringPtrInput `pulumi:"destination"`
+	// Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (LogTransformerTransformerConfigParseJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseJson)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigParseJsonArgs) ToLogTransformerTransformerConfigParseJsonOutput() LogTransformerTransformerConfigParseJsonOutput {
+	return i.ToLogTransformerTransformerConfigParseJsonOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseJsonArgs) ToLogTransformerTransformerConfigParseJsonOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseJsonOutput)
+}
+
+// LogTransformerTransformerConfigParseJsonArrayInput is an input type that accepts LogTransformerTransformerConfigParseJsonArray and LogTransformerTransformerConfigParseJsonArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseJsonArrayInput` via:
+//
+//	LogTransformerTransformerConfigParseJsonArray{ LogTransformerTransformerConfigParseJsonArgs{...} }
+type LogTransformerTransformerConfigParseJsonArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseJsonArrayOutput() LogTransformerTransformerConfigParseJsonArrayOutput
+	ToLogTransformerTransformerConfigParseJsonArrayOutputWithContext(context.Context) LogTransformerTransformerConfigParseJsonArrayOutput
+}
+
+type LogTransformerTransformerConfigParseJsonArray []LogTransformerTransformerConfigParseJsonInput
+
+func (LogTransformerTransformerConfigParseJsonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigParseJson)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigParseJsonArray) ToLogTransformerTransformerConfigParseJsonArrayOutput() LogTransformerTransformerConfigParseJsonArrayOutput {
+	return i.ToLogTransformerTransformerConfigParseJsonArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseJsonArray) ToLogTransformerTransformerConfigParseJsonArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseJsonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseJsonArrayOutput)
+}
+
+type LogTransformerTransformerConfigParseJsonOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseJson)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseJsonOutput) ToLogTransformerTransformerConfigParseJsonOutput() LogTransformerTransformerConfigParseJsonOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseJsonOutput) ToLogTransformerTransformerConfigParseJsonOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseJsonOutput {
+	return o
+}
+
+// Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
+func (o LogTransformerTransformerConfigParseJsonOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseJson) *string { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+func (o LogTransformerTransformerConfigParseJsonOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseJson) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseJsonArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseJsonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigParseJson)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseJsonArrayOutput) ToLogTransformerTransformerConfigParseJsonArrayOutput() LogTransformerTransformerConfigParseJsonArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseJsonArrayOutput) ToLogTransformerTransformerConfigParseJsonArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseJsonArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseJsonArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigParseJsonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigParseJson {
+		return vs[0].([]LogTransformerTransformerConfigParseJson)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigParseJsonOutput)
+}
+
+type LogTransformerTransformerConfigParseKeyValue struct {
+	// Specifies the destination field to put the extracted key-value pairs into.
+	Destination *string `pulumi:"destination"`
+	// Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&` character.
+	FieldDelimiter *string `pulumi:"fieldDelimiter"`
+	// Specifies a prefix that will be added to all transformed keys.
+	KeyPrefix *string `pulumi:"keyPrefix"`
+	// Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
+	KeyValueDelimiter *string `pulumi:"keyValueDelimiter"`
+	// Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
+	NonMatchValue *string `pulumi:"nonMatchValue"`
+	// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+	OverwriteIfExists *bool `pulumi:"overwriteIfExists"`
+	// Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+	Source *string `pulumi:"source"`
+}
+
+// LogTransformerTransformerConfigParseKeyValueInput is an input type that accepts LogTransformerTransformerConfigParseKeyValueArgs and LogTransformerTransformerConfigParseKeyValueOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseKeyValueInput` via:
+//
+//	LogTransformerTransformerConfigParseKeyValueArgs{...}
+type LogTransformerTransformerConfigParseKeyValueInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseKeyValueOutput() LogTransformerTransformerConfigParseKeyValueOutput
+	ToLogTransformerTransformerConfigParseKeyValueOutputWithContext(context.Context) LogTransformerTransformerConfigParseKeyValueOutput
+}
+
+type LogTransformerTransformerConfigParseKeyValueArgs struct {
+	// Specifies the destination field to put the extracted key-value pairs into.
+	Destination pulumi.StringPtrInput `pulumi:"destination"`
+	// Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&` character.
+	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
+	// Specifies a prefix that will be added to all transformed keys.
+	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
+	// Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
+	KeyValueDelimiter pulumi.StringPtrInput `pulumi:"keyValueDelimiter"`
+	// Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
+	NonMatchValue pulumi.StringPtrInput `pulumi:"nonMatchValue"`
+	// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+	OverwriteIfExists pulumi.BoolPtrInput `pulumi:"overwriteIfExists"`
+	// Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (LogTransformerTransformerConfigParseKeyValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseKeyValue)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigParseKeyValueArgs) ToLogTransformerTransformerConfigParseKeyValueOutput() LogTransformerTransformerConfigParseKeyValueOutput {
+	return i.ToLogTransformerTransformerConfigParseKeyValueOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseKeyValueArgs) ToLogTransformerTransformerConfigParseKeyValueOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseKeyValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseKeyValueOutput)
+}
+
+// LogTransformerTransformerConfigParseKeyValueArrayInput is an input type that accepts LogTransformerTransformerConfigParseKeyValueArray and LogTransformerTransformerConfigParseKeyValueArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseKeyValueArrayInput` via:
+//
+//	LogTransformerTransformerConfigParseKeyValueArray{ LogTransformerTransformerConfigParseKeyValueArgs{...} }
+type LogTransformerTransformerConfigParseKeyValueArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseKeyValueArrayOutput() LogTransformerTransformerConfigParseKeyValueArrayOutput
+	ToLogTransformerTransformerConfigParseKeyValueArrayOutputWithContext(context.Context) LogTransformerTransformerConfigParseKeyValueArrayOutput
+}
+
+type LogTransformerTransformerConfigParseKeyValueArray []LogTransformerTransformerConfigParseKeyValueInput
+
+func (LogTransformerTransformerConfigParseKeyValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigParseKeyValue)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigParseKeyValueArray) ToLogTransformerTransformerConfigParseKeyValueArrayOutput() LogTransformerTransformerConfigParseKeyValueArrayOutput {
+	return i.ToLogTransformerTransformerConfigParseKeyValueArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseKeyValueArray) ToLogTransformerTransformerConfigParseKeyValueArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseKeyValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseKeyValueArrayOutput)
+}
+
+type LogTransformerTransformerConfigParseKeyValueOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseKeyValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseKeyValue)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseKeyValueOutput) ToLogTransformerTransformerConfigParseKeyValueOutput() LogTransformerTransformerConfigParseKeyValueOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseKeyValueOutput) ToLogTransformerTransformerConfigParseKeyValueOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseKeyValueOutput {
+	return o
+}
+
+// Specifies the destination field to put the extracted key-value pairs into.
+func (o LogTransformerTransformerConfigParseKeyValueOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseKeyValue) *string { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&` character.
+func (o LogTransformerTransformerConfigParseKeyValueOutput) FieldDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseKeyValue) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a prefix that will be added to all transformed keys.
+func (o LogTransformerTransformerConfigParseKeyValueOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseKeyValue) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
+func (o LogTransformerTransformerConfigParseKeyValueOutput) KeyValueDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseKeyValue) *string { return v.KeyValueDelimiter }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
+func (o LogTransformerTransformerConfigParseKeyValueOutput) NonMatchValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseKeyValue) *string { return v.NonMatchValue }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+func (o LogTransformerTransformerConfigParseKeyValueOutput) OverwriteIfExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseKeyValue) *bool { return v.OverwriteIfExists }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+func (o LogTransformerTransformerConfigParseKeyValueOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseKeyValue) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseKeyValueArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseKeyValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigParseKeyValue)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseKeyValueArrayOutput) ToLogTransformerTransformerConfigParseKeyValueArrayOutput() LogTransformerTransformerConfigParseKeyValueArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseKeyValueArrayOutput) ToLogTransformerTransformerConfigParseKeyValueArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseKeyValueArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseKeyValueArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigParseKeyValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigParseKeyValue {
+		return vs[0].([]LogTransformerTransformerConfigParseKeyValue)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigParseKeyValueOutput)
+}
+
+type LogTransformerTransformerConfigParsePostgres struct {
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source *string `pulumi:"source"`
+}
+
+// LogTransformerTransformerConfigParsePostgresInput is an input type that accepts LogTransformerTransformerConfigParsePostgresArgs and LogTransformerTransformerConfigParsePostgresOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParsePostgresInput` via:
+//
+//	LogTransformerTransformerConfigParsePostgresArgs{...}
+type LogTransformerTransformerConfigParsePostgresInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParsePostgresOutput() LogTransformerTransformerConfigParsePostgresOutput
+	ToLogTransformerTransformerConfigParsePostgresOutputWithContext(context.Context) LogTransformerTransformerConfigParsePostgresOutput
+}
+
+type LogTransformerTransformerConfigParsePostgresArgs struct {
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (LogTransformerTransformerConfigParsePostgresArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParsePostgres)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigParsePostgresArgs) ToLogTransformerTransformerConfigParsePostgresOutput() LogTransformerTransformerConfigParsePostgresOutput {
+	return i.ToLogTransformerTransformerConfigParsePostgresOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParsePostgresArgs) ToLogTransformerTransformerConfigParsePostgresOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParsePostgresOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParsePostgresOutput)
+}
+
+func (i LogTransformerTransformerConfigParsePostgresArgs) ToLogTransformerTransformerConfigParsePostgresPtrOutput() LogTransformerTransformerConfigParsePostgresPtrOutput {
+	return i.ToLogTransformerTransformerConfigParsePostgresPtrOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParsePostgresArgs) ToLogTransformerTransformerConfigParsePostgresPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParsePostgresPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParsePostgresOutput).ToLogTransformerTransformerConfigParsePostgresPtrOutputWithContext(ctx)
+}
+
+// LogTransformerTransformerConfigParsePostgresPtrInput is an input type that accepts LogTransformerTransformerConfigParsePostgresArgs, LogTransformerTransformerConfigParsePostgresPtr and LogTransformerTransformerConfigParsePostgresPtrOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParsePostgresPtrInput` via:
+//
+//	        LogTransformerTransformerConfigParsePostgresArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogTransformerTransformerConfigParsePostgresPtrInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParsePostgresPtrOutput() LogTransformerTransformerConfigParsePostgresPtrOutput
+	ToLogTransformerTransformerConfigParsePostgresPtrOutputWithContext(context.Context) LogTransformerTransformerConfigParsePostgresPtrOutput
+}
+
+type logTransformerTransformerConfigParsePostgresPtrType LogTransformerTransformerConfigParsePostgresArgs
+
+func LogTransformerTransformerConfigParsePostgresPtr(v *LogTransformerTransformerConfigParsePostgresArgs) LogTransformerTransformerConfigParsePostgresPtrInput {
+	return (*logTransformerTransformerConfigParsePostgresPtrType)(v)
+}
+
+func (*logTransformerTransformerConfigParsePostgresPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParsePostgres)(nil)).Elem()
+}
+
+func (i *logTransformerTransformerConfigParsePostgresPtrType) ToLogTransformerTransformerConfigParsePostgresPtrOutput() LogTransformerTransformerConfigParsePostgresPtrOutput {
+	return i.ToLogTransformerTransformerConfigParsePostgresPtrOutputWithContext(context.Background())
+}
+
+func (i *logTransformerTransformerConfigParsePostgresPtrType) ToLogTransformerTransformerConfigParsePostgresPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParsePostgresPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParsePostgresPtrOutput)
+}
+
+type LogTransformerTransformerConfigParsePostgresOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParsePostgresOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParsePostgres)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParsePostgresOutput) ToLogTransformerTransformerConfigParsePostgresOutput() LogTransformerTransformerConfigParsePostgresOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParsePostgresOutput) ToLogTransformerTransformerConfigParsePostgresOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParsePostgresOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParsePostgresOutput) ToLogTransformerTransformerConfigParsePostgresPtrOutput() LogTransformerTransformerConfigParsePostgresPtrOutput {
+	return o.ToLogTransformerTransformerConfigParsePostgresPtrOutputWithContext(context.Background())
+}
+
+func (o LogTransformerTransformerConfigParsePostgresOutput) ToLogTransformerTransformerConfigParsePostgresPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParsePostgresPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogTransformerTransformerConfigParsePostgres) *LogTransformerTransformerConfigParsePostgres {
+		return &v
+	}).(LogTransformerTransformerConfigParsePostgresPtrOutput)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParsePostgresOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParsePostgres) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParsePostgresPtrOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParsePostgresPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParsePostgres)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParsePostgresPtrOutput) ToLogTransformerTransformerConfigParsePostgresPtrOutput() LogTransformerTransformerConfigParsePostgresPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParsePostgresPtrOutput) ToLogTransformerTransformerConfigParsePostgresPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParsePostgresPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParsePostgresPtrOutput) Elem() LogTransformerTransformerConfigParsePostgresOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParsePostgres) LogTransformerTransformerConfigParsePostgres {
+		if v != nil {
+			return *v
+		}
+		var ret LogTransformerTransformerConfigParsePostgres
+		return ret
+	}).(LogTransformerTransformerConfigParsePostgresOutput)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParsePostgresPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParsePostgres) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseRoute53 struct {
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source *string `pulumi:"source"`
+}
+
+// LogTransformerTransformerConfigParseRoute53Input is an input type that accepts LogTransformerTransformerConfigParseRoute53Args and LogTransformerTransformerConfigParseRoute53Output values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseRoute53Input` via:
+//
+//	LogTransformerTransformerConfigParseRoute53Args{...}
+type LogTransformerTransformerConfigParseRoute53Input interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseRoute53Output() LogTransformerTransformerConfigParseRoute53Output
+	ToLogTransformerTransformerConfigParseRoute53OutputWithContext(context.Context) LogTransformerTransformerConfigParseRoute53Output
+}
+
+type LogTransformerTransformerConfigParseRoute53Args struct {
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (LogTransformerTransformerConfigParseRoute53Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseRoute53)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigParseRoute53Args) ToLogTransformerTransformerConfigParseRoute53Output() LogTransformerTransformerConfigParseRoute53Output {
+	return i.ToLogTransformerTransformerConfigParseRoute53OutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseRoute53Args) ToLogTransformerTransformerConfigParseRoute53OutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseRoute53Output {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseRoute53Output)
+}
+
+func (i LogTransformerTransformerConfigParseRoute53Args) ToLogTransformerTransformerConfigParseRoute53PtrOutput() LogTransformerTransformerConfigParseRoute53PtrOutput {
+	return i.ToLogTransformerTransformerConfigParseRoute53PtrOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseRoute53Args) ToLogTransformerTransformerConfigParseRoute53PtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseRoute53PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseRoute53Output).ToLogTransformerTransformerConfigParseRoute53PtrOutputWithContext(ctx)
+}
+
+// LogTransformerTransformerConfigParseRoute53PtrInput is an input type that accepts LogTransformerTransformerConfigParseRoute53Args, LogTransformerTransformerConfigParseRoute53Ptr and LogTransformerTransformerConfigParseRoute53PtrOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseRoute53PtrInput` via:
+//
+//	        LogTransformerTransformerConfigParseRoute53Args{...}
+//
+//	or:
+//
+//	        nil
+type LogTransformerTransformerConfigParseRoute53PtrInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseRoute53PtrOutput() LogTransformerTransformerConfigParseRoute53PtrOutput
+	ToLogTransformerTransformerConfigParseRoute53PtrOutputWithContext(context.Context) LogTransformerTransformerConfigParseRoute53PtrOutput
+}
+
+type logTransformerTransformerConfigParseRoute53PtrType LogTransformerTransformerConfigParseRoute53Args
+
+func LogTransformerTransformerConfigParseRoute53Ptr(v *LogTransformerTransformerConfigParseRoute53Args) LogTransformerTransformerConfigParseRoute53PtrInput {
+	return (*logTransformerTransformerConfigParseRoute53PtrType)(v)
+}
+
+func (*logTransformerTransformerConfigParseRoute53PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParseRoute53)(nil)).Elem()
+}
+
+func (i *logTransformerTransformerConfigParseRoute53PtrType) ToLogTransformerTransformerConfigParseRoute53PtrOutput() LogTransformerTransformerConfigParseRoute53PtrOutput {
+	return i.ToLogTransformerTransformerConfigParseRoute53PtrOutputWithContext(context.Background())
+}
+
+func (i *logTransformerTransformerConfigParseRoute53PtrType) ToLogTransformerTransformerConfigParseRoute53PtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseRoute53PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseRoute53PtrOutput)
+}
+
+type LogTransformerTransformerConfigParseRoute53Output struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseRoute53Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseRoute53)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseRoute53Output) ToLogTransformerTransformerConfigParseRoute53Output() LogTransformerTransformerConfigParseRoute53Output {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseRoute53Output) ToLogTransformerTransformerConfigParseRoute53OutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseRoute53Output {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseRoute53Output) ToLogTransformerTransformerConfigParseRoute53PtrOutput() LogTransformerTransformerConfigParseRoute53PtrOutput {
+	return o.ToLogTransformerTransformerConfigParseRoute53PtrOutputWithContext(context.Background())
+}
+
+func (o LogTransformerTransformerConfigParseRoute53Output) ToLogTransformerTransformerConfigParseRoute53PtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseRoute53PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogTransformerTransformerConfigParseRoute53) *LogTransformerTransformerConfigParseRoute53 {
+		return &v
+	}).(LogTransformerTransformerConfigParseRoute53PtrOutput)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParseRoute53Output) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseRoute53) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseRoute53PtrOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseRoute53PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParseRoute53)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseRoute53PtrOutput) ToLogTransformerTransformerConfigParseRoute53PtrOutput() LogTransformerTransformerConfigParseRoute53PtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseRoute53PtrOutput) ToLogTransformerTransformerConfigParseRoute53PtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseRoute53PtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseRoute53PtrOutput) Elem() LogTransformerTransformerConfigParseRoute53Output {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseRoute53) LogTransformerTransformerConfigParseRoute53 {
+		if v != nil {
+			return *v
+		}
+		var ret LogTransformerTransformerConfigParseRoute53
+		return ret
+	}).(LogTransformerTransformerConfigParseRoute53Output)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParseRoute53PtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseRoute53) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseToOcsf struct {
+	EventSource string `pulumi:"eventSource"`
+	// Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
+	OcsfVersion string `pulumi:"ocsfVersion"`
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source *string `pulumi:"source"`
+}
+
+// LogTransformerTransformerConfigParseToOcsfInput is an input type that accepts LogTransformerTransformerConfigParseToOcsfArgs and LogTransformerTransformerConfigParseToOcsfOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseToOcsfInput` via:
+//
+//	LogTransformerTransformerConfigParseToOcsfArgs{...}
+type LogTransformerTransformerConfigParseToOcsfInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseToOcsfOutput() LogTransformerTransformerConfigParseToOcsfOutput
+	ToLogTransformerTransformerConfigParseToOcsfOutputWithContext(context.Context) LogTransformerTransformerConfigParseToOcsfOutput
+}
+
+type LogTransformerTransformerConfigParseToOcsfArgs struct {
+	EventSource pulumi.StringInput `pulumi:"eventSource"`
+	// Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
+	OcsfVersion pulumi.StringInput `pulumi:"ocsfVersion"`
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (LogTransformerTransformerConfigParseToOcsfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseToOcsf)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigParseToOcsfArgs) ToLogTransformerTransformerConfigParseToOcsfOutput() LogTransformerTransformerConfigParseToOcsfOutput {
+	return i.ToLogTransformerTransformerConfigParseToOcsfOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseToOcsfArgs) ToLogTransformerTransformerConfigParseToOcsfOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseToOcsfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseToOcsfOutput)
+}
+
+func (i LogTransformerTransformerConfigParseToOcsfArgs) ToLogTransformerTransformerConfigParseToOcsfPtrOutput() LogTransformerTransformerConfigParseToOcsfPtrOutput {
+	return i.ToLogTransformerTransformerConfigParseToOcsfPtrOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseToOcsfArgs) ToLogTransformerTransformerConfigParseToOcsfPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseToOcsfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseToOcsfOutput).ToLogTransformerTransformerConfigParseToOcsfPtrOutputWithContext(ctx)
+}
+
+// LogTransformerTransformerConfigParseToOcsfPtrInput is an input type that accepts LogTransformerTransformerConfigParseToOcsfArgs, LogTransformerTransformerConfigParseToOcsfPtr and LogTransformerTransformerConfigParseToOcsfPtrOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseToOcsfPtrInput` via:
+//
+//	        LogTransformerTransformerConfigParseToOcsfArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogTransformerTransformerConfigParseToOcsfPtrInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseToOcsfPtrOutput() LogTransformerTransformerConfigParseToOcsfPtrOutput
+	ToLogTransformerTransformerConfigParseToOcsfPtrOutputWithContext(context.Context) LogTransformerTransformerConfigParseToOcsfPtrOutput
+}
+
+type logTransformerTransformerConfigParseToOcsfPtrType LogTransformerTransformerConfigParseToOcsfArgs
+
+func LogTransformerTransformerConfigParseToOcsfPtr(v *LogTransformerTransformerConfigParseToOcsfArgs) LogTransformerTransformerConfigParseToOcsfPtrInput {
+	return (*logTransformerTransformerConfigParseToOcsfPtrType)(v)
+}
+
+func (*logTransformerTransformerConfigParseToOcsfPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParseToOcsf)(nil)).Elem()
+}
+
+func (i *logTransformerTransformerConfigParseToOcsfPtrType) ToLogTransformerTransformerConfigParseToOcsfPtrOutput() LogTransformerTransformerConfigParseToOcsfPtrOutput {
+	return i.ToLogTransformerTransformerConfigParseToOcsfPtrOutputWithContext(context.Background())
+}
+
+func (i *logTransformerTransformerConfigParseToOcsfPtrType) ToLogTransformerTransformerConfigParseToOcsfPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseToOcsfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseToOcsfPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseToOcsfOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseToOcsfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseToOcsf)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseToOcsfOutput) ToLogTransformerTransformerConfigParseToOcsfOutput() LogTransformerTransformerConfigParseToOcsfOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseToOcsfOutput) ToLogTransformerTransformerConfigParseToOcsfOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseToOcsfOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseToOcsfOutput) ToLogTransformerTransformerConfigParseToOcsfPtrOutput() LogTransformerTransformerConfigParseToOcsfPtrOutput {
+	return o.ToLogTransformerTransformerConfigParseToOcsfPtrOutputWithContext(context.Background())
+}
+
+func (o LogTransformerTransformerConfigParseToOcsfOutput) ToLogTransformerTransformerConfigParseToOcsfPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseToOcsfPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogTransformerTransformerConfigParseToOcsf) *LogTransformerTransformerConfigParseToOcsf {
+		return &v
+	}).(LogTransformerTransformerConfigParseToOcsfPtrOutput)
+}
+
+func (o LogTransformerTransformerConfigParseToOcsfOutput) EventSource() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseToOcsf) string { return v.EventSource }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
+func (o LogTransformerTransformerConfigParseToOcsfOutput) OcsfVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseToOcsf) string { return v.OcsfVersion }).(pulumi.StringOutput)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParseToOcsfOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseToOcsf) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseToOcsfPtrOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseToOcsfPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParseToOcsf)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseToOcsfPtrOutput) ToLogTransformerTransformerConfigParseToOcsfPtrOutput() LogTransformerTransformerConfigParseToOcsfPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseToOcsfPtrOutput) ToLogTransformerTransformerConfigParseToOcsfPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseToOcsfPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseToOcsfPtrOutput) Elem() LogTransformerTransformerConfigParseToOcsfOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseToOcsf) LogTransformerTransformerConfigParseToOcsf {
+		if v != nil {
+			return *v
+		}
+		var ret LogTransformerTransformerConfigParseToOcsf
+		return ret
+	}).(LogTransformerTransformerConfigParseToOcsfOutput)
+}
+
+func (o LogTransformerTransformerConfigParseToOcsfPtrOutput) EventSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseToOcsf) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
+func (o LogTransformerTransformerConfigParseToOcsfPtrOutput) OcsfVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseToOcsf) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OcsfVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParseToOcsfPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseToOcsf) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseVpc struct {
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source *string `pulumi:"source"`
+}
+
+// LogTransformerTransformerConfigParseVpcInput is an input type that accepts LogTransformerTransformerConfigParseVpcArgs and LogTransformerTransformerConfigParseVpcOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseVpcInput` via:
+//
+//	LogTransformerTransformerConfigParseVpcArgs{...}
+type LogTransformerTransformerConfigParseVpcInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseVpcOutput() LogTransformerTransformerConfigParseVpcOutput
+	ToLogTransformerTransformerConfigParseVpcOutputWithContext(context.Context) LogTransformerTransformerConfigParseVpcOutput
+}
+
+type LogTransformerTransformerConfigParseVpcArgs struct {
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (LogTransformerTransformerConfigParseVpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseVpc)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigParseVpcArgs) ToLogTransformerTransformerConfigParseVpcOutput() LogTransformerTransformerConfigParseVpcOutput {
+	return i.ToLogTransformerTransformerConfigParseVpcOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseVpcArgs) ToLogTransformerTransformerConfigParseVpcOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseVpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseVpcOutput)
+}
+
+func (i LogTransformerTransformerConfigParseVpcArgs) ToLogTransformerTransformerConfigParseVpcPtrOutput() LogTransformerTransformerConfigParseVpcPtrOutput {
+	return i.ToLogTransformerTransformerConfigParseVpcPtrOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseVpcArgs) ToLogTransformerTransformerConfigParseVpcPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseVpcOutput).ToLogTransformerTransformerConfigParseVpcPtrOutputWithContext(ctx)
+}
+
+// LogTransformerTransformerConfigParseVpcPtrInput is an input type that accepts LogTransformerTransformerConfigParseVpcArgs, LogTransformerTransformerConfigParseVpcPtr and LogTransformerTransformerConfigParseVpcPtrOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseVpcPtrInput` via:
+//
+//	        LogTransformerTransformerConfigParseVpcArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogTransformerTransformerConfigParseVpcPtrInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseVpcPtrOutput() LogTransformerTransformerConfigParseVpcPtrOutput
+	ToLogTransformerTransformerConfigParseVpcPtrOutputWithContext(context.Context) LogTransformerTransformerConfigParseVpcPtrOutput
+}
+
+type logTransformerTransformerConfigParseVpcPtrType LogTransformerTransformerConfigParseVpcArgs
+
+func LogTransformerTransformerConfigParseVpcPtr(v *LogTransformerTransformerConfigParseVpcArgs) LogTransformerTransformerConfigParseVpcPtrInput {
+	return (*logTransformerTransformerConfigParseVpcPtrType)(v)
+}
+
+func (*logTransformerTransformerConfigParseVpcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParseVpc)(nil)).Elem()
+}
+
+func (i *logTransformerTransformerConfigParseVpcPtrType) ToLogTransformerTransformerConfigParseVpcPtrOutput() LogTransformerTransformerConfigParseVpcPtrOutput {
+	return i.ToLogTransformerTransformerConfigParseVpcPtrOutputWithContext(context.Background())
+}
+
+func (i *logTransformerTransformerConfigParseVpcPtrType) ToLogTransformerTransformerConfigParseVpcPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseVpcPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseVpcOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseVpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseVpc)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseVpcOutput) ToLogTransformerTransformerConfigParseVpcOutput() LogTransformerTransformerConfigParseVpcOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseVpcOutput) ToLogTransformerTransformerConfigParseVpcOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseVpcOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseVpcOutput) ToLogTransformerTransformerConfigParseVpcPtrOutput() LogTransformerTransformerConfigParseVpcPtrOutput {
+	return o.ToLogTransformerTransformerConfigParseVpcPtrOutputWithContext(context.Background())
+}
+
+func (o LogTransformerTransformerConfigParseVpcOutput) ToLogTransformerTransformerConfigParseVpcPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseVpcPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogTransformerTransformerConfigParseVpc) *LogTransformerTransformerConfigParseVpc {
+		return &v
+	}).(LogTransformerTransformerConfigParseVpcPtrOutput)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParseVpcOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseVpc) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseVpcPtrOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseVpcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParseVpc)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseVpcPtrOutput) ToLogTransformerTransformerConfigParseVpcPtrOutput() LogTransformerTransformerConfigParseVpcPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseVpcPtrOutput) ToLogTransformerTransformerConfigParseVpcPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseVpcPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseVpcPtrOutput) Elem() LogTransformerTransformerConfigParseVpcOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseVpc) LogTransformerTransformerConfigParseVpc {
+		if v != nil {
+			return *v
+		}
+		var ret LogTransformerTransformerConfigParseVpc
+		return ret
+	}).(LogTransformerTransformerConfigParseVpcOutput)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParseVpcPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseVpc) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseWaf struct {
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source *string `pulumi:"source"`
+}
+
+// LogTransformerTransformerConfigParseWafInput is an input type that accepts LogTransformerTransformerConfigParseWafArgs and LogTransformerTransformerConfigParseWafOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseWafInput` via:
+//
+//	LogTransformerTransformerConfigParseWafArgs{...}
+type LogTransformerTransformerConfigParseWafInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseWafOutput() LogTransformerTransformerConfigParseWafOutput
+	ToLogTransformerTransformerConfigParseWafOutputWithContext(context.Context) LogTransformerTransformerConfigParseWafOutput
+}
+
+type LogTransformerTransformerConfigParseWafArgs struct {
+	// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (LogTransformerTransformerConfigParseWafArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseWaf)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigParseWafArgs) ToLogTransformerTransformerConfigParseWafOutput() LogTransformerTransformerConfigParseWafOutput {
+	return i.ToLogTransformerTransformerConfigParseWafOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseWafArgs) ToLogTransformerTransformerConfigParseWafOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseWafOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseWafOutput)
+}
+
+func (i LogTransformerTransformerConfigParseWafArgs) ToLogTransformerTransformerConfigParseWafPtrOutput() LogTransformerTransformerConfigParseWafPtrOutput {
+	return i.ToLogTransformerTransformerConfigParseWafPtrOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigParseWafArgs) ToLogTransformerTransformerConfigParseWafPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseWafPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseWafOutput).ToLogTransformerTransformerConfigParseWafPtrOutputWithContext(ctx)
+}
+
+// LogTransformerTransformerConfigParseWafPtrInput is an input type that accepts LogTransformerTransformerConfigParseWafArgs, LogTransformerTransformerConfigParseWafPtr and LogTransformerTransformerConfigParseWafPtrOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigParseWafPtrInput` via:
+//
+//	        LogTransformerTransformerConfigParseWafArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogTransformerTransformerConfigParseWafPtrInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigParseWafPtrOutput() LogTransformerTransformerConfigParseWafPtrOutput
+	ToLogTransformerTransformerConfigParseWafPtrOutputWithContext(context.Context) LogTransformerTransformerConfigParseWafPtrOutput
+}
+
+type logTransformerTransformerConfigParseWafPtrType LogTransformerTransformerConfigParseWafArgs
+
+func LogTransformerTransformerConfigParseWafPtr(v *LogTransformerTransformerConfigParseWafArgs) LogTransformerTransformerConfigParseWafPtrInput {
+	return (*logTransformerTransformerConfigParseWafPtrType)(v)
+}
+
+func (*logTransformerTransformerConfigParseWafPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParseWaf)(nil)).Elem()
+}
+
+func (i *logTransformerTransformerConfigParseWafPtrType) ToLogTransformerTransformerConfigParseWafPtrOutput() LogTransformerTransformerConfigParseWafPtrOutput {
+	return i.ToLogTransformerTransformerConfigParseWafPtrOutputWithContext(context.Background())
+}
+
+func (i *logTransformerTransformerConfigParseWafPtrType) ToLogTransformerTransformerConfigParseWafPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseWafPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigParseWafPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseWafOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseWafOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigParseWaf)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseWafOutput) ToLogTransformerTransformerConfigParseWafOutput() LogTransformerTransformerConfigParseWafOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseWafOutput) ToLogTransformerTransformerConfigParseWafOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseWafOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseWafOutput) ToLogTransformerTransformerConfigParseWafPtrOutput() LogTransformerTransformerConfigParseWafPtrOutput {
+	return o.ToLogTransformerTransformerConfigParseWafPtrOutputWithContext(context.Background())
+}
+
+func (o LogTransformerTransformerConfigParseWafOutput) ToLogTransformerTransformerConfigParseWafPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseWafPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogTransformerTransformerConfigParseWaf) *LogTransformerTransformerConfigParseWaf {
+		return &v
+	}).(LogTransformerTransformerConfigParseWafPtrOutput)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParseWafOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigParseWaf) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigParseWafPtrOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigParseWafPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogTransformerTransformerConfigParseWaf)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigParseWafPtrOutput) ToLogTransformerTransformerConfigParseWafPtrOutput() LogTransformerTransformerConfigParseWafPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseWafPtrOutput) ToLogTransformerTransformerConfigParseWafPtrOutputWithContext(ctx context.Context) LogTransformerTransformerConfigParseWafPtrOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigParseWafPtrOutput) Elem() LogTransformerTransformerConfigParseWafOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseWaf) LogTransformerTransformerConfigParseWaf {
+		if v != nil {
+			return *v
+		}
+		var ret LogTransformerTransformerConfigParseWaf
+		return ret
+	}).(LogTransformerTransformerConfigParseWafOutput)
+}
+
+// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+func (o LogTransformerTransformerConfigParseWafPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogTransformerTransformerConfigParseWaf) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogTransformerTransformerConfigRenameKey struct {
+	// Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `renameKeys` `entry` below for details.
+	Entries []LogTransformerTransformerConfigRenameKeyEntry `pulumi:"entries"`
+}
+
+// LogTransformerTransformerConfigRenameKeyInput is an input type that accepts LogTransformerTransformerConfigRenameKeyArgs and LogTransformerTransformerConfigRenameKeyOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigRenameKeyInput` via:
+//
+//	LogTransformerTransformerConfigRenameKeyArgs{...}
+type LogTransformerTransformerConfigRenameKeyInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigRenameKeyOutput() LogTransformerTransformerConfigRenameKeyOutput
+	ToLogTransformerTransformerConfigRenameKeyOutputWithContext(context.Context) LogTransformerTransformerConfigRenameKeyOutput
+}
+
+type LogTransformerTransformerConfigRenameKeyArgs struct {
+	// Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `renameKeys` `entry` below for details.
+	Entries LogTransformerTransformerConfigRenameKeyEntryArrayInput `pulumi:"entries"`
+}
+
+func (LogTransformerTransformerConfigRenameKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigRenameKey)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigRenameKeyArgs) ToLogTransformerTransformerConfigRenameKeyOutput() LogTransformerTransformerConfigRenameKeyOutput {
+	return i.ToLogTransformerTransformerConfigRenameKeyOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigRenameKeyArgs) ToLogTransformerTransformerConfigRenameKeyOutputWithContext(ctx context.Context) LogTransformerTransformerConfigRenameKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigRenameKeyOutput)
+}
+
+// LogTransformerTransformerConfigRenameKeyArrayInput is an input type that accepts LogTransformerTransformerConfigRenameKeyArray and LogTransformerTransformerConfigRenameKeyArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigRenameKeyArrayInput` via:
+//
+//	LogTransformerTransformerConfigRenameKeyArray{ LogTransformerTransformerConfigRenameKeyArgs{...} }
+type LogTransformerTransformerConfigRenameKeyArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigRenameKeyArrayOutput() LogTransformerTransformerConfigRenameKeyArrayOutput
+	ToLogTransformerTransformerConfigRenameKeyArrayOutputWithContext(context.Context) LogTransformerTransformerConfigRenameKeyArrayOutput
+}
+
+type LogTransformerTransformerConfigRenameKeyArray []LogTransformerTransformerConfigRenameKeyInput
+
+func (LogTransformerTransformerConfigRenameKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigRenameKey)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigRenameKeyArray) ToLogTransformerTransformerConfigRenameKeyArrayOutput() LogTransformerTransformerConfigRenameKeyArrayOutput {
+	return i.ToLogTransformerTransformerConfigRenameKeyArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigRenameKeyArray) ToLogTransformerTransformerConfigRenameKeyArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigRenameKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigRenameKeyArrayOutput)
+}
+
+type LogTransformerTransformerConfigRenameKeyOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigRenameKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigRenameKey)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigRenameKeyOutput) ToLogTransformerTransformerConfigRenameKeyOutput() LogTransformerTransformerConfigRenameKeyOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigRenameKeyOutput) ToLogTransformerTransformerConfigRenameKeyOutputWithContext(ctx context.Context) LogTransformerTransformerConfigRenameKeyOutput {
+	return o
+}
+
+// Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `renameKeys` `entry` below for details.
+func (o LogTransformerTransformerConfigRenameKeyOutput) Entries() LogTransformerTransformerConfigRenameKeyEntryArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigRenameKey) []LogTransformerTransformerConfigRenameKeyEntry {
+		return v.Entries
+	}).(LogTransformerTransformerConfigRenameKeyEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigRenameKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigRenameKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigRenameKey)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigRenameKeyArrayOutput) ToLogTransformerTransformerConfigRenameKeyArrayOutput() LogTransformerTransformerConfigRenameKeyArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigRenameKeyArrayOutput) ToLogTransformerTransformerConfigRenameKeyArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigRenameKeyArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigRenameKeyArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigRenameKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigRenameKey {
+		return vs[0].([]LogTransformerTransformerConfigRenameKey)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigRenameKeyOutput)
+}
+
+type LogTransformerTransformerConfigRenameKeyEntry struct {
+	// Specifies the key with the value that will be converted to a different type.
+	Key string `pulumi:"key"`
+	// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+	// * `renameTo` - (Required) Specifies the new name of the key.
+	OverwriteIfExists *bool  `pulumi:"overwriteIfExists"`
+	RenameTo          string `pulumi:"renameTo"`
+}
+
+// LogTransformerTransformerConfigRenameKeyEntryInput is an input type that accepts LogTransformerTransformerConfigRenameKeyEntryArgs and LogTransformerTransformerConfigRenameKeyEntryOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigRenameKeyEntryInput` via:
+//
+//	LogTransformerTransformerConfigRenameKeyEntryArgs{...}
+type LogTransformerTransformerConfigRenameKeyEntryInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigRenameKeyEntryOutput() LogTransformerTransformerConfigRenameKeyEntryOutput
+	ToLogTransformerTransformerConfigRenameKeyEntryOutputWithContext(context.Context) LogTransformerTransformerConfigRenameKeyEntryOutput
+}
+
+type LogTransformerTransformerConfigRenameKeyEntryArgs struct {
+	// Specifies the key with the value that will be converted to a different type.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+	// * `renameTo` - (Required) Specifies the new name of the key.
+	OverwriteIfExists pulumi.BoolPtrInput `pulumi:"overwriteIfExists"`
+	RenameTo          pulumi.StringInput  `pulumi:"renameTo"`
+}
+
+func (LogTransformerTransformerConfigRenameKeyEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigRenameKeyEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigRenameKeyEntryArgs) ToLogTransformerTransformerConfigRenameKeyEntryOutput() LogTransformerTransformerConfigRenameKeyEntryOutput {
+	return i.ToLogTransformerTransformerConfigRenameKeyEntryOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigRenameKeyEntryArgs) ToLogTransformerTransformerConfigRenameKeyEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigRenameKeyEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigRenameKeyEntryOutput)
+}
+
+// LogTransformerTransformerConfigRenameKeyEntryArrayInput is an input type that accepts LogTransformerTransformerConfigRenameKeyEntryArray and LogTransformerTransformerConfigRenameKeyEntryArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigRenameKeyEntryArrayInput` via:
+//
+//	LogTransformerTransformerConfigRenameKeyEntryArray{ LogTransformerTransformerConfigRenameKeyEntryArgs{...} }
+type LogTransformerTransformerConfigRenameKeyEntryArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigRenameKeyEntryArrayOutput() LogTransformerTransformerConfigRenameKeyEntryArrayOutput
+	ToLogTransformerTransformerConfigRenameKeyEntryArrayOutputWithContext(context.Context) LogTransformerTransformerConfigRenameKeyEntryArrayOutput
+}
+
+type LogTransformerTransformerConfigRenameKeyEntryArray []LogTransformerTransformerConfigRenameKeyEntryInput
+
+func (LogTransformerTransformerConfigRenameKeyEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigRenameKeyEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigRenameKeyEntryArray) ToLogTransformerTransformerConfigRenameKeyEntryArrayOutput() LogTransformerTransformerConfigRenameKeyEntryArrayOutput {
+	return i.ToLogTransformerTransformerConfigRenameKeyEntryArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigRenameKeyEntryArray) ToLogTransformerTransformerConfigRenameKeyEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigRenameKeyEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigRenameKeyEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigRenameKeyEntryOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigRenameKeyEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigRenameKeyEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigRenameKeyEntryOutput) ToLogTransformerTransformerConfigRenameKeyEntryOutput() LogTransformerTransformerConfigRenameKeyEntryOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigRenameKeyEntryOutput) ToLogTransformerTransformerConfigRenameKeyEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigRenameKeyEntryOutput {
+	return o
+}
+
+// Specifies the key with the value that will be converted to a different type.
+func (o LogTransformerTransformerConfigRenameKeyEntryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigRenameKeyEntry) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+// * `renameTo` - (Required) Specifies the new name of the key.
+func (o LogTransformerTransformerConfigRenameKeyEntryOutput) OverwriteIfExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigRenameKeyEntry) *bool { return v.OverwriteIfExists }).(pulumi.BoolPtrOutput)
+}
+
+func (o LogTransformerTransformerConfigRenameKeyEntryOutput) RenameTo() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigRenameKeyEntry) string { return v.RenameTo }).(pulumi.StringOutput)
+}
+
+type LogTransformerTransformerConfigRenameKeyEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigRenameKeyEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigRenameKeyEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigRenameKeyEntryArrayOutput) ToLogTransformerTransformerConfigRenameKeyEntryArrayOutput() LogTransformerTransformerConfigRenameKeyEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigRenameKeyEntryArrayOutput) ToLogTransformerTransformerConfigRenameKeyEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigRenameKeyEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigRenameKeyEntryArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigRenameKeyEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigRenameKeyEntry {
+		return vs[0].([]LogTransformerTransformerConfigRenameKeyEntry)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigRenameKeyEntryOutput)
+}
+
+type LogTransformerTransformerConfigSplitString struct {
+	// Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `splitString` `entry` below for details.
+	Entries []LogTransformerTransformerConfigSplitStringEntry `pulumi:"entries"`
+}
+
+// LogTransformerTransformerConfigSplitStringInput is an input type that accepts LogTransformerTransformerConfigSplitStringArgs and LogTransformerTransformerConfigSplitStringOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigSplitStringInput` via:
+//
+//	LogTransformerTransformerConfigSplitStringArgs{...}
+type LogTransformerTransformerConfigSplitStringInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigSplitStringOutput() LogTransformerTransformerConfigSplitStringOutput
+	ToLogTransformerTransformerConfigSplitStringOutputWithContext(context.Context) LogTransformerTransformerConfigSplitStringOutput
+}
+
+type LogTransformerTransformerConfigSplitStringArgs struct {
+	// Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `splitString` `entry` below for details.
+	Entries LogTransformerTransformerConfigSplitStringEntryArrayInput `pulumi:"entries"`
+}
+
+func (LogTransformerTransformerConfigSplitStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigSplitString)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigSplitStringArgs) ToLogTransformerTransformerConfigSplitStringOutput() LogTransformerTransformerConfigSplitStringOutput {
+	return i.ToLogTransformerTransformerConfigSplitStringOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigSplitStringArgs) ToLogTransformerTransformerConfigSplitStringOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSplitStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigSplitStringOutput)
+}
+
+// LogTransformerTransformerConfigSplitStringArrayInput is an input type that accepts LogTransformerTransformerConfigSplitStringArray and LogTransformerTransformerConfigSplitStringArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigSplitStringArrayInput` via:
+//
+//	LogTransformerTransformerConfigSplitStringArray{ LogTransformerTransformerConfigSplitStringArgs{...} }
+type LogTransformerTransformerConfigSplitStringArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigSplitStringArrayOutput() LogTransformerTransformerConfigSplitStringArrayOutput
+	ToLogTransformerTransformerConfigSplitStringArrayOutputWithContext(context.Context) LogTransformerTransformerConfigSplitStringArrayOutput
+}
+
+type LogTransformerTransformerConfigSplitStringArray []LogTransformerTransformerConfigSplitStringInput
+
+func (LogTransformerTransformerConfigSplitStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigSplitString)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigSplitStringArray) ToLogTransformerTransformerConfigSplitStringArrayOutput() LogTransformerTransformerConfigSplitStringArrayOutput {
+	return i.ToLogTransformerTransformerConfigSplitStringArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigSplitStringArray) ToLogTransformerTransformerConfigSplitStringArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSplitStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigSplitStringArrayOutput)
+}
+
+type LogTransformerTransformerConfigSplitStringOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigSplitStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigSplitString)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigSplitStringOutput) ToLogTransformerTransformerConfigSplitStringOutput() LogTransformerTransformerConfigSplitStringOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSplitStringOutput) ToLogTransformerTransformerConfigSplitStringOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSplitStringOutput {
+	return o
+}
+
+// Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `splitString` `entry` below for details.
+func (o LogTransformerTransformerConfigSplitStringOutput) Entries() LogTransformerTransformerConfigSplitStringEntryArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigSplitString) []LogTransformerTransformerConfigSplitStringEntry {
+		return v.Entries
+	}).(LogTransformerTransformerConfigSplitStringEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigSplitStringArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigSplitStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigSplitString)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigSplitStringArrayOutput) ToLogTransformerTransformerConfigSplitStringArrayOutput() LogTransformerTransformerConfigSplitStringArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSplitStringArrayOutput) ToLogTransformerTransformerConfigSplitStringArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSplitStringArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSplitStringArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigSplitStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigSplitString {
+		return vs[0].([]LogTransformerTransformerConfigSplitString)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigSplitStringOutput)
+}
+
+type LogTransformerTransformerConfigSplitStringEntry struct {
+	// Specifies the separator characters to split the string entry on.
+	Delimiter string `pulumi:"delimiter"`
+	// Specifies the key to modify.
+	Source string `pulumi:"source"`
+}
+
+// LogTransformerTransformerConfigSplitStringEntryInput is an input type that accepts LogTransformerTransformerConfigSplitStringEntryArgs and LogTransformerTransformerConfigSplitStringEntryOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigSplitStringEntryInput` via:
+//
+//	LogTransformerTransformerConfigSplitStringEntryArgs{...}
+type LogTransformerTransformerConfigSplitStringEntryInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigSplitStringEntryOutput() LogTransformerTransformerConfigSplitStringEntryOutput
+	ToLogTransformerTransformerConfigSplitStringEntryOutputWithContext(context.Context) LogTransformerTransformerConfigSplitStringEntryOutput
+}
+
+type LogTransformerTransformerConfigSplitStringEntryArgs struct {
+	// Specifies the separator characters to split the string entry on.
+	Delimiter pulumi.StringInput `pulumi:"delimiter"`
+	// Specifies the key to modify.
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (LogTransformerTransformerConfigSplitStringEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigSplitStringEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigSplitStringEntryArgs) ToLogTransformerTransformerConfigSplitStringEntryOutput() LogTransformerTransformerConfigSplitStringEntryOutput {
+	return i.ToLogTransformerTransformerConfigSplitStringEntryOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigSplitStringEntryArgs) ToLogTransformerTransformerConfigSplitStringEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSplitStringEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigSplitStringEntryOutput)
+}
+
+// LogTransformerTransformerConfigSplitStringEntryArrayInput is an input type that accepts LogTransformerTransformerConfigSplitStringEntryArray and LogTransformerTransformerConfigSplitStringEntryArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigSplitStringEntryArrayInput` via:
+//
+//	LogTransformerTransformerConfigSplitStringEntryArray{ LogTransformerTransformerConfigSplitStringEntryArgs{...} }
+type LogTransformerTransformerConfigSplitStringEntryArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigSplitStringEntryArrayOutput() LogTransformerTransformerConfigSplitStringEntryArrayOutput
+	ToLogTransformerTransformerConfigSplitStringEntryArrayOutputWithContext(context.Context) LogTransformerTransformerConfigSplitStringEntryArrayOutput
+}
+
+type LogTransformerTransformerConfigSplitStringEntryArray []LogTransformerTransformerConfigSplitStringEntryInput
+
+func (LogTransformerTransformerConfigSplitStringEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigSplitStringEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigSplitStringEntryArray) ToLogTransformerTransformerConfigSplitStringEntryArrayOutput() LogTransformerTransformerConfigSplitStringEntryArrayOutput {
+	return i.ToLogTransformerTransformerConfigSplitStringEntryArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigSplitStringEntryArray) ToLogTransformerTransformerConfigSplitStringEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSplitStringEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigSplitStringEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigSplitStringEntryOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigSplitStringEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigSplitStringEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigSplitStringEntryOutput) ToLogTransformerTransformerConfigSplitStringEntryOutput() LogTransformerTransformerConfigSplitStringEntryOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSplitStringEntryOutput) ToLogTransformerTransformerConfigSplitStringEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSplitStringEntryOutput {
+	return o
+}
+
+// Specifies the separator characters to split the string entry on.
+func (o LogTransformerTransformerConfigSplitStringEntryOutput) Delimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigSplitStringEntry) string { return v.Delimiter }).(pulumi.StringOutput)
+}
+
+// Specifies the key to modify.
+func (o LogTransformerTransformerConfigSplitStringEntryOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigSplitStringEntry) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type LogTransformerTransformerConfigSplitStringEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigSplitStringEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigSplitStringEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigSplitStringEntryArrayOutput) ToLogTransformerTransformerConfigSplitStringEntryArrayOutput() LogTransformerTransformerConfigSplitStringEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSplitStringEntryArrayOutput) ToLogTransformerTransformerConfigSplitStringEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSplitStringEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSplitStringEntryArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigSplitStringEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigSplitStringEntry {
+		return vs[0].([]LogTransformerTransformerConfigSplitStringEntry)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigSplitStringEntryOutput)
+}
+
+type LogTransformerTransformerConfigSubstituteString struct {
+	// Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substituteString` `entry` below for details.
+	Entries []LogTransformerTransformerConfigSubstituteStringEntry `pulumi:"entries"`
+}
+
+// LogTransformerTransformerConfigSubstituteStringInput is an input type that accepts LogTransformerTransformerConfigSubstituteStringArgs and LogTransformerTransformerConfigSubstituteStringOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigSubstituteStringInput` via:
+//
+//	LogTransformerTransformerConfigSubstituteStringArgs{...}
+type LogTransformerTransformerConfigSubstituteStringInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigSubstituteStringOutput() LogTransformerTransformerConfigSubstituteStringOutput
+	ToLogTransformerTransformerConfigSubstituteStringOutputWithContext(context.Context) LogTransformerTransformerConfigSubstituteStringOutput
+}
+
+type LogTransformerTransformerConfigSubstituteStringArgs struct {
+	// Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substituteString` `entry` below for details.
+	Entries LogTransformerTransformerConfigSubstituteStringEntryArrayInput `pulumi:"entries"`
+}
+
+func (LogTransformerTransformerConfigSubstituteStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigSubstituteString)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigSubstituteStringArgs) ToLogTransformerTransformerConfigSubstituteStringOutput() LogTransformerTransformerConfigSubstituteStringOutput {
+	return i.ToLogTransformerTransformerConfigSubstituteStringOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigSubstituteStringArgs) ToLogTransformerTransformerConfigSubstituteStringOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSubstituteStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigSubstituteStringOutput)
+}
+
+// LogTransformerTransformerConfigSubstituteStringArrayInput is an input type that accepts LogTransformerTransformerConfigSubstituteStringArray and LogTransformerTransformerConfigSubstituteStringArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigSubstituteStringArrayInput` via:
+//
+//	LogTransformerTransformerConfigSubstituteStringArray{ LogTransformerTransformerConfigSubstituteStringArgs{...} }
+type LogTransformerTransformerConfigSubstituteStringArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigSubstituteStringArrayOutput() LogTransformerTransformerConfigSubstituteStringArrayOutput
+	ToLogTransformerTransformerConfigSubstituteStringArrayOutputWithContext(context.Context) LogTransformerTransformerConfigSubstituteStringArrayOutput
+}
+
+type LogTransformerTransformerConfigSubstituteStringArray []LogTransformerTransformerConfigSubstituteStringInput
+
+func (LogTransformerTransformerConfigSubstituteStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigSubstituteString)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigSubstituteStringArray) ToLogTransformerTransformerConfigSubstituteStringArrayOutput() LogTransformerTransformerConfigSubstituteStringArrayOutput {
+	return i.ToLogTransformerTransformerConfigSubstituteStringArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigSubstituteStringArray) ToLogTransformerTransformerConfigSubstituteStringArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSubstituteStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigSubstituteStringArrayOutput)
+}
+
+type LogTransformerTransformerConfigSubstituteStringOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigSubstituteStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigSubstituteString)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigSubstituteStringOutput) ToLogTransformerTransformerConfigSubstituteStringOutput() LogTransformerTransformerConfigSubstituteStringOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSubstituteStringOutput) ToLogTransformerTransformerConfigSubstituteStringOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSubstituteStringOutput {
+	return o
+}
+
+// Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substituteString` `entry` below for details.
+func (o LogTransformerTransformerConfigSubstituteStringOutput) Entries() LogTransformerTransformerConfigSubstituteStringEntryArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigSubstituteString) []LogTransformerTransformerConfigSubstituteStringEntry {
+		return v.Entries
+	}).(LogTransformerTransformerConfigSubstituteStringEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigSubstituteStringArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigSubstituteStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigSubstituteString)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigSubstituteStringArrayOutput) ToLogTransformerTransformerConfigSubstituteStringArrayOutput() LogTransformerTransformerConfigSubstituteStringArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSubstituteStringArrayOutput) ToLogTransformerTransformerConfigSubstituteStringArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSubstituteStringArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSubstituteStringArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigSubstituteStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigSubstituteString {
+		return vs[0].([]LogTransformerTransformerConfigSubstituteString)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigSubstituteStringOutput)
+}
+
+type LogTransformerTransformerConfigSubstituteStringEntry struct {
+	// Specifies the regular expression string to be replaced.
+	From string `pulumi:"from"`
+	// Specifies the key to modify.
+	Source string `pulumi:"source"`
+	// Specifies the string to be substituted for each match of `from`.
+	To string `pulumi:"to"`
+}
+
+// LogTransformerTransformerConfigSubstituteStringEntryInput is an input type that accepts LogTransformerTransformerConfigSubstituteStringEntryArgs and LogTransformerTransformerConfigSubstituteStringEntryOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigSubstituteStringEntryInput` via:
+//
+//	LogTransformerTransformerConfigSubstituteStringEntryArgs{...}
+type LogTransformerTransformerConfigSubstituteStringEntryInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigSubstituteStringEntryOutput() LogTransformerTransformerConfigSubstituteStringEntryOutput
+	ToLogTransformerTransformerConfigSubstituteStringEntryOutputWithContext(context.Context) LogTransformerTransformerConfigSubstituteStringEntryOutput
+}
+
+type LogTransformerTransformerConfigSubstituteStringEntryArgs struct {
+	// Specifies the regular expression string to be replaced.
+	From pulumi.StringInput `pulumi:"from"`
+	// Specifies the key to modify.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Specifies the string to be substituted for each match of `from`.
+	To pulumi.StringInput `pulumi:"to"`
+}
+
+func (LogTransformerTransformerConfigSubstituteStringEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigSubstituteStringEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigSubstituteStringEntryArgs) ToLogTransformerTransformerConfigSubstituteStringEntryOutput() LogTransformerTransformerConfigSubstituteStringEntryOutput {
+	return i.ToLogTransformerTransformerConfigSubstituteStringEntryOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigSubstituteStringEntryArgs) ToLogTransformerTransformerConfigSubstituteStringEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSubstituteStringEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigSubstituteStringEntryOutput)
+}
+
+// LogTransformerTransformerConfigSubstituteStringEntryArrayInput is an input type that accepts LogTransformerTransformerConfigSubstituteStringEntryArray and LogTransformerTransformerConfigSubstituteStringEntryArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigSubstituteStringEntryArrayInput` via:
+//
+//	LogTransformerTransformerConfigSubstituteStringEntryArray{ LogTransformerTransformerConfigSubstituteStringEntryArgs{...} }
+type LogTransformerTransformerConfigSubstituteStringEntryArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigSubstituteStringEntryArrayOutput() LogTransformerTransformerConfigSubstituteStringEntryArrayOutput
+	ToLogTransformerTransformerConfigSubstituteStringEntryArrayOutputWithContext(context.Context) LogTransformerTransformerConfigSubstituteStringEntryArrayOutput
+}
+
+type LogTransformerTransformerConfigSubstituteStringEntryArray []LogTransformerTransformerConfigSubstituteStringEntryInput
+
+func (LogTransformerTransformerConfigSubstituteStringEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigSubstituteStringEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigSubstituteStringEntryArray) ToLogTransformerTransformerConfigSubstituteStringEntryArrayOutput() LogTransformerTransformerConfigSubstituteStringEntryArrayOutput {
+	return i.ToLogTransformerTransformerConfigSubstituteStringEntryArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigSubstituteStringEntryArray) ToLogTransformerTransformerConfigSubstituteStringEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSubstituteStringEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigSubstituteStringEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigSubstituteStringEntryOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigSubstituteStringEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigSubstituteStringEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigSubstituteStringEntryOutput) ToLogTransformerTransformerConfigSubstituteStringEntryOutput() LogTransformerTransformerConfigSubstituteStringEntryOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSubstituteStringEntryOutput) ToLogTransformerTransformerConfigSubstituteStringEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSubstituteStringEntryOutput {
+	return o
+}
+
+// Specifies the regular expression string to be replaced.
+func (o LogTransformerTransformerConfigSubstituteStringEntryOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigSubstituteStringEntry) string { return v.From }).(pulumi.StringOutput)
+}
+
+// Specifies the key to modify.
+func (o LogTransformerTransformerConfigSubstituteStringEntryOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigSubstituteStringEntry) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// Specifies the string to be substituted for each match of `from`.
+func (o LogTransformerTransformerConfigSubstituteStringEntryOutput) To() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigSubstituteStringEntry) string { return v.To }).(pulumi.StringOutput)
+}
+
+type LogTransformerTransformerConfigSubstituteStringEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigSubstituteStringEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigSubstituteStringEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigSubstituteStringEntryArrayOutput) ToLogTransformerTransformerConfigSubstituteStringEntryArrayOutput() LogTransformerTransformerConfigSubstituteStringEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSubstituteStringEntryArrayOutput) ToLogTransformerTransformerConfigSubstituteStringEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigSubstituteStringEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigSubstituteStringEntryArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigSubstituteStringEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigSubstituteStringEntry {
+		return vs[0].([]LogTransformerTransformerConfigSubstituteStringEntry)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigSubstituteStringEntryOutput)
+}
+
+type LogTransformerTransformerConfigTrimString struct {
+	// Specifies the keys of the fields to trim.
+	WithKeys []string `pulumi:"withKeys"`
+}
+
+// LogTransformerTransformerConfigTrimStringInput is an input type that accepts LogTransformerTransformerConfigTrimStringArgs and LogTransformerTransformerConfigTrimStringOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigTrimStringInput` via:
+//
+//	LogTransformerTransformerConfigTrimStringArgs{...}
+type LogTransformerTransformerConfigTrimStringInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigTrimStringOutput() LogTransformerTransformerConfigTrimStringOutput
+	ToLogTransformerTransformerConfigTrimStringOutputWithContext(context.Context) LogTransformerTransformerConfigTrimStringOutput
+}
+
+type LogTransformerTransformerConfigTrimStringArgs struct {
+	// Specifies the keys of the fields to trim.
+	WithKeys pulumi.StringArrayInput `pulumi:"withKeys"`
+}
+
+func (LogTransformerTransformerConfigTrimStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigTrimString)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigTrimStringArgs) ToLogTransformerTransformerConfigTrimStringOutput() LogTransformerTransformerConfigTrimStringOutput {
+	return i.ToLogTransformerTransformerConfigTrimStringOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigTrimStringArgs) ToLogTransformerTransformerConfigTrimStringOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTrimStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigTrimStringOutput)
+}
+
+// LogTransformerTransformerConfigTrimStringArrayInput is an input type that accepts LogTransformerTransformerConfigTrimStringArray and LogTransformerTransformerConfigTrimStringArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigTrimStringArrayInput` via:
+//
+//	LogTransformerTransformerConfigTrimStringArray{ LogTransformerTransformerConfigTrimStringArgs{...} }
+type LogTransformerTransformerConfigTrimStringArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigTrimStringArrayOutput() LogTransformerTransformerConfigTrimStringArrayOutput
+	ToLogTransformerTransformerConfigTrimStringArrayOutputWithContext(context.Context) LogTransformerTransformerConfigTrimStringArrayOutput
+}
+
+type LogTransformerTransformerConfigTrimStringArray []LogTransformerTransformerConfigTrimStringInput
+
+func (LogTransformerTransformerConfigTrimStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigTrimString)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigTrimStringArray) ToLogTransformerTransformerConfigTrimStringArrayOutput() LogTransformerTransformerConfigTrimStringArrayOutput {
+	return i.ToLogTransformerTransformerConfigTrimStringArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigTrimStringArray) ToLogTransformerTransformerConfigTrimStringArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTrimStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigTrimStringArrayOutput)
+}
+
+type LogTransformerTransformerConfigTrimStringOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigTrimStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigTrimString)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigTrimStringOutput) ToLogTransformerTransformerConfigTrimStringOutput() LogTransformerTransformerConfigTrimStringOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigTrimStringOutput) ToLogTransformerTransformerConfigTrimStringOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTrimStringOutput {
+	return o
+}
+
+// Specifies the keys of the fields to trim.
+func (o LogTransformerTransformerConfigTrimStringOutput) WithKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigTrimString) []string { return v.WithKeys }).(pulumi.StringArrayOutput)
+}
+
+type LogTransformerTransformerConfigTrimStringArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigTrimStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigTrimString)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigTrimStringArrayOutput) ToLogTransformerTransformerConfigTrimStringArrayOutput() LogTransformerTransformerConfigTrimStringArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigTrimStringArrayOutput) ToLogTransformerTransformerConfigTrimStringArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTrimStringArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigTrimStringArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigTrimStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigTrimString {
+		return vs[0].([]LogTransformerTransformerConfigTrimString)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigTrimStringOutput)
+}
+
+type LogTransformerTransformerConfigTypeConverter struct {
+	// Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `typeConverter` `entry` below for details.
+	Entries []LogTransformerTransformerConfigTypeConverterEntry `pulumi:"entries"`
+}
+
+// LogTransformerTransformerConfigTypeConverterInput is an input type that accepts LogTransformerTransformerConfigTypeConverterArgs and LogTransformerTransformerConfigTypeConverterOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigTypeConverterInput` via:
+//
+//	LogTransformerTransformerConfigTypeConverterArgs{...}
+type LogTransformerTransformerConfigTypeConverterInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigTypeConverterOutput() LogTransformerTransformerConfigTypeConverterOutput
+	ToLogTransformerTransformerConfigTypeConverterOutputWithContext(context.Context) LogTransformerTransformerConfigTypeConverterOutput
+}
+
+type LogTransformerTransformerConfigTypeConverterArgs struct {
+	// Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `typeConverter` `entry` below for details.
+	Entries LogTransformerTransformerConfigTypeConverterEntryArrayInput `pulumi:"entries"`
+}
+
+func (LogTransformerTransformerConfigTypeConverterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigTypeConverter)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigTypeConverterArgs) ToLogTransformerTransformerConfigTypeConverterOutput() LogTransformerTransformerConfigTypeConverterOutput {
+	return i.ToLogTransformerTransformerConfigTypeConverterOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigTypeConverterArgs) ToLogTransformerTransformerConfigTypeConverterOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTypeConverterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigTypeConverterOutput)
+}
+
+// LogTransformerTransformerConfigTypeConverterArrayInput is an input type that accepts LogTransformerTransformerConfigTypeConverterArray and LogTransformerTransformerConfigTypeConverterArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigTypeConverterArrayInput` via:
+//
+//	LogTransformerTransformerConfigTypeConverterArray{ LogTransformerTransformerConfigTypeConverterArgs{...} }
+type LogTransformerTransformerConfigTypeConverterArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigTypeConverterArrayOutput() LogTransformerTransformerConfigTypeConverterArrayOutput
+	ToLogTransformerTransformerConfigTypeConverterArrayOutputWithContext(context.Context) LogTransformerTransformerConfigTypeConverterArrayOutput
+}
+
+type LogTransformerTransformerConfigTypeConverterArray []LogTransformerTransformerConfigTypeConverterInput
+
+func (LogTransformerTransformerConfigTypeConverterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigTypeConverter)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigTypeConverterArray) ToLogTransformerTransformerConfigTypeConverterArrayOutput() LogTransformerTransformerConfigTypeConverterArrayOutput {
+	return i.ToLogTransformerTransformerConfigTypeConverterArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigTypeConverterArray) ToLogTransformerTransformerConfigTypeConverterArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTypeConverterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigTypeConverterArrayOutput)
+}
+
+type LogTransformerTransformerConfigTypeConverterOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigTypeConverterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigTypeConverter)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigTypeConverterOutput) ToLogTransformerTransformerConfigTypeConverterOutput() LogTransformerTransformerConfigTypeConverterOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigTypeConverterOutput) ToLogTransformerTransformerConfigTypeConverterOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTypeConverterOutput {
+	return o
+}
+
+// Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `typeConverter` `entry` below for details.
+func (o LogTransformerTransformerConfigTypeConverterOutput) Entries() LogTransformerTransformerConfigTypeConverterEntryArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigTypeConverter) []LogTransformerTransformerConfigTypeConverterEntry {
+		return v.Entries
+	}).(LogTransformerTransformerConfigTypeConverterEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigTypeConverterArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigTypeConverterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigTypeConverter)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigTypeConverterArrayOutput) ToLogTransformerTransformerConfigTypeConverterArrayOutput() LogTransformerTransformerConfigTypeConverterArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigTypeConverterArrayOutput) ToLogTransformerTransformerConfigTypeConverterArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTypeConverterArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigTypeConverterArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigTypeConverterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigTypeConverter {
+		return vs[0].([]LogTransformerTransformerConfigTypeConverter)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigTypeConverterOutput)
+}
+
+type LogTransformerTransformerConfigTypeConverterEntry struct {
+	// Specifies the key with the value that will be converted to a different type.
+	Key string `pulumi:"key"`
+	// Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
+	Type string `pulumi:"type"`
+}
+
+// LogTransformerTransformerConfigTypeConverterEntryInput is an input type that accepts LogTransformerTransformerConfigTypeConverterEntryArgs and LogTransformerTransformerConfigTypeConverterEntryOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigTypeConverterEntryInput` via:
+//
+//	LogTransformerTransformerConfigTypeConverterEntryArgs{...}
+type LogTransformerTransformerConfigTypeConverterEntryInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigTypeConverterEntryOutput() LogTransformerTransformerConfigTypeConverterEntryOutput
+	ToLogTransformerTransformerConfigTypeConverterEntryOutputWithContext(context.Context) LogTransformerTransformerConfigTypeConverterEntryOutput
+}
+
+type LogTransformerTransformerConfigTypeConverterEntryArgs struct {
+	// Specifies the key with the value that will be converted to a different type.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LogTransformerTransformerConfigTypeConverterEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigTypeConverterEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigTypeConverterEntryArgs) ToLogTransformerTransformerConfigTypeConverterEntryOutput() LogTransformerTransformerConfigTypeConverterEntryOutput {
+	return i.ToLogTransformerTransformerConfigTypeConverterEntryOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigTypeConverterEntryArgs) ToLogTransformerTransformerConfigTypeConverterEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTypeConverterEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigTypeConverterEntryOutput)
+}
+
+// LogTransformerTransformerConfigTypeConverterEntryArrayInput is an input type that accepts LogTransformerTransformerConfigTypeConverterEntryArray and LogTransformerTransformerConfigTypeConverterEntryArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigTypeConverterEntryArrayInput` via:
+//
+//	LogTransformerTransformerConfigTypeConverterEntryArray{ LogTransformerTransformerConfigTypeConverterEntryArgs{...} }
+type LogTransformerTransformerConfigTypeConverterEntryArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigTypeConverterEntryArrayOutput() LogTransformerTransformerConfigTypeConverterEntryArrayOutput
+	ToLogTransformerTransformerConfigTypeConverterEntryArrayOutputWithContext(context.Context) LogTransformerTransformerConfigTypeConverterEntryArrayOutput
+}
+
+type LogTransformerTransformerConfigTypeConverterEntryArray []LogTransformerTransformerConfigTypeConverterEntryInput
+
+func (LogTransformerTransformerConfigTypeConverterEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigTypeConverterEntry)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigTypeConverterEntryArray) ToLogTransformerTransformerConfigTypeConverterEntryArrayOutput() LogTransformerTransformerConfigTypeConverterEntryArrayOutput {
+	return i.ToLogTransformerTransformerConfigTypeConverterEntryArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigTypeConverterEntryArray) ToLogTransformerTransformerConfigTypeConverterEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTypeConverterEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigTypeConverterEntryArrayOutput)
+}
+
+type LogTransformerTransformerConfigTypeConverterEntryOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigTypeConverterEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigTypeConverterEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigTypeConverterEntryOutput) ToLogTransformerTransformerConfigTypeConverterEntryOutput() LogTransformerTransformerConfigTypeConverterEntryOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigTypeConverterEntryOutput) ToLogTransformerTransformerConfigTypeConverterEntryOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTypeConverterEntryOutput {
+	return o
+}
+
+// Specifies the key with the value that will be converted to a different type.
+func (o LogTransformerTransformerConfigTypeConverterEntryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigTypeConverterEntry) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
+func (o LogTransformerTransformerConfigTypeConverterEntryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigTypeConverterEntry) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type LogTransformerTransformerConfigTypeConverterEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigTypeConverterEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigTypeConverterEntry)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigTypeConverterEntryArrayOutput) ToLogTransformerTransformerConfigTypeConverterEntryArrayOutput() LogTransformerTransformerConfigTypeConverterEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigTypeConverterEntryArrayOutput) ToLogTransformerTransformerConfigTypeConverterEntryArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigTypeConverterEntryArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigTypeConverterEntryArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigTypeConverterEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigTypeConverterEntry {
+		return vs[0].([]LogTransformerTransformerConfigTypeConverterEntry)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigTypeConverterEntryOutput)
+}
+
+type LogTransformerTransformerConfigUpperCaseString struct {
+	// Specifies the keys of the fields to convert to uppercase.
+	WithKeys []string `pulumi:"withKeys"`
+}
+
+// LogTransformerTransformerConfigUpperCaseStringInput is an input type that accepts LogTransformerTransformerConfigUpperCaseStringArgs and LogTransformerTransformerConfigUpperCaseStringOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigUpperCaseStringInput` via:
+//
+//	LogTransformerTransformerConfigUpperCaseStringArgs{...}
+type LogTransformerTransformerConfigUpperCaseStringInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigUpperCaseStringOutput() LogTransformerTransformerConfigUpperCaseStringOutput
+	ToLogTransformerTransformerConfigUpperCaseStringOutputWithContext(context.Context) LogTransformerTransformerConfigUpperCaseStringOutput
+}
+
+type LogTransformerTransformerConfigUpperCaseStringArgs struct {
+	// Specifies the keys of the fields to convert to uppercase.
+	WithKeys pulumi.StringArrayInput `pulumi:"withKeys"`
+}
+
+func (LogTransformerTransformerConfigUpperCaseStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigUpperCaseString)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigUpperCaseStringArgs) ToLogTransformerTransformerConfigUpperCaseStringOutput() LogTransformerTransformerConfigUpperCaseStringOutput {
+	return i.ToLogTransformerTransformerConfigUpperCaseStringOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigUpperCaseStringArgs) ToLogTransformerTransformerConfigUpperCaseStringOutputWithContext(ctx context.Context) LogTransformerTransformerConfigUpperCaseStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigUpperCaseStringOutput)
+}
+
+// LogTransformerTransformerConfigUpperCaseStringArrayInput is an input type that accepts LogTransformerTransformerConfigUpperCaseStringArray and LogTransformerTransformerConfigUpperCaseStringArrayOutput values.
+// You can construct a concrete instance of `LogTransformerTransformerConfigUpperCaseStringArrayInput` via:
+//
+//	LogTransformerTransformerConfigUpperCaseStringArray{ LogTransformerTransformerConfigUpperCaseStringArgs{...} }
+type LogTransformerTransformerConfigUpperCaseStringArrayInput interface {
+	pulumi.Input
+
+	ToLogTransformerTransformerConfigUpperCaseStringArrayOutput() LogTransformerTransformerConfigUpperCaseStringArrayOutput
+	ToLogTransformerTransformerConfigUpperCaseStringArrayOutputWithContext(context.Context) LogTransformerTransformerConfigUpperCaseStringArrayOutput
+}
+
+type LogTransformerTransformerConfigUpperCaseStringArray []LogTransformerTransformerConfigUpperCaseStringInput
+
+func (LogTransformerTransformerConfigUpperCaseStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigUpperCaseString)(nil)).Elem()
+}
+
+func (i LogTransformerTransformerConfigUpperCaseStringArray) ToLogTransformerTransformerConfigUpperCaseStringArrayOutput() LogTransformerTransformerConfigUpperCaseStringArrayOutput {
+	return i.ToLogTransformerTransformerConfigUpperCaseStringArrayOutputWithContext(context.Background())
+}
+
+func (i LogTransformerTransformerConfigUpperCaseStringArray) ToLogTransformerTransformerConfigUpperCaseStringArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigUpperCaseStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogTransformerTransformerConfigUpperCaseStringArrayOutput)
+}
+
+type LogTransformerTransformerConfigUpperCaseStringOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigUpperCaseStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogTransformerTransformerConfigUpperCaseString)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigUpperCaseStringOutput) ToLogTransformerTransformerConfigUpperCaseStringOutput() LogTransformerTransformerConfigUpperCaseStringOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigUpperCaseStringOutput) ToLogTransformerTransformerConfigUpperCaseStringOutputWithContext(ctx context.Context) LogTransformerTransformerConfigUpperCaseStringOutput {
+	return o
+}
+
+// Specifies the keys of the fields to convert to uppercase.
+func (o LogTransformerTransformerConfigUpperCaseStringOutput) WithKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogTransformerTransformerConfigUpperCaseString) []string { return v.WithKeys }).(pulumi.StringArrayOutput)
+}
+
+type LogTransformerTransformerConfigUpperCaseStringArrayOutput struct{ *pulumi.OutputState }
+
+func (LogTransformerTransformerConfigUpperCaseStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogTransformerTransformerConfigUpperCaseString)(nil)).Elem()
+}
+
+func (o LogTransformerTransformerConfigUpperCaseStringArrayOutput) ToLogTransformerTransformerConfigUpperCaseStringArrayOutput() LogTransformerTransformerConfigUpperCaseStringArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigUpperCaseStringArrayOutput) ToLogTransformerTransformerConfigUpperCaseStringArrayOutputWithContext(ctx context.Context) LogTransformerTransformerConfigUpperCaseStringArrayOutput {
+	return o
+}
+
+func (o LogTransformerTransformerConfigUpperCaseStringArrayOutput) Index(i pulumi.IntInput) LogTransformerTransformerConfigUpperCaseStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogTransformerTransformerConfigUpperCaseString {
+		return vs[0].([]LogTransformerTransformerConfigUpperCaseString)[vs[1].(int)]
+	}).(LogTransformerTransformerConfigUpperCaseStringOutput)
+}
+
 type MetricAlarmMetricQuery struct {
 	// The ID of the account where the metrics are located, if this is a cross-account alarm.
 	AccountId *string `pulumi:"accountId"`
@@ -10407,6 +14377,68 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryS3DeliveryConfigurationArrayInput)(nil)).Elem(), LogDeliveryS3DeliveryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterMetricTransformationInput)(nil)).Elem(), LogMetricFilterMetricTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterMetricTransformationPtrInput)(nil)).Elem(), LogMetricFilterMetricTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigInput)(nil)).Elem(), LogTransformerTransformerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigArrayInput)(nil)).Elem(), LogTransformerTransformerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigAddKeysInput)(nil)).Elem(), LogTransformerTransformerConfigAddKeysArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigAddKeysPtrInput)(nil)).Elem(), LogTransformerTransformerConfigAddKeysArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigAddKeysEntryInput)(nil)).Elem(), LogTransformerTransformerConfigAddKeysEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigAddKeysEntryArrayInput)(nil)).Elem(), LogTransformerTransformerConfigAddKeysEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigCopyValueInput)(nil)).Elem(), LogTransformerTransformerConfigCopyValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigCopyValuePtrInput)(nil)).Elem(), LogTransformerTransformerConfigCopyValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigCopyValueEntryInput)(nil)).Elem(), LogTransformerTransformerConfigCopyValueEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigCopyValueEntryArrayInput)(nil)).Elem(), LogTransformerTransformerConfigCopyValueEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigCsvInput)(nil)).Elem(), LogTransformerTransformerConfigCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigCsvArrayInput)(nil)).Elem(), LogTransformerTransformerConfigCsvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigDateTimeConverterInput)(nil)).Elem(), LogTransformerTransformerConfigDateTimeConverterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigDateTimeConverterArrayInput)(nil)).Elem(), LogTransformerTransformerConfigDateTimeConverterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigDeleteKeyInput)(nil)).Elem(), LogTransformerTransformerConfigDeleteKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigDeleteKeyArrayInput)(nil)).Elem(), LogTransformerTransformerConfigDeleteKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigGrokInput)(nil)).Elem(), LogTransformerTransformerConfigGrokArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigGrokPtrInput)(nil)).Elem(), LogTransformerTransformerConfigGrokArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigListToMapInput)(nil)).Elem(), LogTransformerTransformerConfigListToMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigListToMapArrayInput)(nil)).Elem(), LogTransformerTransformerConfigListToMapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigLowerCaseStringInput)(nil)).Elem(), LogTransformerTransformerConfigLowerCaseStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigLowerCaseStringArrayInput)(nil)).Elem(), LogTransformerTransformerConfigLowerCaseStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigMoveKeyInput)(nil)).Elem(), LogTransformerTransformerConfigMoveKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigMoveKeyArrayInput)(nil)).Elem(), LogTransformerTransformerConfigMoveKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigMoveKeyEntryInput)(nil)).Elem(), LogTransformerTransformerConfigMoveKeyEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigMoveKeyEntryArrayInput)(nil)).Elem(), LogTransformerTransformerConfigMoveKeyEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseCloudfrontInput)(nil)).Elem(), LogTransformerTransformerConfigParseCloudfrontArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseCloudfrontPtrInput)(nil)).Elem(), LogTransformerTransformerConfigParseCloudfrontArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseJsonInput)(nil)).Elem(), LogTransformerTransformerConfigParseJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseJsonArrayInput)(nil)).Elem(), LogTransformerTransformerConfigParseJsonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseKeyValueInput)(nil)).Elem(), LogTransformerTransformerConfigParseKeyValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseKeyValueArrayInput)(nil)).Elem(), LogTransformerTransformerConfigParseKeyValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParsePostgresInput)(nil)).Elem(), LogTransformerTransformerConfigParsePostgresArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParsePostgresPtrInput)(nil)).Elem(), LogTransformerTransformerConfigParsePostgresArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseRoute53Input)(nil)).Elem(), LogTransformerTransformerConfigParseRoute53Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseRoute53PtrInput)(nil)).Elem(), LogTransformerTransformerConfigParseRoute53Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseToOcsfInput)(nil)).Elem(), LogTransformerTransformerConfigParseToOcsfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseToOcsfPtrInput)(nil)).Elem(), LogTransformerTransformerConfigParseToOcsfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseVpcInput)(nil)).Elem(), LogTransformerTransformerConfigParseVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseVpcPtrInput)(nil)).Elem(), LogTransformerTransformerConfigParseVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseWafInput)(nil)).Elem(), LogTransformerTransformerConfigParseWafArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigParseWafPtrInput)(nil)).Elem(), LogTransformerTransformerConfigParseWafArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigRenameKeyInput)(nil)).Elem(), LogTransformerTransformerConfigRenameKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigRenameKeyArrayInput)(nil)).Elem(), LogTransformerTransformerConfigRenameKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigRenameKeyEntryInput)(nil)).Elem(), LogTransformerTransformerConfigRenameKeyEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigRenameKeyEntryArrayInput)(nil)).Elem(), LogTransformerTransformerConfigRenameKeyEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigSplitStringInput)(nil)).Elem(), LogTransformerTransformerConfigSplitStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigSplitStringArrayInput)(nil)).Elem(), LogTransformerTransformerConfigSplitStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigSplitStringEntryInput)(nil)).Elem(), LogTransformerTransformerConfigSplitStringEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigSplitStringEntryArrayInput)(nil)).Elem(), LogTransformerTransformerConfigSplitStringEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigSubstituteStringInput)(nil)).Elem(), LogTransformerTransformerConfigSubstituteStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigSubstituteStringArrayInput)(nil)).Elem(), LogTransformerTransformerConfigSubstituteStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigSubstituteStringEntryInput)(nil)).Elem(), LogTransformerTransformerConfigSubstituteStringEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigSubstituteStringEntryArrayInput)(nil)).Elem(), LogTransformerTransformerConfigSubstituteStringEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigTrimStringInput)(nil)).Elem(), LogTransformerTransformerConfigTrimStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigTrimStringArrayInput)(nil)).Elem(), LogTransformerTransformerConfigTrimStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigTypeConverterInput)(nil)).Elem(), LogTransformerTransformerConfigTypeConverterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigTypeConverterArrayInput)(nil)).Elem(), LogTransformerTransformerConfigTypeConverterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigTypeConverterEntryInput)(nil)).Elem(), LogTransformerTransformerConfigTypeConverterEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigTypeConverterEntryArrayInput)(nil)).Elem(), LogTransformerTransformerConfigTypeConverterEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigUpperCaseStringInput)(nil)).Elem(), LogTransformerTransformerConfigUpperCaseStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigUpperCaseStringArrayInput)(nil)).Elem(), LogTransformerTransformerConfigUpperCaseStringArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryInput)(nil)).Elem(), MetricAlarmMetricQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryArrayInput)(nil)).Elem(), MetricAlarmMetricQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryMetricInput)(nil)).Elem(), MetricAlarmMetricQueryMetricArgs{})
@@ -10548,6 +14580,68 @@ func init() {
 	pulumi.RegisterOutputType(LogDeliveryS3DeliveryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LogMetricFilterMetricTransformationOutput{})
 	pulumi.RegisterOutputType(LogMetricFilterMetricTransformationPtrOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigAddKeysOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigAddKeysPtrOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigAddKeysEntryOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigAddKeysEntryArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigCopyValueOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigCopyValuePtrOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigCopyValueEntryOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigCopyValueEntryArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigCsvOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigCsvArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigDateTimeConverterOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigDateTimeConverterArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigDeleteKeyOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigDeleteKeyArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigGrokOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigGrokPtrOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigListToMapOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigListToMapArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigLowerCaseStringOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigLowerCaseStringArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigMoveKeyOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigMoveKeyArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigMoveKeyEntryOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigMoveKeyEntryArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseCloudfrontOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseCloudfrontPtrOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseJsonOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseJsonArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseKeyValueOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseKeyValueArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParsePostgresOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParsePostgresPtrOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseRoute53Output{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseRoute53PtrOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseToOcsfOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseToOcsfPtrOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseVpcOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseVpcPtrOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseWafOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigParseWafPtrOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigRenameKeyOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigRenameKeyArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigRenameKeyEntryOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigRenameKeyEntryArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigSplitStringOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigSplitStringArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigSplitStringEntryOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigSplitStringEntryArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigSubstituteStringOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigSubstituteStringArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigSubstituteStringEntryOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigSubstituteStringEntryArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigTrimStringOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigTrimStringArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigTypeConverterOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigTypeConverterArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigTypeConverterEntryOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigTypeConverterEntryArrayOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigUpperCaseStringOutput{})
+	pulumi.RegisterOutputType(LogTransformerTransformerConfigUpperCaseStringArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryMetricOutput{})

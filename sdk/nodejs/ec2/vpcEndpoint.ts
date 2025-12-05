@@ -47,6 +47,23 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Cross-region enabled AWS services
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const s3 = new aws.ec2.VpcEndpoint("s3", {
+ *     region: "us-west-2",
+ *     vpcId: main.id,
+ *     serviceName: "com.amazonaws.us-east-2.s3",
+ *     serviceRegion: "us-east-2",
+ *     tags: {
+ *         Environment: "test",
+ *     },
+ * });
+ * ```
+ *
  * ### Interface Endpoint Type
  *
  * ```typescript
@@ -182,8 +199,6 @@ import * as utilities from "../utilities";
  * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
- *
- * console
  *
  * % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
  */

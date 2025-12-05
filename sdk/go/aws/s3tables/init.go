@@ -29,8 +29,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TableBucket{}
 	case "aws:s3tables/tableBucketPolicy:TableBucketPolicy":
 		r = &TableBucketPolicy{}
+	case "aws:s3tables/tableBucketReplication:TableBucketReplication":
+		r = &TableBucketReplication{}
 	case "aws:s3tables/tablePolicy:TablePolicy":
 		r = &TablePolicy{}
+	case "aws:s3tables/tableReplication:TableReplication":
+		r = &TableReplication{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -66,7 +70,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"s3tables/tableBucketReplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"s3tables/tablePolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3tables/tableReplication",
 		&module{version},
 	)
 }

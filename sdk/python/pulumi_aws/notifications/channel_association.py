@@ -23,7 +23,7 @@ class ChannelAssociationArgs:
                  notification_configuration_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ChannelAssociation resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+        :param pulumi.Input[_builtins.str] arn: ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate the channel with.
         """
         pulumi.set(__self__, "arn", arn)
@@ -33,7 +33,7 @@ class ChannelAssociationArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+        ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         """
         return pulumi.get(self, "arn")
 
@@ -61,7 +61,7 @@ class _ChannelAssociationState:
                  notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelAssociation resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+        :param pulumi.Input[_builtins.str] arn: ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate the channel with.
         """
         if arn is not None:
@@ -73,7 +73,7 @@ class _ChannelAssociationState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+        ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         """
         return pulumi.get(self, "arn")
 
@@ -135,7 +135,7 @@ class ChannelAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+        :param pulumi.Input[_builtins.str] arn: ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate the channel with.
         """
         ...
@@ -225,7 +225,7 @@ class ChannelAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+        :param pulumi.Input[_builtins.str] arn: ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate the channel with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -240,7 +240,7 @@ class ChannelAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+        ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         """
         return pulumi.get(self, "arn")
 

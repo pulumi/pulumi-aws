@@ -176,6 +176,11 @@ func GetStsRegion(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:stsRegion")
 }
 
+// The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+func GetTagPolicyCompliance(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:tagPolicyCompliance")
+}
+
 // session token. A session token is only required if you are
 // using temporary security credentials.
 func GetToken(ctx *pulumi.Context) string {

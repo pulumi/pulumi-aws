@@ -152,6 +152,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> PreferredSubnetId { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `StorageType` is set to `INTELLIGENT_TIERING`. See `ReadCacheConfiguration` Block for details.
+        /// </summary>
+        [Output("readCacheConfiguration")]
+        public Output<Outputs.OpenZfsFileSystemReadCacheConfiguration?> ReadCacheConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -188,13 +194,13 @@ namespace Pulumi.Aws.Fsx
         public Output<bool?> SkipFinalBackup { get; private set; } = null!;
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+        /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `StorageType` is set to `SSD`. Must not be set when `StorageType` is set to `INTELLIGENT_TIERING`.
         /// </summary>
         [Output("storageCapacity")]
         public Output<int?> StorageCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The filesystem storage type. Only `SSD` is supported.
+        /// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `DeploymentType` to be `MULTI_AZ_1`.
         /// </summary>
         [Output("storageType")]
         public Output<string?> StorageType { get; private set; } = null!;
@@ -368,6 +374,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? PreferredSubnetId { get; set; }
 
         /// <summary>
+        /// Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `StorageType` is set to `INTELLIGENT_TIERING`. See `ReadCacheConfiguration` Block for details.
+        /// </summary>
+        [Input("readCacheConfiguration")]
+        public Input<Inputs.OpenZfsFileSystemReadCacheConfigurationArgs>? ReadCacheConfiguration { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -410,13 +422,13 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+        /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `StorageType` is set to `SSD`. Must not be set when `StorageType` is set to `INTELLIGENT_TIERING`.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
-        /// The filesystem storage type. Only `SSD` is supported.
+        /// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `DeploymentType` to be `MULTI_AZ_1`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -588,6 +600,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? PreferredSubnetId { get; set; }
 
         /// <summary>
+        /// Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `StorageType` is set to `INTELLIGENT_TIERING`. See `ReadCacheConfiguration` Block for details.
+        /// </summary>
+        [Input("readCacheConfiguration")]
+        public Input<Inputs.OpenZfsFileSystemReadCacheConfigurationGetArgs>? ReadCacheConfiguration { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -636,13 +654,13 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+        /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `StorageType` is set to `SSD`. Must not be set when `StorageType` is set to `INTELLIGENT_TIERING`.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
-        /// The filesystem storage type. Only `SSD` is supported.
+        /// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `DeploymentType` to be `MULTI_AZ_1`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }

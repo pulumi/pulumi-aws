@@ -12,6 +12,7 @@ import com.pulumi.aws.msk.outputs.ClusterConfigurationInfo;
 import com.pulumi.aws.msk.outputs.ClusterEncryptionInfo;
 import com.pulumi.aws.msk.outputs.ClusterLoggingInfo;
 import com.pulumi.aws.msk.outputs.ClusterOpenMonitoring;
+import com.pulumi.aws.msk.outputs.ClusterRebalancing;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -164,7 +165,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterName("example")
- *             .kafkaVersion("3.2.0")
+ *             .kafkaVersion("3.8.x")
  *             .numberOfBrokerNodes(3)
  *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
  *                 .instanceType("kafka.m5.large")
@@ -249,7 +250,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterName("example")
- *             .kafkaVersion("2.7.1")
+ *             .kafkaVersion("3.8.x")
  *             .numberOfBrokerNodes(3)
  *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
  *                 .instanceType("kafka.m5.4xlarge")
@@ -607,6 +608,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ClusterOpenMonitoring>> openMonitoring() {
         return Codegen.optional(this.openMonitoring);
+    }
+    /**
+     * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * 
+     */
+    @Export(name="rebalancing", refs={ClusterRebalancing.class}, tree="[0]")
+    private Output<ClusterRebalancing> rebalancing;
+
+    /**
+     * @return Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * 
+     */
+    public Output<ClusterRebalancing> rebalancing() {
+        return this.rebalancing;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -562,8 +562,6 @@ class Fleet(pulumi.CustomResource):
 
         Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
 
-        console
-
         % pulumi import aws_codebuild_fleet.name fleet-name
 
         :param str resource_name: The name of the resource.
@@ -632,8 +630,6 @@ class Fleet(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
 
         Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
-
-        console
 
         % pulumi import aws_codebuild_fleet.name fleet-name
 

@@ -109,6 +109,10 @@ export interface GetDirectoryResult {
      */
     readonly tags: {[key: string]: string};
     /**
+     * Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+     */
+    readonly tenancy: string;
+    /**
      * The user identity type for the WorkSpaces directory.
      */
     readonly userIdentityType: string;

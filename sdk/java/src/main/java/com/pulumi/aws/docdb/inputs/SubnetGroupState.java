@@ -109,6 +109,21 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The network type of the docDB subnet group (`IPV4` or `DUAL`).
+     * 
+     */
+    @Import(name="supportedNetworkTypes")
+    private @Nullable Output<List<String>> supportedNetworkTypes;
+
+    /**
+     * @return The network type of the docDB subnet group (`IPV4` or `DUAL`).
+     * 
+     */
+    public Optional<Output<List<String>>> supportedNetworkTypes() {
+        return Optional.ofNullable(this.supportedNetworkTypes);
+    }
+
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -147,6 +162,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         this.namePrefix = $.namePrefix;
         this.region = $.region;
         this.subnetIds = $.subnetIds;
+        this.supportedNetworkTypes = $.supportedNetworkTypes;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -303,6 +319,37 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
+        }
+
+        /**
+         * @param supportedNetworkTypes The network type of the docDB subnet group (`IPV4` or `DUAL`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedNetworkTypes(@Nullable Output<List<String>> supportedNetworkTypes) {
+            $.supportedNetworkTypes = supportedNetworkTypes;
+            return this;
+        }
+
+        /**
+         * @param supportedNetworkTypes The network type of the docDB subnet group (`IPV4` or `DUAL`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedNetworkTypes(List<String> supportedNetworkTypes) {
+            return supportedNetworkTypes(Output.of(supportedNetworkTypes));
+        }
+
+        /**
+         * @param supportedNetworkTypes The network type of the docDB subnet group (`IPV4` or `DUAL`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedNetworkTypes(String... supportedNetworkTypes) {
+            return supportedNetworkTypes(List.of(supportedNetworkTypes));
         }
 
         /**

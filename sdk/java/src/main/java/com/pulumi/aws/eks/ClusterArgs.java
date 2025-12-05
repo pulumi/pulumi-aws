@@ -5,6 +5,7 @@ package com.pulumi.aws.eks;
 
 import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterComputeConfigArgs;
+import com.pulumi.aws.eks.inputs.ClusterControlPlaneScalingConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterEncryptionConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterKubernetesNetworkConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
@@ -72,6 +73,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ClusterComputeConfigArgs>> computeConfig() {
         return Optional.ofNullable(this.computeConfig);
+    }
+
+    /**
+     * Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+     * 
+     */
+    @Import(name="controlPlaneScalingConfig")
+    private @Nullable Output<ClusterControlPlaneScalingConfigArgs> controlPlaneScalingConfig;
+
+    /**
+     * @return Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+     * 
+     */
+    public Optional<Output<ClusterControlPlaneScalingConfigArgs>> controlPlaneScalingConfig() {
+        return Optional.ofNullable(this.controlPlaneScalingConfig);
     }
 
     /**
@@ -343,6 +359,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.accessConfig = $.accessConfig;
         this.bootstrapSelfManagedAddons = $.bootstrapSelfManagedAddons;
         this.computeConfig = $.computeConfig;
+        this.controlPlaneScalingConfig = $.controlPlaneScalingConfig;
         this.defaultAddonsToRemoves = $.defaultAddonsToRemoves;
         this.deletionProtection = $.deletionProtection;
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
@@ -441,6 +458,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder computeConfig(ClusterComputeConfigArgs computeConfig) {
             return computeConfig(Output.of(computeConfig));
+        }
+
+        /**
+         * @param controlPlaneScalingConfig Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder controlPlaneScalingConfig(@Nullable Output<ClusterControlPlaneScalingConfigArgs> controlPlaneScalingConfig) {
+            $.controlPlaneScalingConfig = controlPlaneScalingConfig;
+            return this;
+        }
+
+        /**
+         * @param controlPlaneScalingConfig Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder controlPlaneScalingConfig(ClusterControlPlaneScalingConfigArgs controlPlaneScalingConfig) {
+            return controlPlaneScalingConfig(Output.of(controlPlaneScalingConfig));
         }
 
         /**

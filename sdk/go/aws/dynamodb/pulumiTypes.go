@@ -862,6 +862,143 @@ func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) WriteUnitsPerSecond() 
 	}).(pulumi.IntPtrOutput)
 }
 
+type TableGlobalTableWitness struct {
+	// Name of the AWS Region that serves as a witness for the MRSC global table.
+	RegionName *string `pulumi:"regionName"`
+}
+
+// TableGlobalTableWitnessInput is an input type that accepts TableGlobalTableWitnessArgs and TableGlobalTableWitnessOutput values.
+// You can construct a concrete instance of `TableGlobalTableWitnessInput` via:
+//
+//	TableGlobalTableWitnessArgs{...}
+type TableGlobalTableWitnessInput interface {
+	pulumi.Input
+
+	ToTableGlobalTableWitnessOutput() TableGlobalTableWitnessOutput
+	ToTableGlobalTableWitnessOutputWithContext(context.Context) TableGlobalTableWitnessOutput
+}
+
+type TableGlobalTableWitnessArgs struct {
+	// Name of the AWS Region that serves as a witness for the MRSC global table.
+	RegionName pulumi.StringPtrInput `pulumi:"regionName"`
+}
+
+func (TableGlobalTableWitnessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalTableWitness)(nil)).Elem()
+}
+
+func (i TableGlobalTableWitnessArgs) ToTableGlobalTableWitnessOutput() TableGlobalTableWitnessOutput {
+	return i.ToTableGlobalTableWitnessOutputWithContext(context.Background())
+}
+
+func (i TableGlobalTableWitnessArgs) ToTableGlobalTableWitnessOutputWithContext(ctx context.Context) TableGlobalTableWitnessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalTableWitnessOutput)
+}
+
+func (i TableGlobalTableWitnessArgs) ToTableGlobalTableWitnessPtrOutput() TableGlobalTableWitnessPtrOutput {
+	return i.ToTableGlobalTableWitnessPtrOutputWithContext(context.Background())
+}
+
+func (i TableGlobalTableWitnessArgs) ToTableGlobalTableWitnessPtrOutputWithContext(ctx context.Context) TableGlobalTableWitnessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalTableWitnessOutput).ToTableGlobalTableWitnessPtrOutputWithContext(ctx)
+}
+
+// TableGlobalTableWitnessPtrInput is an input type that accepts TableGlobalTableWitnessArgs, TableGlobalTableWitnessPtr and TableGlobalTableWitnessPtrOutput values.
+// You can construct a concrete instance of `TableGlobalTableWitnessPtrInput` via:
+//
+//	        TableGlobalTableWitnessArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableGlobalTableWitnessPtrInput interface {
+	pulumi.Input
+
+	ToTableGlobalTableWitnessPtrOutput() TableGlobalTableWitnessPtrOutput
+	ToTableGlobalTableWitnessPtrOutputWithContext(context.Context) TableGlobalTableWitnessPtrOutput
+}
+
+type tableGlobalTableWitnessPtrType TableGlobalTableWitnessArgs
+
+func TableGlobalTableWitnessPtr(v *TableGlobalTableWitnessArgs) TableGlobalTableWitnessPtrInput {
+	return (*tableGlobalTableWitnessPtrType)(v)
+}
+
+func (*tableGlobalTableWitnessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableGlobalTableWitness)(nil)).Elem()
+}
+
+func (i *tableGlobalTableWitnessPtrType) ToTableGlobalTableWitnessPtrOutput() TableGlobalTableWitnessPtrOutput {
+	return i.ToTableGlobalTableWitnessPtrOutputWithContext(context.Background())
+}
+
+func (i *tableGlobalTableWitnessPtrType) ToTableGlobalTableWitnessPtrOutputWithContext(ctx context.Context) TableGlobalTableWitnessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalTableWitnessPtrOutput)
+}
+
+type TableGlobalTableWitnessOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalTableWitnessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalTableWitness)(nil)).Elem()
+}
+
+func (o TableGlobalTableWitnessOutput) ToTableGlobalTableWitnessOutput() TableGlobalTableWitnessOutput {
+	return o
+}
+
+func (o TableGlobalTableWitnessOutput) ToTableGlobalTableWitnessOutputWithContext(ctx context.Context) TableGlobalTableWitnessOutput {
+	return o
+}
+
+func (o TableGlobalTableWitnessOutput) ToTableGlobalTableWitnessPtrOutput() TableGlobalTableWitnessPtrOutput {
+	return o.ToTableGlobalTableWitnessPtrOutputWithContext(context.Background())
+}
+
+func (o TableGlobalTableWitnessOutput) ToTableGlobalTableWitnessPtrOutputWithContext(ctx context.Context) TableGlobalTableWitnessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableGlobalTableWitness) *TableGlobalTableWitness {
+		return &v
+	}).(TableGlobalTableWitnessPtrOutput)
+}
+
+// Name of the AWS Region that serves as a witness for the MRSC global table.
+func (o TableGlobalTableWitnessOutput) RegionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableGlobalTableWitness) *string { return v.RegionName }).(pulumi.StringPtrOutput)
+}
+
+type TableGlobalTableWitnessPtrOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalTableWitnessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableGlobalTableWitness)(nil)).Elem()
+}
+
+func (o TableGlobalTableWitnessPtrOutput) ToTableGlobalTableWitnessPtrOutput() TableGlobalTableWitnessPtrOutput {
+	return o
+}
+
+func (o TableGlobalTableWitnessPtrOutput) ToTableGlobalTableWitnessPtrOutputWithContext(ctx context.Context) TableGlobalTableWitnessPtrOutput {
+	return o
+}
+
+func (o TableGlobalTableWitnessPtrOutput) Elem() TableGlobalTableWitnessOutput {
+	return o.ApplyT(func(v *TableGlobalTableWitness) TableGlobalTableWitness {
+		if v != nil {
+			return *v
+		}
+		var ret TableGlobalTableWitness
+		return ret
+	}).(TableGlobalTableWitnessOutput)
+}
+
+// Name of the AWS Region that serves as a witness for the MRSC global table.
+func (o TableGlobalTableWitnessPtrOutput) RegionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableGlobalTableWitness) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionName
+	}).(pulumi.StringPtrOutput)
+}
+
 type TableImportTable struct {
 	// Type of compression to be used on the input coming from the imported table.
 	// Valid values are `GZIP`, `ZSTD` and `NONE`.
@@ -3787,6 +3924,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexOnDemandThroughputPtrInput)(nil)).Elem(), TableGlobalSecondaryIndexOnDemandThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexWarmThroughputInput)(nil)).Elem(), TableGlobalSecondaryIndexWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexWarmThroughputPtrInput)(nil)).Elem(), TableGlobalSecondaryIndexWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalTableWitnessInput)(nil)).Elem(), TableGlobalTableWitnessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalTableWitnessPtrInput)(nil)).Elem(), TableGlobalTableWitnessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableInput)(nil)).Elem(), TableImportTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTablePtrInput)(nil)).Elem(), TableImportTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableInputFormatOptionsInput)(nil)).Elem(), TableImportTableInputFormatOptionsArgs{})
@@ -3841,6 +3980,8 @@ func init() {
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOnDemandThroughputPtrOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexWarmThroughputOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexWarmThroughputPtrOutput{})
+	pulumi.RegisterOutputType(TableGlobalTableWitnessOutput{})
+	pulumi.RegisterOutputType(TableGlobalTableWitnessPtrOutput{})
 	pulumi.RegisterOutputType(TableImportTableOutput{})
 	pulumi.RegisterOutputType(TableImportTablePtrOutput{})
 	pulumi.RegisterOutputType(TableImportTableInputFormatOptionsOutput{})

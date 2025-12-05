@@ -145,6 +145,16 @@ namespace Pulumi.Aws.Lambda
     /// If the `DatabaseUrl` changes, the Lambda will be invoked again with:
     /// 
     /// When the invocation resource is removed, the final invocation will have:
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import Lambda Invocation using the `function_name,qualifier,result_hash`. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:lambda/invocation:Invocation test_lambda my_test_lambda_function,$LATEST,b326b5062b2f0e69046810717534cb09
+    /// ```
+    /// Because it is not possible to retrieve previous invocations, during the next update Pulumi will update the resource calling again the function.
+    /// To compute the `result_hash`, it is necessary to hash it with the standard `md5` hash function.
     /// </summary>
     [AwsResourceType("aws:lambda/invocation:Invocation")]
     public partial class Invocation : global::Pulumi.CustomResource
@@ -186,6 +196,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("result")]
         public Output<string> Result { get; private set; } = null!;
+
+        /// <summary>
+        /// Tenant Id to serve invocations from specified tenant.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string?> TenantId { get; private set; } = null!;
 
         [Output("terraformKey")]
         public Output<string?> TerraformKey { get; private set; } = null!;
@@ -274,6 +290,12 @@ namespace Pulumi.Aws.Lambda
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Tenant Id to serve invocations from specified tenant.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
         [Input("terraformKey")]
         public Input<string>? TerraformKey { get; set; }
 
@@ -334,6 +356,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("result")]
         public Input<string>? Result { get; set; }
+
+        /// <summary>
+        /// Tenant Id to serve invocations from specified tenant.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
 
         [Input("terraformKey")]
         public Input<string>? TerraformKey { get; set; }

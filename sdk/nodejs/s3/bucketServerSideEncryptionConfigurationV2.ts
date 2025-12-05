@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
  *
+ * > **NOTE:** Starting in March 2026, Amazon S3 will automatically block server-side encryption with customer-provided keys (SSE-C) for all new buckets. Use the `blockedEncryptionTypes` argument to manage this behavior. For more information, see the [SSE-C changes FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-s3-c-encryption-setting-faq.html).
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -30,6 +32,30 @@ import * as utilities from "../utilities";
  *             kmsMasterKeyId: mykey.arn,
  *             sseAlgorithm: "aws:kms",
  *         },
+ *     }],
+ * });
+ * ```
+ *
+ * ### Blocking SSE-C Uploads
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const mykey = new aws.kms.Key("mykey", {
+ *     description: "This key is used to encrypt bucket objects",
+ *     deletionWindowInDays: 10,
+ * });
+ * const mybucket = new aws.s3.Bucket("mybucket", {bucket: "mybucket"});
+ * const example = new aws.s3.BucketServerSideEncryptionConfiguration("example", {
+ *     bucket: mybucket.id,
+ *     rules: [{
+ *         applyServerSideEncryptionByDefault: {
+ *             kmsMasterKeyId: mykey.arn,
+ *             sseAlgorithm: "aws:kms",
+ *         },
+ *         bucketKeyEnabled: true,
+ *         blockedEncryptionTypes: ["SSE-C"],
  *     }],
  * });
  * ```
@@ -66,13 +92,9 @@ import * as utilities from "../utilities";
  *
  * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
  *
- * console
- *
  * % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name
  *
  * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- *
- * console
  *
  * % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name,123456789012
  *

@@ -32,7 +32,7 @@ class MonitorLocalResource(dict):
                  type: _builtins.str):
         """
         :param _builtins.str identifier: The identifier of the resource. For VPC resources, this is the VPC ARN.
-        :param _builtins.str type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        :param _builtins.str type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "type", type)
@@ -49,7 +49,7 @@ class MonitorLocalResource(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         """
         return pulumi.get(self, "type")
 
@@ -61,7 +61,7 @@ class MonitorRemoteResource(dict):
                  type: _builtins.str):
         """
         :param _builtins.str identifier: The identifier of the resource. For VPC resources, this is the VPC ARN.
-        :param _builtins.str type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        :param _builtins.str type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "type", type)
@@ -78,7 +78,7 @@ class MonitorRemoteResource(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         """
         return pulumi.get(self, "type")
 

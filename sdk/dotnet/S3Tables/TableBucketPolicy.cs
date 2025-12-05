@@ -32,15 +32,15 @@ namespace Pulumi.Aws.S3Tables
     ///         },
     ///     });
     /// 
+    ///     var exampleTableBucket = new Aws.S3Tables.TableBucket("example", new()
+    ///     {
+    ///         Name = "example-bucket",
+    ///     });
+    /// 
     ///     var exampleTableBucketPolicy = new Aws.S3Tables.TableBucketPolicy("example", new()
     ///     {
     ///         ResourcePolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         TableBucketArn = exampleAwsS3tablesTableBucket.Arn,
-    ///     });
-    /// 
-    ///     var test = new Aws.S3Tables.TableBucket("test", new()
-    ///     {
-    ///         Name = "example-bucket",
+    ///         TableBucketArn = exampleTableBucket.Arn,
     ///     });
     /// 
     /// });

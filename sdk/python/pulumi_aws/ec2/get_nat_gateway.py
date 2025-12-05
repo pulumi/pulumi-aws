@@ -28,13 +28,25 @@ class GetNatGatewayResult:
     """
     A collection of values returned by getNatGateway.
     """
-    def __init__(__self__, allocation_id=None, association_id=None, connectivity_type=None, filters=None, id=None, network_interface_id=None, private_ip=None, public_ip=None, region=None, secondary_allocation_ids=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, state=None, subnet_id=None, tags=None, vpc_id=None):
+    def __init__(__self__, allocation_id=None, association_id=None, auto_provision_zones=None, auto_scaling_ips=None, availability_mode=None, availability_zone_addresses=None, connectivity_type=None, filters=None, id=None, network_interface_id=None, private_ip=None, public_ip=None, region=None, regional_nat_gateway_addresses=None, route_table_id=None, secondary_allocation_ids=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, state=None, subnet_id=None, tags=None, vpc_id=None):
         if allocation_id and not isinstance(allocation_id, str):
             raise TypeError("Expected argument 'allocation_id' to be a str")
         pulumi.set(__self__, "allocation_id", allocation_id)
         if association_id and not isinstance(association_id, str):
             raise TypeError("Expected argument 'association_id' to be a str")
         pulumi.set(__self__, "association_id", association_id)
+        if auto_provision_zones and not isinstance(auto_provision_zones, str):
+            raise TypeError("Expected argument 'auto_provision_zones' to be a str")
+        pulumi.set(__self__, "auto_provision_zones", auto_provision_zones)
+        if auto_scaling_ips and not isinstance(auto_scaling_ips, str):
+            raise TypeError("Expected argument 'auto_scaling_ips' to be a str")
+        pulumi.set(__self__, "auto_scaling_ips", auto_scaling_ips)
+        if availability_mode and not isinstance(availability_mode, str):
+            raise TypeError("Expected argument 'availability_mode' to be a str")
+        pulumi.set(__self__, "availability_mode", availability_mode)
+        if availability_zone_addresses and not isinstance(availability_zone_addresses, list):
+            raise TypeError("Expected argument 'availability_zone_addresses' to be a list")
+        pulumi.set(__self__, "availability_zone_addresses", availability_zone_addresses)
         if connectivity_type and not isinstance(connectivity_type, str):
             raise TypeError("Expected argument 'connectivity_type' to be a str")
         pulumi.set(__self__, "connectivity_type", connectivity_type)
@@ -56,6 +68,12 @@ class GetNatGatewayResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if regional_nat_gateway_addresses and not isinstance(regional_nat_gateway_addresses, list):
+            raise TypeError("Expected argument 'regional_nat_gateway_addresses' to be a list")
+        pulumi.set(__self__, "regional_nat_gateway_addresses", regional_nat_gateway_addresses)
+        if route_table_id and not isinstance(route_table_id, str):
+            raise TypeError("Expected argument 'route_table_id' to be a str")
+        pulumi.set(__self__, "route_table_id", route_table_id)
         if secondary_allocation_ids and not isinstance(secondary_allocation_ids, list):
             raise TypeError("Expected argument 'secondary_allocation_ids' to be a list")
         pulumi.set(__self__, "secondary_allocation_ids", secondary_allocation_ids)
@@ -82,7 +100,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> _builtins.str:
         """
-        ID of the EIP allocated to the selected NAT Gateway.
+        Allocation ID of the Elastic IP address.
         """
         return pulumi.get(self, "allocation_id")
 
@@ -90,9 +108,41 @@ class GetNatGatewayResult:
     @pulumi.getter(name="associationId")
     def association_id(self) -> _builtins.str:
         """
-        The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
+        Association ID of the Elastic IP address.
         """
         return pulumi.get(self, "association_id")
+
+    @_builtins.property
+    @pulumi.getter(name="autoProvisionZones")
+    def auto_provision_zones(self) -> _builtins.str:
+        """
+        (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
+        """
+        return pulumi.get(self, "auto_provision_zones")
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingIps")
+    def auto_scaling_ips(self) -> _builtins.str:
+        """
+        (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+        """
+        return pulumi.get(self, "auto_scaling_ips")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityMode")
+    def availability_mode(self) -> _builtins.str:
+        """
+        Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+        """
+        return pulumi.get(self, "availability_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneAddresses")
+    def availability_zone_addresses(self) -> Sequence['outputs.GetNatGatewayAvailabilityZoneAddressResult']:
+        """
+        (regional NAT gateways only) Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway.
+        """
+        return pulumi.get(self, "availability_zone_addresses")
 
     @_builtins.property
     @pulumi.getter(name="connectivityType")
@@ -116,7 +166,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> _builtins.str:
         """
-        The ID of the ENI allocated to the selected NAT Gateway.
+        ID of the network interface.
         """
         return pulumi.get(self, "network_interface_id")
 
@@ -124,7 +174,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> _builtins.str:
         """
-        Private IP address of the selected NAT Gateway.
+        (zonal NAT gateways only) Private IP address of the selected NAT Gateway.
         """
         return pulumi.get(self, "private_ip")
 
@@ -132,7 +182,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> _builtins.str:
         """
-        Public IP (EIP) address of the selected NAT Gateway.
+        Public IP address.
         """
         return pulumi.get(self, "public_ip")
 
@@ -142,10 +192,26 @@ class GetNatGatewayResult:
         return pulumi.get(self, "region")
 
     @_builtins.property
+    @pulumi.getter(name="regionalNatGatewayAddresses")
+    def regional_nat_gateway_addresses(self) -> Sequence['outputs.GetNatGatewayRegionalNatGatewayAddressResult']:
+        """
+        (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
+        """
+        return pulumi.get(self, "regional_nat_gateway_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> _builtins.str:
+        """
+        (regional NAT gateways only) ID of the automatically created route table.
+        """
+        return pulumi.get(self, "route_table_id")
+
+    @_builtins.property
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> Sequence[_builtins.str]:
         """
-        Secondary allocation EIP IDs for the selected NAT Gateway.
+        (zonal NAT gateways only) Secondary allocation EIP IDs for the selected NAT Gateway.
         """
         return pulumi.get(self, "secondary_allocation_ids")
 
@@ -153,7 +219,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> _builtins.int:
         """
-        The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
+        (zonal NAT gateways only) The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
         """
         return pulumi.get(self, "secondary_private_ip_address_count")
 
@@ -161,7 +227,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="secondaryPrivateIpAddresses")
     def secondary_private_ip_addresses(self) -> Sequence[_builtins.str]:
         """
-        Secondary private IPv4 addresses assigned to the selected NAT Gateway.
+        (zonal NAT gateways only) Secondary private IPv4 addresses assigned to the selected NAT Gateway.
         """
         return pulumi.get(self, "secondary_private_ip_addresses")
 
@@ -194,6 +260,10 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
         return GetNatGatewayResult(
             allocation_id=self.allocation_id,
             association_id=self.association_id,
+            auto_provision_zones=self.auto_provision_zones,
+            auto_scaling_ips=self.auto_scaling_ips,
+            availability_mode=self.availability_mode,
+            availability_zone_addresses=self.availability_zone_addresses,
             connectivity_type=self.connectivity_type,
             filters=self.filters,
             id=self.id,
@@ -201,6 +271,8 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
             private_ip=self.private_ip,
             public_ip=self.public_ip,
             region=self.region,
+            regional_nat_gateway_addresses=self.regional_nat_gateway_addresses,
+            route_table_id=self.route_table_id,
             secondary_allocation_ids=self.secondary_allocation_ids,
             secondary_private_ip_address_count=self.secondary_private_ip_address_count,
             secondary_private_ip_addresses=self.secondary_private_ip_addresses,
@@ -270,6 +342,10 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
     return AwaitableGetNatGatewayResult(
         allocation_id=pulumi.get(__ret__, 'allocation_id'),
         association_id=pulumi.get(__ret__, 'association_id'),
+        auto_provision_zones=pulumi.get(__ret__, 'auto_provision_zones'),
+        auto_scaling_ips=pulumi.get(__ret__, 'auto_scaling_ips'),
+        availability_mode=pulumi.get(__ret__, 'availability_mode'),
+        availability_zone_addresses=pulumi.get(__ret__, 'availability_zone_addresses'),
         connectivity_type=pulumi.get(__ret__, 'connectivity_type'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
@@ -277,6 +353,8 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
         private_ip=pulumi.get(__ret__, 'private_ip'),
         public_ip=pulumi.get(__ret__, 'public_ip'),
         region=pulumi.get(__ret__, 'region'),
+        regional_nat_gateway_addresses=pulumi.get(__ret__, 'regional_nat_gateway_addresses'),
+        route_table_id=pulumi.get(__ret__, 'route_table_id'),
         secondary_allocation_ids=pulumi.get(__ret__, 'secondary_allocation_ids'),
         secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),
         secondary_private_ip_addresses=pulumi.get(__ret__, 'secondary_private_ip_addresses'),
@@ -343,6 +421,10 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     return __ret__.apply(lambda __response__: GetNatGatewayResult(
         allocation_id=pulumi.get(__response__, 'allocation_id'),
         association_id=pulumi.get(__response__, 'association_id'),
+        auto_provision_zones=pulumi.get(__response__, 'auto_provision_zones'),
+        auto_scaling_ips=pulumi.get(__response__, 'auto_scaling_ips'),
+        availability_mode=pulumi.get(__response__, 'availability_mode'),
+        availability_zone_addresses=pulumi.get(__response__, 'availability_zone_addresses'),
         connectivity_type=pulumi.get(__response__, 'connectivity_type'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
@@ -350,6 +432,8 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
         private_ip=pulumi.get(__response__, 'private_ip'),
         public_ip=pulumi.get(__response__, 'public_ip'),
         region=pulumi.get(__response__, 'region'),
+        regional_nat_gateway_addresses=pulumi.get(__response__, 'regional_nat_gateway_addresses'),
+        route_table_id=pulumi.get(__response__, 'route_table_id'),
         secondary_allocation_ids=pulumi.get(__response__, 'secondary_allocation_ids'),
         secondary_private_ip_address_count=pulumi.get(__response__, 'secondary_private_ip_address_count'),
         secondary_private_ip_addresses=pulumi.get(__response__, 'secondary_private_ip_addresses'),

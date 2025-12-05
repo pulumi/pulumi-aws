@@ -213,6 +213,13 @@ public final class Config {
         return Codegen.stringProp("stsRegion").config(config).get();
     }
 /**
+ * The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are &#34;error&#34;, &#34;warning&#34;, and &#34;disabled&#34;. When unset or &#34;disabled&#34;, tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+ * 
+ */
+    public Optional<String> tagPolicyCompliance() {
+        return Codegen.stringProp("tagPolicyCompliance").config(config).get();
+    }
+/**
  * session token. A session token is only required if you are
  * using temporary security credentials.
  * 

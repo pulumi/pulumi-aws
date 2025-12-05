@@ -203,8 +203,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
     /// </summary>
     [AwsResourceType("aws:ssm/contactsRotation:ContactsRotation")]

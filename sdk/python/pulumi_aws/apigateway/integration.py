@@ -32,10 +32,12 @@ class IntegrationArgs:
                  content_handling: Optional[pulumi.Input[_builtins.str]] = None,
                  credentials: Optional[pulumi.Input[_builtins.str]] = None,
                  integration_http_method: Optional[pulumi.Input[_builtins.str]] = None,
+                 integration_target: Optional[pulumi.Input[_builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_transfer_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
                  tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
@@ -57,11 +59,14 @@ class IntegrationArgs:
                **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                Not all methods are compatible with all `AWS` integrations.
                e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        :param pulumi.Input[_builtins.str] integration_target: The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
         :param pulumi.Input[_builtins.str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_templates: Map of the integration's request templates.
+        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+               Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         :param pulumi.Input[_builtins.int] timeout_milliseconds: Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
         :param pulumi.Input['IntegrationTlsConfigArgs'] tls_config: TLS configuration. See below.
         :param pulumi.Input[_builtins.str] uri: Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
@@ -86,6 +91,8 @@ class IntegrationArgs:
             pulumi.set(__self__, "credentials", credentials)
         if integration_http_method is not None:
             pulumi.set(__self__, "integration_http_method", integration_http_method)
+        if integration_target is not None:
+            pulumi.set(__self__, "integration_target", integration_target)
         if passthrough_behavior is not None:
             pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
         if region is not None:
@@ -94,6 +101,8 @@ class IntegrationArgs:
             pulumi.set(__self__, "request_parameters", request_parameters)
         if request_templates is not None:
             pulumi.set(__self__, "request_templates", request_templates)
+        if response_transfer_mode is not None:
+            pulumi.set(__self__, "response_transfer_mode", response_transfer_mode)
         if timeout_milliseconds is not None:
             pulumi.set(__self__, "timeout_milliseconds", timeout_milliseconds)
         if tls_config is not None:
@@ -239,6 +248,18 @@ class IntegrationArgs:
         pulumi.set(self, "integration_http_method", value)
 
     @_builtins.property
+    @pulumi.getter(name="integrationTarget")
+    def integration_target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+        """
+        return pulumi.get(self, "integration_target")
+
+    @integration_target.setter
+    def integration_target(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "integration_target", value)
+
+    @_builtins.property
     @pulumi.getter(name="passthroughBehavior")
     def passthrough_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -286,6 +307,19 @@ class IntegrationArgs:
     @request_templates.setter
     def request_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_templates", value)
+
+    @_builtins.property
+    @pulumi.getter(name="responseTransferMode")
+    def response_transfer_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+        """
+        return pulumi.get(self, "response_transfer_mode")
+
+    @response_transfer_mode.setter
+    def response_transfer_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "response_transfer_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMilliseconds")
@@ -337,11 +371,13 @@ class _IntegrationState:
                  credentials: Optional[pulumi.Input[_builtins.str]] = None,
                  http_method: Optional[pulumi.Input[_builtins.str]] = None,
                  integration_http_method: Optional[pulumi.Input[_builtins.str]] = None,
+                 integration_target: Optional[pulumi.Input[_builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 response_transfer_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[_builtins.str]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
                  tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
@@ -362,12 +398,15 @@ class _IntegrationState:
                **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                Not all methods are compatible with all `AWS` integrations.
                e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        :param pulumi.Input[_builtins.str] integration_target: The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
         :param pulumi.Input[_builtins.str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_templates: Map of the integration's request templates.
         :param pulumi.Input[_builtins.str] resource_id: API resource ID.
+        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+               Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API.
         :param pulumi.Input[_builtins.int] timeout_milliseconds: Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
         :param pulumi.Input['IntegrationTlsConfigArgs'] tls_config: TLS configuration. See below.
@@ -392,6 +431,8 @@ class _IntegrationState:
             pulumi.set(__self__, "http_method", http_method)
         if integration_http_method is not None:
             pulumi.set(__self__, "integration_http_method", integration_http_method)
+        if integration_target is not None:
+            pulumi.set(__self__, "integration_target", integration_target)
         if passthrough_behavior is not None:
             pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
         if region is not None:
@@ -402,6 +443,8 @@ class _IntegrationState:
             pulumi.set(__self__, "request_templates", request_templates)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+        if response_transfer_mode is not None:
+            pulumi.set(__self__, "response_transfer_mode", response_transfer_mode)
         if rest_api is not None:
             pulumi.set(__self__, "rest_api", rest_api)
         if timeout_milliseconds is not None:
@@ -515,6 +558,18 @@ class _IntegrationState:
         pulumi.set(self, "integration_http_method", value)
 
     @_builtins.property
+    @pulumi.getter(name="integrationTarget")
+    def integration_target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+        """
+        return pulumi.get(self, "integration_target")
+
+    @integration_target.setter
+    def integration_target(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "integration_target", value)
+
+    @_builtins.property
     @pulumi.getter(name="passthroughBehavior")
     def passthrough_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -574,6 +629,19 @@ class _IntegrationState:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="responseTransferMode")
+    def response_transfer_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+        """
+        return pulumi.get(self, "response_transfer_mode")
+
+    @response_transfer_mode.setter
+    def response_transfer_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "response_transfer_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="restApi")
@@ -652,11 +720,13 @@ class Integration(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[_builtins.str]] = None,
                  http_method: Optional[pulumi.Input[_builtins.str]] = None,
                  integration_http_method: Optional[pulumi.Input[_builtins.str]] = None,
+                 integration_target: Optional[pulumi.Input[_builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 response_transfer_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[_builtins.str]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
                  tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
@@ -816,6 +886,56 @@ class Integration(pulumi.CustomResource):
             connection_id=test_vpc_link.id)
         ```
 
+        ## VPC Link V2 with Application Load Balancer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.VpcLink("example",
+            name="example",
+            security_group_ids=[example_aws_security_group["id"]],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
+        example_load_balancer = aws.lb.LoadBalancer("example",
+            name="example-alb",
+            internal=True,
+            load_balancer_type="application",
+            security_groups=[example_aws_security_group["id"]],
+            subnets=[__item["id"] for __item in example_aws_subnet])
+        example_listener = aws.lb.Listener("example",
+            load_balancer_arn=example_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
+            default_actions=[{
+                "type": "fixed-response",
+                "fixed_response": {
+                    "content_type": "text/plain",
+                    "message_body": "OK",
+                    "status_code": "200",
+                },
+            }])
+        example_rest_api = aws.apigateway.RestApi("example", name="example")
+        example_resource = aws.apigateway.Resource("example",
+            rest_api=example_rest_api.id,
+            parent_id=example_rest_api.root_resource_id,
+            path_part="example")
+        example_method = aws.apigateway.Method("example",
+            rest_api=example_rest_api.id,
+            resource_id=example_resource.id,
+            http_method="GET",
+            authorization="NONE")
+        example_integration = aws.apigateway.Integration("example",
+            rest_api=example_rest_api.id,
+            resource_id=example_resource.id,
+            http_method=example_method.http_method,
+            integration_http_method="GET",
+            type="HTTP_PROXY",
+            connection_type="VPC_LINK",
+            connection_id=example.id,
+            integration_target=example_load_balancer.arn,
+            uri="http://example.com")
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
@@ -839,12 +959,15 @@ class Integration(pulumi.CustomResource):
                **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                Not all methods are compatible with all `AWS` integrations.
                e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        :param pulumi.Input[_builtins.str] integration_target: The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
         :param pulumi.Input[_builtins.str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_templates: Map of the integration's request templates.
         :param pulumi.Input[_builtins.str] resource_id: API resource ID.
+        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+               Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API.
         :param pulumi.Input[_builtins.int] timeout_milliseconds: Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
         :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']] tls_config: TLS configuration. See below.
@@ -1012,6 +1135,56 @@ class Integration(pulumi.CustomResource):
             connection_id=test_vpc_link.id)
         ```
 
+        ## VPC Link V2 with Application Load Balancer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.VpcLink("example",
+            name="example",
+            security_group_ids=[example_aws_security_group["id"]],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
+        example_load_balancer = aws.lb.LoadBalancer("example",
+            name="example-alb",
+            internal=True,
+            load_balancer_type="application",
+            security_groups=[example_aws_security_group["id"]],
+            subnets=[__item["id"] for __item in example_aws_subnet])
+        example_listener = aws.lb.Listener("example",
+            load_balancer_arn=example_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
+            default_actions=[{
+                "type": "fixed-response",
+                "fixed_response": {
+                    "content_type": "text/plain",
+                    "message_body": "OK",
+                    "status_code": "200",
+                },
+            }])
+        example_rest_api = aws.apigateway.RestApi("example", name="example")
+        example_resource = aws.apigateway.Resource("example",
+            rest_api=example_rest_api.id,
+            parent_id=example_rest_api.root_resource_id,
+            path_part="example")
+        example_method = aws.apigateway.Method("example",
+            rest_api=example_rest_api.id,
+            resource_id=example_resource.id,
+            http_method="GET",
+            authorization="NONE")
+        example_integration = aws.apigateway.Integration("example",
+            rest_api=example_rest_api.id,
+            resource_id=example_resource.id,
+            http_method=example_method.http_method,
+            integration_http_method="GET",
+            type="HTTP_PROXY",
+            connection_type="VPC_LINK",
+            connection_id=example.id,
+            integration_target=example_load_balancer.arn,
+            uri="http://example.com")
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
@@ -1043,11 +1216,13 @@ class Integration(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[_builtins.str]] = None,
                  http_method: Optional[pulumi.Input[_builtins.str]] = None,
                  integration_http_method: Optional[pulumi.Input[_builtins.str]] = None,
+                 integration_target: Optional[pulumi.Input[_builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 response_transfer_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[_builtins.str]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
                  tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
@@ -1072,6 +1247,7 @@ class Integration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'http_method'")
             __props__.__dict__["http_method"] = http_method
             __props__.__dict__["integration_http_method"] = integration_http_method
+            __props__.__dict__["integration_target"] = integration_target
             __props__.__dict__["passthrough_behavior"] = passthrough_behavior
             __props__.__dict__["region"] = region
             __props__.__dict__["request_parameters"] = request_parameters
@@ -1079,6 +1255,7 @@ class Integration(pulumi.CustomResource):
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
+            __props__.__dict__["response_transfer_mode"] = response_transfer_mode
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
@@ -1106,11 +1283,13 @@ class Integration(pulumi.CustomResource):
             credentials: Optional[pulumi.Input[_builtins.str]] = None,
             http_method: Optional[pulumi.Input[_builtins.str]] = None,
             integration_http_method: Optional[pulumi.Input[_builtins.str]] = None,
+            integration_target: Optional[pulumi.Input[_builtins.str]] = None,
             passthrough_behavior: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+            response_transfer_mode: Optional[pulumi.Input[_builtins.str]] = None,
             rest_api: Optional[pulumi.Input[_builtins.str]] = None,
             timeout_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
             tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
@@ -1136,12 +1315,15 @@ class Integration(pulumi.CustomResource):
                **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                Not all methods are compatible with all `AWS` integrations.
                e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        :param pulumi.Input[_builtins.str] integration_target: The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
         :param pulumi.Input[_builtins.str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_templates: Map of the integration's request templates.
         :param pulumi.Input[_builtins.str] resource_id: API resource ID.
+        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+               Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API.
         :param pulumi.Input[_builtins.int] timeout_milliseconds: Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
         :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']] tls_config: TLS configuration. See below.
@@ -1162,11 +1344,13 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["credentials"] = credentials
         __props__.__dict__["http_method"] = http_method
         __props__.__dict__["integration_http_method"] = integration_http_method
+        __props__.__dict__["integration_target"] = integration_target
         __props__.__dict__["passthrough_behavior"] = passthrough_behavior
         __props__.__dict__["region"] = region
         __props__.__dict__["request_parameters"] = request_parameters
         __props__.__dict__["request_templates"] = request_templates
         __props__.__dict__["resource_id"] = resource_id
+        __props__.__dict__["response_transfer_mode"] = response_transfer_mode
         __props__.__dict__["rest_api"] = rest_api
         __props__.__dict__["timeout_milliseconds"] = timeout_milliseconds
         __props__.__dict__["tls_config"] = tls_config
@@ -1244,6 +1428,14 @@ class Integration(pulumi.CustomResource):
         return pulumi.get(self, "integration_http_method")
 
     @_builtins.property
+    @pulumi.getter(name="integrationTarget")
+    def integration_target(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+        """
+        return pulumi.get(self, "integration_target")
+
+    @_builtins.property
     @pulumi.getter(name="passthroughBehavior")
     def passthrough_behavior(self) -> pulumi.Output[_builtins.str]:
         """
@@ -1283,6 +1475,15 @@ class Integration(pulumi.CustomResource):
         API resource ID.
         """
         return pulumi.get(self, "resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="responseTransferMode")
+    def response_transfer_mode(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+        """
+        return pulumi.get(self, "response_transfer_mode")
 
     @_builtins.property
     @pulumi.getter(name="restApi")

@@ -208,8 +208,6 @@ class TopicPolicy(pulumi.CustomResource):
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
 
-        console
-
         % pulumi import aws_sns_topic_policy.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
 
         :param str resource_name: The name of the resource.
@@ -276,8 +274,6 @@ class TopicPolicy(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
-
-        console
 
         % pulumi import aws_sns_topic_policy.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
 

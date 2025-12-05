@@ -2047,62 +2047,6 @@ public final class LambdaFunctions {
      * 
      * ### Function Configuration Reference
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import com.pulumi.aws.lambda.Function;
-     * import com.pulumi.aws.lambda.FunctionArgs;
-     * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
-     * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
-     * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         // Get existing function details
-     *         final var reference = LambdaFunctions.getFunction(GetFunctionArgs.builder()
-     *             .functionName("existing-function")
-     *             .build());
-     * 
-     *         // Create new function with similar configuration
-     *         var example = new Function("example", FunctionArgs.builder()
-     *             .code(new FileArchive("new-function.zip"))
-     *             .name("new-function")
-     *             .role(reference.role())
-     *             .handler(reference.handler())
-     *             .runtime(reference.runtime())
-     *             .memorySize(reference.memorySize())
-     *             .timeout(reference.timeout())
-     *             .architectures(reference.architectures())
-     *             .vpcConfig(FunctionVpcConfigArgs.builder()
-     *                 .subnetIds(reference.vpcConfig().subnetIds())
-     *                 .securityGroupIds(reference.vpcConfig().securityGroupIds())
-     *                 .build())
-     *             .environment(FunctionEnvironmentArgs.builder()
-     *                 .variables(reference.environment().variables())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      * ### Function Version Management
      * 
      * <pre>
@@ -2143,6 +2087,44 @@ public final class LambdaFunctions {
      *             Map.entry("specificVersion", version.version()),
      *             Map.entry("latestVersion", latest.version()),
      *             Map.entry("codeDifference", version.codeSha256() != latest.codeSha256())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Accessing Durable Configuration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var durableFunction = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-durable-function")
+     *             .build());
+     * 
+     *         ctx.export("durableSettings", Map.ofEntries(
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0)),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
      *         ));
      *     }
      * }
@@ -2242,62 +2224,6 @@ public final class LambdaFunctions {
      * 
      * ### Function Configuration Reference
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import com.pulumi.aws.lambda.Function;
-     * import com.pulumi.aws.lambda.FunctionArgs;
-     * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
-     * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
-     * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         // Get existing function details
-     *         final var reference = LambdaFunctions.getFunction(GetFunctionArgs.builder()
-     *             .functionName("existing-function")
-     *             .build());
-     * 
-     *         // Create new function with similar configuration
-     *         var example = new Function("example", FunctionArgs.builder()
-     *             .code(new FileArchive("new-function.zip"))
-     *             .name("new-function")
-     *             .role(reference.role())
-     *             .handler(reference.handler())
-     *             .runtime(reference.runtime())
-     *             .memorySize(reference.memorySize())
-     *             .timeout(reference.timeout())
-     *             .architectures(reference.architectures())
-     *             .vpcConfig(FunctionVpcConfigArgs.builder()
-     *                 .subnetIds(reference.vpcConfig().subnetIds())
-     *                 .securityGroupIds(reference.vpcConfig().securityGroupIds())
-     *                 .build())
-     *             .environment(FunctionEnvironmentArgs.builder()
-     *                 .variables(reference.environment().variables())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      * ### Function Version Management
      * 
      * <pre>
@@ -2338,6 +2264,44 @@ public final class LambdaFunctions {
      *             Map.entry("specificVersion", version.version()),
      *             Map.entry("latestVersion", latest.version()),
      *             Map.entry("codeDifference", version.codeSha256() != latest.codeSha256())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Accessing Durable Configuration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var durableFunction = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-durable-function")
+     *             .build());
+     * 
+     *         ctx.export("durableSettings", Map.ofEntries(
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0)),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
      *         ));
      *     }
      * }
@@ -2437,62 +2401,6 @@ public final class LambdaFunctions {
      * 
      * ### Function Configuration Reference
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import com.pulumi.aws.lambda.Function;
-     * import com.pulumi.aws.lambda.FunctionArgs;
-     * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
-     * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
-     * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         // Get existing function details
-     *         final var reference = LambdaFunctions.getFunction(GetFunctionArgs.builder()
-     *             .functionName("existing-function")
-     *             .build());
-     * 
-     *         // Create new function with similar configuration
-     *         var example = new Function("example", FunctionArgs.builder()
-     *             .code(new FileArchive("new-function.zip"))
-     *             .name("new-function")
-     *             .role(reference.role())
-     *             .handler(reference.handler())
-     *             .runtime(reference.runtime())
-     *             .memorySize(reference.memorySize())
-     *             .timeout(reference.timeout())
-     *             .architectures(reference.architectures())
-     *             .vpcConfig(FunctionVpcConfigArgs.builder()
-     *                 .subnetIds(reference.vpcConfig().subnetIds())
-     *                 .securityGroupIds(reference.vpcConfig().securityGroupIds())
-     *                 .build())
-     *             .environment(FunctionEnvironmentArgs.builder()
-     *                 .variables(reference.environment().variables())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      * ### Function Version Management
      * 
      * <pre>
@@ -2533,6 +2441,44 @@ public final class LambdaFunctions {
      *             Map.entry("specificVersion", version.version()),
      *             Map.entry("latestVersion", latest.version()),
      *             Map.entry("codeDifference", version.codeSha256() != latest.codeSha256())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Accessing Durable Configuration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var durableFunction = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-durable-function")
+     *             .build());
+     * 
+     *         ctx.export("durableSettings", Map.ofEntries(
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0)),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
      *         ));
      *     }
      * }
@@ -2632,62 +2578,6 @@ public final class LambdaFunctions {
      * 
      * ### Function Configuration Reference
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import com.pulumi.aws.lambda.Function;
-     * import com.pulumi.aws.lambda.FunctionArgs;
-     * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
-     * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
-     * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         // Get existing function details
-     *         final var reference = LambdaFunctions.getFunction(GetFunctionArgs.builder()
-     *             .functionName("existing-function")
-     *             .build());
-     * 
-     *         // Create new function with similar configuration
-     *         var example = new Function("example", FunctionArgs.builder()
-     *             .code(new FileArchive("new-function.zip"))
-     *             .name("new-function")
-     *             .role(reference.role())
-     *             .handler(reference.handler())
-     *             .runtime(reference.runtime())
-     *             .memorySize(reference.memorySize())
-     *             .timeout(reference.timeout())
-     *             .architectures(reference.architectures())
-     *             .vpcConfig(FunctionVpcConfigArgs.builder()
-     *                 .subnetIds(reference.vpcConfig().subnetIds())
-     *                 .securityGroupIds(reference.vpcConfig().securityGroupIds())
-     *                 .build())
-     *             .environment(FunctionEnvironmentArgs.builder()
-     *                 .variables(reference.environment().variables())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      * ### Function Version Management
      * 
      * <pre>
@@ -2728,6 +2618,44 @@ public final class LambdaFunctions {
      *             Map.entry("specificVersion", version.version()),
      *             Map.entry("latestVersion", latest.version()),
      *             Map.entry("codeDifference", version.codeSha256() != latest.codeSha256())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Accessing Durable Configuration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var durableFunction = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-durable-function")
+     *             .build());
+     * 
+     *         ctx.export("durableSettings", Map.ofEntries(
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0)),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
      *         ));
      *     }
      * }
@@ -2827,62 +2755,6 @@ public final class LambdaFunctions {
      * 
      * ### Function Configuration Reference
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import com.pulumi.aws.lambda.Function;
-     * import com.pulumi.aws.lambda.FunctionArgs;
-     * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
-     * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
-     * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         // Get existing function details
-     *         final var reference = LambdaFunctions.getFunction(GetFunctionArgs.builder()
-     *             .functionName("existing-function")
-     *             .build());
-     * 
-     *         // Create new function with similar configuration
-     *         var example = new Function("example", FunctionArgs.builder()
-     *             .code(new FileArchive("new-function.zip"))
-     *             .name("new-function")
-     *             .role(reference.role())
-     *             .handler(reference.handler())
-     *             .runtime(reference.runtime())
-     *             .memorySize(reference.memorySize())
-     *             .timeout(reference.timeout())
-     *             .architectures(reference.architectures())
-     *             .vpcConfig(FunctionVpcConfigArgs.builder()
-     *                 .subnetIds(reference.vpcConfig().subnetIds())
-     *                 .securityGroupIds(reference.vpcConfig().securityGroupIds())
-     *                 .build())
-     *             .environment(FunctionEnvironmentArgs.builder()
-     *                 .variables(reference.environment().variables())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      * ### Function Version Management
      * 
      * <pre>
@@ -2923,6 +2795,44 @@ public final class LambdaFunctions {
      *             Map.entry("specificVersion", version.version()),
      *             Map.entry("latestVersion", latest.version()),
      *             Map.entry("codeDifference", version.codeSha256() != latest.codeSha256())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Accessing Durable Configuration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var durableFunction = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-durable-function")
+     *             .build());
+     * 
+     *         ctx.export("durableSettings", Map.ofEntries(
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0)),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
      *         ));
      *     }
      * }

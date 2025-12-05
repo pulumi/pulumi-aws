@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Msk
     ///     var example = new Aws.Msk.Cluster("example", new()
     ///     {
     ///         ClusterName = "example",
-    ///         KafkaVersion = "3.2.0",
+    ///         KafkaVersion = "3.8.x",
     ///         NumberOfBrokerNodes = 3,
     ///         BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
     ///         {
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Msk
     ///     var example = new Aws.Msk.Cluster("example", new()
     ///     {
     ///         ClusterName = "example",
-    ///         KafkaVersion = "2.7.1",
+    ///         KafkaVersion = "3.8.x",
     ///         NumberOfBrokerNodes = 3,
     ///         BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
     ///         {
@@ -406,6 +406,12 @@ namespace Pulumi.Aws.Msk
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        /// </summary>
+        [Output("rebalancing")]
+        public Output<Outputs.ClusterRebalancing> Rebalancing { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -546,6 +552,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
+
+        /// <summary>
+        /// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        /// </summary>
+        [Input("rebalancing")]
+        public Input<Inputs.ClusterRebalancingArgs>? Rebalancing { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -716,6 +728,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringGetArgs>? OpenMonitoring { get; set; }
+
+        /// <summary>
+        /// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        /// </summary>
+        [Input("rebalancing")]
+        public Input<Inputs.ClusterRebalancingGetArgs>? Rebalancing { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

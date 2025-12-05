@@ -458,13 +458,9 @@ class Account(pulumi.CustomResource):
 
         Using `pulumi import`, import the AWS member account using the `account_id`. For example:
 
-        console
-
         % pulumi import aws_organizations_account.example 111111111111
 
         To import accounts that have set iam_user_access_to_billing, use the following:
-
-        console
 
         % pulumi import aws_organizations_account.example 111111111111_ALLOW
 
@@ -541,13 +537,9 @@ class Account(pulumi.CustomResource):
 
         Using `pulumi import`, import the AWS member account using the `account_id`. For example:
 
-        console
-
         % pulumi import aws_organizations_account.example 111111111111
 
         To import accounts that have set iam_user_access_to_billing, use the following:
-
-        console
 
         % pulumi import aws_organizations_account.example 111111111111_ALLOW
 

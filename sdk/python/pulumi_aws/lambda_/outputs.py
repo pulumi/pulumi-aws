@@ -18,6 +18,12 @@ from ._enums import *
 
 __all__ = [
     'AliasRoutingConfig',
+    'CapacityProviderCapacityProviderScalingConfig',
+    'CapacityProviderCapacityProviderScalingConfigScalingPolicy',
+    'CapacityProviderInstanceRequirement',
+    'CapacityProviderPermissionsConfig',
+    'CapacityProviderTimeouts',
+    'CapacityProviderVpcConfig',
     'CodeSigningConfigAllowedPublishers',
     'CodeSigningConfigPolicies',
     'EventSourceMappingAmazonManagedKafkaEventSourceConfig',
@@ -38,7 +44,10 @@ __all__ = [
     'EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig',
     'EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig',
     'EventSourceMappingSourceAccessConfiguration',
+    'FunctionCapacityProviderConfig',
+    'FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig',
     'FunctionDeadLetterConfig',
+    'FunctionDurableConfig',
     'FunctionEnvironment',
     'FunctionEphemeralStorage',
     'FunctionEventInvokeConfigDestinationConfig',
@@ -48,16 +57,21 @@ __all__ = [
     'FunctionImageConfig',
     'FunctionLoggingConfig',
     'FunctionSnapStart',
+    'FunctionTenancyConfig',
     'FunctionTracingConfig',
     'FunctionUrlCors',
     'FunctionVpcConfig',
     'GetCodeSigningConfigAllowedPublisherResult',
     'GetCodeSigningConfigPolicyResult',
+    'GetFunctionCapacityProviderConfigResult',
+    'GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigResult',
     'GetFunctionDeadLetterConfigResult',
+    'GetFunctionDurableConfigResult',
     'GetFunctionEnvironmentResult',
     'GetFunctionEphemeralStorageResult',
     'GetFunctionFileSystemConfigResult',
     'GetFunctionLoggingConfigResult',
+    'GetFunctionTenancyConfigResult',
     'GetFunctionTracingConfigResult',
     'GetFunctionUrlCorResult',
     'GetFunctionVpcConfigResult',
@@ -97,6 +111,296 @@ class AliasRoutingConfig(dict):
         Map that defines the proportion of events that should be sent to different versions of a Lambda function.
         """
         return pulumi.get(self, "additional_version_weights")
+
+
+@pulumi.output_type
+class CapacityProviderCapacityProviderScalingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxVcpuCount":
+            suggest = "max_vcpu_count"
+        elif key == "scalingMode":
+            suggest = "scaling_mode"
+        elif key == "scalingPolicies":
+            suggest = "scaling_policies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderCapacityProviderScalingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderCapacityProviderScalingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderCapacityProviderScalingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_vcpu_count: _builtins.int,
+                 scaling_mode: _builtins.str,
+                 scaling_policies: Sequence['outputs.CapacityProviderCapacityProviderScalingConfigScalingPolicy']):
+        """
+        :param _builtins.str scaling_mode: The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+        :param Sequence['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs'] scaling_policies: List of scaling policies. See Scaling Policies below.
+        """
+        pulumi.set(__self__, "max_vcpu_count", max_vcpu_count)
+        pulumi.set(__self__, "scaling_mode", scaling_mode)
+        pulumi.set(__self__, "scaling_policies", scaling_policies)
+
+    @_builtins.property
+    @pulumi.getter(name="maxVcpuCount")
+    def max_vcpu_count(self) -> _builtins.int:
+        return pulumi.get(self, "max_vcpu_count")
+
+    @_builtins.property
+    @pulumi.getter(name="scalingMode")
+    def scaling_mode(self) -> _builtins.str:
+        """
+        The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+        """
+        return pulumi.get(self, "scaling_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="scalingPolicies")
+    def scaling_policies(self) -> Sequence['outputs.CapacityProviderCapacityProviderScalingConfigScalingPolicy']:
+        """
+        List of scaling policies. See Scaling Policies below.
+        """
+        return pulumi.get(self, "scaling_policies")
+
+
+@pulumi.output_type
+class CapacityProviderCapacityProviderScalingConfigScalingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedMetricType":
+            suggest = "predefined_metric_type"
+        elif key == "targetValue":
+            suggest = "target_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderCapacityProviderScalingConfigScalingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderCapacityProviderScalingConfigScalingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderCapacityProviderScalingConfigScalingPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 predefined_metric_type: _builtins.str,
+                 target_value: _builtins.float):
+        """
+        :param _builtins.str predefined_metric_type: The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+        :param _builtins.float target_value: The target value for the scaling policy.
+        """
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        pulumi.set(__self__, "target_value", target_value)
+
+    @_builtins.property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> _builtins.str:
+        """
+        The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+        """
+        return pulumi.get(self, "predefined_metric_type")
+
+    @_builtins.property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> _builtins.float:
+        """
+        The target value for the scaling policy.
+        """
+        return pulumi.get(self, "target_value")
+
+
+@pulumi.output_type
+class CapacityProviderInstanceRequirement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedInstanceTypes":
+            suggest = "allowed_instance_types"
+        elif key == "excludedInstanceTypes":
+            suggest = "excluded_instance_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderInstanceRequirement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderInstanceRequirement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderInstanceRequirement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_instance_types: Sequence[_builtins.str],
+                 architectures: Sequence[_builtins.str],
+                 excluded_instance_types: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] allowed_instance_types: List of allowed instance types.
+        :param Sequence[_builtins.str] architectures: List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+        :param Sequence[_builtins.str] excluded_instance_types: List of excluded instance types.
+        """
+        pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
+        pulumi.set(__self__, "architectures", architectures)
+        pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Sequence[_builtins.str]:
+        """
+        List of allowed instance types.
+        """
+        return pulumi.get(self, "allowed_instance_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def architectures(self) -> Sequence[_builtins.str]:
+        """
+        List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+        """
+        return pulumi.get(self, "architectures")
+
+    @_builtins.property
+    @pulumi.getter(name="excludedInstanceTypes")
+    def excluded_instance_types(self) -> Sequence[_builtins.str]:
+        """
+        List of excluded instance types.
+        """
+        return pulumi.get(self, "excluded_instance_types")
+
+
+@pulumi.output_type
+class CapacityProviderPermissionsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityProviderOperatorRoleArn":
+            suggest = "capacity_provider_operator_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderPermissionsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderPermissionsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderPermissionsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_provider_operator_role_arn: _builtins.str):
+        """
+        :param _builtins.str capacity_provider_operator_role_arn: The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+        """
+        pulumi.set(__self__, "capacity_provider_operator_role_arn", capacity_provider_operator_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderOperatorRoleArn")
+    def capacity_provider_operator_role_arn(self) -> _builtins.str:
+        """
+        The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+        """
+        return pulumi.get(self, "capacity_provider_operator_role_arn")
+
+
+@pulumi.output_type
+class CapacityProviderTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class CapacityProviderVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnet_ids: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] security_group_ids: List of security group IDs for the VPC.
+        :param Sequence[_builtins.str] subnet_ids: List of subnet IDs for the VPC.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        List of security group IDs for the VPC.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        List of subnet IDs for the VPC.
+        """
+        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type
@@ -849,6 +1153,104 @@ class EventSourceMappingSourceAccessConfiguration(dict):
 
 
 @pulumi.output_type
+class FunctionCapacityProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaManagedInstancesCapacityProviderConfig":
+            suggest = "lambda_managed_instances_capacity_provider_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionCapacityProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionCapacityProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionCapacityProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_managed_instances_capacity_provider_config: 'outputs.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig'):
+        """
+        :param 'FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs' lambda_managed_instances_capacity_provider_config: Configuration block for Lambda Managed Instances Capacity Provider. See below.
+        """
+        pulumi.set(__self__, "lambda_managed_instances_capacity_provider_config", lambda_managed_instances_capacity_provider_config)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaManagedInstancesCapacityProviderConfig")
+    def lambda_managed_instances_capacity_provider_config(self) -> 'outputs.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig':
+        """
+        Configuration block for Lambda Managed Instances Capacity Provider. See below.
+        """
+        return pulumi.get(self, "lambda_managed_instances_capacity_provider_config")
+
+
+@pulumi.output_type
+class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityProviderArn":
+            suggest = "capacity_provider_arn"
+        elif key == "executionEnvironmentMemoryGibPerVcpu":
+            suggest = "execution_environment_memory_gib_per_vcpu"
+        elif key == "perExecutionEnvironmentMaxConcurrency":
+            suggest = "per_execution_environment_max_concurrency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_provider_arn: _builtins.str,
+                 execution_environment_memory_gib_per_vcpu: Optional[_builtins.float] = None,
+                 per_execution_environment_max_concurrency: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str capacity_provider_arn: ARN of the Capacity Provider.
+        :param _builtins.float execution_environment_memory_gib_per_vcpu: Memory GiB per vCPU for the execution environment.
+        :param _builtins.int per_execution_environment_max_concurrency: Maximum concurrency per execution environment.
+        """
+        pulumi.set(__self__, "capacity_provider_arn", capacity_provider_arn)
+        if execution_environment_memory_gib_per_vcpu is not None:
+            pulumi.set(__self__, "execution_environment_memory_gib_per_vcpu", execution_environment_memory_gib_per_vcpu)
+        if per_execution_environment_max_concurrency is not None:
+            pulumi.set(__self__, "per_execution_environment_max_concurrency", per_execution_environment_max_concurrency)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderArn")
+    def capacity_provider_arn(self) -> _builtins.str:
+        """
+        ARN of the Capacity Provider.
+        """
+        return pulumi.get(self, "capacity_provider_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="executionEnvironmentMemoryGibPerVcpu")
+    def execution_environment_memory_gib_per_vcpu(self) -> Optional[_builtins.float]:
+        """
+        Memory GiB per vCPU for the execution environment.
+        """
+        return pulumi.get(self, "execution_environment_memory_gib_per_vcpu")
+
+    @_builtins.property
+    @pulumi.getter(name="perExecutionEnvironmentMaxConcurrency")
+    def per_execution_environment_max_concurrency(self) -> Optional[_builtins.int]:
+        """
+        Maximum concurrency per execution environment.
+        """
+        return pulumi.get(self, "per_execution_environment_max_concurrency")
+
+
+@pulumi.output_type
 class FunctionDeadLetterConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -881,6 +1283,55 @@ class FunctionDeadLetterConfig(dict):
         ARN of an SNS topic or SQS queue to notify when an invocation fails.
         """
         return pulumi.get(self, "target_arn")
+
+
+@pulumi.output_type
+class FunctionDurableConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionTimeout":
+            suggest = "execution_timeout"
+        elif key == "retentionPeriod":
+            suggest = "retention_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionDurableConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionDurableConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionDurableConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_timeout: _builtins.int,
+                 retention_period: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int execution_timeout: Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
+        :param _builtins.int retention_period: Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+        """
+        pulumi.set(__self__, "execution_timeout", execution_timeout)
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+
+    @_builtins.property
+    @pulumi.getter(name="executionTimeout")
+    def execution_timeout(self) -> _builtins.int:
+        """
+        Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
+        """
+        return pulumi.get(self, "execution_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> Optional[_builtins.int]:
+        """
+        Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+        """
+        return pulumi.get(self, "retention_period")
 
 
 @pulumi.output_type
@@ -1242,6 +1693,41 @@ class FunctionSnapStart(dict):
 
 
 @pulumi.output_type
+class FunctionTenancyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tenantIsolationMode":
+            suggest = "tenant_isolation_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionTenancyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionTenancyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionTenancyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tenant_isolation_mode: _builtins.str):
+        """
+        :param _builtins.str tenant_isolation_mode: Tenant Isolation Mode. Valid values: `PER_TENANT`.
+        """
+        pulumi.set(__self__, "tenant_isolation_mode", tenant_isolation_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantIsolationMode")
+    def tenant_isolation_mode(self) -> _builtins.str:
+        """
+        Tenant Isolation Mode. Valid values: `PER_TENANT`.
+        """
+        return pulumi.get(self, "tenant_isolation_mode")
+
+
+@pulumi.output_type
 class FunctionTracingConfig(dict):
     def __init__(__self__, *,
                  mode: _builtins.str):
@@ -1478,6 +1964,64 @@ class GetCodeSigningConfigPolicyResult(dict):
 
 
 @pulumi.output_type
+class GetFunctionCapacityProviderConfigResult(dict):
+    def __init__(__self__, *,
+                 lambda_managed_instances_capacity_provider_configs: Sequence['outputs.GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigResult']):
+        """
+        :param Sequence['GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs'] lambda_managed_instances_capacity_provider_configs: Configuration block for Lambda Managed Instances Capacity Provider.
+        """
+        pulumi.set(__self__, "lambda_managed_instances_capacity_provider_configs", lambda_managed_instances_capacity_provider_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaManagedInstancesCapacityProviderConfigs")
+    def lambda_managed_instances_capacity_provider_configs(self) -> Sequence['outputs.GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigResult']:
+        """
+        Configuration block for Lambda Managed Instances Capacity Provider.
+        """
+        return pulumi.get(self, "lambda_managed_instances_capacity_provider_configs")
+
+
+@pulumi.output_type
+class GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigResult(dict):
+    def __init__(__self__, *,
+                 capacity_provider_arn: _builtins.str,
+                 execution_environment_memory_gib_per_vcpu: _builtins.float,
+                 per_execution_environment_max_concurrency: _builtins.int):
+        """
+        :param _builtins.str capacity_provider_arn: ARN of the Capacity Provider.
+        :param _builtins.float execution_environment_memory_gib_per_vcpu: Memory GiB per vCPU for the execution environment.
+        :param _builtins.int per_execution_environment_max_concurrency: Maximum concurrency per execution environment.
+        """
+        pulumi.set(__self__, "capacity_provider_arn", capacity_provider_arn)
+        pulumi.set(__self__, "execution_environment_memory_gib_per_vcpu", execution_environment_memory_gib_per_vcpu)
+        pulumi.set(__self__, "per_execution_environment_max_concurrency", per_execution_environment_max_concurrency)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderArn")
+    def capacity_provider_arn(self) -> _builtins.str:
+        """
+        ARN of the Capacity Provider.
+        """
+        return pulumi.get(self, "capacity_provider_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="executionEnvironmentMemoryGibPerVcpu")
+    def execution_environment_memory_gib_per_vcpu(self) -> _builtins.float:
+        """
+        Memory GiB per vCPU for the execution environment.
+        """
+        return pulumi.get(self, "execution_environment_memory_gib_per_vcpu")
+
+    @_builtins.property
+    @pulumi.getter(name="perExecutionEnvironmentMaxConcurrency")
+    def per_execution_environment_max_concurrency(self) -> _builtins.int:
+        """
+        Maximum concurrency per execution environment.
+        """
+        return pulumi.get(self, "per_execution_environment_max_concurrency")
+
+
+@pulumi.output_type
 class GetFunctionDeadLetterConfigResult(dict):
     def __init__(__self__, *,
                  target_arn: _builtins.str):
@@ -1493,6 +2037,35 @@ class GetFunctionDeadLetterConfigResult(dict):
         ARN of an SNS topic or SQS queue to notify when an invocation fails.
         """
         return pulumi.get(self, "target_arn")
+
+
+@pulumi.output_type
+class GetFunctionDurableConfigResult(dict):
+    def __init__(__self__, *,
+                 execution_timeout: _builtins.int,
+                 retention_period: _builtins.int):
+        """
+        :param _builtins.int execution_timeout: Maximum execution time in seconds for the durable function.
+        :param _builtins.int retention_period: Number of days to retain the function's execution state.
+        """
+        pulumi.set(__self__, "execution_timeout", execution_timeout)
+        pulumi.set(__self__, "retention_period", retention_period)
+
+    @_builtins.property
+    @pulumi.getter(name="executionTimeout")
+    def execution_timeout(self) -> _builtins.int:
+        """
+        Maximum execution time in seconds for the durable function.
+        """
+        return pulumi.get(self, "execution_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> _builtins.int:
+        """
+        Number of days to retain the function's execution state.
+        """
+        return pulumi.get(self, "retention_period")
 
 
 @pulumi.output_type
@@ -1609,6 +2182,24 @@ class GetFunctionLoggingConfigResult(dict):
         Detail level of the Lambda platform event logs sent to CloudWatch.
         """
         return pulumi.get(self, "system_log_level")
+
+
+@pulumi.output_type
+class GetFunctionTenancyConfigResult(dict):
+    def __init__(__self__, *,
+                 tenant_isolation_mode: _builtins.str):
+        """
+        :param _builtins.str tenant_isolation_mode: (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+        """
+        pulumi.set(__self__, "tenant_isolation_mode", tenant_isolation_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantIsolationMode")
+    def tenant_isolation_mode(self) -> _builtins.str:
+        """
+        (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+        """
+        return pulumi.get(self, "tenant_isolation_mode")
 
 
 @pulumi.output_type

@@ -5,10 +5,10 @@ Subject: [PATCH] Fix elbv2 target group read to workaround #2517
 
 
 diff --git a/internal/service/elbv2/target_group.go b/internal/service/elbv2/target_group.go
-index d5b051f0e2d..bbdc4750c42 100644
+index a7f79cadaed..61be0f34377 100644
 --- a/internal/service/elbv2/target_group.go
 +++ b/internal/service/elbv2/target_group.go
-@@ -633,19 +633,19 @@ func resourceTargetGroupRead(ctx context.Context, d *schema.ResourceData, meta a
+@@ -645,19 +645,19 @@ func resourceTargetGroupRead(ctx context.Context, d *schema.ResourceData, meta a
  		return sdkdiag.AppendErrorf(diags, "reading ELBv2 Target Group (%s) attributes: %s", d.Id(), err)
  	}
  
@@ -32,7 +32,7 @@ index d5b051f0e2d..bbdc4750c42 100644
  		return sdkdiag.AppendErrorf(diags, "setting target_health_state: %s", err)
  	}
  
-@@ -1517,3 +1517,13 @@ func targetGroupRuntimeValidation(d *schema.ResourceData, diags *diag.Diagnostic
+@@ -1529,3 +1529,13 @@ func targetGroupRuntimeValidation(d *schema.ResourceData, diags *diag.Diagnostic
  		}
  	}
  }

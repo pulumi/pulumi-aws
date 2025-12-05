@@ -83,8 +83,6 @@ import (
 //
 // Using `pulumi import`, import Security Hub automation rule using their ARN. For example:
 //
-// console
-//
 // % pulumi import aws_securityhub_automation_rule.example arn:aws:securityhub:us-west-2:123456789012:automation-rule/473eddde-f5c4-4ae5-85c7-e922f271fffc
 type AutomationRule struct {
 	pulumi.CustomResourceState

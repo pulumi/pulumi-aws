@@ -89,8 +89,6 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// With an account target:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_organizations_policy_attachment.example 123456789012:p-12345678
     /// </summary>
     [AwsResourceType("aws:organizations/policyAttachment:PolicyAttachment")]

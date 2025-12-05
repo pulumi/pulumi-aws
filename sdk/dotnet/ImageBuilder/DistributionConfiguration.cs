@@ -69,8 +69,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_imagebuilder_distribution_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
     /// </summary>
     [AwsResourceType("aws:imagebuilder/distributionConfiguration:DistributionConfiguration")]

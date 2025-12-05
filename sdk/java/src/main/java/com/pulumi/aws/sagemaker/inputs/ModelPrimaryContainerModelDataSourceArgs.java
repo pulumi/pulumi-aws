@@ -16,14 +16,14 @@ public final class ModelPrimaryContainerModelDataSourceArgs extends com.pulumi.r
     public static final ModelPrimaryContainerModelDataSourceArgs Empty = new ModelPrimaryContainerModelDataSourceArgs();
 
     /**
-     * The S3 location of model data to deploy.
+     * S3 location of model data to deploy. See S3 Data Source.
      * 
      */
     @Import(name="s3DataSources", required=true)
     private Output<List<ModelPrimaryContainerModelDataSourceS3DataSourceArgs>> s3DataSources;
 
     /**
-     * @return The S3 location of model data to deploy.
+     * @return S3 location of model data to deploy. See S3 Data Source.
      * 
      */
     public Output<List<ModelPrimaryContainerModelDataSourceS3DataSourceArgs>> s3DataSources() {
@@ -55,7 +55,7 @@ public final class ModelPrimaryContainerModelDataSourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param s3DataSources The S3 location of model data to deploy.
+         * @param s3DataSources S3 location of model data to deploy. See S3 Data Source.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ModelPrimaryContainerModelDataSourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param s3DataSources The S3 location of model data to deploy.
+         * @param s3DataSources S3 location of model data to deploy. See S3 Data Source.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class ModelPrimaryContainerModelDataSourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param s3DataSources The S3 location of model data to deploy.
+         * @param s3DataSources S3 location of model data to deploy. See S3 Data Source.
          * 
          * @return builder
          * 

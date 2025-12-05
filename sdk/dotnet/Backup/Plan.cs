@@ -96,6 +96,12 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableArray<Outputs.PlanRule>> Rules { get; private set; } = null!;
 
         /// <summary>
+        /// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+        /// </summary>
+        [Output("scanSettings")]
+        public Output<ImmutableArray<Outputs.PlanScanSetting>> ScanSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Metadata that you can assign to help organize the plans you create. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -195,6 +201,18 @@ namespace Pulumi.Aws.Backup
             set => _rules = value;
         }
 
+        [Input("scanSettings")]
+        private InputList<Inputs.PlanScanSettingArgs>? _scanSettings;
+
+        /// <summary>
+        /// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+        /// </summary>
+        public InputList<Inputs.PlanScanSettingArgs> ScanSettings
+        {
+            get => _scanSettings ?? (_scanSettings = new InputList<Inputs.PlanScanSettingArgs>());
+            set => _scanSettings = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -255,6 +273,18 @@ namespace Pulumi.Aws.Backup
         {
             get => _rules ?? (_rules = new InputList<Inputs.PlanRuleGetArgs>());
             set => _rules = value;
+        }
+
+        [Input("scanSettings")]
+        private InputList<Inputs.PlanScanSettingGetArgs>? _scanSettings;
+
+        /// <summary>
+        /// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+        /// </summary>
+        public InputList<Inputs.PlanScanSettingGetArgs> ScanSettings
+        {
+            get => _scanSettings ?? (_scanSettings = new InputList<Inputs.PlanScanSettingGetArgs>());
+            set => _scanSettings = value;
         }
 
         [Input("tags")]

@@ -665,12 +665,16 @@ type PlanRule struct {
 	RecoveryPointTags map[string]string `pulumi:"recoveryPointTags"`
 	// An display name for a backup rule.
 	RuleName string `pulumi:"ruleName"`
+	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+	ScanActions []PlanRuleScanAction `pulumi:"scanActions"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
 	Schedule *string `pulumi:"schedule"`
 	// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
 	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
 	// The amount of time in minutes before beginning a backup.
 	StartWindow *int `pulumi:"startWindow"`
+	// The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+	TargetLogicallyAirGappedBackupVaultArn *string `pulumi:"targetLogicallyAirGappedBackupVaultArn"`
 	// The name of a logical container where backups are stored.
 	TargetVaultName string `pulumi:"targetVaultName"`
 }
@@ -699,12 +703,16 @@ type PlanRuleArgs struct {
 	RecoveryPointTags pulumi.StringMapInput `pulumi:"recoveryPointTags"`
 	// An display name for a backup rule.
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
+	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+	ScanActions PlanRuleScanActionArrayInput `pulumi:"scanActions"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
 	Schedule pulumi.StringPtrInput `pulumi:"schedule"`
 	// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
 	ScheduleExpressionTimezone pulumi.StringPtrInput `pulumi:"scheduleExpressionTimezone"`
 	// The amount of time in minutes before beginning a backup.
 	StartWindow pulumi.IntPtrInput `pulumi:"startWindow"`
+	// The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+	TargetLogicallyAirGappedBackupVaultArn pulumi.StringPtrInput `pulumi:"targetLogicallyAirGappedBackupVaultArn"`
 	// The name of a logical container where backups are stored.
 	TargetVaultName pulumi.StringInput `pulumi:"targetVaultName"`
 }
@@ -790,6 +798,11 @@ func (o PlanRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanRule) string { return v.RuleName }).(pulumi.StringOutput)
 }
 
+// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+func (o PlanRuleOutput) ScanActions() PlanRuleScanActionArrayOutput {
+	return o.ApplyT(func(v PlanRule) []PlanRuleScanAction { return v.ScanActions }).(PlanRuleScanActionArrayOutput)
+}
+
 // A CRON expression specifying when AWS Backup initiates a backup job.
 func (o PlanRuleOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanRule) *string { return v.Schedule }).(pulumi.StringPtrOutput)
@@ -803,6 +816,11 @@ func (o PlanRuleOutput) ScheduleExpressionTimezone() pulumi.StringPtrOutput {
 // The amount of time in minutes before beginning a backup.
 func (o PlanRuleOutput) StartWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRule) *int { return v.StartWindow }).(pulumi.IntPtrOutput)
+}
+
+// The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+func (o PlanRuleOutput) TargetLogicallyAirGappedBackupVaultArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanRule) *string { return v.TargetLogicallyAirGappedBackupVaultArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of a logical container where backups are stored.
@@ -1284,6 +1302,227 @@ func (o PlanRuleLifecyclePtrOutput) OptInToArchiveForSupportedResources() pulumi
 		}
 		return v.OptInToArchiveForSupportedResources
 	}).(pulumi.BoolPtrOutput)
+}
+
+type PlanRuleScanAction struct {
+	// Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
+	MalwareScanner string `pulumi:"malwareScanner"`
+	// Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
+	ScanMode string `pulumi:"scanMode"`
+}
+
+// PlanRuleScanActionInput is an input type that accepts PlanRuleScanActionArgs and PlanRuleScanActionOutput values.
+// You can construct a concrete instance of `PlanRuleScanActionInput` via:
+//
+//	PlanRuleScanActionArgs{...}
+type PlanRuleScanActionInput interface {
+	pulumi.Input
+
+	ToPlanRuleScanActionOutput() PlanRuleScanActionOutput
+	ToPlanRuleScanActionOutputWithContext(context.Context) PlanRuleScanActionOutput
+}
+
+type PlanRuleScanActionArgs struct {
+	// Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
+	MalwareScanner pulumi.StringInput `pulumi:"malwareScanner"`
+	// Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
+	ScanMode pulumi.StringInput `pulumi:"scanMode"`
+}
+
+func (PlanRuleScanActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRuleScanAction)(nil)).Elem()
+}
+
+func (i PlanRuleScanActionArgs) ToPlanRuleScanActionOutput() PlanRuleScanActionOutput {
+	return i.ToPlanRuleScanActionOutputWithContext(context.Background())
+}
+
+func (i PlanRuleScanActionArgs) ToPlanRuleScanActionOutputWithContext(ctx context.Context) PlanRuleScanActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleScanActionOutput)
+}
+
+// PlanRuleScanActionArrayInput is an input type that accepts PlanRuleScanActionArray and PlanRuleScanActionArrayOutput values.
+// You can construct a concrete instance of `PlanRuleScanActionArrayInput` via:
+//
+//	PlanRuleScanActionArray{ PlanRuleScanActionArgs{...} }
+type PlanRuleScanActionArrayInput interface {
+	pulumi.Input
+
+	ToPlanRuleScanActionArrayOutput() PlanRuleScanActionArrayOutput
+	ToPlanRuleScanActionArrayOutputWithContext(context.Context) PlanRuleScanActionArrayOutput
+}
+
+type PlanRuleScanActionArray []PlanRuleScanActionInput
+
+func (PlanRuleScanActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanRuleScanAction)(nil)).Elem()
+}
+
+func (i PlanRuleScanActionArray) ToPlanRuleScanActionArrayOutput() PlanRuleScanActionArrayOutput {
+	return i.ToPlanRuleScanActionArrayOutputWithContext(context.Background())
+}
+
+func (i PlanRuleScanActionArray) ToPlanRuleScanActionArrayOutputWithContext(ctx context.Context) PlanRuleScanActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleScanActionArrayOutput)
+}
+
+type PlanRuleScanActionOutput struct{ *pulumi.OutputState }
+
+func (PlanRuleScanActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRuleScanAction)(nil)).Elem()
+}
+
+func (o PlanRuleScanActionOutput) ToPlanRuleScanActionOutput() PlanRuleScanActionOutput {
+	return o
+}
+
+func (o PlanRuleScanActionOutput) ToPlanRuleScanActionOutputWithContext(ctx context.Context) PlanRuleScanActionOutput {
+	return o
+}
+
+// Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
+func (o PlanRuleScanActionOutput) MalwareScanner() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanRuleScanAction) string { return v.MalwareScanner }).(pulumi.StringOutput)
+}
+
+// Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
+func (o PlanRuleScanActionOutput) ScanMode() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanRuleScanAction) string { return v.ScanMode }).(pulumi.StringOutput)
+}
+
+type PlanRuleScanActionArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanRuleScanActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanRuleScanAction)(nil)).Elem()
+}
+
+func (o PlanRuleScanActionArrayOutput) ToPlanRuleScanActionArrayOutput() PlanRuleScanActionArrayOutput {
+	return o
+}
+
+func (o PlanRuleScanActionArrayOutput) ToPlanRuleScanActionArrayOutputWithContext(ctx context.Context) PlanRuleScanActionArrayOutput {
+	return o
+}
+
+func (o PlanRuleScanActionArrayOutput) Index(i pulumi.IntInput) PlanRuleScanActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanRuleScanAction {
+		return vs[0].([]PlanRuleScanAction)[vs[1].(int)]
+	}).(PlanRuleScanActionOutput)
+}
+
+type PlanScanSetting struct {
+	// Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
+	MalwareScanner string `pulumi:"malwareScanner"`
+	// List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+	// ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
+	ScannerRoleArn string `pulumi:"scannerRoleArn"`
+}
+
+// PlanScanSettingInput is an input type that accepts PlanScanSettingArgs and PlanScanSettingOutput values.
+// You can construct a concrete instance of `PlanScanSettingInput` via:
+//
+//	PlanScanSettingArgs{...}
+type PlanScanSettingInput interface {
+	pulumi.Input
+
+	ToPlanScanSettingOutput() PlanScanSettingOutput
+	ToPlanScanSettingOutputWithContext(context.Context) PlanScanSettingOutput
+}
+
+type PlanScanSettingArgs struct {
+	// Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
+	MalwareScanner pulumi.StringInput `pulumi:"malwareScanner"`
+	// List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	// ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
+	ScannerRoleArn pulumi.StringInput `pulumi:"scannerRoleArn"`
+}
+
+func (PlanScanSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanScanSetting)(nil)).Elem()
+}
+
+func (i PlanScanSettingArgs) ToPlanScanSettingOutput() PlanScanSettingOutput {
+	return i.ToPlanScanSettingOutputWithContext(context.Background())
+}
+
+func (i PlanScanSettingArgs) ToPlanScanSettingOutputWithContext(ctx context.Context) PlanScanSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanScanSettingOutput)
+}
+
+// PlanScanSettingArrayInput is an input type that accepts PlanScanSettingArray and PlanScanSettingArrayOutput values.
+// You can construct a concrete instance of `PlanScanSettingArrayInput` via:
+//
+//	PlanScanSettingArray{ PlanScanSettingArgs{...} }
+type PlanScanSettingArrayInput interface {
+	pulumi.Input
+
+	ToPlanScanSettingArrayOutput() PlanScanSettingArrayOutput
+	ToPlanScanSettingArrayOutputWithContext(context.Context) PlanScanSettingArrayOutput
+}
+
+type PlanScanSettingArray []PlanScanSettingInput
+
+func (PlanScanSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanScanSetting)(nil)).Elem()
+}
+
+func (i PlanScanSettingArray) ToPlanScanSettingArrayOutput() PlanScanSettingArrayOutput {
+	return i.ToPlanScanSettingArrayOutputWithContext(context.Background())
+}
+
+func (i PlanScanSettingArray) ToPlanScanSettingArrayOutputWithContext(ctx context.Context) PlanScanSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanScanSettingArrayOutput)
+}
+
+type PlanScanSettingOutput struct{ *pulumi.OutputState }
+
+func (PlanScanSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanScanSetting)(nil)).Elem()
+}
+
+func (o PlanScanSettingOutput) ToPlanScanSettingOutput() PlanScanSettingOutput {
+	return o
+}
+
+func (o PlanScanSettingOutput) ToPlanScanSettingOutputWithContext(ctx context.Context) PlanScanSettingOutput {
+	return o
+}
+
+// Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
+func (o PlanScanSettingOutput) MalwareScanner() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanScanSetting) string { return v.MalwareScanner }).(pulumi.StringOutput)
+}
+
+// List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
+func (o PlanScanSettingOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PlanScanSetting) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+// ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
+func (o PlanScanSettingOutput) ScannerRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanScanSetting) string { return v.ScannerRoleArn }).(pulumi.StringOutput)
+}
+
+type PlanScanSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanScanSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanScanSetting)(nil)).Elem()
+}
+
+func (o PlanScanSettingArrayOutput) ToPlanScanSettingArrayOutput() PlanScanSettingArrayOutput {
+	return o
+}
+
+func (o PlanScanSettingArrayOutput) ToPlanScanSettingArrayOutputWithContext(ctx context.Context) PlanScanSettingArrayOutput {
+	return o
+}
+
+func (o PlanScanSettingArrayOutput) Index(i pulumi.IntInput) PlanScanSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanScanSetting {
+		return vs[0].([]PlanScanSetting)[vs[1].(int)]
+	}).(PlanScanSettingOutput)
 }
 
 type ReportPlanReportDeliveryChannel struct {
@@ -3278,16 +3517,18 @@ func (o GetFrameworkControlScopeArrayOutput) Index(i pulumi.IntInput) GetFramewo
 }
 
 type GetPlanRule struct {
-	CompletionWindow           int                     `pulumi:"completionWindow"`
-	CopyActions                []GetPlanRuleCopyAction `pulumi:"copyActions"`
-	EnableContinuousBackup     bool                    `pulumi:"enableContinuousBackup"`
-	Lifecycles                 []GetPlanRuleLifecycle  `pulumi:"lifecycles"`
-	RecoveryPointTags          map[string]string       `pulumi:"recoveryPointTags"`
-	RuleName                   string                  `pulumi:"ruleName"`
-	Schedule                   string                  `pulumi:"schedule"`
-	ScheduleExpressionTimezone string                  `pulumi:"scheduleExpressionTimezone"`
-	StartWindow                int                     `pulumi:"startWindow"`
-	TargetVaultName            string                  `pulumi:"targetVaultName"`
+	CompletionWindow                       int                     `pulumi:"completionWindow"`
+	CopyActions                            []GetPlanRuleCopyAction `pulumi:"copyActions"`
+	EnableContinuousBackup                 bool                    `pulumi:"enableContinuousBackup"`
+	Lifecycles                             []GetPlanRuleLifecycle  `pulumi:"lifecycles"`
+	RecoveryPointTags                      map[string]string       `pulumi:"recoveryPointTags"`
+	RuleName                               string                  `pulumi:"ruleName"`
+	ScanActions                            []GetPlanRuleScanAction `pulumi:"scanActions"`
+	Schedule                               string                  `pulumi:"schedule"`
+	ScheduleExpressionTimezone             string                  `pulumi:"scheduleExpressionTimezone"`
+	StartWindow                            int                     `pulumi:"startWindow"`
+	TargetLogicallyAirGappedBackupVaultArn string                  `pulumi:"targetLogicallyAirGappedBackupVaultArn"`
+	TargetVaultName                        string                  `pulumi:"targetVaultName"`
 }
 
 // GetPlanRuleInput is an input type that accepts GetPlanRuleArgs and GetPlanRuleOutput values.
@@ -3302,16 +3543,18 @@ type GetPlanRuleInput interface {
 }
 
 type GetPlanRuleArgs struct {
-	CompletionWindow           pulumi.IntInput                 `pulumi:"completionWindow"`
-	CopyActions                GetPlanRuleCopyActionArrayInput `pulumi:"copyActions"`
-	EnableContinuousBackup     pulumi.BoolInput                `pulumi:"enableContinuousBackup"`
-	Lifecycles                 GetPlanRuleLifecycleArrayInput  `pulumi:"lifecycles"`
-	RecoveryPointTags          pulumi.StringMapInput           `pulumi:"recoveryPointTags"`
-	RuleName                   pulumi.StringInput              `pulumi:"ruleName"`
-	Schedule                   pulumi.StringInput              `pulumi:"schedule"`
-	ScheduleExpressionTimezone pulumi.StringInput              `pulumi:"scheduleExpressionTimezone"`
-	StartWindow                pulumi.IntInput                 `pulumi:"startWindow"`
-	TargetVaultName            pulumi.StringInput              `pulumi:"targetVaultName"`
+	CompletionWindow                       pulumi.IntInput                 `pulumi:"completionWindow"`
+	CopyActions                            GetPlanRuleCopyActionArrayInput `pulumi:"copyActions"`
+	EnableContinuousBackup                 pulumi.BoolInput                `pulumi:"enableContinuousBackup"`
+	Lifecycles                             GetPlanRuleLifecycleArrayInput  `pulumi:"lifecycles"`
+	RecoveryPointTags                      pulumi.StringMapInput           `pulumi:"recoveryPointTags"`
+	RuleName                               pulumi.StringInput              `pulumi:"ruleName"`
+	ScanActions                            GetPlanRuleScanActionArrayInput `pulumi:"scanActions"`
+	Schedule                               pulumi.StringInput              `pulumi:"schedule"`
+	ScheduleExpressionTimezone             pulumi.StringInput              `pulumi:"scheduleExpressionTimezone"`
+	StartWindow                            pulumi.IntInput                 `pulumi:"startWindow"`
+	TargetLogicallyAirGappedBackupVaultArn pulumi.StringInput              `pulumi:"targetLogicallyAirGappedBackupVaultArn"`
+	TargetVaultName                        pulumi.StringInput              `pulumi:"targetVaultName"`
 }
 
 func (GetPlanRuleArgs) ElementType() reflect.Type {
@@ -3389,6 +3632,10 @@ func (o GetPlanRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPlanRule) string { return v.RuleName }).(pulumi.StringOutput)
 }
 
+func (o GetPlanRuleOutput) ScanActions() GetPlanRuleScanActionArrayOutput {
+	return o.ApplyT(func(v GetPlanRule) []GetPlanRuleScanAction { return v.ScanActions }).(GetPlanRuleScanActionArrayOutput)
+}
+
 func (o GetPlanRuleOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPlanRule) string { return v.Schedule }).(pulumi.StringOutput)
 }
@@ -3399,6 +3646,10 @@ func (o GetPlanRuleOutput) ScheduleExpressionTimezone() pulumi.StringOutput {
 
 func (o GetPlanRuleOutput) StartWindow() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPlanRule) int { return v.StartWindow }).(pulumi.IntOutput)
+}
+
+func (o GetPlanRuleOutput) TargetLogicallyAirGappedBackupVaultArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlanRule) string { return v.TargetLogicallyAirGappedBackupVaultArn }).(pulumi.StringOutput)
 }
 
 func (o GetPlanRuleOutput) TargetVaultName() pulumi.StringOutput {
@@ -3737,6 +3988,212 @@ func (o GetPlanRuleLifecycleArrayOutput) Index(i pulumi.IntInput) GetPlanRuleLif
 	}).(GetPlanRuleLifecycleOutput)
 }
 
+type GetPlanRuleScanAction struct {
+	MalwareScanner string `pulumi:"malwareScanner"`
+	ScanMode       string `pulumi:"scanMode"`
+}
+
+// GetPlanRuleScanActionInput is an input type that accepts GetPlanRuleScanActionArgs and GetPlanRuleScanActionOutput values.
+// You can construct a concrete instance of `GetPlanRuleScanActionInput` via:
+//
+//	GetPlanRuleScanActionArgs{...}
+type GetPlanRuleScanActionInput interface {
+	pulumi.Input
+
+	ToGetPlanRuleScanActionOutput() GetPlanRuleScanActionOutput
+	ToGetPlanRuleScanActionOutputWithContext(context.Context) GetPlanRuleScanActionOutput
+}
+
+type GetPlanRuleScanActionArgs struct {
+	MalwareScanner pulumi.StringInput `pulumi:"malwareScanner"`
+	ScanMode       pulumi.StringInput `pulumi:"scanMode"`
+}
+
+func (GetPlanRuleScanActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanRuleScanAction)(nil)).Elem()
+}
+
+func (i GetPlanRuleScanActionArgs) ToGetPlanRuleScanActionOutput() GetPlanRuleScanActionOutput {
+	return i.ToGetPlanRuleScanActionOutputWithContext(context.Background())
+}
+
+func (i GetPlanRuleScanActionArgs) ToGetPlanRuleScanActionOutputWithContext(ctx context.Context) GetPlanRuleScanActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanRuleScanActionOutput)
+}
+
+// GetPlanRuleScanActionArrayInput is an input type that accepts GetPlanRuleScanActionArray and GetPlanRuleScanActionArrayOutput values.
+// You can construct a concrete instance of `GetPlanRuleScanActionArrayInput` via:
+//
+//	GetPlanRuleScanActionArray{ GetPlanRuleScanActionArgs{...} }
+type GetPlanRuleScanActionArrayInput interface {
+	pulumi.Input
+
+	ToGetPlanRuleScanActionArrayOutput() GetPlanRuleScanActionArrayOutput
+	ToGetPlanRuleScanActionArrayOutputWithContext(context.Context) GetPlanRuleScanActionArrayOutput
+}
+
+type GetPlanRuleScanActionArray []GetPlanRuleScanActionInput
+
+func (GetPlanRuleScanActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanRuleScanAction)(nil)).Elem()
+}
+
+func (i GetPlanRuleScanActionArray) ToGetPlanRuleScanActionArrayOutput() GetPlanRuleScanActionArrayOutput {
+	return i.ToGetPlanRuleScanActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetPlanRuleScanActionArray) ToGetPlanRuleScanActionArrayOutputWithContext(ctx context.Context) GetPlanRuleScanActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanRuleScanActionArrayOutput)
+}
+
+type GetPlanRuleScanActionOutput struct{ *pulumi.OutputState }
+
+func (GetPlanRuleScanActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanRuleScanAction)(nil)).Elem()
+}
+
+func (o GetPlanRuleScanActionOutput) ToGetPlanRuleScanActionOutput() GetPlanRuleScanActionOutput {
+	return o
+}
+
+func (o GetPlanRuleScanActionOutput) ToGetPlanRuleScanActionOutputWithContext(ctx context.Context) GetPlanRuleScanActionOutput {
+	return o
+}
+
+func (o GetPlanRuleScanActionOutput) MalwareScanner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlanRuleScanAction) string { return v.MalwareScanner }).(pulumi.StringOutput)
+}
+
+func (o GetPlanRuleScanActionOutput) ScanMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlanRuleScanAction) string { return v.ScanMode }).(pulumi.StringOutput)
+}
+
+type GetPlanRuleScanActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPlanRuleScanActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanRuleScanAction)(nil)).Elem()
+}
+
+func (o GetPlanRuleScanActionArrayOutput) ToGetPlanRuleScanActionArrayOutput() GetPlanRuleScanActionArrayOutput {
+	return o
+}
+
+func (o GetPlanRuleScanActionArrayOutput) ToGetPlanRuleScanActionArrayOutputWithContext(ctx context.Context) GetPlanRuleScanActionArrayOutput {
+	return o
+}
+
+func (o GetPlanRuleScanActionArrayOutput) Index(i pulumi.IntInput) GetPlanRuleScanActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPlanRuleScanAction {
+		return vs[0].([]GetPlanRuleScanAction)[vs[1].(int)]
+	}).(GetPlanRuleScanActionOutput)
+}
+
+type GetPlanScanSetting struct {
+	MalwareScanner string   `pulumi:"malwareScanner"`
+	ResourceTypes  []string `pulumi:"resourceTypes"`
+	ScannerRoleArn string   `pulumi:"scannerRoleArn"`
+}
+
+// GetPlanScanSettingInput is an input type that accepts GetPlanScanSettingArgs and GetPlanScanSettingOutput values.
+// You can construct a concrete instance of `GetPlanScanSettingInput` via:
+//
+//	GetPlanScanSettingArgs{...}
+type GetPlanScanSettingInput interface {
+	pulumi.Input
+
+	ToGetPlanScanSettingOutput() GetPlanScanSettingOutput
+	ToGetPlanScanSettingOutputWithContext(context.Context) GetPlanScanSettingOutput
+}
+
+type GetPlanScanSettingArgs struct {
+	MalwareScanner pulumi.StringInput      `pulumi:"malwareScanner"`
+	ResourceTypes  pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	ScannerRoleArn pulumi.StringInput      `pulumi:"scannerRoleArn"`
+}
+
+func (GetPlanScanSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanScanSetting)(nil)).Elem()
+}
+
+func (i GetPlanScanSettingArgs) ToGetPlanScanSettingOutput() GetPlanScanSettingOutput {
+	return i.ToGetPlanScanSettingOutputWithContext(context.Background())
+}
+
+func (i GetPlanScanSettingArgs) ToGetPlanScanSettingOutputWithContext(ctx context.Context) GetPlanScanSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanScanSettingOutput)
+}
+
+// GetPlanScanSettingArrayInput is an input type that accepts GetPlanScanSettingArray and GetPlanScanSettingArrayOutput values.
+// You can construct a concrete instance of `GetPlanScanSettingArrayInput` via:
+//
+//	GetPlanScanSettingArray{ GetPlanScanSettingArgs{...} }
+type GetPlanScanSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetPlanScanSettingArrayOutput() GetPlanScanSettingArrayOutput
+	ToGetPlanScanSettingArrayOutputWithContext(context.Context) GetPlanScanSettingArrayOutput
+}
+
+type GetPlanScanSettingArray []GetPlanScanSettingInput
+
+func (GetPlanScanSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanScanSetting)(nil)).Elem()
+}
+
+func (i GetPlanScanSettingArray) ToGetPlanScanSettingArrayOutput() GetPlanScanSettingArrayOutput {
+	return i.ToGetPlanScanSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetPlanScanSettingArray) ToGetPlanScanSettingArrayOutputWithContext(ctx context.Context) GetPlanScanSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanScanSettingArrayOutput)
+}
+
+type GetPlanScanSettingOutput struct{ *pulumi.OutputState }
+
+func (GetPlanScanSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanScanSetting)(nil)).Elem()
+}
+
+func (o GetPlanScanSettingOutput) ToGetPlanScanSettingOutput() GetPlanScanSettingOutput {
+	return o
+}
+
+func (o GetPlanScanSettingOutput) ToGetPlanScanSettingOutputWithContext(ctx context.Context) GetPlanScanSettingOutput {
+	return o
+}
+
+func (o GetPlanScanSettingOutput) MalwareScanner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlanScanSetting) string { return v.MalwareScanner }).(pulumi.StringOutput)
+}
+
+func (o GetPlanScanSettingOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPlanScanSetting) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetPlanScanSettingOutput) ScannerRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlanScanSetting) string { return v.ScannerRoleArn }).(pulumi.StringOutput)
+}
+
+type GetPlanScanSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPlanScanSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanScanSetting)(nil)).Elem()
+}
+
+func (o GetPlanScanSettingArrayOutput) ToGetPlanScanSettingArrayOutput() GetPlanScanSettingArrayOutput {
+	return o
+}
+
+func (o GetPlanScanSettingArrayOutput) ToGetPlanScanSettingArrayOutputWithContext(ctx context.Context) GetPlanScanSettingArrayOutput {
+	return o
+}
+
+func (o GetPlanScanSettingArrayOutput) Index(i pulumi.IntInput) GetPlanScanSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPlanScanSetting {
+		return vs[0].([]GetPlanScanSetting)[vs[1].(int)]
+	}).(GetPlanScanSettingOutput)
+}
+
 type GetReportPlanReportDeliveryChannel struct {
 	// List of the format of your reports: CSV, JSON, or both.
 	Formats []string `pulumi:"formats"`
@@ -4013,6 +4470,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleCopyActionLifecyclePtrInput)(nil)).Elem(), PlanRuleCopyActionLifecycleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleLifecycleInput)(nil)).Elem(), PlanRuleLifecycleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleLifecyclePtrInput)(nil)).Elem(), PlanRuleLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleScanActionInput)(nil)).Elem(), PlanRuleScanActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleScanActionArrayInput)(nil)).Elem(), PlanRuleScanActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanScanSettingInput)(nil)).Elem(), PlanScanSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanScanSettingArrayInput)(nil)).Elem(), PlanScanSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanReportDeliveryChannelInput)(nil)).Elem(), ReportPlanReportDeliveryChannelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanReportDeliveryChannelPtrInput)(nil)).Elem(), ReportPlanReportDeliveryChannelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanReportSettingInput)(nil)).Elem(), ReportPlanReportSettingArgs{})
@@ -4051,6 +4512,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleCopyActionLifecycleArrayInput)(nil)).Elem(), GetPlanRuleCopyActionLifecycleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleLifecycleInput)(nil)).Elem(), GetPlanRuleLifecycleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleLifecycleArrayInput)(nil)).Elem(), GetPlanRuleLifecycleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleScanActionInput)(nil)).Elem(), GetPlanRuleScanActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleScanActionArrayInput)(nil)).Elem(), GetPlanRuleScanActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanScanSettingInput)(nil)).Elem(), GetPlanScanSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanScanSettingArrayInput)(nil)).Elem(), GetPlanScanSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReportPlanReportDeliveryChannelInput)(nil)).Elem(), GetReportPlanReportDeliveryChannelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReportPlanReportDeliveryChannelArrayInput)(nil)).Elem(), GetReportPlanReportDeliveryChannelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReportPlanReportSettingInput)(nil)).Elem(), GetReportPlanReportSettingArgs{})
@@ -4073,6 +4538,10 @@ func init() {
 	pulumi.RegisterOutputType(PlanRuleCopyActionLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(PlanRuleLifecycleOutput{})
 	pulumi.RegisterOutputType(PlanRuleLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(PlanRuleScanActionOutput{})
+	pulumi.RegisterOutputType(PlanRuleScanActionArrayOutput{})
+	pulumi.RegisterOutputType(PlanScanSettingOutput{})
+	pulumi.RegisterOutputType(PlanScanSettingArrayOutput{})
 	pulumi.RegisterOutputType(ReportPlanReportDeliveryChannelOutput{})
 	pulumi.RegisterOutputType(ReportPlanReportDeliveryChannelPtrOutput{})
 	pulumi.RegisterOutputType(ReportPlanReportSettingOutput{})
@@ -4111,6 +4580,10 @@ func init() {
 	pulumi.RegisterOutputType(GetPlanRuleCopyActionLifecycleArrayOutput{})
 	pulumi.RegisterOutputType(GetPlanRuleLifecycleOutput{})
 	pulumi.RegisterOutputType(GetPlanRuleLifecycleArrayOutput{})
+	pulumi.RegisterOutputType(GetPlanRuleScanActionOutput{})
+	pulumi.RegisterOutputType(GetPlanRuleScanActionArrayOutput{})
+	pulumi.RegisterOutputType(GetPlanScanSettingOutput{})
+	pulumi.RegisterOutputType(GetPlanScanSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetReportPlanReportDeliveryChannelOutput{})
 	pulumi.RegisterOutputType(GetReportPlanReportDeliveryChannelArrayOutput{})
 	pulumi.RegisterOutputType(GetReportPlanReportSettingOutput{})

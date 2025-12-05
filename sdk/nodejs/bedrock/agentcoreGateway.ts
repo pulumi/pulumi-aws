@@ -87,6 +87,41 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Gateway with Interceptor Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const interceptor = new aws.lambda.Function("interceptor", {
+ *     code: new pulumi.asset.FileArchive("interceptor.zip"),
+ *     name: "gateway-interceptor",
+ *     role: lambda.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.Python3d12,
+ * });
+ * const example = new aws.bedrock.AgentcoreGateway("example", {
+ *     name: "gateway-with-interceptor",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     authorizerType: "AWS_IAM",
+ *     protocolType: "MCP",
+ *     interceptorConfigurations: [{
+ *         interceptionPoints: [
+ *             "REQUEST",
+ *             "RESPONSE",
+ *         ],
+ *         interceptor: {
+ *             lambda: {
+ *                 arn: interceptor.arn,
+ *             },
+ *         },
+ *         inputConfiguration: {
+ *             passRequestHeaders: true,
+ *         },
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Bedrock AgentCore Gateway using the gateway ID. For example:
@@ -152,6 +187,10 @@ export class AgentcoreGateway extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly gatewayUrl: pulumi.Output<string>;
     /**
+     * List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+     */
+    declare public readonly interceptorConfigurations: pulumi.Output<outputs.bedrock.AgentcoreGatewayInterceptorConfiguration[]>;
+    /**
      * ARN of the KMS key used to encrypt the gateway data.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
@@ -211,6 +250,7 @@ export class AgentcoreGateway extends pulumi.CustomResource {
             resourceInputs["gatewayArn"] = state?.gatewayArn;
             resourceInputs["gatewayId"] = state?.gatewayId;
             resourceInputs["gatewayUrl"] = state?.gatewayUrl;
+            resourceInputs["interceptorConfigurations"] = state?.interceptorConfigurations;
             resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
             resourceInputs["name"] = state?.name;
             resourceInputs["protocolConfiguration"] = state?.protocolConfiguration;
@@ -226,6 +266,9 @@ export class AgentcoreGateway extends pulumi.CustomResource {
             if (args?.authorizerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizerType'");
             }
+            if (args?.interceptorConfigurations === undefined && !opts.urn) {
+                throw new Error("Missing required property 'interceptorConfigurations'");
+            }
             if (args?.protocolType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocolType'");
             }
@@ -236,6 +279,7 @@ export class AgentcoreGateway extends pulumi.CustomResource {
             resourceInputs["authorizerType"] = args?.authorizerType;
             resourceInputs["description"] = args?.description;
             resourceInputs["exceptionLevel"] = args?.exceptionLevel;
+            resourceInputs["interceptorConfigurations"] = args?.interceptorConfigurations;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["protocolConfiguration"] = args?.protocolConfiguration;
@@ -287,6 +331,10 @@ export interface AgentcoreGatewayState {
      * URL endpoint for the gateway.
      */
     gatewayUrl?: pulumi.Input<string>;
+    /**
+     * List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+     */
+    interceptorConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayInterceptorConfiguration>[]>;
     /**
      * ARN of the KMS key used to encrypt the gateway data.
      */
@@ -348,6 +396,10 @@ export interface AgentcoreGatewayArgs {
      * Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
      */
     exceptionLevel?: pulumi.Input<string>;
+    /**
+     * List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+     */
+    interceptorConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayInterceptorConfiguration>[]>;
     /**
      * ARN of the KMS key used to encrypt the gateway data.
      */

@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *     cluster: "my-cluster",
  *     managedInstancesProvider: {
  *         infrastructureRoleArn: ecsInfrastructure.arn,
- *         propagateTags: "TASK_DEFINITION",
+ *         propagateTags: "CAPACITY_PROVIDER",
  *         instanceLaunchTemplate: {
  *             ec2InstanceProfileArn: ecsInstance.arn,
  *             monitoring: "ENABLED",
@@ -93,8 +93,6 @@ import * as utilities from "../utilities";
  * - `arn` (String) Amazon Resource Name (ARN) of the ECS capacity provider.
  *
  * Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
- *
- * console
  *
  * % pulumi import aws_ecs_capacity_provider.example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
  */

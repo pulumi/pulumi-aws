@@ -95,8 +95,6 @@ import (
 //
 // Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
 //
-// console
-//
 // % pulumi import aws_ce_cost_category.example costCategoryARN
 type CostCategory struct {
 	pulumi.CustomResourceState

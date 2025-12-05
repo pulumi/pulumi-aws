@@ -193,6 +193,11 @@ export type LogSubscriptionFilter = import("./logSubscriptionFilter").LogSubscri
 export const LogSubscriptionFilter: typeof import("./logSubscriptionFilter").LogSubscriptionFilter = null as any;
 utilities.lazyLoad(exports, ["LogSubscriptionFilter"], () => require("./logSubscriptionFilter"));
 
+export { LogTransformerArgs, LogTransformerState } from "./logTransformer";
+export type LogTransformer = import("./logTransformer").LogTransformer;
+export const LogTransformer: typeof import("./logTransformer").LogTransformer = null as any;
+utilities.lazyLoad(exports, ["LogTransformer"], () => require("./logTransformer"));
+
 export { MetricAlarmArgs, MetricAlarmState } from "./metricAlarm";
 export type MetricAlarm = import("./metricAlarm").MetricAlarm;
 export const MetricAlarm: typeof import("./metricAlarm").MetricAlarm = null as any;
@@ -271,6 +276,8 @@ const _module = {
                 return new LogStream(name, <any>undefined, { urn })
             case "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter":
                 return new LogSubscriptionFilter(name, <any>undefined, { urn })
+            case "aws:cloudwatch/logTransformer:LogTransformer":
+                return new LogTransformer(name, <any>undefined, { urn })
             case "aws:cloudwatch/metricAlarm:MetricAlarm":
                 return new MetricAlarm(name, <any>undefined, { urn })
             case "aws:cloudwatch/metricStream:MetricStream":
@@ -311,6 +318,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudwatch/logMetricFilter", _modu
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logResourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logStream", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logSubscriptionFilter", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/logTransformer", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/metricAlarm", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/metricStream", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/queryDefinition", _module)

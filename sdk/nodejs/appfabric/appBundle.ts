@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import AppFabric AppBundle using the `arn`. For example:
  *
- * console
- *
  * % pulumi import aws_appfabric_app_bundle.example arn:aws:appfabric:[region]:[account]:appbundle/ee5587b4-5765-4288-a202-xxxxxxxxxx
  */
 export class AppBundle extends pulumi.CustomResource {

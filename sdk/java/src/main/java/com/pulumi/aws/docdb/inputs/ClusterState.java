@@ -425,6 +425,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The network type of the DB cluster (`IPV4` or `DUAL`).
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return The network type of the DB cluster (`IPV4` or `DUAL`).
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
+
+    /**
      * The port on which the DB accepts connections
      * 
      */
@@ -673,6 +688,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.masterPasswordWoVersion = $.masterPasswordWoVersion;
         this.masterUserSecrets = $.masterUserSecrets;
         this.masterUsername = $.masterUsername;
+        this.networkType = $.networkType;
         this.port = $.port;
         this.preferredBackupWindow = $.preferredBackupWindow;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
@@ -1296,6 +1312,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder masterUsername(String masterUsername) {
             return masterUsername(Output.of(masterUsername));
+        }
+
+        /**
+         * @param networkType The network type of the DB cluster (`IPV4` or `DUAL`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType The network type of the DB cluster (`IPV4` or `DUAL`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**

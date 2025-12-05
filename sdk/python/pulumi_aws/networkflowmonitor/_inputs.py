@@ -41,7 +41,7 @@ if not MYPY:
         """
         type: pulumi.Input[_builtins.str]
         """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         """
 elif False:
     MonitorLocalResourceArgsDict: TypeAlias = Mapping[str, Any]
@@ -53,7 +53,7 @@ class MonitorLocalResourceArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] identifier: The identifier of the resource. For VPC resources, this is the VPC ARN.
-        :param pulumi.Input[_builtins.str] type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        :param pulumi.Input[_builtins.str] type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "type", type)
@@ -74,7 +74,7 @@ class MonitorLocalResourceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         """
         return pulumi.get(self, "type")
 
@@ -91,7 +91,7 @@ if not MYPY:
         """
         type: pulumi.Input[_builtins.str]
         """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         """
 elif False:
     MonitorRemoteResourceArgsDict: TypeAlias = Mapping[str, Any]
@@ -103,7 +103,7 @@ class MonitorRemoteResourceArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] identifier: The identifier of the resource. For VPC resources, this is the VPC ARN.
-        :param pulumi.Input[_builtins.str] type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        :param pulumi.Input[_builtins.str] type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "type", type)
@@ -124,7 +124,7 @@ class MonitorRemoteResourceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         """
         return pulumi.get(self, "type")
 

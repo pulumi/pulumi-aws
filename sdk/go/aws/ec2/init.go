@@ -65,6 +65,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EipAssociation{}
 	case "aws:ec2/eipDomainName:EipDomainName":
 		r = &EipDomainName{}
+	case "aws:ec2/encryptionControl:EncryptionControl":
+		r = &EncryptionControl{}
 	case "aws:ec2/fleet:Fleet":
 		r = &Fleet{}
 	case "aws:ec2/flowLog:FlowLog":
@@ -171,6 +173,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcDhcpOptions{}
 	case "aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation":
 		r = &VpcDhcpOptionsAssociation{}
+	case "aws:ec2/vpcEncryptionControl:VpcEncryptionControl":
+		r = &VpcEncryptionControl{}
 	case "aws:ec2/vpcEndpoint:VpcEndpoint":
 		r = &VpcEndpoint{}
 	case "aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter":
@@ -215,6 +219,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcPeeringConnection{}
 	case "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter":
 		r = &VpcPeeringConnectionAccepter{}
+	case "aws:ec2/vpnConcentrator:VpnConcentrator":
+		r = &VpnConcentrator{}
 	case "aws:ec2/vpnConnection:VpnConnection":
 		r = &VpnConnection{}
 	case "aws:ec2/vpnConnectionRoute:VpnConnectionRoute":
@@ -346,6 +352,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/eipDomainName",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/encryptionControl",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -615,6 +626,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"ec2/vpcEncryptionControl",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"ec2/vpcEndpoint",
 		&module{version},
 	)
@@ -721,6 +737,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/vpcPeeringConnectionAccepter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpnConcentrator",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

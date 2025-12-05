@@ -35,6 +35,7 @@ class OpenZfsFileSystemArgs:
                  final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 read_cache_configuration: Optional[pulumi.Input['OpenZfsFileSystemReadCacheConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  root_volume_configuration: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs']] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -62,13 +63,14 @@ class OpenZfsFileSystemArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+        :param pulumi.Input['OpenZfsFileSystemReadCacheConfigurationArgs'] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs'] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input[_builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
-        :param pulumi.Input[_builtins.str] storage_type: The filesystem storage type. Only `SSD` is supported.
+        :param pulumi.Input[_builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storage_type` is set to `SSD`. Must not be set when `storage_type` is set to `INTELLIGENT_TIERING`.
+        :param pulumi.Input[_builtins.str] storage_type: The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deployment_type` to be `MULTI_AZ_1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
@@ -97,6 +99,8 @@ class OpenZfsFileSystemArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if preferred_subnet_id is not None:
             pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
+        if read_cache_configuration is not None:
+            pulumi.set(__self__, "read_cache_configuration", read_cache_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if root_volume_configuration is not None:
@@ -287,6 +291,18 @@ class OpenZfsFileSystemArgs:
         pulumi.set(self, "preferred_subnet_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="readCacheConfiguration")
+    def read_cache_configuration(self) -> Optional[pulumi.Input['OpenZfsFileSystemReadCacheConfigurationArgs']]:
+        """
+        Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
+        """
+        return pulumi.get(self, "read_cache_configuration")
+
+    @read_cache_configuration.setter
+    def read_cache_configuration(self, value: Optional[pulumi.Input['OpenZfsFileSystemReadCacheConfigurationArgs']]):
+        pulumi.set(self, "read_cache_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -350,7 +366,7 @@ class OpenZfsFileSystemArgs:
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+        The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storage_type` is set to `SSD`. Must not be set when `storage_type` is set to `INTELLIGENT_TIERING`.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -362,7 +378,7 @@ class OpenZfsFileSystemArgs:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The filesystem storage type. Only `SSD` is supported.
+        The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deployment_type` to be `MULTI_AZ_1`.
         """
         return pulumi.get(self, "storage_type")
 
@@ -415,6 +431,7 @@ class _OpenZfsFileSystemState:
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  owner_id: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 read_cache_configuration: Optional[pulumi.Input['OpenZfsFileSystemReadCacheConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  root_volume_configuration: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs']] = None,
                  root_volume_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -448,14 +465,15 @@ class _OpenZfsFileSystemState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+        :param pulumi.Input['OpenZfsFileSystemReadCacheConfigurationArgs'] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs'] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[_builtins.str] root_volume_id: Identifier of the root volume, e.g., `fsvol-12345678`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input[_builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
-        :param pulumi.Input[_builtins.str] storage_type: The filesystem storage type. Only `SSD` is supported.
+        :param pulumi.Input[_builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storage_type` is set to `SSD`. Must not be set when `storage_type` is set to `INTELLIGENT_TIERING`.
+        :param pulumi.Input[_builtins.str] storage_type: The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deployment_type` to be `MULTI_AZ_1`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -499,6 +517,8 @@ class _OpenZfsFileSystemState:
             pulumi.set(__self__, "owner_id", owner_id)
         if preferred_subnet_id is not None:
             pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
+        if read_cache_configuration is not None:
+            pulumi.set(__self__, "read_cache_configuration", read_cache_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if root_volume_configuration is not None:
@@ -733,6 +753,18 @@ class _OpenZfsFileSystemState:
         pulumi.set(self, "preferred_subnet_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="readCacheConfiguration")
+    def read_cache_configuration(self) -> Optional[pulumi.Input['OpenZfsFileSystemReadCacheConfigurationArgs']]:
+        """
+        Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
+        """
+        return pulumi.get(self, "read_cache_configuration")
+
+    @read_cache_configuration.setter
+    def read_cache_configuration(self, value: Optional[pulumi.Input['OpenZfsFileSystemReadCacheConfigurationArgs']]):
+        pulumi.set(self, "read_cache_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -808,7 +840,7 @@ class _OpenZfsFileSystemState:
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+        The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storage_type` is set to `SSD`. Must not be set when `storage_type` is set to `INTELLIGENT_TIERING`.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -820,7 +852,7 @@ class _OpenZfsFileSystemState:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The filesystem storage type. Only `SSD` is supported.
+        The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deployment_type` to be `MULTI_AZ_1`.
         """
         return pulumi.get(self, "storage_type")
 
@@ -921,6 +953,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 read_cache_configuration: Optional[pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  root_volume_configuration: Optional[pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -973,13 +1006,14 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+        :param pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input[_builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
-        :param pulumi.Input[_builtins.str] storage_type: The filesystem storage type. Only `SSD` is supported.
+        :param pulumi.Input[_builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storage_type` is set to `SSD`. Must not be set when `storage_type` is set to `INTELLIGENT_TIERING`.
+        :param pulumi.Input[_builtins.str] storage_type: The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deployment_type` to be `MULTI_AZ_1`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
@@ -1046,6 +1080,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 read_cache_configuration: Optional[pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  root_volume_configuration: Optional[pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1080,6 +1115,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             __props__.__dict__["final_backup_tags"] = final_backup_tags
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
+            __props__.__dict__["read_cache_configuration"] = read_cache_configuration
             __props__.__dict__["region"] = region
             __props__.__dict__["root_volume_configuration"] = root_volume_configuration
             __props__.__dict__["route_table_ids"] = route_table_ids
@@ -1130,6 +1166,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             owner_id: Optional[pulumi.Input[_builtins.str]] = None,
             preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+            read_cache_configuration: Optional[pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             root_volume_configuration: Optional[pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']]] = None,
             root_volume_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1168,14 +1205,15 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+        :param pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[_builtins.str] root_volume_id: Identifier of the root volume, e.g., `fsvol-12345678`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input[_builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
-        :param pulumi.Input[_builtins.str] storage_type: The filesystem storage type. Only `SSD` is supported.
+        :param pulumi.Input[_builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storage_type` is set to `SSD`. Must not be set when `storage_type` is set to `INTELLIGENT_TIERING`.
+        :param pulumi.Input[_builtins.str] storage_type: The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deployment_type` to be `MULTI_AZ_1`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1206,6 +1244,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         __props__.__dict__["network_interface_ids"] = network_interface_ids
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
+        __props__.__dict__["read_cache_configuration"] = read_cache_configuration
         __props__.__dict__["region"] = region
         __props__.__dict__["root_volume_configuration"] = root_volume_configuration
         __props__.__dict__["root_volume_id"] = root_volume_id
@@ -1359,6 +1398,14 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         return pulumi.get(self, "preferred_subnet_id")
 
     @_builtins.property
+    @pulumi.getter(name="readCacheConfiguration")
+    def read_cache_configuration(self) -> pulumi.Output[Optional['outputs.OpenZfsFileSystemReadCacheConfiguration']]:
+        """
+        Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
+        """
+        return pulumi.get(self, "read_cache_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
         """
@@ -1410,7 +1457,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+        The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storage_type` is set to `SSD`. Must not be set when `storage_type` is set to `INTELLIGENT_TIERING`.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -1418,7 +1465,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The filesystem storage type. Only `SSD` is supported.
+        The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deployment_type` to be `MULTI_AZ_1`.
         """
         return pulumi.get(self, "storage_type")
 

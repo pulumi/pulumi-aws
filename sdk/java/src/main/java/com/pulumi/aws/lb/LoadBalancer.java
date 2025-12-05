@@ -8,6 +8,7 @@ import com.pulumi.aws.lb.LoadBalancerArgs;
 import com.pulumi.aws.lb.inputs.LoadBalancerState;
 import com.pulumi.aws.lb.outputs.LoadBalancerAccessLogs;
 import com.pulumi.aws.lb.outputs.LoadBalancerConnectionLogs;
+import com.pulumi.aws.lb.outputs.LoadBalancerHealthCheckLogs;
 import com.pulumi.aws.lb.outputs.LoadBalancerIpamPools;
 import com.pulumi.aws.lb.outputs.LoadBalancerMinimumLoadBalancerCapacity;
 import com.pulumi.aws.lb.outputs.LoadBalancerSubnetMapping;
@@ -132,8 +133,6 @@ import javax.annotation.Nullable;
  * - `arn` (String) Amazon Resource Name (ARN) of the load balancer.
  * 
  * Using `pulumi import`, import LBs using their ARN. For example:
- * 
- * console
  * 
  * % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
  * 
@@ -393,6 +392,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      */
     public Output<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
         return this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+    }
+    /**
+     * Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+     * 
+     */
+    @Export(name="healthCheckLogs", refs={LoadBalancerHealthCheckLogs.class}, tree="[0]")
+    private Output</* @Nullable */ LoadBalancerHealthCheckLogs> healthCheckLogs;
+
+    /**
+     * @return Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+     * 
+     */
+    public Output<Optional<LoadBalancerHealthCheckLogs>> healthCheckLogs() {
+        return Codegen.optional(this.healthCheckLogs);
     }
     /**
      * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.

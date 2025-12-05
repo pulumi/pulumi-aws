@@ -288,8 +288,6 @@ class AnomalyMonitor(pulumi.CustomResource):
 
         Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
 
-        console
-
         % pulumi import aws_ce_anomaly_monitor.example costAnomalyMonitorARN
 
         :param str resource_name: The name of the resource.
@@ -358,8 +356,6 @@ class AnomalyMonitor(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly monitor.
 
         Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
-
-        console
 
         % pulumi import aws_ce_anomaly_monitor.example costAnomalyMonitorARN
 

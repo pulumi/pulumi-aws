@@ -58,6 +58,10 @@ public final class GetDbServersDbServer {
      * 
      */
     private String exadataInfrastructureId;
+    /**
+     * @return The unique identifier of the database server.
+     * 
+     */
     private String id;
     /**
      * @return The total number of CPU cores available on the database server.
@@ -174,6 +178,10 @@ public final class GetDbServersDbServer {
     public String exadataInfrastructureId() {
         return this.exadataInfrastructureId;
     }
+    /**
+     * @return The unique identifier of the database server.
+     * 
+     */
     public String id() {
         return this.id;
     }

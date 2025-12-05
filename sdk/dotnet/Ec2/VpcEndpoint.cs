@@ -64,6 +64,31 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
+    /// ### Cross-region enabled AWS services
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var s3 = new Aws.Ec2.VpcEndpoint("s3", new()
+    ///     {
+    ///         Region = "us-west-2",
+    ///         VpcId = main.Id,
+    ///         ServiceName = "com.amazonaws.us-east-2.s3",
+    ///         ServiceRegion = "us-east-2",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Interface Endpoint Type
     /// 
     /// ```csharp
@@ -279,8 +304,6 @@ namespace Pulumi.Aws.Ec2
     /// * `region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
-    /// 
-    /// console
     /// 
     /// % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
     /// </summary>

@@ -79,6 +79,10 @@ export interface GetClusterResult {
      */
     readonly computeConfigs: outputs.eks.GetClusterComputeConfig[];
     /**
+     * Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information.
+     */
+    readonly controlPlaneScalingConfigs: outputs.eks.GetClusterControlPlaneScalingConfig[];
+    /**
      * Unix epoch time stamp in seconds for when the cluster was created.
      */
     readonly createdAt: string;

@@ -431,6 +431,8 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) TargetC
 }
 
 type CapacityProviderManagedInstancesProvider struct {
+	// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+	InfrastructureOptimization *CapacityProviderManagedInstancesProviderInfrastructureOptimization `pulumi:"infrastructureOptimization"`
 	// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
 	InfrastructureRoleArn string `pulumi:"infrastructureRoleArn"`
 	// The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
@@ -451,6 +453,8 @@ type CapacityProviderManagedInstancesProviderInput interface {
 }
 
 type CapacityProviderManagedInstancesProviderArgs struct {
+	// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+	InfrastructureOptimization CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrInput `pulumi:"infrastructureOptimization"`
 	// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
 	InfrastructureRoleArn pulumi.StringInput `pulumi:"infrastructureRoleArn"`
 	// The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
@@ -536,6 +540,13 @@ func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManage
 	}).(CapacityProviderManagedInstancesProviderPtrOutput)
 }
 
+// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+func (o CapacityProviderManagedInstancesProviderOutput) InfrastructureOptimization() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderInfrastructureOptimization {
+		return v.InfrastructureOptimization
+	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
 func (o CapacityProviderManagedInstancesProviderOutput) InfrastructureRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) string { return v.InfrastructureRoleArn }).(pulumi.StringOutput)
@@ -577,6 +588,16 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) Elem() CapacityProvid
 	}).(CapacityProviderManagedInstancesProviderOutput)
 }
 
+// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureOptimization() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderInfrastructureOptimization {
+		if v == nil {
+			return nil
+		}
+		return v.InfrastructureOptimization
+	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
 func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *string {
@@ -605,6 +626,151 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) PropagateTags() pulum
 		}
 		return v.PropagateTags
 	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInfrastructureOptimization struct {
+	// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
+	// * Not set (null) - Uses the default optimization behavior.
+	// * `-1` - Disables automatic infrastructure optimization.
+	ScaleInAfter *int `pulumi:"scaleInAfter"`
+}
+
+// CapacityProviderManagedInstancesProviderInfrastructureOptimizationInput is an input type that accepts CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs and CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInfrastructureOptimizationInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs{...}
+type CapacityProviderManagedInstancesProviderInfrastructureOptimizationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput
+	ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput
+}
+
+type CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs struct {
+	// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
+	// * Not set (null) - Uses the default optimization behavior.
+	// * `-1` - Disables automatic infrastructure optimization.
+	ScaleInAfter pulumi.IntPtrInput `pulumi:"scaleInAfter"`
+}
+
+func (CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInfrastructureOptimization)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput).ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs, CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtr and CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput
+	ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInfrastructureOptimizationPtrType CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs
+
+func CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtr(v *CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrInput {
+	return (*capacityProviderManagedInstancesProviderInfrastructureOptimizationPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInfrastructureOptimizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInfrastructureOptimization)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInfrastructureOptimizationPtrType) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInfrastructureOptimizationPtrType) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInfrastructureOptimization)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInfrastructureOptimization) *CapacityProviderManagedInstancesProviderInfrastructureOptimization {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput)
+}
+
+// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
+// * Not set (null) - Uses the default optimization behavior.
+// * `-1` - Disables automatic infrastructure optimization.
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput) ScaleInAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInfrastructureOptimization) *int { return v.ScaleInAfter }).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInfrastructureOptimization)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput) Elem() CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInfrastructureOptimization) CapacityProviderManagedInstancesProviderInfrastructureOptimization {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInfrastructureOptimization
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput)
+}
+
+// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
+// * Not set (null) - Uses the default optimization behavior.
+// * `-1` - Disables automatic infrastructure optimization.
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput) ScaleInAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInfrastructureOptimization) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleInAfter
+	}).(pulumi.IntPtrOutput)
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplate struct {
@@ -4187,6 +4353,1208 @@ func (o ClusterSettingArrayOutput) Index(i pulumi.IntInput) ClusterSettingOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterSetting {
 		return vs[0].([]ClusterSetting)[vs[1].(int)]
 	}).(ClusterSettingOutput)
+}
+
+type ExpressGatewayServiceIngressPath struct {
+	AccessType string `pulumi:"accessType"`
+	Endpoint   string `pulumi:"endpoint"`
+}
+
+// ExpressGatewayServiceIngressPathInput is an input type that accepts ExpressGatewayServiceIngressPathArgs and ExpressGatewayServiceIngressPathOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceIngressPathInput` via:
+//
+//	ExpressGatewayServiceIngressPathArgs{...}
+type ExpressGatewayServiceIngressPathInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceIngressPathOutput() ExpressGatewayServiceIngressPathOutput
+	ToExpressGatewayServiceIngressPathOutputWithContext(context.Context) ExpressGatewayServiceIngressPathOutput
+}
+
+type ExpressGatewayServiceIngressPathArgs struct {
+	AccessType pulumi.StringInput `pulumi:"accessType"`
+	Endpoint   pulumi.StringInput `pulumi:"endpoint"`
+}
+
+func (ExpressGatewayServiceIngressPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceIngressPath)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceIngressPathArgs) ToExpressGatewayServiceIngressPathOutput() ExpressGatewayServiceIngressPathOutput {
+	return i.ToExpressGatewayServiceIngressPathOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceIngressPathArgs) ToExpressGatewayServiceIngressPathOutputWithContext(ctx context.Context) ExpressGatewayServiceIngressPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceIngressPathOutput)
+}
+
+// ExpressGatewayServiceIngressPathArrayInput is an input type that accepts ExpressGatewayServiceIngressPathArray and ExpressGatewayServiceIngressPathArrayOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceIngressPathArrayInput` via:
+//
+//	ExpressGatewayServiceIngressPathArray{ ExpressGatewayServiceIngressPathArgs{...} }
+type ExpressGatewayServiceIngressPathArrayInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceIngressPathArrayOutput() ExpressGatewayServiceIngressPathArrayOutput
+	ToExpressGatewayServiceIngressPathArrayOutputWithContext(context.Context) ExpressGatewayServiceIngressPathArrayOutput
+}
+
+type ExpressGatewayServiceIngressPathArray []ExpressGatewayServiceIngressPathInput
+
+func (ExpressGatewayServiceIngressPathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceIngressPath)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceIngressPathArray) ToExpressGatewayServiceIngressPathArrayOutput() ExpressGatewayServiceIngressPathArrayOutput {
+	return i.ToExpressGatewayServiceIngressPathArrayOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceIngressPathArray) ToExpressGatewayServiceIngressPathArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceIngressPathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceIngressPathArrayOutput)
+}
+
+type ExpressGatewayServiceIngressPathOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceIngressPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceIngressPath)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceIngressPathOutput) ToExpressGatewayServiceIngressPathOutput() ExpressGatewayServiceIngressPathOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceIngressPathOutput) ToExpressGatewayServiceIngressPathOutputWithContext(ctx context.Context) ExpressGatewayServiceIngressPathOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceIngressPathOutput) AccessType() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceIngressPath) string { return v.AccessType }).(pulumi.StringOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceIngressPath) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+type ExpressGatewayServiceIngressPathArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceIngressPathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceIngressPath)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceIngressPathArrayOutput) ToExpressGatewayServiceIngressPathArrayOutput() ExpressGatewayServiceIngressPathArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceIngressPathArrayOutput) ToExpressGatewayServiceIngressPathArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceIngressPathArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceIngressPathArrayOutput) Index(i pulumi.IntInput) ExpressGatewayServiceIngressPathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressGatewayServiceIngressPath {
+		return vs[0].([]ExpressGatewayServiceIngressPath)[vs[1].(int)]
+	}).(ExpressGatewayServiceIngressPathOutput)
+}
+
+type ExpressGatewayServiceNetworkConfiguration struct {
+	// Security groups associated with the task. If not specified, the default security group for the VPC is used.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// ExpressGatewayServiceNetworkConfigurationInput is an input type that accepts ExpressGatewayServiceNetworkConfigurationArgs and ExpressGatewayServiceNetworkConfigurationOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceNetworkConfigurationInput` via:
+//
+//	ExpressGatewayServiceNetworkConfigurationArgs{...}
+type ExpressGatewayServiceNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceNetworkConfigurationOutput() ExpressGatewayServiceNetworkConfigurationOutput
+	ToExpressGatewayServiceNetworkConfigurationOutputWithContext(context.Context) ExpressGatewayServiceNetworkConfigurationOutput
+}
+
+type ExpressGatewayServiceNetworkConfigurationArgs struct {
+	// Security groups associated with the task. If not specified, the default security group for the VPC is used.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (ExpressGatewayServiceNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceNetworkConfigurationArgs) ToExpressGatewayServiceNetworkConfigurationOutput() ExpressGatewayServiceNetworkConfigurationOutput {
+	return i.ToExpressGatewayServiceNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceNetworkConfigurationArgs) ToExpressGatewayServiceNetworkConfigurationOutputWithContext(ctx context.Context) ExpressGatewayServiceNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceNetworkConfigurationOutput)
+}
+
+// ExpressGatewayServiceNetworkConfigurationArrayInput is an input type that accepts ExpressGatewayServiceNetworkConfigurationArray and ExpressGatewayServiceNetworkConfigurationArrayOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceNetworkConfigurationArrayInput` via:
+//
+//	ExpressGatewayServiceNetworkConfigurationArray{ ExpressGatewayServiceNetworkConfigurationArgs{...} }
+type ExpressGatewayServiceNetworkConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceNetworkConfigurationArrayOutput() ExpressGatewayServiceNetworkConfigurationArrayOutput
+	ToExpressGatewayServiceNetworkConfigurationArrayOutputWithContext(context.Context) ExpressGatewayServiceNetworkConfigurationArrayOutput
+}
+
+type ExpressGatewayServiceNetworkConfigurationArray []ExpressGatewayServiceNetworkConfigurationInput
+
+func (ExpressGatewayServiceNetworkConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceNetworkConfigurationArray) ToExpressGatewayServiceNetworkConfigurationArrayOutput() ExpressGatewayServiceNetworkConfigurationArrayOutput {
+	return i.ToExpressGatewayServiceNetworkConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceNetworkConfigurationArray) ToExpressGatewayServiceNetworkConfigurationArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceNetworkConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceNetworkConfigurationArrayOutput)
+}
+
+type ExpressGatewayServiceNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationOutput) ToExpressGatewayServiceNetworkConfigurationOutput() ExpressGatewayServiceNetworkConfigurationOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationOutput) ToExpressGatewayServiceNetworkConfigurationOutputWithContext(ctx context.Context) ExpressGatewayServiceNetworkConfigurationOutput {
+	return o
+}
+
+// Security groups associated with the task. If not specified, the default security group for the VPC is used.
+func (o ExpressGatewayServiceNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
+func (o ExpressGatewayServiceNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type ExpressGatewayServiceNetworkConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceNetworkConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationArrayOutput) ToExpressGatewayServiceNetworkConfigurationArrayOutput() ExpressGatewayServiceNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationArrayOutput) ToExpressGatewayServiceNetworkConfigurationArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationArrayOutput) Index(i pulumi.IntInput) ExpressGatewayServiceNetworkConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressGatewayServiceNetworkConfiguration {
+		return vs[0].([]ExpressGatewayServiceNetworkConfiguration)[vs[1].(int)]
+	}).(ExpressGatewayServiceNetworkConfigurationOutput)
+}
+
+type ExpressGatewayServicePrimaryContainer struct {
+	AwsLogsConfigurations []ExpressGatewayServicePrimaryContainerAwsLogsConfiguration `pulumi:"awsLogsConfigurations"`
+	// Command to run in the container. Overrides the default command from the Docker image.
+	Commands []string `pulumi:"commands"`
+	// Port on which the container listens for connections.
+	ContainerPort *int                                               `pulumi:"containerPort"`
+	Environments  []ExpressGatewayServicePrimaryContainerEnvironment `pulumi:"environments"`
+	// Docker image to use for the container.
+	Image                 string                                                      `pulumi:"image"`
+	RepositoryCredentials *ExpressGatewayServicePrimaryContainerRepositoryCredentials `pulumi:"repositoryCredentials"`
+	Secrets               []ExpressGatewayServicePrimaryContainerSecret               `pulumi:"secrets"`
+}
+
+// ExpressGatewayServicePrimaryContainerInput is an input type that accepts ExpressGatewayServicePrimaryContainerArgs and ExpressGatewayServicePrimaryContainerOutput values.
+// You can construct a concrete instance of `ExpressGatewayServicePrimaryContainerInput` via:
+//
+//	ExpressGatewayServicePrimaryContainerArgs{...}
+type ExpressGatewayServicePrimaryContainerInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServicePrimaryContainerOutput() ExpressGatewayServicePrimaryContainerOutput
+	ToExpressGatewayServicePrimaryContainerOutputWithContext(context.Context) ExpressGatewayServicePrimaryContainerOutput
+}
+
+type ExpressGatewayServicePrimaryContainerArgs struct {
+	AwsLogsConfigurations ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayInput `pulumi:"awsLogsConfigurations"`
+	// Command to run in the container. Overrides the default command from the Docker image.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// Port on which the container listens for connections.
+	ContainerPort pulumi.IntPtrInput                                         `pulumi:"containerPort"`
+	Environments  ExpressGatewayServicePrimaryContainerEnvironmentArrayInput `pulumi:"environments"`
+	// Docker image to use for the container.
+	Image                 pulumi.StringInput                                                 `pulumi:"image"`
+	RepositoryCredentials ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrInput `pulumi:"repositoryCredentials"`
+	Secrets               ExpressGatewayServicePrimaryContainerSecretArrayInput              `pulumi:"secrets"`
+}
+
+func (ExpressGatewayServicePrimaryContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServicePrimaryContainer)(nil)).Elem()
+}
+
+func (i ExpressGatewayServicePrimaryContainerArgs) ToExpressGatewayServicePrimaryContainerOutput() ExpressGatewayServicePrimaryContainerOutput {
+	return i.ToExpressGatewayServicePrimaryContainerOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServicePrimaryContainerArgs) ToExpressGatewayServicePrimaryContainerOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerOutput)
+}
+
+func (i ExpressGatewayServicePrimaryContainerArgs) ToExpressGatewayServicePrimaryContainerPtrOutput() ExpressGatewayServicePrimaryContainerPtrOutput {
+	return i.ToExpressGatewayServicePrimaryContainerPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServicePrimaryContainerArgs) ToExpressGatewayServicePrimaryContainerPtrOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerOutput).ToExpressGatewayServicePrimaryContainerPtrOutputWithContext(ctx)
+}
+
+// ExpressGatewayServicePrimaryContainerPtrInput is an input type that accepts ExpressGatewayServicePrimaryContainerArgs, ExpressGatewayServicePrimaryContainerPtr and ExpressGatewayServicePrimaryContainerPtrOutput values.
+// You can construct a concrete instance of `ExpressGatewayServicePrimaryContainerPtrInput` via:
+//
+//	        ExpressGatewayServicePrimaryContainerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExpressGatewayServicePrimaryContainerPtrInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServicePrimaryContainerPtrOutput() ExpressGatewayServicePrimaryContainerPtrOutput
+	ToExpressGatewayServicePrimaryContainerPtrOutputWithContext(context.Context) ExpressGatewayServicePrimaryContainerPtrOutput
+}
+
+type expressGatewayServicePrimaryContainerPtrType ExpressGatewayServicePrimaryContainerArgs
+
+func ExpressGatewayServicePrimaryContainerPtr(v *ExpressGatewayServicePrimaryContainerArgs) ExpressGatewayServicePrimaryContainerPtrInput {
+	return (*expressGatewayServicePrimaryContainerPtrType)(v)
+}
+
+func (*expressGatewayServicePrimaryContainerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServicePrimaryContainer)(nil)).Elem()
+}
+
+func (i *expressGatewayServicePrimaryContainerPtrType) ToExpressGatewayServicePrimaryContainerPtrOutput() ExpressGatewayServicePrimaryContainerPtrOutput {
+	return i.ToExpressGatewayServicePrimaryContainerPtrOutputWithContext(context.Background())
+}
+
+func (i *expressGatewayServicePrimaryContainerPtrType) ToExpressGatewayServicePrimaryContainerPtrOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerPtrOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServicePrimaryContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServicePrimaryContainer)(nil)).Elem()
+}
+
+func (o ExpressGatewayServicePrimaryContainerOutput) ToExpressGatewayServicePrimaryContainerOutput() ExpressGatewayServicePrimaryContainerOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerOutput) ToExpressGatewayServicePrimaryContainerOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerOutput) ToExpressGatewayServicePrimaryContainerPtrOutput() ExpressGatewayServicePrimaryContainerPtrOutput {
+	return o.ToExpressGatewayServicePrimaryContainerPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServicePrimaryContainerOutput) ToExpressGatewayServicePrimaryContainerPtrOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressGatewayServicePrimaryContainer) *ExpressGatewayServicePrimaryContainer {
+		return &v
+	}).(ExpressGatewayServicePrimaryContainerPtrOutput)
+}
+
+func (o ExpressGatewayServicePrimaryContainerOutput) AwsLogsConfigurations() ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainer) []ExpressGatewayServicePrimaryContainerAwsLogsConfiguration {
+		return v.AwsLogsConfigurations
+	}).(ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput)
+}
+
+// Command to run in the container. Overrides the default command from the Docker image.
+func (o ExpressGatewayServicePrimaryContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// Port on which the container listens for connections.
+func (o ExpressGatewayServicePrimaryContainerOutput) ContainerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainer) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
+}
+
+func (o ExpressGatewayServicePrimaryContainerOutput) Environments() ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainer) []ExpressGatewayServicePrimaryContainerEnvironment {
+		return v.Environments
+	}).(ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput)
+}
+
+// Docker image to use for the container.
+func (o ExpressGatewayServicePrimaryContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+func (o ExpressGatewayServicePrimaryContainerOutput) RepositoryCredentials() ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainer) *ExpressGatewayServicePrimaryContainerRepositoryCredentials {
+		return v.RepositoryCredentials
+	}).(ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput)
+}
+
+func (o ExpressGatewayServicePrimaryContainerOutput) Secrets() ExpressGatewayServicePrimaryContainerSecretArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainer) []ExpressGatewayServicePrimaryContainerSecret {
+		return v.Secrets
+	}).(ExpressGatewayServicePrimaryContainerSecretArrayOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServicePrimaryContainerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServicePrimaryContainer)(nil)).Elem()
+}
+
+func (o ExpressGatewayServicePrimaryContainerPtrOutput) ToExpressGatewayServicePrimaryContainerPtrOutput() ExpressGatewayServicePrimaryContainerPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerPtrOutput) ToExpressGatewayServicePrimaryContainerPtrOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerPtrOutput) Elem() ExpressGatewayServicePrimaryContainerOutput {
+	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainer) ExpressGatewayServicePrimaryContainer {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServicePrimaryContainer
+		return ret
+	}).(ExpressGatewayServicePrimaryContainerOutput)
+}
+
+func (o ExpressGatewayServicePrimaryContainerPtrOutput) AwsLogsConfigurations() ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainer) []ExpressGatewayServicePrimaryContainerAwsLogsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AwsLogsConfigurations
+	}).(ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput)
+}
+
+// Command to run in the container. Overrides the default command from the Docker image.
+func (o ExpressGatewayServicePrimaryContainerPtrOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Commands
+	}).(pulumi.StringArrayOutput)
+}
+
+// Port on which the container listens for connections.
+func (o ExpressGatewayServicePrimaryContainerPtrOutput) ContainerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainer) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerPort
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ExpressGatewayServicePrimaryContainerPtrOutput) Environments() ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainer) []ExpressGatewayServicePrimaryContainerEnvironment {
+		if v == nil {
+			return nil
+		}
+		return v.Environments
+	}).(ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput)
+}
+
+// Docker image to use for the container.
+func (o ExpressGatewayServicePrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressGatewayServicePrimaryContainerPtrOutput) RepositoryCredentials() ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainer) *ExpressGatewayServicePrimaryContainerRepositoryCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryCredentials
+	}).(ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput)
+}
+
+func (o ExpressGatewayServicePrimaryContainerPtrOutput) Secrets() ExpressGatewayServicePrimaryContainerSecretArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainer) []ExpressGatewayServicePrimaryContainerSecret {
+		if v == nil {
+			return nil
+		}
+		return v.Secrets
+	}).(ExpressGatewayServicePrimaryContainerSecretArrayOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerAwsLogsConfiguration struct {
+	// CloudWatch log group name.
+	LogGroup string `pulumi:"logGroup"`
+	// Prefix for log stream names. If not specified, a default prefix will be used.
+	LogStreamPrefix string `pulumi:"logStreamPrefix"`
+}
+
+// ExpressGatewayServicePrimaryContainerAwsLogsConfigurationInput is an input type that accepts ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs and ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput values.
+// You can construct a concrete instance of `ExpressGatewayServicePrimaryContainerAwsLogsConfigurationInput` via:
+//
+//	ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs{...}
+type ExpressGatewayServicePrimaryContainerAwsLogsConfigurationInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput() ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput
+	ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutputWithContext(context.Context) ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput
+}
+
+type ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs struct {
+	// CloudWatch log group name.
+	LogGroup pulumi.StringInput `pulumi:"logGroup"`
+	// Prefix for log stream names. If not specified, a default prefix will be used.
+	LogStreamPrefix pulumi.StringInput `pulumi:"logStreamPrefix"`
+}
+
+func (ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServicePrimaryContainerAwsLogsConfiguration)(nil)).Elem()
+}
+
+func (i ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs) ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput() ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput {
+	return i.ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs) ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput)
+}
+
+// ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayInput is an input type that accepts ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArray and ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput values.
+// You can construct a concrete instance of `ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayInput` via:
+//
+//	ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArray{ ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs{...} }
+type ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput() ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput
+	ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutputWithContext(context.Context) ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput
+}
+
+type ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArray []ExpressGatewayServicePrimaryContainerAwsLogsConfigurationInput
+
+func (ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServicePrimaryContainerAwsLogsConfiguration)(nil)).Elem()
+}
+
+func (i ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArray) ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput() ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput {
+	return i.ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArray) ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServicePrimaryContainerAwsLogsConfiguration)(nil)).Elem()
+}
+
+func (o ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput) ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput() ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput) ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput {
+	return o
+}
+
+// CloudWatch log group name.
+func (o ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput) LogGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainerAwsLogsConfiguration) string { return v.LogGroup }).(pulumi.StringOutput)
+}
+
+// Prefix for log stream names. If not specified, a default prefix will be used.
+func (o ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput) LogStreamPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainerAwsLogsConfiguration) string { return v.LogStreamPrefix }).(pulumi.StringOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServicePrimaryContainerAwsLogsConfiguration)(nil)).Elem()
+}
+
+func (o ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput) ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput() ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput) ToExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput) Index(i pulumi.IntInput) ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressGatewayServicePrimaryContainerAwsLogsConfiguration {
+		return vs[0].([]ExpressGatewayServicePrimaryContainerAwsLogsConfiguration)[vs[1].(int)]
+	}).(ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerEnvironment struct {
+	// Name of the environment variable.
+	Name string `pulumi:"name"`
+	// Value of the environment variable.
+	Value string `pulumi:"value"`
+}
+
+// ExpressGatewayServicePrimaryContainerEnvironmentInput is an input type that accepts ExpressGatewayServicePrimaryContainerEnvironmentArgs and ExpressGatewayServicePrimaryContainerEnvironmentOutput values.
+// You can construct a concrete instance of `ExpressGatewayServicePrimaryContainerEnvironmentInput` via:
+//
+//	ExpressGatewayServicePrimaryContainerEnvironmentArgs{...}
+type ExpressGatewayServicePrimaryContainerEnvironmentInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServicePrimaryContainerEnvironmentOutput() ExpressGatewayServicePrimaryContainerEnvironmentOutput
+	ToExpressGatewayServicePrimaryContainerEnvironmentOutputWithContext(context.Context) ExpressGatewayServicePrimaryContainerEnvironmentOutput
+}
+
+type ExpressGatewayServicePrimaryContainerEnvironmentArgs struct {
+	// Name of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ExpressGatewayServicePrimaryContainerEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServicePrimaryContainerEnvironment)(nil)).Elem()
+}
+
+func (i ExpressGatewayServicePrimaryContainerEnvironmentArgs) ToExpressGatewayServicePrimaryContainerEnvironmentOutput() ExpressGatewayServicePrimaryContainerEnvironmentOutput {
+	return i.ToExpressGatewayServicePrimaryContainerEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServicePrimaryContainerEnvironmentArgs) ToExpressGatewayServicePrimaryContainerEnvironmentOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerEnvironmentOutput)
+}
+
+// ExpressGatewayServicePrimaryContainerEnvironmentArrayInput is an input type that accepts ExpressGatewayServicePrimaryContainerEnvironmentArray and ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput values.
+// You can construct a concrete instance of `ExpressGatewayServicePrimaryContainerEnvironmentArrayInput` via:
+//
+//	ExpressGatewayServicePrimaryContainerEnvironmentArray{ ExpressGatewayServicePrimaryContainerEnvironmentArgs{...} }
+type ExpressGatewayServicePrimaryContainerEnvironmentArrayInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServicePrimaryContainerEnvironmentArrayOutput() ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput
+	ToExpressGatewayServicePrimaryContainerEnvironmentArrayOutputWithContext(context.Context) ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput
+}
+
+type ExpressGatewayServicePrimaryContainerEnvironmentArray []ExpressGatewayServicePrimaryContainerEnvironmentInput
+
+func (ExpressGatewayServicePrimaryContainerEnvironmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServicePrimaryContainerEnvironment)(nil)).Elem()
+}
+
+func (i ExpressGatewayServicePrimaryContainerEnvironmentArray) ToExpressGatewayServicePrimaryContainerEnvironmentArrayOutput() ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput {
+	return i.ToExpressGatewayServicePrimaryContainerEnvironmentArrayOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServicePrimaryContainerEnvironmentArray) ToExpressGatewayServicePrimaryContainerEnvironmentArrayOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServicePrimaryContainerEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServicePrimaryContainerEnvironment)(nil)).Elem()
+}
+
+func (o ExpressGatewayServicePrimaryContainerEnvironmentOutput) ToExpressGatewayServicePrimaryContainerEnvironmentOutput() ExpressGatewayServicePrimaryContainerEnvironmentOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerEnvironmentOutput) ToExpressGatewayServicePrimaryContainerEnvironmentOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerEnvironmentOutput {
+	return o
+}
+
+// Name of the environment variable.
+func (o ExpressGatewayServicePrimaryContainerEnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainerEnvironment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the environment variable.
+func (o ExpressGatewayServicePrimaryContainerEnvironmentOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainerEnvironment) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServicePrimaryContainerEnvironment)(nil)).Elem()
+}
+
+func (o ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput) ToExpressGatewayServicePrimaryContainerEnvironmentArrayOutput() ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput) ToExpressGatewayServicePrimaryContainerEnvironmentArrayOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput) Index(i pulumi.IntInput) ExpressGatewayServicePrimaryContainerEnvironmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressGatewayServicePrimaryContainerEnvironment {
+		return vs[0].([]ExpressGatewayServicePrimaryContainerEnvironment)[vs[1].(int)]
+	}).(ExpressGatewayServicePrimaryContainerEnvironmentOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerRepositoryCredentials struct {
+	// ARN of the AWS Systems Manager parameter containing the repository credentials.
+	CredentialsParameter string `pulumi:"credentialsParameter"`
+}
+
+// ExpressGatewayServicePrimaryContainerRepositoryCredentialsInput is an input type that accepts ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs and ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput values.
+// You can construct a concrete instance of `ExpressGatewayServicePrimaryContainerRepositoryCredentialsInput` via:
+//
+//	ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs{...}
+type ExpressGatewayServicePrimaryContainerRepositoryCredentialsInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput() ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput
+	ToExpressGatewayServicePrimaryContainerRepositoryCredentialsOutputWithContext(context.Context) ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput
+}
+
+type ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs struct {
+	// ARN of the AWS Systems Manager parameter containing the repository credentials.
+	CredentialsParameter pulumi.StringInput `pulumi:"credentialsParameter"`
+}
+
+func (ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServicePrimaryContainerRepositoryCredentials)(nil)).Elem()
+}
+
+func (i ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput() ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput {
+	return i.ToExpressGatewayServicePrimaryContainerRepositoryCredentialsOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput)
+}
+
+func (i ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput() ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput {
+	return i.ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput).ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutputWithContext(ctx)
+}
+
+// ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrInput is an input type that accepts ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs, ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtr and ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput values.
+// You can construct a concrete instance of `ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrInput` via:
+//
+//	        ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput() ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput
+	ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutputWithContext(context.Context) ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput
+}
+
+type expressGatewayServicePrimaryContainerRepositoryCredentialsPtrType ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs
+
+func ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtr(v *ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs) ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrInput {
+	return (*expressGatewayServicePrimaryContainerRepositoryCredentialsPtrType)(v)
+}
+
+func (*expressGatewayServicePrimaryContainerRepositoryCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServicePrimaryContainerRepositoryCredentials)(nil)).Elem()
+}
+
+func (i *expressGatewayServicePrimaryContainerRepositoryCredentialsPtrType) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput() ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput {
+	return i.ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *expressGatewayServicePrimaryContainerRepositoryCredentialsPtrType) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServicePrimaryContainerRepositoryCredentials)(nil)).Elem()
+}
+
+func (o ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput() ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput() ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput {
+	return o.ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressGatewayServicePrimaryContainerRepositoryCredentials) *ExpressGatewayServicePrimaryContainerRepositoryCredentials {
+		return &v
+	}).(ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput)
+}
+
+// ARN of the AWS Systems Manager parameter containing the repository credentials.
+func (o ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput) CredentialsParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainerRepositoryCredentials) string {
+		return v.CredentialsParameter
+	}).(pulumi.StringOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServicePrimaryContainerRepositoryCredentials)(nil)).Elem()
+}
+
+func (o ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput() ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput) ToExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput) Elem() ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput {
+	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainerRepositoryCredentials) ExpressGatewayServicePrimaryContainerRepositoryCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServicePrimaryContainerRepositoryCredentials
+		return ret
+	}).(ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput)
+}
+
+// ARN of the AWS Systems Manager parameter containing the repository credentials.
+func (o ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput) CredentialsParameter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainerRepositoryCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsParameter
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerSecret struct {
+	Name string `pulumi:"name"`
+	// ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
+	ValueFrom string `pulumi:"valueFrom"`
+}
+
+// ExpressGatewayServicePrimaryContainerSecretInput is an input type that accepts ExpressGatewayServicePrimaryContainerSecretArgs and ExpressGatewayServicePrimaryContainerSecretOutput values.
+// You can construct a concrete instance of `ExpressGatewayServicePrimaryContainerSecretInput` via:
+//
+//	ExpressGatewayServicePrimaryContainerSecretArgs{...}
+type ExpressGatewayServicePrimaryContainerSecretInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServicePrimaryContainerSecretOutput() ExpressGatewayServicePrimaryContainerSecretOutput
+	ToExpressGatewayServicePrimaryContainerSecretOutputWithContext(context.Context) ExpressGatewayServicePrimaryContainerSecretOutput
+}
+
+type ExpressGatewayServicePrimaryContainerSecretArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+	// ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
+	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
+}
+
+func (ExpressGatewayServicePrimaryContainerSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServicePrimaryContainerSecret)(nil)).Elem()
+}
+
+func (i ExpressGatewayServicePrimaryContainerSecretArgs) ToExpressGatewayServicePrimaryContainerSecretOutput() ExpressGatewayServicePrimaryContainerSecretOutput {
+	return i.ToExpressGatewayServicePrimaryContainerSecretOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServicePrimaryContainerSecretArgs) ToExpressGatewayServicePrimaryContainerSecretOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerSecretOutput)
+}
+
+// ExpressGatewayServicePrimaryContainerSecretArrayInput is an input type that accepts ExpressGatewayServicePrimaryContainerSecretArray and ExpressGatewayServicePrimaryContainerSecretArrayOutput values.
+// You can construct a concrete instance of `ExpressGatewayServicePrimaryContainerSecretArrayInput` via:
+//
+//	ExpressGatewayServicePrimaryContainerSecretArray{ ExpressGatewayServicePrimaryContainerSecretArgs{...} }
+type ExpressGatewayServicePrimaryContainerSecretArrayInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServicePrimaryContainerSecretArrayOutput() ExpressGatewayServicePrimaryContainerSecretArrayOutput
+	ToExpressGatewayServicePrimaryContainerSecretArrayOutputWithContext(context.Context) ExpressGatewayServicePrimaryContainerSecretArrayOutput
+}
+
+type ExpressGatewayServicePrimaryContainerSecretArray []ExpressGatewayServicePrimaryContainerSecretInput
+
+func (ExpressGatewayServicePrimaryContainerSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServicePrimaryContainerSecret)(nil)).Elem()
+}
+
+func (i ExpressGatewayServicePrimaryContainerSecretArray) ToExpressGatewayServicePrimaryContainerSecretArrayOutput() ExpressGatewayServicePrimaryContainerSecretArrayOutput {
+	return i.ToExpressGatewayServicePrimaryContainerSecretArrayOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServicePrimaryContainerSecretArray) ToExpressGatewayServicePrimaryContainerSecretArrayOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServicePrimaryContainerSecretArrayOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerSecretOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServicePrimaryContainerSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServicePrimaryContainerSecret)(nil)).Elem()
+}
+
+func (o ExpressGatewayServicePrimaryContainerSecretOutput) ToExpressGatewayServicePrimaryContainerSecretOutput() ExpressGatewayServicePrimaryContainerSecretOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerSecretOutput) ToExpressGatewayServicePrimaryContainerSecretOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerSecretOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainerSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
+func (o ExpressGatewayServicePrimaryContainerSecretOutput) ValueFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainerSecret) string { return v.ValueFrom }).(pulumi.StringOutput)
+}
+
+type ExpressGatewayServicePrimaryContainerSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServicePrimaryContainerSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServicePrimaryContainerSecret)(nil)).Elem()
+}
+
+func (o ExpressGatewayServicePrimaryContainerSecretArrayOutput) ToExpressGatewayServicePrimaryContainerSecretArrayOutput() ExpressGatewayServicePrimaryContainerSecretArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerSecretArrayOutput) ToExpressGatewayServicePrimaryContainerSecretArrayOutputWithContext(ctx context.Context) ExpressGatewayServicePrimaryContainerSecretArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServicePrimaryContainerSecretArrayOutput) Index(i pulumi.IntInput) ExpressGatewayServicePrimaryContainerSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressGatewayServicePrimaryContainerSecret {
+		return vs[0].([]ExpressGatewayServicePrimaryContainerSecret)[vs[1].(int)]
+	}).(ExpressGatewayServicePrimaryContainerSecretOutput)
+}
+
+type ExpressGatewayServiceScalingTarget struct {
+	// Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+	AutoScalingMetric string `pulumi:"autoScalingMetric"`
+	// Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
+	AutoScalingTargetValue int `pulumi:"autoScalingTargetValue"`
+	// Maximum number of tasks to run.
+	MaxTaskCount int `pulumi:"maxTaskCount"`
+	// Minimum number of tasks to run.
+	MinTaskCount int `pulumi:"minTaskCount"`
+}
+
+// ExpressGatewayServiceScalingTargetInput is an input type that accepts ExpressGatewayServiceScalingTargetArgs and ExpressGatewayServiceScalingTargetOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceScalingTargetInput` via:
+//
+//	ExpressGatewayServiceScalingTargetArgs{...}
+type ExpressGatewayServiceScalingTargetInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceScalingTargetOutput() ExpressGatewayServiceScalingTargetOutput
+	ToExpressGatewayServiceScalingTargetOutputWithContext(context.Context) ExpressGatewayServiceScalingTargetOutput
+}
+
+type ExpressGatewayServiceScalingTargetArgs struct {
+	// Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+	AutoScalingMetric pulumi.StringInput `pulumi:"autoScalingMetric"`
+	// Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
+	AutoScalingTargetValue pulumi.IntInput `pulumi:"autoScalingTargetValue"`
+	// Maximum number of tasks to run.
+	MaxTaskCount pulumi.IntInput `pulumi:"maxTaskCount"`
+	// Minimum number of tasks to run.
+	MinTaskCount pulumi.IntInput `pulumi:"minTaskCount"`
+}
+
+func (ExpressGatewayServiceScalingTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceScalingTarget)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceScalingTargetArgs) ToExpressGatewayServiceScalingTargetOutput() ExpressGatewayServiceScalingTargetOutput {
+	return i.ToExpressGatewayServiceScalingTargetOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceScalingTargetArgs) ToExpressGatewayServiceScalingTargetOutputWithContext(ctx context.Context) ExpressGatewayServiceScalingTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceScalingTargetOutput)
+}
+
+// ExpressGatewayServiceScalingTargetArrayInput is an input type that accepts ExpressGatewayServiceScalingTargetArray and ExpressGatewayServiceScalingTargetArrayOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceScalingTargetArrayInput` via:
+//
+//	ExpressGatewayServiceScalingTargetArray{ ExpressGatewayServiceScalingTargetArgs{...} }
+type ExpressGatewayServiceScalingTargetArrayInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceScalingTargetArrayOutput() ExpressGatewayServiceScalingTargetArrayOutput
+	ToExpressGatewayServiceScalingTargetArrayOutputWithContext(context.Context) ExpressGatewayServiceScalingTargetArrayOutput
+}
+
+type ExpressGatewayServiceScalingTargetArray []ExpressGatewayServiceScalingTargetInput
+
+func (ExpressGatewayServiceScalingTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceScalingTarget)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceScalingTargetArray) ToExpressGatewayServiceScalingTargetArrayOutput() ExpressGatewayServiceScalingTargetArrayOutput {
+	return i.ToExpressGatewayServiceScalingTargetArrayOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceScalingTargetArray) ToExpressGatewayServiceScalingTargetArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceScalingTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceScalingTargetArrayOutput)
+}
+
+type ExpressGatewayServiceScalingTargetOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceScalingTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceScalingTarget)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceScalingTargetOutput) ToExpressGatewayServiceScalingTargetOutput() ExpressGatewayServiceScalingTargetOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceScalingTargetOutput) ToExpressGatewayServiceScalingTargetOutputWithContext(ctx context.Context) ExpressGatewayServiceScalingTargetOutput {
+	return o
+}
+
+// Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+func (o ExpressGatewayServiceScalingTargetOutput) AutoScalingMetric() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceScalingTarget) string { return v.AutoScalingMetric }).(pulumi.StringOutput)
+}
+
+// Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
+func (o ExpressGatewayServiceScalingTargetOutput) AutoScalingTargetValue() pulumi.IntOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceScalingTarget) int { return v.AutoScalingTargetValue }).(pulumi.IntOutput)
+}
+
+// Maximum number of tasks to run.
+func (o ExpressGatewayServiceScalingTargetOutput) MaxTaskCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceScalingTarget) int { return v.MaxTaskCount }).(pulumi.IntOutput)
+}
+
+// Minimum number of tasks to run.
+func (o ExpressGatewayServiceScalingTargetOutput) MinTaskCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceScalingTarget) int { return v.MinTaskCount }).(pulumi.IntOutput)
+}
+
+type ExpressGatewayServiceScalingTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceScalingTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceScalingTarget)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceScalingTargetArrayOutput) ToExpressGatewayServiceScalingTargetArrayOutput() ExpressGatewayServiceScalingTargetArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceScalingTargetArrayOutput) ToExpressGatewayServiceScalingTargetArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceScalingTargetArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceScalingTargetArrayOutput) Index(i pulumi.IntInput) ExpressGatewayServiceScalingTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressGatewayServiceScalingTarget {
+		return vs[0].([]ExpressGatewayServiceScalingTarget)[vs[1].(int)]
+	}).(ExpressGatewayServiceScalingTargetOutput)
+}
+
+type ExpressGatewayServiceTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ExpressGatewayServiceTimeoutsInput is an input type that accepts ExpressGatewayServiceTimeoutsArgs and ExpressGatewayServiceTimeoutsOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceTimeoutsInput` via:
+//
+//	ExpressGatewayServiceTimeoutsArgs{...}
+type ExpressGatewayServiceTimeoutsInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceTimeoutsOutput() ExpressGatewayServiceTimeoutsOutput
+	ToExpressGatewayServiceTimeoutsOutputWithContext(context.Context) ExpressGatewayServiceTimeoutsOutput
+}
+
+type ExpressGatewayServiceTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ExpressGatewayServiceTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceTimeouts)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceTimeoutsArgs) ToExpressGatewayServiceTimeoutsOutput() ExpressGatewayServiceTimeoutsOutput {
+	return i.ToExpressGatewayServiceTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceTimeoutsArgs) ToExpressGatewayServiceTimeoutsOutputWithContext(ctx context.Context) ExpressGatewayServiceTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceTimeoutsOutput)
+}
+
+func (i ExpressGatewayServiceTimeoutsArgs) ToExpressGatewayServiceTimeoutsPtrOutput() ExpressGatewayServiceTimeoutsPtrOutput {
+	return i.ToExpressGatewayServiceTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceTimeoutsArgs) ToExpressGatewayServiceTimeoutsPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceTimeoutsOutput).ToExpressGatewayServiceTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ExpressGatewayServiceTimeoutsPtrInput is an input type that accepts ExpressGatewayServiceTimeoutsArgs, ExpressGatewayServiceTimeoutsPtr and ExpressGatewayServiceTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceTimeoutsPtrInput` via:
+//
+//	        ExpressGatewayServiceTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExpressGatewayServiceTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceTimeoutsPtrOutput() ExpressGatewayServiceTimeoutsPtrOutput
+	ToExpressGatewayServiceTimeoutsPtrOutputWithContext(context.Context) ExpressGatewayServiceTimeoutsPtrOutput
+}
+
+type expressGatewayServiceTimeoutsPtrType ExpressGatewayServiceTimeoutsArgs
+
+func ExpressGatewayServiceTimeoutsPtr(v *ExpressGatewayServiceTimeoutsArgs) ExpressGatewayServiceTimeoutsPtrInput {
+	return (*expressGatewayServiceTimeoutsPtrType)(v)
+}
+
+func (*expressGatewayServiceTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceTimeouts)(nil)).Elem()
+}
+
+func (i *expressGatewayServiceTimeoutsPtrType) ToExpressGatewayServiceTimeoutsPtrOutput() ExpressGatewayServiceTimeoutsPtrOutput {
+	return i.ToExpressGatewayServiceTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *expressGatewayServiceTimeoutsPtrType) ToExpressGatewayServiceTimeoutsPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceTimeoutsPtrOutput)
+}
+
+type ExpressGatewayServiceTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceTimeouts)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceTimeoutsOutput) ToExpressGatewayServiceTimeoutsOutput() ExpressGatewayServiceTimeoutsOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceTimeoutsOutput) ToExpressGatewayServiceTimeoutsOutputWithContext(ctx context.Context) ExpressGatewayServiceTimeoutsOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceTimeoutsOutput) ToExpressGatewayServiceTimeoutsPtrOutput() ExpressGatewayServiceTimeoutsPtrOutput {
+	return o.ToExpressGatewayServiceTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceTimeoutsOutput) ToExpressGatewayServiceTimeoutsPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressGatewayServiceTimeouts) *ExpressGatewayServiceTimeouts {
+		return &v
+	}).(ExpressGatewayServiceTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ExpressGatewayServiceTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ExpressGatewayServiceTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ExpressGatewayServiceTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ExpressGatewayServiceTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceTimeouts)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceTimeoutsPtrOutput) ToExpressGatewayServiceTimeoutsPtrOutput() ExpressGatewayServiceTimeoutsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceTimeoutsPtrOutput) ToExpressGatewayServiceTimeoutsPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceTimeoutsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceTimeoutsPtrOutput) Elem() ExpressGatewayServiceTimeoutsOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceTimeouts) ExpressGatewayServiceTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceTimeouts
+		return ret
+	}).(ExpressGatewayServiceTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ExpressGatewayServiceTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ExpressGatewayServiceTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ExpressGatewayServiceTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceAlarms struct {
@@ -15689,6 +17057,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedScalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInfrastructureOptimizationInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs{})
@@ -15729,6 +17099,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsPtrInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingInput)(nil)).Elem(), ClusterSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingArrayInput)(nil)).Elem(), ClusterSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceIngressPathInput)(nil)).Elem(), ExpressGatewayServiceIngressPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceIngressPathArrayInput)(nil)).Elem(), ExpressGatewayServiceIngressPathArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceNetworkConfigurationInput)(nil)).Elem(), ExpressGatewayServiceNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceNetworkConfigurationArrayInput)(nil)).Elem(), ExpressGatewayServiceNetworkConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServicePrimaryContainerInput)(nil)).Elem(), ExpressGatewayServicePrimaryContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServicePrimaryContainerPtrInput)(nil)).Elem(), ExpressGatewayServicePrimaryContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServicePrimaryContainerAwsLogsConfigurationInput)(nil)).Elem(), ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayInput)(nil)).Elem(), ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServicePrimaryContainerEnvironmentInput)(nil)).Elem(), ExpressGatewayServicePrimaryContainerEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServicePrimaryContainerEnvironmentArrayInput)(nil)).Elem(), ExpressGatewayServicePrimaryContainerEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServicePrimaryContainerRepositoryCredentialsInput)(nil)).Elem(), ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrInput)(nil)).Elem(), ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServicePrimaryContainerSecretInput)(nil)).Elem(), ExpressGatewayServicePrimaryContainerSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServicePrimaryContainerSecretArrayInput)(nil)).Elem(), ExpressGatewayServicePrimaryContainerSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceScalingTargetInput)(nil)).Elem(), ExpressGatewayServiceScalingTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceScalingTargetArrayInput)(nil)).Elem(), ExpressGatewayServiceScalingTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceTimeoutsInput)(nil)).Elem(), ExpressGatewayServiceTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceTimeoutsPtrInput)(nil)).Elem(), ExpressGatewayServiceTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlarmsInput)(nil)).Elem(), ServiceAlarmsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlarmsPtrInput)(nil)).Elem(), ServiceAlarmsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCapacityProviderStrategyInput)(nil)).Elem(), ServiceCapacityProviderStrategyArgs{})
@@ -15897,6 +17285,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput{})
@@ -15937,6 +17327,24 @@ func init() {
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSettingOutput{})
 	pulumi.RegisterOutputType(ClusterSettingArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceIngressPathOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceIngressPathArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceNetworkConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServicePrimaryContainerOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServicePrimaryContainerPtrOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServicePrimaryContainerAwsLogsConfigurationOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServicePrimaryContainerEnvironmentOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServicePrimaryContainerEnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServicePrimaryContainerRepositoryCredentialsOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServicePrimaryContainerSecretOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServicePrimaryContainerSecretArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceScalingTargetOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceScalingTargetArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceTimeoutsOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAlarmsOutput{})
 	pulumi.RegisterOutputType(ServiceAlarmsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyOutput{})

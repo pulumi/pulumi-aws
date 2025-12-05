@@ -131,6 +131,58 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### Gateway with Interceptor Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var interceptor = new Aws.Lambda.Function("interceptor", new()
+    ///     {
+    ///         Code = new FileArchive("interceptor.zip"),
+    ///         Name = "gateway-interceptor",
+    ///         Role = lambda.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.Python3d12,
+    ///     });
+    /// 
+    ///     var example = new Aws.Bedrock.AgentcoreGateway("example", new()
+    ///     {
+    ///         Name = "gateway-with-interceptor",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         AuthorizerType = "AWS_IAM",
+    ///         ProtocolType = "MCP",
+    ///         InterceptorConfigurations = new[]
+    ///         {
+    ///             new Aws.Bedrock.Inputs.AgentcoreGatewayInterceptorConfigurationArgs
+    ///             {
+    ///                 InterceptionPoints = new[]
+    ///                 {
+    ///                     "REQUEST",
+    ///                     "RESPONSE",
+    ///                 },
+    ///                 Interceptor = new Aws.Bedrock.Inputs.AgentcoreGatewayInterceptorConfigurationInterceptorArgs
+    ///                 {
+    ///                     Lambda = new Aws.Bedrock.Inputs.AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs
+    ///                     {
+    ///                         Arn = interceptor.Arn,
+    ///                     },
+    ///                 },
+    ///                 InputConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs
+    ///                 {
+    ///                     PassRequestHeaders = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Bedrock AgentCore Gateway using the gateway ID. For example:
@@ -183,6 +235,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Output("gatewayUrl")]
         public Output<string> GatewayUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `InterceptorConfiguration` below.
+        /// </summary>
+        [Output("interceptorConfigurations")]
+        public Output<ImmutableArray<Outputs.AgentcoreGatewayInterceptorConfiguration>> InterceptorConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the KMS key used to encrypt the gateway data.
@@ -313,6 +371,18 @@ namespace Pulumi.Aws.Bedrock
         [Input("exceptionLevel")]
         public Input<string>? ExceptionLevel { get; set; }
 
+        [Input("interceptorConfigurations", required: true)]
+        private InputList<Inputs.AgentcoreGatewayInterceptorConfigurationArgs>? _interceptorConfigurations;
+
+        /// <summary>
+        /// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `InterceptorConfiguration` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreGatewayInterceptorConfigurationArgs> InterceptorConfigurations
+        {
+            get => _interceptorConfigurations ?? (_interceptorConfigurations = new InputList<Inputs.AgentcoreGatewayInterceptorConfigurationArgs>());
+            set => _interceptorConfigurations = value;
+        }
+
         /// <summary>
         /// ARN of the KMS key used to encrypt the gateway data.
         /// </summary>
@@ -415,6 +485,18 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("gatewayUrl")]
         public Input<string>? GatewayUrl { get; set; }
+
+        [Input("interceptorConfigurations")]
+        private InputList<Inputs.AgentcoreGatewayInterceptorConfigurationGetArgs>? _interceptorConfigurations;
+
+        /// <summary>
+        /// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `InterceptorConfiguration` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreGatewayInterceptorConfigurationGetArgs> InterceptorConfigurations
+        {
+            get => _interceptorConfigurations ?? (_interceptorConfigurations = new InputList<Inputs.AgentcoreGatewayInterceptorConfigurationGetArgs>());
+            set => _interceptorConfigurations = value;
+        }
 
         /// <summary>
         /// ARN of the KMS key used to encrypt the gateway data.

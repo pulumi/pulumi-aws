@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.ModelContainerModelDataSourceS3DataSourceGetArgs>? _s3DataSources;
 
         /// <summary>
-        /// The S3 location of model data to deploy.
+        /// S3 location of model data to deploy. See S3 Data Source.
         /// </summary>
         public InputList<Inputs.ModelContainerModelDataSourceS3DataSourceGetArgs> S3DataSources
         {

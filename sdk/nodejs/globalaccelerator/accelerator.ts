@@ -39,8 +39,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
  *
- * console
- *
  * % pulumi import aws_globalaccelerator_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
  */
 export class Accelerator extends pulumi.CustomResource {

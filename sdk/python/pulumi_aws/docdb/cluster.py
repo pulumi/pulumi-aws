@@ -42,6 +42,7 @@ class ClusterArgs:
                  master_password_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  master_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  master_username: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
@@ -87,6 +88,7 @@ class ClusterArgs:
                show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
+        :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
         :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
                Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -147,6 +149,8 @@ class ClusterArgs:
             pulumi.set(__self__, "master_password_wo_version", master_password_wo_version)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
@@ -435,6 +439,18 @@ class ClusterArgs:
         pulumi.set(self, "master_username", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The network type of the DB cluster (`IPV4` or `DUAL`).
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -613,6 +629,7 @@ class _ClusterState:
                  master_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]]] = None,
                  master_username: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
@@ -664,6 +681,7 @@ class _ClusterState:
                show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
+        :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
         :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
                Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -736,6 +754,8 @@ class _ClusterState:
             pulumi.set(__self__, "master_user_secrets", master_user_secrets)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
@@ -1085,6 +1105,18 @@ class _ClusterState:
         pulumi.set(self, "master_username", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The network type of the DB cluster (`IPV4` or `DUAL`).
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -1285,6 +1317,7 @@ class Cluster(pulumi.CustomResource):
                  master_password_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  master_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  master_username: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1367,6 +1400,7 @@ class Cluster(pulumi.CustomResource):
                show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
+        :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
         :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
                Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -1463,6 +1497,7 @@ class Cluster(pulumi.CustomResource):
                  master_password_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  master_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  master_username: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1505,6 +1540,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["master_password_wo"] = None if master_password_wo is None else pulumi.Output.secret(master_password_wo)
             __props__.__dict__["master_password_wo_version"] = master_password_wo_version
             __props__.__dict__["master_username"] = master_username
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
@@ -1562,6 +1598,7 @@ class Cluster(pulumi.CustomResource):
             master_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
             master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict']]]]] = None,
             master_username: Optional[pulumi.Input[_builtins.str]] = None,
+            network_type: Optional[pulumi.Input[_builtins.str]] = None,
             port: Optional[pulumi.Input[_builtins.int]] = None,
             preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1618,6 +1655,7 @@ class Cluster(pulumi.CustomResource):
                show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
+        :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
         :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
                Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -1668,6 +1706,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["master_password_wo_version"] = master_password_wo_version
         __props__.__dict__["master_user_secrets"] = master_user_secrets
         __props__.__dict__["master_username"] = master_username
+        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
@@ -1898,6 +1937,14 @@ class Cluster(pulumi.CustomResource):
         Username for the master DB user.
         """
         return pulumi.get(self, "master_username")
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        The network type of the DB cluster (`IPV4` or `DUAL`).
+        """
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter

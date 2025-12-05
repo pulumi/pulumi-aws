@@ -3,11 +3,13 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.ModelContainerAdditionalModelDataSource;
 import com.pulumi.aws.sagemaker.outputs.ModelContainerImageConfig;
 import com.pulumi.aws.sagemaker.outputs.ModelContainerModelDataSource;
 import com.pulumi.aws.sagemaker.outputs.ModelContainerMultiModelConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,18 +18,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ModelContainer {
     /**
-     * @return The DNS host name for the container.
+     * @return Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+     * 
+     */
+    private @Nullable List<ModelContainerAdditionalModelDataSource> additionalModelDataSources;
+    /**
+     * @return DNS host name for the container.
      * 
      */
     private @Nullable String containerHostname;
     /**
      * @return Environment variables for the Docker container.
-     * A list of key value pairs.
      * 
      */
     private @Nullable Map<String,String> environment;
     /**
-     * @return The registry path where the inference code image is stored in Amazon ECR.
+     * @return Registry path where the inference code image is stored in Amazon ECR.
      * 
      */
     private @Nullable String image;
@@ -37,27 +43,28 @@ public final class ModelContainer {
      */
     private @Nullable ModelContainerImageConfig imageConfig;
     /**
-     * @return The inference specification name in the model package version.
+     * @return Inference specification name in the model package version.
      * 
      */
     private @Nullable String inferenceSpecificationName;
     /**
-     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * @return Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
      * 
      */
     private @Nullable String mode;
     /**
-     * @return The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+     * @return Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
      * 
      */
     private @Nullable ModelContainerModelDataSource modelDataSource;
     /**
-     * @return The URL for the S3 location where model artifacts are stored.
+     * @return URL for the S3 location where model artifacts are stored.
      * 
      */
     private @Nullable String modelDataUrl;
     /**
-     * @return The Amazon Resource Name (ARN) of the model package to use to create the model.
+     * @return Amazon Resource Name (ARN) of the model package to use to create the model.
+     * A list of key value pairs.
      * 
      */
     private @Nullable String modelPackageName;
@@ -69,7 +76,14 @@ public final class ModelContainer {
 
     private ModelContainer() {}
     /**
-     * @return The DNS host name for the container.
+     * @return Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+     * 
+     */
+    public List<ModelContainerAdditionalModelDataSource> additionalModelDataSources() {
+        return this.additionalModelDataSources == null ? List.of() : this.additionalModelDataSources;
+    }
+    /**
+     * @return DNS host name for the container.
      * 
      */
     public Optional<String> containerHostname() {
@@ -77,14 +91,13 @@ public final class ModelContainer {
     }
     /**
      * @return Environment variables for the Docker container.
-     * A list of key value pairs.
      * 
      */
     public Map<String,String> environment() {
         return this.environment == null ? Map.of() : this.environment;
     }
     /**
-     * @return The registry path where the inference code image is stored in Amazon ECR.
+     * @return Registry path where the inference code image is stored in Amazon ECR.
      * 
      */
     public Optional<String> image() {
@@ -98,35 +111,36 @@ public final class ModelContainer {
         return Optional.ofNullable(this.imageConfig);
     }
     /**
-     * @return The inference specification name in the model package version.
+     * @return Inference specification name in the model package version.
      * 
      */
     public Optional<String> inferenceSpecificationName() {
         return Optional.ofNullable(this.inferenceSpecificationName);
     }
     /**
-     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * @return Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
      * 
      */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
     /**
-     * @return The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+     * @return Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
      * 
      */
     public Optional<ModelContainerModelDataSource> modelDataSource() {
         return Optional.ofNullable(this.modelDataSource);
     }
     /**
-     * @return The URL for the S3 location where model artifacts are stored.
+     * @return URL for the S3 location where model artifacts are stored.
      * 
      */
     public Optional<String> modelDataUrl() {
         return Optional.ofNullable(this.modelDataUrl);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the model package to use to create the model.
+     * @return Amazon Resource Name (ARN) of the model package to use to create the model.
+     * A list of key value pairs.
      * 
      */
     public Optional<String> modelPackageName() {
@@ -149,6 +163,7 @@ public final class ModelContainer {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<ModelContainerAdditionalModelDataSource> additionalModelDataSources;
         private @Nullable String containerHostname;
         private @Nullable Map<String,String> environment;
         private @Nullable String image;
@@ -162,6 +177,7 @@ public final class ModelContainer {
         public Builder() {}
         public Builder(ModelContainer defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalModelDataSources = defaults.additionalModelDataSources;
     	      this.containerHostname = defaults.containerHostname;
     	      this.environment = defaults.environment;
     	      this.image = defaults.image;
@@ -174,6 +190,15 @@ public final class ModelContainer {
     	      this.multiModelConfig = defaults.multiModelConfig;
         }
 
+        @CustomType.Setter
+        public Builder additionalModelDataSources(@Nullable List<ModelContainerAdditionalModelDataSource> additionalModelDataSources) {
+
+            this.additionalModelDataSources = additionalModelDataSources;
+            return this;
+        }
+        public Builder additionalModelDataSources(ModelContainerAdditionalModelDataSource... additionalModelDataSources) {
+            return additionalModelDataSources(List.of(additionalModelDataSources));
+        }
         @CustomType.Setter
         public Builder containerHostname(@Nullable String containerHostname) {
 
@@ -236,6 +261,7 @@ public final class ModelContainer {
         }
         public ModelContainer build() {
             final var _resultValue = new ModelContainer();
+            _resultValue.additionalModelDataSources = additionalModelDataSources;
             _resultValue.containerHostname = containerHostname;
             _resultValue.environment = environment;
             _resultValue.image = image;

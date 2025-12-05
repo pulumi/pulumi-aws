@@ -162,6 +162,10 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public readonly int CreationTime;
         /// <summary>
+        /// Boolean to indicate whether deletion protection is enabled.
+        /// </summary>
+        public readonly bool DeletionProtectionEnabled;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -190,6 +194,8 @@ namespace Pulumi.Aws.CloudWatch
 
             int creationTime,
 
+            bool deletionProtectionEnabled,
+
             string id,
 
             string kmsKeyId,
@@ -206,6 +212,7 @@ namespace Pulumi.Aws.CloudWatch
         {
             Arn = arn;
             CreationTime = creationTime;
+            DeletionProtectionEnabled = deletionProtectionEnabled;
             Id = id;
             KmsKeyId = kmsKeyId;
             LogGroupClass = logGroupClass;

@@ -64,6 +64,19 @@ namespace Pulumi.Aws.LB.Inputs
             set => _forwards = value;
         }
 
+        [Input("jwtValidations")]
+        private List<Inputs.GetListenerRuleActionJwtValidationArgs>? _jwtValidations;
+
+        /// <summary>
+        /// An action to validate using JWT.
+        /// Detailed below.
+        /// </summary>
+        public List<Inputs.GetListenerRuleActionJwtValidationArgs> JwtValidations
+        {
+            get => _jwtValidations ?? (_jwtValidations = new List<Inputs.GetListenerRuleActionJwtValidationArgs>());
+            set => _jwtValidations = value;
+        }
+
         /// <summary>
         /// The evaluation order of the action.
         /// </summary>

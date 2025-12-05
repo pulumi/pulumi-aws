@@ -48,8 +48,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_ssoadmin_application_assignment_configuration.example arn:aws:sso::123456789012:application/id-12345678
     /// </summary>
     [AwsResourceType("aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration")]

@@ -743,8 +743,6 @@ class PatchBaseline(pulumi.CustomResource):
 
         Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
 
-        console
-
         % pulumi import aws_ssm_patch_baseline.example pb-12345678
 
         :param str resource_name: The name of the resource.
@@ -955,8 +953,6 @@ class PatchBaseline(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
-
-        console
 
         % pulumi import aws_ssm_patch_baseline.example pb-12345678
 

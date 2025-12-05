@@ -5,6 +5,7 @@ package com.pulumi.aws.lb.inputs;
 
 import com.pulumi.aws.lb.inputs.LoadBalancerAccessLogsArgs;
 import com.pulumi.aws.lb.inputs.LoadBalancerConnectionLogsArgs;
+import com.pulumi.aws.lb.inputs.LoadBalancerHealthCheckLogsArgs;
 import com.pulumi.aws.lb.inputs.LoadBalancerIpamPoolsArgs;
 import com.pulumi.aws.lb.inputs.LoadBalancerMinimumLoadBalancerCapacityArgs;
 import com.pulumi.aws.lb.inputs.LoadBalancerSubnetMappingArgs;
@@ -294,6 +295,21 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
         return Optional.ofNullable(this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic);
+    }
+
+    /**
+     * Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+     * 
+     */
+    @Import(name="healthCheckLogs")
+    private @Nullable Output<LoadBalancerHealthCheckLogsArgs> healthCheckLogs;
+
+    /**
+     * @return Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+     * 
+     */
+    public Optional<Output<LoadBalancerHealthCheckLogsArgs>> healthCheckLogs() {
+        return Optional.ofNullable(this.healthCheckLogs);
     }
 
     /**
@@ -602,6 +618,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         this.enableXffClientPort = $.enableXffClientPort;
         this.enableZonalShift = $.enableZonalShift;
         this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = $.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+        this.healthCheckLogs = $.healthCheckLogs;
         this.idleTimeout = $.idleTimeout;
         this.internal = $.internal;
         this.ipAddressType = $.ipAddressType;
@@ -1019,6 +1036,27 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enforceSecurityGroupInboundRulesOnPrivateLinkTraffic(String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic) {
             return enforceSecurityGroupInboundRulesOnPrivateLinkTraffic(Output.of(enforceSecurityGroupInboundRulesOnPrivateLinkTraffic));
+        }
+
+        /**
+         * @param healthCheckLogs Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder healthCheckLogs(@Nullable Output<LoadBalancerHealthCheckLogsArgs> healthCheckLogs) {
+            $.healthCheckLogs = healthCheckLogs;
+            return this;
+        }
+
+        /**
+         * @param healthCheckLogs Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder healthCheckLogs(LoadBalancerHealthCheckLogsArgs healthCheckLogs) {
+            return healthCheckLogs(Output.of(healthCheckLogs));
         }
 
         /**

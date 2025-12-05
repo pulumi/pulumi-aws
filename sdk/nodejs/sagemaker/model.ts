@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker AI model resource.
+ * Manages an Amazon SageMaker AI Model.
  *
  * ## Example Usage
  *
- * Basic usage:
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -40,21 +40,12 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Inference Execution Config
- *
- * * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
- *
- * ### VPC Config
- *
- * * `securityGroupIds` - (Required) List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
- * * `subnets` - (Required) List of subnet IDs in the VPC to which you want to connect your training job or model.
- *
  * ## Import
  *
  * Using `pulumi import`, import models using the `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:sagemaker/model:Model test_model model-foo
+ * $ pulumi import aws:sagemaker/model:Model example model-foo
  * ```
  */
 export class Model extends pulumi.CustomResource {
@@ -86,7 +77,7 @@ export class Model extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this model.
+     * Amazon Resource Name (ARN) assigned by AWS to this model.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -106,11 +97,11 @@ export class Model extends pulumi.CustomResource {
      */
     declare public readonly inferenceExecutionConfig: pulumi.Output<outputs.sagemaker.ModelInferenceExecutionConfig>;
     /**
-     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     * Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+     * Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
     declare public readonly primaryContainer: pulumi.Output<outputs.sagemaker.ModelPrimaryContainer | undefined>;
     /**
@@ -181,7 +172,7 @@ export class Model extends pulumi.CustomResource {
  */
 export interface ModelState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this model.
+     * Amazon Resource Name (ARN) assigned by AWS to this model.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -201,11 +192,11 @@ export interface ModelState {
      */
     inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfig>;
     /**
-     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     * Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
-     * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+     * Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
     primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
     /**
@@ -247,11 +238,11 @@ export interface ModelArgs {
      */
     inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfig>;
     /**
-     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     * Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
-     * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+     * Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
     primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
     /**

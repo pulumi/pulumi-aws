@@ -15,6 +15,11 @@ export type AuthPolicy = import("./authPolicy").AuthPolicy;
 export const AuthPolicy: typeof import("./authPolicy").AuthPolicy = null as any;
 utilities.lazyLoad(exports, ["AuthPolicy"], () => require("./authPolicy"));
 
+export { DomainVerificationArgs, DomainVerificationState } from "./domainVerification";
+export type DomainVerification = import("./domainVerification").DomainVerification;
+export const DomainVerification: typeof import("./domainVerification").DomainVerification = null as any;
+utilities.lazyLoad(exports, ["DomainVerification"], () => require("./domainVerification"));
+
 export { GetAuthPolicyArgs, GetAuthPolicyResult, GetAuthPolicyOutputArgs } from "./getAuthPolicy";
 export const getAuthPolicy: typeof import("./getAuthPolicy").getAuthPolicy = null as any;
 export const getAuthPolicyOutput: typeof import("./getAuthPolicy").getAuthPolicyOutput = null as any;
@@ -109,6 +114,8 @@ const _module = {
                 return new AccessLogSubscription(name, <any>undefined, { urn })
             case "aws:vpclattice/authPolicy:AuthPolicy":
                 return new AuthPolicy(name, <any>undefined, { urn })
+            case "aws:vpclattice/domainVerification:DomainVerification":
+                return new DomainVerification(name, <any>undefined, { urn })
             case "aws:vpclattice/listener:Listener":
                 return new Listener(name, <any>undefined, { urn })
             case "aws:vpclattice/listenerRule:ListenerRule":
@@ -140,6 +147,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "vpclattice/accessLogSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/authPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "vpclattice/domainVerification", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/listener", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/listenerRule", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/resourceConfiguration", _module)

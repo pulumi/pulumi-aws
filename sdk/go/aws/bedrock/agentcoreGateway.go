@@ -136,6 +136,62 @@ import (
 //
 // ```
 //
+// ### Gateway with Interceptor Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			interceptor, err := lambda.NewFunction(ctx, "interceptor", &lambda.FunctionArgs{
+//				Code:    pulumi.NewFileArchive("interceptor.zip"),
+//				Name:    pulumi.String("gateway-interceptor"),
+//				Role:    pulumi.Any(lambda.Arn),
+//				Handler: pulumi.String("index.handler"),
+//				Runtime: pulumi.String(lambda.RuntimePython3d12),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bedrock.NewAgentcoreGateway(ctx, "example", &bedrock.AgentcoreGatewayArgs{
+//				Name:           pulumi.String("gateway-with-interceptor"),
+//				RoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
+//				AuthorizerType: pulumi.String("AWS_IAM"),
+//				ProtocolType:   pulumi.String("MCP"),
+//				InterceptorConfigurations: bedrock.AgentcoreGatewayInterceptorConfigurationArray{
+//					&bedrock.AgentcoreGatewayInterceptorConfigurationArgs{
+//						InterceptionPoints: pulumi.StringArray{
+//							pulumi.String("REQUEST"),
+//							pulumi.String("RESPONSE"),
+//						},
+//						Interceptor: &bedrock.AgentcoreGatewayInterceptorConfigurationInterceptorArgs{
+//							Lambda: &bedrock.AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs{
+//								Arn: interceptor.Arn,
+//							},
+//						},
+//						InputConfiguration: &bedrock.AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs{
+//							PassRequestHeaders: pulumi.Bool(true),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Bedrock AgentCore Gateway using the gateway ID. For example:
@@ -160,6 +216,8 @@ type AgentcoreGateway struct {
 	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
 	// URL endpoint for the gateway.
 	GatewayUrl pulumi.StringOutput `pulumi:"gatewayUrl"`
+	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+	InterceptorConfigurations AgentcoreGatewayInterceptorConfigurationArrayOutput `pulumi:"interceptorConfigurations"`
 	// ARN of the KMS key used to encrypt the gateway data.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Name of the gateway.
@@ -192,6 +250,9 @@ func NewAgentcoreGateway(ctx *pulumi.Context,
 
 	if args.AuthorizerType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizerType'")
+	}
+	if args.InterceptorConfigurations == nil {
+		return nil, errors.New("invalid value for required argument 'InterceptorConfigurations'")
 	}
 	if args.ProtocolType == nil {
 		return nil, errors.New("invalid value for required argument 'ProtocolType'")
@@ -236,6 +297,8 @@ type agentcoreGatewayState struct {
 	GatewayId *string `pulumi:"gatewayId"`
 	// URL endpoint for the gateway.
 	GatewayUrl *string `pulumi:"gatewayUrl"`
+	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+	InterceptorConfigurations []AgentcoreGatewayInterceptorConfiguration `pulumi:"interceptorConfigurations"`
 	// ARN of the KMS key used to encrypt the gateway data.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the gateway.
@@ -274,6 +337,8 @@ type AgentcoreGatewayState struct {
 	GatewayId pulumi.StringPtrInput
 	// URL endpoint for the gateway.
 	GatewayUrl pulumi.StringPtrInput
+	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+	InterceptorConfigurations AgentcoreGatewayInterceptorConfigurationArrayInput
 	// ARN of the KMS key used to encrypt the gateway data.
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the gateway.
@@ -310,6 +375,8 @@ type agentcoreGatewayArgs struct {
 	Description *string `pulumi:"description"`
 	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
 	ExceptionLevel *string `pulumi:"exceptionLevel"`
+	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+	InterceptorConfigurations []AgentcoreGatewayInterceptorConfiguration `pulumi:"interceptorConfigurations"`
 	// ARN of the KMS key used to encrypt the gateway data.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the gateway.
@@ -339,6 +406,8 @@ type AgentcoreGatewayArgs struct {
 	Description pulumi.StringPtrInput
 	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
 	ExceptionLevel pulumi.StringPtrInput
+	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+	InterceptorConfigurations AgentcoreGatewayInterceptorConfigurationArrayInput
 	// ARN of the KMS key used to encrypt the gateway data.
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the gateway.
@@ -480,6 +549,13 @@ func (o AgentcoreGatewayOutput) GatewayId() pulumi.StringOutput {
 // URL endpoint for the gateway.
 func (o AgentcoreGatewayOutput) GatewayUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.GatewayUrl }).(pulumi.StringOutput)
+}
+
+// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+func (o AgentcoreGatewayOutput) InterceptorConfigurations() AgentcoreGatewayInterceptorConfigurationArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGateway) AgentcoreGatewayInterceptorConfigurationArrayOutput {
+		return v.InterceptorConfigurations
+	}).(AgentcoreGatewayInterceptorConfigurationArrayOutput)
 }
 
 // ARN of the KMS key used to encrypt the gateway data.

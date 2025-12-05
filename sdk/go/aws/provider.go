@@ -49,6 +49,8 @@ type Provider struct {
 	// The region where AWS STS operations will take place. Examples
 	// are us-east-1 and us-west-2.
 	StsRegion pulumi.StringPtrOutput `pulumi:"stsRegion"`
+	// The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+	TagPolicyCompliance pulumi.StringPtrOutput `pulumi:"tagPolicyCompliance"`
 	// session token. A session token is only required if you are
 	// using temporary security credentials.
 	Token pulumi.StringPtrOutput `pulumi:"token"`
@@ -160,6 +162,8 @@ type providerArgs struct {
 	// The region where AWS STS operations will take place. Examples
 	// are us-east-1 and us-west-2.
 	StsRegion *string `pulumi:"stsRegion"`
+	// The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+	TagPolicyCompliance *string `pulumi:"tagPolicyCompliance"`
 	// session token. A session token is only required if you are
 	// using temporary security credentials.
 	Token *string `pulumi:"token"`
@@ -236,6 +240,8 @@ type ProviderArgs struct {
 	// The region where AWS STS operations will take place. Examples
 	// are us-east-1 and us-west-2.
 	StsRegion pulumi.StringPtrInput
+	// The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+	TagPolicyCompliance pulumi.StringPtrInput
 	// session token. A session token is only required if you are
 	// using temporary security credentials.
 	Token pulumi.StringPtrInput
@@ -375,6 +381,11 @@ func (o ProviderOutput) SecretKey() pulumi.StringPtrOutput {
 // are us-east-1 and us-west-2.
 func (o ProviderOutput) StsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.StsRegion }).(pulumi.StringPtrOutput)
+}
+
+// The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
+func (o ProviderOutput) TagPolicyCompliance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TagPolicyCompliance }).(pulumi.StringPtrOutput)
 }
 
 // session token. A session token is only required if you are

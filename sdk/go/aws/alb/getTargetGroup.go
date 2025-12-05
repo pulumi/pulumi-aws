@@ -104,6 +104,7 @@ type LookupTargetGroupResult struct {
 	SlowStart                      int                      `pulumi:"slowStart"`
 	Stickiness                     GetTargetGroupStickiness `pulumi:"stickiness"`
 	Tags                           map[string]string        `pulumi:"tags"`
+	TargetControlPort              int                      `pulumi:"targetControlPort"`
 	TargetType                     string                   `pulumi:"targetType"`
 	VpcId                          string                   `pulumi:"vpcId"`
 }
@@ -234,6 +235,10 @@ func (o LookupTargetGroupResultOutput) Stickiness() GetTargetGroupStickinessOutp
 
 func (o LookupTargetGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupTargetGroupResultOutput) TargetControlPort() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) int { return v.TargetControlPort }).(pulumi.IntOutput)
 }
 
 func (o LookupTargetGroupResultOutput) TargetType() pulumi.StringOutput {

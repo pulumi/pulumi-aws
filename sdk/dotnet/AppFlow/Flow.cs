@@ -201,8 +201,6 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// Using `pulumi import`, import AppFlow flows using the `name`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_appflow_flow.example example-flow
     /// </summary>
     [AwsResourceType("aws:appflow/flow:Flow")]

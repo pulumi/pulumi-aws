@@ -48,6 +48,32 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
+        /// 
+        /// The following example shows how to get a Hosted Zone from a unique combination of its tags:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var selected = Aws.Route53.GetZone.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "scope", "local" },
+        ///             { "category", "api" },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["localApiZone"] = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("aws:route53/getZone:getZone", args ?? new GetZoneArgs(), options.WithDefaults());
@@ -87,6 +113,32 @@ namespace Pulumi.Aws.Route53
         ///         },
         ///     });
         /// 
+        /// });
+        /// ```
+        /// 
+        /// The following example shows how to get a Hosted Zone from a unique combination of its tags:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var selected = Aws.Route53.GetZone.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "scope", "local" },
+        ///             { "category", "api" },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["localApiZone"] = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -130,6 +182,32 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
+        /// 
+        /// The following example shows how to get a Hosted Zone from a unique combination of its tags:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var selected = Aws.Route53.GetZone.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "scope", "local" },
+        ///             { "category", "api" },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["localApiZone"] = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("aws:route53/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
@@ -139,13 +217,19 @@ namespace Pulumi.Aws.Route53
     public sealed class GetZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Hosted Zone name of the desired Hosted Zone.
+        /// Boolean to indicate whether to enable accelerated recovery for the hosted zone.
+        /// </summary>
+        [Input("enableAcceleratedRecovery")]
+        public bool? EnableAcceleratedRecovery { get; set; }
+
+        /// <summary>
+        /// Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `PrivateZone`, `VpcId` and `Tags`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// Used with `Name` field to get a private Hosted Zone.
+        /// Filter to only private Hosted Zones.
         /// </summary>
         [Input("privateZone")]
         public bool? PrivateZone { get; set; }
@@ -154,11 +238,11 @@ namespace Pulumi.Aws.Route53
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Used with `Name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+        /// A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
         /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// Hosted Zone. You have to use `ZoneId` or `Name`, not both of them. The given filter must match exactly one
-        /// Hosted Zone. If you use `Name` field for private Hosted Zone, you need to add `PrivateZone` field to `True`.
+        /// The arguments of this data source act as filters for querying the available Hosted Zone.
+        /// 
+        /// - The given filter must match exactly one Hosted Zone.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -167,13 +251,14 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Used with `Name` field to get a private Hosted Zone associated with the VpcId (in this case, PrivateZone is not mandatory).
+        /// Filter to private Hosted Zones associated with the specified `VpcId`.
         /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
 
         /// <summary>
-        /// Hosted Zone id of the desired Hosted Zone.
+        /// and `Name` are mutually exclusive.
+        /// - If you use the `Name` argument for a private Hosted Zone, you need to set the `PrivateZone` argument to `True`.
         /// </summary>
         [Input("zoneId")]
         public string? ZoneId { get; set; }
@@ -187,13 +272,19 @@ namespace Pulumi.Aws.Route53
     public sealed class GetZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Hosted Zone name of the desired Hosted Zone.
+        /// Boolean to indicate whether to enable accelerated recovery for the hosted zone.
+        /// </summary>
+        [Input("enableAcceleratedRecovery")]
+        public Input<bool>? EnableAcceleratedRecovery { get; set; }
+
+        /// <summary>
+        /// Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `PrivateZone`, `VpcId` and `Tags`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Used with `Name` field to get a private Hosted Zone.
+        /// Filter to only private Hosted Zones.
         /// </summary>
         [Input("privateZone")]
         public Input<bool>? PrivateZone { get; set; }
@@ -202,11 +293,11 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Used with `Name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+        /// A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
         /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// Hosted Zone. You have to use `ZoneId` or `Name`, not both of them. The given filter must match exactly one
-        /// Hosted Zone. If you use `Name` field for private Hosted Zone, you need to add `PrivateZone` field to `True`.
+        /// The arguments of this data source act as filters for querying the available Hosted Zone.
+        /// 
+        /// - The given filter must match exactly one Hosted Zone.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -215,13 +306,14 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Used with `Name` field to get a private Hosted Zone associated with the VpcId (in this case, PrivateZone is not mandatory).
+        /// Filter to private Hosted Zones associated with the specified `VpcId`.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// Hosted Zone id of the desired Hosted Zone.
+        /// and `Name` are mutually exclusive.
+        /// - If you use the `Name` argument for a private Hosted Zone, you need to set the `PrivateZone` argument to `True`.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }
@@ -248,6 +340,10 @@ namespace Pulumi.Aws.Route53
         /// Comment field of the Hosted Zone.
         /// </summary>
         public readonly string Comment;
+        /// <summary>
+        /// Boolean to indicate whether to enable accelerated recovery for the hosted zone.
+        /// </summary>
+        public readonly bool? EnableAcceleratedRecovery;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -284,7 +380,7 @@ namespace Pulumi.Aws.Route53
         /// A map of tags assigned to the Hosted Zone.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string VpcId;
+        public readonly string? VpcId;
         /// <summary>
         /// The Hosted Zone identifier.
         /// </summary>
@@ -297,6 +393,8 @@ namespace Pulumi.Aws.Route53
             string callerReference,
 
             string comment,
+
+            bool? enableAcceleratedRecovery,
 
             string id,
 
@@ -316,13 +414,14 @@ namespace Pulumi.Aws.Route53
 
             ImmutableDictionary<string, string> tags,
 
-            string vpcId,
+            string? vpcId,
 
             string zoneId)
         {
             Arn = arn;
             CallerReference = callerReference;
             Comment = comment;
+            EnableAcceleratedRecovery = enableAcceleratedRecovery;
             Id = id;
             LinkedServiceDescription = linkedServiceDescription;
             LinkedServicePrincipal = linkedServicePrincipal;

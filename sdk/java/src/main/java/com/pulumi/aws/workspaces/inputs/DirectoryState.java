@@ -279,6 +279,21 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+     * 
+     */
+    @Import(name="tenancy")
+    private @Nullable Output<String> tenancy;
+
+    /**
+     * @return Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+     * 
+     */
+    public Optional<Output<String>> tenancy() {
+        return Optional.ofNullable(this.tenancy);
+    }
+
+    /**
      * Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
      * 
      * &gt; **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
@@ -407,6 +422,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.tenancy = $.tenancy;
         this.userIdentityType = $.userIdentityType;
         this.workspaceAccessProperties = $.workspaceAccessProperties;
         this.workspaceCreationProperties = $.workspaceCreationProperties;
@@ -819,6 +835,27 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param tenancy Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenancy(@Nullable Output<String> tenancy) {
+            $.tenancy = tenancy;
+            return this;
+        }
+
+        /**
+         * @param tenancy Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenancy(String tenancy) {
+            return tenancy(Output.of(tenancy));
         }
 
         /**

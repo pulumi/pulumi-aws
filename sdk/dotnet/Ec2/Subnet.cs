@@ -83,8 +83,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Using `pulumi import`, import subnets using the subnet `id`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_subnet.example subnet-9d4a7b6c
     /// </summary>
     [AwsResourceType("aws:ec2/subnet:Subnet")]

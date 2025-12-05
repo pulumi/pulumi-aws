@@ -326,6 +326,10 @@ namespace Pulumi.Aws.Vpn
         /// List of objects containing information about the VPN tunnel.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionVgwTelemetryResult> VgwTelemetries;
+        /// <summary>
+        /// ID of a VPN concentrator associated with the VPN connection.
+        /// </summary>
+        public readonly string VpnConcentratorId;
         public readonly string VpnConnectionId;
         /// <summary>
         /// ID of a virtual private gateway associated with the VPN connection.
@@ -366,6 +370,8 @@ namespace Pulumi.Aws.Vpn
 
             ImmutableArray<Outputs.GetConnectionVgwTelemetryResult> vgwTelemetries,
 
+            string vpnConcentratorId,
+
             string vpnConnectionId,
 
             string vpnGatewayId)
@@ -386,6 +392,7 @@ namespace Pulumi.Aws.Vpn
             TransitGatewayId = transitGatewayId;
             Type = type;
             VgwTelemetries = vgwTelemetries;
+            VpnConcentratorId = vpnConcentratorId;
             VpnConnectionId = vpnConnectionId;
             VpnGatewayId = vpnGatewayId;
         }

@@ -173,6 +173,21 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Regional NAT Gateway ID to attach to.
+     * 
+     */
+    @Import(name="regionalNatGatewayId")
+    private @Nullable Output<String> regionalNatGatewayId;
+
+    /**
+     * @return Regional NAT Gateway ID to attach to.
+     * 
+     */
+    public Optional<Output<String>> regionalNatGatewayId() {
+        return Optional.ofNullable(this.regionalNatGatewayId);
+    }
+
+    /**
      * Subnet ID to attach to.
      * 
      */
@@ -190,16 +205,12 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
-     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -222,14 +233,14 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      * 
      */
     @Import(name="trafficType")
     private @Nullable Output<String> trafficType;
 
     /**
-     * @return The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+     * @return The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      * 
      */
     public Optional<Output<String>> trafficType() {
@@ -269,12 +280,16 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     /**
      * VPC ID to attach to.
      * 
+     * &gt; **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
+     * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
      * @return VPC ID to attach to.
+     * 
+     * &gt; **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -294,6 +309,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         this.logFormat = $.logFormat;
         this.maxAggregationInterval = $.maxAggregationInterval;
         this.region = $.region;
+        this.regionalNatGatewayId = $.regionalNatGatewayId;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -536,6 +552,27 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param regionalNatGatewayId Regional NAT Gateway ID to attach to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regionalNatGatewayId(@Nullable Output<String> regionalNatGatewayId) {
+            $.regionalNatGatewayId = regionalNatGatewayId;
+            return this;
+        }
+
+        /**
+         * @param regionalNatGatewayId Regional NAT Gateway ID to attach to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regionalNatGatewayId(String regionalNatGatewayId) {
+            return regionalNatGatewayId(Output.of(regionalNatGatewayId));
+        }
+
+        /**
          * @param subnetId Subnet ID to attach to.
          * 
          * @return builder
@@ -559,8 +596,6 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
-         * 
          * @return builder
          * 
          */
@@ -571,8 +606,6 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
          * 
          * @return builder
          * 
@@ -603,7 +636,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trafficType The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+         * @param trafficType The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
          * 
          * @return builder
          * 
@@ -614,7 +647,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trafficType The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+         * @param trafficType The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
          * 
          * @return builder
          * 
@@ -668,6 +701,8 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param vpcId VPC ID to attach to.
          * 
+         * &gt; **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -678,6 +713,8 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcId VPC ID to attach to.
+         * 
+         * &gt; **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
          * 
          * @return builder
          * 

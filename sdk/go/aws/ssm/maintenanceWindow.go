@@ -59,8 +59,6 @@ import (
 //
 // Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
 //
-// console
-//
 // % pulumi import aws_ssm_maintenance_window.example mw-0123456789
 type MaintenanceWindow struct {
 	pulumi.CustomResourceState

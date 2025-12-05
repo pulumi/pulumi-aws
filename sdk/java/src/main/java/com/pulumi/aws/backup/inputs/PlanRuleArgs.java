@@ -5,6 +5,7 @@ package com.pulumi.aws.backup.inputs;
 
 import com.pulumi.aws.backup.inputs.PlanRuleCopyActionArgs;
 import com.pulumi.aws.backup.inputs.PlanRuleLifecycleArgs;
+import com.pulumi.aws.backup.inputs.PlanRuleScanActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -113,6 +114,21 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+     * 
+     */
+    @Import(name="scanActions")
+    private @Nullable Output<List<PlanRuleScanActionArgs>> scanActions;
+
+    /**
+     * @return Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+     * 
+     */
+    public Optional<Output<List<PlanRuleScanActionArgs>>> scanActions() {
+        return Optional.ofNullable(this.scanActions);
+    }
+
+    /**
      * A CRON expression specifying when AWS Backup initiates a backup job.
      * 
      */
@@ -158,6 +174,21 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+     * 
+     */
+    @Import(name="targetLogicallyAirGappedBackupVaultArn")
+    private @Nullable Output<String> targetLogicallyAirGappedBackupVaultArn;
+
+    /**
+     * @return The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+     * 
+     */
+    public Optional<Output<String>> targetLogicallyAirGappedBackupVaultArn() {
+        return Optional.ofNullable(this.targetLogicallyAirGappedBackupVaultArn);
+    }
+
+    /**
      * The name of a logical container where backups are stored.
      * 
      */
@@ -181,9 +212,11 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.lifecycle = $.lifecycle;
         this.recoveryPointTags = $.recoveryPointTags;
         this.ruleName = $.ruleName;
+        this.scanActions = $.scanActions;
         this.schedule = $.schedule;
         this.scheduleExpressionTimezone = $.scheduleExpressionTimezone;
         this.startWindow = $.startWindow;
+        this.targetLogicallyAirGappedBackupVaultArn = $.targetLogicallyAirGappedBackupVaultArn;
         this.targetVaultName = $.targetVaultName;
     }
 
@@ -342,6 +375,37 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param scanActions Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanActions(@Nullable Output<List<PlanRuleScanActionArgs>> scanActions) {
+            $.scanActions = scanActions;
+            return this;
+        }
+
+        /**
+         * @param scanActions Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanActions(List<PlanRuleScanActionArgs> scanActions) {
+            return scanActions(Output.of(scanActions));
+        }
+
+        /**
+         * @param scanActions Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanActions(PlanRuleScanActionArgs... scanActions) {
+            return scanActions(List.of(scanActions));
+        }
+
+        /**
          * @param schedule A CRON expression specifying when AWS Backup initiates a backup job.
          * 
          * @return builder
@@ -402,6 +466,27 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder startWindow(Integer startWindow) {
             return startWindow(Output.of(startWindow));
+        }
+
+        /**
+         * @param targetLogicallyAirGappedBackupVaultArn The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetLogicallyAirGappedBackupVaultArn(@Nullable Output<String> targetLogicallyAirGappedBackupVaultArn) {
+            $.targetLogicallyAirGappedBackupVaultArn = targetLogicallyAirGappedBackupVaultArn;
+            return this;
+        }
+
+        /**
+         * @param targetLogicallyAirGappedBackupVaultArn The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetLogicallyAirGappedBackupVaultArn(String targetLogicallyAirGappedBackupVaultArn) {
+            return targetLogicallyAirGappedBackupVaultArn(Output.of(targetLogicallyAirGappedBackupVaultArn));
         }
 
         /**

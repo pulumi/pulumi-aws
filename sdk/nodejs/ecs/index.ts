@@ -26,6 +26,11 @@ export const ClusterCapacityProviders: typeof import("./clusterCapacityProviders
 utilities.lazyLoad(exports, ["ClusterCapacityProviders"], () => require("./clusterCapacityProviders"));
 
 export * from "./container";
+export { ExpressGatewayServiceArgs, ExpressGatewayServiceState } from "./expressGatewayService";
+export type ExpressGatewayService = import("./expressGatewayService").ExpressGatewayService;
+export const ExpressGatewayService: typeof import("./expressGatewayService").ExpressGatewayService = null as any;
+utilities.lazyLoad(exports, ["ExpressGatewayService"], () => require("./expressGatewayService"));
+
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
@@ -89,6 +94,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:ecs/clusterCapacityProviders:ClusterCapacityProviders":
                 return new ClusterCapacityProviders(name, <any>undefined, { urn })
+            case "aws:ecs/expressGatewayService:ExpressGatewayService":
+                return new ExpressGatewayService(name, <any>undefined, { urn })
             case "aws:ecs/service:Service":
                 return new Service(name, <any>undefined, { urn })
             case "aws:ecs/tag:Tag":
@@ -106,6 +113,7 @@ pulumi.runtime.registerResourceModule("aws", "ecs/accountSettingDefault", _modul
 pulumi.runtime.registerResourceModule("aws", "ecs/capacityProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/clusterCapacityProviders", _module)
+pulumi.runtime.registerResourceModule("aws", "ecs/expressGatewayService", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/service", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/tag", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/taskDefinition", _module)

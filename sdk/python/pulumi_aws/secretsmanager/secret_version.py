@@ -391,8 +391,6 @@ class SecretVersion(pulumi.CustomResource):
 
         Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
 
-        console
-
         % pulumi import aws_secretsmanager_secret_version.example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
 
         :param str resource_name: The name of the resource.
@@ -479,8 +477,6 @@ class SecretVersion(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
-
-        console
 
         % pulumi import aws_secretsmanager_secret_version.example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
 

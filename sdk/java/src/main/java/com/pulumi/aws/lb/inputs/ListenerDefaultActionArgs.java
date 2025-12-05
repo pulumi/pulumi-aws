@@ -7,6 +7,7 @@ import com.pulumi.aws.lb.inputs.ListenerDefaultActionAuthenticateCognitoArgs;
 import com.pulumi.aws.lb.inputs.ListenerDefaultActionAuthenticateOidcArgs;
 import com.pulumi.aws.lb.inputs.ListenerDefaultActionFixedResponseArgs;
 import com.pulumi.aws.lb.inputs.ListenerDefaultActionForwardArgs;
+import com.pulumi.aws.lb.inputs.ListenerDefaultActionJwtValidationArgs;
 import com.pulumi.aws.lb.inputs.ListenerDefaultActionRedirectArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -83,6 +84,21 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
+     * 
+     */
+    @Import(name="jwtValidation")
+    private @Nullable Output<ListenerDefaultActionJwtValidationArgs> jwtValidation;
+
+    /**
+     * @return Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
+     * 
+     */
+    public Optional<Output<ListenerDefaultActionJwtValidationArgs>> jwtValidation() {
+        return Optional.ofNullable(this.jwtValidation);
+    }
+
+    /**
      * Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
      * 
      */
@@ -128,7 +144,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
      * 
      * The following arguments are optional:
      * 
@@ -137,7 +153,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     private Output<String> type;
 
     /**
-     * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
      * 
      * The following arguments are optional:
      * 
@@ -153,6 +169,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         this.authenticateOidc = $.authenticateOidc;
         this.fixedResponse = $.fixedResponse;
         this.forward = $.forward;
+        this.jwtValidation = $.jwtValidation;
         this.order = $.order;
         this.redirect = $.redirect;
         this.targetGroupArn = $.targetGroupArn;
@@ -262,6 +279,27 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param jwtValidation Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwtValidation(@Nullable Output<ListenerDefaultActionJwtValidationArgs> jwtValidation) {
+            $.jwtValidation = jwtValidation;
+            return this;
+        }
+
+        /**
+         * @param jwtValidation Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwtValidation(ListenerDefaultActionJwtValidationArgs jwtValidation) {
+            return jwtValidation(Output.of(jwtValidation));
+        }
+
+        /**
          * @param order Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
          * 
          * @return builder
@@ -325,7 +363,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * @param type Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
          * 
          * The following arguments are optional:
          * 
@@ -338,7 +376,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * @param type Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
          * 
          * The following arguments are optional:
          * 

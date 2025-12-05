@@ -316,6 +316,8 @@ type Directory struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
 	// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
 	//
 	// > **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
@@ -398,6 +400,8 @@ type directoryState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+	Tenancy *string `pulumi:"tenancy"`
 	// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
 	//
 	// > **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
@@ -451,6 +455,8 @@ type DirectoryState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+	Tenancy pulumi.StringPtrInput
 	// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
 	//
 	// > **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
@@ -492,6 +498,8 @@ type directoryArgs struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+	Tenancy *string `pulumi:"tenancy"`
 	// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
 	//
 	// > **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
@@ -528,6 +536,8 @@ type DirectoryArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+	Tenancy pulumi.StringPtrInput
 	// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
 	//
 	// > **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
@@ -716,6 +726,11 @@ func (o DirectoryOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DirectoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+func (o DirectoryOutput) Tenancy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Tenancy }).(pulumi.StringOutput)
 }
 
 // Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.

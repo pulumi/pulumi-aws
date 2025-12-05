@@ -97,6 +97,21 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+     * 
+     */
+    @Import(name="calendarNames")
+    private @Nullable Output<List<String>> calendarNames;
+
+    /**
+     * @return One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+     * 
+     */
+    public Optional<Output<List<String>>> calendarNames() {
+        return Optional.ofNullable(this.calendarNames);
+    }
+
+    /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      * 
      */
@@ -318,6 +333,7 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
         this.associationId = $.associationId;
         this.associationName = $.associationName;
         this.automationTargetParameterName = $.automationTargetParameterName;
+        this.calendarNames = $.calendarNames;
         this.complianceSeverity = $.complianceSeverity;
         this.documentVersion = $.documentVersion;
         this.maxConcurrency = $.maxConcurrency;
@@ -455,6 +471,37 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder automationTargetParameterName(String automationTargetParameterName) {
             return automationTargetParameterName(Output.of(automationTargetParameterName));
+        }
+
+        /**
+         * @param calendarNames One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder calendarNames(@Nullable Output<List<String>> calendarNames) {
+            $.calendarNames = calendarNames;
+            return this;
+        }
+
+        /**
+         * @param calendarNames One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder calendarNames(List<String> calendarNames) {
+            return calendarNames(Output.of(calendarNames));
+        }
+
+        /**
+         * @param calendarNames One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder calendarNames(String... calendarNames) {
+            return calendarNames(List.of(calendarNames));
         }
 
         /**

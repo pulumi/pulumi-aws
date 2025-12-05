@@ -23,17 +23,21 @@ class AccountSettingsArgs:
     def __init__(__self__, *,
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  default_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
                  termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input['AccountSettingsTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AccountSettings resource.
         :param pulumi.Input[_builtins.str] default_namespace: The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] termination_protection_enabled: A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if default_namespace is not None:
             pulumi.set(__self__, "default_namespace", default_namespace)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if termination_protection_enabled is not None:
             pulumi.set(__self__, "termination_protection_enabled", termination_protection_enabled)
         if timeouts is not None:
@@ -59,6 +63,18 @@ class AccountSettingsArgs:
     @default_namespace.setter
     def default_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "default_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationProtectionEnabled")
@@ -87,17 +103,21 @@ class _AccountSettingsState:
     def __init__(__self__, *,
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  default_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
                  termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input['AccountSettingsTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AccountSettings resources.
         :param pulumi.Input[_builtins.str] default_namespace: The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] termination_protection_enabled: A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if default_namespace is not None:
             pulumi.set(__self__, "default_namespace", default_namespace)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if termination_protection_enabled is not None:
             pulumi.set(__self__, "termination_protection_enabled", termination_protection_enabled)
         if timeouts is not None:
@@ -123,6 +143,18 @@ class _AccountSettingsState:
     @default_namespace.setter
     def default_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "default_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationProtectionEnabled")
@@ -154,6 +186,7 @@ class AccountSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  default_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
                  termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input[Union['AccountSettingsTimeoutsArgs', 'AccountSettingsTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -188,6 +221,7 @@ class AccountSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_namespace: The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] termination_protection_enabled: A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
         """
         ...
@@ -241,6 +275,7 @@ class AccountSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  default_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
                  termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input[Union['AccountSettingsTimeoutsArgs', 'AccountSettingsTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -254,6 +289,7 @@ class AccountSettings(pulumi.CustomResource):
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["default_namespace"] = default_namespace
+            __props__.__dict__["region"] = region
             __props__.__dict__["termination_protection_enabled"] = termination_protection_enabled
             __props__.__dict__["timeouts"] = timeouts
         super(AccountSettings, __self__).__init__(
@@ -268,6 +304,7 @@ class AccountSettings(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
             default_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+            region: Optional[pulumi.Input[_builtins.str]] = None,
             termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             timeouts: Optional[pulumi.Input[Union['AccountSettingsTimeoutsArgs', 'AccountSettingsTimeoutsArgsDict']]] = None) -> 'AccountSettings':
         """
@@ -278,6 +315,7 @@ class AccountSettings(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_namespace: The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] termination_protection_enabled: A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -286,6 +324,7 @@ class AccountSettings(pulumi.CustomResource):
 
         __props__.__dict__["aws_account_id"] = aws_account_id
         __props__.__dict__["default_namespace"] = default_namespace
+        __props__.__dict__["region"] = region
         __props__.__dict__["termination_protection_enabled"] = termination_protection_enabled
         __props__.__dict__["timeouts"] = timeouts
         return AccountSettings(resource_name, opts=opts, __props__=__props__)
@@ -302,6 +341,14 @@ class AccountSettings(pulumi.CustomResource):
         The default namespace for this Amazon Web Services account. Currently, the default is `default`.
         """
         return pulumi.get(self, "default_namespace")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[_builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="terminationProtectionEnabled")

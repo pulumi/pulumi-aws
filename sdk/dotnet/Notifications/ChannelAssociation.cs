@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Notifications
     public partial class ChannelAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+        /// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Notifications
     public sealed class ChannelAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+        /// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Notifications
     public sealed class ChannelAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+        /// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -439,6 +439,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// Regional NAT Gateway ID to attach to.
+        /// </summary>
+        [Output("regionalNatGatewayId")]
+        public Output<string?> RegionalNatGatewayId { get; private set; } = null!;
+
+        /// <summary>
         /// Subnet ID to attach to.
         /// </summary>
         [Output("subnetId")]
@@ -446,8 +452,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// &gt; **NOTE:** One of `EniId`, `SubnetId`, `TransitGatewayId`, `TransitGatewayAttachmentId`, or `VpcId` must be specified.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -459,7 +463,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `EniId`, `RegionalNatGatewayId`, `SubnetId`, or `VpcId` is specified.
         /// </summary>
         [Output("trafficType")]
         public Output<string?> TrafficType { get; private set; } = null!;
@@ -478,6 +482,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// VPC ID to attach to.
+        /// 
+        /// &gt; **NOTE:** One of `EniId`, `RegionalNatGatewayId`, `SubnetId`, `TransitGatewayId`, `TransitGatewayAttachmentId`, or `VpcId` must be specified.
         /// </summary>
         [Output("vpcId")]
         public Output<string?> VpcId { get; private set; } = null!;
@@ -585,6 +591,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
+        /// Regional NAT Gateway ID to attach to.
+        /// </summary>
+        [Input("regionalNatGatewayId")]
+        public Input<string>? RegionalNatGatewayId { get; set; }
+
+        /// <summary>
         /// Subnet ID to attach to.
         /// </summary>
         [Input("subnetId")]
@@ -595,8 +607,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// &gt; **NOTE:** One of `EniId`, `SubnetId`, `TransitGatewayId`, `TransitGatewayAttachmentId`, or `VpcId` must be specified.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -605,7 +615,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `EniId`, `RegionalNatGatewayId`, `SubnetId`, or `VpcId` is specified.
         /// </summary>
         [Input("trafficType")]
         public Input<string>? TrafficType { get; set; }
@@ -624,6 +634,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// VPC ID to attach to.
+        /// 
+        /// &gt; **NOTE:** One of `EniId`, `RegionalNatGatewayId`, `SubnetId`, `TransitGatewayId`, `TransitGatewayAttachmentId`, or `VpcId` must be specified.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -699,6 +711,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
+        /// Regional NAT Gateway ID to attach to.
+        /// </summary>
+        [Input("regionalNatGatewayId")]
+        public Input<string>? RegionalNatGatewayId { get; set; }
+
+        /// <summary>
         /// Subnet ID to attach to.
         /// </summary>
         [Input("subnetId")]
@@ -709,8 +727,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// &gt; **NOTE:** One of `EniId`, `SubnetId`, `TransitGatewayId`, `TransitGatewayAttachmentId`, or `VpcId` must be specified.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -731,7 +747,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `EniId`, `RegionalNatGatewayId`, `SubnetId`, or `VpcId` is specified.
         /// </summary>
         [Input("trafficType")]
         public Input<string>? TrafficType { get; set; }
@@ -750,6 +766,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// VPC ID to attach to.
+        /// 
+        /// &gt; **NOTE:** One of `EniId`, `RegionalNatGatewayId`, `SubnetId`, `TransitGatewayId`, `TransitGatewayAttachmentId`, or `VpcId` must be specified.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

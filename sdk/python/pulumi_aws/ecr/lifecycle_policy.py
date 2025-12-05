@@ -237,8 +237,6 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
 
-        console
-
         % pulumi import aws_ecr_lifecycle_policy.example tf-example
 
         :param str resource_name: The name of the resource.
@@ -335,8 +333,6 @@ class LifecyclePolicy(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
-
-        console
 
         % pulumi import aws_ecr_lifecycle_policy.example tf-example
 

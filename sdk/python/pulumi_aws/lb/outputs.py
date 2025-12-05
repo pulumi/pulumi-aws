@@ -23,6 +23,8 @@ __all__ = [
     'ListenerDefaultActionForward',
     'ListenerDefaultActionForwardStickiness',
     'ListenerDefaultActionForwardTargetGroup',
+    'ListenerDefaultActionJwtValidation',
+    'ListenerDefaultActionJwtValidationAdditionalClaim',
     'ListenerDefaultActionRedirect',
     'ListenerMutualAuthentication',
     'ListenerRuleAction',
@@ -32,6 +34,8 @@ __all__ = [
     'ListenerRuleActionForward',
     'ListenerRuleActionForwardStickiness',
     'ListenerRuleActionForwardTargetGroup',
+    'ListenerRuleActionJwtValidation',
+    'ListenerRuleActionJwtValidationAdditionalClaim',
     'ListenerRuleActionRedirect',
     'ListenerRuleCondition',
     'ListenerRuleConditionHostHeader',
@@ -47,6 +51,7 @@ __all__ = [
     'ListenerRuleTransformUrlRewriteConfigRewrite',
     'LoadBalancerAccessLogs',
     'LoadBalancerConnectionLogs',
+    'LoadBalancerHealthCheckLogs',
     'LoadBalancerIpamPools',
     'LoadBalancerMinimumLoadBalancerCapacity',
     'LoadBalancerSubnetMapping',
@@ -64,6 +69,8 @@ __all__ = [
     'GetListenerDefaultActionForwardResult',
     'GetListenerDefaultActionForwardStickinessResult',
     'GetListenerDefaultActionForwardTargetGroupResult',
+    'GetListenerDefaultActionJwtValidationResult',
+    'GetListenerDefaultActionJwtValidationAdditionalClaimResult',
     'GetListenerDefaultActionRedirectResult',
     'GetListenerMutualAuthenticationResult',
     'GetListenerRuleActionResult',
@@ -73,6 +80,8 @@ __all__ = [
     'GetListenerRuleActionForwardResult',
     'GetListenerRuleActionForwardStickinessResult',
     'GetListenerRuleActionForwardTargetGroupResult',
+    'GetListenerRuleActionJwtValidationResult',
+    'GetListenerRuleActionJwtValidationAdditionalClaimResult',
     'GetListenerRuleActionRedirectResult',
     'GetListenerRuleConditionResult',
     'GetListenerRuleConditionHostHeaderResult',
@@ -89,6 +98,7 @@ __all__ = [
     'GetListenerRuleTransformUrlRewriteConfigRewriteResult',
     'GetLoadBalancerAccessLogsResult',
     'GetLoadBalancerConnectionLogResult',
+    'GetLoadBalancerHealthCheckLogResult',
     'GetLoadBalancerIpamPoolResult',
     'GetLoadBalancerSubnetMappingResult',
     'GetTargetGroupHealthCheckResult',
@@ -106,6 +116,8 @@ class ListenerDefaultAction(dict):
             suggest = "authenticate_oidc"
         elif key == "fixedResponse":
             suggest = "fixed_response"
+        elif key == "jwtValidation":
+            suggest = "jwt_validation"
         elif key == "targetGroupArn":
             suggest = "target_group_arn"
 
@@ -126,17 +138,19 @@ class ListenerDefaultAction(dict):
                  authenticate_oidc: Optional['outputs.ListenerDefaultActionAuthenticateOidc'] = None,
                  fixed_response: Optional['outputs.ListenerDefaultActionFixedResponse'] = None,
                  forward: Optional['outputs.ListenerDefaultActionForward'] = None,
+                 jwt_validation: Optional['outputs.ListenerDefaultActionJwtValidation'] = None,
                  order: Optional[_builtins.int] = None,
                  redirect: Optional['outputs.ListenerDefaultActionRedirect'] = None,
                  target_group_arn: Optional[_builtins.str] = None):
         """
-        :param _builtins.str type: Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        :param _builtins.str type: Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
                
                The following arguments are optional:
         :param 'ListenerDefaultActionAuthenticateCognitoArgs' authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
         :param 'ListenerDefaultActionAuthenticateOidcArgs' authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
         :param 'ListenerDefaultActionFixedResponseArgs' fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
         :param 'ListenerDefaultActionForwardArgs' forward: Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
+        :param 'ListenerDefaultActionJwtValidationArgs' jwt_validation: Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
         :param _builtins.int order: Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
         :param 'ListenerDefaultActionRedirectArgs' redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
         :param _builtins.str target_group_arn: ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
@@ -150,6 +164,8 @@ class ListenerDefaultAction(dict):
             pulumi.set(__self__, "fixed_response", fixed_response)
         if forward is not None:
             pulumi.set(__self__, "forward", forward)
+        if jwt_validation is not None:
+            pulumi.set(__self__, "jwt_validation", jwt_validation)
         if order is not None:
             pulumi.set(__self__, "order", order)
         if redirect is not None:
@@ -161,7 +177,7 @@ class ListenerDefaultAction(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
 
         The following arguments are optional:
         """
@@ -198,6 +214,14 @@ class ListenerDefaultAction(dict):
         Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
         """
         return pulumi.get(self, "forward")
+
+    @_builtins.property
+    @pulumi.getter(name="jwtValidation")
+    def jwt_validation(self) -> Optional['outputs.ListenerDefaultActionJwtValidation']:
+        """
+        Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
+        """
+        return pulumi.get(self, "jwt_validation")
 
     @_builtins.property
     @pulumi.getter
@@ -714,6 +738,110 @@ class ListenerDefaultActionForwardTargetGroup(dict):
 
 
 @pulumi.output_type
+class ListenerDefaultActionJwtValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jwksEndpoint":
+            suggest = "jwks_endpoint"
+        elif key == "additionalClaims":
+            suggest = "additional_claims"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultActionJwtValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultActionJwtValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultActionJwtValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 issuer: _builtins.str,
+                 jwks_endpoint: _builtins.str,
+                 additional_claims: Optional[Sequence['outputs.ListenerDefaultActionJwtValidationAdditionalClaim']] = None):
+        """
+        :param _builtins.str issuer: Issuer of the JWT.
+        :param _builtins.str jwks_endpoint: JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+               
+               The following arguments are optional:
+        :param Sequence['ListenerDefaultActionJwtValidationAdditionalClaimArgs'] additional_claims: Repeatable configuration block for additional claims to validate.
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "jwks_endpoint", jwks_endpoint)
+        if additional_claims is not None:
+            pulumi.set(__self__, "additional_claims", additional_claims)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        Issuer of the JWT.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="jwksEndpoint")
+    def jwks_endpoint(self) -> _builtins.str:
+        """
+        JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "jwks_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalClaims")
+    def additional_claims(self) -> Optional[Sequence['outputs.ListenerDefaultActionJwtValidationAdditionalClaim']]:
+        """
+        Repeatable configuration block for additional claims to validate.
+        """
+        return pulumi.get(self, "additional_claims")
+
+
+@pulumi.output_type
+class ListenerDefaultActionJwtValidationAdditionalClaim(dict):
+    def __init__(__self__, *,
+                 format: _builtins.str,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str format: Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
+        :param _builtins.str name: Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
+        :param Sequence[_builtins.str] values: List of expected values of the claim.
+        """
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> _builtins.str:
+        """
+        Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
+        """
+        return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of expected values of the claim.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class ListenerDefaultActionRedirect(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -900,6 +1028,8 @@ class ListenerRuleAction(dict):
             suggest = "authenticate_oidc"
         elif key == "fixedResponse":
             suggest = "fixed_response"
+        elif key == "jwtValidation":
+            suggest = "jwt_validation"
         elif key == "targetGroupArn":
             suggest = "target_group_arn"
 
@@ -920,17 +1050,19 @@ class ListenerRuleAction(dict):
                  authenticate_oidc: Optional['outputs.ListenerRuleActionAuthenticateOidc'] = None,
                  fixed_response: Optional['outputs.ListenerRuleActionFixedResponse'] = None,
                  forward: Optional['outputs.ListenerRuleActionForward'] = None,
+                 jwt_validation: Optional['outputs.ListenerRuleActionJwtValidation'] = None,
                  order: Optional[_builtins.int] = None,
                  redirect: Optional['outputs.ListenerRuleActionRedirect'] = None,
                  target_group_arn: Optional[_builtins.str] = None):
         """
-        :param _builtins.str type: The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        :param _builtins.str type: The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
         :param 'ListenerRuleActionAuthenticateCognitoArgs' authenticate_cognito: Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
         :param 'ListenerRuleActionAuthenticateOidcArgs' authenticate_oidc: Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
         :param 'ListenerRuleActionFixedResponseArgs' fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
         :param 'ListenerRuleActionForwardArgs' forward: Configuration block for creating an action that distributes requests among one or more target groups.
                Specify only if `type` is `forward`.
                Cannot be specified with `target_group_arn`.
+        :param 'ListenerRuleActionJwtValidationArgs' jwt_validation: Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
         :param _builtins.int order: Order for the action.
                The action with the lowest value for order is performed first.
                Valid values are between `1` and `50000`.
@@ -950,6 +1082,8 @@ class ListenerRuleAction(dict):
             pulumi.set(__self__, "fixed_response", fixed_response)
         if forward is not None:
             pulumi.set(__self__, "forward", forward)
+        if jwt_validation is not None:
+            pulumi.set(__self__, "jwt_validation", jwt_validation)
         if order is not None:
             pulumi.set(__self__, "order", order)
         if redirect is not None:
@@ -961,7 +1095,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
         """
         return pulumi.get(self, "type")
 
@@ -998,6 +1132,14 @@ class ListenerRuleAction(dict):
         Cannot be specified with `target_group_arn`.
         """
         return pulumi.get(self, "forward")
+
+    @_builtins.property
+    @pulumi.getter(name="jwtValidation")
+    def jwt_validation(self) -> Optional['outputs.ListenerRuleActionJwtValidation']:
+        """
+        Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
+        """
+        return pulumi.get(self, "jwt_validation")
 
     @_builtins.property
     @pulumi.getter
@@ -1493,6 +1635,106 @@ class ListenerRuleActionForwardTargetGroup(dict):
         The weight. The range is 0 to 999.
         """
         return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class ListenerRuleActionJwtValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jwksEndpoint":
+            suggest = "jwks_endpoint"
+        elif key == "additionalClaims":
+            suggest = "additional_claims"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleActionJwtValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleActionJwtValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleActionJwtValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 issuer: _builtins.str,
+                 jwks_endpoint: _builtins.str,
+                 additional_claims: Optional[Sequence['outputs.ListenerRuleActionJwtValidationAdditionalClaim']] = None):
+        """
+        :param _builtins.str issuer: Issuer of the JWT.
+        :param _builtins.str jwks_endpoint: JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+        :param Sequence['ListenerRuleActionJwtValidationAdditionalClaimArgs'] additional_claims: Repeatable configuration block for additional claims to validate.
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "jwks_endpoint", jwks_endpoint)
+        if additional_claims is not None:
+            pulumi.set(__self__, "additional_claims", additional_claims)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        Issuer of the JWT.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="jwksEndpoint")
+    def jwks_endpoint(self) -> _builtins.str:
+        """
+        JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+        """
+        return pulumi.get(self, "jwks_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalClaims")
+    def additional_claims(self) -> Optional[Sequence['outputs.ListenerRuleActionJwtValidationAdditionalClaim']]:
+        """
+        Repeatable configuration block for additional claims to validate.
+        """
+        return pulumi.get(self, "additional_claims")
+
+
+@pulumi.output_type
+class ListenerRuleActionJwtValidationAdditionalClaim(dict):
+    def __init__(__self__, *,
+                 format: _builtins.str,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str format: Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
+        :param _builtins.str name: Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
+        :param Sequence[_builtins.str] values: List of expected values of the claim.
+        """
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> _builtins.str:
+        """
+        Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
+        """
+        return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of expected values of the claim.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type
@@ -2153,6 +2395,48 @@ class LoadBalancerConnectionLogs(dict):
 
 
 @pulumi.output_type
+class LoadBalancerHealthCheckLogs(dict):
+    def __init__(__self__, *,
+                 bucket: _builtins.str,
+                 enabled: Optional[_builtins.bool] = None,
+                 prefix: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket: S3 bucket name to store the logs in.
+        :param _builtins.bool enabled: Boolean to enable / disable `health_check_logs`. Defaults to `false`, even when `bucket` is specified.
+        :param _builtins.str prefix: S3 bucket prefix. Logs are stored in the root if not configured.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        S3 bucket name to store the logs in.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Boolean to enable / disable `health_check_logs`. Defaults to `false`, even when `bucket` is specified.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[_builtins.str]:
+        """
+        S3 bucket prefix. Logs are stored in the root if not configured.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
 class LoadBalancerIpamPools(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2798,6 +3082,7 @@ class GetListenerDefaultActionResult(dict):
                  authenticate_oidcs: Sequence['outputs.GetListenerDefaultActionAuthenticateOidcResult'],
                  fixed_responses: Sequence['outputs.GetListenerDefaultActionFixedResponseResult'],
                  forwards: Sequence['outputs.GetListenerDefaultActionForwardResult'],
+                 jwt_validations: Sequence['outputs.GetListenerDefaultActionJwtValidationResult'],
                  order: _builtins.int,
                  redirects: Sequence['outputs.GetListenerDefaultActionRedirectResult'],
                  target_group_arn: _builtins.str,
@@ -2806,6 +3091,7 @@ class GetListenerDefaultActionResult(dict):
         pulumi.set(__self__, "authenticate_oidcs", authenticate_oidcs)
         pulumi.set(__self__, "fixed_responses", fixed_responses)
         pulumi.set(__self__, "forwards", forwards)
+        pulumi.set(__self__, "jwt_validations", jwt_validations)
         pulumi.set(__self__, "order", order)
         pulumi.set(__self__, "redirects", redirects)
         pulumi.set(__self__, "target_group_arn", target_group_arn)
@@ -2830,6 +3116,11 @@ class GetListenerDefaultActionResult(dict):
     @pulumi.getter
     def forwards(self) -> Sequence['outputs.GetListenerDefaultActionForwardResult']:
         return pulumi.get(self, "forwards")
+
+    @_builtins.property
+    @pulumi.getter(name="jwtValidations")
+    def jwt_validations(self) -> Sequence['outputs.GetListenerDefaultActionJwtValidationResult']:
+        return pulumi.get(self, "jwt_validations")
 
     @_builtins.property
     @pulumi.getter
@@ -3085,6 +3376,58 @@ class GetListenerDefaultActionForwardTargetGroupResult(dict):
 
 
 @pulumi.output_type
+class GetListenerDefaultActionJwtValidationResult(dict):
+    def __init__(__self__, *,
+                 additional_claims: Sequence['outputs.GetListenerDefaultActionJwtValidationAdditionalClaimResult'],
+                 issuer: _builtins.str,
+                 jwks_endpoint: _builtins.str):
+        pulumi.set(__self__, "additional_claims", additional_claims)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "jwks_endpoint", jwks_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalClaims")
+    def additional_claims(self) -> Sequence['outputs.GetListenerDefaultActionJwtValidationAdditionalClaimResult']:
+        return pulumi.get(self, "additional_claims")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="jwksEndpoint")
+    def jwks_endpoint(self) -> _builtins.str:
+        return pulumi.get(self, "jwks_endpoint")
+
+
+@pulumi.output_type
+class GetListenerDefaultActionJwtValidationAdditionalClaimResult(dict):
+    def __init__(__self__, *,
+                 format: _builtins.str,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> _builtins.str:
+        return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class GetListenerDefaultActionRedirectResult(dict):
     def __init__(__self__, *,
                  host: _builtins.str,
@@ -3179,6 +3522,7 @@ class GetListenerRuleActionResult(dict):
                  authenticate_oidcs: Optional[Sequence['outputs.GetListenerRuleActionAuthenticateOidcResult']] = None,
                  fixed_responses: Optional[Sequence['outputs.GetListenerRuleActionFixedResponseResult']] = None,
                  forwards: Optional[Sequence['outputs.GetListenerRuleActionForwardResult']] = None,
+                 jwt_validations: Optional[Sequence['outputs.GetListenerRuleActionJwtValidationResult']] = None,
                  redirects: Optional[Sequence['outputs.GetListenerRuleActionRedirectResult']] = None):
         """
         :param _builtins.int order: The evaluation order of the action.
@@ -3190,6 +3534,8 @@ class GetListenerRuleActionResult(dict):
         :param Sequence['GetListenerRuleActionFixedResponseArgs'] fixed_responses: An action to return a fixed response.
                Detailed below.
         :param Sequence['GetListenerRuleActionForwardArgs'] forwards: An action to forward the request.
+               Detailed below.
+        :param Sequence['GetListenerRuleActionJwtValidationArgs'] jwt_validations: An action to validate using JWT.
                Detailed below.
         :param Sequence['GetListenerRuleActionRedirectArgs'] redirects: An action to redirect the request.
                Detailed below.
@@ -3204,6 +3550,8 @@ class GetListenerRuleActionResult(dict):
             pulumi.set(__self__, "fixed_responses", fixed_responses)
         if forwards is not None:
             pulumi.set(__self__, "forwards", forwards)
+        if jwt_validations is not None:
+            pulumi.set(__self__, "jwt_validations", jwt_validations)
         if redirects is not None:
             pulumi.set(__self__, "redirects", redirects)
 
@@ -3258,6 +3606,15 @@ class GetListenerRuleActionResult(dict):
         Detailed below.
         """
         return pulumi.get(self, "forwards")
+
+    @_builtins.property
+    @pulumi.getter(name="jwtValidations")
+    def jwt_validations(self) -> Optional[Sequence['outputs.GetListenerRuleActionJwtValidationResult']]:
+        """
+        An action to validate using JWT.
+        Detailed below.
+        """
+        return pulumi.get(self, "jwt_validations")
 
     @_builtins.property
     @pulumi.getter
@@ -3384,7 +3741,7 @@ class GetListenerRuleActionAuthenticateOidcResult(dict):
                Detailed below.
         :param _builtins.str authorization_endpoint: The authorization endpoint of the IdP.
         :param _builtins.str client_id: OAuth 2.0 client identifier.
-        :param _builtins.str issuer: OIDC issuer identifier of the IdP.
+        :param _builtins.str issuer: Issuer of the JWT.
         :param _builtins.str on_unauthenticated_request: Behavior when the client is not authenticated.
         :param _builtins.str scope: Set of user claims requested.
         :param _builtins.str session_cookie_name: Name of the cookie used to maintain session information.
@@ -3432,7 +3789,7 @@ class GetListenerRuleActionAuthenticateOidcResult(dict):
     @pulumi.getter
     def issuer(self) -> _builtins.str:
         """
-        OIDC issuer identifier of the IdP.
+        Issuer of the JWT.
         """
         return pulumi.get(self, "issuer")
 
@@ -3618,6 +3975,87 @@ class GetListenerRuleActionForwardTargetGroupResult(dict):
         Weight of the target group.
         """
         return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GetListenerRuleActionJwtValidationResult(dict):
+    def __init__(__self__, *,
+                 issuer: _builtins.str,
+                 jwks_endpoint: _builtins.str,
+                 additional_claims: Optional[Sequence['outputs.GetListenerRuleActionJwtValidationAdditionalClaimResult']] = None):
+        """
+        :param _builtins.str issuer: Issuer of the JWT.
+        :param _builtins.str jwks_endpoint: JSON Web Key Set (JWKS) endpoint.
+        :param Sequence['GetListenerRuleActionJwtValidationAdditionalClaimArgs'] additional_claims: Additional claims to validate.
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "jwks_endpoint", jwks_endpoint)
+        if additional_claims is not None:
+            pulumi.set(__self__, "additional_claims", additional_claims)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        Issuer of the JWT.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="jwksEndpoint")
+    def jwks_endpoint(self) -> _builtins.str:
+        """
+        JSON Web Key Set (JWKS) endpoint.
+        """
+        return pulumi.get(self, "jwks_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalClaims")
+    def additional_claims(self) -> Optional[Sequence['outputs.GetListenerRuleActionJwtValidationAdditionalClaimResult']]:
+        """
+        Additional claims to validate.
+        """
+        return pulumi.get(self, "additional_claims")
+
+
+@pulumi.output_type
+class GetListenerRuleActionJwtValidationAdditionalClaimResult(dict):
+    def __init__(__self__, *,
+                 format: _builtins.str,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str format: Format of the claim value.
+        :param _builtins.str name: Name of the claim to validate.
+        :param Sequence[_builtins.str] values: Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> _builtins.str:
+        """
+        Format of the claim value.
+        """
+        return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the claim to validate.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type
@@ -4128,6 +4566,32 @@ class GetLoadBalancerAccessLogsResult(dict):
 
 @pulumi.output_type
 class GetLoadBalancerConnectionLogResult(dict):
+    def __init__(__self__, *,
+                 bucket: _builtins.str,
+                 enabled: _builtins.bool,
+                 prefix: _builtins.str):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> _builtins.str:
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class GetLoadBalancerHealthCheckLogResult(dict):
     def __init__(__self__, *,
                  bucket: _builtins.str,
                  enabled: _builtins.bool,

@@ -64,6 +64,8 @@ type LookupLogGroupResult struct {
 	Arn string `pulumi:"arn"`
 	// Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 	CreationTime int `pulumi:"creationTime"`
+	// Boolean to indicate whether deletion protection is enabled.
+	DeletionProtectionEnabled bool `pulumi:"deletionProtectionEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// ARN of the KMS Key to use when encrypting log data.
@@ -124,6 +126,11 @@ func (o LookupLogGroupResultOutput) Arn() pulumi.StringOutput {
 // Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 func (o LookupLogGroupResultOutput) CreationTime() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) int { return v.CreationTime }).(pulumi.IntOutput)
+}
+
+// Boolean to indicate whether deletion protection is enabled.
+func (o LookupLogGroupResultOutput) DeletionProtectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) bool { return v.DeletionProtectionEnabled }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

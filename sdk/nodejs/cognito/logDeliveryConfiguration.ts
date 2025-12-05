@@ -147,8 +147,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Cognito IDP (Identity Provider) Log Delivery Configuration using the `user_pool_id`. For example:
  *
- * console
- *
  * % pulumi import aws_cognito_log_delivery_configuration.example us-west-2_example123
  */
 export class LogDeliveryConfiguration extends pulumi.CustomResource {

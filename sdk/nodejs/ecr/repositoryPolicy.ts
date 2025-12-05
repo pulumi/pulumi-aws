@@ -67,8 +67,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
  *
- * console
- *
  * % pulumi import aws_ecr_repository_policy.example example
  */
 export class RepositoryPolicy extends pulumi.CustomResource {

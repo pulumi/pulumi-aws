@@ -88,6 +88,11 @@ public final class GetVpnConnectionResult {
      * 
      */
     private List<GetVpnConnectionVgwTelemetry> vgwTelemetries;
+    /**
+     * @return ID of a VPN concentrator associated with the VPN connection.
+     * 
+     */
+    private String vpnConcentratorId;
     private String vpnConnectionId;
     /**
      * @return ID of a virtual private gateway associated with the VPN connection.
@@ -200,6 +205,13 @@ public final class GetVpnConnectionResult {
     public List<GetVpnConnectionVgwTelemetry> vgwTelemetries() {
         return this.vgwTelemetries;
     }
+    /**
+     * @return ID of a VPN concentrator associated with the VPN connection.
+     * 
+     */
+    public String vpnConcentratorId() {
+        return this.vpnConcentratorId;
+    }
     public String vpnConnectionId() {
         return this.vpnConnectionId;
     }
@@ -236,6 +248,7 @@ public final class GetVpnConnectionResult {
         private String transitGatewayId;
         private String type;
         private List<GetVpnConnectionVgwTelemetry> vgwTelemetries;
+        private String vpnConcentratorId;
         private String vpnConnectionId;
         private String vpnGatewayId;
         public Builder() {}
@@ -257,6 +270,7 @@ public final class GetVpnConnectionResult {
     	      this.transitGatewayId = defaults.transitGatewayId;
     	      this.type = defaults.type;
     	      this.vgwTelemetries = defaults.vgwTelemetries;
+    	      this.vpnConcentratorId = defaults.vpnConcentratorId;
     	      this.vpnConnectionId = defaults.vpnConnectionId;
     	      this.vpnGatewayId = defaults.vpnGatewayId;
         }
@@ -397,6 +411,14 @@ public final class GetVpnConnectionResult {
             return vgwTelemetries(List.of(vgwTelemetries));
         }
         @CustomType.Setter
+        public Builder vpnConcentratorId(String vpnConcentratorId) {
+            if (vpnConcentratorId == null) {
+              throw new MissingRequiredPropertyException("GetVpnConnectionResult", "vpnConcentratorId");
+            }
+            this.vpnConcentratorId = vpnConcentratorId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder vpnConnectionId(String vpnConnectionId) {
             if (vpnConnectionId == null) {
               throw new MissingRequiredPropertyException("GetVpnConnectionResult", "vpnConnectionId");
@@ -430,6 +452,7 @@ public final class GetVpnConnectionResult {
             _resultValue.transitGatewayId = transitGatewayId;
             _resultValue.type = type;
             _resultValue.vgwTelemetries = vgwTelemetries;
+            _resultValue.vpnConcentratorId = vpnConcentratorId;
             _resultValue.vpnConnectionId = vpnConnectionId;
             _resultValue.vpnGatewayId = vpnGatewayId;
             return _resultValue;

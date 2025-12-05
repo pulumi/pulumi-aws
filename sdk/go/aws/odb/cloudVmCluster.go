@@ -110,7 +110,9 @@ type CloudVmCluster struct {
 
 	// The Amazon Resource Name (ARN) for the cloud vm cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+	// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	CloudExadataInfrastructureArn pulumi.StringOutput `pulumi:"cloudExadataInfrastructureArn"`
+	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	CloudExadataInfrastructureId pulumi.StringOutput `pulumi:"cloudExadataInfrastructureId"`
 	// The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
@@ -146,7 +148,7 @@ type CloudVmCluster struct {
 	// The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
 	HostnamePrefixComputed pulumi.StringOutput `pulumi:"hostnamePrefixComputed"`
 	// The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
-	IormConfigCaches CloudVmClusterIormConfigCachArrayOutput `pulumi:"iormConfigCaches"`
+	IormConfigCaches CloudVmClusterIormConfigCacheArrayOutput `pulumi:"iormConfigCaches"`
 	// Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
 	IsLocalBackupEnabled pulumi.BoolOutput `pulumi:"isLocalBackupEnabled"`
 	// Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
@@ -167,7 +169,9 @@ type CloudVmCluster struct {
 	OciUrl pulumi.StringOutput `pulumi:"ociUrl"`
 	// The OCID (Oracle Cloud Identifier) of the VM cluster.
 	Ocid pulumi.StringOutput `pulumi:"ocid"`
-	// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+	// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	OdbNetworkArn pulumi.StringOutput `pulumi:"odbNetworkArn"`
+	// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	OdbNetworkId pulumi.StringOutput `pulumi:"odbNetworkId"`
 	// The percentage of progress made on the current operation for the VM cluster.
 	PercentProgress pulumi.Float64Output `pulumi:"percentProgress"`
@@ -211,9 +215,6 @@ func NewCloudVmCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CloudExadataInfrastructureId == nil {
-		return nil, errors.New("invalid value for required argument 'CloudExadataInfrastructureId'")
-	}
 	if args.CpuCoreCount == nil {
 		return nil, errors.New("invalid value for required argument 'CpuCoreCount'")
 	}
@@ -231,9 +232,6 @@ func NewCloudVmCluster(ctx *pulumi.Context,
 	}
 	if args.HostnamePrefix == nil {
 		return nil, errors.New("invalid value for required argument 'HostnamePrefix'")
-	}
-	if args.OdbNetworkId == nil {
-		return nil, errors.New("invalid value for required argument 'OdbNetworkId'")
 	}
 	if args.SshPublicKeys == nil {
 		return nil, errors.New("invalid value for required argument 'SshPublicKeys'")
@@ -263,7 +261,9 @@ func GetCloudVmCluster(ctx *pulumi.Context,
 type cloudVmClusterState struct {
 	// The Amazon Resource Name (ARN) for the cloud vm cluster.
 	Arn *string `pulumi:"arn"`
-	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+	// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	CloudExadataInfrastructureArn *string `pulumi:"cloudExadataInfrastructureArn"`
+	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	CloudExadataInfrastructureId *string `pulumi:"cloudExadataInfrastructureId"`
 	// The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
 	ClusterName *string `pulumi:"clusterName"`
@@ -299,7 +299,7 @@ type cloudVmClusterState struct {
 	// The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
 	HostnamePrefixComputed *string `pulumi:"hostnamePrefixComputed"`
 	// The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
-	IormConfigCaches []CloudVmClusterIormConfigCach `pulumi:"iormConfigCaches"`
+	IormConfigCaches []CloudVmClusterIormConfigCache `pulumi:"iormConfigCaches"`
 	// Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
 	IsLocalBackupEnabled *bool `pulumi:"isLocalBackupEnabled"`
 	// Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
@@ -320,7 +320,9 @@ type cloudVmClusterState struct {
 	OciUrl *string `pulumi:"ociUrl"`
 	// The OCID (Oracle Cloud Identifier) of the VM cluster.
 	Ocid *string `pulumi:"ocid"`
-	// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+	// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
+	// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	OdbNetworkId *string `pulumi:"odbNetworkId"`
 	// The percentage of progress made on the current operation for the VM cluster.
 	PercentProgress *float64 `pulumi:"percentProgress"`
@@ -360,7 +362,9 @@ type cloudVmClusterState struct {
 type CloudVmClusterState struct {
 	// The Amazon Resource Name (ARN) for the cloud vm cluster.
 	Arn pulumi.StringPtrInput
-	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+	// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	CloudExadataInfrastructureArn pulumi.StringPtrInput
+	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	CloudExadataInfrastructureId pulumi.StringPtrInput
 	// The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
 	ClusterName pulumi.StringPtrInput
@@ -396,7 +400,7 @@ type CloudVmClusterState struct {
 	// The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
 	HostnamePrefixComputed pulumi.StringPtrInput
 	// The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
-	IormConfigCaches CloudVmClusterIormConfigCachArrayInput
+	IormConfigCaches CloudVmClusterIormConfigCacheArrayInput
 	// Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
 	IsLocalBackupEnabled pulumi.BoolPtrInput
 	// Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
@@ -417,7 +421,9 @@ type CloudVmClusterState struct {
 	OciUrl pulumi.StringPtrInput
 	// The OCID (Oracle Cloud Identifier) of the VM cluster.
 	Ocid pulumi.StringPtrInput
-	// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+	// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	OdbNetworkArn pulumi.StringPtrInput
+	// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	OdbNetworkId pulumi.StringPtrInput
 	// The percentage of progress made on the current operation for the VM cluster.
 	PercentProgress pulumi.Float64PtrInput
@@ -459,8 +465,10 @@ func (CloudVmClusterState) ElementType() reflect.Type {
 }
 
 type cloudVmClusterArgs struct {
-	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
-	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
+	// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	CloudExadataInfrastructureArn *string `pulumi:"cloudExadataInfrastructureArn"`
+	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	CloudExadataInfrastructureId *string `pulumi:"cloudExadataInfrastructureId"`
 	// The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
 	ClusterName *string `pulumi:"clusterName"`
 	// The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
@@ -489,8 +497,10 @@ type cloudVmClusterArgs struct {
 	LicenseModel *string `pulumi:"licenseModel"`
 	// The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
 	MemorySizeInGbs *int `pulumi:"memorySizeInGbs"`
-	// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
-	OdbNetworkId string `pulumi:"odbNetworkId"`
+	// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
+	// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	OdbNetworkId *string `pulumi:"odbNetworkId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
@@ -506,8 +516,10 @@ type cloudVmClusterArgs struct {
 
 // The set of arguments for constructing a CloudVmCluster resource.
 type CloudVmClusterArgs struct {
-	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
-	CloudExadataInfrastructureId pulumi.StringInput
+	// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	CloudExadataInfrastructureArn pulumi.StringPtrInput
+	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	CloudExadataInfrastructureId pulumi.StringPtrInput
 	// The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
 	ClusterName pulumi.StringPtrInput
 	// The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
@@ -536,8 +548,10 @@ type CloudVmClusterArgs struct {
 	LicenseModel pulumi.StringPtrInput
 	// The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
 	MemorySizeInGbs pulumi.IntPtrInput
-	// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
-	OdbNetworkId pulumi.StringInput
+	// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	OdbNetworkArn pulumi.StringPtrInput
+	// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+	OdbNetworkId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
@@ -643,7 +657,12 @@ func (o CloudVmClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+func (o CloudVmClusterOutput) CloudExadataInfrastructureArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.CloudExadataInfrastructureArn }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 func (o CloudVmClusterOutput) CloudExadataInfrastructureId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.CloudExadataInfrastructureId }).(pulumi.StringOutput)
 }
@@ -727,8 +746,8 @@ func (o CloudVmClusterOutput) HostnamePrefixComputed() pulumi.StringOutput {
 }
 
 // The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
-func (o CloudVmClusterOutput) IormConfigCaches() CloudVmClusterIormConfigCachArrayOutput {
-	return o.ApplyT(func(v *CloudVmCluster) CloudVmClusterIormConfigCachArrayOutput { return v.IormConfigCaches }).(CloudVmClusterIormConfigCachArrayOutput)
+func (o CloudVmClusterOutput) IormConfigCaches() CloudVmClusterIormConfigCacheArrayOutput {
+	return o.ApplyT(func(v *CloudVmCluster) CloudVmClusterIormConfigCacheArrayOutput { return v.IormConfigCaches }).(CloudVmClusterIormConfigCacheArrayOutput)
 }
 
 // Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
@@ -781,7 +800,12 @@ func (o CloudVmClusterOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.Ocid }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+func (o CloudVmClusterOutput) OdbNetworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.OdbNetworkArn }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 func (o CloudVmClusterOutput) OdbNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.OdbNetworkId }).(pulumi.StringOutput)
 }

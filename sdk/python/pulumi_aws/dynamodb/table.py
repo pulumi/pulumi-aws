@@ -25,6 +25,7 @@ class TableArgs:
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
+                 global_table_witness: Optional[pulumi.Input['TableGlobalTableWitnessArgs']] = None,
                  hash_key: Optional[pulumi.Input[_builtins.str]] = None,
                  import_table: Optional[pulumi.Input['TableImportTableArgs']] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
@@ -53,6 +54,7 @@ class TableArgs:
         :param pulumi.Input[_builtins.str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
+        :param pulumi.Input['TableGlobalTableWitnessArgs'] global_table_witness: Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistency_mode` set to `STRONG`. Other combinations will fail to provision. See below.
         :param pulumi.Input[_builtins.str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input['TableImportTableArgs'] import_table: Import Amazon S3 data into a new table. See below.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
@@ -88,6 +90,8 @@ class TableArgs:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if global_table_witness is not None:
+            pulumi.set(__self__, "global_table_witness", global_table_witness)
         if hash_key is not None:
             pulumi.set(__self__, "hash_key", hash_key)
         if import_table is not None:
@@ -180,6 +184,18 @@ class TableArgs:
     @global_secondary_indexes.setter
     def global_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]):
         pulumi.set(self, "global_secondary_indexes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="globalTableWitness")
+    def global_table_witness(self) -> Optional[pulumi.Input['TableGlobalTableWitnessArgs']]:
+        """
+        Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistency_mode` set to `STRONG`. Other combinations will fail to provision. See below.
+        """
+        return pulumi.get(self, "global_table_witness")
+
+    @global_table_witness.setter
+    def global_table_witness(self, value: Optional[pulumi.Input['TableGlobalTableWitnessArgs']]):
+        pulumi.set(self, "global_table_witness", value)
 
     @_builtins.property
     @pulumi.getter(name="hashKey")
@@ -458,6 +474,7 @@ class _TableState:
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
+                 global_table_witness: Optional[pulumi.Input['TableGlobalTableWitnessArgs']] = None,
                  hash_key: Optional[pulumi.Input[_builtins.str]] = None,
                  import_table: Optional[pulumi.Input['TableImportTableArgs']] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
@@ -490,6 +507,7 @@ class _TableState:
         :param pulumi.Input[_builtins.str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
+        :param pulumi.Input['TableGlobalTableWitnessArgs'] global_table_witness: Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistency_mode` set to `STRONG`. Other combinations will fail to provision. See below.
         :param pulumi.Input[_builtins.str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input['TableImportTableArgs'] import_table: Import Amazon S3 data into a new table. See below.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
@@ -530,6 +548,8 @@ class _TableState:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if global_table_witness is not None:
+            pulumi.set(__self__, "global_table_witness", global_table_witness)
         if hash_key is not None:
             pulumi.set(__self__, "hash_key", hash_key)
         if import_table is not None:
@@ -640,6 +660,18 @@ class _TableState:
     @global_secondary_indexes.setter
     def global_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]):
         pulumi.set(self, "global_secondary_indexes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="globalTableWitness")
+    def global_table_witness(self) -> Optional[pulumi.Input['TableGlobalTableWitnessArgs']]:
+        """
+        Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistency_mode` set to `STRONG`. Other combinations will fail to provision. See below.
+        """
+        return pulumi.get(self, "global_table_witness")
+
+    @global_table_witness.setter
+    def global_table_witness(self, value: Optional[pulumi.Input['TableGlobalTableWitnessArgs']]):
+        pulumi.set(self, "global_table_witness", value)
 
     @_builtins.property
     @pulumi.getter(name="hashKey")
@@ -956,6 +988,7 @@ class Table(pulumi.CustomResource):
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_witness: Optional[pulumi.Input[Union['TableGlobalTableWitnessArgs', 'TableGlobalTableWitnessArgsDict']]] = None,
                  hash_key: Optional[pulumi.Input[_builtins.str]] = None,
                  import_table: Optional[pulumi.Input[Union['TableImportTableArgs', 'TableImportTableArgsDict']]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
@@ -1079,9 +1112,13 @@ class Table(pulumi.CustomResource):
 
         A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
 
+        You can configure a MRSC global table with three replicas, or with two replicas and one witness. A witness is a component of a MRSC global table that contains data written to global table replicas, and provides an optional alternative to a full replica while supporting MRSC's availability architecture. You cannot perform read or write operations on a witness. A witness is located in a different Region than the two replicas.
+
         **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
 
-        Consistency Mode (`consistency_mode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+        Consistency Mode (`consistency_mode`) on the embedded `replica` allows you to configure consistency mode for Global Tables.
+
+        ##### Consistency mode with 3 Replicas
 
         ```python
         import pulumi
@@ -1107,6 +1144,31 @@ class Table(pulumi.CustomResource):
                     "consistency_mode": "STRONG",
                 },
             ])
+        ```
+
+        ##### Consistency Mode with 2 Replicas and Witness Region
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dynamodb.Table("example",
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
+            attributes=[{
+                "name": "TestTableHashKey",
+                "type": "S",
+            }],
+            replicas=[{
+                "region_name": "us-east-2",
+                "consistency_mode": "STRONG",
+            }],
+            global_table_witness={
+                "region_name": "us-west-2",
+            })
         ```
 
         ### Replica Tagging
@@ -1166,6 +1228,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
+        :param pulumi.Input[Union['TableGlobalTableWitnessArgs', 'TableGlobalTableWitnessArgsDict']] global_table_witness: Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistency_mode` set to `STRONG`. Other combinations will fail to provision. See below.
         :param pulumi.Input[_builtins.str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Union['TableImportTableArgs', 'TableImportTableArgsDict']] import_table: Import Amazon S3 data into a new table. See below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
@@ -1299,9 +1362,13 @@ class Table(pulumi.CustomResource):
 
         A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
 
+        You can configure a MRSC global table with three replicas, or with two replicas and one witness. A witness is a component of a MRSC global table that contains data written to global table replicas, and provides an optional alternative to a full replica while supporting MRSC's availability architecture. You cannot perform read or write operations on a witness. A witness is located in a different Region than the two replicas.
+
         **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
 
-        Consistency Mode (`consistency_mode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+        Consistency Mode (`consistency_mode`) on the embedded `replica` allows you to configure consistency mode for Global Tables.
+
+        ##### Consistency mode with 3 Replicas
 
         ```python
         import pulumi
@@ -1327,6 +1394,31 @@ class Table(pulumi.CustomResource):
                     "consistency_mode": "STRONG",
                 },
             ])
+        ```
+
+        ##### Consistency Mode with 2 Replicas and Witness Region
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dynamodb.Table("example",
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
+            attributes=[{
+                "name": "TestTableHashKey",
+                "type": "S",
+            }],
+            replicas=[{
+                "region_name": "us-east-2",
+                "consistency_mode": "STRONG",
+            }],
+            global_table_witness={
+                "region_name": "us-west-2",
+            })
         ```
 
         ### Replica Tagging
@@ -1399,6 +1491,7 @@ class Table(pulumi.CustomResource):
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_witness: Optional[pulumi.Input[Union['TableGlobalTableWitnessArgs', 'TableGlobalTableWitnessArgsDict']]] = None,
                  hash_key: Optional[pulumi.Input[_builtins.str]] = None,
                  import_table: Optional[pulumi.Input[Union['TableImportTableArgs', 'TableImportTableArgsDict']]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
@@ -1434,6 +1527,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
+            __props__.__dict__["global_table_witness"] = global_table_witness
             __props__.__dict__["hash_key"] = hash_key
             __props__.__dict__["import_table"] = import_table
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
@@ -1475,6 +1569,7 @@ class Table(pulumi.CustomResource):
             billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
             deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
+            global_table_witness: Optional[pulumi.Input[Union['TableGlobalTableWitnessArgs', 'TableGlobalTableWitnessArgsDict']]] = None,
             hash_key: Optional[pulumi.Input[_builtins.str]] = None,
             import_table: Optional[pulumi.Input[Union['TableImportTableArgs', 'TableImportTableArgsDict']]] = None,
             local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
@@ -1512,6 +1607,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
+        :param pulumi.Input[Union['TableGlobalTableWitnessArgs', 'TableGlobalTableWitnessArgsDict']] global_table_witness: Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistency_mode` set to `STRONG`. Other combinations will fail to provision. See below.
         :param pulumi.Input[_builtins.str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Union['TableImportTableArgs', 'TableImportTableArgsDict']] import_table: Import Amazon S3 data into a new table. See below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
@@ -1551,6 +1647,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["billing_mode"] = billing_mode
         __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
         __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
+        __props__.__dict__["global_table_witness"] = global_table_witness
         __props__.__dict__["hash_key"] = hash_key
         __props__.__dict__["import_table"] = import_table
         __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
@@ -1617,6 +1714,14 @@ class Table(pulumi.CustomResource):
         Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         """
         return pulumi.get(self, "global_secondary_indexes")
+
+    @_builtins.property
+    @pulumi.getter(name="globalTableWitness")
+    def global_table_witness(self) -> pulumi.Output['outputs.TableGlobalTableWitness']:
+        """
+        Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistency_mode` set to `STRONG`. Other combinations will fail to provision. See below.
+        """
+        return pulumi.get(self, "global_table_witness")
 
     @_builtins.property
     @pulumi.getter(name="hashKey")

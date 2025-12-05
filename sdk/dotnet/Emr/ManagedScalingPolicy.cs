@@ -84,6 +84,18 @@ namespace Pulumi.Aws.Emr
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the scaling strategy. When set to `ADVANCED`, the `UtilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
+        /// </summary>
+        [Output("scalingStrategy")]
+        public Output<string?> ScalingStrategy { get; private set; } = null!;
+
+        /// <summary>
+        /// Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `ScalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
+        /// </summary>
+        [Output("utilizationPerformanceIndex")]
+        public Output<int?> UtilizationPerformanceIndex { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ManagedScalingPolicy resource with the given unique name, arguments, and options.
@@ -154,6 +166,18 @@ namespace Pulumi.Aws.Emr
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Specifies the scaling strategy. When set to `ADVANCED`, the `UtilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
+        /// </summary>
+        [Input("scalingStrategy")]
+        public Input<string>? ScalingStrategy { get; set; }
+
+        /// <summary>
+        /// Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `ScalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
+        /// </summary>
+        [Input("utilizationPerformanceIndex")]
+        public Input<int>? UtilizationPerformanceIndex { get; set; }
+
         public ManagedScalingPolicyArgs()
         {
         }
@@ -185,6 +209,18 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Specifies the scaling strategy. When set to `ADVANCED`, the `UtilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
+        /// </summary>
+        [Input("scalingStrategy")]
+        public Input<string>? ScalingStrategy { get; set; }
+
+        /// <summary>
+        /// Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `ScalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
+        /// </summary>
+        [Input("utilizationPerformanceIndex")]
+        public Input<int>? UtilizationPerformanceIndex { get; set; }
 
         public ManagedScalingPolicyState()
         {

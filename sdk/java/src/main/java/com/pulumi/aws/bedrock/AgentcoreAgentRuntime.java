@@ -184,6 +184,60 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Agent runtime artifact from S3 with Code Configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreAgentRuntime;
+ * import com.pulumi.aws.bedrock.AgentcoreAgentRuntimeArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreAgentRuntime("example", AgentcoreAgentRuntimeArgs.builder()
+ *             .agentRuntimeName("example_agent_runtime")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
+ *                 .codeConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs.builder()
+ *                     .entryPoints("main.py")
+ *                     .runtime("PYTHON_3_13")
+ *                     .code(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs.builder()
+ *                         .s3(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args.builder()
+ *                             .bucket("example-bucket")
+ *                             .prefix("example-agent-runtime-code.zip")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs.builder()
+ *                 .networkMode("PUBLIC")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Bedrock AgentCore Agent Runtime using `agent_runtime_id`. For example:

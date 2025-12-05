@@ -20,6 +20,21 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     public static final ProfileState Empty = new ProfileState();
 
     /**
+     * Whether or not a custom role session name is accepted.
+     * 
+     */
+    @Import(name="acceptRoleSessionName")
+    private @Nullable Output<Boolean> acceptRoleSessionName;
+
+    /**
+     * @return Whether or not a custom role session name is accepted.
+     * 
+     */
+    public Optional<Output<Boolean>> acceptRoleSessionName() {
+        return Optional.ofNullable(this.acceptRoleSessionName);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of the Profile
      * 
      */
@@ -172,6 +187,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     private ProfileState() {}
 
     private ProfileState(ProfileState $) {
+        this.acceptRoleSessionName = $.acceptRoleSessionName;
         this.arn = $.arn;
         this.durationSeconds = $.durationSeconds;
         this.enabled = $.enabled;
@@ -200,6 +216,27 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ProfileState defaults) {
             $ = new ProfileState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param acceptRoleSessionName Whether or not a custom role session name is accepted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceptRoleSessionName(@Nullable Output<Boolean> acceptRoleSessionName) {
+            $.acceptRoleSessionName = acceptRoleSessionName;
+            return this;
+        }
+
+        /**
+         * @param acceptRoleSessionName Whether or not a custom role session name is accepted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceptRoleSessionName(Boolean acceptRoleSessionName) {
+            return acceptRoleSessionName(Output.of(acceptRoleSessionName));
         }
 
         /**

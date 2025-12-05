@@ -34,6 +34,11 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleActionForwardResult> Forwards;
         /// <summary>
+        /// An action to validate using JWT.
+        /// Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetListenerRuleActionJwtValidationResult> JwtValidations;
+        /// <summary>
         /// The evaluation order of the action.
         /// </summary>
         public readonly int Order;
@@ -57,6 +62,8 @@ namespace Pulumi.Aws.LB.Outputs
 
             ImmutableArray<Outputs.GetListenerRuleActionForwardResult> forwards,
 
+            ImmutableArray<Outputs.GetListenerRuleActionJwtValidationResult> jwtValidations,
+
             int order,
 
             ImmutableArray<Outputs.GetListenerRuleActionRedirectResult> redirects,
@@ -67,6 +74,7 @@ namespace Pulumi.Aws.LB.Outputs
             AuthenticateOidcs = authenticateOidcs;
             FixedResponses = fixedResponses;
             Forwards = forwards;
+            JwtValidations = jwtValidations;
             Order = order;
             Redirects = redirects;
             Type = type;

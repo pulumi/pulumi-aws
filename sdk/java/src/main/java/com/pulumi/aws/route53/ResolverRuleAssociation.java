@@ -66,8 +66,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
  * 
- * console
- * 
  * % pulumi import aws_route53_resolver_rule_association.example rslvr-rrassoc-97242eaf88example
  * 
  */

@@ -117,7 +117,7 @@ export interface GetCloudVmClusterResult {
     /**
      * The ExadataIormConfig cache details for the VM cluster.
      */
-    readonly iormConfigCaches: outputs.odb.GetCloudVmClusterIormConfigCach[];
+    readonly iormConfigCaches: outputs.odb.GetCloudVmClusterIormConfigCache[];
     /**
      * Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
      */

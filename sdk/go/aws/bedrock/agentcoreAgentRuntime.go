@@ -171,6 +171,50 @@ import (
 //
 // ```
 //
+// ### Agent runtime artifact from S3 with Code Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
+//				AgentRuntimeName: pulumi.String("example_agent_runtime"),
+//				RoleArn:          pulumi.Any(exampleAwsIamRole.Arn),
+//				AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
+//					CodeConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs{
+//						EntryPoints: pulumi.StringArray{
+//							pulumi.String("main.py"),
+//						},
+//						Runtime: pulumi.String("PYTHON_3_13"),
+//						Code: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs{
+//							S3: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args{
+//								Bucket: pulumi.String("example-bucket"),
+//								Prefix: pulumi.String("example-agent-runtime-code.zip"),
+//							},
+//						},
+//					},
+//				},
+//				NetworkConfiguration: &bedrock.AgentcoreAgentRuntimeNetworkConfigurationArgs{
+//					NetworkMode: pulumi.String("PUBLIC"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Bedrock AgentCore Agent Runtime using `agent_runtime_id`. For example:

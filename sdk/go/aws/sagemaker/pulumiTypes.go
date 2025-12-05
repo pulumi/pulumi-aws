@@ -23931,24 +23931,26 @@ func (o HumanTaskUIUiTemplatePtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type ModelContainer struct {
-	// The DNS host name for the container.
+	// Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+	AdditionalModelDataSources []ModelContainerAdditionalModelDataSource `pulumi:"additionalModelDataSources"`
+	// DNS host name for the container.
 	ContainerHostname *string `pulumi:"containerHostname"`
 	// Environment variables for the Docker container.
-	// A list of key value pairs.
 	Environment map[string]string `pulumi:"environment"`
-	// The registry path where the inference code image is stored in Amazon ECR.
+	// Registry path where the inference code image is stored in Amazon ECR.
 	Image *string `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig *ModelContainerImageConfig `pulumi:"imageConfig"`
-	// The inference specification name in the model package version.
+	// Inference specification name in the model package version.
 	InferenceSpecificationName *string `pulumi:"inferenceSpecificationName"`
-	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	// Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
 	Mode *string `pulumi:"mode"`
-	// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+	// Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
 	ModelDataSource *ModelContainerModelDataSource `pulumi:"modelDataSource"`
-	// The URL for the S3 location where model artifacts are stored.
+	// URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
-	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	// Amazon Resource Name (ARN) of the model package to use to create the model.
+	// A list of key value pairs.
 	ModelPackageName *string `pulumi:"modelPackageName"`
 	// Specifies additional configuration for multi-model endpoints. see Multi Model Config.
 	MultiModelConfig *ModelContainerMultiModelConfig `pulumi:"multiModelConfig"`
@@ -23966,24 +23968,26 @@ type ModelContainerInput interface {
 }
 
 type ModelContainerArgs struct {
-	// The DNS host name for the container.
+	// Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+	AdditionalModelDataSources ModelContainerAdditionalModelDataSourceArrayInput `pulumi:"additionalModelDataSources"`
+	// DNS host name for the container.
 	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
 	// Environment variables for the Docker container.
-	// A list of key value pairs.
 	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// The registry path where the inference code image is stored in Amazon ECR.
+	// Registry path where the inference code image is stored in Amazon ECR.
 	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig ModelContainerImageConfigPtrInput `pulumi:"imageConfig"`
-	// The inference specification name in the model package version.
+	// Inference specification name in the model package version.
 	InferenceSpecificationName pulumi.StringPtrInput `pulumi:"inferenceSpecificationName"`
-	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	// Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+	// Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
 	ModelDataSource ModelContainerModelDataSourcePtrInput `pulumi:"modelDataSource"`
-	// The URL for the S3 location where model artifacts are stored.
+	// URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
-	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	// Amazon Resource Name (ARN) of the model package to use to create the model.
+	// A list of key value pairs.
 	ModelPackageName pulumi.StringPtrInput `pulumi:"modelPackageName"`
 	// Specifies additional configuration for multi-model endpoints. see Multi Model Config.
 	MultiModelConfig ModelContainerMultiModelConfigPtrInput `pulumi:"multiModelConfig"`
@@ -24040,18 +24044,22 @@ func (o ModelContainerOutput) ToModelContainerOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The DNS host name for the container.
+// Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+func (o ModelContainerOutput) AdditionalModelDataSources() ModelContainerAdditionalModelDataSourceArrayOutput {
+	return o.ApplyT(func(v ModelContainer) []ModelContainerAdditionalModelDataSource { return v.AdditionalModelDataSources }).(ModelContainerAdditionalModelDataSourceArrayOutput)
+}
+
+// DNS host name for the container.
 func (o ModelContainerOutput) ContainerHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
 }
 
 // Environment variables for the Docker container.
-// A list of key value pairs.
 func (o ModelContainerOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ModelContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
-// The registry path where the inference code image is stored in Amazon ECR.
+// Registry path where the inference code image is stored in Amazon ECR.
 func (o ModelContainerOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -24061,27 +24069,28 @@ func (o ModelContainerOutput) ImageConfig() ModelContainerImageConfigPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *ModelContainerImageConfig { return v.ImageConfig }).(ModelContainerImageConfigPtrOutput)
 }
 
-// The inference specification name in the model package version.
+// Inference specification name in the model package version.
 func (o ModelContainerOutput) InferenceSpecificationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.InferenceSpecificationName }).(pulumi.StringPtrOutput)
 }
 
-// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+// Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
 func (o ModelContainerOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+// Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
 func (o ModelContainerOutput) ModelDataSource() ModelContainerModelDataSourcePtrOutput {
 	return o.ApplyT(func(v ModelContainer) *ModelContainerModelDataSource { return v.ModelDataSource }).(ModelContainerModelDataSourcePtrOutput)
 }
 
-// The URL for the S3 location where model artifacts are stored.
+// URL for the S3 location where model artifacts are stored.
 func (o ModelContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the model package to use to create the model.
+// Amazon Resource Name (ARN) of the model package to use to create the model.
+// A list of key value pairs.
 func (o ModelContainerOutput) ModelPackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
 }
@@ -24109,6 +24118,377 @@ func (o ModelContainerArrayOutput) Index(i pulumi.IntInput) ModelContainerOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelContainer {
 		return vs[0].([]ModelContainer)[vs[1].(int)]
 	}).(ModelContainerOutput)
+}
+
+type ModelContainerAdditionalModelDataSource struct {
+	// Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/<channel_name>/`.
+	ChannelName string `pulumi:"channelName"`
+	// S3 location of model data to deploy. See S3 Data Source.
+	S3DataSources []ModelContainerAdditionalModelDataSourceS3DataSource `pulumi:"s3DataSources"`
+}
+
+// ModelContainerAdditionalModelDataSourceInput is an input type that accepts ModelContainerAdditionalModelDataSourceArgs and ModelContainerAdditionalModelDataSourceOutput values.
+// You can construct a concrete instance of `ModelContainerAdditionalModelDataSourceInput` via:
+//
+//	ModelContainerAdditionalModelDataSourceArgs{...}
+type ModelContainerAdditionalModelDataSourceInput interface {
+	pulumi.Input
+
+	ToModelContainerAdditionalModelDataSourceOutput() ModelContainerAdditionalModelDataSourceOutput
+	ToModelContainerAdditionalModelDataSourceOutputWithContext(context.Context) ModelContainerAdditionalModelDataSourceOutput
+}
+
+type ModelContainerAdditionalModelDataSourceArgs struct {
+	// Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/<channel_name>/`.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// S3 location of model data to deploy. See S3 Data Source.
+	S3DataSources ModelContainerAdditionalModelDataSourceS3DataSourceArrayInput `pulumi:"s3DataSources"`
+}
+
+func (ModelContainerAdditionalModelDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerAdditionalModelDataSource)(nil)).Elem()
+}
+
+func (i ModelContainerAdditionalModelDataSourceArgs) ToModelContainerAdditionalModelDataSourceOutput() ModelContainerAdditionalModelDataSourceOutput {
+	return i.ToModelContainerAdditionalModelDataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelContainerAdditionalModelDataSourceArgs) ToModelContainerAdditionalModelDataSourceOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerAdditionalModelDataSourceOutput)
+}
+
+// ModelContainerAdditionalModelDataSourceArrayInput is an input type that accepts ModelContainerAdditionalModelDataSourceArray and ModelContainerAdditionalModelDataSourceArrayOutput values.
+// You can construct a concrete instance of `ModelContainerAdditionalModelDataSourceArrayInput` via:
+//
+//	ModelContainerAdditionalModelDataSourceArray{ ModelContainerAdditionalModelDataSourceArgs{...} }
+type ModelContainerAdditionalModelDataSourceArrayInput interface {
+	pulumi.Input
+
+	ToModelContainerAdditionalModelDataSourceArrayOutput() ModelContainerAdditionalModelDataSourceArrayOutput
+	ToModelContainerAdditionalModelDataSourceArrayOutputWithContext(context.Context) ModelContainerAdditionalModelDataSourceArrayOutput
+}
+
+type ModelContainerAdditionalModelDataSourceArray []ModelContainerAdditionalModelDataSourceInput
+
+func (ModelContainerAdditionalModelDataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelContainerAdditionalModelDataSource)(nil)).Elem()
+}
+
+func (i ModelContainerAdditionalModelDataSourceArray) ToModelContainerAdditionalModelDataSourceArrayOutput() ModelContainerAdditionalModelDataSourceArrayOutput {
+	return i.ToModelContainerAdditionalModelDataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ModelContainerAdditionalModelDataSourceArray) ToModelContainerAdditionalModelDataSourceArrayOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerAdditionalModelDataSourceArrayOutput)
+}
+
+type ModelContainerAdditionalModelDataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerAdditionalModelDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerAdditionalModelDataSource)(nil)).Elem()
+}
+
+func (o ModelContainerAdditionalModelDataSourceOutput) ToModelContainerAdditionalModelDataSourceOutput() ModelContainerAdditionalModelDataSourceOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceOutput) ToModelContainerAdditionalModelDataSourceOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceOutput {
+	return o
+}
+
+// Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/<channel_name>/`.
+func (o ModelContainerAdditionalModelDataSourceOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerAdditionalModelDataSource) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// S3 location of model data to deploy. See S3 Data Source.
+func (o ModelContainerAdditionalModelDataSourceOutput) S3DataSources() ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput {
+	return o.ApplyT(func(v ModelContainerAdditionalModelDataSource) []ModelContainerAdditionalModelDataSourceS3DataSource {
+		return v.S3DataSources
+	}).(ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput)
+}
+
+type ModelContainerAdditionalModelDataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerAdditionalModelDataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelContainerAdditionalModelDataSource)(nil)).Elem()
+}
+
+func (o ModelContainerAdditionalModelDataSourceArrayOutput) ToModelContainerAdditionalModelDataSourceArrayOutput() ModelContainerAdditionalModelDataSourceArrayOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceArrayOutput) ToModelContainerAdditionalModelDataSourceArrayOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceArrayOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceArrayOutput) Index(i pulumi.IntInput) ModelContainerAdditionalModelDataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelContainerAdditionalModelDataSource {
+		return vs[0].([]ModelContainerAdditionalModelDataSource)[vs[1].(int)]
+	}).(ModelContainerAdditionalModelDataSourceOutput)
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSource struct {
+	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+	CompressionType string `pulumi:"compressionType"`
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	ModelAccessConfig *ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
+	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	S3DataType string `pulumi:"s3DataType"`
+	// The S3 path of model data to deploy.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// ModelContainerAdditionalModelDataSourceS3DataSourceInput is an input type that accepts ModelContainerAdditionalModelDataSourceS3DataSourceArgs and ModelContainerAdditionalModelDataSourceS3DataSourceOutput values.
+// You can construct a concrete instance of `ModelContainerAdditionalModelDataSourceS3DataSourceInput` via:
+//
+//	ModelContainerAdditionalModelDataSourceS3DataSourceArgs{...}
+type ModelContainerAdditionalModelDataSourceS3DataSourceInput interface {
+	pulumi.Input
+
+	ToModelContainerAdditionalModelDataSourceS3DataSourceOutput() ModelContainerAdditionalModelDataSourceS3DataSourceOutput
+	ToModelContainerAdditionalModelDataSourceS3DataSourceOutputWithContext(context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceOutput
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceArgs struct {
+	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+	CompressionType pulumi.StringInput `pulumi:"compressionType"`
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	ModelAccessConfig ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
+	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
+	// The S3 path of model data to deploy.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ModelContainerAdditionalModelDataSourceS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceArgs) ToModelContainerAdditionalModelDataSourceS3DataSourceOutput() ModelContainerAdditionalModelDataSourceS3DataSourceOutput {
+	return i.ToModelContainerAdditionalModelDataSourceS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceArgs) ToModelContainerAdditionalModelDataSourceS3DataSourceOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerAdditionalModelDataSourceS3DataSourceOutput)
+}
+
+// ModelContainerAdditionalModelDataSourceS3DataSourceArrayInput is an input type that accepts ModelContainerAdditionalModelDataSourceS3DataSourceArray and ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput values.
+// You can construct a concrete instance of `ModelContainerAdditionalModelDataSourceS3DataSourceArrayInput` via:
+//
+//	ModelContainerAdditionalModelDataSourceS3DataSourceArray{ ModelContainerAdditionalModelDataSourceS3DataSourceArgs{...} }
+type ModelContainerAdditionalModelDataSourceS3DataSourceArrayInput interface {
+	pulumi.Input
+
+	ToModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput() ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput
+	ToModelContainerAdditionalModelDataSourceS3DataSourceArrayOutputWithContext(context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceArray []ModelContainerAdditionalModelDataSourceS3DataSourceInput
+
+func (ModelContainerAdditionalModelDataSourceS3DataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelContainerAdditionalModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceArray) ToModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput() ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput {
+	return i.ToModelContainerAdditionalModelDataSourceS3DataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceArray) ToModelContainerAdditionalModelDataSourceS3DataSourceArrayOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput)
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerAdditionalModelDataSourceS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceOutput() ModelContainerAdditionalModelDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceOutput {
+	return o
+}
+
+// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceOutput) CompressionType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerAdditionalModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
+}
+
+// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v ModelContainerAdditionalModelDataSourceS3DataSource) *ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
+		return v.ModelAccessConfig
+	}).(ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceOutput) S3DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerAdditionalModelDataSourceS3DataSource) string { return v.S3DataType }).(pulumi.StringOutput)
+}
+
+// The S3 path of model data to deploy.
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerAdditionalModelDataSourceS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelContainerAdditionalModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput() ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceArrayOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput) Index(i pulumi.IntInput) ModelContainerAdditionalModelDataSourceS3DataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelContainerAdditionalModelDataSourceS3DataSource {
+		return vs[0].([]ModelContainerAdditionalModelDataSourceS3DataSource)[vs[1].(int)]
+	}).(ModelContainerAdditionalModelDataSourceS3DataSourceOutput)
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig struct {
+	// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+	AcceptEula bool `pulumi:"acceptEula"`
+}
+
+// ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigInput is an input type that accepts ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs and ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput values.
+// You can construct a concrete instance of `ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigInput` via:
+//
+//	ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{...}
+type ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigInput interface {
+	pulumi.Input
+
+	ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput
+	ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs struct {
+	// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+	AcceptEula pulumi.BoolInput `pulumi:"acceptEula"`
+}
+
+func (ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return i.ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput)
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return i.ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput).ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput is an input type that accepts ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs, ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtr and ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput` via:
+//
+//	        ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput
+	ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput
+}
+
+type modelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrType ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs
+
+func ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtr(v *ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput {
+	return (*modelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrType)(v)
+}
+
+func (*modelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (i *modelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrType) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return i.ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrType) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig) *ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
+		return &v
+	}).(ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) AcceptEula() pulumi.BoolOutput {
+	return o.ApplyT(func(v ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig) bool { return v.AcceptEula }).(pulumi.BoolOutput)
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput) Elem() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return o.ApplyT(func(v *ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig) ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig
+		return ret
+	}).(ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput)
+}
+
+// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput) AcceptEula() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AcceptEula
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ModelContainerImageConfig struct {
@@ -24270,7 +24650,7 @@ func (o ModelContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelContaine
 }
 
 type ModelContainerImageConfigRepositoryAuthConfig struct {
-	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn string `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -24286,7 +24666,7 @@ type ModelContainerImageConfigRepositoryAuthConfigInput interface {
 }
 
 type ModelContainerImageConfigRepositoryAuthConfigArgs struct {
-	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn pulumi.StringInput `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -24367,7 +24747,7 @@ func (o ModelContainerImageConfigRepositoryAuthConfigOutput) ToModelContainerIma
 	}).(ModelContainerImageConfigRepositoryAuthConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelContainerImageConfigRepositoryAuthConfigOutput) RepositoryCredentialsProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelContainerImageConfigRepositoryAuthConfig) string {
 		return v.RepositoryCredentialsProviderArn
@@ -24398,7 +24778,7 @@ func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) Elem() ModelCont
 	}).(ModelContainerImageConfigRepositoryAuthConfigOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) RepositoryCredentialsProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelContainerImageConfigRepositoryAuthConfig) *string {
 		if v == nil {
@@ -24409,7 +24789,7 @@ func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) RepositoryCreden
 }
 
 type ModelContainerModelDataSource struct {
-	// The S3 location of model data to deploy.
+	// S3 location of model data to deploy. See S3 Data Source.
 	S3DataSources []ModelContainerModelDataSourceS3DataSource `pulumi:"s3DataSources"`
 }
 
@@ -24425,7 +24805,7 @@ type ModelContainerModelDataSourceInput interface {
 }
 
 type ModelContainerModelDataSourceArgs struct {
-	// The S3 location of model data to deploy.
+	// S3 location of model data to deploy. See S3 Data Source.
 	S3DataSources ModelContainerModelDataSourceS3DataSourceArrayInput `pulumi:"s3DataSources"`
 }
 
@@ -24506,7 +24886,7 @@ func (o ModelContainerModelDataSourceOutput) ToModelContainerModelDataSourcePtrO
 	}).(ModelContainerModelDataSourcePtrOutput)
 }
 
-// The S3 location of model data to deploy.
+// S3 location of model data to deploy. See S3 Data Source.
 func (o ModelContainerModelDataSourceOutput) S3DataSources() ModelContainerModelDataSourceS3DataSourceArrayOutput {
 	return o.ApplyT(func(v ModelContainerModelDataSource) []ModelContainerModelDataSourceS3DataSource {
 		return v.S3DataSources
@@ -24537,7 +24917,7 @@ func (o ModelContainerModelDataSourcePtrOutput) Elem() ModelContainerModelDataSo
 	}).(ModelContainerModelDataSourceOutput)
 }
 
-// The S3 location of model data to deploy.
+// S3 location of model data to deploy. See S3 Data Source.
 func (o ModelContainerModelDataSourcePtrOutput) S3DataSources() ModelContainerModelDataSourceS3DataSourceArrayOutput {
 	return o.ApplyT(func(v *ModelContainerModelDataSource) []ModelContainerModelDataSourceS3DataSource {
 		if v == nil {
@@ -24550,9 +24930,9 @@ func (o ModelContainerModelDataSourcePtrOutput) S3DataSources() ModelContainerMo
 type ModelContainerModelDataSourceS3DataSource struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType string `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
 	ModelAccessConfig *ModelContainerModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
-	// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType string `pulumi:"s3DataType"`
 	// The S3 path of model data to deploy.
 	S3Uri string `pulumi:"s3Uri"`
@@ -24572,9 +24952,9 @@ type ModelContainerModelDataSourceS3DataSourceInput interface {
 type ModelContainerModelDataSourceS3DataSourceArgs struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType pulumi.StringInput `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
 	ModelAccessConfig ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
-	// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
 	// The S3 path of model data to deploy.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
@@ -24636,14 +25016,14 @@ func (o ModelContainerModelDataSourceS3DataSourceOutput) CompressionType() pulum
 	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
 }
 
-// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
 func (o ModelContainerModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
 	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSource) *ModelContainerModelDataSourceS3DataSourceModelAccessConfig {
 		return v.ModelAccessConfig
 	}).(ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
 }
 
-// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 func (o ModelContainerModelDataSourceS3DataSourceOutput) S3DataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSource) string { return v.S3DataType }).(pulumi.StringOutput)
 }
@@ -24674,7 +25054,7 @@ func (o ModelContainerModelDataSourceS3DataSourceArrayOutput) Index(i pulumi.Int
 }
 
 type ModelContainerModelDataSourceS3DataSourceModelAccessConfig struct {
-	// Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+	// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
 	AcceptEula bool `pulumi:"acceptEula"`
 }
 
@@ -24690,7 +25070,7 @@ type ModelContainerModelDataSourceS3DataSourceModelAccessConfigInput interface {
 }
 
 type ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs struct {
-	// Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+	// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
 	AcceptEula pulumi.BoolInput `pulumi:"acceptEula"`
 }
 
@@ -24771,7 +25151,7 @@ func (o ModelContainerModelDataSourceS3DataSourceModelAccessConfigOutput) ToMode
 	}).(ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
 }
 
-// Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
 func (o ModelContainerModelDataSourceS3DataSourceModelAccessConfigOutput) AcceptEula() pulumi.BoolOutput {
 	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSourceModelAccessConfig) bool { return v.AcceptEula }).(pulumi.BoolOutput)
 }
@@ -24800,7 +25180,7 @@ func (o ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput) Ele
 	}).(ModelContainerModelDataSourceS3DataSourceModelAccessConfigOutput)
 }
 
-// Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
 func (o ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput) AcceptEula() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ModelContainerModelDataSourceS3DataSourceModelAccessConfig) *bool {
 		if v == nil {
@@ -24948,7 +25328,7 @@ func (o ModelContainerMultiModelConfigPtrOutput) ModelCacheSetting() pulumi.Stri
 }
 
 type ModelInferenceExecutionConfig struct {
-	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	// How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
 	Mode string `pulumi:"mode"`
 }
 
@@ -24964,7 +25344,7 @@ type ModelInferenceExecutionConfigInput interface {
 }
 
 type ModelInferenceExecutionConfigArgs struct {
-	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	// How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
 	Mode pulumi.StringInput `pulumi:"mode"`
 }
 
@@ -25045,7 +25425,7 @@ func (o ModelInferenceExecutionConfigOutput) ToModelInferenceExecutionConfigPtrO
 	}).(ModelInferenceExecutionConfigPtrOutput)
 }
 
-// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+// How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
 func (o ModelInferenceExecutionConfigOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelInferenceExecutionConfig) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -25074,7 +25454,7 @@ func (o ModelInferenceExecutionConfigPtrOutput) Elem() ModelInferenceExecutionCo
 	}).(ModelInferenceExecutionConfigOutput)
 }
 
-// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+// How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
 func (o ModelInferenceExecutionConfigPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelInferenceExecutionConfig) *string {
 		if v == nil {
@@ -25085,24 +25465,25 @@ func (o ModelInferenceExecutionConfigPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 type ModelPrimaryContainer struct {
-	// The DNS host name for the container.
+	// Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+	AdditionalModelDataSources []ModelPrimaryContainerAdditionalModelDataSource `pulumi:"additionalModelDataSources"`
+	// DNS host name for the container.
 	ContainerHostname *string `pulumi:"containerHostname"`
 	// Environment variables for the Docker container.
-	// A list of key value pairs.
 	Environment map[string]string `pulumi:"environment"`
-	// The registry path where the inference code image is stored in Amazon ECR.
+	// Registry path where the inference code image is stored in Amazon ECR.
 	Image *string `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig *ModelPrimaryContainerImageConfig `pulumi:"imageConfig"`
-	// The inference specification name in the model package version.
+	// Inference specification name in the model package version.
 	InferenceSpecificationName *string `pulumi:"inferenceSpecificationName"`
-	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-	Mode *string `pulumi:"mode"`
-	// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+	Mode                       *string `pulumi:"mode"`
+	// Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
 	ModelDataSource *ModelPrimaryContainerModelDataSource `pulumi:"modelDataSource"`
-	// The URL for the S3 location where model artifacts are stored.
+	// URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
-	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	// Amazon Resource Name (ARN) of the model package to use to create the model.
+	// A list of key value pairs.
 	ModelPackageName *string `pulumi:"modelPackageName"`
 	// Specifies additional configuration for multi-model endpoints. see Multi Model Config.
 	MultiModelConfig *ModelPrimaryContainerMultiModelConfig `pulumi:"multiModelConfig"`
@@ -25120,24 +25501,25 @@ type ModelPrimaryContainerInput interface {
 }
 
 type ModelPrimaryContainerArgs struct {
-	// The DNS host name for the container.
+	// Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+	AdditionalModelDataSources ModelPrimaryContainerAdditionalModelDataSourceArrayInput `pulumi:"additionalModelDataSources"`
+	// DNS host name for the container.
 	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
 	// Environment variables for the Docker container.
-	// A list of key value pairs.
 	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// The registry path where the inference code image is stored in Amazon ECR.
+	// Registry path where the inference code image is stored in Amazon ECR.
 	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig ModelPrimaryContainerImageConfigPtrInput `pulumi:"imageConfig"`
-	// The inference specification name in the model package version.
+	// Inference specification name in the model package version.
 	InferenceSpecificationName pulumi.StringPtrInput `pulumi:"inferenceSpecificationName"`
-	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+	Mode                       pulumi.StringPtrInput `pulumi:"mode"`
+	// Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
 	ModelDataSource ModelPrimaryContainerModelDataSourcePtrInput `pulumi:"modelDataSource"`
-	// The URL for the S3 location where model artifacts are stored.
+	// URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
-	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	// Amazon Resource Name (ARN) of the model package to use to create the model.
+	// A list of key value pairs.
 	ModelPackageName pulumi.StringPtrInput `pulumi:"modelPackageName"`
 	// Specifies additional configuration for multi-model endpoints. see Multi Model Config.
 	MultiModelConfig ModelPrimaryContainerMultiModelConfigPtrInput `pulumi:"multiModelConfig"`
@@ -25220,18 +25602,24 @@ func (o ModelPrimaryContainerOutput) ToModelPrimaryContainerPtrOutputWithContext
 	}).(ModelPrimaryContainerPtrOutput)
 }
 
-// The DNS host name for the container.
+// Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+func (o ModelPrimaryContainerOutput) AdditionalModelDataSources() ModelPrimaryContainerAdditionalModelDataSourceArrayOutput {
+	return o.ApplyT(func(v ModelPrimaryContainer) []ModelPrimaryContainerAdditionalModelDataSource {
+		return v.AdditionalModelDataSources
+	}).(ModelPrimaryContainerAdditionalModelDataSourceArrayOutput)
+}
+
+// DNS host name for the container.
 func (o ModelPrimaryContainerOutput) ContainerHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
 }
 
 // Environment variables for the Docker container.
-// A list of key value pairs.
 func (o ModelPrimaryContainerOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
-// The registry path where the inference code image is stored in Amazon ECR.
+// Registry path where the inference code image is stored in Amazon ECR.
 func (o ModelPrimaryContainerOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -25241,27 +25629,27 @@ func (o ModelPrimaryContainerOutput) ImageConfig() ModelPrimaryContainerImageCon
 	return o.ApplyT(func(v ModelPrimaryContainer) *ModelPrimaryContainerImageConfig { return v.ImageConfig }).(ModelPrimaryContainerImageConfigPtrOutput)
 }
 
-// The inference specification name in the model package version.
+// Inference specification name in the model package version.
 func (o ModelPrimaryContainerOutput) InferenceSpecificationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.InferenceSpecificationName }).(pulumi.StringPtrOutput)
 }
 
-// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelPrimaryContainerOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+// Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
 func (o ModelPrimaryContainerOutput) ModelDataSource() ModelPrimaryContainerModelDataSourcePtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *ModelPrimaryContainerModelDataSource { return v.ModelDataSource }).(ModelPrimaryContainerModelDataSourcePtrOutput)
 }
 
-// The URL for the S3 location where model artifacts are stored.
+// URL for the S3 location where model artifacts are stored.
 func (o ModelPrimaryContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the model package to use to create the model.
+// Amazon Resource Name (ARN) of the model package to use to create the model.
+// A list of key value pairs.
 func (o ModelPrimaryContainerOutput) ModelPackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
 }
@@ -25295,7 +25683,17 @@ func (o ModelPrimaryContainerPtrOutput) Elem() ModelPrimaryContainerOutput {
 	}).(ModelPrimaryContainerOutput)
 }
 
-// The DNS host name for the container.
+// Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
+func (o ModelPrimaryContainerPtrOutput) AdditionalModelDataSources() ModelPrimaryContainerAdditionalModelDataSourceArrayOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainer) []ModelPrimaryContainerAdditionalModelDataSource {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalModelDataSources
+	}).(ModelPrimaryContainerAdditionalModelDataSourceArrayOutput)
+}
+
+// DNS host name for the container.
 func (o ModelPrimaryContainerPtrOutput) ContainerHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -25306,7 +25704,6 @@ func (o ModelPrimaryContainerPtrOutput) ContainerHostname() pulumi.StringPtrOutp
 }
 
 // Environment variables for the Docker container.
-// A list of key value pairs.
 func (o ModelPrimaryContainerPtrOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) map[string]string {
 		if v == nil {
@@ -25316,7 +25713,7 @@ func (o ModelPrimaryContainerPtrOutput) Environment() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// The registry path where the inference code image is stored in Amazon ECR.
+// Registry path where the inference code image is stored in Amazon ECR.
 func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -25336,7 +25733,7 @@ func (o ModelPrimaryContainerPtrOutput) ImageConfig() ModelPrimaryContainerImage
 	}).(ModelPrimaryContainerImageConfigPtrOutput)
 }
 
-// The inference specification name in the model package version.
+// Inference specification name in the model package version.
 func (o ModelPrimaryContainerPtrOutput) InferenceSpecificationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -25346,7 +25743,6 @@ func (o ModelPrimaryContainerPtrOutput) InferenceSpecificationName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelPrimaryContainerPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -25356,7 +25752,7 @@ func (o ModelPrimaryContainerPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+// Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
 func (o ModelPrimaryContainerPtrOutput) ModelDataSource() ModelPrimaryContainerModelDataSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *ModelPrimaryContainerModelDataSource {
 		if v == nil {
@@ -25366,7 +25762,7 @@ func (o ModelPrimaryContainerPtrOutput) ModelDataSource() ModelPrimaryContainerM
 	}).(ModelPrimaryContainerModelDataSourcePtrOutput)
 }
 
-// The URL for the S3 location where model artifacts are stored.
+// URL for the S3 location where model artifacts are stored.
 func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -25376,7 +25772,8 @@ func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the model package to use to create the model.
+// Amazon Resource Name (ARN) of the model package to use to create the model.
+// A list of key value pairs.
 func (o ModelPrimaryContainerPtrOutput) ModelPackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -25394,6 +25791,379 @@ func (o ModelPrimaryContainerPtrOutput) MultiModelConfig() ModelPrimaryContainer
 		}
 		return v.MultiModelConfig
 	}).(ModelPrimaryContainerMultiModelConfigPtrOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSource struct {
+	// Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/<channel_name>/`.
+	ChannelName string `pulumi:"channelName"`
+	// S3 location of model data to deploy. See S3 Data Source.
+	S3DataSources []ModelPrimaryContainerAdditionalModelDataSourceS3DataSource `pulumi:"s3DataSources"`
+}
+
+// ModelPrimaryContainerAdditionalModelDataSourceInput is an input type that accepts ModelPrimaryContainerAdditionalModelDataSourceArgs and ModelPrimaryContainerAdditionalModelDataSourceOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerAdditionalModelDataSourceInput` via:
+//
+//	ModelPrimaryContainerAdditionalModelDataSourceArgs{...}
+type ModelPrimaryContainerAdditionalModelDataSourceInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerAdditionalModelDataSourceOutput() ModelPrimaryContainerAdditionalModelDataSourceOutput
+	ToModelPrimaryContainerAdditionalModelDataSourceOutputWithContext(context.Context) ModelPrimaryContainerAdditionalModelDataSourceOutput
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceArgs struct {
+	// Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/<channel_name>/`.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// S3 location of model data to deploy. See S3 Data Source.
+	S3DataSources ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayInput `pulumi:"s3DataSources"`
+}
+
+func (ModelPrimaryContainerAdditionalModelDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSource)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceArgs) ToModelPrimaryContainerAdditionalModelDataSourceOutput() ModelPrimaryContainerAdditionalModelDataSourceOutput {
+	return i.ToModelPrimaryContainerAdditionalModelDataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceArgs) ToModelPrimaryContainerAdditionalModelDataSourceOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerAdditionalModelDataSourceOutput)
+}
+
+// ModelPrimaryContainerAdditionalModelDataSourceArrayInput is an input type that accepts ModelPrimaryContainerAdditionalModelDataSourceArray and ModelPrimaryContainerAdditionalModelDataSourceArrayOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerAdditionalModelDataSourceArrayInput` via:
+//
+//	ModelPrimaryContainerAdditionalModelDataSourceArray{ ModelPrimaryContainerAdditionalModelDataSourceArgs{...} }
+type ModelPrimaryContainerAdditionalModelDataSourceArrayInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerAdditionalModelDataSourceArrayOutput() ModelPrimaryContainerAdditionalModelDataSourceArrayOutput
+	ToModelPrimaryContainerAdditionalModelDataSourceArrayOutputWithContext(context.Context) ModelPrimaryContainerAdditionalModelDataSourceArrayOutput
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceArray []ModelPrimaryContainerAdditionalModelDataSourceInput
+
+func (ModelPrimaryContainerAdditionalModelDataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPrimaryContainerAdditionalModelDataSource)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceArray) ToModelPrimaryContainerAdditionalModelDataSourceArrayOutput() ModelPrimaryContainerAdditionalModelDataSourceArrayOutput {
+	return i.ToModelPrimaryContainerAdditionalModelDataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceArray) ToModelPrimaryContainerAdditionalModelDataSourceArrayOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerAdditionalModelDataSourceArrayOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerAdditionalModelDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSource)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceOutput) ToModelPrimaryContainerAdditionalModelDataSourceOutput() ModelPrimaryContainerAdditionalModelDataSourceOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceOutput) ToModelPrimaryContainerAdditionalModelDataSourceOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceOutput {
+	return o
+}
+
+// Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/<channel_name>/`.
+func (o ModelPrimaryContainerAdditionalModelDataSourceOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSource) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// S3 location of model data to deploy. See S3 Data Source.
+func (o ModelPrimaryContainerAdditionalModelDataSourceOutput) S3DataSources() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSource) []ModelPrimaryContainerAdditionalModelDataSourceS3DataSource {
+		return v.S3DataSources
+	}).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerAdditionalModelDataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPrimaryContainerAdditionalModelDataSource)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceArrayOutput) ToModelPrimaryContainerAdditionalModelDataSourceArrayOutput() ModelPrimaryContainerAdditionalModelDataSourceArrayOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceArrayOutput) ToModelPrimaryContainerAdditionalModelDataSourceArrayOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceArrayOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceArrayOutput) Index(i pulumi.IntInput) ModelPrimaryContainerAdditionalModelDataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPrimaryContainerAdditionalModelDataSource {
+		return vs[0].([]ModelPrimaryContainerAdditionalModelDataSource)[vs[1].(int)]
+	}).(ModelPrimaryContainerAdditionalModelDataSourceOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSource struct {
+	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+	CompressionType string `pulumi:"compressionType"`
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	ModelAccessConfig *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
+	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	S3DataType string `pulumi:"s3DataType"`
+	// The S3 path of model data to deploy.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceInput is an input type that accepts ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs and ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceInput` via:
+//
+//	ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs{...}
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutputWithContext(context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs struct {
+	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+	CompressionType pulumi.StringInput `pulumi:"compressionType"`
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	ModelAccessConfig ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
+	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
+	// The S3 path of model data to deploy.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput {
+	return i.ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput)
+}
+
+// ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayInput is an input type that accepts ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArray and ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayInput` via:
+//
+//	ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArray{ ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs{...} }
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutputWithContext(context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArray []ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceInput
+
+func (ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPrimaryContainerAdditionalModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArray) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput {
+	return i.ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArray) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput {
+	return o
+}
+
+// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) CompressionType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
+}
+
+// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSourceS3DataSource) *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
+		return v.ModelAccessConfig
+	}).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) S3DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSourceS3DataSource) string { return v.S3DataType }).(pulumi.StringOutput)
+}
+
+// The S3 path of model data to deploy.
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSourceS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPrimaryContainerAdditionalModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput) Index(i pulumi.IntInput) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPrimaryContainerAdditionalModelDataSourceS3DataSource {
+		return vs[0].([]ModelPrimaryContainerAdditionalModelDataSourceS3DataSource)[vs[1].(int)]
+	}).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig struct {
+	// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+	AcceptEula bool `pulumi:"acceptEula"`
+}
+
+// ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigInput is an input type that accepts ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs and ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigInput` via:
+//
+//	ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{...}
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs struct {
+	// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+	AcceptEula pulumi.BoolInput `pulumi:"acceptEula"`
+}
+
+func (ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return i.ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput)
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return i.ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput).ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput is an input type that accepts ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs, ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtr and ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput` via:
+//
+//	        ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput
+}
+
+type modelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrType ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs
+
+func ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtr(v *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput {
+	return (*modelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrType)(v)
+}
+
+func (*modelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (i *modelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrType) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return i.ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrType) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig) *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
+		return &v
+	}).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput) AcceptEula() pulumi.BoolOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig) bool {
+		return v.AcceptEula
+	}).(pulumi.BoolOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput) Elem() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig
+		return ret
+	}).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput)
+}
+
+// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput) AcceptEula() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AcceptEula
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ModelPrimaryContainerImageConfig struct {
@@ -25555,7 +26325,7 @@ func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelP
 }
 
 type ModelPrimaryContainerImageConfigRepositoryAuthConfig struct {
-	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn string `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -25571,7 +26341,7 @@ type ModelPrimaryContainerImageConfigRepositoryAuthConfigInput interface {
 }
 
 type ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs struct {
-	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn pulumi.StringInput `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -25652,7 +26422,7 @@ func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) ToModelPrima
 	}).(ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) RepositoryCredentialsProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerImageConfigRepositoryAuthConfig) string {
 		return v.RepositoryCredentialsProviderArn
@@ -25683,7 +26453,7 @@ func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) Elem() Mo
 	}).(ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) RepositoryCredentialsProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainerImageConfigRepositoryAuthConfig) *string {
 		if v == nil {
@@ -25694,7 +26464,7 @@ func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) Repositor
 }
 
 type ModelPrimaryContainerModelDataSource struct {
-	// The S3 location of model data to deploy.
+	// S3 location of model data to deploy. See S3 Data Source.
 	S3DataSources []ModelPrimaryContainerModelDataSourceS3DataSource `pulumi:"s3DataSources"`
 }
 
@@ -25710,7 +26480,7 @@ type ModelPrimaryContainerModelDataSourceInput interface {
 }
 
 type ModelPrimaryContainerModelDataSourceArgs struct {
-	// The S3 location of model data to deploy.
+	// S3 location of model data to deploy. See S3 Data Source.
 	S3DataSources ModelPrimaryContainerModelDataSourceS3DataSourceArrayInput `pulumi:"s3DataSources"`
 }
 
@@ -25791,7 +26561,7 @@ func (o ModelPrimaryContainerModelDataSourceOutput) ToModelPrimaryContainerModel
 	}).(ModelPrimaryContainerModelDataSourcePtrOutput)
 }
 
-// The S3 location of model data to deploy.
+// S3 location of model data to deploy. See S3 Data Source.
 func (o ModelPrimaryContainerModelDataSourceOutput) S3DataSources() ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerModelDataSource) []ModelPrimaryContainerModelDataSourceS3DataSource {
 		return v.S3DataSources
@@ -25822,7 +26592,7 @@ func (o ModelPrimaryContainerModelDataSourcePtrOutput) Elem() ModelPrimaryContai
 	}).(ModelPrimaryContainerModelDataSourceOutput)
 }
 
-// The S3 location of model data to deploy.
+// S3 location of model data to deploy. See S3 Data Source.
 func (o ModelPrimaryContainerModelDataSourcePtrOutput) S3DataSources() ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainerModelDataSource) []ModelPrimaryContainerModelDataSourceS3DataSource {
 		if v == nil {
@@ -25835,9 +26605,9 @@ func (o ModelPrimaryContainerModelDataSourcePtrOutput) S3DataSources() ModelPrim
 type ModelPrimaryContainerModelDataSourceS3DataSource struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType string `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
 	ModelAccessConfig *ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
-	// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType string `pulumi:"s3DataType"`
 	// The S3 path of model data to deploy.
 	S3Uri string `pulumi:"s3Uri"`
@@ -25857,9 +26627,9 @@ type ModelPrimaryContainerModelDataSourceS3DataSourceInput interface {
 type ModelPrimaryContainerModelDataSourceS3DataSourceArgs struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType pulumi.StringInput `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
 	ModelAccessConfig ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
-	// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
 	// The S3 path of model data to deploy.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
@@ -25921,14 +26691,14 @@ func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) CompressionType(
 	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
 }
 
-// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
 func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSource) *ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig {
 		return v.ModelAccessConfig
 	}).(ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
 }
 
-// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) S3DataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSource) string { return v.S3DataType }).(pulumi.StringOutput)
 }
@@ -25959,7 +26729,7 @@ func (o ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput) Index(i pul
 }
 
 type ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig struct {
-	// Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+	// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
 	AcceptEula bool `pulumi:"acceptEula"`
 }
 
@@ -25975,7 +26745,7 @@ type ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigInput inte
 }
 
 type ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs struct {
-	// Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+	// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
 	AcceptEula pulumi.BoolInput `pulumi:"acceptEula"`
 }
 
@@ -26056,7 +26826,7 @@ func (o ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigOutput)
 	}).(ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
 }
 
-// Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
 func (o ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigOutput) AcceptEula() pulumi.BoolOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig) bool { return v.AcceptEula }).(pulumi.BoolOutput)
 }
@@ -26085,7 +26855,7 @@ func (o ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutp
 	}).(ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigOutput)
 }
 
-// Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+// Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
 func (o ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput) AcceptEula() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig) *bool {
 		if v == nil {
@@ -26233,8 +27003,10 @@ func (o ModelPrimaryContainerMultiModelConfigPtrOutput) ModelCacheSetting() pulu
 }
 
 type ModelVpcConfig struct {
+	// List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	Subnets          []string `pulumi:"subnets"`
+	// List of subnet IDs in the VPC to which you want to connect your training job or model.
+	Subnets []string `pulumi:"subnets"`
 }
 
 // ModelVpcConfigInput is an input type that accepts ModelVpcConfigArgs and ModelVpcConfigOutput values.
@@ -26249,8 +27021,10 @@ type ModelVpcConfigInput interface {
 }
 
 type ModelVpcConfigArgs struct {
+	// List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	Subnets          pulumi.StringArrayInput `pulumi:"subnets"`
+	// List of subnet IDs in the VPC to which you want to connect your training job or model.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (ModelVpcConfigArgs) ElementType() reflect.Type {
@@ -26330,10 +27104,12 @@ func (o ModelVpcConfigOutput) ToModelVpcConfigPtrOutputWithContext(ctx context.C
 	}).(ModelVpcConfigPtrOutput)
 }
 
+// List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o ModelVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// List of subnet IDs in the VPC to which you want to connect your training job or model.
 func (o ModelVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -26362,6 +27138,7 @@ func (o ModelVpcConfigPtrOutput) Elem() ModelVpcConfigOutput {
 	}).(ModelVpcConfigOutput)
 }
 
+// List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o ModelVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelVpcConfig) []string {
 		if v == nil {
@@ -26371,6 +27148,7 @@ func (o ModelVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// List of subnet IDs in the VPC to which you want to connect your training job or model.
 func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelVpcConfig) []string {
 		if v == nil {
@@ -39969,6 +40747,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIUiTemplatePtrInput)(nil)).Elem(), HumanTaskUIUiTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerInput)(nil)).Elem(), ModelContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerArrayInput)(nil)).Elem(), ModelContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceArrayInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceArrayInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceS3DataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigInput)(nil)).Elem(), ModelContainerImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigPtrInput)(nil)).Elem(), ModelContainerImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigRepositoryAuthConfigInput)(nil)).Elem(), ModelContainerImageConfigRepositoryAuthConfigArgs{})
@@ -39985,6 +40769,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelInferenceExecutionConfigPtrInput)(nil)).Elem(), ModelInferenceExecutionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerInput)(nil)).Elem(), ModelPrimaryContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerPtrInput)(nil)).Elem(), ModelPrimaryContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceArrayInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigInput)(nil)).Elem(), ModelPrimaryContainerImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigPtrInput)(nil)).Elem(), ModelPrimaryContainerImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigRepositoryAuthConfigInput)(nil)).Elem(), ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs{})
@@ -40446,6 +41236,12 @@ func init() {
 	pulumi.RegisterOutputType(HumanTaskUIUiTemplatePtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerOutput{})
 	pulumi.RegisterOutputType(ModelContainerArrayOutput{})
+	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceOutput{})
+	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceArrayOutput{})
+	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceS3DataSourceOutput{})
+	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput{})
+	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput{})
+	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigRepositoryAuthConfigOutput{})
@@ -40462,6 +41258,12 @@ func init() {
 	pulumi.RegisterOutputType(ModelInferenceExecutionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerPtrOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceArrayOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput{})

@@ -23,6 +23,7 @@ class ZoneArgs:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  delegation_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None,
                  force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -31,6 +32,7 @@ class ZoneArgs:
         The set of arguments for constructing a Zone resource.
         :param pulumi.Input[_builtins.str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         :param pulumi.Input[_builtins.str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
+        :param pulumi.Input[_builtins.bool] enable_accelerated_recovery: Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         :param pulumi.Input[_builtins.str] name: This is the name of the hosted zone.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -42,6 +44,8 @@ class ZoneArgs:
             pulumi.set(__self__, "comment", comment)
         if delegation_set_id is not None:
             pulumi.set(__self__, "delegation_set_id", delegation_set_id)
+        if enable_accelerated_recovery is not None:
+            pulumi.set(__self__, "enable_accelerated_recovery", enable_accelerated_recovery)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if name is not None:
@@ -74,6 +78,18 @@ class ZoneArgs:
     @delegation_set_id.setter
     def delegation_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "delegation_set_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableAcceleratedRecovery")
+    def enable_accelerated_recovery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+        """
+        return pulumi.get(self, "enable_accelerated_recovery")
+
+    @enable_accelerated_recovery.setter
+    def enable_accelerated_recovery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_accelerated_recovery", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
@@ -130,6 +146,7 @@ class _ZoneState:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  delegation_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None,
                  force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -143,6 +160,7 @@ class _ZoneState:
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Hosted Zone.
         :param pulumi.Input[_builtins.str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         :param pulumi.Input[_builtins.str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
+        :param pulumi.Input[_builtins.bool] enable_accelerated_recovery: Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         :param pulumi.Input[_builtins.str] name: This is the name of the hosted zone.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name_servers: A list of name servers in associated (or default) delegation set.
@@ -161,6 +179,8 @@ class _ZoneState:
             pulumi.set(__self__, "comment", comment)
         if delegation_set_id is not None:
             pulumi.set(__self__, "delegation_set_id", delegation_set_id)
+        if enable_accelerated_recovery is not None:
+            pulumi.set(__self__, "enable_accelerated_recovery", enable_accelerated_recovery)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if name is not None:
@@ -213,6 +233,18 @@ class _ZoneState:
     @delegation_set_id.setter
     def delegation_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "delegation_set_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableAcceleratedRecovery")
+    def enable_accelerated_recovery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+        """
+        return pulumi.get(self, "enable_accelerated_recovery")
+
+    @enable_accelerated_recovery.setter
+    def enable_accelerated_recovery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_accelerated_recovery", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
@@ -320,6 +352,7 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  delegation_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None,
                  force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -405,6 +438,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         :param pulumi.Input[_builtins.str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
+        :param pulumi.Input[_builtins.bool] enable_accelerated_recovery: Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         :param pulumi.Input[_builtins.str] name: This is the name of the hosted zone.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -509,6 +543,7 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  delegation_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None,
                  force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -526,6 +561,7 @@ class Zone(pulumi.CustomResource):
                 comment = 'Managed by Pulumi'
             __props__.__dict__["comment"] = comment
             __props__.__dict__["delegation_set_id"] = delegation_set_id
+            __props__.__dict__["enable_accelerated_recovery"] = enable_accelerated_recovery
             __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
@@ -548,6 +584,7 @@ class Zone(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             comment: Optional[pulumi.Input[_builtins.str]] = None,
             delegation_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+            enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None,
             force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -566,6 +603,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Hosted Zone.
         :param pulumi.Input[_builtins.str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         :param pulumi.Input[_builtins.str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
+        :param pulumi.Input[_builtins.bool] enable_accelerated_recovery: Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         :param pulumi.Input[_builtins.str] name: This is the name of the hosted zone.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name_servers: A list of name servers in associated (or default) delegation set.
@@ -583,6 +621,7 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["comment"] = comment
         __props__.__dict__["delegation_set_id"] = delegation_set_id
+        __props__.__dict__["enable_accelerated_recovery"] = enable_accelerated_recovery
         __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["name"] = name
         __props__.__dict__["name_servers"] = name_servers
@@ -616,6 +655,14 @@ class Zone(pulumi.CustomResource):
         The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         """
         return pulumi.get(self, "delegation_set_id")
+
+    @_builtins.property
+    @pulumi.getter(name="enableAcceleratedRecovery")
+    def enable_accelerated_recovery(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+        """
+        return pulumi.get(self, "enable_accelerated_recovery")
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")

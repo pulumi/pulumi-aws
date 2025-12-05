@@ -7,6 +7,7 @@ import com.pulumi.aws.alb.inputs.ListenerRuleActionAuthenticateCognitoArgs;
 import com.pulumi.aws.alb.inputs.ListenerRuleActionAuthenticateOidcArgs;
 import com.pulumi.aws.alb.inputs.ListenerRuleActionFixedResponseArgs;
 import com.pulumi.aws.alb.inputs.ListenerRuleActionForwardArgs;
+import com.pulumi.aws.alb.inputs.ListenerRuleActionJwtValidationArgs;
 import com.pulumi.aws.alb.inputs.ListenerRuleActionRedirectArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -87,6 +88,21 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
+     * 
+     */
+    @Import(name="jwtValidation")
+    private @Nullable Output<ListenerRuleActionJwtValidationArgs> jwtValidation;
+
+    /**
+     * @return Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
+     * 
+     */
+    public Optional<Output<ListenerRuleActionJwtValidationArgs>> jwtValidation() {
+        return Optional.ofNullable(this.jwtValidation);
+    }
+
+    /**
      * Order for the action.
      * The action with the lowest value for order is performed first.
      * Valid values are between `1` and `50000`.
@@ -144,14 +160,14 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * @return The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
      * 
      */
     public Output<String> type() {
@@ -165,6 +181,7 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
         this.authenticateOidc = $.authenticateOidc;
         this.fixedResponse = $.fixedResponse;
         this.forward = $.forward;
+        this.jwtValidation = $.jwtValidation;
         this.order = $.order;
         this.redirect = $.redirect;
         this.targetGroupArn = $.targetGroupArn;
@@ -278,6 +295,27 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param jwtValidation Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwtValidation(@Nullable Output<ListenerRuleActionJwtValidationArgs> jwtValidation) {
+            $.jwtValidation = jwtValidation;
+            return this;
+        }
+
+        /**
+         * @param jwtValidation Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwtValidation(ListenerRuleActionJwtValidationArgs jwtValidation) {
+            return jwtValidation(Output.of(jwtValidation));
+        }
+
+        /**
          * @param order Order for the action.
          * The action with the lowest value for order is performed first.
          * Valid values are between `1` and `50000`.
@@ -353,7 +391,7 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * @param type The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
          * 
          * @return builder
          * 
@@ -364,7 +402,7 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * @param type The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
          * 
          * @return builder
          * 

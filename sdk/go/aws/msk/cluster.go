@@ -150,7 +150,7 @@ import (
 //			}
 //			example, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
 //				ClusterName:         pulumi.String("example"),
-//				KafkaVersion:        pulumi.String("3.2.0"),
+//				KafkaVersion:        pulumi.String("3.8.x"),
 //				NumberOfBrokerNodes: pulumi.Int(3),
 //				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
 //					InstanceType: pulumi.String("kafka.m5.large"),
@@ -229,7 +229,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
 //				ClusterName:         pulumi.String("example"),
-//				KafkaVersion:        pulumi.String("2.7.1"),
+//				KafkaVersion:        pulumi.String("3.8.x"),
 //				NumberOfBrokerNodes: pulumi.Int(3),
 //				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
 //					InstanceType: pulumi.String("kafka.m5.4xlarge"),
@@ -317,6 +317,8 @@ type Cluster struct {
 	NumberOfBrokerNodes pulumi.IntOutput `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
 	OpenMonitoring ClusterOpenMonitoringPtrOutput `pulumi:"openMonitoring"`
+	// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+	Rebalancing ClusterRebalancingOutput `pulumi:"rebalancing"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
@@ -416,6 +418,8 @@ type clusterState struct {
 	NumberOfBrokerNodes *int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
+	// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+	Rebalancing *ClusterRebalancing `pulumi:"rebalancing"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
@@ -477,6 +481,8 @@ type ClusterState struct {
 	NumberOfBrokerNodes pulumi.IntPtrInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
 	OpenMonitoring ClusterOpenMonitoringPtrInput
+	// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+	Rebalancing ClusterRebalancingPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
@@ -516,6 +522,8 @@ type clusterArgs struct {
 	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
+	// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+	Rebalancing *ClusterRebalancing `pulumi:"rebalancing"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
@@ -546,6 +554,8 @@ type ClusterArgs struct {
 	NumberOfBrokerNodes pulumi.IntInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
 	OpenMonitoring ClusterOpenMonitoringPtrInput
+	// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+	Rebalancing ClusterRebalancingPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
@@ -754,6 +764,11 @@ func (o ClusterOutput) NumberOfBrokerNodes() pulumi.IntOutput {
 // Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
 func (o ClusterOutput) OpenMonitoring() ClusterOpenMonitoringPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOpenMonitoringPtrOutput { return v.OpenMonitoring }).(ClusterOpenMonitoringPtrOutput)
+}
+
+// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+func (o ClusterOutput) Rebalancing() ClusterRebalancingOutput {
+	return o.ApplyT(func(v *Cluster) ClusterRebalancingOutput { return v.Rebalancing }).(ClusterRebalancingOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

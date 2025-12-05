@@ -90,8 +90,6 @@ import (
 //
 // Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
 //
-// console
-//
 // % pulumi import aws_codebuild_fleet.name fleet-name
 type Fleet struct {
 	pulumi.CustomResourceState

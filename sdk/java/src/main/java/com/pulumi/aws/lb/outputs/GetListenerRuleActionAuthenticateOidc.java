@@ -29,7 +29,7 @@ public final class GetListenerRuleActionAuthenticateOidc {
      */
     private String clientId;
     /**
-     * @return OIDC issuer identifier of the IdP.
+     * @return Issuer of the JWT.
      * 
      */
     private String issuer;
@@ -88,7 +88,7 @@ public final class GetListenerRuleActionAuthenticateOidc {
         return this.clientId;
     }
     /**
-     * @return OIDC issuer identifier of the IdP.
+     * @return Issuer of the JWT.
      * 
      */
     public String issuer() {

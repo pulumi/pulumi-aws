@@ -650,8 +650,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
         Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
 
-        console
-
         % pulumi import aws_imagebuilder_infrastructure_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
 
         :param str resource_name: The name of the resource.
@@ -722,8 +720,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the Image Builder infrastructure configuration.
 
         Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
-
-        console
 
         % pulumi import aws_imagebuilder_infrastructure_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
 

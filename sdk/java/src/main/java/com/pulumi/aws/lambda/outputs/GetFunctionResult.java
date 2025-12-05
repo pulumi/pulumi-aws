@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.lambda.outputs;
 
+import com.pulumi.aws.lambda.outputs.GetFunctionCapacityProviderConfig;
 import com.pulumi.aws.lambda.outputs.GetFunctionDeadLetterConfig;
+import com.pulumi.aws.lambda.outputs.GetFunctionDurableConfig;
 import com.pulumi.aws.lambda.outputs.GetFunctionEnvironment;
 import com.pulumi.aws.lambda.outputs.GetFunctionEphemeralStorage;
 import com.pulumi.aws.lambda.outputs.GetFunctionFileSystemConfig;
 import com.pulumi.aws.lambda.outputs.GetFunctionLoggingConfig;
+import com.pulumi.aws.lambda.outputs.GetFunctionTenancyConfig;
 import com.pulumi.aws.lambda.outputs.GetFunctionTracingConfig;
 import com.pulumi.aws.lambda.outputs.GetFunctionVpcConfig;
 import com.pulumi.core.annotations.CustomType;
@@ -33,6 +36,11 @@ public final class GetFunctionResult {
      */
     private String arn;
     /**
+     * @return Configuration for Lambda function&#39;s capacity provider. See below.
+     * 
+     */
+    private List<GetFunctionCapacityProviderConfig> capacityProviderConfigs;
+    /**
      * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      */
@@ -52,6 +60,11 @@ public final class GetFunctionResult {
      * 
      */
     private String description;
+    /**
+     * @return Configuration for the function&#39;s durable settings. See below.
+     * 
+     */
+    private List<GetFunctionDurableConfig> durableConfigs;
     /**
      * @return Lambda environment&#39;s configuration settings. See below.
      * 
@@ -175,6 +188,11 @@ public final class GetFunctionResult {
      */
     private Map<String,String> tags;
     /**
+     * @return Tenancy settings of the function. See below.
+     * 
+     */
+    private List<GetFunctionTenancyConfig> tenancyConfigs;
+    /**
      * @return Function execution time at which Lambda should terminate the function.
      * 
      */
@@ -211,6 +229,13 @@ public final class GetFunctionResult {
         return this.arn;
     }
     /**
+     * @return Configuration for Lambda function&#39;s capacity provider. See below.
+     * 
+     */
+    public List<GetFunctionCapacityProviderConfig> capacityProviderConfigs() {
+        return this.capacityProviderConfigs;
+    }
+    /**
      * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      */
@@ -237,6 +262,13 @@ public final class GetFunctionResult {
      */
     public String description() {
         return this.description;
+    }
+    /**
+     * @return Configuration for the function&#39;s durable settings. See below.
+     * 
+     */
+    public List<GetFunctionDurableConfig> durableConfigs() {
+        return this.durableConfigs;
     }
     /**
      * @return Lambda environment&#39;s configuration settings. See below.
@@ -413,6 +445,13 @@ public final class GetFunctionResult {
         return this.tags;
     }
     /**
+     * @return Tenancy settings of the function. See below.
+     * 
+     */
+    public List<GetFunctionTenancyConfig> tenancyConfigs() {
+        return this.tenancyConfigs;
+    }
+    /**
      * @return Function execution time at which Lambda should terminate the function.
      * 
      */
@@ -452,10 +491,12 @@ public final class GetFunctionResult {
     public static final class Builder {
         private List<String> architectures;
         private String arn;
+        private List<GetFunctionCapacityProviderConfig> capacityProviderConfigs;
         private String codeSha256;
         private String codeSigningConfigArn;
         private GetFunctionDeadLetterConfig deadLetterConfig;
         private String description;
+        private List<GetFunctionDurableConfig> durableConfigs;
         private GetFunctionEnvironment environment;
         private List<GetFunctionEphemeralStorage> ephemeralStorages;
         private List<GetFunctionFileSystemConfig> fileSystemConfigs;
@@ -482,6 +523,7 @@ public final class GetFunctionResult {
         private Integer sourceCodeSize;
         private String sourceKmsKeyArn;
         private Map<String,String> tags;
+        private List<GetFunctionTenancyConfig> tenancyConfigs;
         private Integer timeout;
         private GetFunctionTracingConfig tracingConfig;
         private String version;
@@ -491,10 +533,12 @@ public final class GetFunctionResult {
     	      Objects.requireNonNull(defaults);
     	      this.architectures = defaults.architectures;
     	      this.arn = defaults.arn;
+    	      this.capacityProviderConfigs = defaults.capacityProviderConfigs;
     	      this.codeSha256 = defaults.codeSha256;
     	      this.codeSigningConfigArn = defaults.codeSigningConfigArn;
     	      this.deadLetterConfig = defaults.deadLetterConfig;
     	      this.description = defaults.description;
+    	      this.durableConfigs = defaults.durableConfigs;
     	      this.environment = defaults.environment;
     	      this.ephemeralStorages = defaults.ephemeralStorages;
     	      this.fileSystemConfigs = defaults.fileSystemConfigs;
@@ -521,6 +565,7 @@ public final class GetFunctionResult {
     	      this.sourceCodeSize = defaults.sourceCodeSize;
     	      this.sourceKmsKeyArn = defaults.sourceKmsKeyArn;
     	      this.tags = defaults.tags;
+    	      this.tenancyConfigs = defaults.tenancyConfigs;
     	      this.timeout = defaults.timeout;
     	      this.tracingConfig = defaults.tracingConfig;
     	      this.version = defaults.version;
@@ -545,6 +590,17 @@ public final class GetFunctionResult {
             }
             this.arn = arn;
             return this;
+        }
+        @CustomType.Setter
+        public Builder capacityProviderConfigs(List<GetFunctionCapacityProviderConfig> capacityProviderConfigs) {
+            if (capacityProviderConfigs == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "capacityProviderConfigs");
+            }
+            this.capacityProviderConfigs = capacityProviderConfigs;
+            return this;
+        }
+        public Builder capacityProviderConfigs(GetFunctionCapacityProviderConfig... capacityProviderConfigs) {
+            return capacityProviderConfigs(List.of(capacityProviderConfigs));
         }
         @CustomType.Setter
         public Builder codeSha256(String codeSha256) {
@@ -577,6 +633,17 @@ public final class GetFunctionResult {
             }
             this.description = description;
             return this;
+        }
+        @CustomType.Setter
+        public Builder durableConfigs(List<GetFunctionDurableConfig> durableConfigs) {
+            if (durableConfigs == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "durableConfigs");
+            }
+            this.durableConfigs = durableConfigs;
+            return this;
+        }
+        public Builder durableConfigs(GetFunctionDurableConfig... durableConfigs) {
+            return durableConfigs(List.of(durableConfigs));
         }
         @CustomType.Setter
         public Builder environment(GetFunctionEnvironment environment) {
@@ -797,6 +864,17 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder tenancyConfigs(List<GetFunctionTenancyConfig> tenancyConfigs) {
+            if (tenancyConfigs == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "tenancyConfigs");
+            }
+            this.tenancyConfigs = tenancyConfigs;
+            return this;
+        }
+        public Builder tenancyConfigs(GetFunctionTenancyConfig... tenancyConfigs) {
+            return tenancyConfigs(List.of(tenancyConfigs));
+        }
+        @CustomType.Setter
         public Builder timeout(Integer timeout) {
             if (timeout == null) {
               throw new MissingRequiredPropertyException("GetFunctionResult", "timeout");
@@ -832,10 +910,12 @@ public final class GetFunctionResult {
             final var _resultValue = new GetFunctionResult();
             _resultValue.architectures = architectures;
             _resultValue.arn = arn;
+            _resultValue.capacityProviderConfigs = capacityProviderConfigs;
             _resultValue.codeSha256 = codeSha256;
             _resultValue.codeSigningConfigArn = codeSigningConfigArn;
             _resultValue.deadLetterConfig = deadLetterConfig;
             _resultValue.description = description;
+            _resultValue.durableConfigs = durableConfigs;
             _resultValue.environment = environment;
             _resultValue.ephemeralStorages = ephemeralStorages;
             _resultValue.fileSystemConfigs = fileSystemConfigs;
@@ -862,6 +942,7 @@ public final class GetFunctionResult {
             _resultValue.sourceCodeSize = sourceCodeSize;
             _resultValue.sourceKmsKeyArn = sourceKmsKeyArn;
             _resultValue.tags = tags;
+            _resultValue.tenancyConfigs = tenancyConfigs;
             _resultValue.timeout = timeout;
             _resultValue.tracingConfig = tracingConfig;
             _resultValue.version = version;

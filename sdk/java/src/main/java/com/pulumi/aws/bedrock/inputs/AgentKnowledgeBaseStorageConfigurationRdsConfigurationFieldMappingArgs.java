@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs Empty = new AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs();
+
+    /**
+     * Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+     * 
+     */
+    @Import(name="customMetadataField")
+    private @Nullable Output<String> customMetadataField;
+
+    /**
+     * @return Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+     * 
+     */
+    public Optional<Output<String>> customMetadataField() {
+        return Optional.ofNullable(this.customMetadataField);
+    }
 
     /**
      * Name of the field in which Amazon Bedrock stores metadata about the vector store.
@@ -77,6 +94,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
     private AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs() {}
 
     private AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs $) {
+        this.customMetadataField = $.customMetadataField;
         this.metadataField = $.metadataField;
         this.primaryKeyField = $.primaryKeyField;
         this.textField = $.textField;
@@ -99,6 +117,27 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
 
         public Builder(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs defaults) {
             $ = new AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param customMetadataField Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customMetadataField(@Nullable Output<String> customMetadataField) {
+            $.customMetadataField = customMetadataField;
+            return this;
+        }
+
+        /**
+         * @param customMetadataField Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customMetadataField(String customMetadataField) {
+            return customMetadataField(Output.of(customMetadataField));
         }
 
         /**

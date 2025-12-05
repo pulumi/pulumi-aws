@@ -1163,6 +1163,151 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 	}).(pulumi.StringPtrOutput)
 }
 
+type BucketAbacAbacStatus struct {
+	// ABAC status of the general purpose bucket.
+	// Valid values are `Enabled` and `Disabled`.
+	// By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+	Status string `pulumi:"status"`
+}
+
+// BucketAbacAbacStatusInput is an input type that accepts BucketAbacAbacStatusArgs and BucketAbacAbacStatusOutput values.
+// You can construct a concrete instance of `BucketAbacAbacStatusInput` via:
+//
+//	BucketAbacAbacStatusArgs{...}
+type BucketAbacAbacStatusInput interface {
+	pulumi.Input
+
+	ToBucketAbacAbacStatusOutput() BucketAbacAbacStatusOutput
+	ToBucketAbacAbacStatusOutputWithContext(context.Context) BucketAbacAbacStatusOutput
+}
+
+type BucketAbacAbacStatusArgs struct {
+	// ABAC status of the general purpose bucket.
+	// Valid values are `Enabled` and `Disabled`.
+	// By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (BucketAbacAbacStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAbacAbacStatus)(nil)).Elem()
+}
+
+func (i BucketAbacAbacStatusArgs) ToBucketAbacAbacStatusOutput() BucketAbacAbacStatusOutput {
+	return i.ToBucketAbacAbacStatusOutputWithContext(context.Background())
+}
+
+func (i BucketAbacAbacStatusArgs) ToBucketAbacAbacStatusOutputWithContext(ctx context.Context) BucketAbacAbacStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAbacAbacStatusOutput)
+}
+
+func (i BucketAbacAbacStatusArgs) ToBucketAbacAbacStatusPtrOutput() BucketAbacAbacStatusPtrOutput {
+	return i.ToBucketAbacAbacStatusPtrOutputWithContext(context.Background())
+}
+
+func (i BucketAbacAbacStatusArgs) ToBucketAbacAbacStatusPtrOutputWithContext(ctx context.Context) BucketAbacAbacStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAbacAbacStatusOutput).ToBucketAbacAbacStatusPtrOutputWithContext(ctx)
+}
+
+// BucketAbacAbacStatusPtrInput is an input type that accepts BucketAbacAbacStatusArgs, BucketAbacAbacStatusPtr and BucketAbacAbacStatusPtrOutput values.
+// You can construct a concrete instance of `BucketAbacAbacStatusPtrInput` via:
+//
+//	        BucketAbacAbacStatusArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketAbacAbacStatusPtrInput interface {
+	pulumi.Input
+
+	ToBucketAbacAbacStatusPtrOutput() BucketAbacAbacStatusPtrOutput
+	ToBucketAbacAbacStatusPtrOutputWithContext(context.Context) BucketAbacAbacStatusPtrOutput
+}
+
+type bucketAbacAbacStatusPtrType BucketAbacAbacStatusArgs
+
+func BucketAbacAbacStatusPtr(v *BucketAbacAbacStatusArgs) BucketAbacAbacStatusPtrInput {
+	return (*bucketAbacAbacStatusPtrType)(v)
+}
+
+func (*bucketAbacAbacStatusPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAbacAbacStatus)(nil)).Elem()
+}
+
+func (i *bucketAbacAbacStatusPtrType) ToBucketAbacAbacStatusPtrOutput() BucketAbacAbacStatusPtrOutput {
+	return i.ToBucketAbacAbacStatusPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketAbacAbacStatusPtrType) ToBucketAbacAbacStatusPtrOutputWithContext(ctx context.Context) BucketAbacAbacStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAbacAbacStatusPtrOutput)
+}
+
+type BucketAbacAbacStatusOutput struct{ *pulumi.OutputState }
+
+func (BucketAbacAbacStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAbacAbacStatus)(nil)).Elem()
+}
+
+func (o BucketAbacAbacStatusOutput) ToBucketAbacAbacStatusOutput() BucketAbacAbacStatusOutput {
+	return o
+}
+
+func (o BucketAbacAbacStatusOutput) ToBucketAbacAbacStatusOutputWithContext(ctx context.Context) BucketAbacAbacStatusOutput {
+	return o
+}
+
+func (o BucketAbacAbacStatusOutput) ToBucketAbacAbacStatusPtrOutput() BucketAbacAbacStatusPtrOutput {
+	return o.ToBucketAbacAbacStatusPtrOutputWithContext(context.Background())
+}
+
+func (o BucketAbacAbacStatusOutput) ToBucketAbacAbacStatusPtrOutputWithContext(ctx context.Context) BucketAbacAbacStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAbacAbacStatus) *BucketAbacAbacStatus {
+		return &v
+	}).(BucketAbacAbacStatusPtrOutput)
+}
+
+// ABAC status of the general purpose bucket.
+// Valid values are `Enabled` and `Disabled`.
+// By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+func (o BucketAbacAbacStatusOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketAbacAbacStatus) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type BucketAbacAbacStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketAbacAbacStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAbacAbacStatus)(nil)).Elem()
+}
+
+func (o BucketAbacAbacStatusPtrOutput) ToBucketAbacAbacStatusPtrOutput() BucketAbacAbacStatusPtrOutput {
+	return o
+}
+
+func (o BucketAbacAbacStatusPtrOutput) ToBucketAbacAbacStatusPtrOutputWithContext(ctx context.Context) BucketAbacAbacStatusPtrOutput {
+	return o
+}
+
+func (o BucketAbacAbacStatusPtrOutput) Elem() BucketAbacAbacStatusOutput {
+	return o.ApplyT(func(v *BucketAbacAbacStatus) BucketAbacAbacStatus {
+		if v != nil {
+			return *v
+		}
+		var ret BucketAbacAbacStatus
+		return ret
+	}).(BucketAbacAbacStatusOutput)
+}
+
+// ABAC status of the general purpose bucket.
+// Valid values are `Enabled` and `Disabled`.
+// By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+func (o BucketAbacAbacStatusPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAbacAbacStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type BucketAclAccessControlPolicy struct {
 	// Set of `grant` configuration blocks. See below.
 	Grants []BucketAclAccessControlPolicyGrant `pulumi:"grants"`
@@ -15540,6 +15685,8 @@ func (o BucketServerSideEncryptionConfigurationTypePtrOutput) Rule() BucketServe
 type BucketServerSideEncryptionConfigurationRule struct {
 	// Single object for setting server-side encryption by default. See below.
 	ApplyServerSideEncryptionByDefault *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault `pulumi:"applyServerSideEncryptionByDefault"`
+	// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+	BlockedEncryptionTypes []string `pulumi:"blockedEncryptionTypes"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
 }
@@ -15558,6 +15705,8 @@ type BucketServerSideEncryptionConfigurationRuleInput interface {
 type BucketServerSideEncryptionConfigurationRuleArgs struct {
 	// Single object for setting server-side encryption by default. See below.
 	ApplyServerSideEncryptionByDefault BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrInput `pulumi:"applyServerSideEncryptionByDefault"`
+	// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+	BlockedEncryptionTypes pulumi.StringArrayInput `pulumi:"blockedEncryptionTypes"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled pulumi.BoolPtrInput `pulumi:"bucketKeyEnabled"`
 }
@@ -15671,6 +15820,11 @@ func (o BucketServerSideEncryptionConfigurationRuleOutput) ApplyServerSideEncryp
 	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
 }
 
+// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+func (o BucketServerSideEncryptionConfigurationRuleOutput) BlockedEncryptionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRule) []string { return v.BlockedEncryptionTypes }).(pulumi.StringArrayOutput)
+}
+
 // Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 func (o BucketServerSideEncryptionConfigurationRuleOutput) BucketKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRule) *bool { return v.BucketKeyEnabled }).(pulumi.BoolPtrOutput)
@@ -15708,6 +15862,16 @@ func (o BucketServerSideEncryptionConfigurationRulePtrOutput) ApplyServerSideEnc
 		}
 		return v.ApplyServerSideEncryptionByDefault
 	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
+}
+
+// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+func (o BucketServerSideEncryptionConfigurationRulePtrOutput) BlockedEncryptionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlockedEncryptionTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -15903,6 +16067,8 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 type BucketServerSideEncryptionConfigurationV2Rule struct {
 	// Single object for setting server-side encryption by default. See below.
 	ApplyServerSideEncryptionByDefault *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault `pulumi:"applyServerSideEncryptionByDefault"`
+	// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+	BlockedEncryptionTypes []string `pulumi:"blockedEncryptionTypes"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
 }
@@ -15921,6 +16087,8 @@ type BucketServerSideEncryptionConfigurationV2RuleInput interface {
 type BucketServerSideEncryptionConfigurationV2RuleArgs struct {
 	// Single object for setting server-side encryption by default. See below.
 	ApplyServerSideEncryptionByDefault BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrInput `pulumi:"applyServerSideEncryptionByDefault"`
+	// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+	BlockedEncryptionTypes pulumi.StringArrayInput `pulumi:"blockedEncryptionTypes"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled pulumi.BoolPtrInput `pulumi:"bucketKeyEnabled"`
 }
@@ -15981,6 +16149,11 @@ func (o BucketServerSideEncryptionConfigurationV2RuleOutput) ApplyServerSideEncr
 	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationV2Rule) *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault {
 		return v.ApplyServerSideEncryptionByDefault
 	}).(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput)
+}
+
+// List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
+func (o BucketServerSideEncryptionConfigurationV2RuleOutput) BlockedEncryptionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationV2Rule) []string { return v.BlockedEncryptionTypes }).(pulumi.StringArrayOutput)
 }
 
 // Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -23148,6 +23321,112 @@ func (o PolicyDocumentPtrOutput) Version() iam.PolicyDocumentVersionPtrOutput {
 	}).(iam.PolicyDocumentVersionPtrOutput)
 }
 
+type VectorsVectorBucketEncryptionConfiguration struct {
+	// AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sseType` is set to `aws:kms`.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	// Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
+	SseType string `pulumi:"sseType"`
+}
+
+// VectorsVectorBucketEncryptionConfigurationInput is an input type that accepts VectorsVectorBucketEncryptionConfigurationArgs and VectorsVectorBucketEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `VectorsVectorBucketEncryptionConfigurationInput` via:
+//
+//	VectorsVectorBucketEncryptionConfigurationArgs{...}
+type VectorsVectorBucketEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToVectorsVectorBucketEncryptionConfigurationOutput() VectorsVectorBucketEncryptionConfigurationOutput
+	ToVectorsVectorBucketEncryptionConfigurationOutputWithContext(context.Context) VectorsVectorBucketEncryptionConfigurationOutput
+}
+
+type VectorsVectorBucketEncryptionConfigurationArgs struct {
+	// AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sseType` is set to `aws:kms`.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+	// Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
+	SseType pulumi.StringInput `pulumi:"sseType"`
+}
+
+func (VectorsVectorBucketEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VectorsVectorBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i VectorsVectorBucketEncryptionConfigurationArgs) ToVectorsVectorBucketEncryptionConfigurationOutput() VectorsVectorBucketEncryptionConfigurationOutput {
+	return i.ToVectorsVectorBucketEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i VectorsVectorBucketEncryptionConfigurationArgs) ToVectorsVectorBucketEncryptionConfigurationOutputWithContext(ctx context.Context) VectorsVectorBucketEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VectorsVectorBucketEncryptionConfigurationOutput)
+}
+
+// VectorsVectorBucketEncryptionConfigurationArrayInput is an input type that accepts VectorsVectorBucketEncryptionConfigurationArray and VectorsVectorBucketEncryptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `VectorsVectorBucketEncryptionConfigurationArrayInput` via:
+//
+//	VectorsVectorBucketEncryptionConfigurationArray{ VectorsVectorBucketEncryptionConfigurationArgs{...} }
+type VectorsVectorBucketEncryptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToVectorsVectorBucketEncryptionConfigurationArrayOutput() VectorsVectorBucketEncryptionConfigurationArrayOutput
+	ToVectorsVectorBucketEncryptionConfigurationArrayOutputWithContext(context.Context) VectorsVectorBucketEncryptionConfigurationArrayOutput
+}
+
+type VectorsVectorBucketEncryptionConfigurationArray []VectorsVectorBucketEncryptionConfigurationInput
+
+func (VectorsVectorBucketEncryptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VectorsVectorBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i VectorsVectorBucketEncryptionConfigurationArray) ToVectorsVectorBucketEncryptionConfigurationArrayOutput() VectorsVectorBucketEncryptionConfigurationArrayOutput {
+	return i.ToVectorsVectorBucketEncryptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i VectorsVectorBucketEncryptionConfigurationArray) ToVectorsVectorBucketEncryptionConfigurationArrayOutputWithContext(ctx context.Context) VectorsVectorBucketEncryptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VectorsVectorBucketEncryptionConfigurationArrayOutput)
+}
+
+type VectorsVectorBucketEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VectorsVectorBucketEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VectorsVectorBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o VectorsVectorBucketEncryptionConfigurationOutput) ToVectorsVectorBucketEncryptionConfigurationOutput() VectorsVectorBucketEncryptionConfigurationOutput {
+	return o
+}
+
+func (o VectorsVectorBucketEncryptionConfigurationOutput) ToVectorsVectorBucketEncryptionConfigurationOutputWithContext(ctx context.Context) VectorsVectorBucketEncryptionConfigurationOutput {
+	return o
+}
+
+// AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sseType` is set to `aws:kms`.
+func (o VectorsVectorBucketEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v VectorsVectorBucketEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+// Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
+func (o VectorsVectorBucketEncryptionConfigurationOutput) SseType() pulumi.StringOutput {
+	return o.ApplyT(func(v VectorsVectorBucketEncryptionConfiguration) string { return v.SseType }).(pulumi.StringOutput)
+}
+
+type VectorsVectorBucketEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (VectorsVectorBucketEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VectorsVectorBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o VectorsVectorBucketEncryptionConfigurationArrayOutput) ToVectorsVectorBucketEncryptionConfigurationArrayOutput() VectorsVectorBucketEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o VectorsVectorBucketEncryptionConfigurationArrayOutput) ToVectorsVectorBucketEncryptionConfigurationArrayOutputWithContext(ctx context.Context) VectorsVectorBucketEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o VectorsVectorBucketEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) VectorsVectorBucketEncryptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VectorsVectorBucketEncryptionConfiguration {
+		return vs[0].([]VectorsVectorBucketEncryptionConfiguration)[vs[1].(int)]
+	}).(VectorsVectorBucketEncryptionConfigurationOutput)
+}
+
 type GetAccessPointPublicAccessBlockConfiguration struct {
 	// Whether Amazon S3 blocks public ACLs for buckets in this account.
 	BlockPublicAcls bool `pulumi:"blockPublicAcls"`
@@ -23384,6 +23663,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrInput)(nil)).Elem(), AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput)(nil)).Elem(), AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrInput)(nil)).Elem(), AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAbacAbacStatusInput)(nil)).Elem(), BucketAbacAbacStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAbacAbacStatusPtrInput)(nil)).Elem(), BucketAbacAbacStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclAccessControlPolicyInput)(nil)).Elem(), BucketAclAccessControlPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclAccessControlPolicyPtrInput)(nil)).Elem(), BucketAclAccessControlPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclAccessControlPolicyGrantInput)(nil)).Elem(), BucketAclAccessControlPolicyGrantArgs{})
@@ -23685,6 +23966,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyOverrideProviderDefaultTagsPtrInput)(nil)).Elem(), ObjectCopyOverrideProviderDefaultTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentInput)(nil)).Elem(), PolicyDocumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentPtrInput)(nil)).Elem(), PolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VectorsVectorBucketEncryptionConfigurationInput)(nil)).Elem(), VectorsVectorBucketEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VectorsVectorBucketEncryptionConfigurationArrayInput)(nil)).Elem(), VectorsVectorBucketEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), GetAccessPointPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPublicAccessBlockConfigurationArrayInput)(nil)).Elem(), GetAccessPointPublicAccessBlockConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointVpcConfigurationInput)(nil)).Elem(), GetAccessPointVpcConfigurationArgs{})
@@ -23703,6 +23986,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput{})
 	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput{})
+	pulumi.RegisterOutputType(BucketAbacAbacStatusOutput{})
+	pulumi.RegisterOutputType(BucketAbacAbacStatusPtrOutput{})
 	pulumi.RegisterOutputType(BucketAclAccessControlPolicyOutput{})
 	pulumi.RegisterOutputType(BucketAclAccessControlPolicyPtrOutput{})
 	pulumi.RegisterOutputType(BucketAclAccessControlPolicyGrantOutput{})
@@ -24004,6 +24289,8 @@ func init() {
 	pulumi.RegisterOutputType(ObjectCopyOverrideProviderDefaultTagsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDocumentOutput{})
 	pulumi.RegisterOutputType(PolicyDocumentPtrOutput{})
+	pulumi.RegisterOutputType(VectorsVectorBucketEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(VectorsVectorBucketEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessPointPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(GetAccessPointPublicAccessBlockConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessPointVpcConfigurationOutput{})

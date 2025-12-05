@@ -7,6 +7,7 @@ import com.pulumi.aws.emr.inputs.ManagedScalingPolicyComputeLimitArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -63,12 +64,44 @@ public final class ManagedScalingPolicyArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
+     * 
+     */
+    @Import(name="scalingStrategy")
+    private @Nullable Output<String> scalingStrategy;
+
+    /**
+     * @return Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
+     * 
+     */
+    public Optional<Output<String>> scalingStrategy() {
+        return Optional.ofNullable(this.scalingStrategy);
+    }
+
+    /**
+     * Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
+     * 
+     */
+    @Import(name="utilizationPerformanceIndex")
+    private @Nullable Output<Integer> utilizationPerformanceIndex;
+
+    /**
+     * @return Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
+     * 
+     */
+    public Optional<Output<Integer>> utilizationPerformanceIndex() {
+        return Optional.ofNullable(this.utilizationPerformanceIndex);
+    }
+
     private ManagedScalingPolicyArgs() {}
 
     private ManagedScalingPolicyArgs(ManagedScalingPolicyArgs $) {
         this.clusterId = $.clusterId;
         this.computeLimits = $.computeLimits;
         this.region = $.region;
+        this.scalingStrategy = $.scalingStrategy;
+        this.utilizationPerformanceIndex = $.utilizationPerformanceIndex;
     }
 
     public static Builder builder() {
@@ -160,6 +193,48 @@ public final class ManagedScalingPolicyArgs extends com.pulumi.resources.Resourc
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param scalingStrategy Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingStrategy(@Nullable Output<String> scalingStrategy) {
+            $.scalingStrategy = scalingStrategy;
+            return this;
+        }
+
+        /**
+         * @param scalingStrategy Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingStrategy(String scalingStrategy) {
+            return scalingStrategy(Output.of(scalingStrategy));
+        }
+
+        /**
+         * @param utilizationPerformanceIndex Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder utilizationPerformanceIndex(@Nullable Output<Integer> utilizationPerformanceIndex) {
+            $.utilizationPerformanceIndex = utilizationPerformanceIndex;
+            return this;
+        }
+
+        /**
+         * @param utilizationPerformanceIndex Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder utilizationPerformanceIndex(Integer utilizationPerformanceIndex) {
+            return utilizationPerformanceIndex(Output.of(utilizationPerformanceIndex));
         }
 
         public ManagedScalingPolicyArgs build() {

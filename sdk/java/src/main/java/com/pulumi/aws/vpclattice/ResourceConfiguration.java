@@ -113,6 +113,59 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With custom domain
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.vpclattice.DomainVerification;
+ * import com.pulumi.aws.vpclattice.DomainVerificationArgs;
+ * import com.pulumi.aws.vpclattice.ResourceConfiguration;
+ * import com.pulumi.aws.vpclattice.ResourceConfigurationArgs;
+ * import com.pulumi.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionArgs;
+ * import com.pulumi.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DomainVerification("example", DomainVerificationArgs.builder()
+ *             .domainName("example.com")
+ *             .build());
+ * 
+ *         var exampleResourceConfiguration = new ResourceConfiguration("exampleResourceConfiguration", ResourceConfigurationArgs.builder()
+ *             .name("Example")
+ *             .resourceGatewayIdentifier(exampleAwsVpclatticeResourceGateway.id())
+ *             .customDomainName("custom.example.com")
+ *             .domainVerificationId(example.id())
+ *             .portRanges("443")
+ *             .protocol("TCP")
+ *             .resourceConfigurationDefinition(ResourceConfigurationResourceConfigurationDefinitionArgs.builder()
+ *                 .dnsResource(ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs.builder()
+ *                     .domainName("test.example.com")
+ *                     .ipAddressType("IPV4")
+ *                     .build())
+ *                 .build())
+ *             .tags(Map.of("Environment", "Example"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### ARN Example
  * 
  * <pre>
@@ -193,6 +246,62 @@ public class ResourceConfiguration extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+     * 
+     */
+    @Export(name="customDomainName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> customDomainName;
+
+    /**
+     * @return Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
+     * 
+     */
+    public Output<Optional<String>> customDomainName() {
+        return Codegen.optional(this.customDomainName);
+    }
+    /**
+     * ARN of the domain verification.
+     * 
+     */
+    @Export(name="domainVerificationArn", refs={String.class}, tree="[0]")
+    private Output<String> domainVerificationArn;
+
+    /**
+     * @return ARN of the domain verification.
+     * 
+     */
+    public Output<String> domainVerificationArn() {
+        return this.domainVerificationArn;
+    }
+    /**
+     * The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+     * 
+     */
+    @Export(name="domainVerificationId", refs={String.class}, tree="[0]")
+    private Output<String> domainVerificationId;
+
+    /**
+     * @return The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+     * 
+     */
+    public Output<String> domainVerificationId() {
+        return this.domainVerificationId;
+    }
+    /**
+     * Domain verification status.
+     * 
+     */
+    @Export(name="domainVerificationStatus", refs={String.class}, tree="[0]")
+    private Output<String> domainVerificationStatus;
+
+    /**
+     * @return Domain verification status.
+     * 
+     */
+    public Output<String> domainVerificationStatus() {
+        return this.domainVerificationStatus;
     }
     /**
      * Name for the Resource Configuration.

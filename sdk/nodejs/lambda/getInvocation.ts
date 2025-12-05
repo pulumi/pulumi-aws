@@ -72,6 +72,7 @@ export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptio
         "input": args.input,
         "qualifier": args.qualifier,
         "region": args.region,
+        "tenantId": args.tenantId,
     }, opts);
 }
 
@@ -97,6 +98,10 @@ export interface GetInvocationArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: string;
+    /**
+     * Tenant Id to serve invocations from specified tenant.
+     */
+    tenantId?: string;
 }
 
 /**
@@ -115,6 +120,7 @@ export interface GetInvocationResult {
      * String result of the Lambda function invocation.
      */
     readonly result: string;
+    readonly tenantId?: string;
 }
 /**
  * Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.
@@ -184,6 +190,7 @@ export function getInvocationOutput(args: GetInvocationOutputArgs, opts?: pulumi
         "input": args.input,
         "qualifier": args.qualifier,
         "region": args.region,
+        "tenantId": args.tenantId,
     }, opts);
 }
 
@@ -209,4 +216,8 @@ export interface GetInvocationOutputArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Tenant Id to serve invocations from specified tenant.
+     */
+    tenantId?: pulumi.Input<string>;
 }

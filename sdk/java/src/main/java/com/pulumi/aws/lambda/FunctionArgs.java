@@ -5,13 +5,16 @@ package com.pulumi.aws.lambda;
 
 import com.pulumi.asset.Archive;
 import com.pulumi.aws.lambda.enums.Runtime;
+import com.pulumi.aws.lambda.inputs.FunctionCapacityProviderConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionDeadLetterConfigArgs;
+import com.pulumi.aws.lambda.inputs.FunctionDurableConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
 import com.pulumi.aws.lambda.inputs.FunctionEphemeralStorageArgs;
 import com.pulumi.aws.lambda.inputs.FunctionFileSystemConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionImageConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionLoggingConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionSnapStartArgs;
+import com.pulumi.aws.lambda.inputs.FunctionTenancyConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionTracingConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
 import com.pulumi.core.Either;
@@ -45,6 +48,21 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> architectures() {
         return Optional.ofNullable(this.architectures);
+    }
+
+    /**
+     * Configuration block for Lambda Capacity Provider. See below.
+     * 
+     */
+    @Import(name="capacityProviderConfig")
+    private @Nullable Output<FunctionCapacityProviderConfigArgs> capacityProviderConfig;
+
+    /**
+     * @return Configuration block for Lambda Capacity Provider. See below.
+     * 
+     */
+    public Optional<Output<FunctionCapacityProviderConfigArgs>> capacityProviderConfig() {
+        return Optional.ofNullable(this.capacityProviderConfig);
     }
 
     /**
@@ -105,6 +123,21 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+     * 
+     */
+    @Import(name="durableConfig")
+    private @Nullable Output<FunctionDurableConfigArgs> durableConfig;
+
+    /**
+     * @return Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+     * 
+     */
+    public Optional<Output<FunctionDurableConfigArgs>> durableConfig() {
+        return Optional.ofNullable(this.durableConfig);
     }
 
     /**
@@ -300,6 +333,21 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> publish() {
         return Optional.ofNullable(this.publish);
+    }
+
+    /**
+     * Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+     * 
+     */
+    @Import(name="publishTo")
+    private @Nullable Output<String> publishTo;
+
+    /**
+     * @return Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+     * 
+     */
+    public Optional<Output<String>> publishTo() {
+        return Optional.ofNullable(this.publishTo);
     }
 
     /**
@@ -517,6 +565,21 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block for Tenancy. See below.
+     * 
+     */
+    @Import(name="tenancyConfig")
+    private @Nullable Output<FunctionTenancyConfigArgs> tenancyConfig;
+
+    /**
+     * @return Configuration block for Tenancy. See below.
+     * 
+     */
+    public Optional<Output<FunctionTenancyConfigArgs>> tenancyConfig() {
+        return Optional.ofNullable(this.tenancyConfig);
+    }
+
+    /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
      * 
      */
@@ -565,10 +628,12 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
     private FunctionArgs(FunctionArgs $) {
         this.architectures = $.architectures;
+        this.capacityProviderConfig = $.capacityProviderConfig;
         this.code = $.code;
         this.codeSigningConfigArn = $.codeSigningConfigArn;
         this.deadLetterConfig = $.deadLetterConfig;
         this.description = $.description;
+        this.durableConfig = $.durableConfig;
         this.environment = $.environment;
         this.ephemeralStorage = $.ephemeralStorage;
         this.fileSystemConfig = $.fileSystemConfig;
@@ -582,6 +647,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.packageType = $.packageType;
         this.publish = $.publish;
+        this.publishTo = $.publishTo;
         this.region = $.region;
         this.replaceSecurityGroupsOnDestroy = $.replaceSecurityGroupsOnDestroy;
         this.replacementSecurityGroupIds = $.replacementSecurityGroupIds;
@@ -596,6 +662,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         this.sourceCodeHash = $.sourceCodeHash;
         this.sourceKmsKeyArn = $.sourceKmsKeyArn;
         this.tags = $.tags;
+        this.tenancyConfig = $.tenancyConfig;
         this.timeout = $.timeout;
         this.tracingConfig = $.tracingConfig;
         this.vpcConfig = $.vpcConfig;
@@ -648,6 +715,27 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder architectures(String... architectures) {
             return architectures(List.of(architectures));
+        }
+
+        /**
+         * @param capacityProviderConfig Configuration block for Lambda Capacity Provider. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityProviderConfig(@Nullable Output<FunctionCapacityProviderConfigArgs> capacityProviderConfig) {
+            $.capacityProviderConfig = capacityProviderConfig;
+            return this;
+        }
+
+        /**
+         * @param capacityProviderConfig Configuration block for Lambda Capacity Provider. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityProviderConfig(FunctionCapacityProviderConfigArgs capacityProviderConfig) {
+            return capacityProviderConfig(Output.of(capacityProviderConfig));
         }
 
         /**
@@ -732,6 +820,27 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param durableConfig Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder durableConfig(@Nullable Output<FunctionDurableConfigArgs> durableConfig) {
+            $.durableConfig = durableConfig;
+            return this;
+        }
+
+        /**
+         * @param durableConfig Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder durableConfig(FunctionDurableConfigArgs durableConfig) {
+            return durableConfig(Output.of(durableConfig));
         }
 
         /**
@@ -1015,6 +1124,27 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publish(Boolean publish) {
             return publish(Output.of(publish));
+        }
+
+        /**
+         * @param publishTo Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publishTo(@Nullable Output<String> publishTo) {
+            $.publishTo = publishTo;
+            return this;
+        }
+
+        /**
+         * @param publishTo Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publishTo(String publishTo) {
+            return publishTo(Output.of(publishTo));
         }
 
         /**
@@ -1343,6 +1473,27 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tenancyConfig Configuration block for Tenancy. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenancyConfig(@Nullable Output<FunctionTenancyConfigArgs> tenancyConfig) {
+            $.tenancyConfig = tenancyConfig;
+            return this;
+        }
+
+        /**
+         * @param tenancyConfig Configuration block for Tenancy. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenancyConfig(FunctionTenancyConfigArgs tenancyConfig) {
+            return tenancyConfig(Output.of(tenancyConfig));
         }
 
         /**

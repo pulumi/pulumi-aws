@@ -192,8 +192,6 @@ class PolicyAttachment(pulumi.CustomResource):
 
         With an account target:
 
-        console
-
         % pulumi import aws_organizations_policy_attachment.example 123456789012:p-12345678
 
         :param str resource_name: The name of the resource.
@@ -263,8 +261,6 @@ class PolicyAttachment(pulumi.CustomResource):
         Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
 
         With an account target:
-
-        console
 
         % pulumi import aws_organizations_policy_attachment.example 123456789012:p-12345678
 

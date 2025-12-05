@@ -379,6 +379,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="arczonalshift")
+    private @Nullable Output<String> arczonalshift;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> arczonalshift() {
+        return Optional.ofNullable(this.arczonalshift);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="athena")
     private @Nullable Output<String> athena;
 
@@ -2719,21 +2734,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
-    @Import(name="lookoutmetrics")
-    private @Nullable Output<String> lookoutmetrics;
-
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<Output<String>> lookoutmetrics() {
-        return Optional.ofNullable(this.lookoutmetrics);
-    }
-
-    /**
-     * Use this to override the default service endpoint URL
-     * 
-     */
     @Import(name="m2")
     private @Nullable Output<String> m2;
 
@@ -2953,6 +2953,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> mwaa() {
         return Optional.ofNullable(this.mwaa);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="mwaaserverless")
+    private @Nullable Output<String> mwaaserverless;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> mwaaserverless() {
+        return Optional.ofNullable(this.mwaaserverless);
     }
 
     /**
@@ -3463,6 +3478,36 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> rds() {
         return Optional.ofNullable(this.rds);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="rdsdata")
+    private @Nullable Output<String> rdsdata;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> rdsdata() {
+        return Optional.ofNullable(this.rdsdata);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="rdsdataservice")
+    private @Nullable Output<String> rdsdataservice;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> rdsdataservice() {
+        return Optional.ofNullable(this.rdsdataservice);
     }
 
     /**
@@ -4602,6 +4647,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.appstream = $.appstream;
         this.appsync = $.appsync;
         this.arcregionswitch = $.arcregionswitch;
+        this.arczonalshift = $.arczonalshift;
         this.athena = $.athena;
         this.auditmanager = $.auditmanager;
         this.autoscaling = $.autoscaling;
@@ -4758,7 +4804,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.location = $.location;
         this.locationservice = $.locationservice;
         this.logs = $.logs;
-        this.lookoutmetrics = $.lookoutmetrics;
         this.m2 = $.m2;
         this.macie2 = $.macie2;
         this.managedgrafana = $.managedgrafana;
@@ -4774,6 +4819,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.mq = $.mq;
         this.msk = $.msk;
         this.mwaa = $.mwaa;
+        this.mwaaserverless = $.mwaaserverless;
         this.neptune = $.neptune;
         this.neptunegraph = $.neptunegraph;
         this.networkfirewall = $.networkfirewall;
@@ -4808,6 +4854,8 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.ram = $.ram;
         this.rbin = $.rbin;
         this.rds = $.rds;
+        this.rdsdata = $.rdsdata;
+        this.rdsdataservice = $.rdsdataservice;
         this.recyclebin = $.recyclebin;
         this.redshift = $.redshift;
         this.redshiftdata = $.redshiftdata;
@@ -5404,6 +5452,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder arcregionswitch(String arcregionswitch) {
             return arcregionswitch(Output.of(arcregionswitch));
+        }
+
+        /**
+         * @param arczonalshift Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arczonalshift(@Nullable Output<String> arczonalshift) {
+            $.arczonalshift = arczonalshift;
+            return this;
+        }
+
+        /**
+         * @param arczonalshift Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arczonalshift(String arczonalshift) {
+            return arczonalshift(Output.of(arczonalshift));
         }
 
         /**
@@ -8683,27 +8752,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param lookoutmetrics Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder lookoutmetrics(@Nullable Output<String> lookoutmetrics) {
-            $.lookoutmetrics = lookoutmetrics;
-            return this;
-        }
-
-        /**
-         * @param lookoutmetrics Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder lookoutmetrics(String lookoutmetrics) {
-            return lookoutmetrics(Output.of(lookoutmetrics));
-        }
-
-        /**
          * @param m2 Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -9016,6 +9064,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder mwaa(String mwaa) {
             return mwaa(Output.of(mwaa));
+        }
+
+        /**
+         * @param mwaaserverless Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mwaaserverless(@Nullable Output<String> mwaaserverless) {
+            $.mwaaserverless = mwaaserverless;
+            return this;
+        }
+
+        /**
+         * @param mwaaserverless Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mwaaserverless(String mwaaserverless) {
+            return mwaaserverless(Output.of(mwaaserverless));
         }
 
         /**
@@ -9730,6 +9799,48 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder rds(String rds) {
             return rds(Output.of(rds));
+        }
+
+        /**
+         * @param rdsdata Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rdsdata(@Nullable Output<String> rdsdata) {
+            $.rdsdata = rdsdata;
+            return this;
+        }
+
+        /**
+         * @param rdsdata Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rdsdata(String rdsdata) {
+            return rdsdata(Output.of(rdsdata));
+        }
+
+        /**
+         * @param rdsdataservice Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rdsdataservice(@Nullable Output<String> rdsdataservice) {
+            $.rdsdataservice = rdsdataservice;
+            return this;
+        }
+
+        /**
+         * @param rdsdataservice Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rdsdataservice(String rdsdataservice) {
+            return rdsdataservice(Output.of(rdsdataservice));
         }
 
         /**

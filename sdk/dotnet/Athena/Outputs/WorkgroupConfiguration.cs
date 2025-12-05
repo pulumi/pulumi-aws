@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Athena.Outputs
         /// </summary>
         public readonly Outputs.WorkgroupConfigurationIdentityCenterConfiguration? IdentityCenterConfiguration;
         /// <summary>
+        /// Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+        /// </summary>
+        public readonly Outputs.WorkgroupConfigurationManagedQueryResultsConfiguration? ManagedQueryResultsConfiguration;
+        /// <summary>
         /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `True`.
         /// </summary>
         public readonly bool? PublishCloudwatchMetricsEnabled;
@@ -58,6 +62,8 @@ namespace Pulumi.Aws.Athena.Outputs
 
             Outputs.WorkgroupConfigurationIdentityCenterConfiguration? identityCenterConfiguration,
 
+            Outputs.WorkgroupConfigurationManagedQueryResultsConfiguration? managedQueryResultsConfiguration,
+
             bool? publishCloudwatchMetricsEnabled,
 
             bool? requesterPaysEnabled,
@@ -69,6 +75,7 @@ namespace Pulumi.Aws.Athena.Outputs
             EngineVersion = engineVersion;
             ExecutionRole = executionRole;
             IdentityCenterConfiguration = identityCenterConfiguration;
+            ManagedQueryResultsConfiguration = managedQueryResultsConfiguration;
             PublishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             RequesterPaysEnabled = requesterPaysEnabled;
             ResultConfiguration = resultConfiguration;

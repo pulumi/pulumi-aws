@@ -19,12 +19,28 @@ __all__ = [
     'AccessPolicyAssociationAccessScopeArgsDict',
     'AddonPodIdentityAssociationArgs',
     'AddonPodIdentityAssociationArgsDict',
+    'CapabilityConfigurationArgs',
+    'CapabilityConfigurationArgsDict',
+    'CapabilityConfigurationArgoCdArgs',
+    'CapabilityConfigurationArgoCdArgsDict',
+    'CapabilityConfigurationArgoCdAwsIdcArgs',
+    'CapabilityConfigurationArgoCdAwsIdcArgsDict',
+    'CapabilityConfigurationArgoCdNetworkAccessArgs',
+    'CapabilityConfigurationArgoCdNetworkAccessArgsDict',
+    'CapabilityConfigurationArgoCdRbacRoleMappingArgs',
+    'CapabilityConfigurationArgoCdRbacRoleMappingArgsDict',
+    'CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs',
+    'CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgsDict',
+    'CapabilityTimeoutsArgs',
+    'CapabilityTimeoutsArgsDict',
     'ClusterAccessConfigArgs',
     'ClusterAccessConfigArgsDict',
     'ClusterCertificateAuthorityArgs',
     'ClusterCertificateAuthorityArgsDict',
     'ClusterComputeConfigArgs',
     'ClusterComputeConfigArgsDict',
+    'ClusterControlPlaneScalingConfigArgs',
+    'ClusterControlPlaneScalingConfigArgsDict',
     'ClusterEncryptionConfigArgs',
     'ClusterEncryptionConfigArgsDict',
     'ClusterEncryptionConfigProviderArgs',
@@ -185,6 +201,419 @@ class AddonPodIdentityAssociationArgs:
 
 
 if not MYPY:
+    class CapabilityConfigurationArgsDict(TypedDict):
+        argo_cd: NotRequired[pulumi.Input['CapabilityConfigurationArgoCdArgsDict']]
+        """
+        ArgoCD configuration. See `argo_cd` below.
+        """
+elif False:
+    CapabilityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityConfigurationArgs:
+    def __init__(__self__, *,
+                 argo_cd: Optional[pulumi.Input['CapabilityConfigurationArgoCdArgs']] = None):
+        """
+        :param pulumi.Input['CapabilityConfigurationArgoCdArgs'] argo_cd: ArgoCD configuration. See `argo_cd` below.
+        """
+        if argo_cd is not None:
+            pulumi.set(__self__, "argo_cd", argo_cd)
+
+    @_builtins.property
+    @pulumi.getter(name="argoCd")
+    def argo_cd(self) -> Optional[pulumi.Input['CapabilityConfigurationArgoCdArgs']]:
+        """
+        ArgoCD configuration. See `argo_cd` below.
+        """
+        return pulumi.get(self, "argo_cd")
+
+    @argo_cd.setter
+    def argo_cd(self, value: Optional[pulumi.Input['CapabilityConfigurationArgoCdArgs']]):
+        pulumi.set(self, "argo_cd", value)
+
+
+if not MYPY:
+    class CapabilityConfigurationArgoCdArgsDict(TypedDict):
+        aws_idc: NotRequired[pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgsDict']]
+        """
+        AWS IAM Identity Center configuration. See `aws_idc` below.
+        """
+        namespace: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Kubernetes namespace for ArgoCD.
+        """
+        network_access: NotRequired[pulumi.Input['CapabilityConfigurationArgoCdNetworkAccessArgsDict']]
+        """
+        Network access configuration. See `network_access` below.
+        """
+        rbac_role_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingArgsDict']]]]
+        """
+        RBAC role mappings. See `rbac_role_mapping` below.
+        """
+        server_url: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        URL of the Argo CD server.
+        """
+elif False:
+    CapabilityConfigurationArgoCdArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityConfigurationArgoCdArgs:
+    def __init__(__self__, *,
+                 aws_idc: Optional[pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgs']] = None,
+                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_access: Optional[pulumi.Input['CapabilityConfigurationArgoCdNetworkAccessArgs']] = None,
+                 rbac_role_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingArgs']]]] = None,
+                 server_url: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgs'] aws_idc: AWS IAM Identity Center configuration. See `aws_idc` below.
+        :param pulumi.Input[_builtins.str] namespace: Kubernetes namespace for ArgoCD.
+        :param pulumi.Input['CapabilityConfigurationArgoCdNetworkAccessArgs'] network_access: Network access configuration. See `network_access` below.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingArgs']]] rbac_role_mappings: RBAC role mappings. See `rbac_role_mapping` below.
+        :param pulumi.Input[_builtins.str] server_url: URL of the Argo CD server.
+        """
+        if aws_idc is not None:
+            pulumi.set(__self__, "aws_idc", aws_idc)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if network_access is not None:
+            pulumi.set(__self__, "network_access", network_access)
+        if rbac_role_mappings is not None:
+            pulumi.set(__self__, "rbac_role_mappings", rbac_role_mappings)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIdc")
+    def aws_idc(self) -> Optional[pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgs']]:
+        """
+        AWS IAM Identity Center configuration. See `aws_idc` below.
+        """
+        return pulumi.get(self, "aws_idc")
+
+    @aws_idc.setter
+    def aws_idc(self, value: Optional[pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgs']]):
+        pulumi.set(self, "aws_idc", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Kubernetes namespace for ArgoCD.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkAccess")
+    def network_access(self) -> Optional[pulumi.Input['CapabilityConfigurationArgoCdNetworkAccessArgs']]:
+        """
+        Network access configuration. See `network_access` below.
+        """
+        return pulumi.get(self, "network_access")
+
+    @network_access.setter
+    def network_access(self, value: Optional[pulumi.Input['CapabilityConfigurationArgoCdNetworkAccessArgs']]):
+        pulumi.set(self, "network_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rbacRoleMappings")
+    def rbac_role_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingArgs']]]]:
+        """
+        RBAC role mappings. See `rbac_role_mapping` below.
+        """
+        return pulumi.get(self, "rbac_role_mappings")
+
+    @rbac_role_mappings.setter
+    def rbac_role_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingArgs']]]]):
+        pulumi.set(self, "rbac_role_mappings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        URL of the Argo CD server.
+        """
+        return pulumi.get(self, "server_url")
+
+    @server_url.setter
+    def server_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "server_url", value)
+
+
+if not MYPY:
+    class CapabilityConfigurationArgoCdAwsIdcArgsDict(TypedDict):
+        idc_instance_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the IAM Identity Center instance.
+        """
+        idc_managed_application_arn: NotRequired[pulumi.Input[_builtins.str]]
+        idc_region: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Region of the IAM Identity Center instance.
+        """
+elif False:
+    CapabilityConfigurationArgoCdAwsIdcArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityConfigurationArgoCdAwsIdcArgs:
+    def __init__(__self__, *,
+                 idc_instance_arn: pulumi.Input[_builtins.str],
+                 idc_managed_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 idc_region: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] idc_instance_arn: ARN of the IAM Identity Center instance.
+        :param pulumi.Input[_builtins.str] idc_region: Region of the IAM Identity Center instance.
+        """
+        pulumi.set(__self__, "idc_instance_arn", idc_instance_arn)
+        if idc_managed_application_arn is not None:
+            pulumi.set(__self__, "idc_managed_application_arn", idc_managed_application_arn)
+        if idc_region is not None:
+            pulumi.set(__self__, "idc_region", idc_region)
+
+    @_builtins.property
+    @pulumi.getter(name="idcInstanceArn")
+    def idc_instance_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the IAM Identity Center instance.
+        """
+        return pulumi.get(self, "idc_instance_arn")
+
+    @idc_instance_arn.setter
+    def idc_instance_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "idc_instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idcManagedApplicationArn")
+    def idc_managed_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "idc_managed_application_arn")
+
+    @idc_managed_application_arn.setter
+    def idc_managed_application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "idc_managed_application_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idcRegion")
+    def idc_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Region of the IAM Identity Center instance.
+        """
+        return pulumi.get(self, "idc_region")
+
+    @idc_region.setter
+    def idc_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "idc_region", value)
+
+
+if not MYPY:
+    class CapabilityConfigurationArgoCdNetworkAccessArgsDict(TypedDict):
+        vpce_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        VPC Endpoint IDs.
+        """
+elif False:
+    CapabilityConfigurationArgoCdNetworkAccessArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityConfigurationArgoCdNetworkAccessArgs:
+    def __init__(__self__, *,
+                 vpce_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpce_ids: VPC Endpoint IDs.
+        """
+        if vpce_ids is not None:
+            pulumi.set(__self__, "vpce_ids", vpce_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="vpceIds")
+    def vpce_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        VPC Endpoint IDs.
+        """
+        return pulumi.get(self, "vpce_ids")
+
+    @vpce_ids.setter
+    def vpce_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "vpce_ids", value)
+
+
+if not MYPY:
+    class CapabilityConfigurationArgoCdRbacRoleMappingArgsDict(TypedDict):
+        role: pulumi.Input[_builtins.str]
+        """
+        ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
+        """
+        identities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgsDict']]]]
+        """
+        List of identities. See `identity` below.
+        """
+elif False:
+    CapabilityConfigurationArgoCdRbacRoleMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityConfigurationArgoCdRbacRoleMappingArgs:
+    def __init__(__self__, *,
+                 role: pulumi.Input[_builtins.str],
+                 identities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] role: ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs']]] identities: List of identities. See `identity` below.
+        """
+        pulumi.set(__self__, "role", role)
+        if identities is not None:
+            pulumi.set(__self__, "identities", identities)
+
+    @_builtins.property
+    @pulumi.getter
+    def role(self) -> pulumi.Input[_builtins.str]:
+        """
+        ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs']]]]:
+        """
+        List of identities. See `identity` below.
+        """
+        return pulumi.get(self, "identities")
+
+    @identities.setter
+    def identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs']]]]):
+        pulumi.set(self, "identities", value)
+
+
+if not MYPY:
+    class CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgsDict(TypedDict):
+        id: pulumi.Input[_builtins.str]
+        """
+        Identity ID.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
+        """
+elif False:
+    CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] id: Identity ID.
+        :param pulumi.Input[_builtins.str] type: Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identity ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class CapabilityTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    CapabilityTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
     class ClusterAccessConfigArgsDict(TypedDict):
         authentication_mode: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -338,6 +767,38 @@ class ClusterComputeConfigArgs:
     @node_role_arn.setter
     def node_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "node_role_arn", value)
+
+
+if not MYPY:
+    class ClusterControlPlaneScalingConfigArgsDict(TypedDict):
+        tier: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+        """
+elif False:
+    ClusterControlPlaneScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterControlPlaneScalingConfigArgs:
+    def __init__(__self__, *,
+                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] tier: The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+        """
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @_builtins.property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tier", value)
 
 
 if not MYPY:

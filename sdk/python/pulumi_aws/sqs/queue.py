@@ -823,8 +823,6 @@ class Queue(pulumi.CustomResource):
 
         Using `pulumi import`, import SQS Queues using the queue `url`. For example:
 
-        console
-
         % pulumi import aws_sqs_queue.example https://queue.amazonaws.com/80398EXAMPLE/MyQueue
 
         :param str resource_name: The name of the resource.
@@ -963,8 +961,6 @@ class Queue(pulumi.CustomResource):
         * `url` (String) URL of the SQS queue.
 
         Using `pulumi import`, import SQS Queues using the queue `url`. For example:
-
-        console
 
         % pulumi import aws_sqs_queue.example https://queue.amazonaws.com/80398EXAMPLE/MyQueue
 

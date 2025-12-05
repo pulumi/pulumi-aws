@@ -92,6 +92,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string?> DnsSupport { get; private set; } = null!;
 
         /// <summary>
+        /// Whether encryption support for VPC Encryption Control is enabled. Valid values: `Disable`, `Enable`. Default value: `Disable`. Once set, switching to `Disable` requires explicitly specifying `Disable` rather than removing the argument.
+        /// </summary>
+        [Output("encryptionSupport")]
+        public Output<string> EncryptionSupport { get; private set; } = null!;
+
+        /// <summary>
         /// Whether Multicast support is enabled. Required to use `Ec2TransitGatewayMulticastDomain`. Valid values: `Disable`, `Enable`. Default value: `Disable`.
         /// </summary>
         [Output("multicastSupport")]
@@ -230,6 +236,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? DnsSupport { get; set; }
 
         /// <summary>
+        /// Whether encryption support for VPC Encryption Control is enabled. Valid values: `Disable`, `Enable`. Default value: `Disable`. Once set, switching to `Disable` requires explicitly specifying `Disable` rather than removing the argument.
+        /// </summary>
+        [Input("encryptionSupport")]
+        public Input<string>? EncryptionSupport { get; set; }
+
+        /// <summary>
         /// Whether Multicast support is enabled. Required to use `Ec2TransitGatewayMulticastDomain`. Valid values: `Disable`, `Enable`. Default value: `Disable`.
         /// </summary>
         [Input("multicastSupport")]
@@ -334,6 +346,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("dnsSupport")]
         public Input<string>? DnsSupport { get; set; }
+
+        /// <summary>
+        /// Whether encryption support for VPC Encryption Control is enabled. Valid values: `Disable`, `Enable`. Default value: `Disable`. Once set, switching to `Disable` requires explicitly specifying `Disable` rather than removing the argument.
+        /// </summary>
+        [Input("encryptionSupport")]
+        public Input<string>? EncryptionSupport { get; set; }
 
         /// <summary>
         /// Whether Multicast support is enabled. Required to use `Ec2TransitGatewayMulticastDomain`. Valid values: `Disable`, `Enable`. Default value: `Disable`.

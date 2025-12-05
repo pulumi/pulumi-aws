@@ -564,8 +564,6 @@ class Image(pulumi.CustomResource):
 
         Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For example:
 
-        console
-
         % pulumi import aws_imagebuilder_image.example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
 
         :param str resource_name: The name of the resource.
@@ -614,8 +612,6 @@ class Image(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image.
 
         Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For example:
-
-        console
 
         % pulumi import aws_imagebuilder_image.example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
 

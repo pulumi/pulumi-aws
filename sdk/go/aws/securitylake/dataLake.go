@@ -109,8 +109,6 @@ import (
 //
 // Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
 //
-// console
-//
 // % pulumi import aws_securitylake_data_lake.example arn:aws:securitylake:eu-west-1:123456789012:data-lake/default
 type DataLake struct {
 	pulumi.CustomResourceState

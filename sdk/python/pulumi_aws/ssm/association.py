@@ -24,6 +24,7 @@ class AssociationArgs:
                  apply_only_at_cron_interval: Optional[pulumi.Input[_builtins.bool]] = None,
                  association_name: Optional[pulumi.Input[_builtins.str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compliance_severity: Optional[pulumi.Input[_builtins.str]] = None,
                  document_version: Optional[pulumi.Input[_builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
@@ -42,6 +43,7 @@ class AssociationArgs:
         :param pulumi.Input[_builtins.bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
         :param pulumi.Input[_builtins.str] association_name: The descriptive name for the association.
         :param pulumi.Input[_builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] calendar_names: One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
         :param pulumi.Input[_builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[_builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[_builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
@@ -64,6 +66,8 @@ class AssociationArgs:
             pulumi.set(__self__, "association_name", association_name)
         if automation_target_parameter_name is not None:
             pulumi.set(__self__, "automation_target_parameter_name", automation_target_parameter_name)
+        if calendar_names is not None:
+            pulumi.set(__self__, "calendar_names", calendar_names)
         if compliance_severity is not None:
             pulumi.set(__self__, "compliance_severity", compliance_severity)
         if document_version is not None:
@@ -126,6 +130,18 @@ class AssociationArgs:
     @automation_target_parameter_name.setter
     def automation_target_parameter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "automation_target_parameter_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="calendarNames")
+    def calendar_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+        """
+        return pulumi.get(self, "calendar_names")
+
+    @calendar_names.setter
+    def calendar_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "calendar_names", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceSeverity")
@@ -294,6 +310,7 @@ class _AssociationState:
                  association_id: Optional[pulumi.Input[_builtins.str]] = None,
                  association_name: Optional[pulumi.Input[_builtins.str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compliance_severity: Optional[pulumi.Input[_builtins.str]] = None,
                  document_version: Optional[pulumi.Input[_builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
@@ -315,6 +332,7 @@ class _AssociationState:
         :param pulumi.Input[_builtins.str] association_id: The ID of the SSM association.
         :param pulumi.Input[_builtins.str] association_name: The descriptive name for the association.
         :param pulumi.Input[_builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] calendar_names: One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
         :param pulumi.Input[_builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[_builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[_builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
@@ -342,6 +360,8 @@ class _AssociationState:
             pulumi.set(__self__, "association_name", association_name)
         if automation_target_parameter_name is not None:
             pulumi.set(__self__, "automation_target_parameter_name", automation_target_parameter_name)
+        if calendar_names is not None:
+            pulumi.set(__self__, "calendar_names", calendar_names)
         if compliance_severity is not None:
             pulumi.set(__self__, "compliance_severity", compliance_severity)
         if document_version is not None:
@@ -430,6 +450,18 @@ class _AssociationState:
     @automation_target_parameter_name.setter
     def automation_target_parameter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "automation_target_parameter_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="calendarNames")
+    def calendar_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+        """
+        return pulumi.get(self, "calendar_names")
+
+    @calendar_names.setter
+    def calendar_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "calendar_names", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceSeverity")
@@ -611,6 +643,7 @@ class Association(pulumi.CustomResource):
                  apply_only_at_cron_interval: Optional[pulumi.Input[_builtins.bool]] = None,
                  association_name: Optional[pulumi.Input[_builtins.str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compliance_severity: Optional[pulumi.Input[_builtins.str]] = None,
                  document_version: Optional[pulumi.Input[_builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
@@ -852,8 +885,6 @@ class Association(pulumi.CustomResource):
 
         Using `pulumi import`, import SSM associations using the `association_id`. For example:
 
-        console
-
         % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
 
         :param str resource_name: The name of the resource.
@@ -861,6 +892,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
         :param pulumi.Input[_builtins.str] association_name: The descriptive name for the association.
         :param pulumi.Input[_builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] calendar_names: One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
         :param pulumi.Input[_builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[_builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[_builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
@@ -1110,8 +1142,6 @@ class Association(pulumi.CustomResource):
 
         Using `pulumi import`, import SSM associations using the `association_id`. For example:
 
-        console
-
         % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
 
         :param str resource_name: The name of the resource.
@@ -1132,6 +1162,7 @@ class Association(pulumi.CustomResource):
                  apply_only_at_cron_interval: Optional[pulumi.Input[_builtins.bool]] = None,
                  association_name: Optional[pulumi.Input[_builtins.str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compliance_severity: Optional[pulumi.Input[_builtins.str]] = None,
                  document_version: Optional[pulumi.Input[_builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1157,6 +1188,7 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["apply_only_at_cron_interval"] = apply_only_at_cron_interval
             __props__.__dict__["association_name"] = association_name
             __props__.__dict__["automation_target_parameter_name"] = automation_target_parameter_name
+            __props__.__dict__["calendar_names"] = calendar_names
             __props__.__dict__["compliance_severity"] = compliance_severity
             __props__.__dict__["document_version"] = document_version
             __props__.__dict__["max_concurrency"] = max_concurrency
@@ -1188,6 +1220,7 @@ class Association(pulumi.CustomResource):
             association_id: Optional[pulumi.Input[_builtins.str]] = None,
             association_name: Optional[pulumi.Input[_builtins.str]] = None,
             automation_target_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
+            calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             compliance_severity: Optional[pulumi.Input[_builtins.str]] = None,
             document_version: Optional[pulumi.Input[_builtins.str]] = None,
             max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1214,6 +1247,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] association_id: The ID of the SSM association.
         :param pulumi.Input[_builtins.str] association_name: The descriptive name for the association.
         :param pulumi.Input[_builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] calendar_names: One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
         :param pulumi.Input[_builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[_builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[_builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
@@ -1240,6 +1274,7 @@ class Association(pulumi.CustomResource):
         __props__.__dict__["association_id"] = association_id
         __props__.__dict__["association_name"] = association_name
         __props__.__dict__["automation_target_parameter_name"] = automation_target_parameter_name
+        __props__.__dict__["calendar_names"] = calendar_names
         __props__.__dict__["compliance_severity"] = compliance_severity
         __props__.__dict__["document_version"] = document_version
         __props__.__dict__["max_concurrency"] = max_concurrency
@@ -1295,6 +1330,14 @@ class Association(pulumi.CustomResource):
         Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         """
         return pulumi.get(self, "automation_target_parameter_name")
+
+    @_builtins.property
+    @pulumi.getter(name="calendarNames")
+    def calendar_names(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+        """
+        return pulumi.get(self, "calendar_names")
 
     @_builtins.property
     @pulumi.getter(name="complianceSeverity")

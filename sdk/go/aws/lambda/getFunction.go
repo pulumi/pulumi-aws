@@ -86,52 +86,6 @@ import (
 //
 // ### Function Configuration Reference
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Get existing function details
-//			reference, err := lambda.LookupFunction(ctx, &lambda.LookupFunctionArgs{
-//				FunctionName: "existing-function",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// Create new function with similar configuration
-//			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
-//				Code:          pulumi.NewFileArchive("new-function.zip"),
-//				Name:          pulumi.String("new-function"),
-//				Role:          pulumi.String(reference.Role),
-//				Handler:       pulumi.String(reference.Handler),
-//				Runtime:       reference.Runtime.ApplyT(func(x *string) lambda.Runtime { return lambda.Runtime(*x) }).(lambda.RuntimeOutput),
-//				MemorySize:    pulumi.Int(reference.MemorySize),
-//				Timeout:       pulumi.Int(reference.Timeout),
-//				Architectures: interface{}(reference.Architectures),
-//				VpcConfig: &lambda.FunctionVpcConfigArgs{
-//					SubnetIds:        interface{}(reference.VpcConfig.SubnetIds),
-//					SecurityGroupIds: interface{}(reference.VpcConfig.SecurityGroupIds),
-//				},
-//				Environment: &lambda.FunctionEnvironmentArgs{
-//					Variables: pulumi.StringMap(reference.Environment.Variables),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### Function Version Management
 //
 // ```go
@@ -172,6 +126,57 @@ import (
 //	}
 //
 // ```
+//
+// ### Accessing Durable Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			durableFunction, err := lambda.LookupFunction(ctx, &lambda.LookupFunctionArgs{
+//				FunctionName: "my-durable-function",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var tmp0 *int
+//			if length > 0 {
+//				tmp0 = durableFunction.DurableConfigs[0].ExecutionTimeout
+//			} else {
+//				tmp0 = nil
+//			}
+//			var tmp1 *int
+//			if length > 0 {
+//				tmp1 = durableFunction.DurableConfigs[0].RetentionPeriod
+//			} else {
+//				tmp1 = nil
+//			}
+//			ctx.Export("durableSettings", pulumi.Map{
+//				"hasDurableConfig": len(durableFunction.DurableConfigs).ApplyT(func(length int) (bool, error) {
+//					return bool(length.ApplyT(func(__convert float64) (bool, error) {
+//						return __convert > 0, nil
+//					}).(pulumi.BoolOutput)), nil
+//				}).(pulumi.BoolOutput),
+//				"executionTimeout": len(durableFunction.DurableConfigs).ApplyT(func(length int) (*int, error) {
+//					return &tmp0, nil
+//				}).(pulumi.IntPtrOutput),
+//				"retentionPeriod": len(durableFunction.DurableConfigs).ApplyT(func(length int) (*int, error) {
+//					return &tmp1, nil
+//				}).(pulumi.IntPtrOutput),
+//			})
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulumi.InvokeOption) (*LookupFunctionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionResult
@@ -202,6 +207,8 @@ type LookupFunctionResult struct {
 	Architectures []string `pulumi:"architectures"`
 	// ARN of the Amazon EFS Access Point that provides access to the file system.
 	Arn string `pulumi:"arn"`
+	// Configuration for Lambda function's capacity provider. See below.
+	CapacityProviderConfigs []GetFunctionCapacityProviderConfig `pulumi:"capacityProviderConfigs"`
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
 	CodeSha256 string `pulumi:"codeSha256"`
 	// ARN for a Code Signing Configuration.
@@ -210,6 +217,8 @@ type LookupFunctionResult struct {
 	DeadLetterConfig GetFunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Description of what your Lambda Function does.
 	Description string `pulumi:"description"`
+	// Configuration for the function's durable settings. See below.
+	DurableConfigs []GetFunctionDurableConfig `pulumi:"durableConfigs"`
 	// Lambda environment's configuration settings. See below.
 	Environment GetFunctionEnvironment `pulumi:"environment"`
 	// Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
@@ -261,6 +270,8 @@ type LookupFunctionResult struct {
 	SourceKmsKeyArn string `pulumi:"sourceKmsKeyArn"`
 	// Map of tags assigned to the Lambda Function.
 	Tags map[string]string `pulumi:"tags"`
+	// Tenancy settings of the function. See below.
+	TenancyConfigs []GetFunctionTenancyConfig `pulumi:"tenancyConfigs"`
 	// Function execution time at which Lambda should terminate the function.
 	Timeout int `pulumi:"timeout"`
 	// Tracing settings of the function. See below.
@@ -323,6 +334,11 @@ func (o LookupFunctionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Configuration for Lambda function's capacity provider. See below.
+func (o LookupFunctionResultOutput) CapacityProviderConfigs() GetFunctionCapacityProviderConfigArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionCapacityProviderConfig { return v.CapacityProviderConfigs }).(GetFunctionCapacityProviderConfigArrayOutput)
+}
+
 // Base64-encoded representation of raw SHA-256 sum of the zip file.
 func (o LookupFunctionResultOutput) CodeSha256() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.CodeSha256 }).(pulumi.StringOutput)
@@ -341,6 +357,11 @@ func (o LookupFunctionResultOutput) DeadLetterConfig() GetFunctionDeadLetterConf
 // Description of what your Lambda Function does.
 func (o LookupFunctionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Configuration for the function's durable settings. See below.
+func (o LookupFunctionResultOutput) DurableConfigs() GetFunctionDurableConfigArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionDurableConfig { return v.DurableConfigs }).(GetFunctionDurableConfigArrayOutput)
 }
 
 // Lambda environment's configuration settings. See below.
@@ -470,6 +491,11 @@ func (o LookupFunctionResultOutput) SourceKmsKeyArn() pulumi.StringOutput {
 // Map of tags assigned to the Lambda Function.
 func (o LookupFunctionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFunctionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Tenancy settings of the function. See below.
+func (o LookupFunctionResultOutput) TenancyConfigs() GetFunctionTenancyConfigArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionTenancyConfig { return v.TenancyConfigs }).(GetFunctionTenancyConfigArrayOutput)
 }
 
 // Function execution time at which Lambda should terminate the function.

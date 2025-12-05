@@ -23,6 +23,7 @@ class LogicallyAirGappedVaultArgs:
     def __init__(__self__, *,
                  max_retention_days: pulumi.Input[_builtins.int],
                  min_retention_days: pulumi.Input[_builtins.int],
+                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -31,12 +32,15 @@ class LogicallyAirGappedVaultArgs:
         The set of arguments for constructing a LogicallyAirGappedVault resource.
         :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
         :param pulumi.Input[_builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "max_retention_days", max_retention_days)
         pulumi.set(__self__, "min_retention_days", min_retention_days)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -69,6 +73,18 @@ class LogicallyAirGappedVaultArgs:
     @min_retention_days.setter
     def min_retention_days(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "min_retention_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -120,6 +136,7 @@ class LogicallyAirGappedVaultArgs:
 class _LogicallyAirGappedVaultState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -130,6 +147,7 @@ class _LogicallyAirGappedVaultState:
         """
         Input properties used for looking up and filtering LogicallyAirGappedVault resources.
         :param pulumi.Input[_builtins.str] arn: The ARN of the Logically Air Gapped Backup Vault.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
         :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[_builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
@@ -139,6 +157,8 @@ class _LogicallyAirGappedVaultState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
         if max_retention_days is not None:
             pulumi.set(__self__, "max_retention_days", max_retention_days)
         if min_retention_days is not None:
@@ -165,6 +185,18 @@ class _LogicallyAirGappedVaultState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetentionDays")
@@ -254,6 +286,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -288,6 +321,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
         :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[_builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
@@ -340,6 +374,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -355,6 +390,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogicallyAirGappedVaultArgs.__new__(LogicallyAirGappedVaultArgs)
 
+            __props__.__dict__["encryption_key_arn"] = encryption_key_arn
             if max_retention_days is None and not opts.urn:
                 raise TypeError("Missing required property 'max_retention_days'")
             __props__.__dict__["max_retention_days"] = max_retention_days
@@ -378,6 +414,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
+            encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
             max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
             min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -393,6 +430,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the Logically Air Gapped Backup Vault.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
         :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[_builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
@@ -405,6 +443,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
         __props__ = _LogicallyAirGappedVaultState.__new__(_LogicallyAirGappedVaultState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["encryption_key_arn"] = encryption_key_arn
         __props__.__dict__["max_retention_days"] = max_retention_days
         __props__.__dict__["min_retention_days"] = min_retention_days
         __props__.__dict__["name"] = name
@@ -421,6 +460,14 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
         The ARN of the Logically Air Gapped Backup Vault.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+        """
+        return pulumi.get(self, "encryption_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="maxRetentionDays")

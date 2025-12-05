@@ -212,8 +212,6 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
 
-        console
-
         % pulumi import aws_ecr_repository_policy.example example
 
         :param str resource_name: The name of the resource.
@@ -284,8 +282,6 @@ class RepositoryPolicy(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
-
-        console
 
         % pulumi import aws_ecr_repository_policy.example example
 

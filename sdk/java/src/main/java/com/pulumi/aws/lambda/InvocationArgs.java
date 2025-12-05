@@ -96,6 +96,21 @@ public final class InvocationArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Tenant Id to serve invocations from specified tenant.
+     * 
+     */
+    @Import(name="tenantId")
+    private @Nullable Output<String> tenantId;
+
+    /**
+     * @return Tenant Id to serve invocations from specified tenant.
+     * 
+     */
+    public Optional<Output<String>> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
+
     @Import(name="terraformKey")
     private @Nullable Output<String> terraformKey;
 
@@ -126,6 +141,7 @@ public final class InvocationArgs extends com.pulumi.resources.ResourceArgs {
         this.lifecycleScope = $.lifecycleScope;
         this.qualifier = $.qualifier;
         this.region = $.region;
+        this.tenantId = $.tenantId;
         this.terraformKey = $.terraformKey;
         this.triggers = $.triggers;
     }
@@ -255,6 +271,27 @@ public final class InvocationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param tenantId Tenant Id to serve invocations from specified tenant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantId(@Nullable Output<String> tenantId) {
+            $.tenantId = tenantId;
+            return this;
+        }
+
+        /**
+         * @param tenantId Tenant Id to serve invocations from specified tenant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantId(String tenantId) {
+            return tenantId(Output.of(tenantId));
         }
 
         public Builder terraformKey(@Nullable Output<String> terraformKey) {

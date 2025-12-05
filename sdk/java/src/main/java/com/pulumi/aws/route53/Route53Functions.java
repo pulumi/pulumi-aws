@@ -5580,6 +5580,43 @@ public final class Route53Functions {
      * }
      * </pre>
      * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("scope", "local"),
+     *                 Map.entry("category", "api")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("localApiZone", selected.zoneId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetZoneResult> getZone() {
         return getZone(GetZoneArgs.Empty, InvokeOptions.Empty);
@@ -5630,6 +5667,43 @@ public final class Route53Functions {
      *             .records("10.0.0.1")
      *             .build());
      * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("scope", "local"),
+     *                 Map.entry("category", "api")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("localApiZone", selected.zoneId());
      *     }
      * }
      * }
@@ -5690,6 +5764,43 @@ public final class Route53Functions {
      * }
      * </pre>
      * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("scope", "local"),
+     *                 Map.entry("category", "api")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("localApiZone", selected.zoneId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args) {
         return getZone(args, InvokeOptions.Empty);
@@ -5740,6 +5851,43 @@ public final class Route53Functions {
      *             .records("10.0.0.1")
      *             .build());
      * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("scope", "local"),
+     *                 Map.entry("category", "api")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("localApiZone", selected.zoneId());
      *     }
      * }
      * }
@@ -5800,6 +5948,43 @@ public final class Route53Functions {
      * }
      * </pre>
      * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("scope", "local"),
+     *                 Map.entry("category", "api")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("localApiZone", selected.zoneId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
@@ -5855,6 +6040,43 @@ public final class Route53Functions {
      * }
      * </pre>
      * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("scope", "local"),
+     *                 Map.entry("category", "api")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("localApiZone", selected.zoneId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
@@ -5905,6 +6127,43 @@ public final class Route53Functions {
      *             .records("10.0.0.1")
      *             .build());
      * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * The following example shows how to get a Hosted Zone from a unique combination of its tags:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("scope", "local"),
+     *                 Map.entry("category", "api")
+     *             ))
+     *             .build());
+     * 
+     *         ctx.export("localApiZone", selected.zoneId());
      *     }
      * }
      * }

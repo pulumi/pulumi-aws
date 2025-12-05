@@ -229,6 +229,7 @@ namespace Pulumi.Aws.Alb
         public readonly int SlowStart;
         public readonly Outputs.GetTargetGroupStickinessResult Stickiness;
         public readonly ImmutableDictionary<string, string> Tags;
+        public readonly int TargetControlPort;
         public readonly string TargetType;
         public readonly string VpcId;
 
@@ -276,6 +277,8 @@ namespace Pulumi.Aws.Alb
 
             ImmutableDictionary<string, string> tags,
 
+            int targetControlPort,
+
             string targetType,
 
             string vpcId)
@@ -301,6 +304,7 @@ namespace Pulumi.Aws.Alb
             SlowStart = slowStart;
             Stickiness = stickiness;
             Tags = tags;
+            TargetControlPort = targetControlPort;
             TargetType = targetType;
             VpcId = vpcId;
         }

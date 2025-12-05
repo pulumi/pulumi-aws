@@ -51,15 +51,47 @@ public final class CiphertextArgs extends com.pulumi.resources.ResourceArgs {
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      * 
      */
-    @Import(name="plaintext", required=true)
-    private Output<String> plaintext;
+    @Import(name="plaintext")
+    private @Nullable Output<String> plaintext;
 
     /**
      * @return Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      * 
      */
-    public Output<String> plaintext() {
-        return this.plaintext;
+    public Optional<Output<String>> plaintext() {
+        return Optional.ofNullable(this.plaintext);
+    }
+
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+     * 
+     */
+    @Import(name="plaintextWo")
+    private @Nullable Output<String> plaintextWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+     * 
+     */
+    public Optional<Output<String>> plaintextWo() {
+        return Optional.ofNullable(this.plaintextWo);
+    }
+
+    /**
+     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     * 
+     */
+    @Import(name="plaintextWoVersion")
+    private @Nullable Output<String> plaintextWoVersion;
+
+    /**
+     * @return Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     * 
+     */
+    public Optional<Output<String>> plaintextWoVersion() {
+        return Optional.ofNullable(this.plaintextWoVersion);
     }
 
     /**
@@ -83,6 +115,8 @@ public final class CiphertextArgs extends com.pulumi.resources.ResourceArgs {
         this.context = $.context;
         this.keyId = $.keyId;
         this.plaintext = $.plaintext;
+        this.plaintextWo = $.plaintextWo;
+        this.plaintextWoVersion = $.plaintextWoVersion;
         this.region = $.region;
     }
 
@@ -152,7 +186,7 @@ public final class CiphertextArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder plaintext(Output<String> plaintext) {
+        public Builder plaintext(@Nullable Output<String> plaintext) {
             $.plaintext = plaintext;
             return this;
         }
@@ -165,6 +199,50 @@ public final class CiphertextArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder plaintext(String plaintext) {
             return plaintext(Output.of(plaintext));
+        }
+
+        /**
+         * @param plaintextWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder plaintextWo(@Nullable Output<String> plaintextWo) {
+            $.plaintextWo = plaintextWo;
+            return this;
+        }
+
+        /**
+         * @param plaintextWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder plaintextWo(String plaintextWo) {
+            return plaintextWo(Output.of(plaintextWo));
+        }
+
+        /**
+         * @param plaintextWoVersion Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder plaintextWoVersion(@Nullable Output<String> plaintextWoVersion) {
+            $.plaintextWoVersion = plaintextWoVersion;
+            return this;
+        }
+
+        /**
+         * @param plaintextWoVersion Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder plaintextWoVersion(String plaintextWoVersion) {
+            return plaintextWoVersion(Output.of(plaintextWoVersion));
         }
 
         /**
@@ -191,9 +269,6 @@ public final class CiphertextArgs extends com.pulumi.resources.ResourceArgs {
         public CiphertextArgs build() {
             if ($.keyId == null) {
                 throw new MissingRequiredPropertyException("CiphertextArgs", "keyId");
-            }
-            if ($.plaintext == null) {
-                throw new MissingRequiredPropertyException("CiphertextArgs", "plaintext");
             }
             return $;
         }

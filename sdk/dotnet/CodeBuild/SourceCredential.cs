@@ -88,8 +88,6 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_codebuild_source_credential.example arn:aws:codebuild:us-west-2:123456789:token:github
     /// </summary>
     [AwsResourceType("aws:codebuild/sourceCredential:SourceCredential")]

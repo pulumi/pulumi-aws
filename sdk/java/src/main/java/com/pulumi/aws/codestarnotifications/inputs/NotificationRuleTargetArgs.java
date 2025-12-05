@@ -17,14 +17,14 @@ public final class NotificationRuleTargetArgs extends com.pulumi.resources.Resou
     public static final NotificationRuleTargetArgs Empty = new NotificationRuleTargetArgs();
 
     /**
-     * The ARN of notification rule target. For example, a SNS Topic ARN.
+     * The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
      * 
      */
     @Import(name="address", required=true)
     private Output<String> address;
 
     /**
-     * @return The ARN of notification rule target. For example, a SNS Topic ARN.
+     * @return The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
      * 
      */
     public Output<String> address() {
@@ -47,14 +47,14 @@ public final class NotificationRuleTargetArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of the notification target. Default value is `SNS`.
+     * The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the notification target. Default value is `SNS`.
+     * @return The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -88,7 +88,7 @@ public final class NotificationRuleTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param address The ARN of notification rule target. For example, a SNS Topic ARN.
+         * @param address The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class NotificationRuleTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param address The ARN of notification rule target. For example, a SNS Topic ARN.
+         * @param address The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class NotificationRuleTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of the notification target. Default value is `SNS`.
+         * @param type The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class NotificationRuleTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of the notification target. Default value is `SNS`.
+         * @param type The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
          * 
          * @return builder
          * 

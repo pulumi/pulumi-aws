@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -253,14 +252,14 @@ public class AccountAssignment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="targetType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> targetType;
+    private Output<String> targetType;
 
     /**
      * @return The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      * 
      */
-    public Output<Optional<String>> targetType() {
-        return Codegen.optional(this.targetType);
+    public Output<String> targetType() {
+        return this.targetType;
     }
 
     /**

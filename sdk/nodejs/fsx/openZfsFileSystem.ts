@@ -131,6 +131,10 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly preferredSubnetId: pulumi.Output<string | undefined>;
     /**
+     * Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+     */
+    declare public readonly readCacheConfiguration: pulumi.Output<outputs.fsx.OpenZfsFileSystemReadCacheConfiguration | undefined>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -155,11 +159,11 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly skipFinalBackup: pulumi.Output<boolean | undefined>;
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      */
     declare public readonly storageCapacity: pulumi.Output<number | undefined>;
     /**
-     * The filesystem storage type. Only `SSD` is supported.
+     * The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      */
     declare public readonly storageType: pulumi.Output<string | undefined>;
     /**
@@ -219,6 +223,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
             resourceInputs["ownerId"] = state?.ownerId;
             resourceInputs["preferredSubnetId"] = state?.preferredSubnetId;
+            resourceInputs["readCacheConfiguration"] = state?.readCacheConfiguration;
             resourceInputs["region"] = state?.region;
             resourceInputs["rootVolumeConfiguration"] = state?.rootVolumeConfiguration;
             resourceInputs["rootVolumeId"] = state?.rootVolumeId;
@@ -256,6 +261,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["finalBackupTags"] = args?.finalBackupTags;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["preferredSubnetId"] = args?.preferredSubnetId;
+            resourceInputs["readCacheConfiguration"] = args?.readCacheConfiguration;
             resourceInputs["region"] = args?.region;
             resourceInputs["rootVolumeConfiguration"] = args?.rootVolumeConfiguration;
             resourceInputs["routeTableIds"] = args?.routeTableIds;
@@ -354,6 +360,10 @@ export interface OpenZfsFileSystemState {
      */
     preferredSubnetId?: pulumi.Input<string>;
     /**
+     * Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+     */
+    readCacheConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemReadCacheConfiguration>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
@@ -378,11 +388,11 @@ export interface OpenZfsFileSystemState {
      */
     skipFinalBackup?: pulumi.Input<boolean>;
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      */
     storageCapacity?: pulumi.Input<number>;
     /**
-     * The filesystem storage type. Only `SSD` is supported.
+     * The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      */
     storageType?: pulumi.Input<string>;
     /**
@@ -466,6 +476,10 @@ export interface OpenZfsFileSystemArgs {
      */
     preferredSubnetId?: pulumi.Input<string>;
     /**
+     * Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+     */
+    readCacheConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemReadCacheConfiguration>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
@@ -486,11 +500,11 @@ export interface OpenZfsFileSystemArgs {
      */
     skipFinalBackup?: pulumi.Input<boolean>;
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      */
     storageCapacity?: pulumi.Input<number>;
     /**
-     * The filesystem storage type. Only `SSD` is supported.
+     * The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      */
     storageType?: pulumi.Input<string>;
     /**

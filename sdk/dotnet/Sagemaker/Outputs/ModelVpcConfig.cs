@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class ModelVpcConfig
     {
+        /// <summary>
+        /// List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// List of subnet IDs in the VPC to which you want to connect your training job or model.
+        /// </summary>
         public readonly ImmutableArray<string> Subnets;
 
         [OutputConstructor]

@@ -478,6 +478,12 @@ namespace Pulumi.Aws.Eks
         public Output<Outputs.ClusterComputeConfig> ComputeConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+        /// </summary>
+        [Output("controlPlaneScalingConfig")]
+        public Output<Outputs.ClusterControlPlaneScalingConfig> ControlPlaneScalingConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.
         /// </summary>
         [Output("createdAt")]
@@ -678,6 +684,12 @@ namespace Pulumi.Aws.Eks
         [Input("computeConfig")]
         public Input<Inputs.ClusterComputeConfigArgs>? ComputeConfig { get; set; }
 
+        /// <summary>
+        /// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+        /// </summary>
+        [Input("controlPlaneScalingConfig")]
+        public Input<Inputs.ClusterControlPlaneScalingConfigArgs>? ControlPlaneScalingConfig { get; set; }
+
         [Input("defaultAddonsToRemoves")]
         private InputList<string>? _defaultAddonsToRemoves;
         [Obsolete(@"Configure BootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider")]
@@ -840,6 +852,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("computeConfig")]
         public Input<Inputs.ClusterComputeConfigGetArgs>? ComputeConfig { get; set; }
+
+        /// <summary>
+        /// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+        /// </summary>
+        [Input("controlPlaneScalingConfig")]
+        public Input<Inputs.ClusterControlPlaneScalingConfigGetArgs>? ControlPlaneScalingConfig { get; set; }
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.

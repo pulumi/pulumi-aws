@@ -40,6 +40,7 @@ __all__ = [
     'ClusterOpenMonitoringPrometheus',
     'ClusterOpenMonitoringPrometheusJmxExporter',
     'ClusterOpenMonitoringPrometheusNodeExporter',
+    'ClusterRebalancing',
     'ReplicatorKafkaCluster',
     'ReplicatorKafkaClusterAmazonMskCluster',
     'ReplicatorKafkaClusterVpcConfig',
@@ -1038,6 +1039,28 @@ class ClusterOpenMonitoringPrometheusNodeExporter(dict):
         Indicates whether you want to enable or disable the Node Exporter.
         """
         return pulumi.get(self, "enabled_in_broker")
+
+
+@pulumi.output_type
+class ClusterRebalancing(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        """
+        :param _builtins.str status: The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+               
+               > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+
+        > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

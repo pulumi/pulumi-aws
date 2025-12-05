@@ -131,8 +131,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
  *
- * console
- *
  * % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
  */
 export class ContactsRotation extends pulumi.CustomResource {

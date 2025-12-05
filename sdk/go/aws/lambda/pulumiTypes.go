@@ -150,6 +150,811 @@ func (o AliasRoutingConfigPtrOutput) AdditionalVersionWeights() pulumi.Float64Ma
 	}).(pulumi.Float64MapOutput)
 }
 
+type CapacityProviderCapacityProviderScalingConfig struct {
+	MaxVcpuCount int `pulumi:"maxVcpuCount"`
+	// The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+	ScalingMode string `pulumi:"scalingMode"`
+	// List of scaling policies. See Scaling Policies below.
+	ScalingPolicies []CapacityProviderCapacityProviderScalingConfigScalingPolicy `pulumi:"scalingPolicies"`
+}
+
+// CapacityProviderCapacityProviderScalingConfigInput is an input type that accepts CapacityProviderCapacityProviderScalingConfigArgs and CapacityProviderCapacityProviderScalingConfigOutput values.
+// You can construct a concrete instance of `CapacityProviderCapacityProviderScalingConfigInput` via:
+//
+//	CapacityProviderCapacityProviderScalingConfigArgs{...}
+type CapacityProviderCapacityProviderScalingConfigInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityProviderScalingConfigOutput() CapacityProviderCapacityProviderScalingConfigOutput
+	ToCapacityProviderCapacityProviderScalingConfigOutputWithContext(context.Context) CapacityProviderCapacityProviderScalingConfigOutput
+}
+
+type CapacityProviderCapacityProviderScalingConfigArgs struct {
+	MaxVcpuCount pulumi.IntInput `pulumi:"maxVcpuCount"`
+	// The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+	ScalingMode pulumi.StringInput `pulumi:"scalingMode"`
+	// List of scaling policies. See Scaling Policies below.
+	ScalingPolicies CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayInput `pulumi:"scalingPolicies"`
+}
+
+func (CapacityProviderCapacityProviderScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityProviderScalingConfig)(nil)).Elem()
+}
+
+func (i CapacityProviderCapacityProviderScalingConfigArgs) ToCapacityProviderCapacityProviderScalingConfigOutput() CapacityProviderCapacityProviderScalingConfigOutput {
+	return i.ToCapacityProviderCapacityProviderScalingConfigOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderCapacityProviderScalingConfigArgs) ToCapacityProviderCapacityProviderScalingConfigOutputWithContext(ctx context.Context) CapacityProviderCapacityProviderScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityProviderScalingConfigOutput)
+}
+
+// CapacityProviderCapacityProviderScalingConfigArrayInput is an input type that accepts CapacityProviderCapacityProviderScalingConfigArray and CapacityProviderCapacityProviderScalingConfigArrayOutput values.
+// You can construct a concrete instance of `CapacityProviderCapacityProviderScalingConfigArrayInput` via:
+//
+//	CapacityProviderCapacityProviderScalingConfigArray{ CapacityProviderCapacityProviderScalingConfigArgs{...} }
+type CapacityProviderCapacityProviderScalingConfigArrayInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityProviderScalingConfigArrayOutput() CapacityProviderCapacityProviderScalingConfigArrayOutput
+	ToCapacityProviderCapacityProviderScalingConfigArrayOutputWithContext(context.Context) CapacityProviderCapacityProviderScalingConfigArrayOutput
+}
+
+type CapacityProviderCapacityProviderScalingConfigArray []CapacityProviderCapacityProviderScalingConfigInput
+
+func (CapacityProviderCapacityProviderScalingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderCapacityProviderScalingConfig)(nil)).Elem()
+}
+
+func (i CapacityProviderCapacityProviderScalingConfigArray) ToCapacityProviderCapacityProviderScalingConfigArrayOutput() CapacityProviderCapacityProviderScalingConfigArrayOutput {
+	return i.ToCapacityProviderCapacityProviderScalingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderCapacityProviderScalingConfigArray) ToCapacityProviderCapacityProviderScalingConfigArrayOutputWithContext(ctx context.Context) CapacityProviderCapacityProviderScalingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityProviderScalingConfigArrayOutput)
+}
+
+type CapacityProviderCapacityProviderScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityProviderScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityProviderScalingConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityProviderScalingConfigOutput) ToCapacityProviderCapacityProviderScalingConfigOutput() CapacityProviderCapacityProviderScalingConfigOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityProviderScalingConfigOutput) ToCapacityProviderCapacityProviderScalingConfigOutputWithContext(ctx context.Context) CapacityProviderCapacityProviderScalingConfigOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityProviderScalingConfigOutput) MaxVcpuCount() pulumi.IntOutput {
+	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfig) int { return v.MaxVcpuCount }).(pulumi.IntOutput)
+}
+
+// The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+func (o CapacityProviderCapacityProviderScalingConfigOutput) ScalingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfig) string { return v.ScalingMode }).(pulumi.StringOutput)
+}
+
+// List of scaling policies. See Scaling Policies below.
+func (o CapacityProviderCapacityProviderScalingConfigOutput) ScalingPolicies() CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput {
+	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfig) []CapacityProviderCapacityProviderScalingConfigScalingPolicy {
+		return v.ScalingPolicies
+	}).(CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput)
+}
+
+type CapacityProviderCapacityProviderScalingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityProviderScalingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderCapacityProviderScalingConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityProviderScalingConfigArrayOutput) ToCapacityProviderCapacityProviderScalingConfigArrayOutput() CapacityProviderCapacityProviderScalingConfigArrayOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityProviderScalingConfigArrayOutput) ToCapacityProviderCapacityProviderScalingConfigArrayOutputWithContext(ctx context.Context) CapacityProviderCapacityProviderScalingConfigArrayOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityProviderScalingConfigArrayOutput) Index(i pulumi.IntInput) CapacityProviderCapacityProviderScalingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderCapacityProviderScalingConfig {
+		return vs[0].([]CapacityProviderCapacityProviderScalingConfig)[vs[1].(int)]
+	}).(CapacityProviderCapacityProviderScalingConfigOutput)
+}
+
+type CapacityProviderCapacityProviderScalingConfigScalingPolicy struct {
+	// The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+	PredefinedMetricType string `pulumi:"predefinedMetricType"`
+	// The target value for the scaling policy.
+	TargetValue float64 `pulumi:"targetValue"`
+}
+
+// CapacityProviderCapacityProviderScalingConfigScalingPolicyInput is an input type that accepts CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs and CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput values.
+// You can construct a concrete instance of `CapacityProviderCapacityProviderScalingConfigScalingPolicyInput` via:
+//
+//	CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs{...}
+type CapacityProviderCapacityProviderScalingConfigScalingPolicyInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityProviderScalingConfigScalingPolicyOutput() CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput
+	ToCapacityProviderCapacityProviderScalingConfigScalingPolicyOutputWithContext(context.Context) CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput
+}
+
+type CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs struct {
+	// The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
+	// The target value for the scaling policy.
+	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
+}
+
+func (CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityProviderScalingConfigScalingPolicy)(nil)).Elem()
+}
+
+func (i CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs) ToCapacityProviderCapacityProviderScalingConfigScalingPolicyOutput() CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput {
+	return i.ToCapacityProviderCapacityProviderScalingConfigScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs) ToCapacityProviderCapacityProviderScalingConfigScalingPolicyOutputWithContext(ctx context.Context) CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput)
+}
+
+// CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayInput is an input type that accepts CapacityProviderCapacityProviderScalingConfigScalingPolicyArray and CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput values.
+// You can construct a concrete instance of `CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayInput` via:
+//
+//	CapacityProviderCapacityProviderScalingConfigScalingPolicyArray{ CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs{...} }
+type CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput() CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput
+	ToCapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutputWithContext(context.Context) CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput
+}
+
+type CapacityProviderCapacityProviderScalingConfigScalingPolicyArray []CapacityProviderCapacityProviderScalingConfigScalingPolicyInput
+
+func (CapacityProviderCapacityProviderScalingConfigScalingPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderCapacityProviderScalingConfigScalingPolicy)(nil)).Elem()
+}
+
+func (i CapacityProviderCapacityProviderScalingConfigScalingPolicyArray) ToCapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput() CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput {
+	return i.ToCapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderCapacityProviderScalingConfigScalingPolicyArray) ToCapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutputWithContext(ctx context.Context) CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput)
+}
+
+type CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityProviderScalingConfigScalingPolicy)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput) ToCapacityProviderCapacityProviderScalingConfigScalingPolicyOutput() CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput) ToCapacityProviderCapacityProviderScalingConfigScalingPolicyOutputWithContext(ctx context.Context) CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput {
+	return o
+}
+
+// The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput) PredefinedMetricType() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfigScalingPolicy) string {
+		return v.PredefinedMetricType
+	}).(pulumi.StringOutput)
+}
+
+// The target value for the scaling policy.
+func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput) TargetValue() pulumi.Float64Output {
+	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfigScalingPolicy) float64 { return v.TargetValue }).(pulumi.Float64Output)
+}
+
+type CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderCapacityProviderScalingConfigScalingPolicy)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput) ToCapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput() CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput) ToCapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutputWithContext(ctx context.Context) CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput) Index(i pulumi.IntInput) CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderCapacityProviderScalingConfigScalingPolicy {
+		return vs[0].([]CapacityProviderCapacityProviderScalingConfigScalingPolicy)[vs[1].(int)]
+	}).(CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput)
+}
+
+type CapacityProviderInstanceRequirement struct {
+	// List of allowed instance types.
+	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
+	// List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+	Architectures []string `pulumi:"architectures"`
+	// List of excluded instance types.
+	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
+}
+
+// CapacityProviderInstanceRequirementInput is an input type that accepts CapacityProviderInstanceRequirementArgs and CapacityProviderInstanceRequirementOutput values.
+// You can construct a concrete instance of `CapacityProviderInstanceRequirementInput` via:
+//
+//	CapacityProviderInstanceRequirementArgs{...}
+type CapacityProviderInstanceRequirementInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceRequirementOutput() CapacityProviderInstanceRequirementOutput
+	ToCapacityProviderInstanceRequirementOutputWithContext(context.Context) CapacityProviderInstanceRequirementOutput
+}
+
+type CapacityProviderInstanceRequirementArgs struct {
+	// List of allowed instance types.
+	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
+	// List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+	Architectures pulumi.StringArrayInput `pulumi:"architectures"`
+	// List of excluded instance types.
+	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
+}
+
+func (CapacityProviderInstanceRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceRequirement)(nil)).Elem()
+}
+
+func (i CapacityProviderInstanceRequirementArgs) ToCapacityProviderInstanceRequirementOutput() CapacityProviderInstanceRequirementOutput {
+	return i.ToCapacityProviderInstanceRequirementOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderInstanceRequirementArgs) ToCapacityProviderInstanceRequirementOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceRequirementOutput)
+}
+
+// CapacityProviderInstanceRequirementArrayInput is an input type that accepts CapacityProviderInstanceRequirementArray and CapacityProviderInstanceRequirementArrayOutput values.
+// You can construct a concrete instance of `CapacityProviderInstanceRequirementArrayInput` via:
+//
+//	CapacityProviderInstanceRequirementArray{ CapacityProviderInstanceRequirementArgs{...} }
+type CapacityProviderInstanceRequirementArrayInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceRequirementArrayOutput() CapacityProviderInstanceRequirementArrayOutput
+	ToCapacityProviderInstanceRequirementArrayOutputWithContext(context.Context) CapacityProviderInstanceRequirementArrayOutput
+}
+
+type CapacityProviderInstanceRequirementArray []CapacityProviderInstanceRequirementInput
+
+func (CapacityProviderInstanceRequirementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderInstanceRequirement)(nil)).Elem()
+}
+
+func (i CapacityProviderInstanceRequirementArray) ToCapacityProviderInstanceRequirementArrayOutput() CapacityProviderInstanceRequirementArrayOutput {
+	return i.ToCapacityProviderInstanceRequirementArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderInstanceRequirementArray) ToCapacityProviderInstanceRequirementArrayOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceRequirementArrayOutput)
+}
+
+type CapacityProviderInstanceRequirementOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceRequirement)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceRequirementOutput) ToCapacityProviderInstanceRequirementOutput() CapacityProviderInstanceRequirementOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementOutput) ToCapacityProviderInstanceRequirementOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementOutput {
+	return o
+}
+
+// List of allowed instance types.
+func (o CapacityProviderInstanceRequirementOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirement) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+// List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+func (o CapacityProviderInstanceRequirementOutput) Architectures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirement) []string { return v.Architectures }).(pulumi.StringArrayOutput)
+}
+
+// List of excluded instance types.
+func (o CapacityProviderInstanceRequirementOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirement) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+type CapacityProviderInstanceRequirementArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceRequirementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderInstanceRequirement)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceRequirementArrayOutput) ToCapacityProviderInstanceRequirementArrayOutput() CapacityProviderInstanceRequirementArrayOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementArrayOutput) ToCapacityProviderInstanceRequirementArrayOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementArrayOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementArrayOutput) Index(i pulumi.IntInput) CapacityProviderInstanceRequirementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderInstanceRequirement {
+		return vs[0].([]CapacityProviderInstanceRequirement)[vs[1].(int)]
+	}).(CapacityProviderInstanceRequirementOutput)
+}
+
+type CapacityProviderPermissionsConfig struct {
+	// The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+	CapacityProviderOperatorRoleArn string `pulumi:"capacityProviderOperatorRoleArn"`
+}
+
+// CapacityProviderPermissionsConfigInput is an input type that accepts CapacityProviderPermissionsConfigArgs and CapacityProviderPermissionsConfigOutput values.
+// You can construct a concrete instance of `CapacityProviderPermissionsConfigInput` via:
+//
+//	CapacityProviderPermissionsConfigArgs{...}
+type CapacityProviderPermissionsConfigInput interface {
+	pulumi.Input
+
+	ToCapacityProviderPermissionsConfigOutput() CapacityProviderPermissionsConfigOutput
+	ToCapacityProviderPermissionsConfigOutputWithContext(context.Context) CapacityProviderPermissionsConfigOutput
+}
+
+type CapacityProviderPermissionsConfigArgs struct {
+	// The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+	CapacityProviderOperatorRoleArn pulumi.StringInput `pulumi:"capacityProviderOperatorRoleArn"`
+}
+
+func (CapacityProviderPermissionsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderPermissionsConfig)(nil)).Elem()
+}
+
+func (i CapacityProviderPermissionsConfigArgs) ToCapacityProviderPermissionsConfigOutput() CapacityProviderPermissionsConfigOutput {
+	return i.ToCapacityProviderPermissionsConfigOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderPermissionsConfigArgs) ToCapacityProviderPermissionsConfigOutputWithContext(ctx context.Context) CapacityProviderPermissionsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPermissionsConfigOutput)
+}
+
+func (i CapacityProviderPermissionsConfigArgs) ToCapacityProviderPermissionsConfigPtrOutput() CapacityProviderPermissionsConfigPtrOutput {
+	return i.ToCapacityProviderPermissionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderPermissionsConfigArgs) ToCapacityProviderPermissionsConfigPtrOutputWithContext(ctx context.Context) CapacityProviderPermissionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPermissionsConfigOutput).ToCapacityProviderPermissionsConfigPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderPermissionsConfigPtrInput is an input type that accepts CapacityProviderPermissionsConfigArgs, CapacityProviderPermissionsConfigPtr and CapacityProviderPermissionsConfigPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderPermissionsConfigPtrInput` via:
+//
+//	        CapacityProviderPermissionsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderPermissionsConfigPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderPermissionsConfigPtrOutput() CapacityProviderPermissionsConfigPtrOutput
+	ToCapacityProviderPermissionsConfigPtrOutputWithContext(context.Context) CapacityProviderPermissionsConfigPtrOutput
+}
+
+type capacityProviderPermissionsConfigPtrType CapacityProviderPermissionsConfigArgs
+
+func CapacityProviderPermissionsConfigPtr(v *CapacityProviderPermissionsConfigArgs) CapacityProviderPermissionsConfigPtrInput {
+	return (*capacityProviderPermissionsConfigPtrType)(v)
+}
+
+func (*capacityProviderPermissionsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderPermissionsConfig)(nil)).Elem()
+}
+
+func (i *capacityProviderPermissionsConfigPtrType) ToCapacityProviderPermissionsConfigPtrOutput() CapacityProviderPermissionsConfigPtrOutput {
+	return i.ToCapacityProviderPermissionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderPermissionsConfigPtrType) ToCapacityProviderPermissionsConfigPtrOutputWithContext(ctx context.Context) CapacityProviderPermissionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPermissionsConfigPtrOutput)
+}
+
+type CapacityProviderPermissionsConfigOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderPermissionsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderPermissionsConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderPermissionsConfigOutput) ToCapacityProviderPermissionsConfigOutput() CapacityProviderPermissionsConfigOutput {
+	return o
+}
+
+func (o CapacityProviderPermissionsConfigOutput) ToCapacityProviderPermissionsConfigOutputWithContext(ctx context.Context) CapacityProviderPermissionsConfigOutput {
+	return o
+}
+
+func (o CapacityProviderPermissionsConfigOutput) ToCapacityProviderPermissionsConfigPtrOutput() CapacityProviderPermissionsConfigPtrOutput {
+	return o.ToCapacityProviderPermissionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderPermissionsConfigOutput) ToCapacityProviderPermissionsConfigPtrOutputWithContext(ctx context.Context) CapacityProviderPermissionsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderPermissionsConfig) *CapacityProviderPermissionsConfig {
+		return &v
+	}).(CapacityProviderPermissionsConfigPtrOutput)
+}
+
+// The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+func (o CapacityProviderPermissionsConfigOutput) CapacityProviderOperatorRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderPermissionsConfig) string { return v.CapacityProviderOperatorRoleArn }).(pulumi.StringOutput)
+}
+
+type CapacityProviderPermissionsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderPermissionsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderPermissionsConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderPermissionsConfigPtrOutput) ToCapacityProviderPermissionsConfigPtrOutput() CapacityProviderPermissionsConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderPermissionsConfigPtrOutput) ToCapacityProviderPermissionsConfigPtrOutputWithContext(ctx context.Context) CapacityProviderPermissionsConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderPermissionsConfigPtrOutput) Elem() CapacityProviderPermissionsConfigOutput {
+	return o.ApplyT(func(v *CapacityProviderPermissionsConfig) CapacityProviderPermissionsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderPermissionsConfig
+		return ret
+	}).(CapacityProviderPermissionsConfigOutput)
+}
+
+// The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+func (o CapacityProviderPermissionsConfigPtrOutput) CapacityProviderOperatorRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderPermissionsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CapacityProviderOperatorRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// CapacityProviderTimeoutsInput is an input type that accepts CapacityProviderTimeoutsArgs and CapacityProviderTimeoutsOutput values.
+// You can construct a concrete instance of `CapacityProviderTimeoutsInput` via:
+//
+//	CapacityProviderTimeoutsArgs{...}
+type CapacityProviderTimeoutsInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTimeoutsOutput() CapacityProviderTimeoutsOutput
+	ToCapacityProviderTimeoutsOutputWithContext(context.Context) CapacityProviderTimeoutsOutput
+}
+
+type CapacityProviderTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (CapacityProviderTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTimeouts)(nil)).Elem()
+}
+
+func (i CapacityProviderTimeoutsArgs) ToCapacityProviderTimeoutsOutput() CapacityProviderTimeoutsOutput {
+	return i.ToCapacityProviderTimeoutsOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTimeoutsArgs) ToCapacityProviderTimeoutsOutputWithContext(ctx context.Context) CapacityProviderTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTimeoutsOutput)
+}
+
+func (i CapacityProviderTimeoutsArgs) ToCapacityProviderTimeoutsPtrOutput() CapacityProviderTimeoutsPtrOutput {
+	return i.ToCapacityProviderTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTimeoutsArgs) ToCapacityProviderTimeoutsPtrOutputWithContext(ctx context.Context) CapacityProviderTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTimeoutsOutput).ToCapacityProviderTimeoutsPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderTimeoutsPtrInput is an input type that accepts CapacityProviderTimeoutsArgs, CapacityProviderTimeoutsPtr and CapacityProviderTimeoutsPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderTimeoutsPtrInput` via:
+//
+//	        CapacityProviderTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTimeoutsPtrOutput() CapacityProviderTimeoutsPtrOutput
+	ToCapacityProviderTimeoutsPtrOutputWithContext(context.Context) CapacityProviderTimeoutsPtrOutput
+}
+
+type capacityProviderTimeoutsPtrType CapacityProviderTimeoutsArgs
+
+func CapacityProviderTimeoutsPtr(v *CapacityProviderTimeoutsArgs) CapacityProviderTimeoutsPtrInput {
+	return (*capacityProviderTimeoutsPtrType)(v)
+}
+
+func (*capacityProviderTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderTimeouts)(nil)).Elem()
+}
+
+func (i *capacityProviderTimeoutsPtrType) ToCapacityProviderTimeoutsPtrOutput() CapacityProviderTimeoutsPtrOutput {
+	return i.ToCapacityProviderTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderTimeoutsPtrType) ToCapacityProviderTimeoutsPtrOutputWithContext(ctx context.Context) CapacityProviderTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTimeoutsPtrOutput)
+}
+
+type CapacityProviderTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTimeouts)(nil)).Elem()
+}
+
+func (o CapacityProviderTimeoutsOutput) ToCapacityProviderTimeoutsOutput() CapacityProviderTimeoutsOutput {
+	return o
+}
+
+func (o CapacityProviderTimeoutsOutput) ToCapacityProviderTimeoutsOutputWithContext(ctx context.Context) CapacityProviderTimeoutsOutput {
+	return o
+}
+
+func (o CapacityProviderTimeoutsOutput) ToCapacityProviderTimeoutsPtrOutput() CapacityProviderTimeoutsPtrOutput {
+	return o.ToCapacityProviderTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderTimeoutsOutput) ToCapacityProviderTimeoutsPtrOutputWithContext(ctx context.Context) CapacityProviderTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderTimeouts) *CapacityProviderTimeouts {
+		return &v
+	}).(CapacityProviderTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapacityProviderTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o CapacityProviderTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapacityProviderTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderTimeouts)(nil)).Elem()
+}
+
+func (o CapacityProviderTimeoutsPtrOutput) ToCapacityProviderTimeoutsPtrOutput() CapacityProviderTimeoutsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderTimeoutsPtrOutput) ToCapacityProviderTimeoutsPtrOutputWithContext(ctx context.Context) CapacityProviderTimeoutsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderTimeoutsPtrOutput) Elem() CapacityProviderTimeoutsOutput {
+	return o.ApplyT(func(v *CapacityProviderTimeouts) CapacityProviderTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderTimeouts
+		return ret
+	}).(CapacityProviderTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapacityProviderTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o CapacityProviderTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapacityProviderTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderVpcConfig struct {
+	// List of security group IDs for the VPC.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// List of subnet IDs for the VPC.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// CapacityProviderVpcConfigInput is an input type that accepts CapacityProviderVpcConfigArgs and CapacityProviderVpcConfigOutput values.
+// You can construct a concrete instance of `CapacityProviderVpcConfigInput` via:
+//
+//	CapacityProviderVpcConfigArgs{...}
+type CapacityProviderVpcConfigInput interface {
+	pulumi.Input
+
+	ToCapacityProviderVpcConfigOutput() CapacityProviderVpcConfigOutput
+	ToCapacityProviderVpcConfigOutputWithContext(context.Context) CapacityProviderVpcConfigOutput
+}
+
+type CapacityProviderVpcConfigArgs struct {
+	// List of security group IDs for the VPC.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// List of subnet IDs for the VPC.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (CapacityProviderVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderVpcConfig)(nil)).Elem()
+}
+
+func (i CapacityProviderVpcConfigArgs) ToCapacityProviderVpcConfigOutput() CapacityProviderVpcConfigOutput {
+	return i.ToCapacityProviderVpcConfigOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderVpcConfigArgs) ToCapacityProviderVpcConfigOutputWithContext(ctx context.Context) CapacityProviderVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderVpcConfigOutput)
+}
+
+func (i CapacityProviderVpcConfigArgs) ToCapacityProviderVpcConfigPtrOutput() CapacityProviderVpcConfigPtrOutput {
+	return i.ToCapacityProviderVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderVpcConfigArgs) ToCapacityProviderVpcConfigPtrOutputWithContext(ctx context.Context) CapacityProviderVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderVpcConfigOutput).ToCapacityProviderVpcConfigPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderVpcConfigPtrInput is an input type that accepts CapacityProviderVpcConfigArgs, CapacityProviderVpcConfigPtr and CapacityProviderVpcConfigPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderVpcConfigPtrInput` via:
+//
+//	        CapacityProviderVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderVpcConfigPtrOutput() CapacityProviderVpcConfigPtrOutput
+	ToCapacityProviderVpcConfigPtrOutputWithContext(context.Context) CapacityProviderVpcConfigPtrOutput
+}
+
+type capacityProviderVpcConfigPtrType CapacityProviderVpcConfigArgs
+
+func CapacityProviderVpcConfigPtr(v *CapacityProviderVpcConfigArgs) CapacityProviderVpcConfigPtrInput {
+	return (*capacityProviderVpcConfigPtrType)(v)
+}
+
+func (*capacityProviderVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderVpcConfig)(nil)).Elem()
+}
+
+func (i *capacityProviderVpcConfigPtrType) ToCapacityProviderVpcConfigPtrOutput() CapacityProviderVpcConfigPtrOutput {
+	return i.ToCapacityProviderVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderVpcConfigPtrType) ToCapacityProviderVpcConfigPtrOutputWithContext(ctx context.Context) CapacityProviderVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderVpcConfigPtrOutput)
+}
+
+type CapacityProviderVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderVpcConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderVpcConfigOutput) ToCapacityProviderVpcConfigOutput() CapacityProviderVpcConfigOutput {
+	return o
+}
+
+func (o CapacityProviderVpcConfigOutput) ToCapacityProviderVpcConfigOutputWithContext(ctx context.Context) CapacityProviderVpcConfigOutput {
+	return o
+}
+
+func (o CapacityProviderVpcConfigOutput) ToCapacityProviderVpcConfigPtrOutput() CapacityProviderVpcConfigPtrOutput {
+	return o.ToCapacityProviderVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderVpcConfigOutput) ToCapacityProviderVpcConfigPtrOutputWithContext(ctx context.Context) CapacityProviderVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderVpcConfig) *CapacityProviderVpcConfig {
+		return &v
+	}).(CapacityProviderVpcConfigPtrOutput)
+}
+
+// List of security group IDs for the VPC.
+func (o CapacityProviderVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs for the VPC.
+func (o CapacityProviderVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type CapacityProviderVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderVpcConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderVpcConfigPtrOutput) ToCapacityProviderVpcConfigPtrOutput() CapacityProviderVpcConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderVpcConfigPtrOutput) ToCapacityProviderVpcConfigPtrOutputWithContext(ctx context.Context) CapacityProviderVpcConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderVpcConfigPtrOutput) Elem() CapacityProviderVpcConfigOutput {
+	return o.ApplyT(func(v *CapacityProviderVpcConfig) CapacityProviderVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderVpcConfig
+		return ret
+	}).(CapacityProviderVpcConfigOutput)
+}
+
+// List of security group IDs for the VPC.
+func (o CapacityProviderVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs for the VPC.
+func (o CapacityProviderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type CodeSigningConfigAllowedPublishers struct {
 	// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
 	SigningProfileVersionArns []string `pulumi:"signingProfileVersionArns"`
@@ -2920,6 +3725,326 @@ func (o EventSourceMappingSourceAccessConfigurationArrayOutput) Index(i pulumi.I
 	}).(EventSourceMappingSourceAccessConfigurationOutput)
 }
 
+type FunctionCapacityProviderConfig struct {
+	// Configuration block for Lambda Managed Instances Capacity Provider. See below.
+	LambdaManagedInstancesCapacityProviderConfig FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig `pulumi:"lambdaManagedInstancesCapacityProviderConfig"`
+}
+
+// FunctionCapacityProviderConfigInput is an input type that accepts FunctionCapacityProviderConfigArgs and FunctionCapacityProviderConfigOutput values.
+// You can construct a concrete instance of `FunctionCapacityProviderConfigInput` via:
+//
+//	FunctionCapacityProviderConfigArgs{...}
+type FunctionCapacityProviderConfigInput interface {
+	pulumi.Input
+
+	ToFunctionCapacityProviderConfigOutput() FunctionCapacityProviderConfigOutput
+	ToFunctionCapacityProviderConfigOutputWithContext(context.Context) FunctionCapacityProviderConfigOutput
+}
+
+type FunctionCapacityProviderConfigArgs struct {
+	// Configuration block for Lambda Managed Instances Capacity Provider. See below.
+	LambdaManagedInstancesCapacityProviderConfig FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigInput `pulumi:"lambdaManagedInstancesCapacityProviderConfig"`
+}
+
+func (FunctionCapacityProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i FunctionCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigOutput() FunctionCapacityProviderConfigOutput {
+	return i.ToFunctionCapacityProviderConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCapacityProviderConfigOutput)
+}
+
+func (i FunctionCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigPtrOutput {
+	return i.ToFunctionCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCapacityProviderConfigOutput).ToFunctionCapacityProviderConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionCapacityProviderConfigPtrInput is an input type that accepts FunctionCapacityProviderConfigArgs, FunctionCapacityProviderConfigPtr and FunctionCapacityProviderConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionCapacityProviderConfigPtrInput` via:
+//
+//	        FunctionCapacityProviderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionCapacityProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigPtrOutput
+	ToFunctionCapacityProviderConfigPtrOutputWithContext(context.Context) FunctionCapacityProviderConfigPtrOutput
+}
+
+type functionCapacityProviderConfigPtrType FunctionCapacityProviderConfigArgs
+
+func FunctionCapacityProviderConfigPtr(v *FunctionCapacityProviderConfigArgs) FunctionCapacityProviderConfigPtrInput {
+	return (*functionCapacityProviderConfigPtrType)(v)
+}
+
+func (*functionCapacityProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i *functionCapacityProviderConfigPtrType) ToFunctionCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigPtrOutput {
+	return i.ToFunctionCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionCapacityProviderConfigPtrType) ToFunctionCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCapacityProviderConfigPtrOutput)
+}
+
+type FunctionCapacityProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionCapacityProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o FunctionCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigOutput() FunctionCapacityProviderConfigOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigPtrOutput {
+	return o.ToFunctionCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionCapacityProviderConfig) *FunctionCapacityProviderConfig {
+		return &v
+	}).(FunctionCapacityProviderConfigPtrOutput)
+}
+
+// Configuration block for Lambda Managed Instances Capacity Provider. See below.
+func (o FunctionCapacityProviderConfigOutput) LambdaManagedInstancesCapacityProviderConfig() FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput {
+	return o.ApplyT(func(v FunctionCapacityProviderConfig) FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig {
+		return v.LambdaManagedInstancesCapacityProviderConfig
+	}).(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput)
+}
+
+type FunctionCapacityProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionCapacityProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o FunctionCapacityProviderConfigPtrOutput) ToFunctionCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigPtrOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigPtrOutput) ToFunctionCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigPtrOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigPtrOutput) Elem() FunctionCapacityProviderConfigOutput {
+	return o.ApplyT(func(v *FunctionCapacityProviderConfig) FunctionCapacityProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionCapacityProviderConfig
+		return ret
+	}).(FunctionCapacityProviderConfigOutput)
+}
+
+// Configuration block for Lambda Managed Instances Capacity Provider. See below.
+func (o FunctionCapacityProviderConfigPtrOutput) LambdaManagedInstancesCapacityProviderConfig() FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return o.ApplyT(func(v *FunctionCapacityProviderConfig) *FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaManagedInstancesCapacityProviderConfig
+	}).(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput)
+}
+
+type FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig struct {
+	// ARN of the Capacity Provider.
+	CapacityProviderArn string `pulumi:"capacityProviderArn"`
+	// Memory GiB per vCPU for the execution environment.
+	ExecutionEnvironmentMemoryGibPerVcpu *float64 `pulumi:"executionEnvironmentMemoryGibPerVcpu"`
+	// Maximum concurrency per execution environment.
+	PerExecutionEnvironmentMaxConcurrency *int `pulumi:"perExecutionEnvironmentMaxConcurrency"`
+}
+
+// FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigInput is an input type that accepts FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs and FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput values.
+// You can construct a concrete instance of `FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigInput` via:
+//
+//	FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{...}
+type FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigInput interface {
+	pulumi.Input
+
+	ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput() FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput
+	ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutputWithContext(context.Context) FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput
+}
+
+type FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs struct {
+	// ARN of the Capacity Provider.
+	CapacityProviderArn pulumi.StringInput `pulumi:"capacityProviderArn"`
+	// Memory GiB per vCPU for the execution environment.
+	ExecutionEnvironmentMemoryGibPerVcpu pulumi.Float64PtrInput `pulumi:"executionEnvironmentMemoryGibPerVcpu"`
+	// Maximum concurrency per execution environment.
+	PerExecutionEnvironmentMaxConcurrency pulumi.IntPtrInput `pulumi:"perExecutionEnvironmentMaxConcurrency"`
+}
+
+func (FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput() FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput {
+	return i.ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput)
+}
+
+func (i FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return i.ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput).ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrInput is an input type that accepts FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs, FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtr and FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrInput` via:
+//
+//	        FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput
+	ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(context.Context) FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput
+}
+
+type functionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrType FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs
+
+func FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtr(v *FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs) FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrInput {
+	return (*functionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrType)(v)
+}
+
+func (*functionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i *functionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrType) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return i.ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrType) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput)
+}
+
+type FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput() FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return o.ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig) *FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig {
+		return &v
+	}).(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput)
+}
+
+// ARN of the Capacity Provider.
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) CapacityProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig) string {
+		return v.CapacityProviderArn
+	}).(pulumi.StringOutput)
+}
+
+// Memory GiB per vCPU for the execution environment.
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) ExecutionEnvironmentMemoryGibPerVcpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig) *float64 {
+		return v.ExecutionEnvironmentMemoryGibPerVcpu
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Maximum concurrency per execution environment.
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) PerExecutionEnvironmentMaxConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig) *int {
+		return v.PerExecutionEnvironmentMaxConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
+type FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput) ToFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput) Elem() FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput {
+	return o.ApplyT(func(v *FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig) FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig
+		return ret
+	}).(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput)
+}
+
+// ARN of the Capacity Provider.
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput) CapacityProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CapacityProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Memory GiB per vCPU for the execution environment.
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput) ExecutionEnvironmentMemoryGibPerVcpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionEnvironmentMemoryGibPerVcpu
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Maximum concurrency per execution environment.
+func (o FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput) PerExecutionEnvironmentMaxConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PerExecutionEnvironmentMaxConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
 type FunctionDeadLetterConfig struct {
 	// ARN of an SNS topic or SQS queue to notify when an invocation fails.
 	TargetArn string `pulumi:"targetArn"`
@@ -3055,6 +4180,162 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 		}
 		return &v.TargetArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionDurableConfig struct {
+	// Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
+	ExecutionTimeout int `pulumi:"executionTimeout"`
+	// Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+	RetentionPeriod *int `pulumi:"retentionPeriod"`
+}
+
+// FunctionDurableConfigInput is an input type that accepts FunctionDurableConfigArgs and FunctionDurableConfigOutput values.
+// You can construct a concrete instance of `FunctionDurableConfigInput` via:
+//
+//	FunctionDurableConfigArgs{...}
+type FunctionDurableConfigInput interface {
+	pulumi.Input
+
+	ToFunctionDurableConfigOutput() FunctionDurableConfigOutput
+	ToFunctionDurableConfigOutputWithContext(context.Context) FunctionDurableConfigOutput
+}
+
+type FunctionDurableConfigArgs struct {
+	// Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
+	ExecutionTimeout pulumi.IntInput `pulumi:"executionTimeout"`
+	// Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+	RetentionPeriod pulumi.IntPtrInput `pulumi:"retentionPeriod"`
+}
+
+func (FunctionDurableConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionDurableConfig)(nil)).Elem()
+}
+
+func (i FunctionDurableConfigArgs) ToFunctionDurableConfigOutput() FunctionDurableConfigOutput {
+	return i.ToFunctionDurableConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionDurableConfigArgs) ToFunctionDurableConfigOutputWithContext(ctx context.Context) FunctionDurableConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionDurableConfigOutput)
+}
+
+func (i FunctionDurableConfigArgs) ToFunctionDurableConfigPtrOutput() FunctionDurableConfigPtrOutput {
+	return i.ToFunctionDurableConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionDurableConfigArgs) ToFunctionDurableConfigPtrOutputWithContext(ctx context.Context) FunctionDurableConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionDurableConfigOutput).ToFunctionDurableConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionDurableConfigPtrInput is an input type that accepts FunctionDurableConfigArgs, FunctionDurableConfigPtr and FunctionDurableConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionDurableConfigPtrInput` via:
+//
+//	        FunctionDurableConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionDurableConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionDurableConfigPtrOutput() FunctionDurableConfigPtrOutput
+	ToFunctionDurableConfigPtrOutputWithContext(context.Context) FunctionDurableConfigPtrOutput
+}
+
+type functionDurableConfigPtrType FunctionDurableConfigArgs
+
+func FunctionDurableConfigPtr(v *FunctionDurableConfigArgs) FunctionDurableConfigPtrInput {
+	return (*functionDurableConfigPtrType)(v)
+}
+
+func (*functionDurableConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionDurableConfig)(nil)).Elem()
+}
+
+func (i *functionDurableConfigPtrType) ToFunctionDurableConfigPtrOutput() FunctionDurableConfigPtrOutput {
+	return i.ToFunctionDurableConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionDurableConfigPtrType) ToFunctionDurableConfigPtrOutputWithContext(ctx context.Context) FunctionDurableConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionDurableConfigPtrOutput)
+}
+
+type FunctionDurableConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionDurableConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionDurableConfig)(nil)).Elem()
+}
+
+func (o FunctionDurableConfigOutput) ToFunctionDurableConfigOutput() FunctionDurableConfigOutput {
+	return o
+}
+
+func (o FunctionDurableConfigOutput) ToFunctionDurableConfigOutputWithContext(ctx context.Context) FunctionDurableConfigOutput {
+	return o
+}
+
+func (o FunctionDurableConfigOutput) ToFunctionDurableConfigPtrOutput() FunctionDurableConfigPtrOutput {
+	return o.ToFunctionDurableConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionDurableConfigOutput) ToFunctionDurableConfigPtrOutputWithContext(ctx context.Context) FunctionDurableConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionDurableConfig) *FunctionDurableConfig {
+		return &v
+	}).(FunctionDurableConfigPtrOutput)
+}
+
+// Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
+func (o FunctionDurableConfigOutput) ExecutionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionDurableConfig) int { return v.ExecutionTimeout }).(pulumi.IntOutput)
+}
+
+// Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+func (o FunctionDurableConfigOutput) RetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionDurableConfig) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+type FunctionDurableConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionDurableConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionDurableConfig)(nil)).Elem()
+}
+
+func (o FunctionDurableConfigPtrOutput) ToFunctionDurableConfigPtrOutput() FunctionDurableConfigPtrOutput {
+	return o
+}
+
+func (o FunctionDurableConfigPtrOutput) ToFunctionDurableConfigPtrOutputWithContext(ctx context.Context) FunctionDurableConfigPtrOutput {
+	return o
+}
+
+func (o FunctionDurableConfigPtrOutput) Elem() FunctionDurableConfigOutput {
+	return o.ApplyT(func(v *FunctionDurableConfig) FunctionDurableConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionDurableConfig
+		return ret
+	}).(FunctionDurableConfigOutput)
+}
+
+// Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
+func (o FunctionDurableConfigPtrOutput) ExecutionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionDurableConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ExecutionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+func (o FunctionDurableConfigPtrOutput) RetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionDurableConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriod
+	}).(pulumi.IntPtrOutput)
 }
 
 type FunctionEnvironment struct {
@@ -4446,6 +5727,143 @@ func (o FunctionSnapStartPtrOutput) OptimizationStatus() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionTenancyConfig struct {
+	// Tenant Isolation Mode. Valid values: `PER_TENANT`.
+	TenantIsolationMode string `pulumi:"tenantIsolationMode"`
+}
+
+// FunctionTenancyConfigInput is an input type that accepts FunctionTenancyConfigArgs and FunctionTenancyConfigOutput values.
+// You can construct a concrete instance of `FunctionTenancyConfigInput` via:
+//
+//	FunctionTenancyConfigArgs{...}
+type FunctionTenancyConfigInput interface {
+	pulumi.Input
+
+	ToFunctionTenancyConfigOutput() FunctionTenancyConfigOutput
+	ToFunctionTenancyConfigOutputWithContext(context.Context) FunctionTenancyConfigOutput
+}
+
+type FunctionTenancyConfigArgs struct {
+	// Tenant Isolation Mode. Valid values: `PER_TENANT`.
+	TenantIsolationMode pulumi.StringInput `pulumi:"tenantIsolationMode"`
+}
+
+func (FunctionTenancyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionTenancyConfig)(nil)).Elem()
+}
+
+func (i FunctionTenancyConfigArgs) ToFunctionTenancyConfigOutput() FunctionTenancyConfigOutput {
+	return i.ToFunctionTenancyConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionTenancyConfigArgs) ToFunctionTenancyConfigOutputWithContext(ctx context.Context) FunctionTenancyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionTenancyConfigOutput)
+}
+
+func (i FunctionTenancyConfigArgs) ToFunctionTenancyConfigPtrOutput() FunctionTenancyConfigPtrOutput {
+	return i.ToFunctionTenancyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionTenancyConfigArgs) ToFunctionTenancyConfigPtrOutputWithContext(ctx context.Context) FunctionTenancyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionTenancyConfigOutput).ToFunctionTenancyConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionTenancyConfigPtrInput is an input type that accepts FunctionTenancyConfigArgs, FunctionTenancyConfigPtr and FunctionTenancyConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionTenancyConfigPtrInput` via:
+//
+//	        FunctionTenancyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionTenancyConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionTenancyConfigPtrOutput() FunctionTenancyConfigPtrOutput
+	ToFunctionTenancyConfigPtrOutputWithContext(context.Context) FunctionTenancyConfigPtrOutput
+}
+
+type functionTenancyConfigPtrType FunctionTenancyConfigArgs
+
+func FunctionTenancyConfigPtr(v *FunctionTenancyConfigArgs) FunctionTenancyConfigPtrInput {
+	return (*functionTenancyConfigPtrType)(v)
+}
+
+func (*functionTenancyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionTenancyConfig)(nil)).Elem()
+}
+
+func (i *functionTenancyConfigPtrType) ToFunctionTenancyConfigPtrOutput() FunctionTenancyConfigPtrOutput {
+	return i.ToFunctionTenancyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionTenancyConfigPtrType) ToFunctionTenancyConfigPtrOutputWithContext(ctx context.Context) FunctionTenancyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionTenancyConfigPtrOutput)
+}
+
+type FunctionTenancyConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionTenancyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionTenancyConfig)(nil)).Elem()
+}
+
+func (o FunctionTenancyConfigOutput) ToFunctionTenancyConfigOutput() FunctionTenancyConfigOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigOutput) ToFunctionTenancyConfigOutputWithContext(ctx context.Context) FunctionTenancyConfigOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigOutput) ToFunctionTenancyConfigPtrOutput() FunctionTenancyConfigPtrOutput {
+	return o.ToFunctionTenancyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionTenancyConfigOutput) ToFunctionTenancyConfigPtrOutputWithContext(ctx context.Context) FunctionTenancyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionTenancyConfig) *FunctionTenancyConfig {
+		return &v
+	}).(FunctionTenancyConfigPtrOutput)
+}
+
+// Tenant Isolation Mode. Valid values: `PER_TENANT`.
+func (o FunctionTenancyConfigOutput) TenantIsolationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionTenancyConfig) string { return v.TenantIsolationMode }).(pulumi.StringOutput)
+}
+
+type FunctionTenancyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionTenancyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionTenancyConfig)(nil)).Elem()
+}
+
+func (o FunctionTenancyConfigPtrOutput) ToFunctionTenancyConfigPtrOutput() FunctionTenancyConfigPtrOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigPtrOutput) ToFunctionTenancyConfigPtrOutputWithContext(ctx context.Context) FunctionTenancyConfigPtrOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigPtrOutput) Elem() FunctionTenancyConfigOutput {
+	return o.ApplyT(func(v *FunctionTenancyConfig) FunctionTenancyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionTenancyConfig
+		return ret
+	}).(FunctionTenancyConfigOutput)
+}
+
+// Tenant Isolation Mode. Valid values: `PER_TENANT`.
+func (o FunctionTenancyConfigPtrOutput) TenantIsolationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionTenancyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantIsolationMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type FunctionTracingConfig struct {
 	// X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
 	Mode string `pulumi:"mode"`
@@ -5203,6 +6621,226 @@ func (o GetCodeSigningConfigPolicyArrayOutput) Index(i pulumi.IntInput) GetCodeS
 	}).(GetCodeSigningConfigPolicyOutput)
 }
 
+type GetFunctionCapacityProviderConfig struct {
+	// Configuration block for Lambda Managed Instances Capacity Provider.
+	LambdaManagedInstancesCapacityProviderConfigs []GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig `pulumi:"lambdaManagedInstancesCapacityProviderConfigs"`
+}
+
+// GetFunctionCapacityProviderConfigInput is an input type that accepts GetFunctionCapacityProviderConfigArgs and GetFunctionCapacityProviderConfigOutput values.
+// You can construct a concrete instance of `GetFunctionCapacityProviderConfigInput` via:
+//
+//	GetFunctionCapacityProviderConfigArgs{...}
+type GetFunctionCapacityProviderConfigInput interface {
+	pulumi.Input
+
+	ToGetFunctionCapacityProviderConfigOutput() GetFunctionCapacityProviderConfigOutput
+	ToGetFunctionCapacityProviderConfigOutputWithContext(context.Context) GetFunctionCapacityProviderConfigOutput
+}
+
+type GetFunctionCapacityProviderConfigArgs struct {
+	// Configuration block for Lambda Managed Instances Capacity Provider.
+	LambdaManagedInstancesCapacityProviderConfigs GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayInput `pulumi:"lambdaManagedInstancesCapacityProviderConfigs"`
+}
+
+func (GetFunctionCapacityProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i GetFunctionCapacityProviderConfigArgs) ToGetFunctionCapacityProviderConfigOutput() GetFunctionCapacityProviderConfigOutput {
+	return i.ToGetFunctionCapacityProviderConfigOutputWithContext(context.Background())
+}
+
+func (i GetFunctionCapacityProviderConfigArgs) ToGetFunctionCapacityProviderConfigOutputWithContext(ctx context.Context) GetFunctionCapacityProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionCapacityProviderConfigOutput)
+}
+
+// GetFunctionCapacityProviderConfigArrayInput is an input type that accepts GetFunctionCapacityProviderConfigArray and GetFunctionCapacityProviderConfigArrayOutput values.
+// You can construct a concrete instance of `GetFunctionCapacityProviderConfigArrayInput` via:
+//
+//	GetFunctionCapacityProviderConfigArray{ GetFunctionCapacityProviderConfigArgs{...} }
+type GetFunctionCapacityProviderConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionCapacityProviderConfigArrayOutput() GetFunctionCapacityProviderConfigArrayOutput
+	ToGetFunctionCapacityProviderConfigArrayOutputWithContext(context.Context) GetFunctionCapacityProviderConfigArrayOutput
+}
+
+type GetFunctionCapacityProviderConfigArray []GetFunctionCapacityProviderConfigInput
+
+func (GetFunctionCapacityProviderConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i GetFunctionCapacityProviderConfigArray) ToGetFunctionCapacityProviderConfigArrayOutput() GetFunctionCapacityProviderConfigArrayOutput {
+	return i.ToGetFunctionCapacityProviderConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionCapacityProviderConfigArray) ToGetFunctionCapacityProviderConfigArrayOutputWithContext(ctx context.Context) GetFunctionCapacityProviderConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionCapacityProviderConfigArrayOutput)
+}
+
+type GetFunctionCapacityProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionCapacityProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o GetFunctionCapacityProviderConfigOutput) ToGetFunctionCapacityProviderConfigOutput() GetFunctionCapacityProviderConfigOutput {
+	return o
+}
+
+func (o GetFunctionCapacityProviderConfigOutput) ToGetFunctionCapacityProviderConfigOutputWithContext(ctx context.Context) GetFunctionCapacityProviderConfigOutput {
+	return o
+}
+
+// Configuration block for Lambda Managed Instances Capacity Provider.
+func (o GetFunctionCapacityProviderConfigOutput) LambdaManagedInstancesCapacityProviderConfigs() GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput {
+	return o.ApplyT(func(v GetFunctionCapacityProviderConfig) []GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig {
+		return v.LambdaManagedInstancesCapacityProviderConfigs
+	}).(GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput)
+}
+
+type GetFunctionCapacityProviderConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionCapacityProviderConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o GetFunctionCapacityProviderConfigArrayOutput) ToGetFunctionCapacityProviderConfigArrayOutput() GetFunctionCapacityProviderConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionCapacityProviderConfigArrayOutput) ToGetFunctionCapacityProviderConfigArrayOutputWithContext(ctx context.Context) GetFunctionCapacityProviderConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionCapacityProviderConfigArrayOutput) Index(i pulumi.IntInput) GetFunctionCapacityProviderConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionCapacityProviderConfig {
+		return vs[0].([]GetFunctionCapacityProviderConfig)[vs[1].(int)]
+	}).(GetFunctionCapacityProviderConfigOutput)
+}
+
+type GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig struct {
+	// ARN of the Capacity Provider.
+	CapacityProviderArn string `pulumi:"capacityProviderArn"`
+	// Memory GiB per vCPU for the execution environment.
+	ExecutionEnvironmentMemoryGibPerVcpu float64 `pulumi:"executionEnvironmentMemoryGibPerVcpu"`
+	// Maximum concurrency per execution environment.
+	PerExecutionEnvironmentMaxConcurrency int `pulumi:"perExecutionEnvironmentMaxConcurrency"`
+}
+
+// GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigInput is an input type that accepts GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs and GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput values.
+// You can construct a concrete instance of `GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigInput` via:
+//
+//	GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{...}
+type GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigInput interface {
+	pulumi.Input
+
+	ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput() GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput
+	ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutputWithContext(context.Context) GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput
+}
+
+type GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs struct {
+	// ARN of the Capacity Provider.
+	CapacityProviderArn pulumi.StringInput `pulumi:"capacityProviderArn"`
+	// Memory GiB per vCPU for the execution environment.
+	ExecutionEnvironmentMemoryGibPerVcpu pulumi.Float64Input `pulumi:"executionEnvironmentMemoryGibPerVcpu"`
+	// Maximum concurrency per execution environment.
+	PerExecutionEnvironmentMaxConcurrency pulumi.IntInput `pulumi:"perExecutionEnvironmentMaxConcurrency"`
+}
+
+func (GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs) ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput() GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput {
+	return i.ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutputWithContext(context.Background())
+}
+
+func (i GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs) ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutputWithContext(ctx context.Context) GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput)
+}
+
+// GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayInput is an input type that accepts GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArray and GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput values.
+// You can construct a concrete instance of `GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayInput` via:
+//
+//	GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArray{ GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{...} }
+type GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput() GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput
+	ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutputWithContext(context.Context) GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput
+}
+
+type GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArray []GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigInput
+
+func (GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArray) ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput() GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput {
+	return i.ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArray) ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutputWithContext(ctx context.Context) GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput)
+}
+
+type GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput() GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput {
+	return o
+}
+
+func (o GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutputWithContext(ctx context.Context) GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput {
+	return o
+}
+
+// ARN of the Capacity Provider.
+func (o GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) CapacityProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig) string {
+		return v.CapacityProviderArn
+	}).(pulumi.StringOutput)
+}
+
+// Memory GiB per vCPU for the execution environment.
+func (o GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) ExecutionEnvironmentMemoryGibPerVcpu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig) float64 {
+		return v.ExecutionEnvironmentMemoryGibPerVcpu
+	}).(pulumi.Float64Output)
+}
+
+// Maximum concurrency per execution environment.
+func (o GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput) PerExecutionEnvironmentMaxConcurrency() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig) int {
+		return v.PerExecutionEnvironmentMaxConcurrency
+	}).(pulumi.IntOutput)
+}
+
+type GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput) ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput() GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput) ToGetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutputWithContext(ctx context.Context) GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput) Index(i pulumi.IntInput) GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig {
+		return vs[0].([]GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig)[vs[1].(int)]
+	}).(GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput)
+}
+
 type GetFunctionDeadLetterConfig struct {
 	// ARN of an SNS topic or SQS queue to notify when an invocation fails.
 	TargetArn string `pulumi:"targetArn"`
@@ -5253,6 +6891,112 @@ func (o GetFunctionDeadLetterConfigOutput) ToGetFunctionDeadLetterConfigOutputWi
 // ARN of an SNS topic or SQS queue to notify when an invocation fails.
 func (o GetFunctionDeadLetterConfigOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionDeadLetterConfig) string { return v.TargetArn }).(pulumi.StringOutput)
+}
+
+type GetFunctionDurableConfig struct {
+	// Maximum execution time in seconds for the durable function.
+	ExecutionTimeout int `pulumi:"executionTimeout"`
+	// Number of days to retain the function's execution state.
+	RetentionPeriod int `pulumi:"retentionPeriod"`
+}
+
+// GetFunctionDurableConfigInput is an input type that accepts GetFunctionDurableConfigArgs and GetFunctionDurableConfigOutput values.
+// You can construct a concrete instance of `GetFunctionDurableConfigInput` via:
+//
+//	GetFunctionDurableConfigArgs{...}
+type GetFunctionDurableConfigInput interface {
+	pulumi.Input
+
+	ToGetFunctionDurableConfigOutput() GetFunctionDurableConfigOutput
+	ToGetFunctionDurableConfigOutputWithContext(context.Context) GetFunctionDurableConfigOutput
+}
+
+type GetFunctionDurableConfigArgs struct {
+	// Maximum execution time in seconds for the durable function.
+	ExecutionTimeout pulumi.IntInput `pulumi:"executionTimeout"`
+	// Number of days to retain the function's execution state.
+	RetentionPeriod pulumi.IntInput `pulumi:"retentionPeriod"`
+}
+
+func (GetFunctionDurableConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionDurableConfig)(nil)).Elem()
+}
+
+func (i GetFunctionDurableConfigArgs) ToGetFunctionDurableConfigOutput() GetFunctionDurableConfigOutput {
+	return i.ToGetFunctionDurableConfigOutputWithContext(context.Background())
+}
+
+func (i GetFunctionDurableConfigArgs) ToGetFunctionDurableConfigOutputWithContext(ctx context.Context) GetFunctionDurableConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionDurableConfigOutput)
+}
+
+// GetFunctionDurableConfigArrayInput is an input type that accepts GetFunctionDurableConfigArray and GetFunctionDurableConfigArrayOutput values.
+// You can construct a concrete instance of `GetFunctionDurableConfigArrayInput` via:
+//
+//	GetFunctionDurableConfigArray{ GetFunctionDurableConfigArgs{...} }
+type GetFunctionDurableConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionDurableConfigArrayOutput() GetFunctionDurableConfigArrayOutput
+	ToGetFunctionDurableConfigArrayOutputWithContext(context.Context) GetFunctionDurableConfigArrayOutput
+}
+
+type GetFunctionDurableConfigArray []GetFunctionDurableConfigInput
+
+func (GetFunctionDurableConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionDurableConfig)(nil)).Elem()
+}
+
+func (i GetFunctionDurableConfigArray) ToGetFunctionDurableConfigArrayOutput() GetFunctionDurableConfigArrayOutput {
+	return i.ToGetFunctionDurableConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionDurableConfigArray) ToGetFunctionDurableConfigArrayOutputWithContext(ctx context.Context) GetFunctionDurableConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionDurableConfigArrayOutput)
+}
+
+type GetFunctionDurableConfigOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionDurableConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionDurableConfig)(nil)).Elem()
+}
+
+func (o GetFunctionDurableConfigOutput) ToGetFunctionDurableConfigOutput() GetFunctionDurableConfigOutput {
+	return o
+}
+
+func (o GetFunctionDurableConfigOutput) ToGetFunctionDurableConfigOutputWithContext(ctx context.Context) GetFunctionDurableConfigOutput {
+	return o
+}
+
+// Maximum execution time in seconds for the durable function.
+func (o GetFunctionDurableConfigOutput) ExecutionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFunctionDurableConfig) int { return v.ExecutionTimeout }).(pulumi.IntOutput)
+}
+
+// Number of days to retain the function's execution state.
+func (o GetFunctionDurableConfigOutput) RetentionPeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFunctionDurableConfig) int { return v.RetentionPeriod }).(pulumi.IntOutput)
+}
+
+type GetFunctionDurableConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionDurableConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionDurableConfig)(nil)).Elem()
+}
+
+func (o GetFunctionDurableConfigArrayOutput) ToGetFunctionDurableConfigArrayOutput() GetFunctionDurableConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionDurableConfigArrayOutput) ToGetFunctionDurableConfigArrayOutputWithContext(ctx context.Context) GetFunctionDurableConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionDurableConfigArrayOutput) Index(i pulumi.IntInput) GetFunctionDurableConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionDurableConfig {
+		return vs[0].([]GetFunctionDurableConfig)[vs[1].(int)]
+	}).(GetFunctionDurableConfigOutput)
 }
 
 type GetFunctionEnvironment struct {
@@ -5634,6 +7378,103 @@ func (o GetFunctionLoggingConfigArrayOutput) Index(i pulumi.IntInput) GetFunctio
 	}).(GetFunctionLoggingConfigOutput)
 }
 
+type GetFunctionTenancyConfig struct {
+	// (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+	TenantIsolationMode string `pulumi:"tenantIsolationMode"`
+}
+
+// GetFunctionTenancyConfigInput is an input type that accepts GetFunctionTenancyConfigArgs and GetFunctionTenancyConfigOutput values.
+// You can construct a concrete instance of `GetFunctionTenancyConfigInput` via:
+//
+//	GetFunctionTenancyConfigArgs{...}
+type GetFunctionTenancyConfigInput interface {
+	pulumi.Input
+
+	ToGetFunctionTenancyConfigOutput() GetFunctionTenancyConfigOutput
+	ToGetFunctionTenancyConfigOutputWithContext(context.Context) GetFunctionTenancyConfigOutput
+}
+
+type GetFunctionTenancyConfigArgs struct {
+	// (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+	TenantIsolationMode pulumi.StringInput `pulumi:"tenantIsolationMode"`
+}
+
+func (GetFunctionTenancyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionTenancyConfig)(nil)).Elem()
+}
+
+func (i GetFunctionTenancyConfigArgs) ToGetFunctionTenancyConfigOutput() GetFunctionTenancyConfigOutput {
+	return i.ToGetFunctionTenancyConfigOutputWithContext(context.Background())
+}
+
+func (i GetFunctionTenancyConfigArgs) ToGetFunctionTenancyConfigOutputWithContext(ctx context.Context) GetFunctionTenancyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionTenancyConfigOutput)
+}
+
+// GetFunctionTenancyConfigArrayInput is an input type that accepts GetFunctionTenancyConfigArray and GetFunctionTenancyConfigArrayOutput values.
+// You can construct a concrete instance of `GetFunctionTenancyConfigArrayInput` via:
+//
+//	GetFunctionTenancyConfigArray{ GetFunctionTenancyConfigArgs{...} }
+type GetFunctionTenancyConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionTenancyConfigArrayOutput() GetFunctionTenancyConfigArrayOutput
+	ToGetFunctionTenancyConfigArrayOutputWithContext(context.Context) GetFunctionTenancyConfigArrayOutput
+}
+
+type GetFunctionTenancyConfigArray []GetFunctionTenancyConfigInput
+
+func (GetFunctionTenancyConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionTenancyConfig)(nil)).Elem()
+}
+
+func (i GetFunctionTenancyConfigArray) ToGetFunctionTenancyConfigArrayOutput() GetFunctionTenancyConfigArrayOutput {
+	return i.ToGetFunctionTenancyConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionTenancyConfigArray) ToGetFunctionTenancyConfigArrayOutputWithContext(ctx context.Context) GetFunctionTenancyConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionTenancyConfigArrayOutput)
+}
+
+type GetFunctionTenancyConfigOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionTenancyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionTenancyConfig)(nil)).Elem()
+}
+
+func (o GetFunctionTenancyConfigOutput) ToGetFunctionTenancyConfigOutput() GetFunctionTenancyConfigOutput {
+	return o
+}
+
+func (o GetFunctionTenancyConfigOutput) ToGetFunctionTenancyConfigOutputWithContext(ctx context.Context) GetFunctionTenancyConfigOutput {
+	return o
+}
+
+// (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+func (o GetFunctionTenancyConfigOutput) TenantIsolationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionTenancyConfig) string { return v.TenantIsolationMode }).(pulumi.StringOutput)
+}
+
+type GetFunctionTenancyConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionTenancyConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionTenancyConfig)(nil)).Elem()
+}
+
+func (o GetFunctionTenancyConfigArrayOutput) ToGetFunctionTenancyConfigArrayOutput() GetFunctionTenancyConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionTenancyConfigArrayOutput) ToGetFunctionTenancyConfigArrayOutputWithContext(ctx context.Context) GetFunctionTenancyConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionTenancyConfigArrayOutput) Index(i pulumi.IntInput) GetFunctionTenancyConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionTenancyConfig {
+		return vs[0].([]GetFunctionTenancyConfig)[vs[1].(int)]
+	}).(GetFunctionTenancyConfigOutput)
+}
+
 type GetFunctionTracingConfig struct {
 	// Tracing mode. Valid values: `Active`, `PassThrough`.
 	Mode string `pulumi:"mode"`
@@ -5907,6 +7748,18 @@ func (o GetFunctionVpcConfigOutput) VpcId() pulumi.StringOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingConfigInput)(nil)).Elem(), AliasRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingConfigPtrInput)(nil)).Elem(), AliasRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityProviderScalingConfigInput)(nil)).Elem(), CapacityProviderCapacityProviderScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityProviderScalingConfigArrayInput)(nil)).Elem(), CapacityProviderCapacityProviderScalingConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityProviderScalingConfigScalingPolicyInput)(nil)).Elem(), CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayInput)(nil)).Elem(), CapacityProviderCapacityProviderScalingConfigScalingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementInput)(nil)).Elem(), CapacityProviderInstanceRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementArrayInput)(nil)).Elem(), CapacityProviderInstanceRequirementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPermissionsConfigInput)(nil)).Elem(), CapacityProviderPermissionsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPermissionsConfigPtrInput)(nil)).Elem(), CapacityProviderPermissionsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTimeoutsInput)(nil)).Elem(), CapacityProviderTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTimeoutsPtrInput)(nil)).Elem(), CapacityProviderTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderVpcConfigInput)(nil)).Elem(), CapacityProviderVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderVpcConfigPtrInput)(nil)).Elem(), CapacityProviderVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigAllowedPublishersInput)(nil)).Elem(), CodeSigningConfigAllowedPublishersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigAllowedPublishersPtrInput)(nil)).Elem(), CodeSigningConfigAllowedPublishersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigPoliciesInput)(nil)).Elem(), CodeSigningConfigPoliciesArgs{})
@@ -5947,8 +7800,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationArrayInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCapacityProviderConfigInput)(nil)).Elem(), FunctionCapacityProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCapacityProviderConfigPtrInput)(nil)).Elem(), FunctionCapacityProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigInput)(nil)).Elem(), FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrInput)(nil)).Elem(), FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigPtrInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDurableConfigInput)(nil)).Elem(), FunctionDurableConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDurableConfigPtrInput)(nil)).Elem(), FunctionDurableConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEnvironmentInput)(nil)).Elem(), FunctionEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEnvironmentPtrInput)(nil)).Elem(), FunctionEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEphemeralStorageInput)(nil)).Elem(), FunctionEphemeralStorageArgs{})
@@ -5967,6 +7826,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigPtrInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartInput)(nil)).Elem(), FunctionSnapStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartPtrInput)(nil)).Elem(), FunctionSnapStartArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTenancyConfigInput)(nil)).Elem(), FunctionTenancyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTenancyConfigPtrInput)(nil)).Elem(), FunctionTenancyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigInput)(nil)).Elem(), FunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigPtrInput)(nil)).Elem(), FunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionUrlCorsInput)(nil)).Elem(), FunctionUrlCorsArgs{})
@@ -5977,7 +7838,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigAllowedPublisherArrayInput)(nil)).Elem(), GetCodeSigningConfigAllowedPublisherArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigPolicyInput)(nil)).Elem(), GetCodeSigningConfigPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigPolicyArrayInput)(nil)).Elem(), GetCodeSigningConfigPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionCapacityProviderConfigInput)(nil)).Elem(), GetFunctionCapacityProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionCapacityProviderConfigArrayInput)(nil)).Elem(), GetFunctionCapacityProviderConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigInput)(nil)).Elem(), GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayInput)(nil)).Elem(), GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionDeadLetterConfigInput)(nil)).Elem(), GetFunctionDeadLetterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionDurableConfigInput)(nil)).Elem(), GetFunctionDurableConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionDurableConfigArrayInput)(nil)).Elem(), GetFunctionDurableConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEnvironmentInput)(nil)).Elem(), GetFunctionEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEphemeralStorageInput)(nil)).Elem(), GetFunctionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEphemeralStorageArrayInput)(nil)).Elem(), GetFunctionEphemeralStorageArray{})
@@ -5985,12 +7852,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionFileSystemConfigArrayInput)(nil)).Elem(), GetFunctionFileSystemConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionLoggingConfigInput)(nil)).Elem(), GetFunctionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionLoggingConfigArrayInput)(nil)).Elem(), GetFunctionLoggingConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionTenancyConfigInput)(nil)).Elem(), GetFunctionTenancyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionTenancyConfigArrayInput)(nil)).Elem(), GetFunctionTenancyConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionTracingConfigInput)(nil)).Elem(), GetFunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionUrlCorInput)(nil)).Elem(), GetFunctionUrlCorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionUrlCorArrayInput)(nil)).Elem(), GetFunctionUrlCorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionVpcConfigInput)(nil)).Elem(), GetFunctionVpcConfigArgs{})
 	pulumi.RegisterOutputType(AliasRoutingConfigOutput{})
 	pulumi.RegisterOutputType(AliasRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityProviderScalingConfigOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityProviderScalingConfigArrayOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementArrayOutput{})
+	pulumi.RegisterOutputType(CapacityProviderPermissionsConfigOutput{})
+	pulumi.RegisterOutputType(CapacityProviderPermissionsConfigPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTimeoutsOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderVpcConfigOutput{})
+	pulumi.RegisterOutputType(CapacityProviderVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigPoliciesOutput{})
@@ -6031,8 +7912,14 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FunctionCapacityProviderConfigOutput{})
+	pulumi.RegisterOutputType(FunctionCapacityProviderConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput{})
+	pulumi.RegisterOutputType(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionDurableConfigOutput{})
+	pulumi.RegisterOutputType(FunctionDurableConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEphemeralStorageOutput{})
@@ -6051,6 +7938,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartPtrOutput{})
+	pulumi.RegisterOutputType(FunctionTenancyConfigOutput{})
+	pulumi.RegisterOutputType(FunctionTenancyConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionUrlCorsOutput{})
@@ -6061,7 +7950,13 @@ func init() {
 	pulumi.RegisterOutputType(GetCodeSigningConfigAllowedPublisherArrayOutput{})
 	pulumi.RegisterOutputType(GetCodeSigningConfigPolicyOutput{})
 	pulumi.RegisterOutputType(GetCodeSigningConfigPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionCapacityProviderConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionCapacityProviderConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionDeadLetterConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionDurableConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionDurableConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetFunctionEphemeralStorageOutput{})
 	pulumi.RegisterOutputType(GetFunctionEphemeralStorageArrayOutput{})
@@ -6069,6 +7964,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionLoggingConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionLoggingConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionTenancyConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionTenancyConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionUrlCorOutput{})
 	pulumi.RegisterOutputType(GetFunctionUrlCorArrayOutput{})

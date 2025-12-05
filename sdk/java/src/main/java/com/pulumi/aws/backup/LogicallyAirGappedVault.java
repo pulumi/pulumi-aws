@@ -83,6 +83,20 @@ public class LogicallyAirGappedVault extends com.pulumi.resources.CustomResource
         return this.arn;
     }
     /**
+     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * 
+     */
+    @Export(name="encryptionKeyArn", refs={String.class}, tree="[0]")
+    private Output<String> encryptionKeyArn;
+
+    /**
+     * @return The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * 
+     */
+    public Output<String> encryptionKeyArn() {
+        return this.encryptionKeyArn;
+    }
+    /**
      * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
      * 
      */

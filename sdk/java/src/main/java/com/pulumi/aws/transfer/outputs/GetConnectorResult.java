@@ -4,6 +4,7 @@
 package com.pulumi.aws.transfer.outputs;
 
 import com.pulumi.aws.transfer.outputs.GetConnectorAs2Config;
+import com.pulumi.aws.transfer.outputs.GetConnectorEgressConfig;
 import com.pulumi.aws.transfer.outputs.GetConnectorSftpConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -29,6 +30,11 @@ public final class GetConnectorResult {
      * 
      */
     private List<GetConnectorAs2Config> as2Configs;
+    /**
+     * @return Egress configuration for the connector. Contains the following attributes:
+     * 
+     */
+    private List<GetConnectorEgressConfig> egressConfigs;
     private String id;
     /**
      * @return ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
@@ -83,6 +89,13 @@ public final class GetConnectorResult {
      */
     public List<GetConnectorAs2Config> as2Configs() {
         return this.as2Configs;
+    }
+    /**
+     * @return Egress configuration for the connector. Contains the following attributes:
+     * 
+     */
+    public List<GetConnectorEgressConfig> egressConfigs() {
+        return this.egressConfigs;
     }
     public String id() {
         return this.id;
@@ -145,6 +158,7 @@ public final class GetConnectorResult {
         private String accessRole;
         private String arn;
         private List<GetConnectorAs2Config> as2Configs;
+        private List<GetConnectorEgressConfig> egressConfigs;
         private String id;
         private String loggingRole;
         private String region;
@@ -159,6 +173,7 @@ public final class GetConnectorResult {
     	      this.accessRole = defaults.accessRole;
     	      this.arn = defaults.arn;
     	      this.as2Configs = defaults.as2Configs;
+    	      this.egressConfigs = defaults.egressConfigs;
     	      this.id = defaults.id;
     	      this.loggingRole = defaults.loggingRole;
     	      this.region = defaults.region;
@@ -195,6 +210,17 @@ public final class GetConnectorResult {
         }
         public Builder as2Configs(GetConnectorAs2Config... as2Configs) {
             return as2Configs(List.of(as2Configs));
+        }
+        @CustomType.Setter
+        public Builder egressConfigs(List<GetConnectorEgressConfig> egressConfigs) {
+            if (egressConfigs == null) {
+              throw new MissingRequiredPropertyException("GetConnectorResult", "egressConfigs");
+            }
+            this.egressConfigs = egressConfigs;
+            return this;
+        }
+        public Builder egressConfigs(GetConnectorEgressConfig... egressConfigs) {
+            return egressConfigs(List.of(egressConfigs));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -271,6 +297,7 @@ public final class GetConnectorResult {
             _resultValue.accessRole = accessRole;
             _resultValue.arn = arn;
             _resultValue.as2Configs = as2Configs;
+            _resultValue.egressConfigs = egressConfigs;
             _resultValue.id = id;
             _resultValue.loggingRole = loggingRole;
             _resultValue.region = region;

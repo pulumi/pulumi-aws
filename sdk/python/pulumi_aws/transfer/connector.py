@@ -22,28 +22,31 @@ __all__ = ['ConnectorArgs', 'Connector']
 class ConnectorArgs:
     def __init__(__self__, *,
                  access_role: pulumi.Input[_builtins.str],
-                 url: pulumi.Input[_builtins.str],
                  as2_config: Optional[pulumi.Input['ConnectorAs2ConfigArgs']] = None,
+                 egress_config: Optional[pulumi.Input['ConnectorEgressConfigArgs']] = None,
                  logging_role: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sftp_config: Optional[pulumi.Input['ConnectorSftpConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connector resource.
         :param pulumi.Input[_builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-        :param pulumi.Input[_builtins.str] url: The URL of the partners AS2 endpoint or SFTP endpoint.
         :param pulumi.Input['ConnectorAs2ConfigArgs'] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        :param pulumi.Input['ConnectorEgressConfigArgs'] egress_config: Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
         :param pulumi.Input[_builtins.str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] security_policy_name: Name of the security policy for the connector.
         :param pulumi.Input['ConnectorSftpConfigArgs'] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] url: The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
         """
         pulumi.set(__self__, "access_role", access_role)
-        pulumi.set(__self__, "url", url)
         if as2_config is not None:
             pulumi.set(__self__, "as2_config", as2_config)
+        if egress_config is not None:
+            pulumi.set(__self__, "egress_config", egress_config)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
         if region is not None:
@@ -54,6 +57,8 @@ class ConnectorArgs:
             pulumi.set(__self__, "sftp_config", sftp_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @_builtins.property
     @pulumi.getter(name="accessRole")
@@ -68,18 +73,6 @@ class ConnectorArgs:
         pulumi.set(self, "access_role", value)
 
     @_builtins.property
-    @pulumi.getter
-    def url(self) -> pulumi.Input[_builtins.str]:
-        """
-        The URL of the partners AS2 endpoint or SFTP endpoint.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "url", value)
-
-    @_builtins.property
     @pulumi.getter(name="as2Config")
     def as2_config(self) -> Optional[pulumi.Input['ConnectorAs2ConfigArgs']]:
         """
@@ -90,6 +83,18 @@ class ConnectorArgs:
     @as2_config.setter
     def as2_config(self, value: Optional[pulumi.Input['ConnectorAs2ConfigArgs']]):
         pulumi.set(self, "as2_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="egressConfig")
+    def egress_config(self) -> Optional[pulumi.Input['ConnectorEgressConfigArgs']]:
+        """
+        Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+        """
+        return pulumi.get(self, "egress_config")
+
+    @egress_config.setter
+    def egress_config(self, value: Optional[pulumi.Input['ConnectorEgressConfigArgs']]):
+        pulumi.set(self, "egress_config", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingRole")
@@ -151,6 +156,18 @@ class ConnectorArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "url", value)
+
 
 @pulumi.input_type
 class _ConnectorState:
@@ -159,6 +176,7 @@ class _ConnectorState:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  as2_config: Optional[pulumi.Input['ConnectorAs2ConfigArgs']] = None,
                  connector_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 egress_config: Optional[pulumi.Input['ConnectorEgressConfigArgs']] = None,
                  logging_role: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -172,12 +190,13 @@ class _ConnectorState:
         :param pulumi.Input[_builtins.str] arn: The ARN of the connector.
         :param pulumi.Input['ConnectorAs2ConfigArgs'] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[_builtins.str] connector_id: The unique identifier for the AS2 profile or SFTP Profile.
+        :param pulumi.Input['ConnectorEgressConfigArgs'] egress_config: Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
         :param pulumi.Input[_builtins.str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] security_policy_name: Name of the security policy for the connector.
         :param pulumi.Input['ConnectorSftpConfigArgs'] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] url: The URL of the partners AS2 endpoint or SFTP endpoint.
+        :param pulumi.Input[_builtins.str] url: The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
         """
         if access_role is not None:
             pulumi.set(__self__, "access_role", access_role)
@@ -187,6 +206,8 @@ class _ConnectorState:
             pulumi.set(__self__, "as2_config", as2_config)
         if connector_id is not None:
             pulumi.set(__self__, "connector_id", connector_id)
+        if egress_config is not None:
+            pulumi.set(__self__, "egress_config", egress_config)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
         if region is not None:
@@ -249,6 +270,18 @@ class _ConnectorState:
     @connector_id.setter
     def connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "connector_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="egressConfig")
+    def egress_config(self) -> Optional[pulumi.Input['ConnectorEgressConfigArgs']]:
+        """
+        Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+        """
+        return pulumi.get(self, "egress_config")
+
+    @egress_config.setter
+    def egress_config(self, value: Optional[pulumi.Input['ConnectorEgressConfigArgs']]):
+        pulumi.set(self, "egress_config", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingRole")
@@ -323,7 +356,7 @@ class _ConnectorState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The URL of the partners AS2 endpoint or SFTP endpoint.
+        The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
         """
         return pulumi.get(self, "url")
 
@@ -340,6 +373,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: Optional[pulumi.Input[_builtins.str]] = None,
                  as2_config: Optional[pulumi.Input[Union['ConnectorAs2ConfigArgs', 'ConnectorAs2ConfigArgsDict']]] = None,
+                 egress_config: Optional[pulumi.Input[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']]] = None,
                  logging_role: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -388,6 +422,26 @@ class Connector(pulumi.CustomResource):
             url="sftp://test.com")
         ```
 
+        ### SFTP Connector with VPC Lattice
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Connector("example",
+            access_role=test["arn"],
+            sftp_config={
+                "trusted_host_keys": ["ssh-rsa AAAAB3NYourKeysHere"],
+                "user_secret_id": example_aws_secretsmanager_secret["id"],
+            },
+            egress_config={
+                "vpc_lattice": {
+                    "resource_configuration_arn": "arn:aws:vpc-lattice:us-east-1:123456789012:resourceconfiguration/rcfg-12345678901234567",
+                    "port_number": 22,
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
@@ -400,12 +454,13 @@ class Connector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         :param pulumi.Input[Union['ConnectorAs2ConfigArgs', 'ConnectorAs2ConfigArgsDict']] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        :param pulumi.Input[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']] egress_config: Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
         :param pulumi.Input[_builtins.str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] security_policy_name: Name of the security policy for the connector.
         :param pulumi.Input[Union['ConnectorSftpConfigArgs', 'ConnectorSftpConfigArgsDict']] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] url: The URL of the partners AS2 endpoint or SFTP endpoint.
+        :param pulumi.Input[_builtins.str] url: The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
         """
         ...
     @overload
@@ -454,6 +509,26 @@ class Connector(pulumi.CustomResource):
             url="sftp://test.com")
         ```
 
+        ### SFTP Connector with VPC Lattice
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Connector("example",
+            access_role=test["arn"],
+            sftp_config={
+                "trusted_host_keys": ["ssh-rsa AAAAB3NYourKeysHere"],
+                "user_secret_id": example_aws_secretsmanager_secret["id"],
+            },
+            egress_config={
+                "vpc_lattice": {
+                    "resource_configuration_arn": "arn:aws:vpc-lattice:us-east-1:123456789012:resourceconfiguration/rcfg-12345678901234567",
+                    "port_number": 22,
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
@@ -479,6 +554,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: Optional[pulumi.Input[_builtins.str]] = None,
                  as2_config: Optional[pulumi.Input[Union['ConnectorAs2ConfigArgs', 'ConnectorAs2ConfigArgsDict']]] = None,
+                 egress_config: Optional[pulumi.Input[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']]] = None,
                  logging_role: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -498,13 +574,12 @@ class Connector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'access_role'")
             __props__.__dict__["access_role"] = access_role
             __props__.__dict__["as2_config"] = as2_config
+            __props__.__dict__["egress_config"] = egress_config
             __props__.__dict__["logging_role"] = logging_role
             __props__.__dict__["region"] = region
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["sftp_config"] = sftp_config
             __props__.__dict__["tags"] = tags
-            if url is None and not opts.urn:
-                raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["arn"] = None
             __props__.__dict__["connector_id"] = None
@@ -523,6 +598,7 @@ class Connector(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             as2_config: Optional[pulumi.Input[Union['ConnectorAs2ConfigArgs', 'ConnectorAs2ConfigArgsDict']]] = None,
             connector_id: Optional[pulumi.Input[_builtins.str]] = None,
+            egress_config: Optional[pulumi.Input[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']]] = None,
             logging_role: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -541,12 +617,13 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the connector.
         :param pulumi.Input[Union['ConnectorAs2ConfigArgs', 'ConnectorAs2ConfigArgsDict']] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[_builtins.str] connector_id: The unique identifier for the AS2 profile or SFTP Profile.
+        :param pulumi.Input[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']] egress_config: Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
         :param pulumi.Input[_builtins.str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] security_policy_name: Name of the security policy for the connector.
         :param pulumi.Input[Union['ConnectorSftpConfigArgs', 'ConnectorSftpConfigArgsDict']] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] url: The URL of the partners AS2 endpoint or SFTP endpoint.
+        :param pulumi.Input[_builtins.str] url: The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -556,6 +633,7 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["as2_config"] = as2_config
         __props__.__dict__["connector_id"] = connector_id
+        __props__.__dict__["egress_config"] = egress_config
         __props__.__dict__["logging_role"] = logging_role
         __props__.__dict__["region"] = region
         __props__.__dict__["security_policy_name"] = security_policy_name
@@ -596,6 +674,14 @@ class Connector(pulumi.CustomResource):
         The unique identifier for the AS2 profile or SFTP Profile.
         """
         return pulumi.get(self, "connector_id")
+
+    @_builtins.property
+    @pulumi.getter(name="egressConfig")
+    def egress_config(self) -> pulumi.Output[Optional['outputs.ConnectorEgressConfig']]:
+        """
+        Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+        """
+        return pulumi.get(self, "egress_config")
 
     @_builtins.property
     @pulumi.getter(name="loggingRole")
@@ -644,9 +730,9 @@ class Connector(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> pulumi.Output[_builtins.str]:
+    def url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The URL of the partners AS2 endpoint or SFTP endpoint.
+        The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
         """
         return pulumi.get(self, "url")
 

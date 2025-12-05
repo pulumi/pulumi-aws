@@ -7,6 +7,7 @@ import com.pulumi.aws.lb.outputs.ListenerDefaultActionAuthenticateCognito;
 import com.pulumi.aws.lb.outputs.ListenerDefaultActionAuthenticateOidc;
 import com.pulumi.aws.lb.outputs.ListenerDefaultActionFixedResponse;
 import com.pulumi.aws.lb.outputs.ListenerDefaultActionForward;
+import com.pulumi.aws.lb.outputs.ListenerDefaultActionJwtValidation;
 import com.pulumi.aws.lb.outputs.ListenerDefaultActionRedirect;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -39,6 +40,11 @@ public final class ListenerDefaultAction {
      */
     private @Nullable ListenerDefaultActionForward forward;
     /**
+     * @return Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
+     * 
+     */
+    private @Nullable ListenerDefaultActionJwtValidation jwtValidation;
+    /**
      * @return Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
      * 
      */
@@ -54,7 +60,7 @@ public final class ListenerDefaultAction {
      */
     private @Nullable String targetGroupArn;
     /**
-     * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
      * 
      * The following arguments are optional:
      * 
@@ -91,6 +97,13 @@ public final class ListenerDefaultAction {
         return Optional.ofNullable(this.forward);
     }
     /**
+     * @return Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
+     * 
+     */
+    public Optional<ListenerDefaultActionJwtValidation> jwtValidation() {
+        return Optional.ofNullable(this.jwtValidation);
+    }
+    /**
      * @return Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
      * 
      */
@@ -112,7 +125,7 @@ public final class ListenerDefaultAction {
         return Optional.ofNullable(this.targetGroupArn);
     }
     /**
-     * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
      * 
      * The following arguments are optional:
      * 
@@ -134,6 +147,7 @@ public final class ListenerDefaultAction {
         private @Nullable ListenerDefaultActionAuthenticateOidc authenticateOidc;
         private @Nullable ListenerDefaultActionFixedResponse fixedResponse;
         private @Nullable ListenerDefaultActionForward forward;
+        private @Nullable ListenerDefaultActionJwtValidation jwtValidation;
         private @Nullable Integer order;
         private @Nullable ListenerDefaultActionRedirect redirect;
         private @Nullable String targetGroupArn;
@@ -145,6 +159,7 @@ public final class ListenerDefaultAction {
     	      this.authenticateOidc = defaults.authenticateOidc;
     	      this.fixedResponse = defaults.fixedResponse;
     	      this.forward = defaults.forward;
+    	      this.jwtValidation = defaults.jwtValidation;
     	      this.order = defaults.order;
     	      this.redirect = defaults.redirect;
     	      this.targetGroupArn = defaults.targetGroupArn;
@@ -173,6 +188,12 @@ public final class ListenerDefaultAction {
         public Builder forward(@Nullable ListenerDefaultActionForward forward) {
 
             this.forward = forward;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jwtValidation(@Nullable ListenerDefaultActionJwtValidation jwtValidation) {
+
+            this.jwtValidation = jwtValidation;
             return this;
         }
         @CustomType.Setter
@@ -207,6 +228,7 @@ public final class ListenerDefaultAction {
             _resultValue.authenticateOidc = authenticateOidc;
             _resultValue.fixedResponse = fixedResponse;
             _resultValue.forward = forward;
+            _resultValue.jwtValidation = jwtValidation;
             _resultValue.order = order;
             _resultValue.redirect = redirect;
             _resultValue.targetGroupArn = targetGroupArn;

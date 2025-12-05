@@ -47,8 +47,6 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_docdbelastic_cluster.example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
     /// </summary>
     [AwsResourceType("aws:docdb/elasticCluster:ElasticCluster")]

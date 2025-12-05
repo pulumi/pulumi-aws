@@ -7,13 +7,16 @@ import com.pulumi.asset.Archive;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.lambda.FunctionArgs;
 import com.pulumi.aws.lambda.inputs.FunctionState;
+import com.pulumi.aws.lambda.outputs.FunctionCapacityProviderConfig;
 import com.pulumi.aws.lambda.outputs.FunctionDeadLetterConfig;
+import com.pulumi.aws.lambda.outputs.FunctionDurableConfig;
 import com.pulumi.aws.lambda.outputs.FunctionEnvironment;
 import com.pulumi.aws.lambda.outputs.FunctionEphemeralStorage;
 import com.pulumi.aws.lambda.outputs.FunctionFileSystemConfig;
 import com.pulumi.aws.lambda.outputs.FunctionImageConfig;
 import com.pulumi.aws.lambda.outputs.FunctionLoggingConfig;
 import com.pulumi.aws.lambda.outputs.FunctionSnapStart;
+import com.pulumi.aws.lambda.outputs.FunctionTenancyConfig;
 import com.pulumi.aws.lambda.outputs.FunctionTracingConfig;
 import com.pulumi.aws.lambda.outputs.FunctionVpcConfig;
 import com.pulumi.core.Output;
@@ -663,6 +666,123 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Function with Durable Configuration
+ * 
+ * Stopping durable executions and deleting the Lambda function may take up to `60m`. Use configured `timeouts` as shown below.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionDurableConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Function("example", FunctionArgs.builder()
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_durable_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs22.x")
+ *             .memorySize(512)
+ *             .timeout(30)
+ *             .durableConfig(FunctionDurableConfigArgs.builder()
+ *                 .executionTimeout(3600)
+ *                 .retentionPeriod(7)
+ *                 .build())
+ *             .environment(FunctionEnvironmentArgs.builder()
+ *                 .variables(Map.of("DURABLE_MODE", "enabled"))
+ *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Environment", "production"),
+ *                 Map.entry("Type", "durable")
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Capacity Provider Configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.CapacityProvider;
+ * import com.pulumi.aws.lambda.CapacityProviderArgs;
+ * import com.pulumi.aws.lambda.inputs.CapacityProviderVpcConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.CapacityProviderPermissionsConfigArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionCapacityProviderConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCapacityProvider = new CapacityProvider("exampleCapacityProvider", CapacityProviderArgs.builder()
+ *             .name("example")
+ *             .vpcConfig(CapacityProviderVpcConfigArgs.builder()
+ *                 .subnetIds(exampleAwsSubnet.id())
+ *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .build())
+ *             .permissionsConfig(CapacityProviderPermissionsConfigArgs.builder()
+ *                 .capacityProviderOperatorRoleArn(exampleAwsIamRole.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var example = new Function("example", FunctionArgs.builder()
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example")
+ *             .role(exampleAwsIamRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs20.x")
+ *             .memorySize(2048)
+ *             .publish(true)
+ *             .capacityProviderConfig(FunctionCapacityProviderConfigArgs.builder()
+ *                 .lambdaManagedInstancesCapacityProviderConfig(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs.builder()
+ *                     .capacityProviderArn(exampleCapacityProvider.arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Specifying the Deployment Package
  * 
  * AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
@@ -686,8 +806,6 @@ import javax.annotation.Nullable;
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
- * 
- * console
  * 
  * % pulumi import aws_lambda_function.example example
  * 
@@ -721,6 +839,20 @@ public class Function extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Configuration block for Lambda Capacity Provider. See below.
+     * 
+     */
+    @Export(name="capacityProviderConfig", refs={FunctionCapacityProviderConfig.class}, tree="[0]")
+    private Output</* @Nullable */ FunctionCapacityProviderConfig> capacityProviderConfig;
+
+    /**
+     * @return Configuration block for Lambda Capacity Provider. See below.
+     * 
+     */
+    public Output<Optional<FunctionCapacityProviderConfig>> capacityProviderConfig() {
+        return Codegen.optional(this.capacityProviderConfig);
     }
     /**
      * Path to the function&#39;s deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
@@ -791,6 +923,20 @@ public class Function extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+     * 
+     */
+    @Export(name="durableConfig", refs={FunctionDurableConfig.class}, tree="[0]")
+    private Output</* @Nullable */ FunctionDurableConfig> durableConfig;
+
+    /**
+     * @return Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+     * 
+     */
+    public Output<Optional<FunctionDurableConfig>> durableConfig() {
+        return Codegen.optional(this.durableConfig);
     }
     /**
      * Configuration block for environment variables. See below.
@@ -1001,6 +1147,20 @@ public class Function extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> publish() {
         return Codegen.optional(this.publish);
+    }
+    /**
+     * Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+     * 
+     */
+    @Export(name="publishTo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> publishTo;
+
+    /**
+     * @return Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+     * 
+     */
+    public Output<Optional<String>> publishTo() {
+        return Codegen.optional(this.publishTo);
     }
     /**
      * ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
@@ -1285,6 +1445,20 @@ public class Function extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Configuration block for Tenancy. See below.
+     * 
+     */
+    @Export(name="tenancyConfig", refs={FunctionTenancyConfig.class}, tree="[0]")
+    private Output</* @Nullable */ FunctionTenancyConfig> tenancyConfig;
+
+    /**
+     * @return Configuration block for Tenancy. See below.
+     * 
+     */
+    public Output<Optional<FunctionTenancyConfig>> tenancyConfig() {
+        return Codegen.optional(this.tenancyConfig);
     }
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.

@@ -12,11 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI model resource.
+// Manages an Amazon SageMaker AI Model.
 //
 // ## Example Usage
 //
-// Basic usage:
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -79,26 +79,17 @@ import (
 //
 // ```
 //
-// ## Inference Execution Config
-//
-// * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
-//
-// ### VPC Config
-//
-// * `securityGroupIds` - (Required) List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
-// * `subnets` - (Required) List of subnet IDs in the VPC to which you want to connect your training job or model.
-//
 // ## Import
 //
 // Using `pulumi import`, import models using the `name`. For example:
 //
 // ```sh
-// $ pulumi import aws:sagemaker/model:Model test_model model-foo
+// $ pulumi import aws:sagemaker/model:Model example model-foo
 // ```
 type Model struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this model.
+	// Amazon Resource Name (ARN) assigned by AWS to this model.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
 	Containers ModelContainerArrayOutput `pulumi:"containers"`
@@ -108,9 +99,9 @@ type Model struct {
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
 	InferenceExecutionConfig ModelInferenceExecutionConfigOutput `pulumi:"inferenceExecutionConfig"`
-	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+	// Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+	// Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrOutput `pulumi:"primaryContainer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -155,7 +146,7 @@ func GetModel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Model resources.
 type modelState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this model.
+	// Amazon Resource Name (ARN) assigned by AWS to this model.
 	Arn *string `pulumi:"arn"`
 	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
 	Containers []ModelContainer `pulumi:"containers"`
@@ -165,9 +156,9 @@ type modelState struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
 	InferenceExecutionConfig *ModelInferenceExecutionConfig `pulumi:"inferenceExecutionConfig"`
-	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+	// Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
-	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+	// Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer *ModelPrimaryContainer `pulumi:"primaryContainer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -180,7 +171,7 @@ type modelState struct {
 }
 
 type ModelState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this model.
+	// Amazon Resource Name (ARN) assigned by AWS to this model.
 	Arn pulumi.StringPtrInput
 	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
 	Containers ModelContainerArrayInput
@@ -190,9 +181,9 @@ type ModelState struct {
 	ExecutionRoleArn pulumi.StringPtrInput
 	// Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
 	InferenceExecutionConfig ModelInferenceExecutionConfigPtrInput
-	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+	// Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
-	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+	// Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -217,9 +208,9 @@ type modelArgs struct {
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
 	InferenceExecutionConfig *ModelInferenceExecutionConfig `pulumi:"inferenceExecutionConfig"`
-	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+	// Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
-	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+	// Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer *ModelPrimaryContainer `pulumi:"primaryContainer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -239,9 +230,9 @@ type ModelArgs struct {
 	ExecutionRoleArn pulumi.StringInput
 	// Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
 	InferenceExecutionConfig ModelInferenceExecutionConfigPtrInput
-	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+	// Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
-	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+	// Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -338,7 +329,7 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this model.
+// Amazon Resource Name (ARN) assigned by AWS to this model.
 func (o ModelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -363,12 +354,12 @@ func (o ModelOutput) InferenceExecutionConfig() ModelInferenceExecutionConfigOut
 	return o.ApplyT(func(v *Model) ModelInferenceExecutionConfigOutput { return v.InferenceExecutionConfig }).(ModelInferenceExecutionConfigOutput)
 }
 
-// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+// Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
 func (o ModelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+// Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 func (o ModelOutput) PrimaryContainer() ModelPrimaryContainerPtrOutput {
 	return o.ApplyT(func(v *Model) ModelPrimaryContainerPtrOutput { return v.PrimaryContainer }).(ModelPrimaryContainerPtrOutput)
 }

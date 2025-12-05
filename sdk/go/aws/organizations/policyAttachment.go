@@ -115,8 +115,6 @@ import (
 //
 // With an account target:
 //
-// console
-//
 // % pulumi import aws_organizations_policy_attachment.example 123456789012:p-12345678
 type PolicyAttachment struct {
 	pulumi.CustomResourceState

@@ -9,6 +9,7 @@ import com.pulumi.aws.msk.inputs.ClusterConfigurationInfoArgs;
 import com.pulumi.aws.msk.inputs.ClusterEncryptionInfoArgs;
 import com.pulumi.aws.msk.inputs.ClusterLoggingInfoArgs;
 import com.pulumi.aws.msk.inputs.ClusterOpenMonitoringArgs;
+import com.pulumi.aws.msk.inputs.ClusterRebalancingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -175,6 +176,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * 
+     */
+    @Import(name="rebalancing")
+    private @Nullable Output<ClusterRebalancingArgs> rebalancing;
+
+    /**
+     * @return Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * 
+     */
+    public Optional<Output<ClusterRebalancingArgs>> rebalancing() {
+        return Optional.ofNullable(this.rebalancing);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -232,6 +248,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.loggingInfo = $.loggingInfo;
         this.numberOfBrokerNodes = $.numberOfBrokerNodes;
         this.openMonitoring = $.openMonitoring;
+        this.rebalancing = $.rebalancing;
         this.region = $.region;
         this.storageMode = $.storageMode;
         this.tags = $.tags;
@@ -463,6 +480,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder openMonitoring(ClusterOpenMonitoringArgs openMonitoring) {
             return openMonitoring(Output.of(openMonitoring));
+        }
+
+        /**
+         * @param rebalancing Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rebalancing(@Nullable Output<ClusterRebalancingArgs> rebalancing) {
+            $.rebalancing = rebalancing;
+            return this;
+        }
+
+        /**
+         * @param rebalancing Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rebalancing(ClusterRebalancingArgs rebalancing) {
+            return rebalancing(Output.of(rebalancing));
         }
 
         /**
