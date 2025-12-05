@@ -705,6 +705,11 @@ export type VpcDhcpOptionsAssociation = import("./vpcDhcpOptionsAssociation").Vp
 export const VpcDhcpOptionsAssociation: typeof import("./vpcDhcpOptionsAssociation").VpcDhcpOptionsAssociation = null as any;
 utilities.lazyLoad(exports, ["VpcDhcpOptionsAssociation"], () => require("./vpcDhcpOptionsAssociation"));
 
+export { VpcEncryptionControlArgs, VpcEncryptionControlState } from "./vpcEncryptionControl";
+export type VpcEncryptionControl = import("./vpcEncryptionControl").VpcEncryptionControl;
+export const VpcEncryptionControl: typeof import("./vpcEncryptionControl").VpcEncryptionControl = null as any;
+utilities.lazyLoad(exports, ["VpcEncryptionControl"], () => require("./vpcEncryptionControl"));
+
 export { VpcEndpointArgs, VpcEndpointState } from "./vpcEndpoint";
 export type VpcEndpoint = import("./vpcEndpoint").VpcEndpoint;
 export const VpcEndpoint: typeof import("./vpcEndpoint").VpcEndpoint = null as any;
@@ -1005,6 +1010,8 @@ const _module = {
                 return new VpcDhcpOptions(name, <any>undefined, { urn })
             case "aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation":
                 return new VpcDhcpOptionsAssociation(name, <any>undefined, { urn })
+            case "aws:ec2/vpcEncryptionControl:VpcEncryptionControl":
+                return new VpcEncryptionControl(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpoint:VpcEndpoint":
                 return new VpcEndpoint(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter":
@@ -1142,6 +1149,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/vpcBlockPublicAccessExclusion"
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcBlockPublicAccessOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcDhcpOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcDhcpOptionsAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcEncryptionControl", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointConnectionAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointConnectionNotification", _module)

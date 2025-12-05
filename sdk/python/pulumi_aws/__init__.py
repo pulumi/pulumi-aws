@@ -5169,6 +5169,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/vpcEncryptionControl",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcEncryptionControl:VpcEncryptionControl": "VpcEncryptionControl"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/vpcEndpoint",
   "fqn": "pulumi_aws.ec2",
   "classes": {

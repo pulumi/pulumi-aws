@@ -488,6 +488,26 @@ __all__ = [
     'VpcBlockPublicAccessExclusionTimeoutsArgsDict',
     'VpcBlockPublicAccessOptionsTimeoutsArgs',
     'VpcBlockPublicAccessOptionsTimeoutsArgsDict',
+    'VpcEncryptionControlResourceExclusionsArgs',
+    'VpcEncryptionControlResourceExclusionsArgsDict',
+    'VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs',
+    'VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgsDict',
+    'VpcEncryptionControlResourceExclusionsElasticFileSystemArgs',
+    'VpcEncryptionControlResourceExclusionsElasticFileSystemArgsDict',
+    'VpcEncryptionControlResourceExclusionsInternetGatewayArgs',
+    'VpcEncryptionControlResourceExclusionsInternetGatewayArgsDict',
+    'VpcEncryptionControlResourceExclusionsLambdaArgs',
+    'VpcEncryptionControlResourceExclusionsLambdaArgsDict',
+    'VpcEncryptionControlResourceExclusionsNatGatewayArgs',
+    'VpcEncryptionControlResourceExclusionsNatGatewayArgsDict',
+    'VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs',
+    'VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgsDict',
+    'VpcEncryptionControlResourceExclusionsVpcLatticeArgs',
+    'VpcEncryptionControlResourceExclusionsVpcLatticeArgsDict',
+    'VpcEncryptionControlResourceExclusionsVpcPeeringArgs',
+    'VpcEncryptionControlResourceExclusionsVpcPeeringArgsDict',
+    'VpcEncryptionControlTimeoutsArgs',
+    'VpcEncryptionControlTimeoutsArgsDict',
     'VpcEndpointDnsEntryArgs',
     'VpcEndpointDnsEntryArgsDict',
     'VpcEndpointDnsOptionsArgs',
@@ -21730,6 +21750,642 @@ elif False:
 
 @pulumi.input_type
 class VpcBlockPublicAccessOptionsTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class VpcEncryptionControlResourceExclusionsArgsDict(TypedDict):
+        egress_only_internet_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgsDict']
+        """
+        `state` and `state_message` describing encryption enforcement state for Egress-Only Internet Gateways.
+        """
+        elastic_file_system: pulumi.Input['VpcEncryptionControlResourceExclusionsElasticFileSystemArgsDict']
+        """
+        `state` and `state_message` describing encryption enforcement state for Elastic File System (EFS).
+        """
+        internet_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsInternetGatewayArgsDict']
+        """
+        `state` and `state_message` describing encryption enforcement state for Internet Gateways.
+        """
+        lambda_: pulumi.Input['VpcEncryptionControlResourceExclusionsLambdaArgsDict']
+        """
+        `state` and `state_message` describing encryption enforcement state for Lambda Functions.
+        """
+        nat_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsNatGatewayArgsDict']
+        """
+        `state` and `state_message` describing encryption enforcement state for NAT Gateways.
+        """
+        virtual_private_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgsDict']
+        """
+        `state` and `state_message` describing encryption enforcement state for Virtual Private Gateways.
+        """
+        vpc_lattice: pulumi.Input['VpcEncryptionControlResourceExclusionsVpcLatticeArgsDict']
+        """
+        `state` and `state_message` describing encryption enforcement state for VPC Lattice.
+        """
+        vpc_peering: pulumi.Input['VpcEncryptionControlResourceExclusionsVpcPeeringArgsDict']
+        """
+        `state` and `state_message` describing encryption enforcement state for peered VPCs.
+        """
+elif False:
+    VpcEncryptionControlResourceExclusionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEncryptionControlResourceExclusionsArgs:
+    def __init__(__self__, *,
+                 egress_only_internet_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs'],
+                 elastic_file_system: pulumi.Input['VpcEncryptionControlResourceExclusionsElasticFileSystemArgs'],
+                 internet_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsInternetGatewayArgs'],
+                 lambda_: pulumi.Input['VpcEncryptionControlResourceExclusionsLambdaArgs'],
+                 nat_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsNatGatewayArgs'],
+                 virtual_private_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs'],
+                 vpc_lattice: pulumi.Input['VpcEncryptionControlResourceExclusionsVpcLatticeArgs'],
+                 vpc_peering: pulumi.Input['VpcEncryptionControlResourceExclusionsVpcPeeringArgs']):
+        """
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs'] egress_only_internet_gateway: `state` and `state_message` describing encryption enforcement state for Egress-Only Internet Gateways.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsElasticFileSystemArgs'] elastic_file_system: `state` and `state_message` describing encryption enforcement state for Elastic File System (EFS).
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsInternetGatewayArgs'] internet_gateway: `state` and `state_message` describing encryption enforcement state for Internet Gateways.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsLambdaArgs'] lambda_: `state` and `state_message` describing encryption enforcement state for Lambda Functions.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsNatGatewayArgs'] nat_gateway: `state` and `state_message` describing encryption enforcement state for NAT Gateways.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs'] virtual_private_gateway: `state` and `state_message` describing encryption enforcement state for Virtual Private Gateways.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsVpcLatticeArgs'] vpc_lattice: `state` and `state_message` describing encryption enforcement state for VPC Lattice.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsVpcPeeringArgs'] vpc_peering: `state` and `state_message` describing encryption enforcement state for peered VPCs.
+        """
+        pulumi.set(__self__, "egress_only_internet_gateway", egress_only_internet_gateway)
+        pulumi.set(__self__, "elastic_file_system", elastic_file_system)
+        pulumi.set(__self__, "internet_gateway", internet_gateway)
+        pulumi.set(__self__, "lambda_", lambda_)
+        pulumi.set(__self__, "nat_gateway", nat_gateway)
+        pulumi.set(__self__, "virtual_private_gateway", virtual_private_gateway)
+        pulumi.set(__self__, "vpc_lattice", vpc_lattice)
+        pulumi.set(__self__, "vpc_peering", vpc_peering)
+
+    @_builtins.property
+    @pulumi.getter(name="egressOnlyInternetGateway")
+    def egress_only_internet_gateway(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs']:
+        """
+        `state` and `state_message` describing encryption enforcement state for Egress-Only Internet Gateways.
+        """
+        return pulumi.get(self, "egress_only_internet_gateway")
+
+    @egress_only_internet_gateway.setter
+    def egress_only_internet_gateway(self, value: pulumi.Input['VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs']):
+        pulumi.set(self, "egress_only_internet_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elasticFileSystem")
+    def elastic_file_system(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsElasticFileSystemArgs']:
+        """
+        `state` and `state_message` describing encryption enforcement state for Elastic File System (EFS).
+        """
+        return pulumi.get(self, "elastic_file_system")
+
+    @elastic_file_system.setter
+    def elastic_file_system(self, value: pulumi.Input['VpcEncryptionControlResourceExclusionsElasticFileSystemArgs']):
+        pulumi.set(self, "elastic_file_system", value)
+
+    @_builtins.property
+    @pulumi.getter(name="internetGateway")
+    def internet_gateway(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsInternetGatewayArgs']:
+        """
+        `state` and `state_message` describing encryption enforcement state for Internet Gateways.
+        """
+        return pulumi.get(self, "internet_gateway")
+
+    @internet_gateway.setter
+    def internet_gateway(self, value: pulumi.Input['VpcEncryptionControlResourceExclusionsInternetGatewayArgs']):
+        pulumi.set(self, "internet_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsLambdaArgs']:
+        """
+        `state` and `state_message` describing encryption enforcement state for Lambda Functions.
+        """
+        return pulumi.get(self, "lambda_")
+
+    @lambda_.setter
+    def lambda_(self, value: pulumi.Input['VpcEncryptionControlResourceExclusionsLambdaArgs']):
+        pulumi.set(self, "lambda_", value)
+
+    @_builtins.property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsNatGatewayArgs']:
+        """
+        `state` and `state_message` describing encryption enforcement state for NAT Gateways.
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @nat_gateway.setter
+    def nat_gateway(self, value: pulumi.Input['VpcEncryptionControlResourceExclusionsNatGatewayArgs']):
+        pulumi.set(self, "nat_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualPrivateGateway")
+    def virtual_private_gateway(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs']:
+        """
+        `state` and `state_message` describing encryption enforcement state for Virtual Private Gateways.
+        """
+        return pulumi.get(self, "virtual_private_gateway")
+
+    @virtual_private_gateway.setter
+    def virtual_private_gateway(self, value: pulumi.Input['VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs']):
+        pulumi.set(self, "virtual_private_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcLattice")
+    def vpc_lattice(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsVpcLatticeArgs']:
+        """
+        `state` and `state_message` describing encryption enforcement state for VPC Lattice.
+        """
+        return pulumi.get(self, "vpc_lattice")
+
+    @vpc_lattice.setter
+    def vpc_lattice(self, value: pulumi.Input['VpcEncryptionControlResourceExclusionsVpcLatticeArgs']):
+        pulumi.set(self, "vpc_lattice", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcPeering")
+    def vpc_peering(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsVpcPeeringArgs']:
+        """
+        `state` and `state_message` describing encryption enforcement state for peered VPCs.
+        """
+        return pulumi.get(self, "vpc_peering")
+
+    @vpc_peering.setter
+    def vpc_peering(self, value: pulumi.Input['VpcEncryptionControlResourceExclusionsVpcPeeringArgs']):
+        pulumi.set(self, "vpc_peering", value)
+
+
+if not MYPY:
+    class VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgsDict(TypedDict):
+        state: pulumi.Input[_builtins.str]
+        """
+        The current state of the VPC Encryption Control.
+        """
+        state_message: pulumi.Input[_builtins.str]
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+elif False:
+    VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[_builtins.str],
+                 state_message: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state_message", state_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        The current state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> pulumi.Input[_builtins.str]:
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state_message")
+
+    @state_message.setter
+    def state_message(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state_message", value)
+
+
+if not MYPY:
+    class VpcEncryptionControlResourceExclusionsElasticFileSystemArgsDict(TypedDict):
+        state: pulumi.Input[_builtins.str]
+        """
+        The current state of the VPC Encryption Control.
+        """
+        state_message: pulumi.Input[_builtins.str]
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+elif False:
+    VpcEncryptionControlResourceExclusionsElasticFileSystemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEncryptionControlResourceExclusionsElasticFileSystemArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[_builtins.str],
+                 state_message: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state_message", state_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        The current state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> pulumi.Input[_builtins.str]:
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state_message")
+
+    @state_message.setter
+    def state_message(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state_message", value)
+
+
+if not MYPY:
+    class VpcEncryptionControlResourceExclusionsInternetGatewayArgsDict(TypedDict):
+        state: pulumi.Input[_builtins.str]
+        """
+        The current state of the VPC Encryption Control.
+        """
+        state_message: pulumi.Input[_builtins.str]
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+elif False:
+    VpcEncryptionControlResourceExclusionsInternetGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEncryptionControlResourceExclusionsInternetGatewayArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[_builtins.str],
+                 state_message: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state_message", state_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        The current state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> pulumi.Input[_builtins.str]:
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state_message")
+
+    @state_message.setter
+    def state_message(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state_message", value)
+
+
+if not MYPY:
+    class VpcEncryptionControlResourceExclusionsLambdaArgsDict(TypedDict):
+        state: pulumi.Input[_builtins.str]
+        """
+        The current state of the VPC Encryption Control.
+        """
+        state_message: pulumi.Input[_builtins.str]
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+elif False:
+    VpcEncryptionControlResourceExclusionsLambdaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEncryptionControlResourceExclusionsLambdaArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[_builtins.str],
+                 state_message: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state_message", state_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        The current state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> pulumi.Input[_builtins.str]:
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state_message")
+
+    @state_message.setter
+    def state_message(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state_message", value)
+
+
+if not MYPY:
+    class VpcEncryptionControlResourceExclusionsNatGatewayArgsDict(TypedDict):
+        state: pulumi.Input[_builtins.str]
+        """
+        The current state of the VPC Encryption Control.
+        """
+        state_message: pulumi.Input[_builtins.str]
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+elif False:
+    VpcEncryptionControlResourceExclusionsNatGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEncryptionControlResourceExclusionsNatGatewayArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[_builtins.str],
+                 state_message: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state_message", state_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        The current state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> pulumi.Input[_builtins.str]:
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state_message")
+
+    @state_message.setter
+    def state_message(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state_message", value)
+
+
+if not MYPY:
+    class VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgsDict(TypedDict):
+        state: pulumi.Input[_builtins.str]
+        """
+        The current state of the VPC Encryption Control.
+        """
+        state_message: pulumi.Input[_builtins.str]
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+elif False:
+    VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[_builtins.str],
+                 state_message: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state_message", state_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        The current state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> pulumi.Input[_builtins.str]:
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state_message")
+
+    @state_message.setter
+    def state_message(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state_message", value)
+
+
+if not MYPY:
+    class VpcEncryptionControlResourceExclusionsVpcLatticeArgsDict(TypedDict):
+        state: pulumi.Input[_builtins.str]
+        """
+        The current state of the VPC Encryption Control.
+        """
+        state_message: pulumi.Input[_builtins.str]
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+elif False:
+    VpcEncryptionControlResourceExclusionsVpcLatticeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEncryptionControlResourceExclusionsVpcLatticeArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[_builtins.str],
+                 state_message: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state_message", state_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        The current state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> pulumi.Input[_builtins.str]:
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state_message")
+
+    @state_message.setter
+    def state_message(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state_message", value)
+
+
+if not MYPY:
+    class VpcEncryptionControlResourceExclusionsVpcPeeringArgsDict(TypedDict):
+        state: pulumi.Input[_builtins.str]
+        """
+        The current state of the VPC Encryption Control.
+        """
+        state_message: pulumi.Input[_builtins.str]
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+elif False:
+    VpcEncryptionControlResourceExclusionsVpcPeeringArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEncryptionControlResourceExclusionsVpcPeeringArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[_builtins.str],
+                 state_message: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state_message", state_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        The current state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> pulumi.Input[_builtins.str]:
+        """
+        A message providing additional information about the state of the VPC Encryption Control.
+        """
+        return pulumi.get(self, "state_message")
+
+    @state_message.setter
+    def state_message(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state_message", value)
+
+
+if not MYPY:
+    class VpcEncryptionControlTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    VpcEncryptionControlTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEncryptionControlTimeoutsArgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[_builtins.str]] = None,
                  delete: Optional[pulumi.Input[_builtins.str]] = None,

@@ -875,6 +875,7 @@
         "ec2/vpcBlockPublicAccessOptions.ts",
         "ec2/vpcDhcpOptions.ts",
         "ec2/vpcDhcpOptionsAssociation.ts",
+        "ec2/vpcEncryptionControl.ts",
         "ec2/vpcEndpoint.ts",
         "ec2/vpcEndpointConnectionAccepter.ts",
         "ec2/vpcEndpointConnectionNotification.ts",

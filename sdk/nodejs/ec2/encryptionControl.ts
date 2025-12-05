@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: "10.1.0.0/16"});
- * const example = new aws.ec2.EncryptionControl("example", {
+ * const example = new aws.ec2.VpcEncryptionControl("example", {
  *     vpcId: exampleVpc.id,
  *     mode: "monitor",
  * });
@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:ec2/encryptionControl:EncryptionControl example vpcec-12345678901234567
  * ```
+ *
+ * @deprecated aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl
  */
 export class EncryptionControl extends pulumi.CustomResource {
     /**
@@ -44,6 +46,7 @@ export class EncryptionControl extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EncryptionControlState, opts?: pulumi.CustomResourceOptions): EncryptionControl {
+        pulumi.log.warn("EncryptionControl is deprecated: aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl")
         return new EncryptionControl(name, <any>state, { ...opts, id: id });
     }
 
@@ -163,8 +166,11 @@ export class EncryptionControl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl */
     constructor(name: string, args: EncryptionControlArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl */
     constructor(name: string, argsOrState?: EncryptionControlArgs | EncryptionControlState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("EncryptionControl is deprecated: aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

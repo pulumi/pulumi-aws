@@ -173,6 +173,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcDhcpOptions{}
 	case "aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation":
 		r = &VpcDhcpOptionsAssociation{}
+	case "aws:ec2/vpcEncryptionControl:VpcEncryptionControl":
+		r = &VpcEncryptionControl{}
 	case "aws:ec2/vpcEndpoint:VpcEndpoint":
 		r = &VpcEndpoint{}
 	case "aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter":
@@ -620,6 +622,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/vpcDhcpOptionsAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcEncryptionControl",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

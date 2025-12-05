@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ec2
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var example = new Aws.Ec2.EncryptionControl("example", new()
+    ///     var example = new Aws.Ec2.VpcEncryptionControl("example", new()
     ///     {
     ///         VpcId = exampleVpc.Id,
     ///         Mode = "monitor",
@@ -46,6 +46,7 @@ namespace Pulumi.Aws.Ec2
     /// $ pulumi import aws:ec2/encryptionControl:EncryptionControl example vpcec-12345678901234567
     /// ```
     /// </summary>
+    [Obsolete(@"aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl")]
     [AwsResourceType("aws:ec2/encryptionControl:EncryptionControl")]
     public partial class EncryptionControl : global::Pulumi.CustomResource
     {

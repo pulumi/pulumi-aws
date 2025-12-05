@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Vpc;
  * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.EncryptionControl;
- * import com.pulumi.aws.ec2.EncryptionControlArgs;
+ * import com.pulumi.aws.ec2.VpcEncryptionControl;
+ * import com.pulumi.aws.ec2.VpcEncryptionControlArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var example = new EncryptionControl("example", EncryptionControlArgs.builder()
+ *         var example = new VpcEncryptionControl("example", VpcEncryptionControlArgs.builder()
  *             .vpcId(exampleVpc.id())
  *             .mode("monitor")
  *             .build());
@@ -70,7 +70,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:ec2/encryptionControl:EncryptionControl example vpcec-12345678901234567
  * ```
  * 
+ * @deprecated
+ * aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl
+ * 
  */
+@Deprecated /* aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl */
 @ResourceType(type="aws:ec2/encryptionControl:EncryptionControl")
 public class EncryptionControl extends com.pulumi.resources.CustomResource {
     /**

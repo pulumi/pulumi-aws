@@ -36,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewEncryptionControl(ctx, "example", &ec2.EncryptionControlArgs{
+//			_, err = ec2.NewVpcEncryptionControl(ctx, "example", &ec2.VpcEncryptionControlArgs{
 //				VpcId: exampleVpc.ID(),
 //				Mode:  pulumi.String("monitor"),
 //			})
@@ -56,6 +56,8 @@ import (
 // ```sh
 // $ pulumi import aws:ec2/encryptionControl:EncryptionControl example vpcec-12345678901234567
 // ```
+//
+// Deprecated: aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl
 type EncryptionControl struct {
 	pulumi.CustomResourceState
 

@@ -147,6 +147,7 @@ from .vpc_block_public_access_exclusion import *
 from .vpc_block_public_access_options import *
 from .vpc_dhcp_options import *
 from .vpc_dhcp_options_association import *
+from .vpc_encryption_control import *
 from .vpc_endpoint import *
 from .vpc_endpoint_connection_accepter import *
 from .vpc_endpoint_connection_notification import *

@@ -616,8 +616,13 @@ class _EncryptionControlState:
         pulumi.set(self, "vpc_peering_exclusion", value)
 
 
+warnings.warn("""aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:ec2/encryptionControl:EncryptionControl")
 class EncryptionControl(pulumi.CustomResource):
+    warnings.warn("""aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -648,7 +653,7 @@ class EncryptionControl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_vpc = aws.ec2.Vpc("example", cidr_block="10.1.0.0/16")
-        example = aws.ec2.EncryptionControl("example",
+        example = aws.ec2.VpcEncryptionControl("example",
             vpc_id=example_vpc.id,
             mode="monitor")
         ```
@@ -721,7 +726,7 @@ class EncryptionControl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_vpc = aws.ec2.Vpc("example", cidr_block="10.1.0.0/16")
-        example = aws.ec2.EncryptionControl("example",
+        example = aws.ec2.VpcEncryptionControl("example",
             vpc_id=example_vpc.id,
             mode="monitor")
         ```
@@ -763,6 +768,7 @@ class EncryptionControl(pulumi.CustomResource):
                  vpc_lattice_exclusion: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_peering_exclusion: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
+        pulumi.log.warn("""EncryptionControl is deprecated: aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

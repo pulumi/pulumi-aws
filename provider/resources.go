@@ -2096,7 +2096,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			},
 			"aws_default_vpc":            {Tok: awsResource(ec2Mod, "DefaultVpc")},
 			"aws_vpc":                    {Tok: awsResource(ec2Mod, vpcMod)},
-			"aws_vpc_encryption_control": {Tok: awsResource(ec2Mod, "EncryptionControl")},
+			"aws_vpc_encryption_control": {Tok: awsResource(ec2Mod, "VpcEncryptionControl")},
 			"aws_vpc_endpoint":           {Tok: awsResource(ec2Mod, "VpcEndpoint")},
 			"aws_vpc_endpoint_connection_notification":        {Tok: awsResource(ec2Mod, "VpcEndpointConnectionNotification")},
 			"aws_vpc_endpoint_route_table_association":        {Tok: awsResource(ec2Mod, "VpcEndpointRouteTableAssociation")},
