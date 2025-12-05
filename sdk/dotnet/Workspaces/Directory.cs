@@ -372,6 +372,12 @@ namespace Pulumi.Aws.Workspaces
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+        /// </summary>
+        [Output("tenancy")]
+        public Output<string> Tenancy { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
         /// 
         /// &gt; **Note:** When `WorkspaceType` is set to `POOLS`, the `DirectoryId` is automatically generated and cannot be manually set.
@@ -532,6 +538,12 @@ namespace Pulumi.Aws.Workspaces
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+        /// </summary>
+        [Input("tenancy")]
+        public Input<string>? Tenancy { get; set; }
 
         /// <summary>
         /// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
@@ -710,6 +722,12 @@ namespace Pulumi.Aws.Workspaces
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+        /// </summary>
+        [Input("tenancy")]
+        public Input<string>? Tenancy { get; set; }
 
         /// <summary>
         /// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.

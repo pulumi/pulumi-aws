@@ -311,6 +311,12 @@ namespace Pulumi.Aws.Lambda
         [Input("region")]
         public string? Region { get; set; }
 
+        /// <summary>
+        /// Tenant Id to serve invocations from specified tenant.
+        /// </summary>
+        [Input("tenantId")]
+        public string? TenantId { get; set; }
+
         public GetInvocationArgs()
         {
         }
@@ -345,6 +351,12 @@ namespace Pulumi.Aws.Lambda
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Tenant Id to serve invocations from specified tenant.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
         public GetInvocationInvokeArgs()
         {
         }
@@ -367,6 +379,7 @@ namespace Pulumi.Aws.Lambda
         /// String result of the Lambda function invocation.
         /// </summary>
         public readonly string Result;
+        public readonly string? TenantId;
 
         [OutputConstructor]
         private GetInvocationResult(
@@ -380,7 +393,9 @@ namespace Pulumi.Aws.Lambda
 
             string region,
 
-            string result)
+            string result,
+
+            string? tenantId)
         {
             FunctionName = functionName;
             Id = id;
@@ -388,6 +403,7 @@ namespace Pulumi.Aws.Lambda
             Qualifier = qualifier;
             Region = region;
             Result = result;
+            TenantId = tenantId;
         }
     }
 }

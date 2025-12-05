@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{}],
  * });
+ * const exampleTableBucket = new aws.s3tables.TableBucket("example", {name: "example-bucket"});
  * const exampleTableBucketPolicy = new aws.s3tables.TableBucketPolicy("example", {
  *     resourcePolicy: example.then(example => example.json),
- *     tableBucketArn: exampleAwsS3tablesTableBucket.arn,
+ *     tableBucketArn: exampleTableBucket.arn,
  * });
- * const test = new aws.s3tables.TableBucket("test", {name: "example-bucket"});
  * ```
  *
  * ## Import

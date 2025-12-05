@@ -38,7 +38,7 @@ namespace Pulumi.Aws.LB.Inputs
         public string ClientId { get; set; } = null!;
 
         /// <summary>
-        /// OIDC issuer identifier of the IdP.
+        /// Issuer of the JWT.
         /// </summary>
         [Input("issuer", required: true)]
         public string Issuer { get; set; } = null!;

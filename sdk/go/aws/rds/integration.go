@@ -168,8 +168,6 @@ import (
 //
 // Using `pulumi import`, import RDS (Relational Database) Integration using the `arn`. For example:
 //
-// console
-//
 // % pulumi import aws_rds_integration.example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
 type Integration struct {
 	pulumi.CustomResourceState

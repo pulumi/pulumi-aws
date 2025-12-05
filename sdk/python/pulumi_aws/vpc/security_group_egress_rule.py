@@ -495,8 +495,6 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
 
         Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
 
-        console
-
         % pulumi import aws_vpc_security_group_egress_rule.example sgr-02108b27edd666983
 
         :param str resource_name: The name of the resource.
@@ -559,8 +557,6 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
-
-        console
 
         % pulumi import aws_vpc_security_group_egress_rule.example sgr-02108b27edd666983
 

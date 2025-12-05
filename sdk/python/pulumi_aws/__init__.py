@@ -2249,6 +2249,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "billing/view",
+  "fqn": "pulumi_aws.billing",
+  "classes": {
+   "aws:billing/view:View": "View"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "budgets/budget",
   "fqn": "pulumi_aws.budgets",
   "classes": {
@@ -2997,6 +3005,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
    "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter": "LogSubscriptionFilter"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/logTransformer",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logTransformer:LogTransformer": "LogTransformer"
   }
  },
  {
@@ -4721,6 +4737,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/encryptionControl",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/encryptionControl:EncryptionControl": "EncryptionControl"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/fleet",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -5321,6 +5345,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/vpnConcentrator",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpnConcentrator:VpnConcentrator": "VpnConcentrator"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/vpnConnection",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -5689,6 +5721,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ecs/expressGatewayService",
+  "fqn": "pulumi_aws.ecs",
+  "classes": {
+   "aws:ecs/expressGatewayService:ExpressGatewayService": "ExpressGatewayService"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ecs/service",
   "fqn": "pulumi_aws.ecs",
   "classes": {
@@ -5789,6 +5829,14 @@ _utilities.register(
   "fqn": "pulumi_aws.eks",
   "classes": {
    "aws:eks/addon:Addon": "Addon"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "eks/capability",
+  "fqn": "pulumi_aws.eks",
+  "classes": {
+   "aws:eks/capability:Capability": "Capability"
   }
  },
  {
@@ -7725,6 +7773,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lambda_",
   "classes": {
    "aws:lambda/alias:Alias": "Alias"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambda/capacityProvider",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/capacityProvider:CapacityProvider": "CapacityProvider"
   }
  },
  {
@@ -10545,6 +10601,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/bucketAbac",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketAbac:BucketAbac": "BucketAbac"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/bucketAccelerateConfiguration",
   "fqn": "pulumi_aws.s3",
   "classes": {
@@ -10817,6 +10881,30 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/vectorsIndex",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/vectorsIndex:VectorsIndex": "VectorsIndex"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/vectorsVectorBucket",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/vectorsVectorBucket:VectorsVectorBucket": "VectorsVectorBucket"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/vectorsVectorBucketPolicy",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/vectorsVectorBucketPolicy:VectorsVectorBucketPolicy": "VectorsVectorBucketPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3control/accessGrant",
   "fqn": "pulumi_aws.s3control",
   "classes": {
@@ -10969,10 +11057,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3tables/tableBucketReplication",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/tableBucketReplication:TableBucketReplication": "TableBucketReplication"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3tables/tablePolicy",
   "fqn": "pulumi_aws.s3tables",
   "classes": {
    "aws:s3tables/tablePolicy:TablePolicy": "TablePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3tables/tableReplication",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/tableReplication:TableReplication": "TableReplication"
   }
  },
  {
@@ -12765,6 +12869,14 @@ _utilities.register(
   "fqn": "pulumi_aws.vpclattice",
   "classes": {
    "aws:vpclattice/authPolicy:AuthPolicy": "AuthPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/domainVerification",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/domainVerification:DomainVerification": "DomainVerification"
   }
  },
  {

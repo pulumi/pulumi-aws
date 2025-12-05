@@ -13,6 +13,21 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
     /**
+     * @return Enable or disable BGP logging feature. The default is `false`.
+     * 
+     */
+    private @Nullable Boolean bgpLogEnabled;
+    /**
+     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+     * 
+     */
+    private @Nullable String bgpLogGroupArn;
+    /**
+     * @return Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * 
+     */
+    private @Nullable String bgpLogOutputFormat;
+    /**
      * @return Enable or disable VPN tunnel logging feature. The default is `false`.
      * 
      */
@@ -29,6 +44,27 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
     private @Nullable String logOutputFormat;
 
     private VpnConnectionTunnel1LogOptionsCloudwatchLogOptions() {}
+    /**
+     * @return Enable or disable BGP logging feature. The default is `false`.
+     * 
+     */
+    public Optional<Boolean> bgpLogEnabled() {
+        return Optional.ofNullable(this.bgpLogEnabled);
+    }
+    /**
+     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+     * 
+     */
+    public Optional<String> bgpLogGroupArn() {
+        return Optional.ofNullable(this.bgpLogGroupArn);
+    }
+    /**
+     * @return Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * 
+     */
+    public Optional<String> bgpLogOutputFormat() {
+        return Optional.ofNullable(this.bgpLogOutputFormat);
+    }
     /**
      * @return Enable or disable VPN tunnel logging feature. The default is `false`.
      * 
@@ -60,17 +96,41 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean bgpLogEnabled;
+        private @Nullable String bgpLogGroupArn;
+        private @Nullable String bgpLogOutputFormat;
         private @Nullable Boolean logEnabled;
         private @Nullable String logGroupArn;
         private @Nullable String logOutputFormat;
         public Builder() {}
         public Builder(VpnConnectionTunnel1LogOptionsCloudwatchLogOptions defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.bgpLogEnabled = defaults.bgpLogEnabled;
+    	      this.bgpLogGroupArn = defaults.bgpLogGroupArn;
+    	      this.bgpLogOutputFormat = defaults.bgpLogOutputFormat;
     	      this.logEnabled = defaults.logEnabled;
     	      this.logGroupArn = defaults.logGroupArn;
     	      this.logOutputFormat = defaults.logOutputFormat;
         }
 
+        @CustomType.Setter
+        public Builder bgpLogEnabled(@Nullable Boolean bgpLogEnabled) {
+
+            this.bgpLogEnabled = bgpLogEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bgpLogGroupArn(@Nullable String bgpLogGroupArn) {
+
+            this.bgpLogGroupArn = bgpLogGroupArn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bgpLogOutputFormat(@Nullable String bgpLogOutputFormat) {
+
+            this.bgpLogOutputFormat = bgpLogOutputFormat;
+            return this;
+        }
         @CustomType.Setter
         public Builder logEnabled(@Nullable Boolean logEnabled) {
 
@@ -91,6 +151,9 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
         }
         public VpnConnectionTunnel1LogOptionsCloudwatchLogOptions build() {
             final var _resultValue = new VpnConnectionTunnel1LogOptionsCloudwatchLogOptions();
+            _resultValue.bgpLogEnabled = bgpLogEnabled;
+            _resultValue.bgpLogGroupArn = bgpLogGroupArn;
+            _resultValue.bgpLogOutputFormat = bgpLogOutputFormat;
             _resultValue.logEnabled = logEnabled;
             _resultValue.logGroupArn = logGroupArn;
             _resultValue.logOutputFormat = logOutputFormat;

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class CapacityProviderManagedInstancesProvider
     {
         /// <summary>
+        /// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+        /// </summary>
+        public readonly Outputs.CapacityProviderManagedInstancesProviderInfrastructureOptimization? InfrastructureOptimization;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
         /// </summary>
         public readonly string InfrastructureRoleArn;
@@ -28,12 +32,15 @@ namespace Pulumi.Aws.Ecs.Outputs
 
         [OutputConstructor]
         private CapacityProviderManagedInstancesProvider(
+            Outputs.CapacityProviderManagedInstancesProviderInfrastructureOptimization? infrastructureOptimization,
+
             string infrastructureRoleArn,
 
             Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplate instanceLaunchTemplate,
 
             string? propagateTags)
         {
+            InfrastructureOptimization = infrastructureOptimization;
             InfrastructureRoleArn = infrastructureRoleArn;
             InstanceLaunchTemplate = instanceLaunchTemplate;
             PropagateTags = propagateTags;

@@ -71,6 +71,10 @@ export class AccountSettings extends pulumi.CustomResource {
      */
     declare public readonly defaultNamespace: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    declare public readonly region: pulumi.Output<string>;
+    /**
      * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
      */
     declare public readonly terminationProtectionEnabled: pulumi.Output<boolean>;
@@ -91,12 +95,14 @@ export class AccountSettings extends pulumi.CustomResource {
             const state = argsOrState as AccountSettingsState | undefined;
             resourceInputs["awsAccountId"] = state?.awsAccountId;
             resourceInputs["defaultNamespace"] = state?.defaultNamespace;
+            resourceInputs["region"] = state?.region;
             resourceInputs["terminationProtectionEnabled"] = state?.terminationProtectionEnabled;
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as AccountSettingsArgs | undefined;
             resourceInputs["awsAccountId"] = args?.awsAccountId;
             resourceInputs["defaultNamespace"] = args?.defaultNamespace;
+            resourceInputs["region"] = args?.region;
             resourceInputs["terminationProtectionEnabled"] = args?.terminationProtectionEnabled;
             resourceInputs["timeouts"] = args?.timeouts;
         }
@@ -115,6 +121,10 @@ export interface AccountSettingsState {
      */
     defaultNamespace?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
      */
     terminationProtectionEnabled?: pulumi.Input<boolean>;
@@ -130,6 +140,10 @@ export interface AccountSettingsArgs {
      * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
      */
     defaultNamespace?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
      */

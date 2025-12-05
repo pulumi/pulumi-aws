@@ -124,8 +124,6 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// Using `pulumi import`, import AppFlow Connector Profile using the connector profile `name`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_appflow_connector_profile.example example-profile
     /// 
     /// [1]: https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html

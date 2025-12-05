@@ -20,6 +20,11 @@ export type Addon = import("./addon").Addon;
 export const Addon: typeof import("./addon").Addon = null as any;
 utilities.lazyLoad(exports, ["Addon"], () => require("./addon"));
 
+export { CapabilityArgs, CapabilityState } from "./capability";
+export type Capability = import("./capability").Capability;
+export const Capability: typeof import("./capability").Capability = null as any;
+utilities.lazyLoad(exports, ["Capability"], () => require("./capability"));
+
 export { ClusterArgs, ClusterState } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
@@ -101,6 +106,8 @@ const _module = {
                 return new AccessPolicyAssociation(name, <any>undefined, { urn })
             case "aws:eks/addon:Addon":
                 return new Addon(name, <any>undefined, { urn })
+            case "aws:eks/capability:Capability":
+                return new Capability(name, <any>undefined, { urn })
             case "aws:eks/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:eks/fargateProfile:FargateProfile":
@@ -119,6 +126,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "eks/accessEntry", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/accessPolicyAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/addon", _module)
+pulumi.runtime.registerResourceModule("aws", "eks/capability", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/fargateProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/identityProviderConfig", _module)

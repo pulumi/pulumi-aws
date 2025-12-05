@@ -27,7 +27,7 @@ class GetConnectorResult:
     """
     A collection of values returned by getConnector.
     """
-    def __init__(__self__, access_role=None, arn=None, as2_configs=None, id=None, logging_role=None, region=None, security_policy_name=None, service_managed_egress_ip_addresses=None, sftp_configs=None, tags=None, url=None):
+    def __init__(__self__, access_role=None, arn=None, as2_configs=None, egress_configs=None, id=None, logging_role=None, region=None, security_policy_name=None, service_managed_egress_ip_addresses=None, sftp_configs=None, tags=None, url=None):
         if access_role and not isinstance(access_role, str):
             raise TypeError("Expected argument 'access_role' to be a str")
         pulumi.set(__self__, "access_role", access_role)
@@ -37,6 +37,9 @@ class GetConnectorResult:
         if as2_configs and not isinstance(as2_configs, list):
             raise TypeError("Expected argument 'as2_configs' to be a list")
         pulumi.set(__self__, "as2_configs", as2_configs)
+        if egress_configs and not isinstance(egress_configs, list):
+            raise TypeError("Expected argument 'egress_configs' to be a list")
+        pulumi.set(__self__, "egress_configs", egress_configs)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -85,6 +88,14 @@ class GetConnectorResult:
         Structure containing the parameters for an AS2 connector object. Contains the following attributes:
         """
         return pulumi.get(self, "as2_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="egressConfigs")
+    def egress_configs(self) -> Sequence['outputs.GetConnectorEgressConfigResult']:
+        """
+        Egress configuration for the connector. Contains the following attributes:
+        """
+        return pulumi.get(self, "egress_configs")
 
     @_builtins.property
     @pulumi.getter
@@ -154,6 +165,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             access_role=self.access_role,
             arn=self.arn,
             as2_configs=self.as2_configs,
+            egress_configs=self.egress_configs,
             id=self.id,
             logging_role=self.logging_role,
             region=self.region,
@@ -193,6 +205,7 @@ def get_connector(id: Optional[_builtins.str] = None,
         access_role=pulumi.get(__ret__, 'access_role'),
         arn=pulumi.get(__ret__, 'arn'),
         as2_configs=pulumi.get(__ret__, 'as2_configs'),
+        egress_configs=pulumi.get(__ret__, 'egress_configs'),
         id=pulumi.get(__ret__, 'id'),
         logging_role=pulumi.get(__ret__, 'logging_role'),
         region=pulumi.get(__ret__, 'region'),
@@ -229,6 +242,7 @@ def get_connector_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         access_role=pulumi.get(__response__, 'access_role'),
         arn=pulumi.get(__response__, 'arn'),
         as2_configs=pulumi.get(__response__, 'as2_configs'),
+        egress_configs=pulumi.get(__response__, 'egress_configs'),
         id=pulumi.get(__response__, 'id'),
         logging_role=pulumi.get(__response__, 'logging_role'),
         region=pulumi.get(__response__, 'region'),

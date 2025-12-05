@@ -210,8 +210,6 @@ class SamlProvider(pulumi.CustomResource):
 
         Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
 
-        console
-
         % pulumi import aws_iam_saml_provider.default arn:aws:iam::123456789012:saml-provider/SAMLADFS
 
         :param str resource_name: The name of the resource.
@@ -250,8 +248,6 @@ class SamlProvider(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the IAM SAML provider.
 
         Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
-
-        console
 
         % pulumi import aws_iam_saml_provider.default arn:aws:iam::123456789012:saml-provider/SAMLADFS
 

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.inputs;
 
+import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs;
 import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class CapacityProviderManagedInstancesProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CapacityProviderManagedInstancesProviderArgs Empty = new CapacityProviderManagedInstancesProviderArgs();
+
+    /**
+     * Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+     * 
+     */
+    @Import(name="infrastructureOptimization")
+    private @Nullable Output<CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs> infrastructureOptimization;
+
+    /**
+     * @return Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+     * 
+     */
+    public Optional<Output<CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs>> infrastructureOptimization() {
+        return Optional.ofNullable(this.infrastructureOptimization);
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
@@ -65,6 +81,7 @@ public final class CapacityProviderManagedInstancesProviderArgs extends com.pulu
     private CapacityProviderManagedInstancesProviderArgs() {}
 
     private CapacityProviderManagedInstancesProviderArgs(CapacityProviderManagedInstancesProviderArgs $) {
+        this.infrastructureOptimization = $.infrastructureOptimization;
         this.infrastructureRoleArn = $.infrastructureRoleArn;
         this.instanceLaunchTemplate = $.instanceLaunchTemplate;
         this.propagateTags = $.propagateTags;
@@ -86,6 +103,27 @@ public final class CapacityProviderManagedInstancesProviderArgs extends com.pulu
 
         public Builder(CapacityProviderManagedInstancesProviderArgs defaults) {
             $ = new CapacityProviderManagedInstancesProviderArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param infrastructureOptimization Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder infrastructureOptimization(@Nullable Output<CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs> infrastructureOptimization) {
+            $.infrastructureOptimization = infrastructureOptimization;
+            return this;
+        }
+
+        /**
+         * @param infrastructureOptimization Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder infrastructureOptimization(CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs infrastructureOptimization) {
+            return infrastructureOptimization(Output.of(infrastructureOptimization));
         }
 
         /**

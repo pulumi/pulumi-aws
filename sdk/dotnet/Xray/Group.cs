@@ -46,8 +46,6 @@ namespace Pulumi.Aws.Xray
     /// 
     /// Using `pulumi import`, import XRay Groups using the ARN. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_xray_group.example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
     /// </summary>
     [AwsResourceType("aws:xray/group:Group")]

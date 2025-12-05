@@ -67,8 +67,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
  * 
- * console
- * 
  * % pulumi import aws_ivs_playback_key_pair.example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
  * 
  */

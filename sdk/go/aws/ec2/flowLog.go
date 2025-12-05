@@ -409,21 +409,23 @@ type FlowLog struct {
 	MaxAggregationInterval pulumi.IntPtrOutput `pulumi:"maxAggregationInterval"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// Regional NAT Gateway ID to attach to.
+	RegionalNatGatewayId pulumi.StringPtrOutput `pulumi:"regionalNatGatewayId"`
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
 	TrafficType pulumi.StringPtrOutput `pulumi:"trafficType"`
 	// Transit Gateway Attachment ID to attach to.
 	TransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayAttachmentId"`
 	// Transit Gateway ID to attach to.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 	// VPC ID to attach to.
+	//
+	// > **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
@@ -479,21 +481,23 @@ type flowLogState struct {
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Regional NAT Gateway ID to attach to.
+	RegionalNatGatewayId *string `pulumi:"regionalNatGatewayId"`
 	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
 	TrafficType *string `pulumi:"trafficType"`
 	// Transit Gateway Attachment ID to attach to.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Transit Gateway ID to attach to.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// VPC ID to attach to.
+	//
+	// > **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -520,21 +524,23 @@ type FlowLogState struct {
 	MaxAggregationInterval pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Regional NAT Gateway ID to attach to.
+	RegionalNatGatewayId pulumi.StringPtrInput
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
 	TrafficType pulumi.StringPtrInput
 	// Transit Gateway Attachment ID to attach to.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Transit Gateway ID to attach to.
 	TransitGatewayId pulumi.StringPtrInput
 	// VPC ID to attach to.
+	//
+	// > **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -563,19 +569,21 @@ type flowLogArgs struct {
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Regional NAT Gateway ID to attach to.
+	RegionalNatGatewayId *string `pulumi:"regionalNatGatewayId"`
 	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
 	TrafficType *string `pulumi:"trafficType"`
 	// Transit Gateway Attachment ID to attach to.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Transit Gateway ID to attach to.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// VPC ID to attach to.
+	//
+	// > **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -601,19 +609,21 @@ type FlowLogArgs struct {
 	MaxAggregationInterval pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Regional NAT Gateway ID to attach to.
+	RegionalNatGatewayId pulumi.StringPtrInput
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags pulumi.StringMapInput
-	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
 	TrafficType pulumi.StringPtrInput
 	// Transit Gateway Attachment ID to attach to.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Transit Gateway ID to attach to.
 	TransitGatewayId pulumi.StringPtrInput
 	// VPC ID to attach to.
+	//
+	// > **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -756,14 +766,17 @@ func (o FlowLogOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// Regional NAT Gateway ID to attach to.
+func (o FlowLogOutput) RegionalNatGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.RegionalNatGatewayId }).(pulumi.StringPtrOutput)
+}
+
 // Subnet ID to attach to.
 func (o FlowLogOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 func (o FlowLogOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -773,7 +786,7 @@ func (o FlowLogOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
 func (o FlowLogOutput) TrafficType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.TrafficType }).(pulumi.StringPtrOutput)
 }
@@ -789,6 +802,8 @@ func (o FlowLogOutput) TransitGatewayId() pulumi.StringPtrOutput {
 }
 
 // VPC ID to attach to.
+//
+// > **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 func (o FlowLogOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }

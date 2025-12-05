@@ -25,6 +25,11 @@ export type Bucket = import("./bucket").Bucket;
 export const Bucket: typeof import("./bucket").Bucket = null as any;
 utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 
+export { BucketAbacArgs, BucketAbacState } from "./bucketAbac";
+export type BucketAbac = import("./bucketAbac").BucketAbac;
+export const BucketAbac: typeof import("./bucketAbac").BucketAbac = null as any;
+utilities.lazyLoad(exports, ["BucketAbac"], () => require("./bucketAbac"));
+
 export { BucketAccelerateConfigurationArgs, BucketAccelerateConfigurationState } from "./bucketAccelerateConfiguration";
 export type BucketAccelerateConfiguration = import("./bucketAccelerateConfiguration").BucketAccelerateConfiguration;
 export const BucketAccelerateConfiguration: typeof import("./bucketAccelerateConfiguration").BucketAccelerateConfiguration = null as any;
@@ -247,6 +252,21 @@ utilities.lazyLoad(exports, ["ObjectCopy"], () => require("./objectCopy"));
 
 export * from "./routingRules";
 export * from "./s3Mixins";
+export { VectorsIndexArgs, VectorsIndexState } from "./vectorsIndex";
+export type VectorsIndex = import("./vectorsIndex").VectorsIndex;
+export const VectorsIndex: typeof import("./vectorsIndex").VectorsIndex = null as any;
+utilities.lazyLoad(exports, ["VectorsIndex"], () => require("./vectorsIndex"));
+
+export { VectorsVectorBucketArgs, VectorsVectorBucketState } from "./vectorsVectorBucket";
+export type VectorsVectorBucket = import("./vectorsVectorBucket").VectorsVectorBucket;
+export const VectorsVectorBucket: typeof import("./vectorsVectorBucket").VectorsVectorBucket = null as any;
+utilities.lazyLoad(exports, ["VectorsVectorBucket"], () => require("./vectorsVectorBucket"));
+
+export { VectorsVectorBucketPolicyArgs, VectorsVectorBucketPolicyState } from "./vectorsVectorBucketPolicy";
+export type VectorsVectorBucketPolicy = import("./vectorsVectorBucketPolicy").VectorsVectorBucketPolicy;
+export const VectorsVectorBucketPolicy: typeof import("./vectorsVectorBucketPolicy").VectorsVectorBucketPolicy = null as any;
+utilities.lazyLoad(exports, ["VectorsVectorBucketPolicy"], () => require("./vectorsVectorBucketPolicy"));
+
 
 // Export enums:
 export * from "../types/enums/s3";
@@ -263,6 +283,8 @@ const _module = {
                 return new AnalyticsConfiguration(name, <any>undefined, { urn })
             case "aws:s3/bucket:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
+            case "aws:s3/bucketAbac:BucketAbac":
+                return new BucketAbac(name, <any>undefined, { urn })
             case "aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration":
                 return new BucketAccelerateConfiguration(name, <any>undefined, { urn })
             case "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2":
@@ -331,6 +353,12 @@ const _module = {
                 return new Inventory(name, <any>undefined, { urn })
             case "aws:s3/objectCopy:ObjectCopy":
                 return new ObjectCopy(name, <any>undefined, { urn })
+            case "aws:s3/vectorsIndex:VectorsIndex":
+                return new VectorsIndex(name, <any>undefined, { urn })
+            case "aws:s3/vectorsVectorBucket:VectorsVectorBucket":
+                return new VectorsVectorBucket(name, <any>undefined, { urn })
+            case "aws:s3/vectorsVectorBucketPolicy:VectorsVectorBucketPolicy":
+                return new VectorsVectorBucketPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -340,6 +368,7 @@ pulumi.runtime.registerResourceModule("aws", "s3/accessPoint", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/accountPublicAccessBlock", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/analyticsConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucket", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketAbac", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketAccelerateConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketAccelerateConfigurationV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketAcl", _module)
@@ -374,3 +403,6 @@ pulumi.runtime.registerResourceModule("aws", "s3/bucketWebsiteConfigurationV2", 
 pulumi.runtime.registerResourceModule("aws", "s3/directoryBucket", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/inventory", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/objectCopy", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/vectorsIndex", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/vectorsVectorBucket", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/vectorsVectorBucketPolicy", _module)

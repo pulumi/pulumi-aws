@@ -64,8 +64,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
  *
- * console
- *
  * % pulumi import aws_ce_cost_category.example costCategoryARN
  */
 export class CostCategory extends pulumi.CustomResource {

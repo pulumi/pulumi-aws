@@ -400,6 +400,70 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### JWT Validation Action
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.Listener;
+ * import com.pulumi.aws.lb.ListenerArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionJwtValidationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Listener("test", ListenerArgs.builder()
+ *             .loadBalancerArn(testAwsLb.id())
+ *             .protocol("HTTPS")
+ *             .port(443)
+ *             .sslPolicy("ELBSecurityPolicy-2016-08")
+ *             .certificateArn(testAwsIamServerCertificate.arn())
+ *             .defaultActions(            
+ *                 ListenerDefaultActionArgs.builder()
+ *                     .type("jwt-validation")
+ *                     .jwtValidation(ListenerDefaultActionJwtValidationArgs.builder()
+ *                         .issuer("https://example.com")
+ *                         .jwksEndpoint("https://example.com/.well-known/jwks.json")
+ *                         .additionalClaims(                        
+ *                             ListenerDefaultActionJwtValidationAdditionalClaimArgs.builder()
+ *                                 .format("string-array")
+ *                                 .name("claim_name1")
+ *                                 .values(                                
+ *                                     "value1",
+ *                                     "value2")
+ *                                 .build(),
+ *                             ListenerDefaultActionJwtValidationAdditionalClaimArgs.builder()
+ *                                 .format("single-string")
+ *                                 .name("claim_name2")
+ *                                 .values("value1")
+ *                                 .build())
+ *                         .build())
+ *                     .build(),
+ *                 ListenerDefaultActionArgs.builder()
+ *                     .targetGroupArn(testAwsLbTargetGroup.id())
+ *                     .type("forward")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Gateway Load Balancer Listener
  * 
  * <pre>
@@ -524,8 +588,6 @@ import javax.annotation.Nullable;
  * - `arn` (String) Amazon Resource Name (ARN) of the load balancer listener.
  * 
  * Using `pulumi import`, import listeners using their ARN. For example:
- * 
- * console
  * 
  * % pulumi import aws_lb_listener.front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
  * 

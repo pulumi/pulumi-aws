@@ -29,10 +29,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.s3tables.TableBucketPolicy;
- * import com.pulumi.aws.s3tables.TableBucketPolicyArgs;
  * import com.pulumi.aws.s3tables.TableBucket;
  * import com.pulumi.aws.s3tables.TableBucketArgs;
+ * import com.pulumi.aws.s3tables.TableBucketPolicy;
+ * import com.pulumi.aws.s3tables.TableBucketPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,13 +51,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTableBucketPolicy = new TableBucketPolicy("exampleTableBucketPolicy", TableBucketPolicyArgs.builder()
- *             .resourcePolicy(example.json())
- *             .tableBucketArn(exampleAwsS3tablesTableBucket.arn())
+ *         var exampleTableBucket = new TableBucket("exampleTableBucket", TableBucketArgs.builder()
+ *             .name("example-bucket")
  *             .build());
  * 
- *         var test = new TableBucket("test", TableBucketArgs.builder()
- *             .name("example-bucket")
+ *         var exampleTableBucketPolicy = new TableBucketPolicy("exampleTableBucketPolicy", TableBucketPolicyArgs.builder()
+ *             .resourcePolicy(example.json())
+ *             .tableBucketArn(exampleTableBucket.arn())
  *             .build());
  * 
  *     }

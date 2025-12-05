@@ -612,6 +612,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Arcregionswitch *string `pulumi:"arcregionswitch"`
 	// Use this to override the default service endpoint URL
+	Arczonalshift *string `pulumi:"arczonalshift"`
+	// Use this to override the default service endpoint URL
 	Athena *string `pulumi:"athena"`
 	// Use this to override the default service endpoint URL
 	Auditmanager *string `pulumi:"auditmanager"`
@@ -924,8 +926,6 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Logs *string `pulumi:"logs"`
 	// Use this to override the default service endpoint URL
-	Lookoutmetrics *string `pulumi:"lookoutmetrics"`
-	// Use this to override the default service endpoint URL
 	M2 *string `pulumi:"m2"`
 	// Use this to override the default service endpoint URL
 	Macie2 *string `pulumi:"macie2"`
@@ -955,6 +955,8 @@ type ProviderEndpoint struct {
 	Msk *string `pulumi:"msk"`
 	// Use this to override the default service endpoint URL
 	Mwaa *string `pulumi:"mwaa"`
+	// Use this to override the default service endpoint URL
+	Mwaaserverless *string `pulumi:"mwaaserverless"`
 	// Use this to override the default service endpoint URL
 	Neptune *string `pulumi:"neptune"`
 	// Use this to override the default service endpoint URL
@@ -1023,6 +1025,10 @@ type ProviderEndpoint struct {
 	Rbin *string `pulumi:"rbin"`
 	// Use this to override the default service endpoint URL
 	Rds *string `pulumi:"rds"`
+	// Use this to override the default service endpoint URL
+	Rdsdata *string `pulumi:"rdsdata"`
+	// Use this to override the default service endpoint URL
+	Rdsdataservice *string `pulumi:"rdsdataservice"`
 	// Use this to override the default service endpoint URL
 	Recyclebin *string `pulumi:"recyclebin"`
 	// Use this to override the default service endpoint URL
@@ -1233,6 +1239,8 @@ type ProviderEndpointArgs struct {
 	Appsync pulumi.StringPtrInput `pulumi:"appsync"`
 	// Use this to override the default service endpoint URL
 	Arcregionswitch pulumi.StringPtrInput `pulumi:"arcregionswitch"`
+	// Use this to override the default service endpoint URL
+	Arczonalshift pulumi.StringPtrInput `pulumi:"arczonalshift"`
 	// Use this to override the default service endpoint URL
 	Athena pulumi.StringPtrInput `pulumi:"athena"`
 	// Use this to override the default service endpoint URL
@@ -1546,8 +1554,6 @@ type ProviderEndpointArgs struct {
 	// Use this to override the default service endpoint URL
 	Logs pulumi.StringPtrInput `pulumi:"logs"`
 	// Use this to override the default service endpoint URL
-	Lookoutmetrics pulumi.StringPtrInput `pulumi:"lookoutmetrics"`
-	// Use this to override the default service endpoint URL
 	M2 pulumi.StringPtrInput `pulumi:"m2"`
 	// Use this to override the default service endpoint URL
 	Macie2 pulumi.StringPtrInput `pulumi:"macie2"`
@@ -1577,6 +1583,8 @@ type ProviderEndpointArgs struct {
 	Msk pulumi.StringPtrInput `pulumi:"msk"`
 	// Use this to override the default service endpoint URL
 	Mwaa pulumi.StringPtrInput `pulumi:"mwaa"`
+	// Use this to override the default service endpoint URL
+	Mwaaserverless pulumi.StringPtrInput `pulumi:"mwaaserverless"`
 	// Use this to override the default service endpoint URL
 	Neptune pulumi.StringPtrInput `pulumi:"neptune"`
 	// Use this to override the default service endpoint URL
@@ -1645,6 +1653,10 @@ type ProviderEndpointArgs struct {
 	Rbin pulumi.StringPtrInput `pulumi:"rbin"`
 	// Use this to override the default service endpoint URL
 	Rds pulumi.StringPtrInput `pulumi:"rds"`
+	// Use this to override the default service endpoint URL
+	Rdsdata pulumi.StringPtrInput `pulumi:"rdsdata"`
+	// Use this to override the default service endpoint URL
+	Rdsdataservice pulumi.StringPtrInput `pulumi:"rdsdataservice"`
 	// Use this to override the default service endpoint URL
 	Recyclebin pulumi.StringPtrInput `pulumi:"recyclebin"`
 	// Use this to override the default service endpoint URL
@@ -1964,6 +1976,11 @@ func (o ProviderEndpointOutput) Appsync() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Arcregionswitch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Arcregionswitch }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Arczonalshift() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Arczonalshift }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL
@@ -2747,11 +2764,6 @@ func (o ProviderEndpointOutput) Logs() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
-func (o ProviderEndpointOutput) Lookoutmetrics() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Lookoutmetrics }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) M2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.M2 }).(pulumi.StringPtrOutput)
 }
@@ -2824,6 +2836,11 @@ func (o ProviderEndpointOutput) Msk() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Mwaa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Mwaa }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Mwaaserverless() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Mwaaserverless }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL
@@ -2994,6 +3011,16 @@ func (o ProviderEndpointOutput) Rbin() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Rds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Rds }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Rdsdata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Rdsdata }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Rdsdataservice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Rdsdataservice }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

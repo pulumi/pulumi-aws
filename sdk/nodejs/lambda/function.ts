@@ -391,6 +391,70 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Function with Durable Configuration
+ *
+ * Stopping durable executions and deleting the Lambda function may take up to `60m`. Use configured `timeouts` as shown below.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "example_durable_function",
+ *     role: exampleAwsIamRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS22dX,
+ *     memorySize: 512,
+ *     timeout: 30,
+ *     durableConfig: {
+ *         executionTimeout: 3600,
+ *         retentionPeriod: 7,
+ *     },
+ *     environment: {
+ *         variables: {
+ *             DURABLE_MODE: "enabled",
+ *         },
+ *     },
+ *     tags: {
+ *         Environment: "production",
+ *         Type: "durable",
+ *     },
+ * });
+ * ```
+ *
+ * ### Capacity Provider Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleCapacityProvider = new aws.lambda.CapacityProvider("example", {
+ *     name: "example",
+ *     vpcConfig: {
+ *         subnetIds: [exampleAwsSubnet.id],
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     },
+ *     permissionsConfig: {
+ *         capacityProviderOperatorRoleArn: exampleAwsIamRole.arn,
+ *     },
+ * });
+ * const example = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "example",
+ *     role: exampleAwsIamRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     memorySize: 2048,
+ *     publish: true,
+ *     capacityProviderConfig: {
+ *         lambdaManagedInstancesCapacityProviderConfig: {
+ *             capacityProviderArn: exampleCapacityProvider.arn,
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Specifying the Deployment Package
  *
  * AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
@@ -414,8 +478,6 @@ import * as utilities from "../utilities";
  * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
- *
- * console
  *
  * % pulumi import aws_lambda_function.example example
  */
@@ -456,6 +518,10 @@ export class Function extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * Configuration block for Lambda Capacity Provider. See below.
+     */
+    declare public readonly capacityProviderConfig: pulumi.Output<outputs.lambda.FunctionCapacityProviderConfig | undefined>;
+    /**
      * Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
     declare public readonly code: pulumi.Output<pulumi.asset.Archive | undefined>;
@@ -475,6 +541,10 @@ export class Function extends pulumi.CustomResource {
      * Description of what your Lambda Function does.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+     */
+    declare public readonly durableConfig: pulumi.Output<outputs.lambda.FunctionDurableConfig | undefined>;
     /**
      * Configuration block for environment variables. See below.
      */
@@ -535,6 +605,10 @@ export class Function extends pulumi.CustomResource {
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
     declare public readonly publish: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+     */
+    declare public readonly publishTo: pulumi.Output<string | undefined>;
     /**
      * ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
      */
@@ -618,6 +692,10 @@ export class Function extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
+     * Configuration block for Tenancy. See below.
+     */
+    declare public readonly tenancyConfig: pulumi.Output<outputs.lambda.FunctionTenancyConfig | undefined>;
+    /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
      */
     declare public readonly timeout: pulumi.Output<number | undefined>;
@@ -649,11 +727,13 @@ export class Function extends pulumi.CustomResource {
             const state = argsOrState as FunctionState | undefined;
             resourceInputs["architectures"] = state?.architectures;
             resourceInputs["arn"] = state?.arn;
+            resourceInputs["capacityProviderConfig"] = state?.capacityProviderConfig;
             resourceInputs["code"] = state?.code;
             resourceInputs["codeSha256"] = state?.codeSha256;
             resourceInputs["codeSigningConfigArn"] = state?.codeSigningConfigArn;
             resourceInputs["deadLetterConfig"] = state?.deadLetterConfig;
             resourceInputs["description"] = state?.description;
+            resourceInputs["durableConfig"] = state?.durableConfig;
             resourceInputs["environment"] = state?.environment;
             resourceInputs["ephemeralStorage"] = state?.ephemeralStorage;
             resourceInputs["fileSystemConfig"] = state?.fileSystemConfig;
@@ -669,6 +749,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["packageType"] = state?.packageType;
             resourceInputs["publish"] = state?.publish;
+            resourceInputs["publishTo"] = state?.publishTo;
             resourceInputs["qualifiedArn"] = state?.qualifiedArn;
             resourceInputs["qualifiedInvokeArn"] = state?.qualifiedInvokeArn;
             resourceInputs["region"] = state?.region;
@@ -689,6 +770,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["sourceKmsKeyArn"] = state?.sourceKmsKeyArn;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["tenancyConfig"] = state?.tenancyConfig;
             resourceInputs["timeout"] = state?.timeout;
             resourceInputs["tracingConfig"] = state?.tracingConfig;
             resourceInputs["version"] = state?.version;
@@ -699,10 +781,12 @@ export class Function extends pulumi.CustomResource {
                 throw new Error("Missing required property 'role'");
             }
             resourceInputs["architectures"] = args?.architectures;
+            resourceInputs["capacityProviderConfig"] = args?.capacityProviderConfig;
             resourceInputs["code"] = args?.code;
             resourceInputs["codeSigningConfigArn"] = args?.codeSigningConfigArn;
             resourceInputs["deadLetterConfig"] = args?.deadLetterConfig;
             resourceInputs["description"] = args?.description;
+            resourceInputs["durableConfig"] = args?.durableConfig;
             resourceInputs["environment"] = args?.environment;
             resourceInputs["ephemeralStorage"] = args?.ephemeralStorage;
             resourceInputs["fileSystemConfig"] = args?.fileSystemConfig;
@@ -716,6 +800,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["packageType"] = args?.packageType;
             resourceInputs["publish"] = args?.publish;
+            resourceInputs["publishTo"] = args?.publishTo;
             resourceInputs["region"] = args?.region;
             resourceInputs["replaceSecurityGroupsOnDestroy"] = args?.replaceSecurityGroupsOnDestroy;
             resourceInputs["replacementSecurityGroupIds"] = args?.replacementSecurityGroupIds;
@@ -730,6 +815,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["sourceCodeHash"] = args?.sourceCodeHash;
             resourceInputs["sourceKmsKeyArn"] = args?.sourceKmsKeyArn;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenancyConfig"] = args?.tenancyConfig;
             resourceInputs["timeout"] = args?.timeout;
             resourceInputs["tracingConfig"] = args?.tracingConfig;
             resourceInputs["vpcConfig"] = args?.vpcConfig;
@@ -763,6 +849,10 @@ export interface FunctionState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Configuration block for Lambda Capacity Provider. See below.
+     */
+    capacityProviderConfig?: pulumi.Input<inputs.lambda.FunctionCapacityProviderConfig>;
+    /**
      * Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
     code?: pulumi.Input<pulumi.asset.Archive>;
@@ -782,6 +872,10 @@ export interface FunctionState {
      * Description of what your Lambda Function does.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+     */
+    durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfig>;
     /**
      * Configuration block for environment variables. See below.
      */
@@ -842,6 +936,10 @@ export interface FunctionState {
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
     publish?: pulumi.Input<boolean>;
+    /**
+     * Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+     */
+    publishTo?: pulumi.Input<string>;
     /**
      * ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
      */
@@ -925,6 +1023,10 @@ export interface FunctionState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Configuration block for Tenancy. See below.
+     */
+    tenancyConfig?: pulumi.Input<inputs.lambda.FunctionTenancyConfig>;
+    /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
      */
     timeout?: pulumi.Input<number>;
@@ -951,6 +1053,10 @@ export interface FunctionArgs {
      */
     architectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Configuration block for Lambda Capacity Provider. See below.
+     */
+    capacityProviderConfig?: pulumi.Input<inputs.lambda.FunctionCapacityProviderConfig>;
+    /**
      * Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
     code?: pulumi.Input<pulumi.asset.Archive>;
@@ -966,6 +1072,10 @@ export interface FunctionArgs {
      * Description of what your Lambda Function does.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+     */
+    durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfig>;
     /**
      * Configuration block for environment variables. See below.
      */
@@ -1018,6 +1128,10 @@ export interface FunctionArgs {
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
     publish?: pulumi.Input<boolean>;
+    /**
+     * Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+     */
+    publishTo?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -1076,6 +1190,10 @@ export interface FunctionArgs {
      * Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block for Tenancy. See below.
+     */
+    tenancyConfig?: pulumi.Input<inputs.lambda.FunctionTenancyConfig>;
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
      */

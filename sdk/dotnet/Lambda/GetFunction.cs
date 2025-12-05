@@ -89,6 +89,7 @@ namespace Pulumi.Aws.Lambda
         ///     // Create new function with similar configuration
         ///     var example = new Aws.Lambda.Function("example", new()
         ///     {
+        ///         DurableConfig = Enumerable.Single(),
         ///         Code = new FileArchive("new-function.zip"),
         ///         Name = "new-function",
         ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
@@ -146,6 +147,43 @@ namespace Pulumi.Aws.Lambda
         ///                 var version = values.Item1;
         ///                 var latest = values.Item2;
         ///                 return version.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256) != latest.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256);
+        ///             }) },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Accessing Durable Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var durableFunction = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-durable-function",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["durableSettings"] = 
+        ///         {
+        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length.Apply(length =&gt; length &gt; 0) },
+        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             {
+        ///                 var length = values.Item1;
+        ///                 var durableFunction = values.Item2;
+        ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.ExecutionTimeout) : null;
+        ///             }) },
+        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             {
+        ///                 var length = values.Item1;
+        ///                 var durableFunction = values.Item2;
+        ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.RetentionPeriod) : null;
         ///             }) },
         ///         },
         ///     };
@@ -233,6 +271,7 @@ namespace Pulumi.Aws.Lambda
         ///     // Create new function with similar configuration
         ///     var example = new Aws.Lambda.Function("example", new()
         ///     {
+        ///         DurableConfig = Enumerable.Single(),
         ///         Code = new FileArchive("new-function.zip"),
         ///         Name = "new-function",
         ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
@@ -290,6 +329,43 @@ namespace Pulumi.Aws.Lambda
         ///                 var version = values.Item1;
         ///                 var latest = values.Item2;
         ///                 return version.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256) != latest.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256);
+        ///             }) },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Accessing Durable Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var durableFunction = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-durable-function",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["durableSettings"] = 
+        ///         {
+        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length.Apply(length =&gt; length &gt; 0) },
+        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             {
+        ///                 var length = values.Item1;
+        ///                 var durableFunction = values.Item2;
+        ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.ExecutionTimeout) : null;
+        ///             }) },
+        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             {
+        ///                 var length = values.Item1;
+        ///                 var durableFunction = values.Item2;
+        ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.RetentionPeriod) : null;
         ///             }) },
         ///         },
         ///     };
@@ -377,6 +453,7 @@ namespace Pulumi.Aws.Lambda
         ///     // Create new function with similar configuration
         ///     var example = new Aws.Lambda.Function("example", new()
         ///     {
+        ///         DurableConfig = Enumerable.Single(),
         ///         Code = new FileArchive("new-function.zip"),
         ///         Name = "new-function",
         ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
@@ -434,6 +511,43 @@ namespace Pulumi.Aws.Lambda
         ///                 var version = values.Item1;
         ///                 var latest = values.Item2;
         ///                 return version.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256) != latest.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256);
+        ///             }) },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Accessing Durable Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var durableFunction = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-durable-function",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["durableSettings"] = 
+        ///         {
+        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length.Apply(length =&gt; length &gt; 0) },
+        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             {
+        ///                 var length = values.Item1;
+        ///                 var durableFunction = values.Item2;
+        ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.ExecutionTimeout) : null;
+        ///             }) },
+        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             {
+        ///                 var length = values.Item1;
+        ///                 var durableFunction = values.Item2;
+        ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.RetentionPeriod) : null;
         ///             }) },
         ///         },
         ///     };
@@ -538,6 +652,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// Configuration for Lambda function's capacity provider. See below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFunctionCapacityProviderConfigResult> CapacityProviderConfigs;
+        /// <summary>
         /// Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
         public readonly string CodeSha256;
@@ -553,6 +671,10 @@ namespace Pulumi.Aws.Lambda
         /// Description of what your Lambda Function does.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Configuration for the function's durable settings. See below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFunctionDurableConfigResult> DurableConfigs;
         /// <summary>
         /// Lambda environment's configuration settings. See below.
         /// </summary>
@@ -649,6 +771,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// Tenancy settings of the function. See below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFunctionTenancyConfigResult> TenancyConfigs;
+        /// <summary>
         /// Function execution time at which Lambda should terminate the function.
         /// </summary>
         public readonly int Timeout;
@@ -671,6 +797,8 @@ namespace Pulumi.Aws.Lambda
 
             string arn,
 
+            ImmutableArray<Outputs.GetFunctionCapacityProviderConfigResult> capacityProviderConfigs,
+
             string codeSha256,
 
             string codeSigningConfigArn,
@@ -678,6 +806,8 @@ namespace Pulumi.Aws.Lambda
             Outputs.GetFunctionDeadLetterConfigResult deadLetterConfig,
 
             string description,
+
+            ImmutableArray<Outputs.GetFunctionDurableConfigResult> durableConfigs,
 
             Outputs.GetFunctionEnvironmentResult environment,
 
@@ -731,6 +861,8 @@ namespace Pulumi.Aws.Lambda
 
             ImmutableDictionary<string, string> tags,
 
+            ImmutableArray<Outputs.GetFunctionTenancyConfigResult> tenancyConfigs,
+
             int timeout,
 
             Outputs.GetFunctionTracingConfigResult tracingConfig,
@@ -741,10 +873,12 @@ namespace Pulumi.Aws.Lambda
         {
             Architectures = architectures;
             Arn = arn;
+            CapacityProviderConfigs = capacityProviderConfigs;
             CodeSha256 = codeSha256;
             CodeSigningConfigArn = codeSigningConfigArn;
             DeadLetterConfig = deadLetterConfig;
             Description = description;
+            DurableConfigs = durableConfigs;
             Environment = environment;
             EphemeralStorages = ephemeralStorages;
             FileSystemConfigs = fileSystemConfigs;
@@ -771,6 +905,7 @@ namespace Pulumi.Aws.Lambda
             SourceCodeSize = sourceCodeSize;
             SourceKmsKeyArn = sourceKmsKeyArn;
             Tags = tags;
+            TenancyConfigs = tenancyConfigs;
             Timeout = timeout;
             TracingConfig = tracingConfig;
             Version = version;

@@ -29,6 +29,7 @@ from .egress_only_internet_gateway import *
 from .eip import *
 from .eip_association import *
 from .eip_domain_name import *
+from .encryption_control import *
 from .fleet import *
 from .flow_log import *
 from .get_ami import *
@@ -168,6 +169,7 @@ from .vpc_ipv6_cidr_block_association import *
 from .vpc_network_performance_metric_subscription import *
 from .vpc_peering_connection import *
 from .vpc_peering_connection_accepter import *
+from .vpn_concentrator import *
 from .vpn_connection import *
 from .vpn_connection_route import *
 from .vpn_gateway import *

@@ -32,6 +32,11 @@ public final class GetZoneResult {
      */
     private String comment;
     /**
+     * @return Boolean to indicate whether to enable accelerated recovery for the hosted zone.
+     * 
+     */
+    private @Nullable Boolean enableAcceleratedRecovery;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -76,7 +81,7 @@ public final class GetZoneResult {
      * 
      */
     private Map<String,String> tags;
-    private String vpcId;
+    private @Nullable String vpcId;
     /**
      * @return The Hosted Zone identifier.
      * 
@@ -104,6 +109,13 @@ public final class GetZoneResult {
      */
     public String comment() {
         return this.comment;
+    }
+    /**
+     * @return Boolean to indicate whether to enable accelerated recovery for the hosted zone.
+     * 
+     */
+    public Optional<Boolean> enableAcceleratedRecovery() {
+        return Optional.ofNullable(this.enableAcceleratedRecovery);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -168,8 +180,8 @@ public final class GetZoneResult {
     public Map<String,String> tags() {
         return this.tags;
     }
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
     /**
      * @return The Hosted Zone identifier.
@@ -191,6 +203,7 @@ public final class GetZoneResult {
         private String arn;
         private String callerReference;
         private String comment;
+        private @Nullable Boolean enableAcceleratedRecovery;
         private String id;
         private String linkedServiceDescription;
         private String linkedServicePrincipal;
@@ -200,7 +213,7 @@ public final class GetZoneResult {
         private @Nullable Boolean privateZone;
         private Integer resourceRecordSetCount;
         private Map<String,String> tags;
-        private String vpcId;
+        private @Nullable String vpcId;
         private String zoneId;
         public Builder() {}
         public Builder(GetZoneResult defaults) {
@@ -208,6 +221,7 @@ public final class GetZoneResult {
     	      this.arn = defaults.arn;
     	      this.callerReference = defaults.callerReference;
     	      this.comment = defaults.comment;
+    	      this.enableAcceleratedRecovery = defaults.enableAcceleratedRecovery;
     	      this.id = defaults.id;
     	      this.linkedServiceDescription = defaults.linkedServiceDescription;
     	      this.linkedServicePrincipal = defaults.linkedServicePrincipal;
@@ -243,6 +257,12 @@ public final class GetZoneResult {
               throw new MissingRequiredPropertyException("GetZoneResult", "comment");
             }
             this.comment = comment;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableAcceleratedRecovery(@Nullable Boolean enableAcceleratedRecovery) {
+
+            this.enableAcceleratedRecovery = enableAcceleratedRecovery;
             return this;
         }
         @CustomType.Setter
@@ -319,10 +339,8 @@ public final class GetZoneResult {
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            if (vpcId == null) {
-              throw new MissingRequiredPropertyException("GetZoneResult", "vpcId");
-            }
+        public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }
@@ -339,6 +357,7 @@ public final class GetZoneResult {
             _resultValue.arn = arn;
             _resultValue.callerReference = callerReference;
             _resultValue.comment = comment;
+            _resultValue.enableAcceleratedRecovery = enableAcceleratedRecovery;
             _resultValue.id = id;
             _resultValue.linkedServiceDescription = linkedServiceDescription;
             _resultValue.linkedServicePrincipal = linkedServicePrincipal;

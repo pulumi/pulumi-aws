@@ -110,15 +110,15 @@ public final class AccountAssignmentArgs extends com.pulumi.resources.ResourceAr
      * The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      * 
      */
-    @Import(name="targetType")
-    private @Nullable Output<String> targetType;
+    @Import(name="targetType", required=true)
+    private Output<String> targetType;
 
     /**
      * @return The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      * 
      */
-    public Optional<Output<String>> targetType() {
-        return Optional.ofNullable(this.targetType);
+    public Output<String> targetType() {
+        return this.targetType;
     }
 
     private AccountAssignmentArgs() {}
@@ -283,7 +283,7 @@ public final class AccountAssignmentArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder targetType(@Nullable Output<String> targetType) {
+        public Builder targetType(Output<String> targetType) {
             $.targetType = targetType;
             return this;
         }
@@ -313,6 +313,9 @@ public final class AccountAssignmentArgs extends com.pulumi.resources.ResourceAr
             }
             if ($.targetId == null) {
                 throw new MissingRequiredPropertyException("AccountAssignmentArgs", "targetId");
+            }
+            if ($.targetType == null) {
+                throw new MissingRequiredPropertyException("AccountAssignmentArgs", "targetType");
             }
             return $;
         }

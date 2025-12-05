@@ -43,8 +43,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import IAM Policies using the `arn`. For example:
  *
- * console
- *
  * % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
  */
 export class Policy extends pulumi.CustomResource {

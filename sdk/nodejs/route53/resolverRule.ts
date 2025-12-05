@@ -80,8 +80,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
  *
- * console
- *
  * % pulumi import aws_route53_resolver_rule.example rslvr-rr-0123456789abcdef0
  */
 export class ResolverRule extends pulumi.CustomResource {

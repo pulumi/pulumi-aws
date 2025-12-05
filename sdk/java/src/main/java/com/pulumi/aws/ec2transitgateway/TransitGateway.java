@@ -181,6 +181,20 @@ public class TransitGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsSupport);
     }
     /**
+     * Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+     * 
+     */
+    @Export(name="encryptionSupport", refs={String.class}, tree="[0]")
+    private Output<String> encryptionSupport;
+
+    /**
+     * @return Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+     * 
+     */
+    public Output<String> encryptionSupport() {
+        return this.encryptionSupport;
+    }
+    /**
      * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */

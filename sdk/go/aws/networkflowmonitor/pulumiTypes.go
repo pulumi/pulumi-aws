@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type MonitorLocalResource struct {
 	// The identifier of the resource. For VPC resources, this is the VPC ARN.
 	Identifier string `pulumi:"identifier"`
-	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
 	Type string `pulumi:"type"`
 }
 
@@ -34,7 +34,7 @@ type MonitorLocalResourceInput interface {
 type MonitorLocalResourceArgs struct {
 	// The identifier of the resource. For VPC resources, this is the VPC ARN.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
-	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -94,7 +94,7 @@ func (o MonitorLocalResourceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorLocalResource) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
 func (o MonitorLocalResourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorLocalResource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -122,7 +122,7 @@ func (o MonitorLocalResourceArrayOutput) Index(i pulumi.IntInput) MonitorLocalRe
 type MonitorRemoteResource struct {
 	// The identifier of the resource. For VPC resources, this is the VPC ARN.
 	Identifier string `pulumi:"identifier"`
-	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
 	Type string `pulumi:"type"`
 }
 
@@ -140,7 +140,7 @@ type MonitorRemoteResourceInput interface {
 type MonitorRemoteResourceArgs struct {
 	// The identifier of the resource. For VPC resources, this is the VPC ARN.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
-	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -200,7 +200,7 @@ func (o MonitorRemoteResourceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorRemoteResource) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
 func (o MonitorRemoteResourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorRemoteResource) string { return v.Type }).(pulumi.StringOutput)
 }

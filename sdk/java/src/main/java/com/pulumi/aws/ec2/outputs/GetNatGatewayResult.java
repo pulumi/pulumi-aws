@@ -3,7 +3,9 @@
 
 package com.pulumi.aws.ec2.outputs;
 
+import com.pulumi.aws.ec2.outputs.GetNatGatewayAvailabilityZoneAddress;
 import com.pulumi.aws.ec2.outputs.GetNatGatewayFilter;
+import com.pulumi.aws.ec2.outputs.GetNatGatewayRegionalNatGatewayAddress;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -16,15 +18,35 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetNatGatewayResult {
     /**
-     * @return ID of the EIP allocated to the selected NAT Gateway.
+     * @return Allocation ID of the Elastic IP address.
      * 
      */
     private String allocationId;
     /**
-     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivityType` is `public`.
+     * @return Association ID of the Elastic IP address.
      * 
      */
     private String associationId;
+    /**
+     * @return (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
+     * 
+     */
+    private String autoProvisionZones;
+    /**
+     * @return (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+     * 
+     */
+    private String autoScalingIps;
+    /**
+     * @return Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+     * 
+     */
+    private String availabilityMode;
+    /**
+     * @return (regional NAT gateways only) Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway.
+     * 
+     */
+    private List<GetNatGatewayAvailabilityZoneAddress> availabilityZoneAddresses;
     /**
      * @return Connectivity type of the NAT Gateway.
      * 
@@ -33,33 +55,43 @@ public final class GetNatGatewayResult {
     private @Nullable List<GetNatGatewayFilter> filters;
     private String id;
     /**
-     * @return The ID of the ENI allocated to the selected NAT Gateway.
+     * @return ID of the network interface.
      * 
      */
     private String networkInterfaceId;
     /**
-     * @return Private IP address of the selected NAT Gateway.
+     * @return (zonal NAT gateways only) Private IP address of the selected NAT Gateway.
      * 
      */
     private String privateIp;
     /**
-     * @return Public IP (EIP) address of the selected NAT Gateway.
+     * @return Public IP address.
      * 
      */
     private String publicIp;
     private String region;
     /**
-     * @return Secondary allocation EIP IDs for the selected NAT Gateway.
+     * @return (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
+     * 
+     */
+    private List<GetNatGatewayRegionalNatGatewayAddress> regionalNatGatewayAddresses;
+    /**
+     * @return (regional NAT gateways only) ID of the automatically created route table.
+     * 
+     */
+    private String routeTableId;
+    /**
+     * @return (zonal NAT gateways only) Secondary allocation EIP IDs for the selected NAT Gateway.
      * 
      */
     private List<String> secondaryAllocationIds;
     /**
-     * @return The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
+     * @return (zonal NAT gateways only) The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
      * 
      */
     private Integer secondaryPrivateIpAddressCount;
     /**
-     * @return Secondary private IPv4 addresses assigned to the selected NAT Gateway.
+     * @return (zonal NAT gateways only) Secondary private IPv4 addresses assigned to the selected NAT Gateway.
      * 
      */
     private List<String> secondaryPrivateIpAddresses;
@@ -70,18 +102,46 @@ public final class GetNatGatewayResult {
 
     private GetNatGatewayResult() {}
     /**
-     * @return ID of the EIP allocated to the selected NAT Gateway.
+     * @return Allocation ID of the Elastic IP address.
      * 
      */
     public String allocationId() {
         return this.allocationId;
     }
     /**
-     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivityType` is `public`.
+     * @return Association ID of the Elastic IP address.
      * 
      */
     public String associationId() {
         return this.associationId;
+    }
+    /**
+     * @return (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
+     * 
+     */
+    public String autoProvisionZones() {
+        return this.autoProvisionZones;
+    }
+    /**
+     * @return (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+     * 
+     */
+    public String autoScalingIps() {
+        return this.autoScalingIps;
+    }
+    /**
+     * @return Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+     * 
+     */
+    public String availabilityMode() {
+        return this.availabilityMode;
+    }
+    /**
+     * @return (regional NAT gateways only) Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway.
+     * 
+     */
+    public List<GetNatGatewayAvailabilityZoneAddress> availabilityZoneAddresses() {
+        return this.availabilityZoneAddresses;
     }
     /**
      * @return Connectivity type of the NAT Gateway.
@@ -97,21 +157,21 @@ public final class GetNatGatewayResult {
         return this.id;
     }
     /**
-     * @return The ID of the ENI allocated to the selected NAT Gateway.
+     * @return ID of the network interface.
      * 
      */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
     /**
-     * @return Private IP address of the selected NAT Gateway.
+     * @return (zonal NAT gateways only) Private IP address of the selected NAT Gateway.
      * 
      */
     public String privateIp() {
         return this.privateIp;
     }
     /**
-     * @return Public IP (EIP) address of the selected NAT Gateway.
+     * @return Public IP address.
      * 
      */
     public String publicIp() {
@@ -121,21 +181,35 @@ public final class GetNatGatewayResult {
         return this.region;
     }
     /**
-     * @return Secondary allocation EIP IDs for the selected NAT Gateway.
+     * @return (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
+     * 
+     */
+    public List<GetNatGatewayRegionalNatGatewayAddress> regionalNatGatewayAddresses() {
+        return this.regionalNatGatewayAddresses;
+    }
+    /**
+     * @return (regional NAT gateways only) ID of the automatically created route table.
+     * 
+     */
+    public String routeTableId() {
+        return this.routeTableId;
+    }
+    /**
+     * @return (zonal NAT gateways only) Secondary allocation EIP IDs for the selected NAT Gateway.
      * 
      */
     public List<String> secondaryAllocationIds() {
         return this.secondaryAllocationIds;
     }
     /**
-     * @return The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
+     * @return (zonal NAT gateways only) The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
      * 
      */
     public Integer secondaryPrivateIpAddressCount() {
         return this.secondaryPrivateIpAddressCount;
     }
     /**
-     * @return Secondary private IPv4 addresses assigned to the selected NAT Gateway.
+     * @return (zonal NAT gateways only) Secondary private IPv4 addresses assigned to the selected NAT Gateway.
      * 
      */
     public List<String> secondaryPrivateIpAddresses() {
@@ -165,6 +239,10 @@ public final class GetNatGatewayResult {
     public static final class Builder {
         private String allocationId;
         private String associationId;
+        private String autoProvisionZones;
+        private String autoScalingIps;
+        private String availabilityMode;
+        private List<GetNatGatewayAvailabilityZoneAddress> availabilityZoneAddresses;
         private String connectivityType;
         private @Nullable List<GetNatGatewayFilter> filters;
         private String id;
@@ -172,6 +250,8 @@ public final class GetNatGatewayResult {
         private String privateIp;
         private String publicIp;
         private String region;
+        private List<GetNatGatewayRegionalNatGatewayAddress> regionalNatGatewayAddresses;
+        private String routeTableId;
         private List<String> secondaryAllocationIds;
         private Integer secondaryPrivateIpAddressCount;
         private List<String> secondaryPrivateIpAddresses;
@@ -184,6 +264,10 @@ public final class GetNatGatewayResult {
     	      Objects.requireNonNull(defaults);
     	      this.allocationId = defaults.allocationId;
     	      this.associationId = defaults.associationId;
+    	      this.autoProvisionZones = defaults.autoProvisionZones;
+    	      this.autoScalingIps = defaults.autoScalingIps;
+    	      this.availabilityMode = defaults.availabilityMode;
+    	      this.availabilityZoneAddresses = defaults.availabilityZoneAddresses;
     	      this.connectivityType = defaults.connectivityType;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
@@ -191,6 +275,8 @@ public final class GetNatGatewayResult {
     	      this.privateIp = defaults.privateIp;
     	      this.publicIp = defaults.publicIp;
     	      this.region = defaults.region;
+    	      this.regionalNatGatewayAddresses = defaults.regionalNatGatewayAddresses;
+    	      this.routeTableId = defaults.routeTableId;
     	      this.secondaryAllocationIds = defaults.secondaryAllocationIds;
     	      this.secondaryPrivateIpAddressCount = defaults.secondaryPrivateIpAddressCount;
     	      this.secondaryPrivateIpAddresses = defaults.secondaryPrivateIpAddresses;
@@ -215,6 +301,41 @@ public final class GetNatGatewayResult {
             }
             this.associationId = associationId;
             return this;
+        }
+        @CustomType.Setter
+        public Builder autoProvisionZones(String autoProvisionZones) {
+            if (autoProvisionZones == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "autoProvisionZones");
+            }
+            this.autoProvisionZones = autoProvisionZones;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder autoScalingIps(String autoScalingIps) {
+            if (autoScalingIps == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "autoScalingIps");
+            }
+            this.autoScalingIps = autoScalingIps;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder availabilityMode(String availabilityMode) {
+            if (availabilityMode == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "availabilityMode");
+            }
+            this.availabilityMode = availabilityMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder availabilityZoneAddresses(List<GetNatGatewayAvailabilityZoneAddress> availabilityZoneAddresses) {
+            if (availabilityZoneAddresses == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "availabilityZoneAddresses");
+            }
+            this.availabilityZoneAddresses = availabilityZoneAddresses;
+            return this;
+        }
+        public Builder availabilityZoneAddresses(GetNatGatewayAvailabilityZoneAddress... availabilityZoneAddresses) {
+            return availabilityZoneAddresses(List.of(availabilityZoneAddresses));
         }
         @CustomType.Setter
         public Builder connectivityType(String connectivityType) {
@@ -271,6 +392,25 @@ public final class GetNatGatewayResult {
               throw new MissingRequiredPropertyException("GetNatGatewayResult", "region");
             }
             this.region = region;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder regionalNatGatewayAddresses(List<GetNatGatewayRegionalNatGatewayAddress> regionalNatGatewayAddresses) {
+            if (regionalNatGatewayAddresses == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "regionalNatGatewayAddresses");
+            }
+            this.regionalNatGatewayAddresses = regionalNatGatewayAddresses;
+            return this;
+        }
+        public Builder regionalNatGatewayAddresses(GetNatGatewayRegionalNatGatewayAddress... regionalNatGatewayAddresses) {
+            return regionalNatGatewayAddresses(List.of(regionalNatGatewayAddresses));
+        }
+        @CustomType.Setter
+        public Builder routeTableId(String routeTableId) {
+            if (routeTableId == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "routeTableId");
+            }
+            this.routeTableId = routeTableId;
             return this;
         }
         @CustomType.Setter
@@ -339,6 +479,10 @@ public final class GetNatGatewayResult {
             final var _resultValue = new GetNatGatewayResult();
             _resultValue.allocationId = allocationId;
             _resultValue.associationId = associationId;
+            _resultValue.autoProvisionZones = autoProvisionZones;
+            _resultValue.autoScalingIps = autoScalingIps;
+            _resultValue.availabilityMode = availabilityMode;
+            _resultValue.availabilityZoneAddresses = availabilityZoneAddresses;
             _resultValue.connectivityType = connectivityType;
             _resultValue.filters = filters;
             _resultValue.id = id;
@@ -346,6 +490,8 @@ public final class GetNatGatewayResult {
             _resultValue.privateIp = privateIp;
             _resultValue.publicIp = publicIp;
             _resultValue.region = region;
+            _resultValue.regionalNatGatewayAddresses = regionalNatGatewayAddresses;
+            _resultValue.routeTableId = routeTableId;
             _resultValue.secondaryAllocationIds = secondaryAllocationIds;
             _resultValue.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
             _resultValue.secondaryPrivateIpAddresses = secondaryPrivateIpAddresses;

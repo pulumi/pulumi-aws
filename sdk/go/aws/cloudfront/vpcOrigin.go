@@ -72,8 +72,6 @@ import (
 //
 // Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
 //
-// console
-//
 // % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
 type VpcOrigin struct {
 	pulumi.CustomResourceState

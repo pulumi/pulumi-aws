@@ -88,6 +88,11 @@ public final class GetDirectoryResult {
      */
     private Map<String,String> tags;
     /**
+     * @return Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+     * 
+     */
+    private String tenancy;
+    /**
      * @return The user identity type for the WorkSpaces directory.
      * 
      */
@@ -228,6 +233,13 @@ public final class GetDirectoryResult {
         return this.tags;
     }
     /**
+     * @return Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+     * 
+     */
+    public String tenancy() {
+        return this.tenancy;
+    }
+    /**
      * @return The user identity type for the WorkSpaces directory.
      * 
      */
@@ -303,6 +315,7 @@ public final class GetDirectoryResult {
         private List<GetDirectorySelfServicePermission> selfServicePermissions;
         private List<String> subnetIds;
         private Map<String,String> tags;
+        private String tenancy;
         private String userIdentityType;
         private List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties;
         private List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties;
@@ -330,6 +343,7 @@ public final class GetDirectoryResult {
     	      this.selfServicePermissions = defaults.selfServicePermissions;
     	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
+    	      this.tenancy = defaults.tenancy;
     	      this.userIdentityType = defaults.userIdentityType;
     	      this.workspaceAccessProperties = defaults.workspaceAccessProperties;
     	      this.workspaceCreationProperties = defaults.workspaceCreationProperties;
@@ -497,6 +511,14 @@ public final class GetDirectoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder tenancy(String tenancy) {
+            if (tenancy == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "tenancy");
+            }
+            this.tenancy = tenancy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder userIdentityType(String userIdentityType) {
             if (userIdentityType == null) {
               throw new MissingRequiredPropertyException("GetDirectoryResult", "userIdentityType");
@@ -577,6 +599,7 @@ public final class GetDirectoryResult {
             _resultValue.selfServicePermissions = selfServicePermissions;
             _resultValue.subnetIds = subnetIds;
             _resultValue.tags = tags;
+            _resultValue.tenancy = tenancy;
             _resultValue.userIdentityType = userIdentityType;
             _resultValue.workspaceAccessProperties = workspaceAccessProperties;
             _resultValue.workspaceCreationProperties = workspaceCreationProperties;

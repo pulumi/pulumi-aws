@@ -4,7 +4,7 @@
 package com.pulumi.aws.odb.outputs;
 
 import com.pulumi.aws.odb.outputs.GetCloudVmClusterDataCollectionOption;
-import com.pulumi.aws.odb.outputs.GetCloudVmClusterIormConfigCach;
+import com.pulumi.aws.odb.outputs.GetCloudVmClusterIormConfigCache;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -97,7 +97,7 @@ public final class GetCloudVmClusterResult {
      * @return The ExadataIormConfig cache details for the VM cluster.
      * 
      */
-    private List<GetCloudVmClusterIormConfigCach> iormConfigCaches;
+    private List<GetCloudVmClusterIormConfigCache> iormConfigCaches;
     /**
      * @return Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
      * 
@@ -329,7 +329,7 @@ public final class GetCloudVmClusterResult {
      * @return The ExadataIormConfig cache details for the VM cluster.
      * 
      */
-    public List<GetCloudVmClusterIormConfigCach> iormConfigCaches() {
+    public List<GetCloudVmClusterIormConfigCache> iormConfigCaches() {
         return this.iormConfigCaches;
     }
     /**
@@ -525,7 +525,7 @@ public final class GetCloudVmClusterResult {
         private String giVersion;
         private String hostnamePrefixComputed;
         private String id;
-        private List<GetCloudVmClusterIormConfigCach> iormConfigCaches;
+        private List<GetCloudVmClusterIormConfigCache> iormConfigCaches;
         private Boolean isLocalBackupEnabled;
         private Boolean isSparseDiskGroupEnabled;
         private String lastUpdateHistoryEntryId;
@@ -733,14 +733,14 @@ public final class GetCloudVmClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder iormConfigCaches(List<GetCloudVmClusterIormConfigCach> iormConfigCaches) {
+        public Builder iormConfigCaches(List<GetCloudVmClusterIormConfigCache> iormConfigCaches) {
             if (iormConfigCaches == null) {
               throw new MissingRequiredPropertyException("GetCloudVmClusterResult", "iormConfigCaches");
             }
             this.iormConfigCaches = iormConfigCaches;
             return this;
         }
-        public Builder iormConfigCaches(GetCloudVmClusterIormConfigCach... iormConfigCaches) {
+        public Builder iormConfigCaches(GetCloudVmClusterIormConfigCache... iormConfigCaches) {
             return iormConfigCaches(List.of(iormConfigCaches));
         }
         @CustomType.Setter

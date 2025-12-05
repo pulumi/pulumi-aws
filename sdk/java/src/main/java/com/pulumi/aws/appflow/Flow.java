@@ -187,8 +187,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import AppFlow flows using the `name`. For example:
  * 
- * console
- * 
  * % pulumi import aws_appflow_flow.example example-flow
  * 
  */

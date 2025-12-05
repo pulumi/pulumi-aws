@@ -19,9 +19,11 @@ namespace Pulumi.Aws.Backup.Outputs
         public readonly ImmutableArray<Outputs.GetPlanRuleLifecycleResult> Lifecycles;
         public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
         public readonly string RuleName;
+        public readonly ImmutableArray<Outputs.GetPlanRuleScanActionResult> ScanActions;
         public readonly string Schedule;
         public readonly string ScheduleExpressionTimezone;
         public readonly int StartWindow;
+        public readonly string TargetLogicallyAirGappedBackupVaultArn;
         public readonly string TargetVaultName;
 
         [OutputConstructor]
@@ -38,11 +40,15 @@ namespace Pulumi.Aws.Backup.Outputs
 
             string ruleName,
 
+            ImmutableArray<Outputs.GetPlanRuleScanActionResult> scanActions,
+
             string schedule,
 
             string scheduleExpressionTimezone,
 
             int startWindow,
+
+            string targetLogicallyAirGappedBackupVaultArn,
 
             string targetVaultName)
         {
@@ -52,9 +58,11 @@ namespace Pulumi.Aws.Backup.Outputs
             Lifecycles = lifecycles;
             RecoveryPointTags = recoveryPointTags;
             RuleName = ruleName;
+            ScanActions = scanActions;
             Schedule = schedule;
             ScheduleExpressionTimezone = scheduleExpressionTimezone;
             StartWindow = startWindow;
+            TargetLogicallyAirGappedBackupVaultArn = targetLogicallyAirGappedBackupVaultArn;
             TargetVaultName = targetVaultName;
         }
     }

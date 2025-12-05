@@ -49,6 +49,9 @@ namespace Pulumi.Aws.Odb.Outputs
         /// The ID of the Exadata infrastructure that hosts the database server.
         /// </summary>
         public readonly string ExadataInfrastructureId;
+        /// <summary>
+        /// The unique identifier of the database server.
+        /// </summary>
         public readonly string Id;
         /// <summary>
         /// The total number of CPU cores available on the database server.

@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AnalyticsConfiguration{}
 	case "aws:s3/bucket:Bucket":
 		r = &Bucket{}
+	case "aws:s3/bucketAbac:BucketAbac":
+		r = &BucketAbac{}
 	case "aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration":
 		r = &BucketAccelerateConfiguration{}
 	case "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2":
@@ -97,6 +99,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Inventory{}
 	case "aws:s3/objectCopy:ObjectCopy":
 		r = &ObjectCopy{}
+	case "aws:s3/vectorsIndex:VectorsIndex":
+		r = &VectorsIndex{}
+	case "aws:s3/vectorsVectorBucket:VectorsVectorBucket":
+		r = &VectorsVectorBucket{}
+	case "aws:s3/vectorsVectorBucketPolicy:VectorsVectorBucketPolicy":
+		r = &VectorsVectorBucketPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -128,6 +136,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/bucket",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketAbac",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -298,6 +311,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/objectCopy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/vectorsIndex",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/vectorsVectorBucket",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/vectorsVectorBucketPolicy",
 		&module{version},
 	)
 }

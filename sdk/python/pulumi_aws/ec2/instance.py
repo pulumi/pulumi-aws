@@ -2063,8 +2063,6 @@ class Instance(pulumi.CustomResource):
 
         Using `pulumi import`, import instances using the `id`. For example:
 
-        console
-
         % pulumi import aws_instance.web i-12345678
 
         :param str resource_name: The name of the resource.
@@ -2324,8 +2322,6 @@ class Instance(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import instances using the `id`. For example:
-
-        console
 
         % pulumi import aws_instance.web i-12345678
 

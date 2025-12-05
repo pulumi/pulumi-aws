@@ -149,6 +149,12 @@ namespace Pulumi.Aws.Route53
         public Output<string?> DelegationSetId { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `False`. Once set, switching to `False` requires explicitly specifying `False` rather than removing the argument.
+        /// </summary>
+        [Output("enableAcceleratedRecovery")]
+        public Output<bool> EnableAcceleratedRecovery { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         /// </summary>
         [Output("forceDestroy")]
@@ -256,6 +262,12 @@ namespace Pulumi.Aws.Route53
         public Input<string>? DelegationSetId { get; set; }
 
         /// <summary>
+        /// Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `False`. Once set, switching to `False` requires explicitly specifying `False` rather than removing the argument.
+        /// </summary>
+        [Input("enableAcceleratedRecovery")]
+        public Input<bool>? EnableAcceleratedRecovery { get; set; }
+
+        /// <summary>
         /// Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         /// </summary>
         [Input("forceDestroy")]
@@ -317,6 +329,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("delegationSetId")]
         public Input<string>? DelegationSetId { get; set; }
+
+        /// <summary>
+        /// Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `False`. Once set, switching to `False` requires explicitly specifying `False` rather than removing the argument.
+        /// </summary>
+        [Input("enableAcceleratedRecovery")]
+        public Input<bool>? EnableAcceleratedRecovery { get; set; }
 
         /// <summary>
         /// Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.

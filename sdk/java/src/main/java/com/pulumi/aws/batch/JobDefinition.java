@@ -421,8 +421,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
  * 
- * console
- * 
  * % pulumi import aws_batch_job_definition.test arn:aws:batch:us-east-1:123456789012:job-definition/sample
  * 
  */

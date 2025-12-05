@@ -27,13 +27,16 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, architectures=None, arn=None, code_sha256=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, logging_configs=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, region=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, source_kms_key_arn=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, capacity_provider_configs=None, code_sha256=None, code_signing_config_arn=None, dead_letter_config=None, description=None, durable_configs=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, logging_configs=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, region=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, source_kms_key_arn=None, tags=None, tenancy_configs=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if capacity_provider_configs and not isinstance(capacity_provider_configs, list):
+            raise TypeError("Expected argument 'capacity_provider_configs' to be a list")
+        pulumi.set(__self__, "capacity_provider_configs", capacity_provider_configs)
         if code_sha256 and not isinstance(code_sha256, str):
             raise TypeError("Expected argument 'code_sha256' to be a str")
         pulumi.set(__self__, "code_sha256", code_sha256)
@@ -46,6 +49,9 @@ class GetFunctionResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if durable_configs and not isinstance(durable_configs, list):
+            raise TypeError("Expected argument 'durable_configs' to be a list")
+        pulumi.set(__self__, "durable_configs", durable_configs)
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
@@ -124,6 +130,9 @@ class GetFunctionResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tenancy_configs and not isinstance(tenancy_configs, list):
+            raise TypeError("Expected argument 'tenancy_configs' to be a list")
+        pulumi.set(__self__, "tenancy_configs", tenancy_configs)
         if timeout and not isinstance(timeout, int):
             raise TypeError("Expected argument 'timeout' to be a int")
         pulumi.set(__self__, "timeout", timeout)
@@ -152,6 +161,14 @@ class GetFunctionResult:
         ARN of the Amazon EFS Access Point that provides access to the file system.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderConfigs")
+    def capacity_provider_configs(self) -> Sequence['outputs.GetFunctionCapacityProviderConfigResult']:
+        """
+        Configuration for Lambda function's capacity provider. See below.
+        """
+        return pulumi.get(self, "capacity_provider_configs")
 
     @_builtins.property
     @pulumi.getter(name="codeSha256")
@@ -184,6 +201,14 @@ class GetFunctionResult:
         Description of what your Lambda Function does.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="durableConfigs")
+    def durable_configs(self) -> Sequence['outputs.GetFunctionDurableConfigResult']:
+        """
+        Configuration for the function's durable settings. See below.
+        """
+        return pulumi.get(self, "durable_configs")
 
     @_builtins.property
     @pulumi.getter
@@ -386,6 +411,14 @@ class GetFunctionResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="tenancyConfigs")
+    def tenancy_configs(self) -> Sequence['outputs.GetFunctionTenancyConfigResult']:
+        """
+        Tenancy settings of the function. See below.
+        """
+        return pulumi.get(self, "tenancy_configs")
+
+    @_builtins.property
     @pulumi.getter
     def timeout(self) -> _builtins.int:
         """
@@ -426,10 +459,12 @@ class AwaitableGetFunctionResult(GetFunctionResult):
         return GetFunctionResult(
             architectures=self.architectures,
             arn=self.arn,
+            capacity_provider_configs=self.capacity_provider_configs,
             code_sha256=self.code_sha256,
             code_signing_config_arn=self.code_signing_config_arn,
             dead_letter_config=self.dead_letter_config,
             description=self.description,
+            durable_configs=self.durable_configs,
             environment=self.environment,
             ephemeral_storages=self.ephemeral_storages,
             file_system_configs=self.file_system_configs,
@@ -456,6 +491,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             source_code_size=self.source_code_size,
             source_kms_key_arn=self.source_kms_key_arn,
             tags=self.tags,
+            tenancy_configs=self.tenancy_configs,
             timeout=self.timeout,
             tracing_config=self.tracing_config,
             version=self.version,
@@ -508,10 +544,20 @@ def get_function(function_name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
+    def single_or_none(elements):
+        if len(elements) != 1:
+            raise Exception("single_or_none expected input list to have a single element")
+        return elements[0]
+
+
     # Get existing function details
     reference = aws.lambda.get_function(function_name="existing-function")
     # Create new function with similar configuration
     example = aws.lambda_.Function("example",
+        durable_config=single_or_none([{"key": k, "value": v} for k, v in reference.durable_configs].apply(lambda entries: [{
+            "executionTimeout": entry["value"].execution_timeout,
+            "retentionPeriod": entry["value"].retention_period,
+        } for entry in entries])),
         code=pulumi.FileArchive("new-function.zip"),
         name="new-function",
         role=reference.role,
@@ -548,6 +594,20 @@ def get_function(function_name: Optional[_builtins.str] = None,
     })
     ```
 
+    ### Accessing Durable Configuration
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    durable_function = aws.lambda.get_function(function_name="my-durable-function")
+    pulumi.export("durableSettings", {
+        "hasDurableConfig": len(durable_function.durable_configs).apply(lambda length: length > 0),
+        "executionTimeout": len(durable_function.durable_configs).apply(lambda length: durable_function.durable_configs[0].execution_timeout if length > 0 else None),
+        "retentionPeriod": len(durable_function.durable_configs).apply(lambda length: durable_function.durable_configs[0].retention_period if length > 0 else None),
+    })
+    ```
+
 
     :param _builtins.str function_name: Name of the Lambda function.
            
@@ -567,10 +627,12 @@ def get_function(function_name: Optional[_builtins.str] = None,
     return AwaitableGetFunctionResult(
         architectures=pulumi.get(__ret__, 'architectures'),
         arn=pulumi.get(__ret__, 'arn'),
+        capacity_provider_configs=pulumi.get(__ret__, 'capacity_provider_configs'),
         code_sha256=pulumi.get(__ret__, 'code_sha256'),
         code_signing_config_arn=pulumi.get(__ret__, 'code_signing_config_arn'),
         dead_letter_config=pulumi.get(__ret__, 'dead_letter_config'),
         description=pulumi.get(__ret__, 'description'),
+        durable_configs=pulumi.get(__ret__, 'durable_configs'),
         environment=pulumi.get(__ret__, 'environment'),
         ephemeral_storages=pulumi.get(__ret__, 'ephemeral_storages'),
         file_system_configs=pulumi.get(__ret__, 'file_system_configs'),
@@ -597,6 +659,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
         source_code_size=pulumi.get(__ret__, 'source_code_size'),
         source_kms_key_arn=pulumi.get(__ret__, 'source_kms_key_arn'),
         tags=pulumi.get(__ret__, 'tags'),
+        tenancy_configs=pulumi.get(__ret__, 'tenancy_configs'),
         timeout=pulumi.get(__ret__, 'timeout'),
         tracing_config=pulumi.get(__ret__, 'tracing_config'),
         version=pulumi.get(__ret__, 'version'),
@@ -647,10 +710,20 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
     import pulumi
     import pulumi_aws as aws
 
+    def single_or_none(elements):
+        if len(elements) != 1:
+            raise Exception("single_or_none expected input list to have a single element")
+        return elements[0]
+
+
     # Get existing function details
     reference = aws.lambda.get_function(function_name="existing-function")
     # Create new function with similar configuration
     example = aws.lambda_.Function("example",
+        durable_config=single_or_none([{"key": k, "value": v} for k, v in reference.durable_configs].apply(lambda entries: [{
+            "executionTimeout": entry["value"].execution_timeout,
+            "retentionPeriod": entry["value"].retention_period,
+        } for entry in entries])),
         code=pulumi.FileArchive("new-function.zip"),
         name="new-function",
         role=reference.role,
@@ -687,6 +760,20 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
     })
     ```
 
+    ### Accessing Durable Configuration
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    durable_function = aws.lambda.get_function(function_name="my-durable-function")
+    pulumi.export("durableSettings", {
+        "hasDurableConfig": len(durable_function.durable_configs).apply(lambda length: length > 0),
+        "executionTimeout": len(durable_function.durable_configs).apply(lambda length: durable_function.durable_configs[0].execution_timeout if length > 0 else None),
+        "retentionPeriod": len(durable_function.durable_configs).apply(lambda length: durable_function.durable_configs[0].retention_period if length > 0 else None),
+    })
+    ```
+
 
     :param _builtins.str function_name: Name of the Lambda function.
            
@@ -705,10 +792,12 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
     return __ret__.apply(lambda __response__: GetFunctionResult(
         architectures=pulumi.get(__response__, 'architectures'),
         arn=pulumi.get(__response__, 'arn'),
+        capacity_provider_configs=pulumi.get(__response__, 'capacity_provider_configs'),
         code_sha256=pulumi.get(__response__, 'code_sha256'),
         code_signing_config_arn=pulumi.get(__response__, 'code_signing_config_arn'),
         dead_letter_config=pulumi.get(__response__, 'dead_letter_config'),
         description=pulumi.get(__response__, 'description'),
+        durable_configs=pulumi.get(__response__, 'durable_configs'),
         environment=pulumi.get(__response__, 'environment'),
         ephemeral_storages=pulumi.get(__response__, 'ephemeral_storages'),
         file_system_configs=pulumi.get(__response__, 'file_system_configs'),
@@ -735,6 +824,7 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
         source_code_size=pulumi.get(__response__, 'source_code_size'),
         source_kms_key_arn=pulumi.get(__response__, 'source_kms_key_arn'),
         tags=pulumi.get(__response__, 'tags'),
+        tenancy_configs=pulumi.get(__response__, 'tenancy_configs'),
         timeout=pulumi.get(__response__, 'timeout'),
         tracing_config=pulumi.get(__response__, 'tracing_config'),
         version=pulumi.get(__response__, 'version'),

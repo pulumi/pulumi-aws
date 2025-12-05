@@ -125,6 +125,8 @@ type Cluster struct {
 	MasterUserSecrets       ClusterMasterUserSecretArrayOutput `pulumi:"masterUserSecrets"`
 	// Username for the master DB user.
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
+	// The network type of the DB cluster (`IPV4` or `DUAL`).
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -262,6 +264,8 @@ type clusterState struct {
 	MasterUserSecrets       []ClusterMasterUserSecret `pulumi:"masterUserSecrets"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
+	// The network type of the DB cluster (`IPV4` or `DUAL`).
+	NetworkType *string `pulumi:"networkType"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -359,6 +363,8 @@ type ClusterState struct {
 	MasterUserSecrets       ClusterMasterUserSecretArrayInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
+	// The network type of the DB cluster (`IPV4` or `DUAL`).
+	NetworkType pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -451,6 +457,8 @@ type clusterArgs struct {
 	MasterPasswordWoVersion *int `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
+	// The network type of the DB cluster (`IPV4` or `DUAL`).
+	NetworkType *string `pulumi:"networkType"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -536,6 +544,8 @@ type ClusterArgs struct {
 	MasterPasswordWoVersion pulumi.IntPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
+	// The network type of the DB cluster (`IPV4` or `DUAL`).
+	NetworkType pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -791,6 +801,11 @@ func (o ClusterOutput) MasterUserSecrets() ClusterMasterUserSecretArrayOutput {
 // Username for the master DB user.
 func (o ClusterOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterUsername }).(pulumi.StringOutput)
+}
+
+// The network type of the DB cluster (`IPV4` or `DUAL`).
+func (o ClusterOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // The port on which the DB accepts connections

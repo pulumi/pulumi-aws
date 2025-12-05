@@ -40,8 +40,6 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_codeartifact_domain.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
     /// </summary>
     [AwsResourceType("aws:codeartifact/domain:Domain")]

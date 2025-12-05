@@ -95,8 +95,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
  * 
- * console
- * 
  * % pulumi import aws_s3_bucket_policy.example my-tf-test-bucket
  * 
  */

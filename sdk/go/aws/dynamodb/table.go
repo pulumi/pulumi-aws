@@ -148,9 +148,13 @@ import (
 //
 // A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
 //
+// You can configure a MRSC global table with three replicas, or with two replicas and one witness. A witness is a component of a MRSC global table that contains data written to global table replicas, and provides an optional alternative to a full replica while supporting MRSC's availability architecture. You cannot perform read or write operations on a witness. A witness is located in a different Region than the two replicas.
+//
 // **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
 //
-// Consistency Mode (`consistencyMode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+// Consistency Mode (`consistencyMode`) on the embedded `replica` allows you to configure consistency mode for Global Tables.
+//
+// ##### Consistency mode with 3 Replicas
 //
 // ```go
 // package main
@@ -185,6 +189,51 @@ import (
 //						RegionName:      pulumi.String("us-west-2"),
 //						ConsistencyMode: pulumi.String("STRONG"),
 //					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ##### Consistency Mode with 2 Replicas and Witness Region
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
+//				Name:           pulumi.String("example"),
+//				HashKey:        pulumi.String("TestTableHashKey"),
+//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
+//				Attributes: dynamodb.TableAttributeArray{
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("TestTableHashKey"),
+//						Type: pulumi.String("S"),
+//					},
+//				},
+//				Replicas: dynamodb.TableReplicaTypeArray{
+//					&dynamodb.TableReplicaTypeArgs{
+//						RegionName:      pulumi.String("us-east-2"),
+//						ConsistencyMode: pulumi.String("STRONG"),
+//					},
+//				},
+//				GlobalTableWitness: &dynamodb.TableGlobalTableWitnessArgs{
+//					RegionName: pulumi.String("us-west-2"),
 //				},
 //			})
 //			if err != nil {
@@ -301,6 +350,8 @@ type Table struct {
 	DeletionProtectionEnabled pulumi.BoolPtrOutput `pulumi:"deletionProtectionEnabled"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
+	// Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+	GlobalTableWitness TableGlobalTableWitnessOutput `pulumi:"globalTableWitness"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringOutput `pulumi:"hashKey"`
 	// Import Amazon S3 data into a new table. See below.
@@ -397,6 +448,8 @@ type tableState struct {
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
+	// Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+	GlobalTableWitness *TableGlobalTableWitness `pulumi:"globalTableWitness"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey *string `pulumi:"hashKey"`
 	// Import Amazon S3 data into a new table. See below.
@@ -464,6 +517,8 @@ type TableState struct {
 	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
+	// Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+	GlobalTableWitness TableGlobalTableWitnessPtrInput
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringPtrInput
 	// Import Amazon S3 data into a new table. See below.
@@ -533,6 +588,8 @@ type tableArgs struct {
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
+	// Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+	GlobalTableWitness *TableGlobalTableWitness `pulumi:"globalTableWitness"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey *string `pulumi:"hashKey"`
 	// Import Amazon S3 data into a new table. See below.
@@ -593,6 +650,8 @@ type TableArgs struct {
 	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
+	// Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+	GlobalTableWitness TableGlobalTableWitnessPtrInput
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringPtrInput
 	// Import Amazon S3 data into a new table. See below.
@@ -753,6 +812,11 @@ func (o TableOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
 // Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 func (o TableOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v *Table) TableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(TableGlobalSecondaryIndexArrayOutput)
+}
+
+// Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.
+func (o TableOutput) GlobalTableWitness() TableGlobalTableWitnessOutput {
+	return o.ApplyT(func(v *Table) TableGlobalTableWitnessOutput { return v.GlobalTableWitness }).(TableGlobalTableWitnessOutput)
 }
 
 // Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.

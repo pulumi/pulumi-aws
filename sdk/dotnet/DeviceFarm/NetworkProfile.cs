@@ -48,8 +48,6 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_devicefarm_network_profile.example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
     /// </summary>
     [AwsResourceType("aws:devicefarm/networkProfile:NetworkProfile")]

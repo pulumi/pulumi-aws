@@ -162,8 +162,6 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_ivschat_logging_configuration.example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
     /// </summary>
     [AwsResourceType("aws:ivschat/loggingConfiguration:LoggingConfiguration")]

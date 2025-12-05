@@ -90,6 +90,8 @@ type LookupDirectoryResult struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]string `pulumi:"tags"`
+	// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+	Tenancy string `pulumi:"tenancy"`
 	// The user identity type for the WorkSpaces directory.
 	UserIdentityType string `pulumi:"userIdentityType"`
 	// Specifies which devices and operating systems users can use to access their WorkSpaces.
@@ -225,6 +227,11 @@ func (o LookupDirectoryResultOutput) SubnetIds() pulumi.StringArrayOutput {
 // A map of tags assigned to the WorkSpaces directory.
 func (o LookupDirectoryResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+func (o LookupDirectoryResultOutput) Tenancy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Tenancy }).(pulumi.StringOutput)
 }
 
 // The user identity type for the WorkSpaces directory.

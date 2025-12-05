@@ -280,8 +280,6 @@ import (
 //
 // Using `pulumi import`, import AWS Batch compute using the `name`. For example:
 //
-// console
-//
 // % pulumi import aws_batch_compute_environment.sample sample
 //
 // [1]: http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html

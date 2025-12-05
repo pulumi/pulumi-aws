@@ -91,6 +91,8 @@ type OpenZfsFileSystem struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId pulumi.StringPtrOutput `pulumi:"preferredSubnetId"`
+	// Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+	ReadCacheConfiguration OpenZfsFileSystemReadCacheConfigurationPtrOutput `pulumi:"readCacheConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
@@ -103,9 +105,9 @@ type OpenZfsFileSystem struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrOutput `pulumi:"skipFinalBackup"`
-	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
 	StorageCapacity pulumi.IntPtrOutput `pulumi:"storageCapacity"`
-	// The filesystem storage type. Only `SSD` is supported.
+	// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
@@ -196,6 +198,8 @@ type openZfsFileSystemState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId *string `pulumi:"preferredSubnetId"`
+	// Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+	ReadCacheConfiguration *OpenZfsFileSystemReadCacheConfiguration `pulumi:"readCacheConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
@@ -208,9 +212,9 @@ type openZfsFileSystemState struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
-	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
 	StorageCapacity *int `pulumi:"storageCapacity"`
-	// The filesystem storage type. Only `SSD` is supported.
+	// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
 	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -263,6 +267,8 @@ type OpenZfsFileSystemState struct {
 	OwnerId pulumi.StringPtrInput
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId pulumi.StringPtrInput
+	// Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+	ReadCacheConfiguration OpenZfsFileSystemReadCacheConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
@@ -275,9 +281,9 @@ type OpenZfsFileSystemState struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrInput
-	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
 	StorageCapacity pulumi.IntPtrInput
-	// The filesystem storage type. Only `SSD` is supported.
+	// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
 	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from.
 	SubnetIds pulumi.StringArrayInput
@@ -324,6 +330,8 @@ type openZfsFileSystemArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId *string `pulumi:"preferredSubnetId"`
+	// Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+	ReadCacheConfiguration *OpenZfsFileSystemReadCacheConfiguration `pulumi:"readCacheConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
@@ -334,9 +342,9 @@ type openZfsFileSystemArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
-	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
 	StorageCapacity *int `pulumi:"storageCapacity"`
-	// The filesystem storage type. Only `SSD` is supported.
+	// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
 	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -376,6 +384,8 @@ type OpenZfsFileSystemArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId pulumi.StringPtrInput
+	// Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+	ReadCacheConfiguration OpenZfsFileSystemReadCacheConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
@@ -386,9 +396,9 @@ type OpenZfsFileSystemArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrInput
-	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
 	StorageCapacity pulumi.IntPtrInput
-	// The filesystem storage type. Only `SSD` is supported.
+	// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
 	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from.
 	SubnetIds pulumi.StringArrayInput
@@ -576,6 +586,13 @@ func (o OpenZfsFileSystemOutput) PreferredSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.PreferredSubnetId }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
+func (o OpenZfsFileSystemOutput) ReadCacheConfiguration() OpenZfsFileSystemReadCacheConfigurationPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) OpenZfsFileSystemReadCacheConfigurationPtrOutput {
+		return v.ReadCacheConfiguration
+	}).(OpenZfsFileSystemReadCacheConfigurationPtrOutput)
+}
+
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OpenZfsFileSystemOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
@@ -608,12 +625,12 @@ func (o OpenZfsFileSystemOutput) SkipFinalBackup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.BoolPtrOutput { return v.SkipFinalBackup }).(pulumi.BoolPtrOutput)
 }
 
-// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
 func (o OpenZfsFileSystemOutput) StorageCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.IntPtrOutput { return v.StorageCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The filesystem storage type. Only `SSD` is supported.
+// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
 func (o OpenZfsFileSystemOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
 }

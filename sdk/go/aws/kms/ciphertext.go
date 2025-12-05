@@ -60,7 +60,12 @@ type Ciphertext struct {
 	// Globally unique key ID for the customer master key.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-	Plaintext pulumi.StringOutput `pulumi:"plaintext"`
+	Plaintext pulumi.StringPtrOutput `pulumi:"plaintext"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+	PlaintextWo pulumi.StringPtrOutput `pulumi:"plaintextWo"`
+	// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+	PlaintextWoVersion pulumi.StringPtrOutput `pulumi:"plaintextWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
@@ -75,14 +80,15 @@ func NewCiphertext(ctx *pulumi.Context,
 	if args.KeyId == nil {
 		return nil, errors.New("invalid value for required argument 'KeyId'")
 	}
-	if args.Plaintext == nil {
-		return nil, errors.New("invalid value for required argument 'Plaintext'")
-	}
 	if args.Plaintext != nil {
-		args.Plaintext = pulumi.ToSecret(args.Plaintext).(pulumi.StringInput)
+		args.Plaintext = pulumi.ToSecret(args.Plaintext).(pulumi.StringPtrInput)
+	}
+	if args.PlaintextWo != nil {
+		args.PlaintextWo = pulumi.ToSecret(args.PlaintextWo).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"plaintext",
+		"plaintextWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -116,6 +122,11 @@ type ciphertextState struct {
 	KeyId *string `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext *string `pulumi:"plaintext"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+	PlaintextWo *string `pulumi:"plaintextWo"`
+	// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+	PlaintextWoVersion *string `pulumi:"plaintextWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
@@ -129,6 +140,11 @@ type CiphertextState struct {
 	KeyId pulumi.StringPtrInput
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+	PlaintextWo pulumi.StringPtrInput
+	// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+	PlaintextWoVersion pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
@@ -143,7 +159,12 @@ type ciphertextArgs struct {
 	// Globally unique key ID for the customer master key.
 	KeyId string `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-	Plaintext string `pulumi:"plaintext"`
+	Plaintext *string `pulumi:"plaintext"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+	PlaintextWo *string `pulumi:"plaintextWo"`
+	// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+	PlaintextWoVersion *string `pulumi:"plaintextWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
@@ -155,7 +176,12 @@ type CiphertextArgs struct {
 	// Globally unique key ID for the customer master key.
 	KeyId pulumi.StringInput
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-	Plaintext pulumi.StringInput
+	Plaintext pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+	PlaintextWo pulumi.StringPtrInput
+	// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+	PlaintextWoVersion pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
@@ -263,8 +289,19 @@ func (o CiphertextOutput) KeyId() pulumi.StringOutput {
 }
 
 // Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-func (o CiphertextOutput) Plaintext() pulumi.StringOutput {
-	return o.ApplyT(func(v *Ciphertext) pulumi.StringOutput { return v.Plaintext }).(pulumi.StringOutput)
+func (o CiphertextOutput) Plaintext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ciphertext) pulumi.StringPtrOutput { return v.Plaintext }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+func (o CiphertextOutput) PlaintextWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ciphertext) pulumi.StringPtrOutput { return v.PlaintextWo }).(pulumi.StringPtrOutput)
+}
+
+// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+func (o CiphertextOutput) PlaintextWoVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ciphertext) pulumi.StringPtrOutput { return v.PlaintextWoVersion }).(pulumi.StringPtrOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

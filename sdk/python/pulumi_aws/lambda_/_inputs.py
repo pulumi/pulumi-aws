@@ -18,6 +18,18 @@ from ._enums import *
 __all__ = [
     'AliasRoutingConfigArgs',
     'AliasRoutingConfigArgsDict',
+    'CapacityProviderCapacityProviderScalingConfigArgs',
+    'CapacityProviderCapacityProviderScalingConfigArgsDict',
+    'CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs',
+    'CapacityProviderCapacityProviderScalingConfigScalingPolicyArgsDict',
+    'CapacityProviderInstanceRequirementArgs',
+    'CapacityProviderInstanceRequirementArgsDict',
+    'CapacityProviderPermissionsConfigArgs',
+    'CapacityProviderPermissionsConfigArgsDict',
+    'CapacityProviderTimeoutsArgs',
+    'CapacityProviderTimeoutsArgsDict',
+    'CapacityProviderVpcConfigArgs',
+    'CapacityProviderVpcConfigArgsDict',
     'CodeSigningConfigAllowedPublishersArgs',
     'CodeSigningConfigAllowedPublishersArgsDict',
     'CodeSigningConfigPoliciesArgs',
@@ -58,8 +70,14 @@ __all__ = [
     'EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgsDict',
     'EventSourceMappingSourceAccessConfigurationArgs',
     'EventSourceMappingSourceAccessConfigurationArgsDict',
+    'FunctionCapacityProviderConfigArgs',
+    'FunctionCapacityProviderConfigArgsDict',
+    'FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs',
+    'FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgsDict',
     'FunctionDeadLetterConfigArgs',
     'FunctionDeadLetterConfigArgsDict',
+    'FunctionDurableConfigArgs',
+    'FunctionDurableConfigArgsDict',
     'FunctionEnvironmentArgs',
     'FunctionEnvironmentArgsDict',
     'FunctionEphemeralStorageArgs',
@@ -78,6 +96,8 @@ __all__ = [
     'FunctionLoggingConfigArgsDict',
     'FunctionSnapStartArgs',
     'FunctionSnapStartArgsDict',
+    'FunctionTenancyConfigArgs',
+    'FunctionTenancyConfigArgsDict',
     'FunctionTracingConfigArgs',
     'FunctionTracingConfigArgsDict',
     'FunctionUrlCorsArgs',
@@ -118,6 +138,340 @@ class AliasRoutingConfigArgs:
     @additional_version_weights.setter
     def additional_version_weights(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.float]]]]):
         pulumi.set(self, "additional_version_weights", value)
+
+
+if not MYPY:
+    class CapacityProviderCapacityProviderScalingConfigArgsDict(TypedDict):
+        max_vcpu_count: pulumi.Input[_builtins.int]
+        scaling_mode: pulumi.Input[_builtins.str]
+        """
+        The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+        """
+        scaling_policies: pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgsDict']]]
+        """
+        List of scaling policies. See Scaling Policies below.
+        """
+elif False:
+    CapacityProviderCapacityProviderScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderCapacityProviderScalingConfigArgs:
+    def __init__(__self__, *,
+                 max_vcpu_count: pulumi.Input[_builtins.int],
+                 scaling_mode: pulumi.Input[_builtins.str],
+                 scaling_policies: pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs']]]):
+        """
+        :param pulumi.Input[_builtins.str] scaling_mode: The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs']]] scaling_policies: List of scaling policies. See Scaling Policies below.
+        """
+        pulumi.set(__self__, "max_vcpu_count", max_vcpu_count)
+        pulumi.set(__self__, "scaling_mode", scaling_mode)
+        pulumi.set(__self__, "scaling_policies", scaling_policies)
+
+    @_builtins.property
+    @pulumi.getter(name="maxVcpuCount")
+    def max_vcpu_count(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "max_vcpu_count")
+
+    @max_vcpu_count.setter
+    def max_vcpu_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_vcpu_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scalingMode")
+    def scaling_mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+        """
+        return pulumi.get(self, "scaling_mode")
+
+    @scaling_mode.setter
+    def scaling_mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "scaling_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scalingPolicies")
+    def scaling_policies(self) -> pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs']]]:
+        """
+        List of scaling policies. See Scaling Policies below.
+        """
+        return pulumi.get(self, "scaling_policies")
+
+    @scaling_policies.setter
+    def scaling_policies(self, value: pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs']]]):
+        pulumi.set(self, "scaling_policies", value)
+
+
+if not MYPY:
+    class CapacityProviderCapacityProviderScalingConfigScalingPolicyArgsDict(TypedDict):
+        predefined_metric_type: pulumi.Input[_builtins.str]
+        """
+        The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+        """
+        target_value: pulumi.Input[_builtins.float]
+        """
+        The target value for the scaling policy.
+        """
+elif False:
+    CapacityProviderCapacityProviderScalingConfigScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs:
+    def __init__(__self__, *,
+                 predefined_metric_type: pulumi.Input[_builtins.str],
+                 target_value: pulumi.Input[_builtins.float]):
+        """
+        :param pulumi.Input[_builtins.str] predefined_metric_type: The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+        :param pulumi.Input[_builtins.float] target_value: The target value for the scaling policy.
+        """
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        pulumi.set(__self__, "target_value", target_value)
+
+    @_builtins.property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+        """
+        return pulumi.get(self, "predefined_metric_type")
+
+    @predefined_metric_type.setter
+    def predefined_metric_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "predefined_metric_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> pulumi.Input[_builtins.float]:
+        """
+        The target value for the scaling policy.
+        """
+        return pulumi.get(self, "target_value")
+
+    @target_value.setter
+    def target_value(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "target_value", value)
+
+
+if not MYPY:
+    class CapacityProviderInstanceRequirementArgsDict(TypedDict):
+        allowed_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of allowed instance types.
+        """
+        architectures: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+        """
+        excluded_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of excluded instance types.
+        """
+elif False:
+    CapacityProviderInstanceRequirementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderInstanceRequirementArgs:
+    def __init__(__self__, *,
+                 allowed_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 architectures: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 excluded_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: List of allowed instance types.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] architectures: List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_instance_types: List of excluded instance types.
+        """
+        pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
+        pulumi.set(__self__, "architectures", architectures)
+        pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of allowed instance types.
+        """
+        return pulumi.get(self, "allowed_instance_types")
+
+    @allowed_instance_types.setter
+    def allowed_instance_types(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "allowed_instance_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def architectures(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+        """
+        return pulumi.get(self, "architectures")
+
+    @architectures.setter
+    def architectures(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "architectures", value)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedInstanceTypes")
+    def excluded_instance_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of excluded instance types.
+        """
+        return pulumi.get(self, "excluded_instance_types")
+
+    @excluded_instance_types.setter
+    def excluded_instance_types(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "excluded_instance_types", value)
+
+
+if not MYPY:
+    class CapacityProviderPermissionsConfigArgsDict(TypedDict):
+        capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]
+        """
+        The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+        """
+elif False:
+    CapacityProviderPermissionsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderPermissionsConfigArgs:
+    def __init__(__self__, *,
+                 capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] capacity_provider_operator_role_arn: The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+        """
+        pulumi.set(__self__, "capacity_provider_operator_role_arn", capacity_provider_operator_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderOperatorRoleArn")
+    def capacity_provider_operator_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+        """
+        return pulumi.get(self, "capacity_provider_operator_role_arn")
+
+    @capacity_provider_operator_role_arn.setter
+    def capacity_provider_operator_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "capacity_provider_operator_role_arn", value)
+
+
+if not MYPY:
+    class CapacityProviderTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    CapacityProviderTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class CapacityProviderVpcConfigArgsDict(TypedDict):
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of security group IDs for the VPC.
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of subnet IDs for the VPC.
+        """
+elif False:
+    CapacityProviderVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs for the VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs for the VPC.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of security group IDs for the VPC.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of subnet IDs for the VPC.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
 
 
 if not MYPY:
@@ -1033,6 +1387,108 @@ class EventSourceMappingSourceAccessConfigurationArgs:
 
 
 if not MYPY:
+    class FunctionCapacityProviderConfigArgsDict(TypedDict):
+        lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgsDict']
+        """
+        Configuration block for Lambda Managed Instances Capacity Provider. See below.
+        """
+elif False:
+    FunctionCapacityProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionCapacityProviderConfigArgs:
+    def __init__(__self__, *,
+                 lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs']):
+        """
+        :param pulumi.Input['FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs'] lambda_managed_instances_capacity_provider_config: Configuration block for Lambda Managed Instances Capacity Provider. See below.
+        """
+        pulumi.set(__self__, "lambda_managed_instances_capacity_provider_config", lambda_managed_instances_capacity_provider_config)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaManagedInstancesCapacityProviderConfig")
+    def lambda_managed_instances_capacity_provider_config(self) -> pulumi.Input['FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs']:
+        """
+        Configuration block for Lambda Managed Instances Capacity Provider. See below.
+        """
+        return pulumi.get(self, "lambda_managed_instances_capacity_provider_config")
+
+    @lambda_managed_instances_capacity_provider_config.setter
+    def lambda_managed_instances_capacity_provider_config(self, value: pulumi.Input['FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs']):
+        pulumi.set(self, "lambda_managed_instances_capacity_provider_config", value)
+
+
+if not MYPY:
+    class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgsDict(TypedDict):
+        capacity_provider_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the Capacity Provider.
+        """
+        execution_environment_memory_gib_per_vcpu: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        Memory GiB per vCPU for the execution environment.
+        """
+        per_execution_environment_max_concurrency: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Maximum concurrency per execution environment.
+        """
+elif False:
+    FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs:
+    def __init__(__self__, *,
+                 capacity_provider_arn: pulumi.Input[_builtins.str],
+                 execution_environment_memory_gib_per_vcpu: Optional[pulumi.Input[_builtins.float]] = None,
+                 per_execution_environment_max_concurrency: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] capacity_provider_arn: ARN of the Capacity Provider.
+        :param pulumi.Input[_builtins.float] execution_environment_memory_gib_per_vcpu: Memory GiB per vCPU for the execution environment.
+        :param pulumi.Input[_builtins.int] per_execution_environment_max_concurrency: Maximum concurrency per execution environment.
+        """
+        pulumi.set(__self__, "capacity_provider_arn", capacity_provider_arn)
+        if execution_environment_memory_gib_per_vcpu is not None:
+            pulumi.set(__self__, "execution_environment_memory_gib_per_vcpu", execution_environment_memory_gib_per_vcpu)
+        if per_execution_environment_max_concurrency is not None:
+            pulumi.set(__self__, "per_execution_environment_max_concurrency", per_execution_environment_max_concurrency)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderArn")
+    def capacity_provider_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Capacity Provider.
+        """
+        return pulumi.get(self, "capacity_provider_arn")
+
+    @capacity_provider_arn.setter
+    def capacity_provider_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "capacity_provider_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="executionEnvironmentMemoryGibPerVcpu")
+    def execution_environment_memory_gib_per_vcpu(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        Memory GiB per vCPU for the execution environment.
+        """
+        return pulumi.get(self, "execution_environment_memory_gib_per_vcpu")
+
+    @execution_environment_memory_gib_per_vcpu.setter
+    def execution_environment_memory_gib_per_vcpu(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "execution_environment_memory_gib_per_vcpu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="perExecutionEnvironmentMaxConcurrency")
+    def per_execution_environment_max_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum concurrency per execution environment.
+        """
+        return pulumi.get(self, "per_execution_environment_max_concurrency")
+
+    @per_execution_environment_max_concurrency.setter
+    def per_execution_environment_max_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "per_execution_environment_max_concurrency", value)
+
+
+if not MYPY:
     class FunctionDeadLetterConfigArgsDict(TypedDict):
         target_arn: pulumi.Input[_builtins.str]
         """
@@ -1061,6 +1517,57 @@ class FunctionDeadLetterConfigArgs:
     @target_arn.setter
     def target_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "target_arn", value)
+
+
+if not MYPY:
+    class FunctionDurableConfigArgsDict(TypedDict):
+        execution_timeout: pulumi.Input[_builtins.int]
+        """
+        Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
+        """
+        retention_period: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+        """
+elif False:
+    FunctionDurableConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionDurableConfigArgs:
+    def __init__(__self__, *,
+                 execution_timeout: pulumi.Input[_builtins.int],
+                 retention_period: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] execution_timeout: Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
+        :param pulumi.Input[_builtins.int] retention_period: Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+        """
+        pulumi.set(__self__, "execution_timeout", execution_timeout)
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+
+    @_builtins.property
+    @pulumi.getter(name="executionTimeout")
+    def execution_timeout(self) -> pulumi.Input[_builtins.int]:
+        """
+        Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
+        """
+        return pulumi.get(self, "execution_timeout")
+
+    @execution_timeout.setter
+    def execution_timeout(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "execution_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+        """
+        return pulumi.get(self, "retention_period")
+
+    @retention_period.setter
+    def retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "retention_period", value)
 
 
 if not MYPY:
@@ -1503,6 +2010,37 @@ class FunctionSnapStartArgs:
     @optimization_status.setter
     def optimization_status(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "optimization_status", value)
+
+
+if not MYPY:
+    class FunctionTenancyConfigArgsDict(TypedDict):
+        tenant_isolation_mode: pulumi.Input[_builtins.str]
+        """
+        Tenant Isolation Mode. Valid values: `PER_TENANT`.
+        """
+elif False:
+    FunctionTenancyConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionTenancyConfigArgs:
+    def __init__(__self__, *,
+                 tenant_isolation_mode: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] tenant_isolation_mode: Tenant Isolation Mode. Valid values: `PER_TENANT`.
+        """
+        pulumi.set(__self__, "tenant_isolation_mode", tenant_isolation_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantIsolationMode")
+    def tenant_isolation_mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        Tenant Isolation Mode. Valid values: `PER_TENANT`.
+        """
+        return pulumi.get(self, "tenant_isolation_mode")
+
+    @tenant_isolation_mode.setter
+    def tenant_isolation_mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tenant_isolation_mode", value)
 
 
 if not MYPY:

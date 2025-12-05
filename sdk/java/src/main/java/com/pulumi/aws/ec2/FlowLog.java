@@ -499,6 +499,20 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
+     * Regional NAT Gateway ID to attach to.
+     * 
+     */
+    @Export(name="regionalNatGatewayId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> regionalNatGatewayId;
+
+    /**
+     * @return Regional NAT Gateway ID to attach to.
+     * 
+     */
+    public Output<Optional<String>> regionalNatGatewayId() {
+        return Codegen.optional(this.regionalNatGatewayId);
+    }
+    /**
      * Subnet ID to attach to.
      * 
      */
@@ -515,16 +529,12 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
-     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -545,14 +555,14 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      * 
      */
     @Export(name="trafficType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trafficType;
 
     /**
-     * @return The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+     * @return The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      * 
      */
     public Output<Optional<String>> trafficType() {
@@ -589,12 +599,16 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
     /**
      * VPC ID to attach to.
      * 
+     * &gt; **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
+     * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return VPC ID to attach to.
+     * 
+     * &gt; **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      * 
      */
     public Output<Optional<String>> vpcId() {

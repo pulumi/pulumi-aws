@@ -128,8 +128,10 @@ type GetConnectionResult struct {
 	// Type of VPN connection. Currently the only supported type is ipsec.1.
 	Type string `pulumi:"type"`
 	// List of objects containing information about the VPN tunnel.
-	VgwTelemetries  []GetConnectionVgwTelemetry `pulumi:"vgwTelemetries"`
-	VpnConnectionId string                      `pulumi:"vpnConnectionId"`
+	VgwTelemetries []GetConnectionVgwTelemetry `pulumi:"vgwTelemetries"`
+	// ID of a VPN concentrator associated with the VPN connection.
+	VpnConcentratorId string `pulumi:"vpnConcentratorId"`
+	VpnConnectionId   string `pulumi:"vpnConnectionId"`
 	// ID of a virtual private gateway associated with the VPN connection.
 	VpnGatewayId string `pulumi:"vpnGatewayId"`
 }
@@ -248,6 +250,11 @@ func (o GetConnectionResultOutput) Type() pulumi.StringOutput {
 // List of objects containing information about the VPN tunnel.
 func (o GetConnectionResultOutput) VgwTelemetries() GetConnectionVgwTelemetryArrayOutput {
 	return o.ApplyT(func(v GetConnectionResult) []GetConnectionVgwTelemetry { return v.VgwTelemetries }).(GetConnectionVgwTelemetryArrayOutput)
+}
+
+// ID of a VPN concentrator associated with the VPN connection.
+func (o GetConnectionResultOutput) VpnConcentratorId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionResult) string { return v.VpnConcentratorId }).(pulumi.StringOutput)
 }
 
 func (o GetConnectionResultOutput) VpnConnectionId() pulumi.StringOutput {

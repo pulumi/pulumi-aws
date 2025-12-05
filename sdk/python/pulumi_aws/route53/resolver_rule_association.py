@@ -199,8 +199,6 @@ class ResolverRuleAssociation(pulumi.CustomResource):
 
         Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
 
-        console
-
         % pulumi import aws_route53_resolver_rule_association.example rslvr-rrassoc-97242eaf88example
 
         :param str resource_name: The name of the resource.
@@ -245,8 +243,6 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
-
-        console
 
         % pulumi import aws_route53_resolver_rule_association.example rslvr-rrassoc-97242eaf88example
 

@@ -17,6 +17,51 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
     public static final VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs Empty = new VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs();
 
     /**
+     * Enable or disable BGP logging feature. The default is `false`.
+     * 
+     */
+    @Import(name="bgpLogEnabled")
+    private @Nullable Output<Boolean> bgpLogEnabled;
+
+    /**
+     * @return Enable or disable BGP logging feature. The default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> bgpLogEnabled() {
+        return Optional.ofNullable(this.bgpLogEnabled);
+    }
+
+    /**
+     * The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+     * 
+     */
+    @Import(name="bgpLogGroupArn")
+    private @Nullable Output<String> bgpLogGroupArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+     * 
+     */
+    public Optional<Output<String>> bgpLogGroupArn() {
+        return Optional.ofNullable(this.bgpLogGroupArn);
+    }
+
+    /**
+     * Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * 
+     */
+    @Import(name="bgpLogOutputFormat")
+    private @Nullable Output<String> bgpLogOutputFormat;
+
+    /**
+     * @return Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * 
+     */
+    public Optional<Output<String>> bgpLogOutputFormat() {
+        return Optional.ofNullable(this.bgpLogOutputFormat);
+    }
+
+    /**
      * Enable or disable VPN tunnel logging feature. The default is `false`.
      * 
      */
@@ -64,6 +109,9 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
     private VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs() {}
 
     private VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs $) {
+        this.bgpLogEnabled = $.bgpLogEnabled;
+        this.bgpLogGroupArn = $.bgpLogGroupArn;
+        this.bgpLogOutputFormat = $.bgpLogOutputFormat;
         this.logEnabled = $.logEnabled;
         this.logGroupArn = $.logGroupArn;
         this.logOutputFormat = $.logOutputFormat;
@@ -85,6 +133,69 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
 
         public Builder(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs defaults) {
             $ = new VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param bgpLogEnabled Enable or disable BGP logging feature. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpLogEnabled(@Nullable Output<Boolean> bgpLogEnabled) {
+            $.bgpLogEnabled = bgpLogEnabled;
+            return this;
+        }
+
+        /**
+         * @param bgpLogEnabled Enable or disable BGP logging feature. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpLogEnabled(Boolean bgpLogEnabled) {
+            return bgpLogEnabled(Output.of(bgpLogEnabled));
+        }
+
+        /**
+         * @param bgpLogGroupArn The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpLogGroupArn(@Nullable Output<String> bgpLogGroupArn) {
+            $.bgpLogGroupArn = bgpLogGroupArn;
+            return this;
+        }
+
+        /**
+         * @param bgpLogGroupArn The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpLogGroupArn(String bgpLogGroupArn) {
+            return bgpLogGroupArn(Output.of(bgpLogGroupArn));
+        }
+
+        /**
+         * @param bgpLogOutputFormat Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpLogOutputFormat(@Nullable Output<String> bgpLogOutputFormat) {
+            $.bgpLogOutputFormat = bgpLogOutputFormat;
+            return this;
+        }
+
+        /**
+         * @param bgpLogOutputFormat Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpLogOutputFormat(String bgpLogOutputFormat) {
+            return bgpLogOutputFormat(Output.of(bgpLogOutputFormat));
         }
 
         /**

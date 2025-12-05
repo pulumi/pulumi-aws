@@ -4,6 +4,7 @@
 package com.pulumi.aws.transfer;
 
 import com.pulumi.aws.transfer.inputs.ConnectorAs2ConfigArgs;
+import com.pulumi.aws.transfer.inputs.ConnectorEgressConfigArgs;
 import com.pulumi.aws.transfer.inputs.ConnectorSftpConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -47,6 +48,21 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ConnectorAs2ConfigArgs>> as2Config() {
         return Optional.ofNullable(this.as2Config);
+    }
+
+    /**
+     * Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+     * 
+     */
+    @Import(name="egressConfig")
+    private @Nullable Output<ConnectorEgressConfigArgs> egressConfig;
+
+    /**
+     * @return Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+     * 
+     */
+    public Optional<Output<ConnectorEgressConfigArgs>> egressConfig() {
+        return Optional.ofNullable(this.egressConfig);
     }
 
     /**
@@ -125,18 +141,18 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL of the partners AS2 endpoint or SFTP endpoint.
+     * The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
      * 
      */
-    @Import(name="url", required=true)
-    private Output<String> url;
+    @Import(name="url")
+    private @Nullable Output<String> url;
 
     /**
-     * @return The URL of the partners AS2 endpoint or SFTP endpoint.
+     * @return The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
     }
 
     private ConnectorArgs() {}
@@ -144,6 +160,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     private ConnectorArgs(ConnectorArgs $) {
         this.accessRole = $.accessRole;
         this.as2Config = $.as2Config;
+        this.egressConfig = $.egressConfig;
         this.loggingRole = $.loggingRole;
         this.region = $.region;
         this.securityPolicyName = $.securityPolicyName;
@@ -210,6 +227,27 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder as2Config(ConnectorAs2ConfigArgs as2Config) {
             return as2Config(Output.of(as2Config));
+        }
+
+        /**
+         * @param egressConfig Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder egressConfig(@Nullable Output<ConnectorEgressConfigArgs> egressConfig) {
+            $.egressConfig = egressConfig;
+            return this;
+        }
+
+        /**
+         * @param egressConfig Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder egressConfig(ConnectorEgressConfigArgs egressConfig) {
+            return egressConfig(Output.of(egressConfig));
         }
 
         /**
@@ -318,18 +356,18 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the partners AS2 endpoint or SFTP endpoint.
+         * @param url The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
          * 
          * @return builder
          * 
          */
-        public Builder url(Output<String> url) {
+        public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
         /**
-         * @param url The URL of the partners AS2 endpoint or SFTP endpoint.
+         * @param url The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
          * 
          * @return builder
          * 
@@ -341,9 +379,6 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         public ConnectorArgs build() {
             if ($.accessRole == null) {
                 throw new MissingRequiredPropertyException("ConnectorArgs", "accessRole");
-            }
-            if ($.url == null) {
-                throw new MissingRequiredPropertyException("ConnectorArgs", "url");
             }
             return $;
         }

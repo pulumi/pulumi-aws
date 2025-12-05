@@ -231,8 +231,6 @@ class VpcOrigin(pulumi.CustomResource):
 
         Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
 
-        console
-
         % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
 
         :param str resource_name: The name of the resource.
@@ -290,8 +288,6 @@ class VpcOrigin(pulumi.CustomResource):
         }
 
         Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
-
-        console
 
         % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
 

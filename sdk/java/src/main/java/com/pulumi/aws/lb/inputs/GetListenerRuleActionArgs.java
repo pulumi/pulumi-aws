@@ -7,6 +7,7 @@ import com.pulumi.aws.lb.inputs.GetListenerRuleActionAuthenticateCognitoArgs;
 import com.pulumi.aws.lb.inputs.GetListenerRuleActionAuthenticateOidcArgs;
 import com.pulumi.aws.lb.inputs.GetListenerRuleActionFixedResponseArgs;
 import com.pulumi.aws.lb.inputs.GetListenerRuleActionForwardArgs;
+import com.pulumi.aws.lb.inputs.GetListenerRuleActionJwtValidationArgs;
 import com.pulumi.aws.lb.inputs.GetListenerRuleActionRedirectArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -92,6 +93,23 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * An action to validate using JWT.
+     * Detailed below.
+     * 
+     */
+    @Import(name="jwtValidations")
+    private @Nullable Output<List<GetListenerRuleActionJwtValidationArgs>> jwtValidations;
+
+    /**
+     * @return An action to validate using JWT.
+     * Detailed below.
+     * 
+     */
+    public Optional<Output<List<GetListenerRuleActionJwtValidationArgs>>> jwtValidations() {
+        return Optional.ofNullable(this.jwtValidations);
+    }
+
+    /**
      * The evaluation order of the action.
      * 
      */
@@ -145,6 +163,7 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
         this.authenticateOidcs = $.authenticateOidcs;
         this.fixedResponses = $.fixedResponses;
         this.forwards = $.forwards;
+        this.jwtValidations = $.jwtValidations;
         this.order = $.order;
         this.redirects = $.redirects;
         this.type = $.type;
@@ -302,6 +321,40 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
          */
         public Builder forwards(GetListenerRuleActionForwardArgs... forwards) {
             return forwards(List.of(forwards));
+        }
+
+        /**
+         * @param jwtValidations An action to validate using JWT.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwtValidations(@Nullable Output<List<GetListenerRuleActionJwtValidationArgs>> jwtValidations) {
+            $.jwtValidations = jwtValidations;
+            return this;
+        }
+
+        /**
+         * @param jwtValidations An action to validate using JWT.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwtValidations(List<GetListenerRuleActionJwtValidationArgs> jwtValidations) {
+            return jwtValidations(Output.of(jwtValidations));
+        }
+
+        /**
+         * @param jwtValidations An action to validate using JWT.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwtValidations(GetListenerRuleActionJwtValidationArgs... jwtValidations) {
+            return jwtValidations(List.of(jwtValidations));
         }
 
         /**

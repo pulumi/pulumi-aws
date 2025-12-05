@@ -37,8 +37,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_ec2_default_credit_specification.example t2
     /// </summary>
     [AwsResourceType("aws:ec2/defaultCreditSpecification:DefaultCreditSpecification")]

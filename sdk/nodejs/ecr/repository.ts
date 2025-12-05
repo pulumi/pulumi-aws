@@ -63,8 +63,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import ECR Repositories using the `name`. For example:
  *
- * console
- *
  * % pulumi import aws_ecr_repository.service test-service
  */
 export class Repository extends pulumi.CustomResource {

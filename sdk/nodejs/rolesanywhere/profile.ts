@@ -75,6 +75,10 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
+     * Whether or not a custom role session name is accepted.
+     */
+    declare public readonly acceptRoleSessionName: pulumi.Output<boolean | undefined>;
+    /**
      * Amazon Resource Name (ARN) of the Profile
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -128,6 +132,7 @@ export class Profile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileState | undefined;
+            resourceInputs["acceptRoleSessionName"] = state?.acceptRoleSessionName;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["durationSeconds"] = state?.durationSeconds;
             resourceInputs["enabled"] = state?.enabled;
@@ -140,6 +145,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ProfileArgs | undefined;
+            resourceInputs["acceptRoleSessionName"] = args?.acceptRoleSessionName;
             resourceInputs["durationSeconds"] = args?.durationSeconds;
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["managedPolicyArns"] = args?.managedPolicyArns;
@@ -160,6 +166,10 @@ export class Profile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Profile resources.
  */
 export interface ProfileState {
+    /**
+     * Whether or not a custom role session name is accepted.
+     */
+    acceptRoleSessionName?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Name (ARN) of the Profile
      */
@@ -206,6 +216,10 @@ export interface ProfileState {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
+    /**
+     * Whether or not a custom role session name is accepted.
+     */
+    acceptRoleSessionName?: pulumi.Input<boolean>;
     /**
      * The number of seconds the vended session credentials are valid for. Defaults to 3600.
      */

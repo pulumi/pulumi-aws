@@ -71,8 +71,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
  *
- * console
- *
  * % pulumi import aws_secretsmanager_secret_version.example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
  */
 export class SecretVersion extends pulumi.CustomResource {

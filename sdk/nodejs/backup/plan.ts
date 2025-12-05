@@ -92,6 +92,10 @@ export class Plan extends pulumi.CustomResource {
      */
     declare public readonly rules: pulumi.Output<outputs.backup.PlanRule[]>;
     /**
+     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+     */
+    declare public readonly scanSettings: pulumi.Output<outputs.backup.PlanScanSetting[] | undefined>;
+    /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -122,6 +126,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
             resourceInputs["rules"] = state?.rules;
+            resourceInputs["scanSettings"] = state?.scanSettings;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["version"] = state?.version;
@@ -134,6 +139,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["rules"] = args?.rules;
+            resourceInputs["scanSettings"] = args?.scanSettings;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -169,6 +175,10 @@ export interface PlanState {
      */
     rules?: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
     /**
+     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+     */
+    scanSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanScanSetting>[]>;
+    /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -202,6 +212,10 @@ export interface PlanArgs {
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
     rules: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
+    /**
+     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+     */
+    scanSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanScanSetting>[]>;
     /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -25,10 +25,20 @@ export type TableBucketPolicy = import("./tableBucketPolicy").TableBucketPolicy;
 export const TableBucketPolicy: typeof import("./tableBucketPolicy").TableBucketPolicy = null as any;
 utilities.lazyLoad(exports, ["TableBucketPolicy"], () => require("./tableBucketPolicy"));
 
+export { TableBucketReplicationArgs, TableBucketReplicationState } from "./tableBucketReplication";
+export type TableBucketReplication = import("./tableBucketReplication").TableBucketReplication;
+export const TableBucketReplication: typeof import("./tableBucketReplication").TableBucketReplication = null as any;
+utilities.lazyLoad(exports, ["TableBucketReplication"], () => require("./tableBucketReplication"));
+
 export { TablePolicyArgs, TablePolicyState } from "./tablePolicy";
 export type TablePolicy = import("./tablePolicy").TablePolicy;
 export const TablePolicy: typeof import("./tablePolicy").TablePolicy = null as any;
 utilities.lazyLoad(exports, ["TablePolicy"], () => require("./tablePolicy"));
+
+export { TableReplicationArgs, TableReplicationState } from "./tableReplication";
+export type TableReplication = import("./tableReplication").TableReplication;
+export const TableReplication: typeof import("./tableReplication").TableReplication = null as any;
+utilities.lazyLoad(exports, ["TableReplication"], () => require("./tableReplication"));
 
 
 const _module = {
@@ -43,8 +53,12 @@ const _module = {
                 return new TableBucket(name, <any>undefined, { urn })
             case "aws:s3tables/tableBucketPolicy:TableBucketPolicy":
                 return new TableBucketPolicy(name, <any>undefined, { urn })
+            case "aws:s3tables/tableBucketReplication:TableBucketReplication":
+                return new TableBucketReplication(name, <any>undefined, { urn })
             case "aws:s3tables/tablePolicy:TablePolicy":
                 return new TablePolicy(name, <any>undefined, { urn })
+            case "aws:s3tables/tableReplication:TableReplication":
+                return new TableReplication(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -54,4 +68,6 @@ pulumi.runtime.registerResourceModule("aws", "s3tables/namespace", _module)
 pulumi.runtime.registerResourceModule("aws", "s3tables/table", _module)
 pulumi.runtime.registerResourceModule("aws", "s3tables/tableBucket", _module)
 pulumi.runtime.registerResourceModule("aws", "s3tables/tableBucketPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "s3tables/tableBucketReplication", _module)
 pulumi.runtime.registerResourceModule("aws", "s3tables/tablePolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "s3tables/tableReplication", _module)

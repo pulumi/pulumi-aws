@@ -113,6 +113,21 @@ public final class TransitGatewayArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+     * 
+     */
+    @Import(name="encryptionSupport")
+    private @Nullable Output<String> encryptionSupport;
+
+    /**
+     * @return Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+     * 
+     */
+    public Optional<Output<String>> encryptionSupport() {
+        return Optional.ofNullable(this.encryptionSupport);
+    }
+
+    /**
      * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
@@ -211,6 +226,7 @@ public final class TransitGatewayArgs extends com.pulumi.resources.ResourceArgs 
         this.defaultRouteTablePropagation = $.defaultRouteTablePropagation;
         this.description = $.description;
         this.dnsSupport = $.dnsSupport;
+        this.encryptionSupport = $.encryptionSupport;
         this.multicastSupport = $.multicastSupport;
         this.region = $.region;
         this.securityGroupReferencingSupport = $.securityGroupReferencingSupport;
@@ -365,6 +381,27 @@ public final class TransitGatewayArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder dnsSupport(String dnsSupport) {
             return dnsSupport(Output.of(dnsSupport));
+        }
+
+        /**
+         * @param encryptionSupport Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionSupport(@Nullable Output<String> encryptionSupport) {
+            $.encryptionSupport = encryptionSupport;
+            return this;
+        }
+
+        /**
+         * @param encryptionSupport Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionSupport(String encryptionSupport) {
+            return encryptionSupport(Output.of(encryptionSupport));
         }
 
         /**

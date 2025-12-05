@@ -73,8 +73,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
  * 
- * console
- * 
  * % pulumi import aws_cloudwatch_log_group.example yada
  * 
  */
@@ -93,6 +91,20 @@ public class LogGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
+     * 
+     */
+    @Export(name="deletionProtectionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> deletionProtectionEnabled;
+
+    /**
+     * @return Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
+     * 
+     */
+    public Output<Boolean> deletionProtectionEnabled() {
+        return this.deletionProtectionEnabled;
     }
     /**
      * The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,

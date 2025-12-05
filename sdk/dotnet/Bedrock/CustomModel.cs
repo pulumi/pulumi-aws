@@ -61,8 +61,6 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_bedrock_custom_model.example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
     /// </summary>
     [AwsResourceType("aws:bedrock/customModel:CustomModel")]

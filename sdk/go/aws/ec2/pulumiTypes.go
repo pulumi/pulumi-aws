@@ -2710,6 +2710,1713 @@ func (o EipDomainNameTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EncryptionControlResourceExclusions struct {
+	// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+	EgressOnlyInternetGateway EncryptionControlResourceExclusionsEgressOnlyInternetGateway `pulumi:"egressOnlyInternetGateway"`
+	// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+	ElasticFileSystem EncryptionControlResourceExclusionsElasticFileSystem `pulumi:"elasticFileSystem"`
+	// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+	InternetGateway EncryptionControlResourceExclusionsInternetGateway `pulumi:"internetGateway"`
+	// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+	Lambda EncryptionControlResourceExclusionsLambda `pulumi:"lambda"`
+	// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+	NatGateway EncryptionControlResourceExclusionsNatGateway `pulumi:"natGateway"`
+	// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+	VirtualPrivateGateway EncryptionControlResourceExclusionsVirtualPrivateGateway `pulumi:"virtualPrivateGateway"`
+	// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+	VpcLattice EncryptionControlResourceExclusionsVpcLattice `pulumi:"vpcLattice"`
+	// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+	VpcPeering EncryptionControlResourceExclusionsVpcPeering `pulumi:"vpcPeering"`
+}
+
+// EncryptionControlResourceExclusionsInput is an input type that accepts EncryptionControlResourceExclusionsArgs and EncryptionControlResourceExclusionsOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsInput` via:
+//
+//	EncryptionControlResourceExclusionsArgs{...}
+type EncryptionControlResourceExclusionsInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsOutput() EncryptionControlResourceExclusionsOutput
+	ToEncryptionControlResourceExclusionsOutputWithContext(context.Context) EncryptionControlResourceExclusionsOutput
+}
+
+type EncryptionControlResourceExclusionsArgs struct {
+	// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+	EgressOnlyInternetGateway EncryptionControlResourceExclusionsEgressOnlyInternetGatewayInput `pulumi:"egressOnlyInternetGateway"`
+	// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+	ElasticFileSystem EncryptionControlResourceExclusionsElasticFileSystemInput `pulumi:"elasticFileSystem"`
+	// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+	InternetGateway EncryptionControlResourceExclusionsInternetGatewayInput `pulumi:"internetGateway"`
+	// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+	Lambda EncryptionControlResourceExclusionsLambdaInput `pulumi:"lambda"`
+	// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+	NatGateway EncryptionControlResourceExclusionsNatGatewayInput `pulumi:"natGateway"`
+	// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+	VirtualPrivateGateway EncryptionControlResourceExclusionsVirtualPrivateGatewayInput `pulumi:"virtualPrivateGateway"`
+	// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+	VpcLattice EncryptionControlResourceExclusionsVpcLatticeInput `pulumi:"vpcLattice"`
+	// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+	VpcPeering EncryptionControlResourceExclusionsVpcPeeringInput `pulumi:"vpcPeering"`
+}
+
+func (EncryptionControlResourceExclusionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusions)(nil)).Elem()
+}
+
+func (i EncryptionControlResourceExclusionsArgs) ToEncryptionControlResourceExclusionsOutput() EncryptionControlResourceExclusionsOutput {
+	return i.ToEncryptionControlResourceExclusionsOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsArgs) ToEncryptionControlResourceExclusionsOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsOutput)
+}
+
+func (i EncryptionControlResourceExclusionsArgs) ToEncryptionControlResourceExclusionsPtrOutput() EncryptionControlResourceExclusionsPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsArgs) ToEncryptionControlResourceExclusionsPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsOutput).ToEncryptionControlResourceExclusionsPtrOutputWithContext(ctx)
+}
+
+// EncryptionControlResourceExclusionsPtrInput is an input type that accepts EncryptionControlResourceExclusionsArgs, EncryptionControlResourceExclusionsPtr and EncryptionControlResourceExclusionsPtrOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsPtrInput` via:
+//
+//	        EncryptionControlResourceExclusionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EncryptionControlResourceExclusionsPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsPtrOutput() EncryptionControlResourceExclusionsPtrOutput
+	ToEncryptionControlResourceExclusionsPtrOutputWithContext(context.Context) EncryptionControlResourceExclusionsPtrOutput
+}
+
+type encryptionControlResourceExclusionsPtrType EncryptionControlResourceExclusionsArgs
+
+func EncryptionControlResourceExclusionsPtr(v *EncryptionControlResourceExclusionsArgs) EncryptionControlResourceExclusionsPtrInput {
+	return (*encryptionControlResourceExclusionsPtrType)(v)
+}
+
+func (*encryptionControlResourceExclusionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusions)(nil)).Elem()
+}
+
+func (i *encryptionControlResourceExclusionsPtrType) ToEncryptionControlResourceExclusionsPtrOutput() EncryptionControlResourceExclusionsPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionControlResourceExclusionsPtrType) ToEncryptionControlResourceExclusionsPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusions)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsOutput) ToEncryptionControlResourceExclusionsOutput() EncryptionControlResourceExclusionsOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsOutput) ToEncryptionControlResourceExclusionsOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsOutput) ToEncryptionControlResourceExclusionsPtrOutput() EncryptionControlResourceExclusionsPtrOutput {
+	return o.ToEncryptionControlResourceExclusionsPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionControlResourceExclusionsOutput) ToEncryptionControlResourceExclusionsPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionControlResourceExclusions) *EncryptionControlResourceExclusions {
+		return &v
+	}).(EncryptionControlResourceExclusionsPtrOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+func (o EncryptionControlResourceExclusionsOutput) EgressOnlyInternetGateway() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsEgressOnlyInternetGateway {
+		return v.EgressOnlyInternetGateway
+	}).(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+func (o EncryptionControlResourceExclusionsOutput) ElasticFileSystem() EncryptionControlResourceExclusionsElasticFileSystemOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsElasticFileSystem {
+		return v.ElasticFileSystem
+	}).(EncryptionControlResourceExclusionsElasticFileSystemOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+func (o EncryptionControlResourceExclusionsOutput) InternetGateway() EncryptionControlResourceExclusionsInternetGatewayOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsInternetGateway {
+		return v.InternetGateway
+	}).(EncryptionControlResourceExclusionsInternetGatewayOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+func (o EncryptionControlResourceExclusionsOutput) Lambda() EncryptionControlResourceExclusionsLambdaOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsLambda { return v.Lambda }).(EncryptionControlResourceExclusionsLambdaOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+func (o EncryptionControlResourceExclusionsOutput) NatGateway() EncryptionControlResourceExclusionsNatGatewayOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsNatGateway {
+		return v.NatGateway
+	}).(EncryptionControlResourceExclusionsNatGatewayOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+func (o EncryptionControlResourceExclusionsOutput) VirtualPrivateGateway() EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsVirtualPrivateGateway {
+		return v.VirtualPrivateGateway
+	}).(EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+func (o EncryptionControlResourceExclusionsOutput) VpcLattice() EncryptionControlResourceExclusionsVpcLatticeOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsVpcLattice {
+		return v.VpcLattice
+	}).(EncryptionControlResourceExclusionsVpcLatticeOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+func (o EncryptionControlResourceExclusionsOutput) VpcPeering() EncryptionControlResourceExclusionsVpcPeeringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsVpcPeering {
+		return v.VpcPeering
+	}).(EncryptionControlResourceExclusionsVpcPeeringOutput)
+}
+
+type EncryptionControlResourceExclusionsPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusions)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsPtrOutput) ToEncryptionControlResourceExclusionsPtrOutput() EncryptionControlResourceExclusionsPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsPtrOutput) ToEncryptionControlResourceExclusionsPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsPtrOutput) Elem() EncryptionControlResourceExclusionsOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusions) EncryptionControlResourceExclusions {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionControlResourceExclusions
+		return ret
+	}).(EncryptionControlResourceExclusionsOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+func (o EncryptionControlResourceExclusionsPtrOutput) EgressOnlyInternetGateway() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsEgressOnlyInternetGateway {
+		if v == nil {
+			return nil
+		}
+		return &v.EgressOnlyInternetGateway
+	}).(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+func (o EncryptionControlResourceExclusionsPtrOutput) ElasticFileSystem() EncryptionControlResourceExclusionsElasticFileSystemPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsElasticFileSystem {
+		if v == nil {
+			return nil
+		}
+		return &v.ElasticFileSystem
+	}).(EncryptionControlResourceExclusionsElasticFileSystemPtrOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+func (o EncryptionControlResourceExclusionsPtrOutput) InternetGateway() EncryptionControlResourceExclusionsInternetGatewayPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsInternetGateway {
+		if v == nil {
+			return nil
+		}
+		return &v.InternetGateway
+	}).(EncryptionControlResourceExclusionsInternetGatewayPtrOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+func (o EncryptionControlResourceExclusionsPtrOutput) Lambda() EncryptionControlResourceExclusionsLambdaPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsLambda {
+		if v == nil {
+			return nil
+		}
+		return &v.Lambda
+	}).(EncryptionControlResourceExclusionsLambdaPtrOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+func (o EncryptionControlResourceExclusionsPtrOutput) NatGateway() EncryptionControlResourceExclusionsNatGatewayPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsNatGateway {
+		if v == nil {
+			return nil
+		}
+		return &v.NatGateway
+	}).(EncryptionControlResourceExclusionsNatGatewayPtrOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+func (o EncryptionControlResourceExclusionsPtrOutput) VirtualPrivateGateway() EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsVirtualPrivateGateway {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualPrivateGateway
+	}).(EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+func (o EncryptionControlResourceExclusionsPtrOutput) VpcLattice() EncryptionControlResourceExclusionsVpcLatticePtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsVpcLattice {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcLattice
+	}).(EncryptionControlResourceExclusionsVpcLatticePtrOutput)
+}
+
+// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+func (o EncryptionControlResourceExclusionsPtrOutput) VpcPeering() EncryptionControlResourceExclusionsVpcPeeringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsVpcPeering {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcPeering
+	}).(EncryptionControlResourceExclusionsVpcPeeringPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsEgressOnlyInternetGateway struct {
+	// The current state of the VPC Encryption Control.
+	State string `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage string `pulumi:"stateMessage"`
+}
+
+// EncryptionControlResourceExclusionsEgressOnlyInternetGatewayInput is an input type that accepts EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs and EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsEgressOnlyInternetGatewayInput` via:
+//
+//	EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs{...}
+type EncryptionControlResourceExclusionsEgressOnlyInternetGatewayInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput
+	ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutputWithContext(context.Context) EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput
+}
+
+type EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs struct {
+	// The current state of the VPC Encryption Control.
+	State pulumi.StringInput `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
+}
+
+func (EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsEgressOnlyInternetGateway)(nil)).Elem()
+}
+
+func (i EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput {
+	return i.ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput)
+}
+
+func (i EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput).ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutputWithContext(ctx)
+}
+
+// EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrInput is an input type that accepts EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs, EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtr and EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrInput` via:
+//
+//	        EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs{...}
+//
+//	or:
+//
+//	        nil
+type EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput
+	ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutputWithContext(context.Context) EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput
+}
+
+type encryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrType EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs
+
+func EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtr(v *EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs) EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrInput {
+	return (*encryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrType)(v)
+}
+
+func (*encryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsEgressOnlyInternetGateway)(nil)).Elem()
+}
+
+func (i *encryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrType) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrType) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsEgressOnlyInternetGateway)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput {
+	return o.ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionControlResourceExclusionsEgressOnlyInternetGateway) *EncryptionControlResourceExclusionsEgressOnlyInternetGateway {
+		return &v
+	}).(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsEgressOnlyInternetGateway) string { return v.State }).(pulumi.StringOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) StateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsEgressOnlyInternetGateway) string { return v.StateMessage }).(pulumi.StringOutput)
+}
+
+type EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsEgressOnlyInternetGateway)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) ToEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) Elem() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsEgressOnlyInternetGateway) EncryptionControlResourceExclusionsEgressOnlyInternetGateway {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionControlResourceExclusionsEgressOnlyInternetGateway
+		return ret
+	}).(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsEgressOnlyInternetGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsEgressOnlyInternetGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StateMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsElasticFileSystem struct {
+	// The current state of the VPC Encryption Control.
+	State string `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage string `pulumi:"stateMessage"`
+}
+
+// EncryptionControlResourceExclusionsElasticFileSystemInput is an input type that accepts EncryptionControlResourceExclusionsElasticFileSystemArgs and EncryptionControlResourceExclusionsElasticFileSystemOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsElasticFileSystemInput` via:
+//
+//	EncryptionControlResourceExclusionsElasticFileSystemArgs{...}
+type EncryptionControlResourceExclusionsElasticFileSystemInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsElasticFileSystemOutput() EncryptionControlResourceExclusionsElasticFileSystemOutput
+	ToEncryptionControlResourceExclusionsElasticFileSystemOutputWithContext(context.Context) EncryptionControlResourceExclusionsElasticFileSystemOutput
+}
+
+type EncryptionControlResourceExclusionsElasticFileSystemArgs struct {
+	// The current state of the VPC Encryption Control.
+	State pulumi.StringInput `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
+}
+
+func (EncryptionControlResourceExclusionsElasticFileSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsElasticFileSystem)(nil)).Elem()
+}
+
+func (i EncryptionControlResourceExclusionsElasticFileSystemArgs) ToEncryptionControlResourceExclusionsElasticFileSystemOutput() EncryptionControlResourceExclusionsElasticFileSystemOutput {
+	return i.ToEncryptionControlResourceExclusionsElasticFileSystemOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsElasticFileSystemArgs) ToEncryptionControlResourceExclusionsElasticFileSystemOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsElasticFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsElasticFileSystemOutput)
+}
+
+func (i EncryptionControlResourceExclusionsElasticFileSystemArgs) ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutput() EncryptionControlResourceExclusionsElasticFileSystemPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsElasticFileSystemArgs) ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsElasticFileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsElasticFileSystemOutput).ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutputWithContext(ctx)
+}
+
+// EncryptionControlResourceExclusionsElasticFileSystemPtrInput is an input type that accepts EncryptionControlResourceExclusionsElasticFileSystemArgs, EncryptionControlResourceExclusionsElasticFileSystemPtr and EncryptionControlResourceExclusionsElasticFileSystemPtrOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsElasticFileSystemPtrInput` via:
+//
+//	        EncryptionControlResourceExclusionsElasticFileSystemArgs{...}
+//
+//	or:
+//
+//	        nil
+type EncryptionControlResourceExclusionsElasticFileSystemPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutput() EncryptionControlResourceExclusionsElasticFileSystemPtrOutput
+	ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutputWithContext(context.Context) EncryptionControlResourceExclusionsElasticFileSystemPtrOutput
+}
+
+type encryptionControlResourceExclusionsElasticFileSystemPtrType EncryptionControlResourceExclusionsElasticFileSystemArgs
+
+func EncryptionControlResourceExclusionsElasticFileSystemPtr(v *EncryptionControlResourceExclusionsElasticFileSystemArgs) EncryptionControlResourceExclusionsElasticFileSystemPtrInput {
+	return (*encryptionControlResourceExclusionsElasticFileSystemPtrType)(v)
+}
+
+func (*encryptionControlResourceExclusionsElasticFileSystemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsElasticFileSystem)(nil)).Elem()
+}
+
+func (i *encryptionControlResourceExclusionsElasticFileSystemPtrType) ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutput() EncryptionControlResourceExclusionsElasticFileSystemPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionControlResourceExclusionsElasticFileSystemPtrType) ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsElasticFileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsElasticFileSystemPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsElasticFileSystemOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsElasticFileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsElasticFileSystem)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsElasticFileSystemOutput) ToEncryptionControlResourceExclusionsElasticFileSystemOutput() EncryptionControlResourceExclusionsElasticFileSystemOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsElasticFileSystemOutput) ToEncryptionControlResourceExclusionsElasticFileSystemOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsElasticFileSystemOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsElasticFileSystemOutput) ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutput() EncryptionControlResourceExclusionsElasticFileSystemPtrOutput {
+	return o.ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionControlResourceExclusionsElasticFileSystemOutput) ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsElasticFileSystemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionControlResourceExclusionsElasticFileSystem) *EncryptionControlResourceExclusionsElasticFileSystem {
+		return &v
+	}).(EncryptionControlResourceExclusionsElasticFileSystemPtrOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsElasticFileSystemOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsElasticFileSystem) string { return v.State }).(pulumi.StringOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsElasticFileSystemOutput) StateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsElasticFileSystem) string { return v.StateMessage }).(pulumi.StringOutput)
+}
+
+type EncryptionControlResourceExclusionsElasticFileSystemPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsElasticFileSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsElasticFileSystem)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsElasticFileSystemPtrOutput) ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutput() EncryptionControlResourceExclusionsElasticFileSystemPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsElasticFileSystemPtrOutput) ToEncryptionControlResourceExclusionsElasticFileSystemPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsElasticFileSystemPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsElasticFileSystemPtrOutput) Elem() EncryptionControlResourceExclusionsElasticFileSystemOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsElasticFileSystem) EncryptionControlResourceExclusionsElasticFileSystem {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionControlResourceExclusionsElasticFileSystem
+		return ret
+	}).(EncryptionControlResourceExclusionsElasticFileSystemOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsElasticFileSystemPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsElasticFileSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsElasticFileSystemPtrOutput) StateMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsElasticFileSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StateMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsInternetGateway struct {
+	// The current state of the VPC Encryption Control.
+	State string `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage string `pulumi:"stateMessage"`
+}
+
+// EncryptionControlResourceExclusionsInternetGatewayInput is an input type that accepts EncryptionControlResourceExclusionsInternetGatewayArgs and EncryptionControlResourceExclusionsInternetGatewayOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsInternetGatewayInput` via:
+//
+//	EncryptionControlResourceExclusionsInternetGatewayArgs{...}
+type EncryptionControlResourceExclusionsInternetGatewayInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsInternetGatewayOutput() EncryptionControlResourceExclusionsInternetGatewayOutput
+	ToEncryptionControlResourceExclusionsInternetGatewayOutputWithContext(context.Context) EncryptionControlResourceExclusionsInternetGatewayOutput
+}
+
+type EncryptionControlResourceExclusionsInternetGatewayArgs struct {
+	// The current state of the VPC Encryption Control.
+	State pulumi.StringInput `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
+}
+
+func (EncryptionControlResourceExclusionsInternetGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsInternetGateway)(nil)).Elem()
+}
+
+func (i EncryptionControlResourceExclusionsInternetGatewayArgs) ToEncryptionControlResourceExclusionsInternetGatewayOutput() EncryptionControlResourceExclusionsInternetGatewayOutput {
+	return i.ToEncryptionControlResourceExclusionsInternetGatewayOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsInternetGatewayArgs) ToEncryptionControlResourceExclusionsInternetGatewayOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsInternetGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsInternetGatewayOutput)
+}
+
+func (i EncryptionControlResourceExclusionsInternetGatewayArgs) ToEncryptionControlResourceExclusionsInternetGatewayPtrOutput() EncryptionControlResourceExclusionsInternetGatewayPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsInternetGatewayArgs) ToEncryptionControlResourceExclusionsInternetGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsInternetGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsInternetGatewayOutput).ToEncryptionControlResourceExclusionsInternetGatewayPtrOutputWithContext(ctx)
+}
+
+// EncryptionControlResourceExclusionsInternetGatewayPtrInput is an input type that accepts EncryptionControlResourceExclusionsInternetGatewayArgs, EncryptionControlResourceExclusionsInternetGatewayPtr and EncryptionControlResourceExclusionsInternetGatewayPtrOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsInternetGatewayPtrInput` via:
+//
+//	        EncryptionControlResourceExclusionsInternetGatewayArgs{...}
+//
+//	or:
+//
+//	        nil
+type EncryptionControlResourceExclusionsInternetGatewayPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsInternetGatewayPtrOutput() EncryptionControlResourceExclusionsInternetGatewayPtrOutput
+	ToEncryptionControlResourceExclusionsInternetGatewayPtrOutputWithContext(context.Context) EncryptionControlResourceExclusionsInternetGatewayPtrOutput
+}
+
+type encryptionControlResourceExclusionsInternetGatewayPtrType EncryptionControlResourceExclusionsInternetGatewayArgs
+
+func EncryptionControlResourceExclusionsInternetGatewayPtr(v *EncryptionControlResourceExclusionsInternetGatewayArgs) EncryptionControlResourceExclusionsInternetGatewayPtrInput {
+	return (*encryptionControlResourceExclusionsInternetGatewayPtrType)(v)
+}
+
+func (*encryptionControlResourceExclusionsInternetGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsInternetGateway)(nil)).Elem()
+}
+
+func (i *encryptionControlResourceExclusionsInternetGatewayPtrType) ToEncryptionControlResourceExclusionsInternetGatewayPtrOutput() EncryptionControlResourceExclusionsInternetGatewayPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionControlResourceExclusionsInternetGatewayPtrType) ToEncryptionControlResourceExclusionsInternetGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsInternetGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsInternetGatewayPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsInternetGatewayOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsInternetGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsInternetGateway)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsInternetGatewayOutput) ToEncryptionControlResourceExclusionsInternetGatewayOutput() EncryptionControlResourceExclusionsInternetGatewayOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsInternetGatewayOutput) ToEncryptionControlResourceExclusionsInternetGatewayOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsInternetGatewayOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsInternetGatewayOutput) ToEncryptionControlResourceExclusionsInternetGatewayPtrOutput() EncryptionControlResourceExclusionsInternetGatewayPtrOutput {
+	return o.ToEncryptionControlResourceExclusionsInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionControlResourceExclusionsInternetGatewayOutput) ToEncryptionControlResourceExclusionsInternetGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsInternetGatewayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionControlResourceExclusionsInternetGateway) *EncryptionControlResourceExclusionsInternetGateway {
+		return &v
+	}).(EncryptionControlResourceExclusionsInternetGatewayPtrOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsInternetGatewayOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsInternetGateway) string { return v.State }).(pulumi.StringOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsInternetGatewayOutput) StateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsInternetGateway) string { return v.StateMessage }).(pulumi.StringOutput)
+}
+
+type EncryptionControlResourceExclusionsInternetGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsInternetGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsInternetGateway)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsInternetGatewayPtrOutput) ToEncryptionControlResourceExclusionsInternetGatewayPtrOutput() EncryptionControlResourceExclusionsInternetGatewayPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsInternetGatewayPtrOutput) ToEncryptionControlResourceExclusionsInternetGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsInternetGatewayPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsInternetGatewayPtrOutput) Elem() EncryptionControlResourceExclusionsInternetGatewayOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsInternetGateway) EncryptionControlResourceExclusionsInternetGateway {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionControlResourceExclusionsInternetGateway
+		return ret
+	}).(EncryptionControlResourceExclusionsInternetGatewayOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsInternetGatewayPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsInternetGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsInternetGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsInternetGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StateMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsLambda struct {
+	// The current state of the VPC Encryption Control.
+	State string `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage string `pulumi:"stateMessage"`
+}
+
+// EncryptionControlResourceExclusionsLambdaInput is an input type that accepts EncryptionControlResourceExclusionsLambdaArgs and EncryptionControlResourceExclusionsLambdaOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsLambdaInput` via:
+//
+//	EncryptionControlResourceExclusionsLambdaArgs{...}
+type EncryptionControlResourceExclusionsLambdaInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsLambdaOutput() EncryptionControlResourceExclusionsLambdaOutput
+	ToEncryptionControlResourceExclusionsLambdaOutputWithContext(context.Context) EncryptionControlResourceExclusionsLambdaOutput
+}
+
+type EncryptionControlResourceExclusionsLambdaArgs struct {
+	// The current state of the VPC Encryption Control.
+	State pulumi.StringInput `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
+}
+
+func (EncryptionControlResourceExclusionsLambdaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsLambda)(nil)).Elem()
+}
+
+func (i EncryptionControlResourceExclusionsLambdaArgs) ToEncryptionControlResourceExclusionsLambdaOutput() EncryptionControlResourceExclusionsLambdaOutput {
+	return i.ToEncryptionControlResourceExclusionsLambdaOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsLambdaArgs) ToEncryptionControlResourceExclusionsLambdaOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsLambdaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsLambdaOutput)
+}
+
+func (i EncryptionControlResourceExclusionsLambdaArgs) ToEncryptionControlResourceExclusionsLambdaPtrOutput() EncryptionControlResourceExclusionsLambdaPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsLambdaPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsLambdaArgs) ToEncryptionControlResourceExclusionsLambdaPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsLambdaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsLambdaOutput).ToEncryptionControlResourceExclusionsLambdaPtrOutputWithContext(ctx)
+}
+
+// EncryptionControlResourceExclusionsLambdaPtrInput is an input type that accepts EncryptionControlResourceExclusionsLambdaArgs, EncryptionControlResourceExclusionsLambdaPtr and EncryptionControlResourceExclusionsLambdaPtrOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsLambdaPtrInput` via:
+//
+//	        EncryptionControlResourceExclusionsLambdaArgs{...}
+//
+//	or:
+//
+//	        nil
+type EncryptionControlResourceExclusionsLambdaPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsLambdaPtrOutput() EncryptionControlResourceExclusionsLambdaPtrOutput
+	ToEncryptionControlResourceExclusionsLambdaPtrOutputWithContext(context.Context) EncryptionControlResourceExclusionsLambdaPtrOutput
+}
+
+type encryptionControlResourceExclusionsLambdaPtrType EncryptionControlResourceExclusionsLambdaArgs
+
+func EncryptionControlResourceExclusionsLambdaPtr(v *EncryptionControlResourceExclusionsLambdaArgs) EncryptionControlResourceExclusionsLambdaPtrInput {
+	return (*encryptionControlResourceExclusionsLambdaPtrType)(v)
+}
+
+func (*encryptionControlResourceExclusionsLambdaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsLambda)(nil)).Elem()
+}
+
+func (i *encryptionControlResourceExclusionsLambdaPtrType) ToEncryptionControlResourceExclusionsLambdaPtrOutput() EncryptionControlResourceExclusionsLambdaPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsLambdaPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionControlResourceExclusionsLambdaPtrType) ToEncryptionControlResourceExclusionsLambdaPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsLambdaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsLambdaPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsLambdaOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsLambdaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsLambda)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsLambdaOutput) ToEncryptionControlResourceExclusionsLambdaOutput() EncryptionControlResourceExclusionsLambdaOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsLambdaOutput) ToEncryptionControlResourceExclusionsLambdaOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsLambdaOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsLambdaOutput) ToEncryptionControlResourceExclusionsLambdaPtrOutput() EncryptionControlResourceExclusionsLambdaPtrOutput {
+	return o.ToEncryptionControlResourceExclusionsLambdaPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionControlResourceExclusionsLambdaOutput) ToEncryptionControlResourceExclusionsLambdaPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsLambdaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionControlResourceExclusionsLambda) *EncryptionControlResourceExclusionsLambda {
+		return &v
+	}).(EncryptionControlResourceExclusionsLambdaPtrOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsLambdaOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsLambda) string { return v.State }).(pulumi.StringOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsLambdaOutput) StateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsLambda) string { return v.StateMessage }).(pulumi.StringOutput)
+}
+
+type EncryptionControlResourceExclusionsLambdaPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsLambdaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsLambda)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsLambdaPtrOutput) ToEncryptionControlResourceExclusionsLambdaPtrOutput() EncryptionControlResourceExclusionsLambdaPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsLambdaPtrOutput) ToEncryptionControlResourceExclusionsLambdaPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsLambdaPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsLambdaPtrOutput) Elem() EncryptionControlResourceExclusionsLambdaOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsLambda) EncryptionControlResourceExclusionsLambda {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionControlResourceExclusionsLambda
+		return ret
+	}).(EncryptionControlResourceExclusionsLambdaOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsLambdaPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsLambdaPtrOutput) StateMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StateMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsNatGateway struct {
+	// The current state of the VPC Encryption Control.
+	State string `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage string `pulumi:"stateMessage"`
+}
+
+// EncryptionControlResourceExclusionsNatGatewayInput is an input type that accepts EncryptionControlResourceExclusionsNatGatewayArgs and EncryptionControlResourceExclusionsNatGatewayOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsNatGatewayInput` via:
+//
+//	EncryptionControlResourceExclusionsNatGatewayArgs{...}
+type EncryptionControlResourceExclusionsNatGatewayInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsNatGatewayOutput() EncryptionControlResourceExclusionsNatGatewayOutput
+	ToEncryptionControlResourceExclusionsNatGatewayOutputWithContext(context.Context) EncryptionControlResourceExclusionsNatGatewayOutput
+}
+
+type EncryptionControlResourceExclusionsNatGatewayArgs struct {
+	// The current state of the VPC Encryption Control.
+	State pulumi.StringInput `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
+}
+
+func (EncryptionControlResourceExclusionsNatGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsNatGateway)(nil)).Elem()
+}
+
+func (i EncryptionControlResourceExclusionsNatGatewayArgs) ToEncryptionControlResourceExclusionsNatGatewayOutput() EncryptionControlResourceExclusionsNatGatewayOutput {
+	return i.ToEncryptionControlResourceExclusionsNatGatewayOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsNatGatewayArgs) ToEncryptionControlResourceExclusionsNatGatewayOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsNatGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsNatGatewayOutput)
+}
+
+func (i EncryptionControlResourceExclusionsNatGatewayArgs) ToEncryptionControlResourceExclusionsNatGatewayPtrOutput() EncryptionControlResourceExclusionsNatGatewayPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsNatGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsNatGatewayArgs) ToEncryptionControlResourceExclusionsNatGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsNatGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsNatGatewayOutput).ToEncryptionControlResourceExclusionsNatGatewayPtrOutputWithContext(ctx)
+}
+
+// EncryptionControlResourceExclusionsNatGatewayPtrInput is an input type that accepts EncryptionControlResourceExclusionsNatGatewayArgs, EncryptionControlResourceExclusionsNatGatewayPtr and EncryptionControlResourceExclusionsNatGatewayPtrOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsNatGatewayPtrInput` via:
+//
+//	        EncryptionControlResourceExclusionsNatGatewayArgs{...}
+//
+//	or:
+//
+//	        nil
+type EncryptionControlResourceExclusionsNatGatewayPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsNatGatewayPtrOutput() EncryptionControlResourceExclusionsNatGatewayPtrOutput
+	ToEncryptionControlResourceExclusionsNatGatewayPtrOutputWithContext(context.Context) EncryptionControlResourceExclusionsNatGatewayPtrOutput
+}
+
+type encryptionControlResourceExclusionsNatGatewayPtrType EncryptionControlResourceExclusionsNatGatewayArgs
+
+func EncryptionControlResourceExclusionsNatGatewayPtr(v *EncryptionControlResourceExclusionsNatGatewayArgs) EncryptionControlResourceExclusionsNatGatewayPtrInput {
+	return (*encryptionControlResourceExclusionsNatGatewayPtrType)(v)
+}
+
+func (*encryptionControlResourceExclusionsNatGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsNatGateway)(nil)).Elem()
+}
+
+func (i *encryptionControlResourceExclusionsNatGatewayPtrType) ToEncryptionControlResourceExclusionsNatGatewayPtrOutput() EncryptionControlResourceExclusionsNatGatewayPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsNatGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionControlResourceExclusionsNatGatewayPtrType) ToEncryptionControlResourceExclusionsNatGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsNatGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsNatGatewayPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsNatGatewayOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsNatGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsNatGateway)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsNatGatewayOutput) ToEncryptionControlResourceExclusionsNatGatewayOutput() EncryptionControlResourceExclusionsNatGatewayOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsNatGatewayOutput) ToEncryptionControlResourceExclusionsNatGatewayOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsNatGatewayOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsNatGatewayOutput) ToEncryptionControlResourceExclusionsNatGatewayPtrOutput() EncryptionControlResourceExclusionsNatGatewayPtrOutput {
+	return o.ToEncryptionControlResourceExclusionsNatGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionControlResourceExclusionsNatGatewayOutput) ToEncryptionControlResourceExclusionsNatGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsNatGatewayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionControlResourceExclusionsNatGateway) *EncryptionControlResourceExclusionsNatGateway {
+		return &v
+	}).(EncryptionControlResourceExclusionsNatGatewayPtrOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsNatGatewayOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsNatGateway) string { return v.State }).(pulumi.StringOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsNatGatewayOutput) StateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsNatGateway) string { return v.StateMessage }).(pulumi.StringOutput)
+}
+
+type EncryptionControlResourceExclusionsNatGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsNatGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsNatGateway)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsNatGatewayPtrOutput) ToEncryptionControlResourceExclusionsNatGatewayPtrOutput() EncryptionControlResourceExclusionsNatGatewayPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsNatGatewayPtrOutput) ToEncryptionControlResourceExclusionsNatGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsNatGatewayPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsNatGatewayPtrOutput) Elem() EncryptionControlResourceExclusionsNatGatewayOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsNatGateway) EncryptionControlResourceExclusionsNatGateway {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionControlResourceExclusionsNatGateway
+		return ret
+	}).(EncryptionControlResourceExclusionsNatGatewayOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsNatGatewayPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsNatGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsNatGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsNatGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StateMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsVirtualPrivateGateway struct {
+	// The current state of the VPC Encryption Control.
+	State string `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage string `pulumi:"stateMessage"`
+}
+
+// EncryptionControlResourceExclusionsVirtualPrivateGatewayInput is an input type that accepts EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs and EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsVirtualPrivateGatewayInput` via:
+//
+//	EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs{...}
+type EncryptionControlResourceExclusionsVirtualPrivateGatewayInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsVirtualPrivateGatewayOutput() EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput
+	ToEncryptionControlResourceExclusionsVirtualPrivateGatewayOutputWithContext(context.Context) EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput
+}
+
+type EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs struct {
+	// The current state of the VPC Encryption Control.
+	State pulumi.StringInput `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
+}
+
+func (EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsVirtualPrivateGateway)(nil)).Elem()
+}
+
+func (i EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayOutput() EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput {
+	return i.ToEncryptionControlResourceExclusionsVirtualPrivateGatewayOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput)
+}
+
+func (i EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput() EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput).ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutputWithContext(ctx)
+}
+
+// EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrInput is an input type that accepts EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs, EncryptionControlResourceExclusionsVirtualPrivateGatewayPtr and EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrInput` via:
+//
+//	        EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs{...}
+//
+//	or:
+//
+//	        nil
+type EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput() EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput
+	ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutputWithContext(context.Context) EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput
+}
+
+type encryptionControlResourceExclusionsVirtualPrivateGatewayPtrType EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs
+
+func EncryptionControlResourceExclusionsVirtualPrivateGatewayPtr(v *EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs) EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrInput {
+	return (*encryptionControlResourceExclusionsVirtualPrivateGatewayPtrType)(v)
+}
+
+func (*encryptionControlResourceExclusionsVirtualPrivateGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsVirtualPrivateGateway)(nil)).Elem()
+}
+
+func (i *encryptionControlResourceExclusionsVirtualPrivateGatewayPtrType) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput() EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionControlResourceExclusionsVirtualPrivateGatewayPtrType) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsVirtualPrivateGateway)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayOutput() EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput() EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput {
+	return o.ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionControlResourceExclusionsVirtualPrivateGateway) *EncryptionControlResourceExclusionsVirtualPrivateGateway {
+		return &v
+	}).(EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsVirtualPrivateGateway) string { return v.State }).(pulumi.StringOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) StateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsVirtualPrivateGateway) string { return v.StateMessage }).(pulumi.StringOutput)
+}
+
+type EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsVirtualPrivateGateway)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput() EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) ToEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) Elem() EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVirtualPrivateGateway) EncryptionControlResourceExclusionsVirtualPrivateGateway {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionControlResourceExclusionsVirtualPrivateGateway
+		return ret
+	}).(EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVirtualPrivateGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVirtualPrivateGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StateMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsVpcLattice struct {
+	// The current state of the VPC Encryption Control.
+	State string `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage string `pulumi:"stateMessage"`
+}
+
+// EncryptionControlResourceExclusionsVpcLatticeInput is an input type that accepts EncryptionControlResourceExclusionsVpcLatticeArgs and EncryptionControlResourceExclusionsVpcLatticeOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsVpcLatticeInput` via:
+//
+//	EncryptionControlResourceExclusionsVpcLatticeArgs{...}
+type EncryptionControlResourceExclusionsVpcLatticeInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsVpcLatticeOutput() EncryptionControlResourceExclusionsVpcLatticeOutput
+	ToEncryptionControlResourceExclusionsVpcLatticeOutputWithContext(context.Context) EncryptionControlResourceExclusionsVpcLatticeOutput
+}
+
+type EncryptionControlResourceExclusionsVpcLatticeArgs struct {
+	// The current state of the VPC Encryption Control.
+	State pulumi.StringInput `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
+}
+
+func (EncryptionControlResourceExclusionsVpcLatticeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsVpcLattice)(nil)).Elem()
+}
+
+func (i EncryptionControlResourceExclusionsVpcLatticeArgs) ToEncryptionControlResourceExclusionsVpcLatticeOutput() EncryptionControlResourceExclusionsVpcLatticeOutput {
+	return i.ToEncryptionControlResourceExclusionsVpcLatticeOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsVpcLatticeArgs) ToEncryptionControlResourceExclusionsVpcLatticeOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcLatticeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsVpcLatticeOutput)
+}
+
+func (i EncryptionControlResourceExclusionsVpcLatticeArgs) ToEncryptionControlResourceExclusionsVpcLatticePtrOutput() EncryptionControlResourceExclusionsVpcLatticePtrOutput {
+	return i.ToEncryptionControlResourceExclusionsVpcLatticePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsVpcLatticeArgs) ToEncryptionControlResourceExclusionsVpcLatticePtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcLatticePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsVpcLatticeOutput).ToEncryptionControlResourceExclusionsVpcLatticePtrOutputWithContext(ctx)
+}
+
+// EncryptionControlResourceExclusionsVpcLatticePtrInput is an input type that accepts EncryptionControlResourceExclusionsVpcLatticeArgs, EncryptionControlResourceExclusionsVpcLatticePtr and EncryptionControlResourceExclusionsVpcLatticePtrOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsVpcLatticePtrInput` via:
+//
+//	        EncryptionControlResourceExclusionsVpcLatticeArgs{...}
+//
+//	or:
+//
+//	        nil
+type EncryptionControlResourceExclusionsVpcLatticePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsVpcLatticePtrOutput() EncryptionControlResourceExclusionsVpcLatticePtrOutput
+	ToEncryptionControlResourceExclusionsVpcLatticePtrOutputWithContext(context.Context) EncryptionControlResourceExclusionsVpcLatticePtrOutput
+}
+
+type encryptionControlResourceExclusionsVpcLatticePtrType EncryptionControlResourceExclusionsVpcLatticeArgs
+
+func EncryptionControlResourceExclusionsVpcLatticePtr(v *EncryptionControlResourceExclusionsVpcLatticeArgs) EncryptionControlResourceExclusionsVpcLatticePtrInput {
+	return (*encryptionControlResourceExclusionsVpcLatticePtrType)(v)
+}
+
+func (*encryptionControlResourceExclusionsVpcLatticePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsVpcLattice)(nil)).Elem()
+}
+
+func (i *encryptionControlResourceExclusionsVpcLatticePtrType) ToEncryptionControlResourceExclusionsVpcLatticePtrOutput() EncryptionControlResourceExclusionsVpcLatticePtrOutput {
+	return i.ToEncryptionControlResourceExclusionsVpcLatticePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionControlResourceExclusionsVpcLatticePtrType) ToEncryptionControlResourceExclusionsVpcLatticePtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcLatticePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsVpcLatticePtrOutput)
+}
+
+type EncryptionControlResourceExclusionsVpcLatticeOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsVpcLatticeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsVpcLattice)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsVpcLatticeOutput) ToEncryptionControlResourceExclusionsVpcLatticeOutput() EncryptionControlResourceExclusionsVpcLatticeOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVpcLatticeOutput) ToEncryptionControlResourceExclusionsVpcLatticeOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcLatticeOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVpcLatticeOutput) ToEncryptionControlResourceExclusionsVpcLatticePtrOutput() EncryptionControlResourceExclusionsVpcLatticePtrOutput {
+	return o.ToEncryptionControlResourceExclusionsVpcLatticePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionControlResourceExclusionsVpcLatticeOutput) ToEncryptionControlResourceExclusionsVpcLatticePtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcLatticePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionControlResourceExclusionsVpcLattice) *EncryptionControlResourceExclusionsVpcLattice {
+		return &v
+	}).(EncryptionControlResourceExclusionsVpcLatticePtrOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVpcLatticeOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsVpcLattice) string { return v.State }).(pulumi.StringOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVpcLatticeOutput) StateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsVpcLattice) string { return v.StateMessage }).(pulumi.StringOutput)
+}
+
+type EncryptionControlResourceExclusionsVpcLatticePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsVpcLatticePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsVpcLattice)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsVpcLatticePtrOutput) ToEncryptionControlResourceExclusionsVpcLatticePtrOutput() EncryptionControlResourceExclusionsVpcLatticePtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVpcLatticePtrOutput) ToEncryptionControlResourceExclusionsVpcLatticePtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcLatticePtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVpcLatticePtrOutput) Elem() EncryptionControlResourceExclusionsVpcLatticeOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVpcLattice) EncryptionControlResourceExclusionsVpcLattice {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionControlResourceExclusionsVpcLattice
+		return ret
+	}).(EncryptionControlResourceExclusionsVpcLatticeOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVpcLatticePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVpcLattice) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVpcLatticePtrOutput) StateMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVpcLattice) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StateMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsVpcPeering struct {
+	// The current state of the VPC Encryption Control.
+	State string `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage string `pulumi:"stateMessage"`
+}
+
+// EncryptionControlResourceExclusionsVpcPeeringInput is an input type that accepts EncryptionControlResourceExclusionsVpcPeeringArgs and EncryptionControlResourceExclusionsVpcPeeringOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsVpcPeeringInput` via:
+//
+//	EncryptionControlResourceExclusionsVpcPeeringArgs{...}
+type EncryptionControlResourceExclusionsVpcPeeringInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsVpcPeeringOutput() EncryptionControlResourceExclusionsVpcPeeringOutput
+	ToEncryptionControlResourceExclusionsVpcPeeringOutputWithContext(context.Context) EncryptionControlResourceExclusionsVpcPeeringOutput
+}
+
+type EncryptionControlResourceExclusionsVpcPeeringArgs struct {
+	// The current state of the VPC Encryption Control.
+	State pulumi.StringInput `pulumi:"state"`
+	// A message providing additional information about the state of the VPC Encryption Control.
+	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
+}
+
+func (EncryptionControlResourceExclusionsVpcPeeringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsVpcPeering)(nil)).Elem()
+}
+
+func (i EncryptionControlResourceExclusionsVpcPeeringArgs) ToEncryptionControlResourceExclusionsVpcPeeringOutput() EncryptionControlResourceExclusionsVpcPeeringOutput {
+	return i.ToEncryptionControlResourceExclusionsVpcPeeringOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsVpcPeeringArgs) ToEncryptionControlResourceExclusionsVpcPeeringOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcPeeringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsVpcPeeringOutput)
+}
+
+func (i EncryptionControlResourceExclusionsVpcPeeringArgs) ToEncryptionControlResourceExclusionsVpcPeeringPtrOutput() EncryptionControlResourceExclusionsVpcPeeringPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsVpcPeeringPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlResourceExclusionsVpcPeeringArgs) ToEncryptionControlResourceExclusionsVpcPeeringPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcPeeringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsVpcPeeringOutput).ToEncryptionControlResourceExclusionsVpcPeeringPtrOutputWithContext(ctx)
+}
+
+// EncryptionControlResourceExclusionsVpcPeeringPtrInput is an input type that accepts EncryptionControlResourceExclusionsVpcPeeringArgs, EncryptionControlResourceExclusionsVpcPeeringPtr and EncryptionControlResourceExclusionsVpcPeeringPtrOutput values.
+// You can construct a concrete instance of `EncryptionControlResourceExclusionsVpcPeeringPtrInput` via:
+//
+//	        EncryptionControlResourceExclusionsVpcPeeringArgs{...}
+//
+//	or:
+//
+//	        nil
+type EncryptionControlResourceExclusionsVpcPeeringPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionControlResourceExclusionsVpcPeeringPtrOutput() EncryptionControlResourceExclusionsVpcPeeringPtrOutput
+	ToEncryptionControlResourceExclusionsVpcPeeringPtrOutputWithContext(context.Context) EncryptionControlResourceExclusionsVpcPeeringPtrOutput
+}
+
+type encryptionControlResourceExclusionsVpcPeeringPtrType EncryptionControlResourceExclusionsVpcPeeringArgs
+
+func EncryptionControlResourceExclusionsVpcPeeringPtr(v *EncryptionControlResourceExclusionsVpcPeeringArgs) EncryptionControlResourceExclusionsVpcPeeringPtrInput {
+	return (*encryptionControlResourceExclusionsVpcPeeringPtrType)(v)
+}
+
+func (*encryptionControlResourceExclusionsVpcPeeringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsVpcPeering)(nil)).Elem()
+}
+
+func (i *encryptionControlResourceExclusionsVpcPeeringPtrType) ToEncryptionControlResourceExclusionsVpcPeeringPtrOutput() EncryptionControlResourceExclusionsVpcPeeringPtrOutput {
+	return i.ToEncryptionControlResourceExclusionsVpcPeeringPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionControlResourceExclusionsVpcPeeringPtrType) ToEncryptionControlResourceExclusionsVpcPeeringPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcPeeringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlResourceExclusionsVpcPeeringPtrOutput)
+}
+
+type EncryptionControlResourceExclusionsVpcPeeringOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsVpcPeeringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlResourceExclusionsVpcPeering)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsVpcPeeringOutput) ToEncryptionControlResourceExclusionsVpcPeeringOutput() EncryptionControlResourceExclusionsVpcPeeringOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVpcPeeringOutput) ToEncryptionControlResourceExclusionsVpcPeeringOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcPeeringOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVpcPeeringOutput) ToEncryptionControlResourceExclusionsVpcPeeringPtrOutput() EncryptionControlResourceExclusionsVpcPeeringPtrOutput {
+	return o.ToEncryptionControlResourceExclusionsVpcPeeringPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionControlResourceExclusionsVpcPeeringOutput) ToEncryptionControlResourceExclusionsVpcPeeringPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcPeeringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionControlResourceExclusionsVpcPeering) *EncryptionControlResourceExclusionsVpcPeering {
+		return &v
+	}).(EncryptionControlResourceExclusionsVpcPeeringPtrOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVpcPeeringOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsVpcPeering) string { return v.State }).(pulumi.StringOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVpcPeeringOutput) StateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionControlResourceExclusionsVpcPeering) string { return v.StateMessage }).(pulumi.StringOutput)
+}
+
+type EncryptionControlResourceExclusionsVpcPeeringPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlResourceExclusionsVpcPeeringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlResourceExclusionsVpcPeering)(nil)).Elem()
+}
+
+func (o EncryptionControlResourceExclusionsVpcPeeringPtrOutput) ToEncryptionControlResourceExclusionsVpcPeeringPtrOutput() EncryptionControlResourceExclusionsVpcPeeringPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVpcPeeringPtrOutput) ToEncryptionControlResourceExclusionsVpcPeeringPtrOutputWithContext(ctx context.Context) EncryptionControlResourceExclusionsVpcPeeringPtrOutput {
+	return o
+}
+
+func (o EncryptionControlResourceExclusionsVpcPeeringPtrOutput) Elem() EncryptionControlResourceExclusionsVpcPeeringOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVpcPeering) EncryptionControlResourceExclusionsVpcPeering {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionControlResourceExclusionsVpcPeering
+		return ret
+	}).(EncryptionControlResourceExclusionsVpcPeeringOutput)
+}
+
+// The current state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVpcPeeringPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVpcPeering) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// A message providing additional information about the state of the VPC Encryption Control.
+func (o EncryptionControlResourceExclusionsVpcPeeringPtrOutput) StateMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVpcPeering) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StateMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionControlTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// EncryptionControlTimeoutsInput is an input type that accepts EncryptionControlTimeoutsArgs and EncryptionControlTimeoutsOutput values.
+// You can construct a concrete instance of `EncryptionControlTimeoutsInput` via:
+//
+//	EncryptionControlTimeoutsArgs{...}
+type EncryptionControlTimeoutsInput interface {
+	pulumi.Input
+
+	ToEncryptionControlTimeoutsOutput() EncryptionControlTimeoutsOutput
+	ToEncryptionControlTimeoutsOutputWithContext(context.Context) EncryptionControlTimeoutsOutput
+}
+
+type EncryptionControlTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (EncryptionControlTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlTimeouts)(nil)).Elem()
+}
+
+func (i EncryptionControlTimeoutsArgs) ToEncryptionControlTimeoutsOutput() EncryptionControlTimeoutsOutput {
+	return i.ToEncryptionControlTimeoutsOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlTimeoutsArgs) ToEncryptionControlTimeoutsOutputWithContext(ctx context.Context) EncryptionControlTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlTimeoutsOutput)
+}
+
+func (i EncryptionControlTimeoutsArgs) ToEncryptionControlTimeoutsPtrOutput() EncryptionControlTimeoutsPtrOutput {
+	return i.ToEncryptionControlTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionControlTimeoutsArgs) ToEncryptionControlTimeoutsPtrOutputWithContext(ctx context.Context) EncryptionControlTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlTimeoutsOutput).ToEncryptionControlTimeoutsPtrOutputWithContext(ctx)
+}
+
+// EncryptionControlTimeoutsPtrInput is an input type that accepts EncryptionControlTimeoutsArgs, EncryptionControlTimeoutsPtr and EncryptionControlTimeoutsPtrOutput values.
+// You can construct a concrete instance of `EncryptionControlTimeoutsPtrInput` via:
+//
+//	        EncryptionControlTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EncryptionControlTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionControlTimeoutsPtrOutput() EncryptionControlTimeoutsPtrOutput
+	ToEncryptionControlTimeoutsPtrOutputWithContext(context.Context) EncryptionControlTimeoutsPtrOutput
+}
+
+type encryptionControlTimeoutsPtrType EncryptionControlTimeoutsArgs
+
+func EncryptionControlTimeoutsPtr(v *EncryptionControlTimeoutsArgs) EncryptionControlTimeoutsPtrInput {
+	return (*encryptionControlTimeoutsPtrType)(v)
+}
+
+func (*encryptionControlTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlTimeouts)(nil)).Elem()
+}
+
+func (i *encryptionControlTimeoutsPtrType) ToEncryptionControlTimeoutsPtrOutput() EncryptionControlTimeoutsPtrOutput {
+	return i.ToEncryptionControlTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionControlTimeoutsPtrType) ToEncryptionControlTimeoutsPtrOutputWithContext(ctx context.Context) EncryptionControlTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionControlTimeoutsPtrOutput)
+}
+
+type EncryptionControlTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionControlTimeouts)(nil)).Elem()
+}
+
+func (o EncryptionControlTimeoutsOutput) ToEncryptionControlTimeoutsOutput() EncryptionControlTimeoutsOutput {
+	return o
+}
+
+func (o EncryptionControlTimeoutsOutput) ToEncryptionControlTimeoutsOutputWithContext(ctx context.Context) EncryptionControlTimeoutsOutput {
+	return o
+}
+
+func (o EncryptionControlTimeoutsOutput) ToEncryptionControlTimeoutsPtrOutput() EncryptionControlTimeoutsPtrOutput {
+	return o.ToEncryptionControlTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionControlTimeoutsOutput) ToEncryptionControlTimeoutsPtrOutputWithContext(ctx context.Context) EncryptionControlTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionControlTimeouts) *EncryptionControlTimeouts {
+		return &v
+	}).(EncryptionControlTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EncryptionControlTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionControlTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o EncryptionControlTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionControlTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EncryptionControlTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionControlTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionControlTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionControlTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionControlTimeouts)(nil)).Elem()
+}
+
+func (o EncryptionControlTimeoutsPtrOutput) ToEncryptionControlTimeoutsPtrOutput() EncryptionControlTimeoutsPtrOutput {
+	return o
+}
+
+func (o EncryptionControlTimeoutsPtrOutput) ToEncryptionControlTimeoutsPtrOutputWithContext(ctx context.Context) EncryptionControlTimeoutsPtrOutput {
+	return o
+}
+
+func (o EncryptionControlTimeoutsPtrOutput) Elem() EncryptionControlTimeoutsOutput {
+	return o.ApplyT(func(v *EncryptionControlTimeouts) EncryptionControlTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionControlTimeouts
+		return ret
+	}).(EncryptionControlTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EncryptionControlTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o EncryptionControlTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EncryptionControlTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionControlTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type FleetFleetInstanceSet struct {
 	// The IDs of the instances.
 	InstanceIds []string `pulumi:"instanceIds"`
@@ -16060,6 +17767,121 @@ func (o ManagedPrefixListEntryTypeArrayOutput) Index(i pulumi.IntInput) ManagedP
 	}).(ManagedPrefixListEntryTypeOutput)
 }
 
+type NatGatewayAvailabilityZoneAddress struct {
+	// List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+	AllocationIds []string `pulumi:"allocationIds"`
+	// Availability Zone (e.g. `us-west-2a`) where this specific NAT gateway configuration will be active. Exactly one of `availabilityZone` or `availabilityZoneId` must be specified.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Availability Zone ID (e.g. `usw2-az2`) where this specific NAT gateway configuration will be active. Exactly one of `availabilityZone` or `availabilityZoneId` must be specified.
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
+}
+
+// NatGatewayAvailabilityZoneAddressInput is an input type that accepts NatGatewayAvailabilityZoneAddressArgs and NatGatewayAvailabilityZoneAddressOutput values.
+// You can construct a concrete instance of `NatGatewayAvailabilityZoneAddressInput` via:
+//
+//	NatGatewayAvailabilityZoneAddressArgs{...}
+type NatGatewayAvailabilityZoneAddressInput interface {
+	pulumi.Input
+
+	ToNatGatewayAvailabilityZoneAddressOutput() NatGatewayAvailabilityZoneAddressOutput
+	ToNatGatewayAvailabilityZoneAddressOutputWithContext(context.Context) NatGatewayAvailabilityZoneAddressOutput
+}
+
+type NatGatewayAvailabilityZoneAddressArgs struct {
+	// List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+	AllocationIds pulumi.StringArrayInput `pulumi:"allocationIds"`
+	// Availability Zone (e.g. `us-west-2a`) where this specific NAT gateway configuration will be active. Exactly one of `availabilityZone` or `availabilityZoneId` must be specified.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// Availability Zone ID (e.g. `usw2-az2`) where this specific NAT gateway configuration will be active. Exactly one of `availabilityZone` or `availabilityZoneId` must be specified.
+	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
+}
+
+func (NatGatewayAvailabilityZoneAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (i NatGatewayAvailabilityZoneAddressArgs) ToNatGatewayAvailabilityZoneAddressOutput() NatGatewayAvailabilityZoneAddressOutput {
+	return i.ToNatGatewayAvailabilityZoneAddressOutputWithContext(context.Background())
+}
+
+func (i NatGatewayAvailabilityZoneAddressArgs) ToNatGatewayAvailabilityZoneAddressOutputWithContext(ctx context.Context) NatGatewayAvailabilityZoneAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayAvailabilityZoneAddressOutput)
+}
+
+// NatGatewayAvailabilityZoneAddressArrayInput is an input type that accepts NatGatewayAvailabilityZoneAddressArray and NatGatewayAvailabilityZoneAddressArrayOutput values.
+// You can construct a concrete instance of `NatGatewayAvailabilityZoneAddressArrayInput` via:
+//
+//	NatGatewayAvailabilityZoneAddressArray{ NatGatewayAvailabilityZoneAddressArgs{...} }
+type NatGatewayAvailabilityZoneAddressArrayInput interface {
+	pulumi.Input
+
+	ToNatGatewayAvailabilityZoneAddressArrayOutput() NatGatewayAvailabilityZoneAddressArrayOutput
+	ToNatGatewayAvailabilityZoneAddressArrayOutputWithContext(context.Context) NatGatewayAvailabilityZoneAddressArrayOutput
+}
+
+type NatGatewayAvailabilityZoneAddressArray []NatGatewayAvailabilityZoneAddressInput
+
+func (NatGatewayAvailabilityZoneAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (i NatGatewayAvailabilityZoneAddressArray) ToNatGatewayAvailabilityZoneAddressArrayOutput() NatGatewayAvailabilityZoneAddressArrayOutput {
+	return i.ToNatGatewayAvailabilityZoneAddressArrayOutputWithContext(context.Background())
+}
+
+func (i NatGatewayAvailabilityZoneAddressArray) ToNatGatewayAvailabilityZoneAddressArrayOutputWithContext(ctx context.Context) NatGatewayAvailabilityZoneAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayAvailabilityZoneAddressArrayOutput)
+}
+
+type NatGatewayAvailabilityZoneAddressOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayAvailabilityZoneAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (o NatGatewayAvailabilityZoneAddressOutput) ToNatGatewayAvailabilityZoneAddressOutput() NatGatewayAvailabilityZoneAddressOutput {
+	return o
+}
+
+func (o NatGatewayAvailabilityZoneAddressOutput) ToNatGatewayAvailabilityZoneAddressOutputWithContext(ctx context.Context) NatGatewayAvailabilityZoneAddressOutput {
+	return o
+}
+
+// List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+func (o NatGatewayAvailabilityZoneAddressOutput) AllocationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatGatewayAvailabilityZoneAddress) []string { return v.AllocationIds }).(pulumi.StringArrayOutput)
+}
+
+// Availability Zone (e.g. `us-west-2a`) where this specific NAT gateway configuration will be active. Exactly one of `availabilityZone` or `availabilityZoneId` must be specified.
+func (o NatGatewayAvailabilityZoneAddressOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayAvailabilityZoneAddress) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// Availability Zone ID (e.g. `usw2-az2`) where this specific NAT gateway configuration will be active. Exactly one of `availabilityZone` or `availabilityZoneId` must be specified.
+func (o NatGatewayAvailabilityZoneAddressOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayAvailabilityZoneAddress) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
+}
+
+type NatGatewayAvailabilityZoneAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayAvailabilityZoneAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (o NatGatewayAvailabilityZoneAddressArrayOutput) ToNatGatewayAvailabilityZoneAddressArrayOutput() NatGatewayAvailabilityZoneAddressArrayOutput {
+	return o
+}
+
+func (o NatGatewayAvailabilityZoneAddressArrayOutput) ToNatGatewayAvailabilityZoneAddressArrayOutputWithContext(ctx context.Context) NatGatewayAvailabilityZoneAddressArrayOutput {
+	return o
+}
+
+func (o NatGatewayAvailabilityZoneAddressArrayOutput) Index(i pulumi.IntInput) NatGatewayAvailabilityZoneAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NatGatewayAvailabilityZoneAddress {
+		return vs[0].([]NatGatewayAvailabilityZoneAddress)[vs[1].(int)]
+	}).(NatGatewayAvailabilityZoneAddressOutput)
+}
+
 type NatGatewayEipAssociationTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -16214,6 +18036,157 @@ func (o NatGatewayEipAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutp
 		}
 		return v.Delete
 	}).(pulumi.StringPtrOutput)
+}
+
+type NatGatewayRegionalNatGatewayAddress struct {
+	// The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
+	AllocationId *string `pulumi:"allocationId"`
+	// Association ID of the Elastic IP address.
+	AssociationId *string `pulumi:"associationId"`
+	// Availability Zone where this specific NAT gateway configuration is active.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Availability Zone ID where this specific NAT gateway configuration is active
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
+	// ID of the network interface.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// Public IP address.
+	PublicIp *string `pulumi:"publicIp"`
+	// Status of the NAT gateway address.
+	Status *string `pulumi:"status"`
+}
+
+// NatGatewayRegionalNatGatewayAddressInput is an input type that accepts NatGatewayRegionalNatGatewayAddressArgs and NatGatewayRegionalNatGatewayAddressOutput values.
+// You can construct a concrete instance of `NatGatewayRegionalNatGatewayAddressInput` via:
+//
+//	NatGatewayRegionalNatGatewayAddressArgs{...}
+type NatGatewayRegionalNatGatewayAddressInput interface {
+	pulumi.Input
+
+	ToNatGatewayRegionalNatGatewayAddressOutput() NatGatewayRegionalNatGatewayAddressOutput
+	ToNatGatewayRegionalNatGatewayAddressOutputWithContext(context.Context) NatGatewayRegionalNatGatewayAddressOutput
+}
+
+type NatGatewayRegionalNatGatewayAddressArgs struct {
+	// The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
+	AllocationId pulumi.StringPtrInput `pulumi:"allocationId"`
+	// Association ID of the Elastic IP address.
+	AssociationId pulumi.StringPtrInput `pulumi:"associationId"`
+	// Availability Zone where this specific NAT gateway configuration is active.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// Availability Zone ID where this specific NAT gateway configuration is active
+	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
+	// ID of the network interface.
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// Public IP address.
+	PublicIp pulumi.StringPtrInput `pulumi:"publicIp"`
+	// Status of the NAT gateway address.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (NatGatewayRegionalNatGatewayAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayRegionalNatGatewayAddress)(nil)).Elem()
+}
+
+func (i NatGatewayRegionalNatGatewayAddressArgs) ToNatGatewayRegionalNatGatewayAddressOutput() NatGatewayRegionalNatGatewayAddressOutput {
+	return i.ToNatGatewayRegionalNatGatewayAddressOutputWithContext(context.Background())
+}
+
+func (i NatGatewayRegionalNatGatewayAddressArgs) ToNatGatewayRegionalNatGatewayAddressOutputWithContext(ctx context.Context) NatGatewayRegionalNatGatewayAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayRegionalNatGatewayAddressOutput)
+}
+
+// NatGatewayRegionalNatGatewayAddressArrayInput is an input type that accepts NatGatewayRegionalNatGatewayAddressArray and NatGatewayRegionalNatGatewayAddressArrayOutput values.
+// You can construct a concrete instance of `NatGatewayRegionalNatGatewayAddressArrayInput` via:
+//
+//	NatGatewayRegionalNatGatewayAddressArray{ NatGatewayRegionalNatGatewayAddressArgs{...} }
+type NatGatewayRegionalNatGatewayAddressArrayInput interface {
+	pulumi.Input
+
+	ToNatGatewayRegionalNatGatewayAddressArrayOutput() NatGatewayRegionalNatGatewayAddressArrayOutput
+	ToNatGatewayRegionalNatGatewayAddressArrayOutputWithContext(context.Context) NatGatewayRegionalNatGatewayAddressArrayOutput
+}
+
+type NatGatewayRegionalNatGatewayAddressArray []NatGatewayRegionalNatGatewayAddressInput
+
+func (NatGatewayRegionalNatGatewayAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NatGatewayRegionalNatGatewayAddress)(nil)).Elem()
+}
+
+func (i NatGatewayRegionalNatGatewayAddressArray) ToNatGatewayRegionalNatGatewayAddressArrayOutput() NatGatewayRegionalNatGatewayAddressArrayOutput {
+	return i.ToNatGatewayRegionalNatGatewayAddressArrayOutputWithContext(context.Background())
+}
+
+func (i NatGatewayRegionalNatGatewayAddressArray) ToNatGatewayRegionalNatGatewayAddressArrayOutputWithContext(ctx context.Context) NatGatewayRegionalNatGatewayAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayRegionalNatGatewayAddressArrayOutput)
+}
+
+type NatGatewayRegionalNatGatewayAddressOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayRegionalNatGatewayAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayRegionalNatGatewayAddress)(nil)).Elem()
+}
+
+func (o NatGatewayRegionalNatGatewayAddressOutput) ToNatGatewayRegionalNatGatewayAddressOutput() NatGatewayRegionalNatGatewayAddressOutput {
+	return o
+}
+
+func (o NatGatewayRegionalNatGatewayAddressOutput) ToNatGatewayRegionalNatGatewayAddressOutputWithContext(ctx context.Context) NatGatewayRegionalNatGatewayAddressOutput {
+	return o
+}
+
+// The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
+func (o NatGatewayRegionalNatGatewayAddressOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayRegionalNatGatewayAddress) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+// Association ID of the Elastic IP address.
+func (o NatGatewayRegionalNatGatewayAddressOutput) AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayRegionalNatGatewayAddress) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
+}
+
+// Availability Zone where this specific NAT gateway configuration is active.
+func (o NatGatewayRegionalNatGatewayAddressOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayRegionalNatGatewayAddress) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// Availability Zone ID where this specific NAT gateway configuration is active
+func (o NatGatewayRegionalNatGatewayAddressOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayRegionalNatGatewayAddress) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
+}
+
+// ID of the network interface.
+func (o NatGatewayRegionalNatGatewayAddressOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayRegionalNatGatewayAddress) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+// Public IP address.
+func (o NatGatewayRegionalNatGatewayAddressOutput) PublicIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayRegionalNatGatewayAddress) *string { return v.PublicIp }).(pulumi.StringPtrOutput)
+}
+
+// Status of the NAT gateway address.
+func (o NatGatewayRegionalNatGatewayAddressOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayRegionalNatGatewayAddress) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type NatGatewayRegionalNatGatewayAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayRegionalNatGatewayAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NatGatewayRegionalNatGatewayAddress)(nil)).Elem()
+}
+
+func (o NatGatewayRegionalNatGatewayAddressArrayOutput) ToNatGatewayRegionalNatGatewayAddressArrayOutput() NatGatewayRegionalNatGatewayAddressArrayOutput {
+	return o
+}
+
+func (o NatGatewayRegionalNatGatewayAddressArrayOutput) ToNatGatewayRegionalNatGatewayAddressArrayOutputWithContext(ctx context.Context) NatGatewayRegionalNatGatewayAddressArrayOutput {
+	return o
+}
+
+func (o NatGatewayRegionalNatGatewayAddressArrayOutput) Index(i pulumi.IntInput) NatGatewayRegionalNatGatewayAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NatGatewayRegionalNatGatewayAddress {
+		return vs[0].([]NatGatewayRegionalNatGatewayAddress)[vs[1].(int)]
+	}).(NatGatewayRegionalNatGatewayAddressOutput)
 }
 
 type NetworkAclEgress struct {
@@ -36348,6 +38321,12 @@ func (o VpnConnectionTunnel1LogOptionsPtrOutput) CloudwatchLogOptions() VpnConne
 }
 
 type VpnConnectionTunnel1LogOptionsCloudwatchLogOptions struct {
+	// Enable or disable BGP logging feature. The default is `false`.
+	BgpLogEnabled *bool `pulumi:"bgpLogEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+	BgpLogGroupArn *string `pulumi:"bgpLogGroupArn"`
+	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	BgpLogOutputFormat *string `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. The default is `false`.
 	LogEnabled *bool `pulumi:"logEnabled"`
 	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
@@ -36368,6 +38347,12 @@ type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsInput interface {
 }
 
 type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs struct {
+	// Enable or disable BGP logging feature. The default is `false`.
+	BgpLogEnabled pulumi.BoolPtrInput `pulumi:"bgpLogEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+	BgpLogGroupArn pulumi.StringPtrInput `pulumi:"bgpLogGroupArn"`
+	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	BgpLogOutputFormat pulumi.StringPtrInput `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. The default is `false`.
 	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
 	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
@@ -36453,6 +38438,21 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectio
 	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput)
 }
 
+// Enable or disable BGP logging feature. The default is `false`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool { return v.BgpLogEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) BgpLogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.BgpLogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) BgpLogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.BgpLogOutputFormat }).(pulumi.StringPtrOutput)
+}
+
 // Enable or disable VPN tunnel logging feature. The default is `false`.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool { return v.LogEnabled }).(pulumi.BoolPtrOutput)
@@ -36490,6 +38490,36 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) Elem() VpnC
 		var ret VpnConnectionTunnel1LogOptionsCloudwatchLogOptions
 		return ret
 	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput)
+}
+
+// Enable or disable BGP logging feature. The default is `false`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BgpLogEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BgpLogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BgpLogOutputFormat
+	}).(pulumi.StringPtrOutput)
 }
 
 // Enable or disable VPN tunnel logging feature. The default is `false`.
@@ -36662,6 +38692,12 @@ func (o VpnConnectionTunnel2LogOptionsPtrOutput) CloudwatchLogOptions() VpnConne
 }
 
 type VpnConnectionTunnel2LogOptionsCloudwatchLogOptions struct {
+	// Enable or disable BGP logging feature. The default is `false`.
+	BgpLogEnabled *bool `pulumi:"bgpLogEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+	BgpLogGroupArn *string `pulumi:"bgpLogGroupArn"`
+	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	BgpLogOutputFormat *string `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. The default is `false`.
 	LogEnabled *bool `pulumi:"logEnabled"`
 	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
@@ -36682,6 +38718,12 @@ type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsInput interface {
 }
 
 type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs struct {
+	// Enable or disable BGP logging feature. The default is `false`.
+	BgpLogEnabled pulumi.BoolPtrInput `pulumi:"bgpLogEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+	BgpLogGroupArn pulumi.StringPtrInput `pulumi:"bgpLogGroupArn"`
+	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	BgpLogOutputFormat pulumi.StringPtrInput `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. The default is `false`.
 	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
 	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
@@ -36767,6 +38809,21 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectio
 	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput)
 }
 
+// Enable or disable BGP logging feature. The default is `false`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool { return v.BgpLogEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) BgpLogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.BgpLogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) BgpLogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.BgpLogOutputFormat }).(pulumi.StringPtrOutput)
+}
+
 // Enable or disable VPN tunnel logging feature. The default is `false`.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool { return v.LogEnabled }).(pulumi.BoolPtrOutput)
@@ -36804,6 +38861,36 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) Elem() VpnC
 		var ret VpnConnectionTunnel2LogOptionsCloudwatchLogOptions
 		return ret
 	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput)
+}
+
+// Enable or disable BGP logging feature. The default is `false`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BgpLogEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BgpLogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BgpLogOutputFormat
+	}).(pulumi.StringPtrOutput)
 }
 
 // Enable or disable VPN tunnel logging feature. The default is `false`.
@@ -45837,6 +47924,121 @@ func (o GetManagedPrefixListsFilterArrayOutput) Index(i pulumi.IntInput) GetMana
 	}).(GetManagedPrefixListsFilterOutput)
 }
 
+type GetNatGatewayAvailabilityZoneAddress struct {
+	// List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+	AllocationIds []string `pulumi:"allocationIds"`
+	// Availability Zone where this specific NAT gateway configuration is active.
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	// Availability Zone ID where this specific NAT gateway configuration is active
+	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+}
+
+// GetNatGatewayAvailabilityZoneAddressInput is an input type that accepts GetNatGatewayAvailabilityZoneAddressArgs and GetNatGatewayAvailabilityZoneAddressOutput values.
+// You can construct a concrete instance of `GetNatGatewayAvailabilityZoneAddressInput` via:
+//
+//	GetNatGatewayAvailabilityZoneAddressArgs{...}
+type GetNatGatewayAvailabilityZoneAddressInput interface {
+	pulumi.Input
+
+	ToGetNatGatewayAvailabilityZoneAddressOutput() GetNatGatewayAvailabilityZoneAddressOutput
+	ToGetNatGatewayAvailabilityZoneAddressOutputWithContext(context.Context) GetNatGatewayAvailabilityZoneAddressOutput
+}
+
+type GetNatGatewayAvailabilityZoneAddressArgs struct {
+	// List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+	AllocationIds pulumi.StringArrayInput `pulumi:"allocationIds"`
+	// Availability Zone where this specific NAT gateway configuration is active.
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	// Availability Zone ID where this specific NAT gateway configuration is active
+	AvailabilityZoneId pulumi.StringInput `pulumi:"availabilityZoneId"`
+}
+
+func (GetNatGatewayAvailabilityZoneAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (i GetNatGatewayAvailabilityZoneAddressArgs) ToGetNatGatewayAvailabilityZoneAddressOutput() GetNatGatewayAvailabilityZoneAddressOutput {
+	return i.ToGetNatGatewayAvailabilityZoneAddressOutputWithContext(context.Background())
+}
+
+func (i GetNatGatewayAvailabilityZoneAddressArgs) ToGetNatGatewayAvailabilityZoneAddressOutputWithContext(ctx context.Context) GetNatGatewayAvailabilityZoneAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatGatewayAvailabilityZoneAddressOutput)
+}
+
+// GetNatGatewayAvailabilityZoneAddressArrayInput is an input type that accepts GetNatGatewayAvailabilityZoneAddressArray and GetNatGatewayAvailabilityZoneAddressArrayOutput values.
+// You can construct a concrete instance of `GetNatGatewayAvailabilityZoneAddressArrayInput` via:
+//
+//	GetNatGatewayAvailabilityZoneAddressArray{ GetNatGatewayAvailabilityZoneAddressArgs{...} }
+type GetNatGatewayAvailabilityZoneAddressArrayInput interface {
+	pulumi.Input
+
+	ToGetNatGatewayAvailabilityZoneAddressArrayOutput() GetNatGatewayAvailabilityZoneAddressArrayOutput
+	ToGetNatGatewayAvailabilityZoneAddressArrayOutputWithContext(context.Context) GetNatGatewayAvailabilityZoneAddressArrayOutput
+}
+
+type GetNatGatewayAvailabilityZoneAddressArray []GetNatGatewayAvailabilityZoneAddressInput
+
+func (GetNatGatewayAvailabilityZoneAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (i GetNatGatewayAvailabilityZoneAddressArray) ToGetNatGatewayAvailabilityZoneAddressArrayOutput() GetNatGatewayAvailabilityZoneAddressArrayOutput {
+	return i.ToGetNatGatewayAvailabilityZoneAddressArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatGatewayAvailabilityZoneAddressArray) ToGetNatGatewayAvailabilityZoneAddressArrayOutputWithContext(ctx context.Context) GetNatGatewayAvailabilityZoneAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatGatewayAvailabilityZoneAddressArrayOutput)
+}
+
+type GetNatGatewayAvailabilityZoneAddressOutput struct{ *pulumi.OutputState }
+
+func (GetNatGatewayAvailabilityZoneAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (o GetNatGatewayAvailabilityZoneAddressOutput) ToGetNatGatewayAvailabilityZoneAddressOutput() GetNatGatewayAvailabilityZoneAddressOutput {
+	return o
+}
+
+func (o GetNatGatewayAvailabilityZoneAddressOutput) ToGetNatGatewayAvailabilityZoneAddressOutputWithContext(ctx context.Context) GetNatGatewayAvailabilityZoneAddressOutput {
+	return o
+}
+
+// List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+func (o GetNatGatewayAvailabilityZoneAddressOutput) AllocationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNatGatewayAvailabilityZoneAddress) []string { return v.AllocationIds }).(pulumi.StringArrayOutput)
+}
+
+// Availability Zone where this specific NAT gateway configuration is active.
+func (o GetNatGatewayAvailabilityZoneAddressOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatGatewayAvailabilityZoneAddress) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// Availability Zone ID where this specific NAT gateway configuration is active
+func (o GetNatGatewayAvailabilityZoneAddressOutput) AvailabilityZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatGatewayAvailabilityZoneAddress) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+}
+
+type GetNatGatewayAvailabilityZoneAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatGatewayAvailabilityZoneAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (o GetNatGatewayAvailabilityZoneAddressArrayOutput) ToGetNatGatewayAvailabilityZoneAddressArrayOutput() GetNatGatewayAvailabilityZoneAddressArrayOutput {
+	return o
+}
+
+func (o GetNatGatewayAvailabilityZoneAddressArrayOutput) ToGetNatGatewayAvailabilityZoneAddressArrayOutputWithContext(ctx context.Context) GetNatGatewayAvailabilityZoneAddressArrayOutput {
+	return o
+}
+
+func (o GetNatGatewayAvailabilityZoneAddressArrayOutput) Index(i pulumi.IntInput) GetNatGatewayAvailabilityZoneAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatGatewayAvailabilityZoneAddress {
+		return vs[0].([]GetNatGatewayAvailabilityZoneAddress)[vs[1].(int)]
+	}).(GetNatGatewayAvailabilityZoneAddressOutput)
+}
+
 type GetNatGatewayFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
@@ -45947,6 +48149,157 @@ func (o GetNatGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetNatGatewayFi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatGatewayFilter {
 		return vs[0].([]GetNatGatewayFilter)[vs[1].(int)]
 	}).(GetNatGatewayFilterOutput)
+}
+
+type GetNatGatewayRegionalNatGatewayAddress struct {
+	// Allocation ID of the Elastic IP address.
+	AllocationId string `pulumi:"allocationId"`
+	// Association ID of the Elastic IP address.
+	AssociationId string `pulumi:"associationId"`
+	// Availability Zone where this specific NAT gateway configuration is active.
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	// Availability Zone ID where this specific NAT gateway configuration is active
+	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+	// ID of the network interface.
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	// Public IP address.
+	PublicIp string `pulumi:"publicIp"`
+	// Status of the NAT gateway address.
+	Status string `pulumi:"status"`
+}
+
+// GetNatGatewayRegionalNatGatewayAddressInput is an input type that accepts GetNatGatewayRegionalNatGatewayAddressArgs and GetNatGatewayRegionalNatGatewayAddressOutput values.
+// You can construct a concrete instance of `GetNatGatewayRegionalNatGatewayAddressInput` via:
+//
+//	GetNatGatewayRegionalNatGatewayAddressArgs{...}
+type GetNatGatewayRegionalNatGatewayAddressInput interface {
+	pulumi.Input
+
+	ToGetNatGatewayRegionalNatGatewayAddressOutput() GetNatGatewayRegionalNatGatewayAddressOutput
+	ToGetNatGatewayRegionalNatGatewayAddressOutputWithContext(context.Context) GetNatGatewayRegionalNatGatewayAddressOutput
+}
+
+type GetNatGatewayRegionalNatGatewayAddressArgs struct {
+	// Allocation ID of the Elastic IP address.
+	AllocationId pulumi.StringInput `pulumi:"allocationId"`
+	// Association ID of the Elastic IP address.
+	AssociationId pulumi.StringInput `pulumi:"associationId"`
+	// Availability Zone where this specific NAT gateway configuration is active.
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	// Availability Zone ID where this specific NAT gateway configuration is active
+	AvailabilityZoneId pulumi.StringInput `pulumi:"availabilityZoneId"`
+	// ID of the network interface.
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+	// Public IP address.
+	PublicIp pulumi.StringInput `pulumi:"publicIp"`
+	// Status of the NAT gateway address.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetNatGatewayRegionalNatGatewayAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatGatewayRegionalNatGatewayAddress)(nil)).Elem()
+}
+
+func (i GetNatGatewayRegionalNatGatewayAddressArgs) ToGetNatGatewayRegionalNatGatewayAddressOutput() GetNatGatewayRegionalNatGatewayAddressOutput {
+	return i.ToGetNatGatewayRegionalNatGatewayAddressOutputWithContext(context.Background())
+}
+
+func (i GetNatGatewayRegionalNatGatewayAddressArgs) ToGetNatGatewayRegionalNatGatewayAddressOutputWithContext(ctx context.Context) GetNatGatewayRegionalNatGatewayAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatGatewayRegionalNatGatewayAddressOutput)
+}
+
+// GetNatGatewayRegionalNatGatewayAddressArrayInput is an input type that accepts GetNatGatewayRegionalNatGatewayAddressArray and GetNatGatewayRegionalNatGatewayAddressArrayOutput values.
+// You can construct a concrete instance of `GetNatGatewayRegionalNatGatewayAddressArrayInput` via:
+//
+//	GetNatGatewayRegionalNatGatewayAddressArray{ GetNatGatewayRegionalNatGatewayAddressArgs{...} }
+type GetNatGatewayRegionalNatGatewayAddressArrayInput interface {
+	pulumi.Input
+
+	ToGetNatGatewayRegionalNatGatewayAddressArrayOutput() GetNatGatewayRegionalNatGatewayAddressArrayOutput
+	ToGetNatGatewayRegionalNatGatewayAddressArrayOutputWithContext(context.Context) GetNatGatewayRegionalNatGatewayAddressArrayOutput
+}
+
+type GetNatGatewayRegionalNatGatewayAddressArray []GetNatGatewayRegionalNatGatewayAddressInput
+
+func (GetNatGatewayRegionalNatGatewayAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatGatewayRegionalNatGatewayAddress)(nil)).Elem()
+}
+
+func (i GetNatGatewayRegionalNatGatewayAddressArray) ToGetNatGatewayRegionalNatGatewayAddressArrayOutput() GetNatGatewayRegionalNatGatewayAddressArrayOutput {
+	return i.ToGetNatGatewayRegionalNatGatewayAddressArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatGatewayRegionalNatGatewayAddressArray) ToGetNatGatewayRegionalNatGatewayAddressArrayOutputWithContext(ctx context.Context) GetNatGatewayRegionalNatGatewayAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatGatewayRegionalNatGatewayAddressArrayOutput)
+}
+
+type GetNatGatewayRegionalNatGatewayAddressOutput struct{ *pulumi.OutputState }
+
+func (GetNatGatewayRegionalNatGatewayAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatGatewayRegionalNatGatewayAddress)(nil)).Elem()
+}
+
+func (o GetNatGatewayRegionalNatGatewayAddressOutput) ToGetNatGatewayRegionalNatGatewayAddressOutput() GetNatGatewayRegionalNatGatewayAddressOutput {
+	return o
+}
+
+func (o GetNatGatewayRegionalNatGatewayAddressOutput) ToGetNatGatewayRegionalNatGatewayAddressOutputWithContext(ctx context.Context) GetNatGatewayRegionalNatGatewayAddressOutput {
+	return o
+}
+
+// Allocation ID of the Elastic IP address.
+func (o GetNatGatewayRegionalNatGatewayAddressOutput) AllocationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatGatewayRegionalNatGatewayAddress) string { return v.AllocationId }).(pulumi.StringOutput)
+}
+
+// Association ID of the Elastic IP address.
+func (o GetNatGatewayRegionalNatGatewayAddressOutput) AssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatGatewayRegionalNatGatewayAddress) string { return v.AssociationId }).(pulumi.StringOutput)
+}
+
+// Availability Zone where this specific NAT gateway configuration is active.
+func (o GetNatGatewayRegionalNatGatewayAddressOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatGatewayRegionalNatGatewayAddress) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// Availability Zone ID where this specific NAT gateway configuration is active
+func (o GetNatGatewayRegionalNatGatewayAddressOutput) AvailabilityZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatGatewayRegionalNatGatewayAddress) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+}
+
+// ID of the network interface.
+func (o GetNatGatewayRegionalNatGatewayAddressOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatGatewayRegionalNatGatewayAddress) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+// Public IP address.
+func (o GetNatGatewayRegionalNatGatewayAddressOutput) PublicIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatGatewayRegionalNatGatewayAddress) string { return v.PublicIp }).(pulumi.StringOutput)
+}
+
+// Status of the NAT gateway address.
+func (o GetNatGatewayRegionalNatGatewayAddressOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatGatewayRegionalNatGatewayAddress) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetNatGatewayRegionalNatGatewayAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatGatewayRegionalNatGatewayAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatGatewayRegionalNatGatewayAddress)(nil)).Elem()
+}
+
+func (o GetNatGatewayRegionalNatGatewayAddressArrayOutput) ToGetNatGatewayRegionalNatGatewayAddressArrayOutput() GetNatGatewayRegionalNatGatewayAddressArrayOutput {
+	return o
+}
+
+func (o GetNatGatewayRegionalNatGatewayAddressArrayOutput) ToGetNatGatewayRegionalNatGatewayAddressArrayOutputWithContext(ctx context.Context) GetNatGatewayRegionalNatGatewayAddressArrayOutput {
+	return o
+}
+
+func (o GetNatGatewayRegionalNatGatewayAddressArrayOutput) Index(i pulumi.IntInput) GetNatGatewayRegionalNatGatewayAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatGatewayRegionalNatGatewayAddress {
+		return vs[0].([]GetNatGatewayRegionalNatGatewayAddress)[vs[1].(int)]
+	}).(GetNatGatewayRegionalNatGatewayAddressOutput)
 }
 
 type GetNatGatewaysFilter struct {
@@ -61874,6 +64227,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupIngressArrayInput)(nil)).Elem(), DefaultSecurityGroupIngressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EipDomainNameTimeoutsInput)(nil)).Elem(), EipDomainNameTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EipDomainNameTimeoutsPtrInput)(nil)).Elem(), EipDomainNameTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsInput)(nil)).Elem(), EncryptionControlResourceExclusionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsPtrInput)(nil)).Elem(), EncryptionControlResourceExclusionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsEgressOnlyInternetGatewayInput)(nil)).Elem(), EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrInput)(nil)).Elem(), EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsElasticFileSystemInput)(nil)).Elem(), EncryptionControlResourceExclusionsElasticFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsElasticFileSystemPtrInput)(nil)).Elem(), EncryptionControlResourceExclusionsElasticFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsInternetGatewayInput)(nil)).Elem(), EncryptionControlResourceExclusionsInternetGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsInternetGatewayPtrInput)(nil)).Elem(), EncryptionControlResourceExclusionsInternetGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsLambdaInput)(nil)).Elem(), EncryptionControlResourceExclusionsLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsLambdaPtrInput)(nil)).Elem(), EncryptionControlResourceExclusionsLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsNatGatewayInput)(nil)).Elem(), EncryptionControlResourceExclusionsNatGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsNatGatewayPtrInput)(nil)).Elem(), EncryptionControlResourceExclusionsNatGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsVirtualPrivateGatewayInput)(nil)).Elem(), EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrInput)(nil)).Elem(), EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsVpcLatticeInput)(nil)).Elem(), EncryptionControlResourceExclusionsVpcLatticeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsVpcLatticePtrInput)(nil)).Elem(), EncryptionControlResourceExclusionsVpcLatticeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsVpcPeeringInput)(nil)).Elem(), EncryptionControlResourceExclusionsVpcPeeringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlResourceExclusionsVpcPeeringPtrInput)(nil)).Elem(), EncryptionControlResourceExclusionsVpcPeeringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlTimeoutsInput)(nil)).Elem(), EncryptionControlTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionControlTimeoutsPtrInput)(nil)).Elem(), EncryptionControlTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetFleetInstanceSetInput)(nil)).Elem(), FleetFleetInstanceSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetFleetInstanceSetArrayInput)(nil)).Elem(), FleetFleetInstanceSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigInput)(nil)).Elem(), FleetLaunchTemplateConfigArgs{})
@@ -62022,8 +64395,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTagSpecificationArrayInput)(nil)).Elem(), LaunchTemplateTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListEntryTypeInput)(nil)).Elem(), ManagedPrefixListEntryTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListEntryTypeArrayInput)(nil)).Elem(), ManagedPrefixListEntryTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayAvailabilityZoneAddressInput)(nil)).Elem(), NatGatewayAvailabilityZoneAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayAvailabilityZoneAddressArrayInput)(nil)).Elem(), NatGatewayAvailabilityZoneAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayEipAssociationTimeoutsInput)(nil)).Elem(), NatGatewayEipAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayEipAssociationTimeoutsPtrInput)(nil)).Elem(), NatGatewayEipAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayRegionalNatGatewayAddressInput)(nil)).Elem(), NatGatewayRegionalNatGatewayAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayRegionalNatGatewayAddressArrayInput)(nil)).Elem(), NatGatewayRegionalNatGatewayAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEgressInput)(nil)).Elem(), NetworkAclEgressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEgressArrayInput)(nil)).Elem(), NetworkAclEgressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclIngressInput)(nil)).Elem(), NetworkAclIngressArgs{})
@@ -62477,8 +64854,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedPrefixListFilterArrayInput)(nil)).Elem(), GetManagedPrefixListFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedPrefixListsFilterInput)(nil)).Elem(), GetManagedPrefixListsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedPrefixListsFilterArrayInput)(nil)).Elem(), GetManagedPrefixListsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewayAvailabilityZoneAddressInput)(nil)).Elem(), GetNatGatewayAvailabilityZoneAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewayAvailabilityZoneAddressArrayInput)(nil)).Elem(), GetNatGatewayAvailabilityZoneAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewayFilterInput)(nil)).Elem(), GetNatGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewayFilterArrayInput)(nil)).Elem(), GetNatGatewayFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewayRegionalNatGatewayAddressInput)(nil)).Elem(), GetNatGatewayRegionalNatGatewayAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewayRegionalNatGatewayAddressArrayInput)(nil)).Elem(), GetNatGatewayRegionalNatGatewayAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewaysFilterInput)(nil)).Elem(), GetNatGatewaysFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewaysFilterArrayInput)(nil)).Elem(), GetNatGatewaysFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclsFilterInput)(nil)).Elem(), GetNetworkAclsFilterArgs{})
@@ -62781,6 +65162,26 @@ func init() {
 	pulumi.RegisterOutputType(DefaultSecurityGroupIngressArrayOutput{})
 	pulumi.RegisterOutputType(EipDomainNameTimeoutsOutput{})
 	pulumi.RegisterOutputType(EipDomainNameTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsElasticFileSystemOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsElasticFileSystemPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsInternetGatewayOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsInternetGatewayPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsLambdaOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsLambdaPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsNatGatewayOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsNatGatewayPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsVpcLatticeOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsVpcLatticePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsVpcPeeringOutput{})
+	pulumi.RegisterOutputType(EncryptionControlResourceExclusionsVpcPeeringPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionControlTimeoutsOutput{})
+	pulumi.RegisterOutputType(EncryptionControlTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(FleetFleetInstanceSetOutput{})
 	pulumi.RegisterOutputType(FleetFleetInstanceSetArrayOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOutput{})
@@ -62929,8 +65330,12 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(ManagedPrefixListEntryTypeOutput{})
 	pulumi.RegisterOutputType(ManagedPrefixListEntryTypeArrayOutput{})
+	pulumi.RegisterOutputType(NatGatewayAvailabilityZoneAddressOutput{})
+	pulumi.RegisterOutputType(NatGatewayAvailabilityZoneAddressArrayOutput{})
 	pulumi.RegisterOutputType(NatGatewayEipAssociationTimeoutsOutput{})
 	pulumi.RegisterOutputType(NatGatewayEipAssociationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(NatGatewayRegionalNatGatewayAddressOutput{})
+	pulumi.RegisterOutputType(NatGatewayRegionalNatGatewayAddressArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclEgressOutput{})
 	pulumi.RegisterOutputType(NetworkAclEgressArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclIngressOutput{})
@@ -63384,8 +65789,12 @@ func init() {
 	pulumi.RegisterOutputType(GetManagedPrefixListFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetManagedPrefixListsFilterOutput{})
 	pulumi.RegisterOutputType(GetManagedPrefixListsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetNatGatewayAvailabilityZoneAddressOutput{})
+	pulumi.RegisterOutputType(GetNatGatewayAvailabilityZoneAddressArrayOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetNatGatewayRegionalNatGatewayAddressOutput{})
+	pulumi.RegisterOutputType(GetNatGatewayRegionalNatGatewayAddressArrayOutput{})
 	pulumi.RegisterOutputType(GetNatGatewaysFilterOutput{})
 	pulumi.RegisterOutputType(GetNatGatewaysFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkAclsFilterOutput{})

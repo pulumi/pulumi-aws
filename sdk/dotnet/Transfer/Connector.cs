@@ -71,6 +71,40 @@ namespace Pulumi.Aws.Transfer
     /// });
     /// ```
     /// 
+    /// ### SFTP Connector with VPC Lattice
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Transfer.Connector("example", new()
+    ///     {
+    ///         AccessRole = test.Arn,
+    ///         SftpConfig = new Aws.Transfer.Inputs.ConnectorSftpConfigArgs
+    ///         {
+    ///             TrustedHostKeys = new[]
+    ///             {
+    ///                 "ssh-rsa AAAAB3NYourKeysHere",
+    ///             },
+    ///             UserSecretId = exampleAwsSecretsmanagerSecret.Id,
+    ///         },
+    ///         EgressConfig = new Aws.Transfer.Inputs.ConnectorEgressConfigArgs
+    ///         {
+    ///             VpcLattice = new Aws.Transfer.Inputs.ConnectorEgressConfigVpcLatticeArgs
+    ///             {
+    ///                 ResourceConfigurationArn = "arn:aws:vpc-lattice:us-east-1:123456789012:resourceconfiguration/rcfg-12345678901234567",
+    ///                 PortNumber = 22,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
@@ -107,6 +141,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string> ConnectorId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+        /// </summary>
+        [Output("egressConfig")]
+        public Output<Outputs.ConnectorEgressConfig?> EgressConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         /// </summary>
         [Output("loggingRole")]
@@ -140,10 +180,10 @@ namespace Pulumi.Aws.Transfer
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the partners AS2 endpoint or SFTP endpoint.
+        /// The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -204,6 +244,12 @@ namespace Pulumi.Aws.Transfer
         public Input<Inputs.ConnectorAs2ConfigArgs>? As2Config { get; set; }
 
         /// <summary>
+        /// Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+        /// </summary>
+        [Input("egressConfig")]
+        public Input<Inputs.ConnectorEgressConfigArgs>? EgressConfig { get; set; }
+
+        /// <summary>
         /// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         /// </summary>
         [Input("loggingRole")]
@@ -240,10 +286,10 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The URL of the partners AS2 endpoint or SFTP endpoint.
+        /// The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         public ConnectorArgs()
         {
@@ -276,6 +322,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("connectorId")]
         public Input<string>? ConnectorId { get; set; }
+
+        /// <summary>
+        /// Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+        /// </summary>
+        [Input("egressConfig")]
+        public Input<Inputs.ConnectorEgressConfigGetArgs>? EgressConfig { get; set; }
 
         /// <summary>
         /// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
@@ -322,7 +374,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The URL of the partners AS2 endpoint or SFTP endpoint.
+        /// The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

@@ -72,8 +72,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Connect instances using the `id`. For example:
  *
- * console
- *
  * % pulumi import aws_connect_instance.example f1288a1f-6193-445a-b47e-af739b2
  */
 export class Instance extends pulumi.CustomResource {

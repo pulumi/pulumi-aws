@@ -27,7 +27,7 @@ class GetDirectoryResult:
     """
     A collection of values returned by getDirectory.
     """
-    def __init__(__self__, active_directory_configs=None, alias=None, certificate_based_auth_properties=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, region=None, registration_code=None, saml_properties=None, self_service_permissions=None, subnet_ids=None, tags=None, user_identity_type=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_directory_description=None, workspace_directory_name=None, workspace_security_group_id=None, workspace_type=None):
+    def __init__(__self__, active_directory_configs=None, alias=None, certificate_based_auth_properties=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, region=None, registration_code=None, saml_properties=None, self_service_permissions=None, subnet_ids=None, tags=None, tenancy=None, user_identity_type=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_directory_description=None, workspace_directory_name=None, workspace_security_group_id=None, workspace_type=None):
         if active_directory_configs and not isinstance(active_directory_configs, list):
             raise TypeError("Expected argument 'active_directory_configs' to be a list")
         pulumi.set(__self__, "active_directory_configs", active_directory_configs)
@@ -79,6 +79,9 @@ class GetDirectoryResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tenancy and not isinstance(tenancy, str):
+            raise TypeError("Expected argument 'tenancy' to be a str")
+        pulumi.set(__self__, "tenancy", tenancy)
         if user_identity_type and not isinstance(user_identity_type, str):
             raise TypeError("Expected argument 'user_identity_type' to be a str")
         pulumi.set(__self__, "user_identity_type", user_identity_type)
@@ -226,6 +229,14 @@ class GetDirectoryResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter
+    def tenancy(self) -> _builtins.str:
+        """
+        Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+        """
+        return pulumi.get(self, "tenancy")
+
+    @_builtins.property
     @pulumi.getter(name="userIdentityType")
     def user_identity_type(self) -> _builtins.str:
         """
@@ -305,6 +316,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             self_service_permissions=self.self_service_permissions,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
+            tenancy=self.tenancy,
             user_identity_type=self.user_identity_type,
             workspace_access_properties=self.workspace_access_properties,
             workspace_creation_properties=self.workspace_creation_properties,
@@ -360,6 +372,7 @@ def get_directory(directory_id: Optional[_builtins.str] = None,
         self_service_permissions=pulumi.get(__ret__, 'self_service_permissions'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
+        tenancy=pulumi.get(__ret__, 'tenancy'),
         user_identity_type=pulumi.get(__ret__, 'user_identity_type'),
         workspace_access_properties=pulumi.get(__ret__, 'workspace_access_properties'),
         workspace_creation_properties=pulumi.get(__ret__, 'workspace_creation_properties'),
@@ -412,6 +425,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[_builtins.str]] = N
         self_service_permissions=pulumi.get(__response__, 'self_service_permissions'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags'),
+        tenancy=pulumi.get(__response__, 'tenancy'),
         user_identity_type=pulumi.get(__response__, 'user_identity_type'),
         workspace_access_properties=pulumi.get(__response__, 'workspace_access_properties'),
         workspace_creation_properties=pulumi.get(__response__, 'workspace_creation_properties'),

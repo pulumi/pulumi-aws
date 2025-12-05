@@ -81,24 +81,25 @@ type LookupLoadBalancerArgs struct {
 
 // A collection of values returned by getLoadBalancer.
 type LookupLoadBalancerResult struct {
-	AccessLogs                                           GetLoadBalancerAccessLogs      `pulumi:"accessLogs"`
-	Arn                                                  string                         `pulumi:"arn"`
-	ArnSuffix                                            string                         `pulumi:"arnSuffix"`
-	ClientKeepAlive                                      int                            `pulumi:"clientKeepAlive"`
-	ConnectionLogs                                       []GetLoadBalancerConnectionLog `pulumi:"connectionLogs"`
-	CustomerOwnedIpv4Pool                                string                         `pulumi:"customerOwnedIpv4Pool"`
-	DesyncMitigationMode                                 string                         `pulumi:"desyncMitigationMode"`
-	DnsName                                              string                         `pulumi:"dnsName"`
-	DnsRecordClientRoutingPolicy                         string                         `pulumi:"dnsRecordClientRoutingPolicy"`
-	DropInvalidHeaderFields                              bool                           `pulumi:"dropInvalidHeaderFields"`
-	EnableCrossZoneLoadBalancing                         bool                           `pulumi:"enableCrossZoneLoadBalancing"`
-	EnableDeletionProtection                             bool                           `pulumi:"enableDeletionProtection"`
-	EnableHttp2                                          bool                           `pulumi:"enableHttp2"`
-	EnableTlsVersionAndCipherSuiteHeaders                bool                           `pulumi:"enableTlsVersionAndCipherSuiteHeaders"`
-	EnableWafFailOpen                                    bool                           `pulumi:"enableWafFailOpen"`
-	EnableXffClientPort                                  bool                           `pulumi:"enableXffClientPort"`
-	EnableZonalShift                                     bool                           `pulumi:"enableZonalShift"`
-	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic string                         `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
+	AccessLogs                                           GetLoadBalancerAccessLogs       `pulumi:"accessLogs"`
+	Arn                                                  string                          `pulumi:"arn"`
+	ArnSuffix                                            string                          `pulumi:"arnSuffix"`
+	ClientKeepAlive                                      int                             `pulumi:"clientKeepAlive"`
+	ConnectionLogs                                       []GetLoadBalancerConnectionLog  `pulumi:"connectionLogs"`
+	CustomerOwnedIpv4Pool                                string                          `pulumi:"customerOwnedIpv4Pool"`
+	DesyncMitigationMode                                 string                          `pulumi:"desyncMitigationMode"`
+	DnsName                                              string                          `pulumi:"dnsName"`
+	DnsRecordClientRoutingPolicy                         string                          `pulumi:"dnsRecordClientRoutingPolicy"`
+	DropInvalidHeaderFields                              bool                            `pulumi:"dropInvalidHeaderFields"`
+	EnableCrossZoneLoadBalancing                         bool                            `pulumi:"enableCrossZoneLoadBalancing"`
+	EnableDeletionProtection                             bool                            `pulumi:"enableDeletionProtection"`
+	EnableHttp2                                          bool                            `pulumi:"enableHttp2"`
+	EnableTlsVersionAndCipherSuiteHeaders                bool                            `pulumi:"enableTlsVersionAndCipherSuiteHeaders"`
+	EnableWafFailOpen                                    bool                            `pulumi:"enableWafFailOpen"`
+	EnableXffClientPort                                  bool                            `pulumi:"enableXffClientPort"`
+	EnableZonalShift                                     bool                            `pulumi:"enableZonalShift"`
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic string                          `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
+	HealthCheckLogs                                      []GetLoadBalancerHealthCheckLog `pulumi:"healthCheckLogs"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                                string                         `pulumi:"id"`
 	IdleTimeout                       int                            `pulumi:"idleTimeout"`
@@ -231,6 +232,10 @@ func (o LookupLoadBalancerResultOutput) EnableZonalShift() pulumi.BoolOutput {
 
 func (o LookupLoadBalancerResultOutput) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) HealthCheckLogs() GetLoadBalancerHealthCheckLogArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []GetLoadBalancerHealthCheckLog { return v.HealthCheckLogs }).(GetLoadBalancerHealthCheckLogArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

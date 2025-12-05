@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -22,6 +23,11 @@ public final class GetLogGroupResult {
      * 
      */
     private Integer creationTime;
+    /**
+     * @return Boolean to indicate whether deletion protection is enabled.
+     * 
+     */
+    private Boolean deletionProtectionEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -64,6 +70,13 @@ public final class GetLogGroupResult {
      */
     public Integer creationTime() {
         return this.creationTime;
+    }
+    /**
+     * @return Boolean to indicate whether deletion protection is enabled.
+     * 
+     */
+    public Boolean deletionProtectionEnabled() {
+        return this.deletionProtectionEnabled;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -118,6 +131,7 @@ public final class GetLogGroupResult {
     public static final class Builder {
         private String arn;
         private Integer creationTime;
+        private Boolean deletionProtectionEnabled;
         private String id;
         private String kmsKeyId;
         private String logGroupClass;
@@ -130,6 +144,7 @@ public final class GetLogGroupResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.creationTime = defaults.creationTime;
+    	      this.deletionProtectionEnabled = defaults.deletionProtectionEnabled;
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.logGroupClass = defaults.logGroupClass;
@@ -153,6 +168,14 @@ public final class GetLogGroupResult {
               throw new MissingRequiredPropertyException("GetLogGroupResult", "creationTime");
             }
             this.creationTime = creationTime;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder deletionProtectionEnabled(Boolean deletionProtectionEnabled) {
+            if (deletionProtectionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupResult", "deletionProtectionEnabled");
+            }
+            this.deletionProtectionEnabled = deletionProtectionEnabled;
             return this;
         }
         @CustomType.Setter
@@ -215,6 +238,7 @@ public final class GetLogGroupResult {
             final var _resultValue = new GetLogGroupResult();
             _resultValue.arn = arn;
             _resultValue.creationTime = creationTime;
+            _resultValue.deletionProtectionEnabled = deletionProtectionEnabled;
             _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.logGroupClass = logGroupClass;

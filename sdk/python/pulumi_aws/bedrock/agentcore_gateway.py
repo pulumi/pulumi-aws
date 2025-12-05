@@ -22,6 +22,7 @@ __all__ = ['AgentcoreGatewayArgs', 'AgentcoreGateway']
 class AgentcoreGatewayArgs:
     def __init__(__self__, *,
                  authorizer_type: pulumi.Input[_builtins.str],
+                 interceptor_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]],
                  protocol_type: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  authorizer_configuration: Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs']] = None,
@@ -36,6 +37,7 @@ class AgentcoreGatewayArgs:
         """
         The set of arguments for constructing a AgentcoreGateway resource.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the gateway assumes to access AWS services.
                
@@ -50,6 +52,7 @@ class AgentcoreGatewayArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "authorizer_type", authorizer_type)
+        pulumi.set(__self__, "interceptor_configurations", interceptor_configurations)
         pulumi.set(__self__, "protocol_type", protocol_type)
         pulumi.set(__self__, "role_arn", role_arn)
         if authorizer_configuration is not None:
@@ -82,6 +85,18 @@ class AgentcoreGatewayArgs:
     @authorizer_type.setter
     def authorizer_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "authorizer_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="interceptorConfigurations")
+    def interceptor_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]:
+        """
+        List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
+        """
+        return pulumi.get(self, "interceptor_configurations")
+
+    @interceptor_configurations.setter
+    def interceptor_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]):
+        pulumi.set(self, "interceptor_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolType")
@@ -225,6 +240,7 @@ class _AgentcoreGatewayState:
                  gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol_configuration: Optional[pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs']] = None,
@@ -244,6 +260,7 @@ class _AgentcoreGatewayState:
         :param pulumi.Input[_builtins.str] gateway_arn: ARN of the Gateway.
         :param pulumi.Input[_builtins.str] gateway_id: Unique identifier of the Gateway.
         :param pulumi.Input[_builtins.str] gateway_url: URL endpoint for the gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
         :param pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs'] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
@@ -270,6 +287,8 @@ class _AgentcoreGatewayState:
             pulumi.set(__self__, "gateway_id", gateway_id)
         if gateway_url is not None:
             pulumi.set(__self__, "gateway_url", gateway_url)
+        if interceptor_configurations is not None:
+            pulumi.set(__self__, "interceptor_configurations", interceptor_configurations)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
@@ -374,6 +393,18 @@ class _AgentcoreGatewayState:
     @gateway_url.setter
     def gateway_url(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "gateway_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="interceptorConfigurations")
+    def interceptor_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]:
+        """
+        List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
+        """
+        return pulumi.get(self, "interceptor_configurations")
+
+    @interceptor_configurations.setter
+    def interceptor_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]):
+        pulumi.set(self, "interceptor_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
@@ -505,6 +536,7 @@ class AgentcoreGateway(pulumi.CustomResource):
                  authorizer_type: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  exception_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
@@ -589,6 +621,39 @@ class AgentcoreGateway(pulumi.CustomResource):
             })
         ```
 
+        ### Gateway with Interceptor Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        interceptor = aws.lambda_.Function("interceptor",
+            code=pulumi.FileArchive("interceptor.zip"),
+            name="gateway-interceptor",
+            role=lambda_["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D12)
+        example = aws.bedrock.AgentcoreGateway("example",
+            name="gateway-with-interceptor",
+            role_arn=example_aws_iam_role["arn"],
+            authorizer_type="AWS_IAM",
+            protocol_type="MCP",
+            interceptor_configurations=[{
+                "interception_points": [
+                    "REQUEST",
+                    "RESPONSE",
+                ],
+                "interceptor": {
+                    "lambda_": {
+                        "arn": interceptor.arn,
+                    },
+                },
+                "input_configuration": {
+                    "pass_request_headers": True,
+                },
+            }])
+        ```
+
         ## Import
 
         Using `pulumi import`, import Bedrock AgentCore Gateway using the gateway ID. For example:
@@ -603,6 +668,7 @@ class AgentcoreGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
         :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
         :param pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
@@ -694,6 +760,39 @@ class AgentcoreGateway(pulumi.CustomResource):
             })
         ```
 
+        ### Gateway with Interceptor Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        interceptor = aws.lambda_.Function("interceptor",
+            code=pulumi.FileArchive("interceptor.zip"),
+            name="gateway-interceptor",
+            role=lambda_["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D12)
+        example = aws.bedrock.AgentcoreGateway("example",
+            name="gateway-with-interceptor",
+            role_arn=example_aws_iam_role["arn"],
+            authorizer_type="AWS_IAM",
+            protocol_type="MCP",
+            interceptor_configurations=[{
+                "interception_points": [
+                    "REQUEST",
+                    "RESPONSE",
+                ],
+                "interceptor": {
+                    "lambda_": {
+                        "arn": interceptor.arn,
+                    },
+                },
+                "input_configuration": {
+                    "pass_request_headers": True,
+                },
+            }])
+        ```
+
         ## Import
 
         Using `pulumi import`, import Bedrock AgentCore Gateway using the gateway ID. For example:
@@ -721,6 +820,7 @@ class AgentcoreGateway(pulumi.CustomResource):
                  authorizer_type: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  exception_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
@@ -744,6 +844,9 @@ class AgentcoreGateway(pulumi.CustomResource):
             __props__.__dict__["authorizer_type"] = authorizer_type
             __props__.__dict__["description"] = description
             __props__.__dict__["exception_level"] = exception_level
+            if interceptor_configurations is None and not opts.urn:
+                raise TypeError("Missing required property 'interceptor_configurations'")
+            __props__.__dict__["interceptor_configurations"] = interceptor_configurations
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["protocol_configuration"] = protocol_configuration
@@ -778,6 +881,7 @@ class AgentcoreGateway(pulumi.CustomResource):
             gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
             gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
             gateway_url: Optional[pulumi.Input[_builtins.str]] = None,
+            interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
             kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             protocol_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
@@ -802,6 +906,7 @@ class AgentcoreGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gateway_arn: ARN of the Gateway.
         :param pulumi.Input[_builtins.str] gateway_id: Unique identifier of the Gateway.
         :param pulumi.Input[_builtins.str] gateway_url: URL endpoint for the gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
         :param pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
@@ -825,6 +930,7 @@ class AgentcoreGateway(pulumi.CustomResource):
         __props__.__dict__["gateway_arn"] = gateway_arn
         __props__.__dict__["gateway_id"] = gateway_id
         __props__.__dict__["gateway_url"] = gateway_url
+        __props__.__dict__["interceptor_configurations"] = interceptor_configurations
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["protocol_configuration"] = protocol_configuration
@@ -892,6 +998,14 @@ class AgentcoreGateway(pulumi.CustomResource):
         URL endpoint for the gateway.
         """
         return pulumi.get(self, "gateway_url")
+
+    @_builtins.property
+    @pulumi.getter(name="interceptorConfigurations")
+    def interceptor_configurations(self) -> pulumi.Output[Sequence['outputs.AgentcoreGatewayInterceptorConfiguration']]:
+        """
+        List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
+        """
+        return pulumi.get(self, "interceptor_configurations")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")

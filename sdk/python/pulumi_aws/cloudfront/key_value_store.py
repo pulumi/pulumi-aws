@@ -214,8 +214,6 @@ class KeyValueStore(pulumi.CustomResource):
 
         Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
 
-        console
-
         % pulumi import aws_cloudfront_key_value_store.example example_store
 
         :param str resource_name: The name of the resource.
@@ -260,8 +258,6 @@ class KeyValueStore(pulumi.CustomResource):
         * `account_id` (String) AWS Account where this resource is managed.
 
         Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
-
-        console
 
         % pulumi import aws_cloudfront_key_value_store.example example_store
 

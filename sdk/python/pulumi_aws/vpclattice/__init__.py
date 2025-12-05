@@ -8,6 +8,7 @@ import typing
 # Export this package's modules as members:
 from .access_log_subscription import *
 from .auth_policy import *
+from .domain_verification import *
 from .get_auth_policy import *
 from .get_listener import *
 from .get_resource_policy import *

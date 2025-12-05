@@ -464,8 +464,6 @@ class Application(pulumi.CustomResource):
 
         Using `pulumi import`, import SSO Admin Application using the `id`. For example:
 
-        console
-
         % pulumi import aws_ssoadmin_application.example arn:aws:sso::123456789012:application/id-12345678
 
         :param str resource_name: The name of the resource.
@@ -539,8 +537,6 @@ class Application(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
 
         Using `pulumi import`, import SSO Admin Application using the `id`. For example:
-
-        console
 
         % pulumi import aws_ssoadmin_application.example arn:aws:sso::123456789012:application/id-12345678
 

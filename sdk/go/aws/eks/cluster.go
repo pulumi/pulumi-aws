@@ -469,6 +469,8 @@ type Cluster struct {
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
 	ComputeConfig ClusterComputeConfigOutput `pulumi:"computeConfig"`
+	// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+	ControlPlaneScalingConfig ClusterControlPlaneScalingConfigOutput `pulumi:"controlPlaneScalingConfig"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
@@ -567,6 +569,8 @@ type clusterState struct {
 	ClusterId *string `pulumi:"clusterId"`
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
 	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
+	// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+	ControlPlaneScalingConfig *ClusterControlPlaneScalingConfig `pulumi:"controlPlaneScalingConfig"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
@@ -630,6 +634,8 @@ type ClusterState struct {
 	ClusterId pulumi.StringPtrInput
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
 	ComputeConfig ClusterComputeConfigPtrInput
+	// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+	ControlPlaneScalingConfig ClusterControlPlaneScalingConfigPtrInput
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt pulumi.StringPtrInput
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
@@ -691,6 +697,8 @@ type clusterArgs struct {
 	BootstrapSelfManagedAddons *bool `pulumi:"bootstrapSelfManagedAddons"`
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
 	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
+	// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+	ControlPlaneScalingConfig *ClusterControlPlaneScalingConfig `pulumi:"controlPlaneScalingConfig"`
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
 	DefaultAddonsToRemoves []string `pulumi:"defaultAddonsToRemoves"`
 	// Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
@@ -737,6 +745,8 @@ type ClusterArgs struct {
 	BootstrapSelfManagedAddons pulumi.BoolPtrInput
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
 	ComputeConfig ClusterComputeConfigPtrInput
+	// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+	ControlPlaneScalingConfig ClusterControlPlaneScalingConfigPtrInput
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
 	DefaultAddonsToRemoves pulumi.StringArrayInput
 	// Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
@@ -890,6 +900,11 @@ func (o ClusterOutput) ClusterId() pulumi.StringOutput {
 // Configuration block with compute configuration for EKS Auto Mode. Detailed below.
 func (o ClusterOutput) ComputeConfig() ClusterComputeConfigOutput {
 	return o.ApplyT(func(v *Cluster) ClusterComputeConfigOutput { return v.ComputeConfig }).(ClusterComputeConfigOutput)
+}
+
+// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+func (o ClusterOutput) ControlPlaneScalingConfig() ClusterControlPlaneScalingConfigOutput {
+	return o.ApplyT(func(v *Cluster) ClusterControlPlaneScalingConfigOutput { return v.ControlPlaneScalingConfig }).(ClusterControlPlaneScalingConfigOutput)
 }
 
 // Unix epoch timestamp in seconds for when the cluster was created.

@@ -362,8 +362,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// Using `pulumi import`, import SSM associations using the `association_id`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
     /// </summary>
     [AwsResourceType("aws:ssm/association:Association")]
@@ -398,6 +396,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Output("automationTargetParameterName")]
         public Output<string?> AutomationTargetParameterName { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+        /// </summary>
+        [Output("calendarNames")]
+        public Output<ImmutableArray<string>> CalendarNames { get; private set; } = null!;
 
         /// <summary>
         /// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
@@ -549,6 +553,18 @@ namespace Pulumi.Aws.Ssm
         [Input("automationTargetParameterName")]
         public Input<string>? AutomationTargetParameterName { get; set; }
 
+        [Input("calendarNames")]
+        private InputList<string>? _calendarNames;
+
+        /// <summary>
+        /// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+        /// </summary>
+        public InputList<string> CalendarNames
+        {
+            get => _calendarNames ?? (_calendarNames = new InputList<string>());
+            set => _calendarNames = value;
+        }
+
         /// <summary>
         /// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         /// </summary>
@@ -684,6 +700,18 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("automationTargetParameterName")]
         public Input<string>? AutomationTargetParameterName { get; set; }
+
+        [Input("calendarNames")]
+        private InputList<string>? _calendarNames;
+
+        /// <summary>
+        /// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+        /// </summary>
+        public InputList<string> CalendarNames
+        {
+            get => _calendarNames ?? (_calendarNames = new InputList<string>());
+            set => _calendarNames = value;
+        }
 
         /// <summary>
         /// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`

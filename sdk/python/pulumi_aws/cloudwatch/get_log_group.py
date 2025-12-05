@@ -26,13 +26,16 @@ class GetLogGroupResult:
     """
     A collection of values returned by getLogGroup.
     """
-    def __init__(__self__, arn=None, creation_time=None, id=None, kms_key_id=None, log_group_class=None, name=None, region=None, retention_in_days=None, tags=None):
+    def __init__(__self__, arn=None, creation_time=None, deletion_protection_enabled=None, id=None, kms_key_id=None, log_group_class=None, name=None, region=None, retention_in_days=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if creation_time and not isinstance(creation_time, int):
             raise TypeError("Expected argument 'creation_time' to be a int")
         pulumi.set(__self__, "creation_time", creation_time)
+        if deletion_protection_enabled and not isinstance(deletion_protection_enabled, bool):
+            raise TypeError("Expected argument 'deletion_protection_enabled' to be a bool")
+        pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -70,6 +73,14 @@ class GetLogGroupResult:
         Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         """
         return pulumi.get(self, "creation_time")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> _builtins.bool:
+        """
+        Boolean to indicate whether deletion protection is enabled.
+        """
+        return pulumi.get(self, "deletion_protection_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
         return GetLogGroupResult(
             arn=self.arn,
             creation_time=self.creation_time,
+            deletion_protection_enabled=self.deletion_protection_enabled,
             id=self.id,
             kms_key_id=self.kms_key_id,
             log_group_class=self.log_group_class,
@@ -170,6 +182,7 @@ def get_log_group(name: Optional[_builtins.str] = None,
     return AwaitableGetLogGroupResult(
         arn=pulumi.get(__ret__, 'arn'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
+        deletion_protection_enabled=pulumi.get(__ret__, 'deletion_protection_enabled'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         log_group_class=pulumi.get(__ret__, 'log_group_class'),
@@ -207,6 +220,7 @@ def get_log_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetLogGroupResult(
         arn=pulumi.get(__response__, 'arn'),
         creation_time=pulumi.get(__response__, 'creation_time'),
+        deletion_protection_enabled=pulumi.get(__response__, 'deletion_protection_enabled'),
         id=pulumi.get(__response__, 'id'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         log_group_class=pulumi.get(__response__, 'log_group_class'),

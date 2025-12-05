@@ -179,8 +179,6 @@ class ResourcePolicy(pulumi.CustomResource):
 
         Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
 
-        console
-
         % pulumi import aws_kinesis_resource_policy.example arn:aws:kinesis:us-west-2:123456789012:stream/example
 
         :param str resource_name: The name of the resource.
@@ -237,8 +235,6 @@ class ResourcePolicy(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
 
         Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
-
-        console
 
         % pulumi import aws_kinesis_resource_policy.example arn:aws:kinesis:us-west-2:123456789012:stream/example
 

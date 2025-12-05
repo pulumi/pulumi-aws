@@ -64,7 +64,9 @@ type LookupConnectorResult struct {
 	Arn string `pulumi:"arn"`
 	// Structure containing the parameters for an AS2 connector object. Contains the following attributes:
 	As2Configs []GetConnectorAs2Config `pulumi:"as2Configs"`
-	Id         string                  `pulumi:"id"`
+	// Egress configuration for the connector. Contains the following attributes:
+	EgressConfigs []GetConnectorEgressConfig `pulumi:"egressConfigs"`
+	Id            string                     `pulumi:"id"`
 	// ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
 	LoggingRole string `pulumi:"loggingRole"`
 	Region      string `pulumi:"region"`
@@ -129,6 +131,11 @@ func (o LookupConnectorResultOutput) Arn() pulumi.StringOutput {
 // Structure containing the parameters for an AS2 connector object. Contains the following attributes:
 func (o LookupConnectorResultOutput) As2Configs() GetConnectorAs2ConfigArrayOutput {
 	return o.ApplyT(func(v LookupConnectorResult) []GetConnectorAs2Config { return v.As2Configs }).(GetConnectorAs2ConfigArrayOutput)
+}
+
+// Egress configuration for the connector. Contains the following attributes:
+func (o LookupConnectorResultOutput) EgressConfigs() GetConnectorEgressConfigArrayOutput {
+	return o.ApplyT(func(v LookupConnectorResult) []GetConnectorEgressConfig { return v.EgressConfigs }).(GetConnectorEgressConfigArrayOutput)
 }
 
 func (o LookupConnectorResultOutput) Id() pulumi.StringOutput {

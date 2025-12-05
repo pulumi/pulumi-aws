@@ -3736,6 +3736,151 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) EnabledInBroker() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ClusterRebalancing struct {
+	// The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+	//
+	// > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
+	Status string `pulumi:"status"`
+}
+
+// ClusterRebalancingInput is an input type that accepts ClusterRebalancingArgs and ClusterRebalancingOutput values.
+// You can construct a concrete instance of `ClusterRebalancingInput` via:
+//
+//	ClusterRebalancingArgs{...}
+type ClusterRebalancingInput interface {
+	pulumi.Input
+
+	ToClusterRebalancingOutput() ClusterRebalancingOutput
+	ToClusterRebalancingOutputWithContext(context.Context) ClusterRebalancingOutput
+}
+
+type ClusterRebalancingArgs struct {
+	// The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+	//
+	// > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (ClusterRebalancingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRebalancing)(nil)).Elem()
+}
+
+func (i ClusterRebalancingArgs) ToClusterRebalancingOutput() ClusterRebalancingOutput {
+	return i.ToClusterRebalancingOutputWithContext(context.Background())
+}
+
+func (i ClusterRebalancingArgs) ToClusterRebalancingOutputWithContext(ctx context.Context) ClusterRebalancingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRebalancingOutput)
+}
+
+func (i ClusterRebalancingArgs) ToClusterRebalancingPtrOutput() ClusterRebalancingPtrOutput {
+	return i.ToClusterRebalancingPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterRebalancingArgs) ToClusterRebalancingPtrOutputWithContext(ctx context.Context) ClusterRebalancingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRebalancingOutput).ToClusterRebalancingPtrOutputWithContext(ctx)
+}
+
+// ClusterRebalancingPtrInput is an input type that accepts ClusterRebalancingArgs, ClusterRebalancingPtr and ClusterRebalancingPtrOutput values.
+// You can construct a concrete instance of `ClusterRebalancingPtrInput` via:
+//
+//	        ClusterRebalancingArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterRebalancingPtrInput interface {
+	pulumi.Input
+
+	ToClusterRebalancingPtrOutput() ClusterRebalancingPtrOutput
+	ToClusterRebalancingPtrOutputWithContext(context.Context) ClusterRebalancingPtrOutput
+}
+
+type clusterRebalancingPtrType ClusterRebalancingArgs
+
+func ClusterRebalancingPtr(v *ClusterRebalancingArgs) ClusterRebalancingPtrInput {
+	return (*clusterRebalancingPtrType)(v)
+}
+
+func (*clusterRebalancingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRebalancing)(nil)).Elem()
+}
+
+func (i *clusterRebalancingPtrType) ToClusterRebalancingPtrOutput() ClusterRebalancingPtrOutput {
+	return i.ToClusterRebalancingPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterRebalancingPtrType) ToClusterRebalancingPtrOutputWithContext(ctx context.Context) ClusterRebalancingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRebalancingPtrOutput)
+}
+
+type ClusterRebalancingOutput struct{ *pulumi.OutputState }
+
+func (ClusterRebalancingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRebalancing)(nil)).Elem()
+}
+
+func (o ClusterRebalancingOutput) ToClusterRebalancingOutput() ClusterRebalancingOutput {
+	return o
+}
+
+func (o ClusterRebalancingOutput) ToClusterRebalancingOutputWithContext(ctx context.Context) ClusterRebalancingOutput {
+	return o
+}
+
+func (o ClusterRebalancingOutput) ToClusterRebalancingPtrOutput() ClusterRebalancingPtrOutput {
+	return o.ToClusterRebalancingPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRebalancingOutput) ToClusterRebalancingPtrOutputWithContext(ctx context.Context) ClusterRebalancingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRebalancing) *ClusterRebalancing {
+		return &v
+	}).(ClusterRebalancingPtrOutput)
+}
+
+// The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+//
+// > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
+func (o ClusterRebalancingOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterRebalancing) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type ClusterRebalancingPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRebalancingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRebalancing)(nil)).Elem()
+}
+
+func (o ClusterRebalancingPtrOutput) ToClusterRebalancingPtrOutput() ClusterRebalancingPtrOutput {
+	return o
+}
+
+func (o ClusterRebalancingPtrOutput) ToClusterRebalancingPtrOutputWithContext(ctx context.Context) ClusterRebalancingPtrOutput {
+	return o
+}
+
+func (o ClusterRebalancingPtrOutput) Elem() ClusterRebalancingOutput {
+	return o.ApplyT(func(v *ClusterRebalancing) ClusterRebalancing {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRebalancing
+		return ret
+	}).(ClusterRebalancingOutput)
+}
+
+// The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+//
+// > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
+func (o ClusterRebalancingPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRebalancing) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type ReplicatorKafkaCluster struct {
 	// Details of an Amazon MSK cluster.
 	AmazonMskCluster ReplicatorKafkaClusterAmazonMskCluster `pulumi:"amazonMskCluster"`
@@ -6405,6 +6550,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOpenMonitoringPrometheusJmxExporterPtrInput)(nil)).Elem(), ClusterOpenMonitoringPrometheusJmxExporterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOpenMonitoringPrometheusNodeExporterInput)(nil)).Elem(), ClusterOpenMonitoringPrometheusNodeExporterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOpenMonitoringPrometheusNodeExporterPtrInput)(nil)).Elem(), ClusterOpenMonitoringPrometheusNodeExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRebalancingInput)(nil)).Elem(), ClusterRebalancingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRebalancingPtrInput)(nil)).Elem(), ClusterRebalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterInput)(nil)).Elem(), ReplicatorKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterArrayInput)(nil)).Elem(), ReplicatorKafkaClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterAmazonMskClusterInput)(nil)).Elem(), ReplicatorKafkaClusterAmazonMskClusterArgs{})
@@ -6495,6 +6642,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusNodeExporterOutput{})
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput{})
+	pulumi.RegisterOutputType(ClusterRebalancingOutput{})
+	pulumi.RegisterOutputType(ClusterRebalancingPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterAmazonMskClusterOutput{})

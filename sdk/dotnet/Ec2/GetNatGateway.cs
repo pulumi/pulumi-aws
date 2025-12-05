@@ -290,13 +290,29 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetNatGatewayResult
     {
         /// <summary>
-        /// ID of the EIP allocated to the selected NAT Gateway.
+        /// Allocation ID of the Elastic IP address.
         /// </summary>
         public readonly string AllocationId;
         /// <summary>
-        /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `ConnectivityType` is `Public`.
+        /// Association ID of the Elastic IP address.
         /// </summary>
         public readonly string AssociationId;
+        /// <summary>
+        /// (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
+        /// </summary>
+        public readonly string AutoProvisionZones;
+        /// <summary>
+        /// (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+        /// </summary>
+        public readonly string AutoScalingIps;
+        /// <summary>
+        /// Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+        /// </summary>
+        public readonly string AvailabilityMode;
+        /// <summary>
+        /// (regional NAT gateways only) Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNatGatewayAvailabilityZoneAddressResult> AvailabilityZoneAddresses;
         /// <summary>
         /// Connectivity type of the NAT Gateway.
         /// </summary>
@@ -304,28 +320,36 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetNatGatewayFilterResult> Filters;
         public readonly string Id;
         /// <summary>
-        /// The ID of the ENI allocated to the selected NAT Gateway.
+        /// ID of the network interface.
         /// </summary>
         public readonly string NetworkInterfaceId;
         /// <summary>
-        /// Private IP address of the selected NAT Gateway.
+        /// (zonal NAT gateways only) Private IP address of the selected NAT Gateway.
         /// </summary>
         public readonly string PrivateIp;
         /// <summary>
-        /// Public IP (EIP) address of the selected NAT Gateway.
+        /// Public IP address.
         /// </summary>
         public readonly string PublicIp;
         public readonly string Region;
         /// <summary>
-        /// Secondary allocation EIP IDs for the selected NAT Gateway.
+        /// (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNatGatewayRegionalNatGatewayAddressResult> RegionalNatGatewayAddresses;
+        /// <summary>
+        /// (regional NAT gateways only) ID of the automatically created route table.
+        /// </summary>
+        public readonly string RouteTableId;
+        /// <summary>
+        /// (zonal NAT gateways only) Secondary allocation EIP IDs for the selected NAT Gateway.
         /// </summary>
         public readonly ImmutableArray<string> SecondaryAllocationIds;
         /// <summary>
-        /// The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
+        /// (zonal NAT gateways only) The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
         /// </summary>
         public readonly int SecondaryPrivateIpAddressCount;
         /// <summary>
-        /// Secondary private IPv4 addresses assigned to the selected NAT Gateway.
+        /// (zonal NAT gateways only) Secondary private IPv4 addresses assigned to the selected NAT Gateway.
         /// </summary>
         public readonly ImmutableArray<string> SecondaryPrivateIpAddresses;
         public readonly string State;
@@ -338,6 +362,14 @@ namespace Pulumi.Aws.Ec2
             string allocationId,
 
             string associationId,
+
+            string autoProvisionZones,
+
+            string autoScalingIps,
+
+            string availabilityMode,
+
+            ImmutableArray<Outputs.GetNatGatewayAvailabilityZoneAddressResult> availabilityZoneAddresses,
 
             string connectivityType,
 
@@ -352,6 +384,10 @@ namespace Pulumi.Aws.Ec2
             string publicIp,
 
             string region,
+
+            ImmutableArray<Outputs.GetNatGatewayRegionalNatGatewayAddressResult> regionalNatGatewayAddresses,
+
+            string routeTableId,
 
             ImmutableArray<string> secondaryAllocationIds,
 
@@ -369,6 +405,10 @@ namespace Pulumi.Aws.Ec2
         {
             AllocationId = allocationId;
             AssociationId = associationId;
+            AutoProvisionZones = autoProvisionZones;
+            AutoScalingIps = autoScalingIps;
+            AvailabilityMode = availabilityMode;
+            AvailabilityZoneAddresses = availabilityZoneAddresses;
             ConnectivityType = connectivityType;
             Filters = filters;
             Id = id;
@@ -376,6 +416,8 @@ namespace Pulumi.Aws.Ec2
             PrivateIp = privateIp;
             PublicIp = publicIp;
             Region = region;
+            RegionalNatGatewayAddresses = regionalNatGatewayAddresses;
+            RouteTableId = routeTableId;
             SecondaryAllocationIds = secondaryAllocationIds;
             SecondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
             SecondaryPrivateIpAddresses = secondaryPrivateIpAddresses;

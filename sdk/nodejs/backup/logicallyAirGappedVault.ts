@@ -66,6 +66,10 @@ export class LogicallyAirGappedVault extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     */
+    declare public readonly encryptionKeyArn: pulumi.Output<string>;
+    /**
      * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
      */
     declare public readonly maxRetentionDays: pulumi.Output<number>;
@@ -105,6 +109,7 @@ export class LogicallyAirGappedVault extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as LogicallyAirGappedVaultState | undefined;
             resourceInputs["arn"] = state?.arn;
+            resourceInputs["encryptionKeyArn"] = state?.encryptionKeyArn;
             resourceInputs["maxRetentionDays"] = state?.maxRetentionDays;
             resourceInputs["minRetentionDays"] = state?.minRetentionDays;
             resourceInputs["name"] = state?.name;
@@ -120,6 +125,7 @@ export class LogicallyAirGappedVault extends pulumi.CustomResource {
             if (args?.minRetentionDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minRetentionDays'");
             }
+            resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
             resourceInputs["maxRetentionDays"] = args?.maxRetentionDays;
             resourceInputs["minRetentionDays"] = args?.minRetentionDays;
             resourceInputs["name"] = args?.name;
@@ -142,6 +148,10 @@ export interface LogicallyAirGappedVaultState {
      * The ARN of the Logically Air Gapped Backup Vault.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     */
+    encryptionKeyArn?: pulumi.Input<string>;
     /**
      * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
      */
@@ -173,6 +183,10 @@ export interface LogicallyAirGappedVaultState {
  * The set of arguments for constructing a LogicallyAirGappedVault resource.
  */
 export interface LogicallyAirGappedVaultArgs {
+    /**
+     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     */
+    encryptionKeyArn?: pulumi.Input<string>;
     /**
      * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
      */

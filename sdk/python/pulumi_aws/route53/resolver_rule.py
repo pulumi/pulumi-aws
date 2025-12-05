@@ -414,8 +414,6 @@ class ResolverRule(pulumi.CustomResource):
 
         Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
 
-        console
-
         % pulumi import aws_route53_resolver_rule.example rslvr-rr-0123456789abcdef0
 
         :param str resource_name: The name of the resource.
@@ -505,8 +503,6 @@ class ResolverRule(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
-
-        console
 
         % pulumi import aws_route53_resolver_rule.example rslvr-rr-0123456789abcdef0
 

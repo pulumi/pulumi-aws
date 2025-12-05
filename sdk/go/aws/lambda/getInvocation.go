@@ -140,6 +140,8 @@ type LookupInvocationArgs struct {
 	Qualifier *string `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Tenant Id to serve invocations from specified tenant.
+	TenantId *string `pulumi:"tenantId"`
 }
 
 // A collection of values returned by getInvocation.
@@ -151,7 +153,8 @@ type LookupInvocationResult struct {
 	Qualifier *string `pulumi:"qualifier"`
 	Region    string  `pulumi:"region"`
 	// String result of the Lambda function invocation.
-	Result string `pulumi:"result"`
+	Result   string  `pulumi:"result"`
+	TenantId *string `pulumi:"tenantId"`
 }
 
 func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs, opts ...pulumi.InvokeOption) LookupInvocationResultOutput {
@@ -175,6 +178,8 @@ type LookupInvocationOutputArgs struct {
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Tenant Id to serve invocations from specified tenant.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (LookupInvocationOutputArgs) ElementType() reflect.Type {
@@ -220,6 +225,10 @@ func (o LookupInvocationResultOutput) Region() pulumi.StringOutput {
 // String result of the Lambda function invocation.
 func (o LookupInvocationResultOutput) Result() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInvocationResult) string { return v.Result }).(pulumi.StringOutput)
+}
+
+func (o LookupInvocationResultOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInvocationResult) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

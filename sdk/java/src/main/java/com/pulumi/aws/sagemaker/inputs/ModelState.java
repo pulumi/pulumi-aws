@@ -23,14 +23,14 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
     public static final ModelState Empty = new ModelState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this model.
+     * Amazon Resource Name (ARN) assigned by AWS to this model.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this model.
+     * @return Amazon Resource Name (ARN) assigned by AWS to this model.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -98,14 +98,14 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     * Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     * @return Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -113,14 +113,14 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+     * Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      * 
      */
     @Import(name="primaryContainer")
     private @Nullable Output<ModelPrimaryContainerArgs> primaryContainer;
 
     /**
-     * @return The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+     * @return Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      * 
      */
     public Optional<Output<ModelPrimaryContainerArgs>> primaryContainer() {
@@ -222,7 +222,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this model.
+         * @param arn Amazon Resource Name (ARN) assigned by AWS to this model.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this model.
+         * @param arn Amazon Resource Name (ARN) assigned by AWS to this model.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+         * @param name Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+         * @param name Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryContainer The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+         * @param primaryContainer Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryContainer The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+         * @param primaryContainer Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
          * 
          * @return builder
          * 

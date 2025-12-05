@@ -376,8 +376,6 @@ class RouteTable(pulumi.CustomResource):
 
         Using `pulumi import`, import Route Tables using the route table `id`. For example:
 
-        console
-
         % pulumi import aws_route_table.public_rt rtb-4e616f6d69
 
         :param str resource_name: The name of the resource.
@@ -507,8 +505,6 @@ class RouteTable(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Route Tables using the route table `id`. For example:
-
-        console
 
         % pulumi import aws_route_table.public_rt rtb-4e616f6d69
 

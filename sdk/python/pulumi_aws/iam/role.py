@@ -666,8 +666,6 @@ class Role(pulumi.CustomResource):
 
         Using `pulumi import`, import IAM Roles using the `name`. For example:
 
-        console
-
         % pulumi import aws_iam_role.example developer_name
 
         :param str resource_name: The name of the resource.
@@ -875,8 +873,6 @@ class Role(pulumi.CustomResource):
         * `account_id` (String) AWS Account where this resource is managed.
 
         Using `pulumi import`, import IAM Roles using the `name`. For example:
-
-        console
 
         % pulumi import aws_iam_role.example developer_name
 

@@ -71,8 +71,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
  *
- * console
- *
  * % pulumi import aws_securitylake_data_lake.example arn:aws:securitylake:eu-west-1:123456789012:data-lake/default
  */
 export class DataLake extends pulumi.CustomResource {

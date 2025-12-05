@@ -7,9 +7,16 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
+    /**
+     * @return Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+     * 
+     */
+    private @Nullable String customMetadataField;
     /**
      * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
@@ -32,6 +39,13 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
     private String vectorField;
 
     private AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping() {}
+    /**
+     * @return Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+     * 
+     */
+    public Optional<String> customMetadataField() {
+        return Optional.ofNullable(this.customMetadataField);
+    }
     /**
      * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
@@ -70,6 +84,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String customMetadataField;
         private String metadataField;
         private String primaryKeyField;
         private String textField;
@@ -77,12 +92,19 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
         public Builder() {}
         public Builder(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customMetadataField = defaults.customMetadataField;
     	      this.metadataField = defaults.metadataField;
     	      this.primaryKeyField = defaults.primaryKeyField;
     	      this.textField = defaults.textField;
     	      this.vectorField = defaults.vectorField;
         }
 
+        @CustomType.Setter
+        public Builder customMetadataField(@Nullable String customMetadataField) {
+
+            this.customMetadataField = customMetadataField;
+            return this;
+        }
         @CustomType.Setter
         public Builder metadataField(String metadataField) {
             if (metadataField == null) {
@@ -117,6 +139,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
         }
         public AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping build() {
             final var _resultValue = new AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping();
+            _resultValue.customMetadataField = customMetadataField;
             _resultValue.metadataField = metadataField;
             _resultValue.primaryKeyField = primaryKeyField;
             _resultValue.textField = textField;

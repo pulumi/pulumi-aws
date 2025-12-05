@@ -6,6 +6,7 @@ package com.pulumi.aws.eks.outputs;
 import com.pulumi.aws.eks.outputs.GetClusterAccessConfig;
 import com.pulumi.aws.eks.outputs.GetClusterCertificateAuthority;
 import com.pulumi.aws.eks.outputs.GetClusterComputeConfig;
+import com.pulumi.aws.eks.outputs.GetClusterControlPlaneScalingConfig;
 import com.pulumi.aws.eks.outputs.GetClusterIdentity;
 import com.pulumi.aws.eks.outputs.GetClusterKubernetesNetworkConfig;
 import com.pulumi.aws.eks.outputs.GetClusterOutpostConfig;
@@ -49,6 +50,11 @@ public final class GetClusterResult {
      * 
      */
     private List<GetClusterComputeConfig> computeConfigs;
+    /**
+     * @return Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information.
+     * 
+     */
+    private List<GetClusterControlPlaneScalingConfig> controlPlaneScalingConfigs;
     /**
      * @return Unix epoch time stamp in seconds for when the cluster was created.
      * 
@@ -177,6 +183,13 @@ public final class GetClusterResult {
      */
     public List<GetClusterComputeConfig> computeConfigs() {
         return this.computeConfigs;
+    }
+    /**
+     * @return Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information.
+     * 
+     */
+    public List<GetClusterControlPlaneScalingConfig> controlPlaneScalingConfigs() {
+        return this.controlPlaneScalingConfigs;
     }
     /**
      * @return Unix epoch time stamp in seconds for when the cluster was created.
@@ -325,6 +338,7 @@ public final class GetClusterResult {
         private List<GetClusterCertificateAuthority> certificateAuthorities;
         private String clusterId;
         private List<GetClusterComputeConfig> computeConfigs;
+        private List<GetClusterControlPlaneScalingConfig> controlPlaneScalingConfigs;
         private String createdAt;
         private Boolean deletionProtection;
         private List<String> enabledClusterLogTypes;
@@ -353,6 +367,7 @@ public final class GetClusterResult {
     	      this.certificateAuthorities = defaults.certificateAuthorities;
     	      this.clusterId = defaults.clusterId;
     	      this.computeConfigs = defaults.computeConfigs;
+    	      this.controlPlaneScalingConfigs = defaults.controlPlaneScalingConfigs;
     	      this.createdAt = defaults.createdAt;
     	      this.deletionProtection = defaults.deletionProtection;
     	      this.enabledClusterLogTypes = defaults.enabledClusterLogTypes;
@@ -423,6 +438,17 @@ public final class GetClusterResult {
         }
         public Builder computeConfigs(GetClusterComputeConfig... computeConfigs) {
             return computeConfigs(List.of(computeConfigs));
+        }
+        @CustomType.Setter
+        public Builder controlPlaneScalingConfigs(List<GetClusterControlPlaneScalingConfig> controlPlaneScalingConfigs) {
+            if (controlPlaneScalingConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "controlPlaneScalingConfigs");
+            }
+            this.controlPlaneScalingConfigs = controlPlaneScalingConfigs;
+            return this;
+        }
+        public Builder controlPlaneScalingConfigs(GetClusterControlPlaneScalingConfig... controlPlaneScalingConfigs) {
+            return controlPlaneScalingConfigs(List.of(controlPlaneScalingConfigs));
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
@@ -615,6 +641,7 @@ public final class GetClusterResult {
             _resultValue.certificateAuthorities = certificateAuthorities;
             _resultValue.clusterId = clusterId;
             _resultValue.computeConfigs = computeConfigs;
+            _resultValue.controlPlaneScalingConfigs = controlPlaneScalingConfigs;
             _resultValue.createdAt = createdAt;
             _resultValue.deletionProtection = deletionProtection;
             _resultValue.enabledClusterLogTypes = enabledClusterLogTypes;

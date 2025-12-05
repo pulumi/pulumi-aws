@@ -64,8 +64,6 @@ import (
 //
 // Using `pulumi import`, import a replication config using the `arn`. For example:
 //
-// console
-//
 // % pulumi import aws_dms_replication_config.example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
 type ReplicationConfig struct {
 	pulumi.CustomResourceState

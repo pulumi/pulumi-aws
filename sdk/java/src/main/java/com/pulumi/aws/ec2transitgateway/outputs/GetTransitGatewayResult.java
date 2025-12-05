@@ -55,6 +55,11 @@ public final class GetTransitGatewayResult {
      * 
      */
     private String dnsSupport;
+    /**
+     * @return Whether encryption support for VPC Encryption Control is enabled.
+     * 
+     */
+    private String encryptionSupport;
     private @Nullable List<GetTransitGatewayFilter> filters;
     /**
      * @return EC2 Transit Gateway identifier
@@ -155,6 +160,13 @@ public final class GetTransitGatewayResult {
     public String dnsSupport() {
         return this.dnsSupport;
     }
+    /**
+     * @return Whether encryption support for VPC Encryption Control is enabled.
+     * 
+     */
+    public String encryptionSupport() {
+        return this.encryptionSupport;
+    }
     public List<GetTransitGatewayFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -235,6 +247,7 @@ public final class GetTransitGatewayResult {
         private String defaultRouteTablePropagation;
         private String description;
         private String dnsSupport;
+        private String encryptionSupport;
         private @Nullable List<GetTransitGatewayFilter> filters;
         private String id;
         private String multicastSupport;
@@ -256,6 +269,7 @@ public final class GetTransitGatewayResult {
     	      this.defaultRouteTablePropagation = defaults.defaultRouteTablePropagation;
     	      this.description = defaults.description;
     	      this.dnsSupport = defaults.dnsSupport;
+    	      this.encryptionSupport = defaults.encryptionSupport;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.multicastSupport = defaults.multicastSupport;
@@ -330,6 +344,14 @@ public final class GetTransitGatewayResult {
               throw new MissingRequiredPropertyException("GetTransitGatewayResult", "dnsSupport");
             }
             this.dnsSupport = dnsSupport;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encryptionSupport(String encryptionSupport) {
+            if (encryptionSupport == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "encryptionSupport");
+            }
+            this.encryptionSupport = encryptionSupport;
             return this;
         }
         @CustomType.Setter
@@ -426,6 +448,7 @@ public final class GetTransitGatewayResult {
             _resultValue.defaultRouteTablePropagation = defaultRouteTablePropagation;
             _resultValue.description = description;
             _resultValue.dnsSupport = dnsSupport;
+            _resultValue.encryptionSupport = encryptionSupport;
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.multicastSupport = multicastSupport;

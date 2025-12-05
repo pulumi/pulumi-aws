@@ -7,6 +7,7 @@ import com.pulumi.aws.lb.outputs.ListenerRuleActionAuthenticateCognito;
 import com.pulumi.aws.lb.outputs.ListenerRuleActionAuthenticateOidc;
 import com.pulumi.aws.lb.outputs.ListenerRuleActionFixedResponse;
 import com.pulumi.aws.lb.outputs.ListenerRuleActionForward;
+import com.pulumi.aws.lb.outputs.ListenerRuleActionJwtValidation;
 import com.pulumi.aws.lb.outputs.ListenerRuleActionRedirect;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -41,6 +42,11 @@ public final class ListenerRuleAction {
      */
     private @Nullable ListenerRuleActionForward forward;
     /**
+     * @return Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
+     * 
+     */
+    private @Nullable ListenerRuleActionJwtValidation jwtValidation;
+    /**
      * @return Order for the action.
      * The action with the lowest value for order is performed first.
      * Valid values are between `1` and `50000`.
@@ -62,7 +68,7 @@ public final class ListenerRuleAction {
      */
     private @Nullable String targetGroupArn;
     /**
-     * @return The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * @return The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
      * 
      */
     private String type;
@@ -99,6 +105,13 @@ public final class ListenerRuleAction {
         return Optional.ofNullable(this.forward);
     }
     /**
+     * @return Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
+     * 
+     */
+    public Optional<ListenerRuleActionJwtValidation> jwtValidation() {
+        return Optional.ofNullable(this.jwtValidation);
+    }
+    /**
      * @return Order for the action.
      * The action with the lowest value for order is performed first.
      * Valid values are between `1` and `50000`.
@@ -126,7 +139,7 @@ public final class ListenerRuleAction {
         return Optional.ofNullable(this.targetGroupArn);
     }
     /**
-     * @return The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * @return The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
      * 
      */
     public String type() {
@@ -146,6 +159,7 @@ public final class ListenerRuleAction {
         private @Nullable ListenerRuleActionAuthenticateOidc authenticateOidc;
         private @Nullable ListenerRuleActionFixedResponse fixedResponse;
         private @Nullable ListenerRuleActionForward forward;
+        private @Nullable ListenerRuleActionJwtValidation jwtValidation;
         private @Nullable Integer order;
         private @Nullable ListenerRuleActionRedirect redirect;
         private @Nullable String targetGroupArn;
@@ -157,6 +171,7 @@ public final class ListenerRuleAction {
     	      this.authenticateOidc = defaults.authenticateOidc;
     	      this.fixedResponse = defaults.fixedResponse;
     	      this.forward = defaults.forward;
+    	      this.jwtValidation = defaults.jwtValidation;
     	      this.order = defaults.order;
     	      this.redirect = defaults.redirect;
     	      this.targetGroupArn = defaults.targetGroupArn;
@@ -185,6 +200,12 @@ public final class ListenerRuleAction {
         public Builder forward(@Nullable ListenerRuleActionForward forward) {
 
             this.forward = forward;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jwtValidation(@Nullable ListenerRuleActionJwtValidation jwtValidation) {
+
+            this.jwtValidation = jwtValidation;
             return this;
         }
         @CustomType.Setter
@@ -219,6 +240,7 @@ public final class ListenerRuleAction {
             _resultValue.authenticateOidc = authenticateOidc;
             _resultValue.fixedResponse = fixedResponse;
             _resultValue.forward = forward;
+            _resultValue.jwtValidation = jwtValidation;
             _resultValue.order = order;
             _resultValue.redirect = redirect;
             _resultValue.targetGroupArn = targetGroupArn;

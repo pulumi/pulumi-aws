@@ -63,8 +63,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
  * 
- * console
- * 
  * % pulumi import aws_dynamodb_resource_policy.example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
  * 
  */

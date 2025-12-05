@@ -141,6 +141,10 @@ namespace Pulumi.Aws.Transfer
         /// Structure containing the parameters for an AS2 connector object. Contains the following attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectorAs2ConfigResult> As2Configs;
+        /// <summary>
+        /// Egress configuration for the connector. Contains the following attributes:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetConnectorEgressConfigResult> EgressConfigs;
         public readonly string Id;
         /// <summary>
         /// ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
@@ -176,6 +180,8 @@ namespace Pulumi.Aws.Transfer
 
             ImmutableArray<Outputs.GetConnectorAs2ConfigResult> as2Configs,
 
+            ImmutableArray<Outputs.GetConnectorEgressConfigResult> egressConfigs,
+
             string id,
 
             string loggingRole,
@@ -195,6 +201,7 @@ namespace Pulumi.Aws.Transfer
             AccessRole = accessRole;
             Arn = arn;
             As2Configs = as2Configs;
+            EgressConfigs = egressConfigs;
             Id = id;
             LoggingRole = loggingRole;
             Region = region;

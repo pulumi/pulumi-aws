@@ -5,6 +5,7 @@ package com.pulumi.aws.athena.inputs;
 
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationEngineVersionArgs;
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationIdentityCenterConfigurationArgs;
+import com.pulumi.aws.athena.inputs.WorkgroupConfigurationManagedQueryResultsConfigurationArgs;
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -96,6 +97,21 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+     * 
+     */
+    @Import(name="managedQueryResultsConfiguration")
+    private @Nullable Output<WorkgroupConfigurationManagedQueryResultsConfigurationArgs> managedQueryResultsConfiguration;
+
+    /**
+     * @return Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+     * 
+     */
+    public Optional<Output<WorkgroupConfigurationManagedQueryResultsConfigurationArgs>> managedQueryResultsConfiguration() {
+        return Optional.ofNullable(this.managedQueryResultsConfiguration);
+    }
+
+    /**
      * Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
      */
@@ -148,6 +164,7 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
         this.engineVersion = $.engineVersion;
         this.executionRole = $.executionRole;
         this.identityCenterConfiguration = $.identityCenterConfiguration;
+        this.managedQueryResultsConfiguration = $.managedQueryResultsConfiguration;
         this.publishCloudwatchMetricsEnabled = $.publishCloudwatchMetricsEnabled;
         this.requesterPaysEnabled = $.requesterPaysEnabled;
         this.resultConfiguration = $.resultConfiguration;
@@ -274,6 +291,27 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
          */
         public Builder identityCenterConfiguration(WorkgroupConfigurationIdentityCenterConfigurationArgs identityCenterConfiguration) {
             return identityCenterConfiguration(Output.of(identityCenterConfiguration));
+        }
+
+        /**
+         * @param managedQueryResultsConfiguration Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedQueryResultsConfiguration(@Nullable Output<WorkgroupConfigurationManagedQueryResultsConfigurationArgs> managedQueryResultsConfiguration) {
+            $.managedQueryResultsConfiguration = managedQueryResultsConfiguration;
+            return this;
+        }
+
+        /**
+         * @param managedQueryResultsConfiguration Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedQueryResultsConfiguration(WorkgroupConfigurationManagedQueryResultsConfigurationArgs managedQueryResultsConfiguration) {
+            return managedQueryResultsConfiguration(Output.of(managedQueryResultsConfiguration));
         }
 
         /**

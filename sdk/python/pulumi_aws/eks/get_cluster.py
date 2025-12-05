@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, compute_configs=None, created_at=None, deletion_protection=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, region=None, remote_network_configs=None, role_arn=None, status=None, storage_configs=None, tags=None, upgrade_policies=None, version=None, vpc_config=None, zonal_shift_configs=None):
+    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, compute_configs=None, control_plane_scaling_configs=None, created_at=None, deletion_protection=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, region=None, remote_network_configs=None, role_arn=None, status=None, storage_configs=None, tags=None, upgrade_policies=None, version=None, vpc_config=None, zonal_shift_configs=None):
         if access_configs and not isinstance(access_configs, list):
             raise TypeError("Expected argument 'access_configs' to be a list")
         pulumi.set(__self__, "access_configs", access_configs)
@@ -43,6 +43,9 @@ class GetClusterResult:
         if compute_configs and not isinstance(compute_configs, list):
             raise TypeError("Expected argument 'compute_configs' to be a list")
         pulumi.set(__self__, "compute_configs", compute_configs)
+        if control_plane_scaling_configs and not isinstance(control_plane_scaling_configs, list):
+            raise TypeError("Expected argument 'control_plane_scaling_configs' to be a list")
+        pulumi.set(__self__, "control_plane_scaling_configs", control_plane_scaling_configs)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -143,6 +146,14 @@ class GetClusterResult:
         Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
         """
         return pulumi.get(self, "compute_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="controlPlaneScalingConfigs")
+    def control_plane_scaling_configs(self) -> Sequence['outputs.GetClusterControlPlaneScalingConfigResult']:
+        """
+        Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information.
+        """
+        return pulumi.get(self, "control_plane_scaling_configs")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -310,6 +321,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             certificate_authorities=self.certificate_authorities,
             cluster_id=self.cluster_id,
             compute_configs=self.compute_configs,
+            control_plane_scaling_configs=self.control_plane_scaling_configs,
             created_at=self.created_at,
             deletion_protection=self.deletion_protection,
             enabled_cluster_log_types=self.enabled_cluster_log_types,
@@ -368,6 +380,7 @@ def get_cluster(name: Optional[_builtins.str] = None,
         certificate_authorities=pulumi.get(__ret__, 'certificate_authorities'),
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
         compute_configs=pulumi.get(__ret__, 'compute_configs'),
+        control_plane_scaling_configs=pulumi.get(__ret__, 'control_plane_scaling_configs'),
         created_at=pulumi.get(__ret__, 'created_at'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         enabled_cluster_log_types=pulumi.get(__ret__, 'enabled_cluster_log_types'),
@@ -423,6 +436,7 @@ def get_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         certificate_authorities=pulumi.get(__response__, 'certificate_authorities'),
         cluster_id=pulumi.get(__response__, 'cluster_id'),
         compute_configs=pulumi.get(__response__, 'compute_configs'),
+        control_plane_scaling_configs=pulumi.get(__response__, 'control_plane_scaling_configs'),
         created_at=pulumi.get(__response__, 'created_at'),
         deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         enabled_cluster_log_types=pulumi.get(__response__, 'enabled_cluster_log_types'),

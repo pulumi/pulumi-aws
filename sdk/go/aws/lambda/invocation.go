@@ -185,6 +185,16 @@ import (
 // If the `databaseUrl` changes, the Lambda will be invoked again with:
 //
 // When the invocation resource is removed, the final invocation will have:
+//
+// ## Import
+//
+// Using `pulumi import`, import Lambda Invocation using the `function_name,qualifier,result_hash`. For example:
+//
+// ```sh
+// $ pulumi import aws:lambda/invocation:Invocation test_lambda my_test_lambda_function,$LATEST,b326b5062b2f0e69046810717534cb09
+// ```
+// Because it is not possible to retrieve previous invocations, during the next apply `terraform` will update the resource calling again the function.
+// To compute the `result_hash`, it is necessary to hash it with the standard `md5` hash function.
 type Invocation struct {
 	pulumi.CustomResourceState
 
@@ -201,7 +211,9 @@ type Invocation struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// String result of the Lambda function invocation.
-	Result       pulumi.StringOutput    `pulumi:"result"`
+	Result pulumi.StringOutput `pulumi:"result"`
+	// Tenant Id to serve invocations from specified tenant.
+	TenantId     pulumi.StringPtrOutput `pulumi:"tenantId"`
 	TerraformKey pulumi.StringPtrOutput `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
@@ -256,7 +268,9 @@ type invocationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// String result of the Lambda function invocation.
-	Result       *string `pulumi:"result"`
+	Result *string `pulumi:"result"`
+	// Tenant Id to serve invocations from specified tenant.
+	TenantId     *string `pulumi:"tenantId"`
 	TerraformKey *string `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -276,7 +290,9 @@ type InvocationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// String result of the Lambda function invocation.
-	Result       pulumi.StringPtrInput
+	Result pulumi.StringPtrInput
+	// Tenant Id to serve invocations from specified tenant.
+	TenantId     pulumi.StringPtrInput
 	TerraformKey pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers pulumi.StringMapInput
@@ -298,7 +314,9 @@ type invocationArgs struct {
 	// Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region       *string `pulumi:"region"`
+	Region *string `pulumi:"region"`
+	// Tenant Id to serve invocations from specified tenant.
+	TenantId     *string `pulumi:"tenantId"`
 	TerraformKey *string `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -317,7 +335,9 @@ type InvocationArgs struct {
 	// Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region       pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Tenant Id to serve invocations from specified tenant.
+	TenantId     pulumi.StringPtrInput
 	TerraformKey pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers pulumi.StringMapInput
@@ -440,6 +460,11 @@ func (o InvocationOutput) Region() pulumi.StringOutput {
 // String result of the Lambda function invocation.
 func (o InvocationOutput) Result() pulumi.StringOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.Result }).(pulumi.StringOutput)
+}
+
+// Tenant Id to serve invocations from specified tenant.
+func (o InvocationOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Invocation) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o InvocationOutput) TerraformKey() pulumi.StringPtrOutput {

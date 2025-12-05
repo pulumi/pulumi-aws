@@ -152,6 +152,20 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
+     * The network type of the docDB subnet group (`IPV4` or `DUAL`).
+     * 
+     */
+    @Export(name="supportedNetworkTypes", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> supportedNetworkTypes;
+
+    /**
+     * @return The network type of the docDB subnet group (`IPV4` or `DUAL`).
+     * 
+     */
+    public Output<List<String>> supportedNetworkTypes() {
+        return this.supportedNetworkTypes;
+    }
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

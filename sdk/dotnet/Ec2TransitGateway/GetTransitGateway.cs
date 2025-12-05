@@ -299,6 +299,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Whether DNS support is enabled
         /// </summary>
         public readonly string DnsSupport;
+        /// <summary>
+        /// Whether encryption support for VPC Encryption Control is enabled.
+        /// </summary>
+        public readonly string EncryptionSupport;
         public readonly ImmutableArray<Outputs.GetTransitGatewayFilterResult> Filters;
         /// <summary>
         /// EC2 Transit Gateway identifier
@@ -352,6 +356,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string dnsSupport,
 
+            string encryptionSupport,
+
             ImmutableArray<Outputs.GetTransitGatewayFilterResult> filters,
 
             string id,
@@ -380,6 +386,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             DefaultRouteTablePropagation = defaultRouteTablePropagation;
             Description = description;
             DnsSupport = dnsSupport;
+            EncryptionSupport = encryptionSupport;
             Filters = filters;
             Id = id;
             MulticastSupport = multicastSupport;

@@ -537,6 +537,20 @@ public class Directory extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
+     * Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+     * 
+     */
+    @Export(name="tenancy", refs={String.class}, tree="[0]")
+    private Output<String> tenancy;
+
+    /**
+     * @return Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+     * 
+     */
+    public Output<String> tenancy() {
+        return this.tenancy;
+    }
+    /**
      * Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
      * 
      * &gt; **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.

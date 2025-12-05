@@ -409,8 +409,6 @@ import (
 //
 // Using `pulumi import`, import SSM associations using the `association_id`. For example:
 //
-// console
-//
 // % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
 type Association struct {
 	pulumi.CustomResourceState
@@ -425,6 +423,8 @@ type Association struct {
 	AssociationName pulumi.StringPtrOutput `pulumi:"associationName"`
 	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 	AutomationTargetParameterName pulumi.StringPtrOutput `pulumi:"automationTargetParameterName"`
+	// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+	CalendarNames pulumi.StringArrayOutput `pulumi:"calendarNames"`
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity pulumi.StringPtrOutput `pulumi:"complianceSeverity"`
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
@@ -497,6 +497,8 @@ type associationState struct {
 	AssociationName *string `pulumi:"associationName"`
 	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
+	// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+	CalendarNames []string `pulumi:"calendarNames"`
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity *string `pulumi:"complianceSeverity"`
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
@@ -540,6 +542,8 @@ type AssociationState struct {
 	AssociationName pulumi.StringPtrInput
 	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 	AutomationTargetParameterName pulumi.StringPtrInput
+	// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+	CalendarNames pulumi.StringArrayInput
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity pulumi.StringPtrInput
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
@@ -583,6 +587,8 @@ type associationArgs struct {
 	AssociationName *string `pulumi:"associationName"`
 	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
+	// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+	CalendarNames []string `pulumi:"calendarNames"`
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity *string `pulumi:"complianceSeverity"`
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
@@ -621,6 +627,8 @@ type AssociationArgs struct {
 	AssociationName pulumi.StringPtrInput
 	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 	AutomationTargetParameterName pulumi.StringPtrInput
+	// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+	CalendarNames pulumi.StringArrayInput
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity pulumi.StringPtrInput
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
@@ -761,6 +769,11 @@ func (o AssociationOutput) AssociationName() pulumi.StringPtrOutput {
 // Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 func (o AssociationOutput) AutomationTargetParameterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.AutomationTargetParameterName }).(pulumi.StringPtrOutput)
+}
+
+// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+func (o AssociationOutput) CalendarNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringArrayOutput { return v.CalendarNames }).(pulumi.StringArrayOutput)
 }
 
 // The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`

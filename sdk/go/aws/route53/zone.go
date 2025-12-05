@@ -161,6 +161,8 @@ type Zone struct {
 	Comment pulumi.StringOutput `pulumi:"comment"`
 	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
 	DelegationSetId pulumi.StringPtrOutput `pulumi:"delegationSetId"`
+	// Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+	EnableAcceleratedRecovery pulumi.BoolOutput `pulumi:"enableAcceleratedRecovery"`
 	// Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// This is the name of the hosted zone.
@@ -219,6 +221,8 @@ type zoneState struct {
 	Comment *string `pulumi:"comment"`
 	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
 	DelegationSetId *string `pulumi:"delegationSetId"`
+	// Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+	EnableAcceleratedRecovery *bool `pulumi:"enableAcceleratedRecovery"`
 	// Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// This is the name of the hosted zone.
@@ -245,6 +249,8 @@ type ZoneState struct {
 	Comment pulumi.StringPtrInput
 	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
 	DelegationSetId pulumi.StringPtrInput
+	// Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+	EnableAcceleratedRecovery pulumi.BoolPtrInput
 	// Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
 	ForceDestroy pulumi.BoolPtrInput
 	// This is the name of the hosted zone.
@@ -273,6 +279,8 @@ type zoneArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
 	DelegationSetId *string `pulumi:"delegationSetId"`
+	// Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+	EnableAcceleratedRecovery *bool `pulumi:"enableAcceleratedRecovery"`
 	// Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// This is the name of the hosted zone.
@@ -289,6 +297,8 @@ type ZoneArgs struct {
 	Comment pulumi.StringPtrInput
 	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
 	DelegationSetId pulumi.StringPtrInput
+	// Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+	EnableAcceleratedRecovery pulumi.BoolPtrInput
 	// Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
 	ForceDestroy pulumi.BoolPtrInput
 	// This is the name of the hosted zone.
@@ -399,6 +409,11 @@ func (o ZoneOutput) Comment() pulumi.StringOutput {
 // The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
 func (o ZoneOutput) DelegationSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.DelegationSetId }).(pulumi.StringPtrOutput)
+}
+
+// Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+func (o ZoneOutput) EnableAcceleratedRecovery() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Zone) pulumi.BoolOutput { return v.EnableAcceleratedRecovery }).(pulumi.BoolOutput)
 }
 
 // Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
