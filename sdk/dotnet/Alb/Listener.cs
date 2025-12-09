@@ -295,6 +295,67 @@ namespace Pulumi.Aws.Alb
     /// });
     /// ```
     /// 
+    /// ### JWT Validation Action
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LB.Listener("test", new()
+    ///     {
+    ///         LoadBalancerArn = testAwsLb.Id,
+    ///         Protocol = "HTTPS",
+    ///         Port = 443,
+    ///         SslPolicy = "ELBSecurityPolicy-2016-08",
+    ///         CertificateArn = testAwsIamServerCertificate.Arn,
+    ///         DefaultActions = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///             {
+    ///                 Type = "jwt-validation",
+    ///                 JwtValidation = new Aws.LB.Inputs.ListenerDefaultActionJwtValidationArgs
+    ///                 {
+    ///                     Issuer = "https://example.com",
+    ///                     JwksEndpoint = "https://example.com/.well-known/jwks.json",
+    ///                     AdditionalClaims = new[]
+    ///                     {
+    ///                         new Aws.LB.Inputs.ListenerDefaultActionJwtValidationAdditionalClaimArgs
+    ///                         {
+    ///                             Format = "string-array",
+    ///                             Name = "claim_name1",
+    ///                             Values = new[]
+    ///                             {
+    ///                                 "value1",
+    ///                                 "value2",
+    ///                             },
+    ///                         },
+    ///                         new Aws.LB.Inputs.ListenerDefaultActionJwtValidationAdditionalClaimArgs
+    ///                         {
+    ///                             Format = "single-string",
+    ///                             Name = "claim_name2",
+    ///                             Values = new[]
+    ///                             {
+    ///                                 "value1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///             {
+    ///                 TargetGroupArn = testAwsLbTargetGroup.Id,
+    ///                 Type = "forward",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Gateway Load Balancer Listener
     /// 
     /// ```csharp
@@ -394,8 +455,6 @@ namespace Pulumi.Aws.Alb
     /// - `arn` (String) Amazon Resource Name (ARN) of the load balancer listener.
     /// 
     /// Using `pulumi import`, import listeners using their ARN. For example:
-    /// 
-    /// console
     /// 
     /// % pulumi import aws_lb_listener.front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
     /// </summary>

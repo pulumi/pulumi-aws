@@ -4,6 +4,7 @@
 package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.aws.backup.outputs.GetPlanRule;
+import com.pulumi.aws.backup.outputs.GetPlanScanSetting;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -35,6 +36,11 @@ public final class GetPlanResult {
      * 
      */
     private List<GetPlanRule> rules;
+    /**
+     * @return Scanning configuration for the backup rule.
+     * 
+     */
+    private List<GetPlanScanSetting> scanSettings;
     /**
      * @return Metadata that you can assign to help organize the plans you create.
      * 
@@ -82,6 +88,13 @@ public final class GetPlanResult {
         return this.rules;
     }
     /**
+     * @return Scanning configuration for the backup rule.
+     * 
+     */
+    public List<GetPlanScanSetting> scanSettings() {
+        return this.scanSettings;
+    }
+    /**
      * @return Metadata that you can assign to help organize the plans you create.
      * 
      */
@@ -111,6 +124,7 @@ public final class GetPlanResult {
         private String planId;
         private String region;
         private List<GetPlanRule> rules;
+        private List<GetPlanScanSetting> scanSettings;
         private Map<String,String> tags;
         private String version;
         public Builder() {}
@@ -122,6 +136,7 @@ public final class GetPlanResult {
     	      this.planId = defaults.planId;
     	      this.region = defaults.region;
     	      this.rules = defaults.rules;
+    	      this.scanSettings = defaults.scanSettings;
     	      this.tags = defaults.tags;
     	      this.version = defaults.version;
         }
@@ -178,6 +193,17 @@ public final class GetPlanResult {
             return rules(List.of(rules));
         }
         @CustomType.Setter
+        public Builder scanSettings(List<GetPlanScanSetting> scanSettings) {
+            if (scanSettings == null) {
+              throw new MissingRequiredPropertyException("GetPlanResult", "scanSettings");
+            }
+            this.scanSettings = scanSettings;
+            return this;
+        }
+        public Builder scanSettings(GetPlanScanSetting... scanSettings) {
+            return scanSettings(List.of(scanSettings));
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetPlanResult", "tags");
@@ -201,6 +227,7 @@ public final class GetPlanResult {
             _resultValue.planId = planId;
             _resultValue.region = region;
             _resultValue.rules = rules;
+            _resultValue.scanSettings = scanSettings;
             _resultValue.tags = tags;
             _resultValue.version = version;
             return _resultValue;

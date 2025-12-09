@@ -564,6 +564,299 @@ func (o ConnectorAs2ConfigPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConnectorEgressConfig struct {
+	// VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+	VpcLattice *ConnectorEgressConfigVpcLattice `pulumi:"vpcLattice"`
+}
+
+// ConnectorEgressConfigInput is an input type that accepts ConnectorEgressConfigArgs and ConnectorEgressConfigOutput values.
+// You can construct a concrete instance of `ConnectorEgressConfigInput` via:
+//
+//	ConnectorEgressConfigArgs{...}
+type ConnectorEgressConfigInput interface {
+	pulumi.Input
+
+	ToConnectorEgressConfigOutput() ConnectorEgressConfigOutput
+	ToConnectorEgressConfigOutputWithContext(context.Context) ConnectorEgressConfigOutput
+}
+
+type ConnectorEgressConfigArgs struct {
+	// VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+	VpcLattice ConnectorEgressConfigVpcLatticePtrInput `pulumi:"vpcLattice"`
+}
+
+func (ConnectorEgressConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorEgressConfig)(nil)).Elem()
+}
+
+func (i ConnectorEgressConfigArgs) ToConnectorEgressConfigOutput() ConnectorEgressConfigOutput {
+	return i.ToConnectorEgressConfigOutputWithContext(context.Background())
+}
+
+func (i ConnectorEgressConfigArgs) ToConnectorEgressConfigOutputWithContext(ctx context.Context) ConnectorEgressConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorEgressConfigOutput)
+}
+
+func (i ConnectorEgressConfigArgs) ToConnectorEgressConfigPtrOutput() ConnectorEgressConfigPtrOutput {
+	return i.ToConnectorEgressConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorEgressConfigArgs) ToConnectorEgressConfigPtrOutputWithContext(ctx context.Context) ConnectorEgressConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorEgressConfigOutput).ToConnectorEgressConfigPtrOutputWithContext(ctx)
+}
+
+// ConnectorEgressConfigPtrInput is an input type that accepts ConnectorEgressConfigArgs, ConnectorEgressConfigPtr and ConnectorEgressConfigPtrOutput values.
+// You can construct a concrete instance of `ConnectorEgressConfigPtrInput` via:
+//
+//	        ConnectorEgressConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorEgressConfigPtrInput interface {
+	pulumi.Input
+
+	ToConnectorEgressConfigPtrOutput() ConnectorEgressConfigPtrOutput
+	ToConnectorEgressConfigPtrOutputWithContext(context.Context) ConnectorEgressConfigPtrOutput
+}
+
+type connectorEgressConfigPtrType ConnectorEgressConfigArgs
+
+func ConnectorEgressConfigPtr(v *ConnectorEgressConfigArgs) ConnectorEgressConfigPtrInput {
+	return (*connectorEgressConfigPtrType)(v)
+}
+
+func (*connectorEgressConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorEgressConfig)(nil)).Elem()
+}
+
+func (i *connectorEgressConfigPtrType) ToConnectorEgressConfigPtrOutput() ConnectorEgressConfigPtrOutput {
+	return i.ToConnectorEgressConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorEgressConfigPtrType) ToConnectorEgressConfigPtrOutputWithContext(ctx context.Context) ConnectorEgressConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorEgressConfigPtrOutput)
+}
+
+type ConnectorEgressConfigOutput struct{ *pulumi.OutputState }
+
+func (ConnectorEgressConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorEgressConfig)(nil)).Elem()
+}
+
+func (o ConnectorEgressConfigOutput) ToConnectorEgressConfigOutput() ConnectorEgressConfigOutput {
+	return o
+}
+
+func (o ConnectorEgressConfigOutput) ToConnectorEgressConfigOutputWithContext(ctx context.Context) ConnectorEgressConfigOutput {
+	return o
+}
+
+func (o ConnectorEgressConfigOutput) ToConnectorEgressConfigPtrOutput() ConnectorEgressConfigPtrOutput {
+	return o.ToConnectorEgressConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorEgressConfigOutput) ToConnectorEgressConfigPtrOutputWithContext(ctx context.Context) ConnectorEgressConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorEgressConfig) *ConnectorEgressConfig {
+		return &v
+	}).(ConnectorEgressConfigPtrOutput)
+}
+
+// VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+func (o ConnectorEgressConfigOutput) VpcLattice() ConnectorEgressConfigVpcLatticePtrOutput {
+	return o.ApplyT(func(v ConnectorEgressConfig) *ConnectorEgressConfigVpcLattice { return v.VpcLattice }).(ConnectorEgressConfigVpcLatticePtrOutput)
+}
+
+type ConnectorEgressConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorEgressConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorEgressConfig)(nil)).Elem()
+}
+
+func (o ConnectorEgressConfigPtrOutput) ToConnectorEgressConfigPtrOutput() ConnectorEgressConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorEgressConfigPtrOutput) ToConnectorEgressConfigPtrOutputWithContext(ctx context.Context) ConnectorEgressConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorEgressConfigPtrOutput) Elem() ConnectorEgressConfigOutput {
+	return o.ApplyT(func(v *ConnectorEgressConfig) ConnectorEgressConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorEgressConfig
+		return ret
+	}).(ConnectorEgressConfigOutput)
+}
+
+// VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+func (o ConnectorEgressConfigPtrOutput) VpcLattice() ConnectorEgressConfigVpcLatticePtrOutput {
+	return o.ApplyT(func(v *ConnectorEgressConfig) *ConnectorEgressConfigVpcLattice {
+		if v == nil {
+			return nil
+		}
+		return v.VpcLattice
+	}).(ConnectorEgressConfigVpcLatticePtrOutput)
+}
+
+type ConnectorEgressConfigVpcLattice struct {
+	// Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
+	PortNumber *int `pulumi:"portNumber"`
+	// ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
+	ResourceConfigurationArn string `pulumi:"resourceConfigurationArn"`
+}
+
+// ConnectorEgressConfigVpcLatticeInput is an input type that accepts ConnectorEgressConfigVpcLatticeArgs and ConnectorEgressConfigVpcLatticeOutput values.
+// You can construct a concrete instance of `ConnectorEgressConfigVpcLatticeInput` via:
+//
+//	ConnectorEgressConfigVpcLatticeArgs{...}
+type ConnectorEgressConfigVpcLatticeInput interface {
+	pulumi.Input
+
+	ToConnectorEgressConfigVpcLatticeOutput() ConnectorEgressConfigVpcLatticeOutput
+	ToConnectorEgressConfigVpcLatticeOutputWithContext(context.Context) ConnectorEgressConfigVpcLatticeOutput
+}
+
+type ConnectorEgressConfigVpcLatticeArgs struct {
+	// Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
+	PortNumber pulumi.IntPtrInput `pulumi:"portNumber"`
+	// ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
+	ResourceConfigurationArn pulumi.StringInput `pulumi:"resourceConfigurationArn"`
+}
+
+func (ConnectorEgressConfigVpcLatticeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorEgressConfigVpcLattice)(nil)).Elem()
+}
+
+func (i ConnectorEgressConfigVpcLatticeArgs) ToConnectorEgressConfigVpcLatticeOutput() ConnectorEgressConfigVpcLatticeOutput {
+	return i.ToConnectorEgressConfigVpcLatticeOutputWithContext(context.Background())
+}
+
+func (i ConnectorEgressConfigVpcLatticeArgs) ToConnectorEgressConfigVpcLatticeOutputWithContext(ctx context.Context) ConnectorEgressConfigVpcLatticeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorEgressConfigVpcLatticeOutput)
+}
+
+func (i ConnectorEgressConfigVpcLatticeArgs) ToConnectorEgressConfigVpcLatticePtrOutput() ConnectorEgressConfigVpcLatticePtrOutput {
+	return i.ToConnectorEgressConfigVpcLatticePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorEgressConfigVpcLatticeArgs) ToConnectorEgressConfigVpcLatticePtrOutputWithContext(ctx context.Context) ConnectorEgressConfigVpcLatticePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorEgressConfigVpcLatticeOutput).ToConnectorEgressConfigVpcLatticePtrOutputWithContext(ctx)
+}
+
+// ConnectorEgressConfigVpcLatticePtrInput is an input type that accepts ConnectorEgressConfigVpcLatticeArgs, ConnectorEgressConfigVpcLatticePtr and ConnectorEgressConfigVpcLatticePtrOutput values.
+// You can construct a concrete instance of `ConnectorEgressConfigVpcLatticePtrInput` via:
+//
+//	        ConnectorEgressConfigVpcLatticeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorEgressConfigVpcLatticePtrInput interface {
+	pulumi.Input
+
+	ToConnectorEgressConfigVpcLatticePtrOutput() ConnectorEgressConfigVpcLatticePtrOutput
+	ToConnectorEgressConfigVpcLatticePtrOutputWithContext(context.Context) ConnectorEgressConfigVpcLatticePtrOutput
+}
+
+type connectorEgressConfigVpcLatticePtrType ConnectorEgressConfigVpcLatticeArgs
+
+func ConnectorEgressConfigVpcLatticePtr(v *ConnectorEgressConfigVpcLatticeArgs) ConnectorEgressConfigVpcLatticePtrInput {
+	return (*connectorEgressConfigVpcLatticePtrType)(v)
+}
+
+func (*connectorEgressConfigVpcLatticePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorEgressConfigVpcLattice)(nil)).Elem()
+}
+
+func (i *connectorEgressConfigVpcLatticePtrType) ToConnectorEgressConfigVpcLatticePtrOutput() ConnectorEgressConfigVpcLatticePtrOutput {
+	return i.ToConnectorEgressConfigVpcLatticePtrOutputWithContext(context.Background())
+}
+
+func (i *connectorEgressConfigVpcLatticePtrType) ToConnectorEgressConfigVpcLatticePtrOutputWithContext(ctx context.Context) ConnectorEgressConfigVpcLatticePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorEgressConfigVpcLatticePtrOutput)
+}
+
+type ConnectorEgressConfigVpcLatticeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorEgressConfigVpcLatticeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorEgressConfigVpcLattice)(nil)).Elem()
+}
+
+func (o ConnectorEgressConfigVpcLatticeOutput) ToConnectorEgressConfigVpcLatticeOutput() ConnectorEgressConfigVpcLatticeOutput {
+	return o
+}
+
+func (o ConnectorEgressConfigVpcLatticeOutput) ToConnectorEgressConfigVpcLatticeOutputWithContext(ctx context.Context) ConnectorEgressConfigVpcLatticeOutput {
+	return o
+}
+
+func (o ConnectorEgressConfigVpcLatticeOutput) ToConnectorEgressConfigVpcLatticePtrOutput() ConnectorEgressConfigVpcLatticePtrOutput {
+	return o.ToConnectorEgressConfigVpcLatticePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorEgressConfigVpcLatticeOutput) ToConnectorEgressConfigVpcLatticePtrOutputWithContext(ctx context.Context) ConnectorEgressConfigVpcLatticePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorEgressConfigVpcLattice) *ConnectorEgressConfigVpcLattice {
+		return &v
+	}).(ConnectorEgressConfigVpcLatticePtrOutput)
+}
+
+// Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
+func (o ConnectorEgressConfigVpcLatticeOutput) PortNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConnectorEgressConfigVpcLattice) *int { return v.PortNumber }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
+func (o ConnectorEgressConfigVpcLatticeOutput) ResourceConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorEgressConfigVpcLattice) string { return v.ResourceConfigurationArn }).(pulumi.StringOutput)
+}
+
+type ConnectorEgressConfigVpcLatticePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorEgressConfigVpcLatticePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorEgressConfigVpcLattice)(nil)).Elem()
+}
+
+func (o ConnectorEgressConfigVpcLatticePtrOutput) ToConnectorEgressConfigVpcLatticePtrOutput() ConnectorEgressConfigVpcLatticePtrOutput {
+	return o
+}
+
+func (o ConnectorEgressConfigVpcLatticePtrOutput) ToConnectorEgressConfigVpcLatticePtrOutputWithContext(ctx context.Context) ConnectorEgressConfigVpcLatticePtrOutput {
+	return o
+}
+
+func (o ConnectorEgressConfigVpcLatticePtrOutput) Elem() ConnectorEgressConfigVpcLatticeOutput {
+	return o.ApplyT(func(v *ConnectorEgressConfigVpcLattice) ConnectorEgressConfigVpcLattice {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorEgressConfigVpcLattice
+		return ret
+	}).(ConnectorEgressConfigVpcLatticeOutput)
+}
+
+// Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
+func (o ConnectorEgressConfigVpcLatticePtrOutput) PortNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConnectorEgressConfigVpcLattice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PortNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
+func (o ConnectorEgressConfigVpcLatticePtrOutput) ResourceConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorEgressConfigVpcLattice) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfigurationArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConnectorSftpConfig struct {
 	// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
 	TrustedHostKeys []string `pulumi:"trustedHostKeys"`
@@ -6865,6 +7158,209 @@ func (o GetConnectorAs2ConfigArrayOutput) Index(i pulumi.IntInput) GetConnectorA
 	}).(GetConnectorAs2ConfigOutput)
 }
 
+type GetConnectorEgressConfig struct {
+	// VPC Lattice configuration. Contains the following attributes:
+	VpcLattices []GetConnectorEgressConfigVpcLattice `pulumi:"vpcLattices"`
+}
+
+// GetConnectorEgressConfigInput is an input type that accepts GetConnectorEgressConfigArgs and GetConnectorEgressConfigOutput values.
+// You can construct a concrete instance of `GetConnectorEgressConfigInput` via:
+//
+//	GetConnectorEgressConfigArgs{...}
+type GetConnectorEgressConfigInput interface {
+	pulumi.Input
+
+	ToGetConnectorEgressConfigOutput() GetConnectorEgressConfigOutput
+	ToGetConnectorEgressConfigOutputWithContext(context.Context) GetConnectorEgressConfigOutput
+}
+
+type GetConnectorEgressConfigArgs struct {
+	// VPC Lattice configuration. Contains the following attributes:
+	VpcLattices GetConnectorEgressConfigVpcLatticeArrayInput `pulumi:"vpcLattices"`
+}
+
+func (GetConnectorEgressConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectorEgressConfig)(nil)).Elem()
+}
+
+func (i GetConnectorEgressConfigArgs) ToGetConnectorEgressConfigOutput() GetConnectorEgressConfigOutput {
+	return i.ToGetConnectorEgressConfigOutputWithContext(context.Background())
+}
+
+func (i GetConnectorEgressConfigArgs) ToGetConnectorEgressConfigOutputWithContext(ctx context.Context) GetConnectorEgressConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectorEgressConfigOutput)
+}
+
+// GetConnectorEgressConfigArrayInput is an input type that accepts GetConnectorEgressConfigArray and GetConnectorEgressConfigArrayOutput values.
+// You can construct a concrete instance of `GetConnectorEgressConfigArrayInput` via:
+//
+//	GetConnectorEgressConfigArray{ GetConnectorEgressConfigArgs{...} }
+type GetConnectorEgressConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectorEgressConfigArrayOutput() GetConnectorEgressConfigArrayOutput
+	ToGetConnectorEgressConfigArrayOutputWithContext(context.Context) GetConnectorEgressConfigArrayOutput
+}
+
+type GetConnectorEgressConfigArray []GetConnectorEgressConfigInput
+
+func (GetConnectorEgressConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectorEgressConfig)(nil)).Elem()
+}
+
+func (i GetConnectorEgressConfigArray) ToGetConnectorEgressConfigArrayOutput() GetConnectorEgressConfigArrayOutput {
+	return i.ToGetConnectorEgressConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectorEgressConfigArray) ToGetConnectorEgressConfigArrayOutputWithContext(ctx context.Context) GetConnectorEgressConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectorEgressConfigArrayOutput)
+}
+
+type GetConnectorEgressConfigOutput struct{ *pulumi.OutputState }
+
+func (GetConnectorEgressConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectorEgressConfig)(nil)).Elem()
+}
+
+func (o GetConnectorEgressConfigOutput) ToGetConnectorEgressConfigOutput() GetConnectorEgressConfigOutput {
+	return o
+}
+
+func (o GetConnectorEgressConfigOutput) ToGetConnectorEgressConfigOutputWithContext(ctx context.Context) GetConnectorEgressConfigOutput {
+	return o
+}
+
+// VPC Lattice configuration. Contains the following attributes:
+func (o GetConnectorEgressConfigOutput) VpcLattices() GetConnectorEgressConfigVpcLatticeArrayOutput {
+	return o.ApplyT(func(v GetConnectorEgressConfig) []GetConnectorEgressConfigVpcLattice { return v.VpcLattices }).(GetConnectorEgressConfigVpcLatticeArrayOutput)
+}
+
+type GetConnectorEgressConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectorEgressConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectorEgressConfig)(nil)).Elem()
+}
+
+func (o GetConnectorEgressConfigArrayOutput) ToGetConnectorEgressConfigArrayOutput() GetConnectorEgressConfigArrayOutput {
+	return o
+}
+
+func (o GetConnectorEgressConfigArrayOutput) ToGetConnectorEgressConfigArrayOutputWithContext(ctx context.Context) GetConnectorEgressConfigArrayOutput {
+	return o
+}
+
+func (o GetConnectorEgressConfigArrayOutput) Index(i pulumi.IntInput) GetConnectorEgressConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectorEgressConfig {
+		return vs[0].([]GetConnectorEgressConfig)[vs[1].(int)]
+	}).(GetConnectorEgressConfigOutput)
+}
+
+type GetConnectorEgressConfigVpcLattice struct {
+	// Port number for connecting to the SFTP server through VPC Lattice.
+	PortNumber int `pulumi:"portNumber"`
+	// ARN of the VPC Lattice Resource Configuration.
+	ResourceConfigurationArn string `pulumi:"resourceConfigurationArn"`
+}
+
+// GetConnectorEgressConfigVpcLatticeInput is an input type that accepts GetConnectorEgressConfigVpcLatticeArgs and GetConnectorEgressConfigVpcLatticeOutput values.
+// You can construct a concrete instance of `GetConnectorEgressConfigVpcLatticeInput` via:
+//
+//	GetConnectorEgressConfigVpcLatticeArgs{...}
+type GetConnectorEgressConfigVpcLatticeInput interface {
+	pulumi.Input
+
+	ToGetConnectorEgressConfigVpcLatticeOutput() GetConnectorEgressConfigVpcLatticeOutput
+	ToGetConnectorEgressConfigVpcLatticeOutputWithContext(context.Context) GetConnectorEgressConfigVpcLatticeOutput
+}
+
+type GetConnectorEgressConfigVpcLatticeArgs struct {
+	// Port number for connecting to the SFTP server through VPC Lattice.
+	PortNumber pulumi.IntInput `pulumi:"portNumber"`
+	// ARN of the VPC Lattice Resource Configuration.
+	ResourceConfigurationArn pulumi.StringInput `pulumi:"resourceConfigurationArn"`
+}
+
+func (GetConnectorEgressConfigVpcLatticeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectorEgressConfigVpcLattice)(nil)).Elem()
+}
+
+func (i GetConnectorEgressConfigVpcLatticeArgs) ToGetConnectorEgressConfigVpcLatticeOutput() GetConnectorEgressConfigVpcLatticeOutput {
+	return i.ToGetConnectorEgressConfigVpcLatticeOutputWithContext(context.Background())
+}
+
+func (i GetConnectorEgressConfigVpcLatticeArgs) ToGetConnectorEgressConfigVpcLatticeOutputWithContext(ctx context.Context) GetConnectorEgressConfigVpcLatticeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectorEgressConfigVpcLatticeOutput)
+}
+
+// GetConnectorEgressConfigVpcLatticeArrayInput is an input type that accepts GetConnectorEgressConfigVpcLatticeArray and GetConnectorEgressConfigVpcLatticeArrayOutput values.
+// You can construct a concrete instance of `GetConnectorEgressConfigVpcLatticeArrayInput` via:
+//
+//	GetConnectorEgressConfigVpcLatticeArray{ GetConnectorEgressConfigVpcLatticeArgs{...} }
+type GetConnectorEgressConfigVpcLatticeArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectorEgressConfigVpcLatticeArrayOutput() GetConnectorEgressConfigVpcLatticeArrayOutput
+	ToGetConnectorEgressConfigVpcLatticeArrayOutputWithContext(context.Context) GetConnectorEgressConfigVpcLatticeArrayOutput
+}
+
+type GetConnectorEgressConfigVpcLatticeArray []GetConnectorEgressConfigVpcLatticeInput
+
+func (GetConnectorEgressConfigVpcLatticeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectorEgressConfigVpcLattice)(nil)).Elem()
+}
+
+func (i GetConnectorEgressConfigVpcLatticeArray) ToGetConnectorEgressConfigVpcLatticeArrayOutput() GetConnectorEgressConfigVpcLatticeArrayOutput {
+	return i.ToGetConnectorEgressConfigVpcLatticeArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectorEgressConfigVpcLatticeArray) ToGetConnectorEgressConfigVpcLatticeArrayOutputWithContext(ctx context.Context) GetConnectorEgressConfigVpcLatticeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectorEgressConfigVpcLatticeArrayOutput)
+}
+
+type GetConnectorEgressConfigVpcLatticeOutput struct{ *pulumi.OutputState }
+
+func (GetConnectorEgressConfigVpcLatticeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectorEgressConfigVpcLattice)(nil)).Elem()
+}
+
+func (o GetConnectorEgressConfigVpcLatticeOutput) ToGetConnectorEgressConfigVpcLatticeOutput() GetConnectorEgressConfigVpcLatticeOutput {
+	return o
+}
+
+func (o GetConnectorEgressConfigVpcLatticeOutput) ToGetConnectorEgressConfigVpcLatticeOutputWithContext(ctx context.Context) GetConnectorEgressConfigVpcLatticeOutput {
+	return o
+}
+
+// Port number for connecting to the SFTP server through VPC Lattice.
+func (o GetConnectorEgressConfigVpcLatticeOutput) PortNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v GetConnectorEgressConfigVpcLattice) int { return v.PortNumber }).(pulumi.IntOutput)
+}
+
+// ARN of the VPC Lattice Resource Configuration.
+func (o GetConnectorEgressConfigVpcLatticeOutput) ResourceConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectorEgressConfigVpcLattice) string { return v.ResourceConfigurationArn }).(pulumi.StringOutput)
+}
+
+type GetConnectorEgressConfigVpcLatticeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectorEgressConfigVpcLatticeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectorEgressConfigVpcLattice)(nil)).Elem()
+}
+
+func (o GetConnectorEgressConfigVpcLatticeArrayOutput) ToGetConnectorEgressConfigVpcLatticeArrayOutput() GetConnectorEgressConfigVpcLatticeArrayOutput {
+	return o
+}
+
+func (o GetConnectorEgressConfigVpcLatticeArrayOutput) ToGetConnectorEgressConfigVpcLatticeArrayOutputWithContext(ctx context.Context) GetConnectorEgressConfigVpcLatticeArrayOutput {
+	return o
+}
+
+func (o GetConnectorEgressConfigVpcLatticeArrayOutput) Index(i pulumi.IntInput) GetConnectorEgressConfigVpcLatticeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectorEgressConfigVpcLattice {
+		return vs[0].([]GetConnectorEgressConfigVpcLattice)[vs[1].(int)]
+	}).(GetConnectorEgressConfigVpcLatticeOutput)
+}
+
 type GetConnectorSftpConfig struct {
 	// List of the public portions of the host keys that are used to identify the servers the connector is connected to.
 	TrustedHostKeys []string `pulumi:"trustedHostKeys"`
@@ -6978,6 +7474,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPosixProfilePtrInput)(nil)).Elem(), AccessPosixProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigInput)(nil)).Elem(), ConnectorAs2ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPtrInput)(nil)).Elem(), ConnectorAs2ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEgressConfigInput)(nil)).Elem(), ConnectorEgressConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEgressConfigPtrInput)(nil)).Elem(), ConnectorEgressConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEgressConfigVpcLatticeInput)(nil)).Elem(), ConnectorEgressConfigVpcLatticeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEgressConfigVpcLatticePtrInput)(nil)).Elem(), ConnectorEgressConfigVpcLatticeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorSftpConfigInput)(nil)).Elem(), ConnectorSftpConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorSftpConfigPtrInput)(nil)).Elem(), ConnectorSftpConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
@@ -7056,6 +7556,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsTagArrayInput)(nil)).Elem(), WorkflowStepTagStepDetailsTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorAs2ConfigInput)(nil)).Elem(), GetConnectorAs2ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorAs2ConfigArrayInput)(nil)).Elem(), GetConnectorAs2ConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorEgressConfigInput)(nil)).Elem(), GetConnectorEgressConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorEgressConfigArrayInput)(nil)).Elem(), GetConnectorEgressConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorEgressConfigVpcLatticeInput)(nil)).Elem(), GetConnectorEgressConfigVpcLatticeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorEgressConfigVpcLatticeArrayInput)(nil)).Elem(), GetConnectorEgressConfigVpcLatticeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorSftpConfigInput)(nil)).Elem(), GetConnectorSftpConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorSftpConfigArrayInput)(nil)).Elem(), GetConnectorSftpConfigArray{})
 	pulumi.RegisterOutputType(AccessHomeDirectoryMappingOutput{})
@@ -7064,6 +7568,10 @@ func init() {
 	pulumi.RegisterOutputType(AccessPosixProfilePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorAs2ConfigOutput{})
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorEgressConfigOutput{})
+	pulumi.RegisterOutputType(ConnectorEgressConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorEgressConfigVpcLatticeOutput{})
+	pulumi.RegisterOutputType(ConnectorEgressConfigVpcLatticePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorSftpConfigOutput{})
 	pulumi.RegisterOutputType(ConnectorSftpConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
@@ -7142,6 +7650,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowStepTagStepDetailsTagArrayOutput{})
 	pulumi.RegisterOutputType(GetConnectorAs2ConfigOutput{})
 	pulumi.RegisterOutputType(GetConnectorAs2ConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectorEgressConfigOutput{})
+	pulumi.RegisterOutputType(GetConnectorEgressConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectorEgressConfigVpcLatticeOutput{})
+	pulumi.RegisterOutputType(GetConnectorEgressConfigVpcLatticeArrayOutput{})
 	pulumi.RegisterOutputType(GetConnectorSftpConfigOutput{})
 	pulumi.RegisterOutputType(GetConnectorSftpConfigArrayOutput{})
 }

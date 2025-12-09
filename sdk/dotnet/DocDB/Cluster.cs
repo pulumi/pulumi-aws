@@ -220,6 +220,12 @@ namespace Pulumi.Aws.DocDB
         public Output<string> MasterUsername { get; private set; } = null!;
 
         /// <summary>
+        /// The network type of the DB cluster (`IPV4` or `DUAL`).
+        /// </summary>
+        [Output("networkType")]
+        public Output<string> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// The port on which the DB accepts connections
         /// </summary>
         [Output("port")]
@@ -534,6 +540,12 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? MasterUsername { get; set; }
 
         /// <summary>
+        /// The network type of the DB cluster (`IPV4` or `DUAL`).
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// The port on which the DB accepts connections
         /// </summary>
         [Input("port")]
@@ -835,6 +847,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("masterUsername")]
         public Input<string>? MasterUsername { get; set; }
+
+        /// <summary>
+        /// The network type of the DB cluster (`IPV4` or `DUAL`).
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         /// <summary>
         /// The port on which the DB accepts connections

@@ -513,8 +513,6 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
 
-        console
-
         % pulumi import aws_ssm_maintenance_window.example mw-0123456789
 
         :param str resource_name: The name of the resource.
@@ -570,8 +568,6 @@ class MaintenanceWindow(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
-
-        console
 
         % pulumi import aws_ssm_maintenance_window.example mw-0123456789
 

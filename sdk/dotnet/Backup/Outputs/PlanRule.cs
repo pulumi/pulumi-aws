@@ -38,6 +38,10 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly string RuleName;
         /// <summary>
+        /// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlanRuleScanAction> ScanActions;
+        /// <summary>
         /// A CRON expression specifying when AWS Backup initiates a backup job.
         /// </summary>
         public readonly string? Schedule;
@@ -49,6 +53,10 @@ namespace Pulumi.Aws.Backup.Outputs
         /// The amount of time in minutes before beginning a backup.
         /// </summary>
         public readonly int? StartWindow;
+        /// <summary>
+        /// The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+        /// </summary>
+        public readonly string? TargetLogicallyAirGappedBackupVaultArn;
         /// <summary>
         /// The name of a logical container where backups are stored.
         /// </summary>
@@ -68,11 +76,15 @@ namespace Pulumi.Aws.Backup.Outputs
 
             string ruleName,
 
+            ImmutableArray<Outputs.PlanRuleScanAction> scanActions,
+
             string? schedule,
 
             string? scheduleExpressionTimezone,
 
             int? startWindow,
+
+            string? targetLogicallyAirGappedBackupVaultArn,
 
             string targetVaultName)
         {
@@ -82,9 +94,11 @@ namespace Pulumi.Aws.Backup.Outputs
             Lifecycle = lifecycle;
             RecoveryPointTags = recoveryPointTags;
             RuleName = ruleName;
+            ScanActions = scanActions;
             Schedule = schedule;
             ScheduleExpressionTimezone = scheduleExpressionTimezone;
             StartWindow = startWindow;
+            TargetLogicallyAirGappedBackupVaultArn = targetLogicallyAirGappedBackupVaultArn;
             TargetVaultName = targetVaultName;
         }
     }

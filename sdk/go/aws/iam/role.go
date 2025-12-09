@@ -358,8 +358,6 @@ import (
 //
 // Using `pulumi import`, import IAM Roles using the `name`. For example:
 //
-// console
-//
 // % pulumi import aws_iam_role.example developer_name
 type Role struct {
 	pulumi.CustomResourceState

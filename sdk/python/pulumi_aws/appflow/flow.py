@@ -525,8 +525,6 @@ class Flow(pulumi.CustomResource):
 
         Using `pulumi import`, import AppFlow flows using the `name`. For example:
 
-        console
-
         % pulumi import aws_appflow_flow.example example-flow
 
         :param str resource_name: The name of the resource.
@@ -657,8 +655,6 @@ class Flow(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import AppFlow flows using the `name`. For example:
-
-        console
 
         % pulumi import aws_appflow_flow.example example-flow
 

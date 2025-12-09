@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:lambda/alias:Alias":
 		r = &Alias{}
+	case "aws:lambda/capacityProvider:CapacityProvider":
+		r = &CapacityProvider{}
 	case "aws:lambda/codeSigningConfig:CodeSigningConfig":
 		r = &CodeSigningConfig{}
 	case "aws:lambda/eventSourceMapping:EventSourceMapping":
@@ -63,6 +65,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lambda/alias",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lambda/capacityProvider",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -110,8 +110,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import LBs using their ARN. For example:
  *
- * console
- *
  * % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
  */
 export class LoadBalancer extends pulumi.CustomResource {
@@ -215,6 +213,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      */
     declare public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic: pulumi.Output<string>;
+    /**
+     * Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+     */
+    declare public readonly healthCheckLogs: pulumi.Output<outputs.alb.LoadBalancerHealthCheckLogs | undefined>;
     /**
      * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
@@ -324,6 +326,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["enableXffClientPort"] = state?.enableXffClientPort;
             resourceInputs["enableZonalShift"] = state?.enableZonalShift;
             resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = state?.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+            resourceInputs["healthCheckLogs"] = state?.healthCheckLogs;
             resourceInputs["idleTimeout"] = state?.idleTimeout;
             resourceInputs["internal"] = state?.internal;
             resourceInputs["ipAddressType"] = state?.ipAddressType;
@@ -360,6 +363,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["enableXffClientPort"] = args?.enableXffClientPort;
             resourceInputs["enableZonalShift"] = args?.enableZonalShift;
             resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = args?.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+            resourceInputs["healthCheckLogs"] = args?.healthCheckLogs;
             resourceInputs["idleTimeout"] = args?.idleTimeout;
             resourceInputs["internal"] = args?.internal;
             resourceInputs["ipAddressType"] = args?.ipAddressType;
@@ -467,6 +471,10 @@ export interface LoadBalancerState {
      * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      */
     enforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: pulumi.Input<string>;
+    /**
+     * Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+     */
+    healthCheckLogs?: pulumi.Input<inputs.alb.LoadBalancerHealthCheckLogs>;
     /**
      * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
@@ -610,6 +618,10 @@ export interface LoadBalancerArgs {
      * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      */
     enforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: pulumi.Input<string>;
+    /**
+     * Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+     */
+    healthCheckLogs?: pulumi.Input<inputs.alb.LoadBalancerHealthCheckLogs>;
     /**
      * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */

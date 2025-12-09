@@ -73,7 +73,16 @@ export class Ciphertext extends pulumi.CustomResource {
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
-    declare public readonly plaintext: pulumi.Output<string>;
+    declare public readonly plaintext: pulumi.Output<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+     */
+    declare public readonly plaintextWo: pulumi.Output<string | undefined>;
+    /**
+     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     */
+    declare public readonly plaintextWoVersion: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -96,23 +105,24 @@ export class Ciphertext extends pulumi.CustomResource {
             resourceInputs["context"] = state?.context;
             resourceInputs["keyId"] = state?.keyId;
             resourceInputs["plaintext"] = state?.plaintext;
+            resourceInputs["plaintextWo"] = state?.plaintextWo;
+            resourceInputs["plaintextWoVersion"] = state?.plaintextWoVersion;
             resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as CiphertextArgs | undefined;
             if (args?.keyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if (args?.plaintext === undefined && !opts.urn) {
-                throw new Error("Missing required property 'plaintext'");
-            }
             resourceInputs["context"] = args?.context;
             resourceInputs["keyId"] = args?.keyId;
             resourceInputs["plaintext"] = args?.plaintext ? pulumi.secret(args.plaintext) : undefined;
+            resourceInputs["plaintextWo"] = args?.plaintextWo ? pulumi.secret(args.plaintextWo) : undefined;
+            resourceInputs["plaintextWoVersion"] = args?.plaintextWoVersion;
             resourceInputs["region"] = args?.region;
             resourceInputs["ciphertextBlob"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["plaintext"] };
+        const secretOpts = { additionalSecretOutputs: ["plaintext", "plaintextWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Ciphertext.__pulumiType, name, resourceInputs, opts);
     }
@@ -139,6 +149,15 @@ export interface CiphertextState {
      */
     plaintext?: pulumi.Input<string>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+     */
+    plaintextWo?: pulumi.Input<string>;
+    /**
+     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     */
+    plaintextWoVersion?: pulumi.Input<string>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
@@ -159,7 +178,16 @@ export interface CiphertextArgs {
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
-    plaintext: pulumi.Input<string>;
+    plaintext?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+     */
+    plaintextWo?: pulumi.Input<string>;
+    /**
+     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     */
+    plaintextWoVersion?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

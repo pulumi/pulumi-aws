@@ -118,14 +118,44 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="plaintext", refs={String.class}, tree="[0]")
-    private Output<String> plaintext;
+    private Output</* @Nullable */ String> plaintext;
 
     /**
      * @return Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      * 
      */
-    public Output<String> plaintext() {
-        return this.plaintext;
+    public Output<Optional<String>> plaintext() {
+        return Codegen.optional(this.plaintext);
+    }
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+     * 
+     */
+    @Export(name="plaintextWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> plaintextWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
+     * 
+     */
+    public Output<Optional<String>> plaintextWo() {
+        return Codegen.optional(this.plaintextWo);
+    }
+    /**
+     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     * 
+     */
+    @Export(name="plaintextWoVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> plaintextWoVersion;
+
+    /**
+     * @return Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     * 
+     */
+    public Output<Optional<String>> plaintextWoVersion() {
+        return Codegen.optional(this.plaintextWoVersion);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -182,7 +212,8 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "plaintext"
+                "plaintext",
+                "plaintextWo"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

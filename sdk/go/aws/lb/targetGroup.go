@@ -230,8 +230,6 @@ import (
 //
 // Using `pulumi import`, import Target Groups using their ARN. For example:
 //
-// console
-//
 // % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
 type TargetGroup struct {
 	pulumi.CustomResourceState
@@ -285,6 +283,8 @@ type TargetGroup struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+	TargetControlPort pulumi.IntPtrOutput `pulumi:"targetControlPort"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayOutput `pulumi:"targetFailovers"`
 	// Target health requirements block. See targetGroupHealth for more information.
@@ -392,6 +392,8 @@ type targetGroupState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+	TargetControlPort *int `pulumi:"targetControlPort"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
 	// Target health requirements block. See targetGroupHealth for more information.
@@ -464,6 +466,8 @@ type TargetGroupState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+	TargetControlPort pulumi.IntPtrInput
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayInput
 	// Target health requirements block. See targetGroupHealth for more information.
@@ -532,6 +536,8 @@ type targetGroupArgs struct {
 	Stickiness *TargetGroupStickiness `pulumi:"stickiness"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+	TargetControlPort *int `pulumi:"targetControlPort"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
 	// Target health requirements block. See targetGroupHealth for more information.
@@ -597,6 +603,8 @@ type TargetGroupArgs struct {
 	Stickiness TargetGroupStickinessPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+	TargetControlPort pulumi.IntPtrInput
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayInput
 	// Target health requirements block. See targetGroupHealth for more information.
@@ -822,6 +830,11 @@ func (o TargetGroupOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TargetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+func (o TargetGroupOutput) TargetControlPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.TargetControlPort }).(pulumi.IntPtrOutput)
 }
 
 // Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.

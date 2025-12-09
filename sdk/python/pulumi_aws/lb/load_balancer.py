@@ -36,6 +36,7 @@ class LoadBalancerArgs:
                  enable_xff_client_port: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_zonal_shift: Optional[pulumi.Input[_builtins.bool]] = None,
                  enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[_builtins.str]] = None,
+                 health_check_logs: Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']] = None,
                  idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  internal: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -69,6 +70,7 @@ class LoadBalancerArgs:
         :param pulumi.Input[_builtins.bool] enable_xff_client_port: Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_zonal_shift: Whether zonal shift is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        :param pulumi.Input['LoadBalancerHealthCheckLogsArgs'] health_check_logs: Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[_builtins.int] idle_timeout: Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[_builtins.bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[_builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
@@ -120,6 +122,8 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "enable_zonal_shift", enable_zonal_shift)
         if enforce_security_group_inbound_rules_on_private_link_traffic is not None:
             pulumi.set(__self__, "enforce_security_group_inbound_rules_on_private_link_traffic", enforce_security_group_inbound_rules_on_private_link_traffic)
+        if health_check_logs is not None:
+            pulumi.set(__self__, "health_check_logs", health_check_logs)
         if idle_timeout is not None:
             pulumi.set(__self__, "idle_timeout", idle_timeout)
         if internal is not None:
@@ -332,6 +336,18 @@ class LoadBalancerArgs:
     @enforce_security_group_inbound_rules_on_private_link_traffic.setter
     def enforce_security_group_inbound_rules_on_private_link_traffic(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "enforce_security_group_inbound_rules_on_private_link_traffic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckLogs")
+    def health_check_logs(self) -> Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']]:
+        """
+        Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+        """
+        return pulumi.get(self, "health_check_logs")
+
+    @health_check_logs.setter
+    def health_check_logs(self, value: Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']]):
+        pulumi.set(self, "health_check_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
@@ -551,6 +567,7 @@ class _LoadBalancerState:
                  enable_xff_client_port: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_zonal_shift: Optional[pulumi.Input[_builtins.bool]] = None,
                  enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[_builtins.str]] = None,
+                 health_check_logs: Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']] = None,
                  idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  internal: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -591,6 +608,7 @@ class _LoadBalancerState:
         :param pulumi.Input[_builtins.bool] enable_xff_client_port: Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_zonal_shift: Whether zonal shift is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        :param pulumi.Input['LoadBalancerHealthCheckLogsArgs'] health_check_logs: Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[_builtins.int] idle_timeout: Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[_builtins.bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[_builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
@@ -650,6 +668,8 @@ class _LoadBalancerState:
             pulumi.set(__self__, "enable_zonal_shift", enable_zonal_shift)
         if enforce_security_group_inbound_rules_on_private_link_traffic is not None:
             pulumi.set(__self__, "enforce_security_group_inbound_rules_on_private_link_traffic", enforce_security_group_inbound_rules_on_private_link_traffic)
+        if health_check_logs is not None:
+            pulumi.set(__self__, "health_check_logs", health_check_logs)
         if idle_timeout is not None:
             pulumi.set(__self__, "idle_timeout", idle_timeout)
         if internal is not None:
@@ -907,6 +927,18 @@ class _LoadBalancerState:
         pulumi.set(self, "enforce_security_group_inbound_rules_on_private_link_traffic", value)
 
     @_builtins.property
+    @pulumi.getter(name="healthCheckLogs")
+    def health_check_logs(self) -> Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']]:
+        """
+        Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+        """
+        return pulumi.get(self, "health_check_logs")
+
+    @health_check_logs.setter
+    def health_check_logs(self, value: Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']]):
+        pulumi.set(self, "health_check_logs", value)
+
+    @_builtins.property
     @pulumi.getter(name="idleTimeout")
     def idle_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -1157,6 +1189,7 @@ class LoadBalancer(pulumi.CustomResource):
                  enable_xff_client_port: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_zonal_shift: Optional[pulumi.Input[_builtins.bool]] = None,
                  enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[_builtins.str]] = None,
+                 health_check_logs: Optional[pulumi.Input[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict']]] = None,
                  idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  internal: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1273,8 +1306,6 @@ class LoadBalancer(pulumi.CustomResource):
 
         Using `pulumi import`, import LBs using their ARN. For example:
 
-        console
-
         % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
 
         :param str resource_name: The name of the resource.
@@ -1294,6 +1325,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_xff_client_port: Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_zonal_shift: Whether zonal shift is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        :param pulumi.Input[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict']] health_check_logs: Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[_builtins.int] idle_timeout: Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[_builtins.bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[_builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
@@ -1420,8 +1452,6 @@ class LoadBalancer(pulumi.CustomResource):
 
         Using `pulumi import`, import LBs using their ARN. For example:
 
-        console
-
         % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
 
         :param str resource_name: The name of the resource.
@@ -1454,6 +1484,7 @@ class LoadBalancer(pulumi.CustomResource):
                  enable_xff_client_port: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_zonal_shift: Optional[pulumi.Input[_builtins.bool]] = None,
                  enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[_builtins.str]] = None,
+                 health_check_logs: Optional[pulumi.Input[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict']]] = None,
                  idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  internal: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1494,6 +1525,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["enable_xff_client_port"] = enable_xff_client_port
             __props__.__dict__["enable_zonal_shift"] = enable_zonal_shift
             __props__.__dict__["enforce_security_group_inbound_rules_on_private_link_traffic"] = enforce_security_group_inbound_rules_on_private_link_traffic
+            __props__.__dict__["health_check_logs"] = health_check_logs
             __props__.__dict__["idle_timeout"] = idle_timeout
             __props__.__dict__["internal"] = internal
             __props__.__dict__["ip_address_type"] = ip_address_type
@@ -1546,6 +1578,7 @@ class LoadBalancer(pulumi.CustomResource):
             enable_xff_client_port: Optional[pulumi.Input[_builtins.bool]] = None,
             enable_zonal_shift: Optional[pulumi.Input[_builtins.bool]] = None,
             enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[_builtins.str]] = None,
+            health_check_logs: Optional[pulumi.Input[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict']]] = None,
             idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
             internal: Optional[pulumi.Input[_builtins.bool]] = None,
             ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1591,6 +1624,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_xff_client_port: Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_zonal_shift: Whether zonal shift is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        :param pulumi.Input[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict']] health_check_logs: Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[_builtins.int] idle_timeout: Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[_builtins.bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[_builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
@@ -1636,6 +1670,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["enable_xff_client_port"] = enable_xff_client_port
         __props__.__dict__["enable_zonal_shift"] = enable_zonal_shift
         __props__.__dict__["enforce_security_group_inbound_rules_on_private_link_traffic"] = enforce_security_group_inbound_rules_on_private_link_traffic
+        __props__.__dict__["health_check_logs"] = health_check_logs
         __props__.__dict__["idle_timeout"] = idle_timeout
         __props__.__dict__["internal"] = internal
         __props__.__dict__["ip_address_type"] = ip_address_type
@@ -1801,6 +1836,14 @@ class LoadBalancer(pulumi.CustomResource):
         Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         """
         return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckLogs")
+    def health_check_logs(self) -> pulumi.Output[Optional['outputs.LoadBalancerHealthCheckLogs']]:
+        """
+        Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+        """
+        return pulumi.get(self, "health_check_logs")
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")

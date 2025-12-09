@@ -58,8 +58,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
  *
- * console
- *
  * % pulumi import aws_ce_anomaly_monitor.example costAnomalyMonitorARN
  */
 export class AnomalyMonitor extends pulumi.CustomResource {

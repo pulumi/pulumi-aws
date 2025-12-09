@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayAuthorizerConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayInterceptorConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayProtocolConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTimeoutsArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayWorkloadIdentityDetailArgs;
@@ -124,6 +125,21 @@ public final class AgentcoreGatewayState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<String>> gatewayUrl() {
         return Optional.ofNullable(this.gatewayUrl);
+    }
+
+    /**
+     * List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+     * 
+     */
+    @Import(name="interceptorConfigurations")
+    private @Nullable Output<List<AgentcoreGatewayInterceptorConfigurationArgs>> interceptorConfigurations;
+
+    /**
+     * @return List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+     * 
+     */
+    public Optional<Output<List<AgentcoreGatewayInterceptorConfigurationArgs>>> interceptorConfigurations() {
+        return Optional.ofNullable(this.interceptorConfigurations);
     }
 
     /**
@@ -282,6 +298,7 @@ public final class AgentcoreGatewayState extends com.pulumi.resources.ResourceAr
         this.gatewayArn = $.gatewayArn;
         this.gatewayId = $.gatewayId;
         this.gatewayUrl = $.gatewayUrl;
+        this.interceptorConfigurations = $.interceptorConfigurations;
         this.kmsKeyArn = $.kmsKeyArn;
         this.name = $.name;
         this.protocolConfiguration = $.protocolConfiguration;
@@ -457,6 +474,37 @@ public final class AgentcoreGatewayState extends com.pulumi.resources.ResourceAr
          */
         public Builder gatewayUrl(String gatewayUrl) {
             return gatewayUrl(Output.of(gatewayUrl));
+        }
+
+        /**
+         * @param interceptorConfigurations List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interceptorConfigurations(@Nullable Output<List<AgentcoreGatewayInterceptorConfigurationArgs>> interceptorConfigurations) {
+            $.interceptorConfigurations = interceptorConfigurations;
+            return this;
+        }
+
+        /**
+         * @param interceptorConfigurations List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interceptorConfigurations(List<AgentcoreGatewayInterceptorConfigurationArgs> interceptorConfigurations) {
+            return interceptorConfigurations(Output.of(interceptorConfigurations));
+        }
+
+        /**
+         * @param interceptorConfigurations List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interceptorConfigurations(AgentcoreGatewayInterceptorConfigurationArgs... interceptorConfigurations) {
+            return interceptorConfigurations(List.of(interceptorConfigurations));
         }
 
         /**

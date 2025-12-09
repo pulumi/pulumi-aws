@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Networkflowmonitor.Outputs
         /// </summary>
         public readonly string Identifier;
         /// <summary>
-        /// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        /// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         /// </summary>
         public readonly string Type;
 

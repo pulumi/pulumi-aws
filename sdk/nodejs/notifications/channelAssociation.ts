@@ -66,7 +66,7 @@ export class ChannelAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+     * ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
      */
     declare public readonly arn: pulumi.Output<string>;
     /**
@@ -110,7 +110,7 @@ export class ChannelAssociation extends pulumi.CustomResource {
  */
 export interface ChannelAssociationState {
     /**
-     * ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+     * ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -124,7 +124,7 @@ export interface ChannelAssociationState {
  */
 export interface ChannelAssociationArgs {
     /**
-     * ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+     * ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
      */
     arn: pulumi.Input<string>;
     /**

@@ -97,8 +97,6 @@ namespace Pulumi.Aws.Connect
     /// 
     /// Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
     /// </summary>
     [AwsResourceType("aws:connect/phoneNumber:PhoneNumber")]

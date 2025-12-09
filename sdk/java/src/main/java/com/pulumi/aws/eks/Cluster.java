@@ -9,6 +9,7 @@ import com.pulumi.aws.eks.inputs.ClusterState;
 import com.pulumi.aws.eks.outputs.ClusterAccessConfig;
 import com.pulumi.aws.eks.outputs.ClusterCertificateAuthority;
 import com.pulumi.aws.eks.outputs.ClusterComputeConfig;
+import com.pulumi.aws.eks.outputs.ClusterControlPlaneScalingConfig;
 import com.pulumi.aws.eks.outputs.ClusterEncryptionConfig;
 import com.pulumi.aws.eks.outputs.ClusterIdentity;
 import com.pulumi.aws.eks.outputs.ClusterKubernetesNetworkConfig;
@@ -542,6 +543,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<ClusterComputeConfig> computeConfig() {
         return this.computeConfig;
+    }
+    /**
+     * Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+     * 
+     */
+    @Export(name="controlPlaneScalingConfig", refs={ClusterControlPlaneScalingConfig.class}, tree="[0]")
+    private Output<ClusterControlPlaneScalingConfig> controlPlaneScalingConfig;
+
+    /**
+     * @return Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+     * 
+     */
+    public Output<ClusterControlPlaneScalingConfig> controlPlaneScalingConfig() {
+        return this.controlPlaneScalingConfig;
     }
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.

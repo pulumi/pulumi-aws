@@ -26,6 +26,7 @@ class ClusterArgs:
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
+                 control_plane_scaling_config: Optional[pulumi.Input['ClusterControlPlaneScalingConfigArgs']] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -50,6 +51,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         :param pulumi.Input[_builtins.bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        :param pulumi.Input['ClusterControlPlaneScalingConfigArgs'] control_plane_scaling_config: Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
         :param pulumi.Input[_builtins.bool] deletion_protection: Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
@@ -73,6 +75,8 @@ class ClusterArgs:
             pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
         if compute_config is not None:
             pulumi.set(__self__, "compute_config", compute_config)
+        if control_plane_scaling_config is not None:
+            pulumi.set(__self__, "control_plane_scaling_config", control_plane_scaling_config)
         if default_addons_to_removes is not None:
             warnings.warn("""Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""", DeprecationWarning)
             pulumi.log.warn("""default_addons_to_removes is deprecated: Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""")
@@ -168,6 +172,18 @@ class ClusterArgs:
     @compute_config.setter
     def compute_config(self, value: Optional[pulumi.Input['ClusterComputeConfigArgs']]):
         pulumi.set(self, "compute_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="controlPlaneScalingConfig")
+    def control_plane_scaling_config(self) -> Optional[pulumi.Input['ClusterControlPlaneScalingConfigArgs']]:
+        """
+        Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+        """
+        return pulumi.get(self, "control_plane_scaling_config")
+
+    @control_plane_scaling_config.setter
+    def control_plane_scaling_config(self, value: Optional[pulumi.Input['ClusterControlPlaneScalingConfigArgs']]):
+        pulumi.set(self, "control_plane_scaling_config", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAddonsToRemoves")
@@ -357,6 +373,7 @@ class _ClusterState:
                  certificate_authority: Optional[pulumi.Input['ClusterCertificateAuthorityArgs']] = None,
                  cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
+                 control_plane_scaling_config: Optional[pulumi.Input['ClusterControlPlaneScalingConfigArgs']] = None,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -388,6 +405,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterCertificateAuthorityArgs'] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        :param pulumi.Input['ClusterControlPlaneScalingConfigArgs'] control_plane_scaling_config: Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
         :param pulumi.Input[_builtins.str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
         :param pulumi.Input[_builtins.bool] deletion_protection: Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -425,6 +443,8 @@ class _ClusterState:
             pulumi.set(__self__, "cluster_id", cluster_id)
         if compute_config is not None:
             pulumi.set(__self__, "compute_config", compute_config)
+        if control_plane_scaling_config is not None:
+            pulumi.set(__self__, "control_plane_scaling_config", control_plane_scaling_config)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if default_addons_to_removes is not None:
@@ -546,6 +566,18 @@ class _ClusterState:
     @compute_config.setter
     def compute_config(self, value: Optional[pulumi.Input['ClusterComputeConfigArgs']]):
         pulumi.set(self, "compute_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="controlPlaneScalingConfig")
+    def control_plane_scaling_config(self) -> Optional[pulumi.Input['ClusterControlPlaneScalingConfigArgs']]:
+        """
+        Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+        """
+        return pulumi.get(self, "control_plane_scaling_config")
+
+    @control_plane_scaling_config.setter
+    def control_plane_scaling_config(self, value: Optional[pulumi.Input['ClusterControlPlaneScalingConfigArgs']]):
+        pulumi.set(self, "control_plane_scaling_config", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -833,6 +865,7 @@ class Cluster(pulumi.CustomResource):
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
+                 control_plane_scaling_config: Optional[pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1115,6 +1148,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         :param pulumi.Input[_builtins.bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        :param pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']] control_plane_scaling_config: Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
         :param pulumi.Input[_builtins.bool] deletion_protection: Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
@@ -1417,6 +1451,7 @@ class Cluster(pulumi.CustomResource):
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
+                 control_plane_scaling_config: Optional[pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1446,6 +1481,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["access_config"] = access_config
             __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
             __props__.__dict__["compute_config"] = compute_config
+            __props__.__dict__["control_plane_scaling_config"] = control_plane_scaling_config
             __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
@@ -1492,6 +1528,7 @@ class Cluster(pulumi.CustomResource):
             certificate_authority: Optional[pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]] = None,
             cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
             compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
+            control_plane_scaling_config: Optional[pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']]] = None,
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
             default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1528,6 +1565,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        :param pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']] control_plane_scaling_config: Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
         :param pulumi.Input[_builtins.str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
         :param pulumi.Input[_builtins.bool] deletion_protection: Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -1563,6 +1601,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["certificate_authority"] = certificate_authority
         __props__.__dict__["cluster_id"] = cluster_id
         __props__.__dict__["compute_config"] = compute_config
+        __props__.__dict__["control_plane_scaling_config"] = control_plane_scaling_config
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
         __props__.__dict__["deletion_protection"] = deletion_protection
@@ -1635,6 +1674,14 @@ class Cluster(pulumi.CustomResource):
         Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         """
         return pulumi.get(self, "compute_config")
+
+    @_builtins.property
+    @pulumi.getter(name="controlPlaneScalingConfig")
+    def control_plane_scaling_config(self) -> pulumi.Output['outputs.ClusterControlPlaneScalingConfig']:
+        """
+        Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+        """
+        return pulumi.get(self, "control_plane_scaling_config")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")

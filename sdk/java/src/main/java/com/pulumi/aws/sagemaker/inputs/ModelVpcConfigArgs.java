@@ -15,16 +15,32 @@ public final class ModelVpcConfigArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ModelVpcConfigArgs Empty = new ModelVpcConfigArgs();
 
+    /**
+     * List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+     * 
+     */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
+    /**
+     * @return List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+     * 
+     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
 
+    /**
+     * List of subnet IDs in the VPC to which you want to connect your training job or model.
+     * 
+     */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
+    /**
+     * @return List of subnet IDs in the VPC to which you want to connect your training job or model.
+     * 
+     */
     public Output<List<String>> subnets() {
         return this.subnets;
     }
@@ -54,28 +70,64 @@ public final class ModelVpcConfigArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ModelVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param securityGroupIds List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
+        /**
+         * @param securityGroupIds List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
+        /**
+         * @param securityGroupIds List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
+        /**
+         * @param subnets List of subnet IDs in the VPC to which you want to connect your training job or model.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnets(Output<List<String>> subnets) {
             $.subnets = subnets;
             return this;
         }
 
+        /**
+         * @param subnets List of subnet IDs in the VPC to which you want to connect your training job or model.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnets(List<String> subnets) {
             return subnets(Output.of(subnets));
         }
 
+        /**
+         * @param subnets List of subnet IDs in the VPC to which you want to connect your training job or model.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }

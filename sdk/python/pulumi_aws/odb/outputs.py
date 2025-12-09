@@ -26,8 +26,8 @@ __all__ = [
     'CloudExadataInfrastructureMaintenanceWindowMonth',
     'CloudExadataInfrastructureTimeouts',
     'CloudVmClusterDataCollectionOptions',
-    'CloudVmClusterIormConfigCach',
-    'CloudVmClusterIormConfigCachDbPlan',
+    'CloudVmClusterIormConfigCache',
+    'CloudVmClusterIormConfigCacheDbPlan',
     'CloudVmClusterTimeouts',
     'NetworkManagedService',
     'NetworkManagedServiceManagedS3BackupAccess',
@@ -47,8 +47,8 @@ __all__ = [
     'GetCloudExadataInfrastructureMaintenanceWindowMonthResult',
     'GetCloudExadataInfrastructuresCloudExadataInfrastructureResult',
     'GetCloudVmClusterDataCollectionOptionResult',
-    'GetCloudVmClusterIormConfigCachResult',
-    'GetCloudVmClusterIormConfigCachDbPlanResult',
+    'GetCloudVmClusterIormConfigCacheResult',
+    'GetCloudVmClusterIormConfigCacheDbPlanResult',
     'GetCloudVmClustersCloudVmClusterResult',
     'GetDbNodesDbNodeResult',
     'GetDbServerDbServerPatchingDetailResult',
@@ -501,7 +501,7 @@ class CloudVmClusterDataCollectionOptions(dict):
 
 
 @pulumi.output_type
-class CloudVmClusterIormConfigCach(dict):
+class CloudVmClusterIormConfigCache(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -513,18 +513,18 @@ class CloudVmClusterIormConfigCach(dict):
             suggest = "lifecycle_state"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudVmClusterIormConfigCach. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CloudVmClusterIormConfigCache. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CloudVmClusterIormConfigCach.__key_warning(key)
+        CloudVmClusterIormConfigCache.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CloudVmClusterIormConfigCach.__key_warning(key)
+        CloudVmClusterIormConfigCache.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 db_plans: Sequence['outputs.CloudVmClusterIormConfigCachDbPlan'],
+                 db_plans: Sequence['outputs.CloudVmClusterIormConfigCacheDbPlan'],
                  lifecycle_details: _builtins.str,
                  lifecycle_state: _builtins.str,
                  objective: _builtins.str):
@@ -535,7 +535,7 @@ class CloudVmClusterIormConfigCach(dict):
 
     @_builtins.property
     @pulumi.getter(name="dbPlans")
-    def db_plans(self) -> Sequence['outputs.CloudVmClusterIormConfigCachDbPlan']:
+    def db_plans(self) -> Sequence['outputs.CloudVmClusterIormConfigCacheDbPlan']:
         return pulumi.get(self, "db_plans")
 
     @_builtins.property
@@ -555,7 +555,7 @@ class CloudVmClusterIormConfigCach(dict):
 
 
 @pulumi.output_type
-class CloudVmClusterIormConfigCachDbPlan(dict):
+class CloudVmClusterIormConfigCacheDbPlan(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -565,14 +565,14 @@ class CloudVmClusterIormConfigCachDbPlan(dict):
             suggest = "flash_cache_limit"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudVmClusterIormConfigCachDbPlan. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CloudVmClusterIormConfigCacheDbPlan. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CloudVmClusterIormConfigCachDbPlan.__key_warning(key)
+        CloudVmClusterIormConfigCacheDbPlan.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CloudVmClusterIormConfigCachDbPlan.__key_warning(key)
+        CloudVmClusterIormConfigCacheDbPlan.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1402,9 +1402,9 @@ class GetCloudVmClusterDataCollectionOptionResult(dict):
 
 
 @pulumi.output_type
-class GetCloudVmClusterIormConfigCachResult(dict):
+class GetCloudVmClusterIormConfigCacheResult(dict):
     def __init__(__self__, *,
-                 db_plans: Sequence['outputs.GetCloudVmClusterIormConfigCachDbPlanResult'],
+                 db_plans: Sequence['outputs.GetCloudVmClusterIormConfigCacheDbPlanResult'],
                  lifecycle_details: _builtins.str,
                  lifecycle_state: _builtins.str,
                  objective: _builtins.str):
@@ -1415,7 +1415,7 @@ class GetCloudVmClusterIormConfigCachResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="dbPlans")
-    def db_plans(self) -> Sequence['outputs.GetCloudVmClusterIormConfigCachDbPlanResult']:
+    def db_plans(self) -> Sequence['outputs.GetCloudVmClusterIormConfigCacheDbPlanResult']:
         return pulumi.get(self, "db_plans")
 
     @_builtins.property
@@ -1435,7 +1435,7 @@ class GetCloudVmClusterIormConfigCachResult(dict):
 
 
 @pulumi.output_type
-class GetCloudVmClusterIormConfigCachDbPlanResult(dict):
+class GetCloudVmClusterIormConfigCacheDbPlanResult(dict):
     def __init__(__self__, *,
                  db_name: _builtins.str,
                  flash_cache_limit: _builtins.str,
@@ -1886,6 +1886,7 @@ class GetDbServersDbServerResult(dict):
         :param Sequence['GetDbServersDbServerDbServerPatchingDetailArgs'] db_server_patching_details: The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
         :param _builtins.str display_name: The user-friendly name of the database server. The name doesn't need to be unique.
         :param _builtins.str exadata_infrastructure_id: The ID of the Exadata infrastructure that hosts the database server.
+        :param _builtins.str id: The unique identifier of the database server.
         :param _builtins.int max_cpu_count: The total number of CPU cores available on the database server.
         :param _builtins.int max_db_node_storage_in_gbs: The total amount of local node storage, in gigabytes (GB), that's available on the database server.
         :param _builtins.int max_memory_in_gbs: The total amount of memory, in gigabytes (GB), that's available on the database server.
@@ -1993,6 +1994,9 @@ class GetDbServersDbServerResult(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        The unique identifier of the database server.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property

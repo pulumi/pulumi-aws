@@ -51,8 +51,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_cloudwatch_log_group.example yada
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logGroup:LogGroup")]
@@ -63,6 +61,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean to indicate whether deletion protection is enabled. Defaults to `False`. Once set, switching to `False` requires explicitly specifying `False` rather than removing this argument.
+        /// </summary>
+        [Output("deletionProtectionEnabled")]
+        public Output<bool> DeletionProtectionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
@@ -169,6 +173,12 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Boolean to indicate whether deletion protection is enabled. Defaults to `False`. Once set, switching to `False` requires explicitly specifying `False` rather than removing this argument.
+        /// </summary>
+        [Input("deletionProtectionEnabled")]
+        public Input<bool>? DeletionProtectionEnabled { get; set; }
+
+        /// <summary>
         /// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
         /// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
         /// permissions for the CMK whenever the encrypted data is requested.
@@ -239,6 +249,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Boolean to indicate whether deletion protection is enabled. Defaults to `False`. Once set, switching to `False` requires explicitly specifying `False` rather than removing this argument.
+        /// </summary>
+        [Input("deletionProtectionEnabled")]
+        public Input<bool>? DeletionProtectionEnabled { get; set; }
 
         /// <summary>
         /// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,

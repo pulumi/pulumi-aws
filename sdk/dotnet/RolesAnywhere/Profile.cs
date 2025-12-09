@@ -75,6 +75,12 @@ namespace Pulumi.Aws.RolesAnywhere
     public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether or not a custom role session name is accepted.
+        /// </summary>
+        [Output("acceptRoleSessionName")]
+        public Output<bool?> AcceptRoleSessionName { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the Profile
         /// </summary>
         [Output("arn")]
@@ -181,6 +187,12 @@ namespace Pulumi.Aws.RolesAnywhere
     public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether or not a custom role session name is accepted.
+        /// </summary>
+        [Input("acceptRoleSessionName")]
+        public Input<bool>? AcceptRoleSessionName { get; set; }
+
+        /// <summary>
         /// The number of seconds the vended session credentials are valid for. Defaults to 3600.
         /// </summary>
         [Input("durationSeconds")]
@@ -254,6 +266,12 @@ namespace Pulumi.Aws.RolesAnywhere
 
     public sealed class ProfileState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether or not a custom role session name is accepted.
+        /// </summary>
+        [Input("acceptRoleSessionName")]
+        public Input<bool>? AcceptRoleSessionName { get; set; }
+
         /// <summary>
         /// Amazon Resource Name (ARN) of the Profile
         /// </summary>

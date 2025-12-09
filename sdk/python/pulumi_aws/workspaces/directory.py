@@ -30,6 +30,7 @@ class DirectoryArgs:
                  self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_access_properties: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']] = None,
                  workspace_creation_properties: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']] = None,
@@ -47,6 +48,7 @@ class DirectoryArgs:
         :param pulumi.Input['DirectorySelfServicePermissionsArgs'] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] tenancy: Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
         :param pulumi.Input[_builtins.str] user_identity_type: Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
                
                > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
@@ -74,6 +76,8 @@ class DirectoryArgs:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tenancy is not None:
+            pulumi.set(__self__, "tenancy", tenancy)
         if user_identity_type is not None:
             pulumi.set(__self__, "user_identity_type", user_identity_type)
         if workspace_access_properties is not None:
@@ -196,6 +200,18 @@ class DirectoryArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tenancy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+        """
+        return pulumi.get(self, "tenancy")
+
+    @tenancy.setter
+    def tenancy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tenancy", value)
+
+    @_builtins.property
     @pulumi.getter(name="userIdentityType")
     def user_identity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -290,6 +306,7 @@ class _DirectoryState:
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_access_properties: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']] = None,
                  workspace_creation_properties: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']] = None,
@@ -316,6 +333,7 @@ class _DirectoryState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] tenancy: Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
         :param pulumi.Input[_builtins.str] user_identity_type: Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
                
                > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
@@ -360,6 +378,8 @@ class _DirectoryState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if tenancy is not None:
+            pulumi.set(__self__, "tenancy", tenancy)
         if user_identity_type is not None:
             pulumi.set(__self__, "user_identity_type", user_identity_type)
         if workspace_access_properties is not None:
@@ -580,6 +600,18 @@ class _DirectoryState:
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tenancy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+        """
+        return pulumi.get(self, "tenancy")
+
+    @tenancy.setter
+    def tenancy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tenancy", value)
+
+    @_builtins.property
     @pulumi.getter(name="userIdentityType")
     def user_identity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -681,6 +713,7 @@ class Directory(pulumi.CustomResource):
                  self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_access_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
                  workspace_creation_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
@@ -862,6 +895,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] tenancy: Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
         :param pulumi.Input[_builtins.str] user_identity_type: Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
                
                > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
@@ -1064,6 +1098,7 @@ class Directory(pulumi.CustomResource):
                  self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_access_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
                  workspace_creation_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
@@ -1088,6 +1123,7 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["self_service_permissions"] = self_service_permissions
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tenancy"] = tenancy
             __props__.__dict__["user_identity_type"] = user_identity_type
             __props__.__dict__["workspace_access_properties"] = workspace_access_properties
             __props__.__dict__["workspace_creation_properties"] = workspace_creation_properties
@@ -1130,6 +1166,7 @@ class Directory(pulumi.CustomResource):
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenancy: Optional[pulumi.Input[_builtins.str]] = None,
             user_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
             workspace_access_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
             workspace_creation_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
@@ -1161,6 +1198,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] tenancy: Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
         :param pulumi.Input[_builtins.str] user_identity_type: Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
                
                > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
@@ -1192,6 +1230,7 @@ class Directory(pulumi.CustomResource):
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["tenancy"] = tenancy
         __props__.__dict__["user_identity_type"] = user_identity_type
         __props__.__dict__["workspace_access_properties"] = workspace_access_properties
         __props__.__dict__["workspace_creation_properties"] = workspace_creation_properties
@@ -1336,6 +1375,14 @@ class Directory(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @_builtins.property
+    @pulumi.getter
+    def tenancy(self) -> pulumi.Output[_builtins.str]:
+        """
+        Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
+        """
+        return pulumi.get(self, "tenancy")
 
     @_builtins.property
     @pulumi.getter(name="userIdentityType")

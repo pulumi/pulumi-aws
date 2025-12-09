@@ -78,6 +78,8 @@ type Plan struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayOutput `pulumi:"rules"`
+	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+	ScanSettings PlanScanSettingArrayOutput `pulumi:"scanSettings"`
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -129,6 +131,8 @@ type planState struct {
 	Region *string `pulumi:"region"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules []PlanRule `pulumi:"rules"`
+	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+	ScanSettings []PlanScanSetting `pulumi:"scanSettings"`
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -148,6 +152,8 @@ type PlanState struct {
 	Region pulumi.StringPtrInput
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayInput
+	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+	ScanSettings PlanScanSettingArrayInput
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -169,6 +175,8 @@ type planArgs struct {
 	Region *string `pulumi:"region"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules []PlanRule `pulumi:"rules"`
+	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+	ScanSettings []PlanScanSetting `pulumi:"scanSettings"`
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -183,6 +191,8 @@ type PlanArgs struct {
 	Region pulumi.StringPtrInput
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayInput
+	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+	ScanSettings PlanScanSettingArrayInput
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -297,6 +307,11 @@ func (o PlanOutput) Region() pulumi.StringOutput {
 // A rule object that specifies a scheduled task that is used to back up a selection of resources.
 func (o PlanOutput) Rules() PlanRuleArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanRuleArrayOutput { return v.Rules }).(PlanRuleArrayOutput)
+}
+
+// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+func (o PlanOutput) ScanSettings() PlanScanSettingArrayOutput {
+	return o.ApplyT(func(v *Plan) PlanScanSettingArrayOutput { return v.ScanSettings }).(PlanScanSettingArrayOutput)
 }
 
 // Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

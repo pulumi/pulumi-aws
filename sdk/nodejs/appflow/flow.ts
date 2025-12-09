@@ -125,8 +125,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import AppFlow flows using the `name`. For example:
  *
- * console
- *
  * % pulumi import aws_appflow_flow.example example-flow
  */
 export class Flow extends pulumi.CustomResource {

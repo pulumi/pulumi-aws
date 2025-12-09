@@ -58,6 +58,10 @@ export interface GetLogGroupResult {
      */
     readonly creationTime: number;
     /**
+     * Boolean to indicate whether deletion protection is enabled.
+     */
+    readonly deletionProtectionEnabled: boolean;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

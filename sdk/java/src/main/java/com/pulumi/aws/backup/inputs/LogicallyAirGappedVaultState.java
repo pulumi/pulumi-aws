@@ -34,6 +34,21 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
     }
 
     /**
+     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * 
+     */
+    @Import(name="encryptionKeyArn")
+    private @Nullable Output<String> encryptionKeyArn;
+
+    /**
+     * @return The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * 
+     */
+    public Optional<Output<String>> encryptionKeyArn() {
+        return Optional.ofNullable(this.encryptionKeyArn);
+    }
+
+    /**
      * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
      * 
      */
@@ -134,6 +149,7 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
 
     private LogicallyAirGappedVaultState(LogicallyAirGappedVaultState $) {
         this.arn = $.arn;
+        this.encryptionKeyArn = $.encryptionKeyArn;
         this.maxRetentionDays = $.maxRetentionDays;
         this.minRetentionDays = $.minRetentionDays;
         this.name = $.name;
@@ -180,6 +196,27 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param encryptionKeyArn The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKeyArn(@Nullable Output<String> encryptionKeyArn) {
+            $.encryptionKeyArn = encryptionKeyArn;
+            return this;
+        }
+
+        /**
+         * @param encryptionKeyArn The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKeyArn(String encryptionKeyArn) {
+            return encryptionKeyArn(Output.of(encryptionKeyArn));
         }
 
         /**

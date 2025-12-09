@@ -4,7 +4,7 @@
 package com.pulumi.aws.odb.inputs;
 
 import com.pulumi.aws.odb.inputs.CloudVmClusterDataCollectionOptionsArgs;
-import com.pulumi.aws.odb.inputs.CloudVmClusterIormConfigCachArgs;
+import com.pulumi.aws.odb.inputs.CloudVmClusterIormConfigCacheArgs;
 import com.pulumi.aws.odb.inputs.CloudVmClusterTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -39,14 +39,29 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * 
+     */
+    @Import(name="cloudExadataInfrastructureArn")
+    private @Nullable Output<String> cloudExadataInfrastructureArn;
+
+    /**
+     * @return The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * 
+     */
+    public Optional<Output<String>> cloudExadataInfrastructureArn() {
+        return Optional.ofNullable(this.cloudExadataInfrastructureArn);
+    }
+
+    /**
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     @Import(name="cloudExadataInfrastructureId")
     private @Nullable Output<String> cloudExadataInfrastructureId;
 
     /**
-     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     public Optional<Output<String>> cloudExadataInfrastructureId() {
@@ -289,13 +304,13 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
      * 
      */
     @Import(name="iormConfigCaches")
-    private @Nullable Output<List<CloudVmClusterIormConfigCachArgs>> iormConfigCaches;
+    private @Nullable Output<List<CloudVmClusterIormConfigCacheArgs>> iormConfigCaches;
 
     /**
      * @return The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
      * 
      */
-    public Optional<Output<List<CloudVmClusterIormConfigCachArgs>>> iormConfigCaches() {
+    public Optional<Output<List<CloudVmClusterIormConfigCacheArgs>>> iormConfigCaches() {
         return Optional.ofNullable(this.iormConfigCaches);
     }
 
@@ -450,14 +465,29 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+     * The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * 
+     */
+    @Import(name="odbNetworkArn")
+    private @Nullable Output<String> odbNetworkArn;
+
+    /**
+     * @return The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * 
+     */
+    public Optional<Output<String>> odbNetworkArn() {
+        return Optional.ofNullable(this.odbNetworkArn);
+    }
+
+    /**
+     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     @Import(name="odbNetworkId")
     private @Nullable Output<String> odbNetworkId;
 
     /**
-     * @return The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+     * @return The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     public Optional<Output<String>> odbNetworkId() {
@@ -715,6 +745,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
 
     private CloudVmClusterState(CloudVmClusterState $) {
         this.arn = $.arn;
+        this.cloudExadataInfrastructureArn = $.cloudExadataInfrastructureArn;
         this.cloudExadataInfrastructureId = $.cloudExadataInfrastructureId;
         this.clusterName = $.clusterName;
         this.computeModel = $.computeModel;
@@ -742,6 +773,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         this.ociResourceAnchorName = $.ociResourceAnchorName;
         this.ociUrl = $.ociUrl;
         this.ocid = $.ocid;
+        this.odbNetworkArn = $.odbNetworkArn;
         this.odbNetworkId = $.odbNetworkId;
         this.percentProgress = $.percentProgress;
         this.region = $.region;
@@ -802,7 +834,28 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cloudExadataInfrastructureId The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+         * @param cloudExadataInfrastructureArn The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudExadataInfrastructureArn(@Nullable Output<String> cloudExadataInfrastructureArn) {
+            $.cloudExadataInfrastructureArn = cloudExadataInfrastructureArn;
+            return this;
+        }
+
+        /**
+         * @param cloudExadataInfrastructureArn The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudExadataInfrastructureArn(String cloudExadataInfrastructureArn) {
+            return cloudExadataInfrastructureArn(Output.of(cloudExadataInfrastructureArn));
+        }
+
+        /**
+         * @param cloudExadataInfrastructureId The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 
@@ -813,7 +866,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cloudExadataInfrastructureId The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+         * @param cloudExadataInfrastructureId The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 
@@ -1159,7 +1212,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder iormConfigCaches(@Nullable Output<List<CloudVmClusterIormConfigCachArgs>> iormConfigCaches) {
+        public Builder iormConfigCaches(@Nullable Output<List<CloudVmClusterIormConfigCacheArgs>> iormConfigCaches) {
             $.iormConfigCaches = iormConfigCaches;
             return this;
         }
@@ -1170,7 +1223,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder iormConfigCaches(List<CloudVmClusterIormConfigCachArgs> iormConfigCaches) {
+        public Builder iormConfigCaches(List<CloudVmClusterIormConfigCacheArgs> iormConfigCaches) {
             return iormConfigCaches(Output.of(iormConfigCaches));
         }
 
@@ -1180,7 +1233,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder iormConfigCaches(CloudVmClusterIormConfigCachArgs... iormConfigCaches) {
+        public Builder iormConfigCaches(CloudVmClusterIormConfigCacheArgs... iormConfigCaches) {
             return iormConfigCaches(List.of(iormConfigCaches));
         }
 
@@ -1395,7 +1448,28 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param odbNetworkId The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+         * @param odbNetworkArn The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(@Nullable Output<String> odbNetworkArn) {
+            $.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+
+        /**
+         * @param odbNetworkArn The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(String odbNetworkArn) {
+            return odbNetworkArn(Output.of(odbNetworkArn));
+        }
+
+        /**
+         * @param odbNetworkId The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 
@@ -1406,7 +1480,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param odbNetworkId The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
+         * @param odbNetworkId The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 

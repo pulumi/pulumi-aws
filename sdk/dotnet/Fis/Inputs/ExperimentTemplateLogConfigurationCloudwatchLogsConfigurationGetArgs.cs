@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Fis.Inputs
     public sealed class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+        /// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
         /// </summary>
         [Input("logGroupArn", required: true)]
         public Input<string> LogGroupArn { get; set; } = null!;

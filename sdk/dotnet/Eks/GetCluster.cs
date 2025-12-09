@@ -189,6 +189,10 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterComputeConfigResult> ComputeConfigs;
         /// <summary>
+        /// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterControlPlaneScalingConfigResult> ControlPlaneScalingConfigs;
+        /// <summary>
         /// Unix epoch time stamp in seconds for when the cluster was created.
         /// </summary>
         public readonly string CreatedAt;
@@ -275,6 +279,8 @@ namespace Pulumi.Aws.Eks
 
             ImmutableArray<Outputs.GetClusterComputeConfigResult> computeConfigs,
 
+            ImmutableArray<Outputs.GetClusterControlPlaneScalingConfigResult> controlPlaneScalingConfigs,
+
             string createdAt,
 
             bool deletionProtection,
@@ -320,6 +326,7 @@ namespace Pulumi.Aws.Eks
             CertificateAuthorities = certificateAuthorities;
             ClusterId = clusterId;
             ComputeConfigs = computeConfigs;
+            ControlPlaneScalingConfigs = controlPlaneScalingConfigs;
             CreatedAt = createdAt;
             DeletionProtection = deletionProtection;
             EnabledClusterLogTypes = enabledClusterLogTypes;

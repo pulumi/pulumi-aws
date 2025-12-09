@@ -22,13 +22,15 @@ type ListenerDefaultAction struct {
 	FixedResponse *ListenerDefaultActionFixedResponse `pulumi:"fixedResponse"`
 	// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
 	Forward *ListenerDefaultActionForward `pulumi:"forward"`
+	// Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
+	JwtValidation *ListenerDefaultActionJwtValidation `pulumi:"jwtValidation"`
 	// Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
 	Order *int `pulumi:"order"`
 	// Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
 	Redirect *ListenerDefaultActionRedirect `pulumi:"redirect"`
 	// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
-	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
 	//
 	// The following arguments are optional:
 	Type string `pulumi:"type"`
@@ -54,13 +56,15 @@ type ListenerDefaultActionArgs struct {
 	FixedResponse ListenerDefaultActionFixedResponsePtrInput `pulumi:"fixedResponse"`
 	// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
 	Forward ListenerDefaultActionForwardPtrInput `pulumi:"forward"`
+	// Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
+	JwtValidation ListenerDefaultActionJwtValidationPtrInput `pulumi:"jwtValidation"`
 	// Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
 	Order pulumi.IntPtrInput `pulumi:"order"`
 	// Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
 	Redirect ListenerDefaultActionRedirectPtrInput `pulumi:"redirect"`
 	// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
-	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringInput `pulumi:"type"`
@@ -137,6 +141,11 @@ func (o ListenerDefaultActionOutput) Forward() ListenerDefaultActionForwardPtrOu
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionForward { return v.Forward }).(ListenerDefaultActionForwardPtrOutput)
 }
 
+// Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
+func (o ListenerDefaultActionOutput) JwtValidation() ListenerDefaultActionJwtValidationPtrOutput {
+	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionJwtValidation { return v.JwtValidation }).(ListenerDefaultActionJwtValidationPtrOutput)
+}
+
 // Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
 func (o ListenerDefaultActionOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *int { return v.Order }).(pulumi.IntPtrOutput)
@@ -152,7 +161,7 @@ func (o ListenerDefaultActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
 //
 // The following arguments are optional:
 func (o ListenerDefaultActionOutput) Type() pulumi.StringOutput {
@@ -1419,6 +1428,306 @@ func (o ListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.IntIn
 	}).(ListenerDefaultActionForwardTargetGroupOutput)
 }
 
+type ListenerDefaultActionJwtValidation struct {
+	// Repeatable configuration block for additional claims to validate.
+	AdditionalClaims []ListenerDefaultActionJwtValidationAdditionalClaim `pulumi:"additionalClaims"`
+	// Issuer of the JWT.
+	Issuer string `pulumi:"issuer"`
+	// JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	//
+	// The following arguments are optional:
+	JwksEndpoint string `pulumi:"jwksEndpoint"`
+}
+
+// ListenerDefaultActionJwtValidationInput is an input type that accepts ListenerDefaultActionJwtValidationArgs and ListenerDefaultActionJwtValidationOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionJwtValidationInput` via:
+//
+//	ListenerDefaultActionJwtValidationArgs{...}
+type ListenerDefaultActionJwtValidationInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionJwtValidationOutput() ListenerDefaultActionJwtValidationOutput
+	ToListenerDefaultActionJwtValidationOutputWithContext(context.Context) ListenerDefaultActionJwtValidationOutput
+}
+
+type ListenerDefaultActionJwtValidationArgs struct {
+	// Repeatable configuration block for additional claims to validate.
+	AdditionalClaims ListenerDefaultActionJwtValidationAdditionalClaimArrayInput `pulumi:"additionalClaims"`
+	// Issuer of the JWT.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	//
+	// The following arguments are optional:
+	JwksEndpoint pulumi.StringInput `pulumi:"jwksEndpoint"`
+}
+
+func (ListenerDefaultActionJwtValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionJwtValidation)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionJwtValidationArgs) ToListenerDefaultActionJwtValidationOutput() ListenerDefaultActionJwtValidationOutput {
+	return i.ToListenerDefaultActionJwtValidationOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionJwtValidationArgs) ToListenerDefaultActionJwtValidationOutputWithContext(ctx context.Context) ListenerDefaultActionJwtValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionJwtValidationOutput)
+}
+
+func (i ListenerDefaultActionJwtValidationArgs) ToListenerDefaultActionJwtValidationPtrOutput() ListenerDefaultActionJwtValidationPtrOutput {
+	return i.ToListenerDefaultActionJwtValidationPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionJwtValidationArgs) ToListenerDefaultActionJwtValidationPtrOutputWithContext(ctx context.Context) ListenerDefaultActionJwtValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionJwtValidationOutput).ToListenerDefaultActionJwtValidationPtrOutputWithContext(ctx)
+}
+
+// ListenerDefaultActionJwtValidationPtrInput is an input type that accepts ListenerDefaultActionJwtValidationArgs, ListenerDefaultActionJwtValidationPtr and ListenerDefaultActionJwtValidationPtrOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionJwtValidationPtrInput` via:
+//
+//	        ListenerDefaultActionJwtValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerDefaultActionJwtValidationPtrInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionJwtValidationPtrOutput() ListenerDefaultActionJwtValidationPtrOutput
+	ToListenerDefaultActionJwtValidationPtrOutputWithContext(context.Context) ListenerDefaultActionJwtValidationPtrOutput
+}
+
+type listenerDefaultActionJwtValidationPtrType ListenerDefaultActionJwtValidationArgs
+
+func ListenerDefaultActionJwtValidationPtr(v *ListenerDefaultActionJwtValidationArgs) ListenerDefaultActionJwtValidationPtrInput {
+	return (*listenerDefaultActionJwtValidationPtrType)(v)
+}
+
+func (*listenerDefaultActionJwtValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerDefaultActionJwtValidation)(nil)).Elem()
+}
+
+func (i *listenerDefaultActionJwtValidationPtrType) ToListenerDefaultActionJwtValidationPtrOutput() ListenerDefaultActionJwtValidationPtrOutput {
+	return i.ToListenerDefaultActionJwtValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerDefaultActionJwtValidationPtrType) ToListenerDefaultActionJwtValidationPtrOutputWithContext(ctx context.Context) ListenerDefaultActionJwtValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionJwtValidationPtrOutput)
+}
+
+type ListenerDefaultActionJwtValidationOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionJwtValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionJwtValidation)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionJwtValidationOutput) ToListenerDefaultActionJwtValidationOutput() ListenerDefaultActionJwtValidationOutput {
+	return o
+}
+
+func (o ListenerDefaultActionJwtValidationOutput) ToListenerDefaultActionJwtValidationOutputWithContext(ctx context.Context) ListenerDefaultActionJwtValidationOutput {
+	return o
+}
+
+func (o ListenerDefaultActionJwtValidationOutput) ToListenerDefaultActionJwtValidationPtrOutput() ListenerDefaultActionJwtValidationPtrOutput {
+	return o.ToListenerDefaultActionJwtValidationPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerDefaultActionJwtValidationOutput) ToListenerDefaultActionJwtValidationPtrOutputWithContext(ctx context.Context) ListenerDefaultActionJwtValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerDefaultActionJwtValidation) *ListenerDefaultActionJwtValidation {
+		return &v
+	}).(ListenerDefaultActionJwtValidationPtrOutput)
+}
+
+// Repeatable configuration block for additional claims to validate.
+func (o ListenerDefaultActionJwtValidationOutput) AdditionalClaims() ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput {
+	return o.ApplyT(func(v ListenerDefaultActionJwtValidation) []ListenerDefaultActionJwtValidationAdditionalClaim {
+		return v.AdditionalClaims
+	}).(ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput)
+}
+
+// Issuer of the JWT.
+func (o ListenerDefaultActionJwtValidationOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerDefaultActionJwtValidation) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+//
+// The following arguments are optional:
+func (o ListenerDefaultActionJwtValidationOutput) JwksEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerDefaultActionJwtValidation) string { return v.JwksEndpoint }).(pulumi.StringOutput)
+}
+
+type ListenerDefaultActionJwtValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionJwtValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerDefaultActionJwtValidation)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionJwtValidationPtrOutput) ToListenerDefaultActionJwtValidationPtrOutput() ListenerDefaultActionJwtValidationPtrOutput {
+	return o
+}
+
+func (o ListenerDefaultActionJwtValidationPtrOutput) ToListenerDefaultActionJwtValidationPtrOutputWithContext(ctx context.Context) ListenerDefaultActionJwtValidationPtrOutput {
+	return o
+}
+
+func (o ListenerDefaultActionJwtValidationPtrOutput) Elem() ListenerDefaultActionJwtValidationOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionJwtValidation) ListenerDefaultActionJwtValidation {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerDefaultActionJwtValidation
+		return ret
+	}).(ListenerDefaultActionJwtValidationOutput)
+}
+
+// Repeatable configuration block for additional claims to validate.
+func (o ListenerDefaultActionJwtValidationPtrOutput) AdditionalClaims() ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionJwtValidation) []ListenerDefaultActionJwtValidationAdditionalClaim {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalClaims
+	}).(ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput)
+}
+
+// Issuer of the JWT.
+func (o ListenerDefaultActionJwtValidationPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionJwtValidation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+//
+// The following arguments are optional:
+func (o ListenerDefaultActionJwtValidationPtrOutput) JwksEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionJwtValidation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JwksEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type ListenerDefaultActionJwtValidationAdditionalClaim struct {
+	// Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
+	Format string `pulumi:"format"`
+	// Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
+	Name string `pulumi:"name"`
+	// List of expected values of the claim.
+	Values []string `pulumi:"values"`
+}
+
+// ListenerDefaultActionJwtValidationAdditionalClaimInput is an input type that accepts ListenerDefaultActionJwtValidationAdditionalClaimArgs and ListenerDefaultActionJwtValidationAdditionalClaimOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionJwtValidationAdditionalClaimInput` via:
+//
+//	ListenerDefaultActionJwtValidationAdditionalClaimArgs{...}
+type ListenerDefaultActionJwtValidationAdditionalClaimInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionJwtValidationAdditionalClaimOutput() ListenerDefaultActionJwtValidationAdditionalClaimOutput
+	ToListenerDefaultActionJwtValidationAdditionalClaimOutputWithContext(context.Context) ListenerDefaultActionJwtValidationAdditionalClaimOutput
+}
+
+type ListenerDefaultActionJwtValidationAdditionalClaimArgs struct {
+	// Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
+	Format pulumi.StringInput `pulumi:"format"`
+	// Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of expected values of the claim.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ListenerDefaultActionJwtValidationAdditionalClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionJwtValidationAdditionalClaimArgs) ToListenerDefaultActionJwtValidationAdditionalClaimOutput() ListenerDefaultActionJwtValidationAdditionalClaimOutput {
+	return i.ToListenerDefaultActionJwtValidationAdditionalClaimOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionJwtValidationAdditionalClaimArgs) ToListenerDefaultActionJwtValidationAdditionalClaimOutputWithContext(ctx context.Context) ListenerDefaultActionJwtValidationAdditionalClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionJwtValidationAdditionalClaimOutput)
+}
+
+// ListenerDefaultActionJwtValidationAdditionalClaimArrayInput is an input type that accepts ListenerDefaultActionJwtValidationAdditionalClaimArray and ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionJwtValidationAdditionalClaimArrayInput` via:
+//
+//	ListenerDefaultActionJwtValidationAdditionalClaimArray{ ListenerDefaultActionJwtValidationAdditionalClaimArgs{...} }
+type ListenerDefaultActionJwtValidationAdditionalClaimArrayInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionJwtValidationAdditionalClaimArrayOutput() ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput
+	ToListenerDefaultActionJwtValidationAdditionalClaimArrayOutputWithContext(context.Context) ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput
+}
+
+type ListenerDefaultActionJwtValidationAdditionalClaimArray []ListenerDefaultActionJwtValidationAdditionalClaimInput
+
+func (ListenerDefaultActionJwtValidationAdditionalClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerDefaultActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionJwtValidationAdditionalClaimArray) ToListenerDefaultActionJwtValidationAdditionalClaimArrayOutput() ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput {
+	return i.ToListenerDefaultActionJwtValidationAdditionalClaimArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionJwtValidationAdditionalClaimArray) ToListenerDefaultActionJwtValidationAdditionalClaimArrayOutputWithContext(ctx context.Context) ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput)
+}
+
+type ListenerDefaultActionJwtValidationAdditionalClaimOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionJwtValidationAdditionalClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionJwtValidationAdditionalClaimOutput) ToListenerDefaultActionJwtValidationAdditionalClaimOutput() ListenerDefaultActionJwtValidationAdditionalClaimOutput {
+	return o
+}
+
+func (o ListenerDefaultActionJwtValidationAdditionalClaimOutput) ToListenerDefaultActionJwtValidationAdditionalClaimOutputWithContext(ctx context.Context) ListenerDefaultActionJwtValidationAdditionalClaimOutput {
+	return o
+}
+
+// Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
+func (o ListenerDefaultActionJwtValidationAdditionalClaimOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerDefaultActionJwtValidationAdditionalClaim) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
+func (o ListenerDefaultActionJwtValidationAdditionalClaimOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerDefaultActionJwtValidationAdditionalClaim) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of expected values of the claim.
+func (o ListenerDefaultActionJwtValidationAdditionalClaimOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListenerDefaultActionJwtValidationAdditionalClaim) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerDefaultActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput) ToListenerDefaultActionJwtValidationAdditionalClaimArrayOutput() ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput {
+	return o
+}
+
+func (o ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput) ToListenerDefaultActionJwtValidationAdditionalClaimArrayOutputWithContext(ctx context.Context) ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput {
+	return o
+}
+
+func (o ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput) Index(i pulumi.IntInput) ListenerDefaultActionJwtValidationAdditionalClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerDefaultActionJwtValidationAdditionalClaim {
+		return vs[0].([]ListenerDefaultActionJwtValidationAdditionalClaim)[vs[1].(int)]
+	}).(ListenerDefaultActionJwtValidationAdditionalClaimOutput)
+}
+
 type ListenerDefaultActionRedirect struct {
 	// Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
 	Host *string `pulumi:"host"`
@@ -1868,6 +2177,8 @@ type ListenerRuleAction struct {
 	// Specify only if `type` is `forward`.
 	// Cannot be specified with `targetGroupArn`.
 	Forward *ListenerRuleActionForward `pulumi:"forward"`
+	// Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
+	JwtValidation *ListenerRuleActionJwtValidation `pulumi:"jwtValidation"`
 	// Order for the action.
 	// The action with the lowest value for order is performed first.
 	// Valid values are between `1` and `50000`.
@@ -1880,7 +2191,7 @@ type ListenerRuleAction struct {
 	// To route to one or more target groups, use a `forward` block instead.
 	// Cannot be specified with `forward`.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
-	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
 	Type string `pulumi:"type"`
 }
 
@@ -1906,6 +2217,8 @@ type ListenerRuleActionArgs struct {
 	// Specify only if `type` is `forward`.
 	// Cannot be specified with `targetGroupArn`.
 	Forward ListenerRuleActionForwardPtrInput `pulumi:"forward"`
+	// Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
+	JwtValidation ListenerRuleActionJwtValidationPtrInput `pulumi:"jwtValidation"`
 	// Order for the action.
 	// The action with the lowest value for order is performed first.
 	// Valid values are between `1` and `50000`.
@@ -1918,7 +2231,7 @@ type ListenerRuleActionArgs struct {
 	// To route to one or more target groups, use a `forward` block instead.
 	// Cannot be specified with `forward`.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
-	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1995,6 +2308,11 @@ func (o ListenerRuleActionOutput) Forward() ListenerRuleActionForwardPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionForward { return v.Forward }).(ListenerRuleActionForwardPtrOutput)
 }
 
+// Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
+func (o ListenerRuleActionOutput) JwtValidation() ListenerRuleActionJwtValidationPtrOutput {
+	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionJwtValidation { return v.JwtValidation }).(ListenerRuleActionJwtValidationPtrOutput)
+}
+
 // Order for the action.
 // The action with the lowest value for order is performed first.
 // Valid values are between `1` and `50000`.
@@ -2016,7 +2334,7 @@ func (o ListenerRuleActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
 func (o ListenerRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3233,6 +3551,298 @@ func (o ListenerRuleActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerRuleActionForwardTargetGroup {
 		return vs[0].([]ListenerRuleActionForwardTargetGroup)[vs[1].(int)]
 	}).(ListenerRuleActionForwardTargetGroupOutput)
+}
+
+type ListenerRuleActionJwtValidation struct {
+	// Repeatable configuration block for additional claims to validate.
+	AdditionalClaims []ListenerRuleActionJwtValidationAdditionalClaim `pulumi:"additionalClaims"`
+	// Issuer of the JWT.
+	Issuer string `pulumi:"issuer"`
+	// JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	JwksEndpoint string `pulumi:"jwksEndpoint"`
+}
+
+// ListenerRuleActionJwtValidationInput is an input type that accepts ListenerRuleActionJwtValidationArgs and ListenerRuleActionJwtValidationOutput values.
+// You can construct a concrete instance of `ListenerRuleActionJwtValidationInput` via:
+//
+//	ListenerRuleActionJwtValidationArgs{...}
+type ListenerRuleActionJwtValidationInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionJwtValidationOutput() ListenerRuleActionJwtValidationOutput
+	ToListenerRuleActionJwtValidationOutputWithContext(context.Context) ListenerRuleActionJwtValidationOutput
+}
+
+type ListenerRuleActionJwtValidationArgs struct {
+	// Repeatable configuration block for additional claims to validate.
+	AdditionalClaims ListenerRuleActionJwtValidationAdditionalClaimArrayInput `pulumi:"additionalClaims"`
+	// Issuer of the JWT.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	JwksEndpoint pulumi.StringInput `pulumi:"jwksEndpoint"`
+}
+
+func (ListenerRuleActionJwtValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionJwtValidation)(nil)).Elem()
+}
+
+func (i ListenerRuleActionJwtValidationArgs) ToListenerRuleActionJwtValidationOutput() ListenerRuleActionJwtValidationOutput {
+	return i.ToListenerRuleActionJwtValidationOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionJwtValidationArgs) ToListenerRuleActionJwtValidationOutputWithContext(ctx context.Context) ListenerRuleActionJwtValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionJwtValidationOutput)
+}
+
+func (i ListenerRuleActionJwtValidationArgs) ToListenerRuleActionJwtValidationPtrOutput() ListenerRuleActionJwtValidationPtrOutput {
+	return i.ToListenerRuleActionJwtValidationPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionJwtValidationArgs) ToListenerRuleActionJwtValidationPtrOutputWithContext(ctx context.Context) ListenerRuleActionJwtValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionJwtValidationOutput).ToListenerRuleActionJwtValidationPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleActionJwtValidationPtrInput is an input type that accepts ListenerRuleActionJwtValidationArgs, ListenerRuleActionJwtValidationPtr and ListenerRuleActionJwtValidationPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleActionJwtValidationPtrInput` via:
+//
+//	        ListenerRuleActionJwtValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleActionJwtValidationPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionJwtValidationPtrOutput() ListenerRuleActionJwtValidationPtrOutput
+	ToListenerRuleActionJwtValidationPtrOutputWithContext(context.Context) ListenerRuleActionJwtValidationPtrOutput
+}
+
+type listenerRuleActionJwtValidationPtrType ListenerRuleActionJwtValidationArgs
+
+func ListenerRuleActionJwtValidationPtr(v *ListenerRuleActionJwtValidationArgs) ListenerRuleActionJwtValidationPtrInput {
+	return (*listenerRuleActionJwtValidationPtrType)(v)
+}
+
+func (*listenerRuleActionJwtValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleActionJwtValidation)(nil)).Elem()
+}
+
+func (i *listenerRuleActionJwtValidationPtrType) ToListenerRuleActionJwtValidationPtrOutput() ListenerRuleActionJwtValidationPtrOutput {
+	return i.ToListenerRuleActionJwtValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleActionJwtValidationPtrType) ToListenerRuleActionJwtValidationPtrOutputWithContext(ctx context.Context) ListenerRuleActionJwtValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionJwtValidationPtrOutput)
+}
+
+type ListenerRuleActionJwtValidationOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionJwtValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionJwtValidation)(nil)).Elem()
+}
+
+func (o ListenerRuleActionJwtValidationOutput) ToListenerRuleActionJwtValidationOutput() ListenerRuleActionJwtValidationOutput {
+	return o
+}
+
+func (o ListenerRuleActionJwtValidationOutput) ToListenerRuleActionJwtValidationOutputWithContext(ctx context.Context) ListenerRuleActionJwtValidationOutput {
+	return o
+}
+
+func (o ListenerRuleActionJwtValidationOutput) ToListenerRuleActionJwtValidationPtrOutput() ListenerRuleActionJwtValidationPtrOutput {
+	return o.ToListenerRuleActionJwtValidationPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleActionJwtValidationOutput) ToListenerRuleActionJwtValidationPtrOutputWithContext(ctx context.Context) ListenerRuleActionJwtValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleActionJwtValidation) *ListenerRuleActionJwtValidation {
+		return &v
+	}).(ListenerRuleActionJwtValidationPtrOutput)
+}
+
+// Repeatable configuration block for additional claims to validate.
+func (o ListenerRuleActionJwtValidationOutput) AdditionalClaims() ListenerRuleActionJwtValidationAdditionalClaimArrayOutput {
+	return o.ApplyT(func(v ListenerRuleActionJwtValidation) []ListenerRuleActionJwtValidationAdditionalClaim {
+		return v.AdditionalClaims
+	}).(ListenerRuleActionJwtValidationAdditionalClaimArrayOutput)
+}
+
+// Issuer of the JWT.
+func (o ListenerRuleActionJwtValidationOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleActionJwtValidation) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+func (o ListenerRuleActionJwtValidationOutput) JwksEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleActionJwtValidation) string { return v.JwksEndpoint }).(pulumi.StringOutput)
+}
+
+type ListenerRuleActionJwtValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionJwtValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleActionJwtValidation)(nil)).Elem()
+}
+
+func (o ListenerRuleActionJwtValidationPtrOutput) ToListenerRuleActionJwtValidationPtrOutput() ListenerRuleActionJwtValidationPtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionJwtValidationPtrOutput) ToListenerRuleActionJwtValidationPtrOutputWithContext(ctx context.Context) ListenerRuleActionJwtValidationPtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionJwtValidationPtrOutput) Elem() ListenerRuleActionJwtValidationOutput {
+	return o.ApplyT(func(v *ListenerRuleActionJwtValidation) ListenerRuleActionJwtValidation {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleActionJwtValidation
+		return ret
+	}).(ListenerRuleActionJwtValidationOutput)
+}
+
+// Repeatable configuration block for additional claims to validate.
+func (o ListenerRuleActionJwtValidationPtrOutput) AdditionalClaims() ListenerRuleActionJwtValidationAdditionalClaimArrayOutput {
+	return o.ApplyT(func(v *ListenerRuleActionJwtValidation) []ListenerRuleActionJwtValidationAdditionalClaim {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalClaims
+	}).(ListenerRuleActionJwtValidationAdditionalClaimArrayOutput)
+}
+
+// Issuer of the JWT.
+func (o ListenerRuleActionJwtValidationPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleActionJwtValidation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+func (o ListenerRuleActionJwtValidationPtrOutput) JwksEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleActionJwtValidation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JwksEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type ListenerRuleActionJwtValidationAdditionalClaim struct {
+	// Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
+	Format string `pulumi:"format"`
+	// Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
+	Name string `pulumi:"name"`
+	// List of expected values of the claim.
+	Values []string `pulumi:"values"`
+}
+
+// ListenerRuleActionJwtValidationAdditionalClaimInput is an input type that accepts ListenerRuleActionJwtValidationAdditionalClaimArgs and ListenerRuleActionJwtValidationAdditionalClaimOutput values.
+// You can construct a concrete instance of `ListenerRuleActionJwtValidationAdditionalClaimInput` via:
+//
+//	ListenerRuleActionJwtValidationAdditionalClaimArgs{...}
+type ListenerRuleActionJwtValidationAdditionalClaimInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionJwtValidationAdditionalClaimOutput() ListenerRuleActionJwtValidationAdditionalClaimOutput
+	ToListenerRuleActionJwtValidationAdditionalClaimOutputWithContext(context.Context) ListenerRuleActionJwtValidationAdditionalClaimOutput
+}
+
+type ListenerRuleActionJwtValidationAdditionalClaimArgs struct {
+	// Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
+	Format pulumi.StringInput `pulumi:"format"`
+	// Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of expected values of the claim.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ListenerRuleActionJwtValidationAdditionalClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (i ListenerRuleActionJwtValidationAdditionalClaimArgs) ToListenerRuleActionJwtValidationAdditionalClaimOutput() ListenerRuleActionJwtValidationAdditionalClaimOutput {
+	return i.ToListenerRuleActionJwtValidationAdditionalClaimOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionJwtValidationAdditionalClaimArgs) ToListenerRuleActionJwtValidationAdditionalClaimOutputWithContext(ctx context.Context) ListenerRuleActionJwtValidationAdditionalClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionJwtValidationAdditionalClaimOutput)
+}
+
+// ListenerRuleActionJwtValidationAdditionalClaimArrayInput is an input type that accepts ListenerRuleActionJwtValidationAdditionalClaimArray and ListenerRuleActionJwtValidationAdditionalClaimArrayOutput values.
+// You can construct a concrete instance of `ListenerRuleActionJwtValidationAdditionalClaimArrayInput` via:
+//
+//	ListenerRuleActionJwtValidationAdditionalClaimArray{ ListenerRuleActionJwtValidationAdditionalClaimArgs{...} }
+type ListenerRuleActionJwtValidationAdditionalClaimArrayInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionJwtValidationAdditionalClaimArrayOutput() ListenerRuleActionJwtValidationAdditionalClaimArrayOutput
+	ToListenerRuleActionJwtValidationAdditionalClaimArrayOutputWithContext(context.Context) ListenerRuleActionJwtValidationAdditionalClaimArrayOutput
+}
+
+type ListenerRuleActionJwtValidationAdditionalClaimArray []ListenerRuleActionJwtValidationAdditionalClaimInput
+
+func (ListenerRuleActionJwtValidationAdditionalClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (i ListenerRuleActionJwtValidationAdditionalClaimArray) ToListenerRuleActionJwtValidationAdditionalClaimArrayOutput() ListenerRuleActionJwtValidationAdditionalClaimArrayOutput {
+	return i.ToListenerRuleActionJwtValidationAdditionalClaimArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionJwtValidationAdditionalClaimArray) ToListenerRuleActionJwtValidationAdditionalClaimArrayOutputWithContext(ctx context.Context) ListenerRuleActionJwtValidationAdditionalClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionJwtValidationAdditionalClaimArrayOutput)
+}
+
+type ListenerRuleActionJwtValidationAdditionalClaimOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionJwtValidationAdditionalClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (o ListenerRuleActionJwtValidationAdditionalClaimOutput) ToListenerRuleActionJwtValidationAdditionalClaimOutput() ListenerRuleActionJwtValidationAdditionalClaimOutput {
+	return o
+}
+
+func (o ListenerRuleActionJwtValidationAdditionalClaimOutput) ToListenerRuleActionJwtValidationAdditionalClaimOutputWithContext(ctx context.Context) ListenerRuleActionJwtValidationAdditionalClaimOutput {
+	return o
+}
+
+// Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
+func (o ListenerRuleActionJwtValidationAdditionalClaimOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleActionJwtValidationAdditionalClaim) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
+func (o ListenerRuleActionJwtValidationAdditionalClaimOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleActionJwtValidationAdditionalClaim) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of expected values of the claim.
+func (o ListenerRuleActionJwtValidationAdditionalClaimOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListenerRuleActionJwtValidationAdditionalClaim) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ListenerRuleActionJwtValidationAdditionalClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionJwtValidationAdditionalClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (o ListenerRuleActionJwtValidationAdditionalClaimArrayOutput) ToListenerRuleActionJwtValidationAdditionalClaimArrayOutput() ListenerRuleActionJwtValidationAdditionalClaimArrayOutput {
+	return o
+}
+
+func (o ListenerRuleActionJwtValidationAdditionalClaimArrayOutput) ToListenerRuleActionJwtValidationAdditionalClaimArrayOutputWithContext(ctx context.Context) ListenerRuleActionJwtValidationAdditionalClaimArrayOutput {
+	return o
+}
+
+func (o ListenerRuleActionJwtValidationAdditionalClaimArrayOutput) Index(i pulumi.IntInput) ListenerRuleActionJwtValidationAdditionalClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerRuleActionJwtValidationAdditionalClaim {
+		return vs[0].([]ListenerRuleActionJwtValidationAdditionalClaim)[vs[1].(int)]
+	}).(ListenerRuleActionJwtValidationAdditionalClaimOutput)
 }
 
 type ListenerRuleActionRedirect struct {
@@ -5531,6 +6141,181 @@ func (o LoadBalancerConnectionLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type LoadBalancerHealthCheckLogs struct {
+	// S3 bucket name to store the logs in.
+	Bucket string `pulumi:"bucket"`
+	// Boolean to enable / disable `healthCheckLogs`. Defaults to `false`, even when `bucket` is specified.
+	Enabled *bool `pulumi:"enabled"`
+	// S3 bucket prefix. Logs are stored in the root if not configured.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// LoadBalancerHealthCheckLogsInput is an input type that accepts LoadBalancerHealthCheckLogsArgs and LoadBalancerHealthCheckLogsOutput values.
+// You can construct a concrete instance of `LoadBalancerHealthCheckLogsInput` via:
+//
+//	LoadBalancerHealthCheckLogsArgs{...}
+type LoadBalancerHealthCheckLogsInput interface {
+	pulumi.Input
+
+	ToLoadBalancerHealthCheckLogsOutput() LoadBalancerHealthCheckLogsOutput
+	ToLoadBalancerHealthCheckLogsOutputWithContext(context.Context) LoadBalancerHealthCheckLogsOutput
+}
+
+type LoadBalancerHealthCheckLogsArgs struct {
+	// S3 bucket name to store the logs in.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Boolean to enable / disable `healthCheckLogs`. Defaults to `false`, even when `bucket` is specified.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// S3 bucket prefix. Logs are stored in the root if not configured.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (LoadBalancerHealthCheckLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerHealthCheckLogs)(nil)).Elem()
+}
+
+func (i LoadBalancerHealthCheckLogsArgs) ToLoadBalancerHealthCheckLogsOutput() LoadBalancerHealthCheckLogsOutput {
+	return i.ToLoadBalancerHealthCheckLogsOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerHealthCheckLogsArgs) ToLoadBalancerHealthCheckLogsOutputWithContext(ctx context.Context) LoadBalancerHealthCheckLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerHealthCheckLogsOutput)
+}
+
+func (i LoadBalancerHealthCheckLogsArgs) ToLoadBalancerHealthCheckLogsPtrOutput() LoadBalancerHealthCheckLogsPtrOutput {
+	return i.ToLoadBalancerHealthCheckLogsPtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerHealthCheckLogsArgs) ToLoadBalancerHealthCheckLogsPtrOutputWithContext(ctx context.Context) LoadBalancerHealthCheckLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerHealthCheckLogsOutput).ToLoadBalancerHealthCheckLogsPtrOutputWithContext(ctx)
+}
+
+// LoadBalancerHealthCheckLogsPtrInput is an input type that accepts LoadBalancerHealthCheckLogsArgs, LoadBalancerHealthCheckLogsPtr and LoadBalancerHealthCheckLogsPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerHealthCheckLogsPtrInput` via:
+//
+//	        LoadBalancerHealthCheckLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LoadBalancerHealthCheckLogsPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerHealthCheckLogsPtrOutput() LoadBalancerHealthCheckLogsPtrOutput
+	ToLoadBalancerHealthCheckLogsPtrOutputWithContext(context.Context) LoadBalancerHealthCheckLogsPtrOutput
+}
+
+type loadBalancerHealthCheckLogsPtrType LoadBalancerHealthCheckLogsArgs
+
+func LoadBalancerHealthCheckLogsPtr(v *LoadBalancerHealthCheckLogsArgs) LoadBalancerHealthCheckLogsPtrInput {
+	return (*loadBalancerHealthCheckLogsPtrType)(v)
+}
+
+func (*loadBalancerHealthCheckLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerHealthCheckLogs)(nil)).Elem()
+}
+
+func (i *loadBalancerHealthCheckLogsPtrType) ToLoadBalancerHealthCheckLogsPtrOutput() LoadBalancerHealthCheckLogsPtrOutput {
+	return i.ToLoadBalancerHealthCheckLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerHealthCheckLogsPtrType) ToLoadBalancerHealthCheckLogsPtrOutputWithContext(ctx context.Context) LoadBalancerHealthCheckLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerHealthCheckLogsPtrOutput)
+}
+
+type LoadBalancerHealthCheckLogsOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerHealthCheckLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerHealthCheckLogs)(nil)).Elem()
+}
+
+func (o LoadBalancerHealthCheckLogsOutput) ToLoadBalancerHealthCheckLogsOutput() LoadBalancerHealthCheckLogsOutput {
+	return o
+}
+
+func (o LoadBalancerHealthCheckLogsOutput) ToLoadBalancerHealthCheckLogsOutputWithContext(ctx context.Context) LoadBalancerHealthCheckLogsOutput {
+	return o
+}
+
+func (o LoadBalancerHealthCheckLogsOutput) ToLoadBalancerHealthCheckLogsPtrOutput() LoadBalancerHealthCheckLogsPtrOutput {
+	return o.ToLoadBalancerHealthCheckLogsPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerHealthCheckLogsOutput) ToLoadBalancerHealthCheckLogsPtrOutputWithContext(ctx context.Context) LoadBalancerHealthCheckLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerHealthCheckLogs) *LoadBalancerHealthCheckLogs {
+		return &v
+	}).(LoadBalancerHealthCheckLogsPtrOutput)
+}
+
+// S3 bucket name to store the logs in.
+func (o LoadBalancerHealthCheckLogsOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerHealthCheckLogs) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Boolean to enable / disable `healthCheckLogs`. Defaults to `false`, even when `bucket` is specified.
+func (o LoadBalancerHealthCheckLogsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadBalancerHealthCheckLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// S3 bucket prefix. Logs are stored in the root if not configured.
+func (o LoadBalancerHealthCheckLogsOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerHealthCheckLogs) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type LoadBalancerHealthCheckLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerHealthCheckLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerHealthCheckLogs)(nil)).Elem()
+}
+
+func (o LoadBalancerHealthCheckLogsPtrOutput) ToLoadBalancerHealthCheckLogsPtrOutput() LoadBalancerHealthCheckLogsPtrOutput {
+	return o
+}
+
+func (o LoadBalancerHealthCheckLogsPtrOutput) ToLoadBalancerHealthCheckLogsPtrOutputWithContext(ctx context.Context) LoadBalancerHealthCheckLogsPtrOutput {
+	return o
+}
+
+func (o LoadBalancerHealthCheckLogsPtrOutput) Elem() LoadBalancerHealthCheckLogsOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheckLogs) LoadBalancerHealthCheckLogs {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerHealthCheckLogs
+		return ret
+	}).(LoadBalancerHealthCheckLogsOutput)
+}
+
+// S3 bucket name to store the logs in.
+func (o LoadBalancerHealthCheckLogsPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheckLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Boolean to enable / disable `healthCheckLogs`. Defaults to `false`, even when `bucket` is specified.
+func (o LoadBalancerHealthCheckLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheckLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// S3 bucket prefix. Logs are stored in the root if not configured.
+func (o LoadBalancerHealthCheckLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheckLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
 type LoadBalancerIpamPools struct {
 	// The ID of the IPv4 IPAM pool.
 	Ipv4IpamPoolId string `pulumi:"ipv4IpamPoolId"`
@@ -7163,6 +7948,7 @@ type GetListenerDefaultAction struct {
 	AuthenticateOidcs    []GetListenerDefaultActionAuthenticateOidc    `pulumi:"authenticateOidcs"`
 	FixedResponses       []GetListenerDefaultActionFixedResponse       `pulumi:"fixedResponses"`
 	Forwards             []GetListenerDefaultActionForward             `pulumi:"forwards"`
+	JwtValidations       []GetListenerDefaultActionJwtValidation       `pulumi:"jwtValidations"`
 	Order                int                                           `pulumi:"order"`
 	Redirects            []GetListenerDefaultActionRedirect            `pulumi:"redirects"`
 	TargetGroupArn       string                                        `pulumi:"targetGroupArn"`
@@ -7185,6 +7971,7 @@ type GetListenerDefaultActionArgs struct {
 	AuthenticateOidcs    GetListenerDefaultActionAuthenticateOidcArrayInput    `pulumi:"authenticateOidcs"`
 	FixedResponses       GetListenerDefaultActionFixedResponseArrayInput       `pulumi:"fixedResponses"`
 	Forwards             GetListenerDefaultActionForwardArrayInput             `pulumi:"forwards"`
+	JwtValidations       GetListenerDefaultActionJwtValidationArrayInput       `pulumi:"jwtValidations"`
 	Order                pulumi.IntInput                                       `pulumi:"order"`
 	Redirects            GetListenerDefaultActionRedirectArrayInput            `pulumi:"redirects"`
 	TargetGroupArn       pulumi.StringInput                                    `pulumi:"targetGroupArn"`
@@ -7260,6 +8047,10 @@ func (o GetListenerDefaultActionOutput) FixedResponses() GetListenerDefaultActio
 
 func (o GetListenerDefaultActionOutput) Forwards() GetListenerDefaultActionForwardArrayOutput {
 	return o.ApplyT(func(v GetListenerDefaultAction) []GetListenerDefaultActionForward { return v.Forwards }).(GetListenerDefaultActionForwardArrayOutput)
+}
+
+func (o GetListenerDefaultActionOutput) JwtValidations() GetListenerDefaultActionJwtValidationArrayOutput {
+	return o.ApplyT(func(v GetListenerDefaultAction) []GetListenerDefaultActionJwtValidation { return v.JwtValidations }).(GetListenerDefaultActionJwtValidationArrayOutput)
 }
 
 func (o GetListenerDefaultActionOutput) Order() pulumi.IntOutput {
@@ -8005,6 +8796,220 @@ func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.In
 	}).(GetListenerDefaultActionForwardTargetGroupOutput)
 }
 
+type GetListenerDefaultActionJwtValidation struct {
+	AdditionalClaims []GetListenerDefaultActionJwtValidationAdditionalClaim `pulumi:"additionalClaims"`
+	Issuer           string                                                 `pulumi:"issuer"`
+	JwksEndpoint     string                                                 `pulumi:"jwksEndpoint"`
+}
+
+// GetListenerDefaultActionJwtValidationInput is an input type that accepts GetListenerDefaultActionJwtValidationArgs and GetListenerDefaultActionJwtValidationOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionJwtValidationInput` via:
+//
+//	GetListenerDefaultActionJwtValidationArgs{...}
+type GetListenerDefaultActionJwtValidationInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionJwtValidationOutput() GetListenerDefaultActionJwtValidationOutput
+	ToGetListenerDefaultActionJwtValidationOutputWithContext(context.Context) GetListenerDefaultActionJwtValidationOutput
+}
+
+type GetListenerDefaultActionJwtValidationArgs struct {
+	AdditionalClaims GetListenerDefaultActionJwtValidationAdditionalClaimArrayInput `pulumi:"additionalClaims"`
+	Issuer           pulumi.StringInput                                             `pulumi:"issuer"`
+	JwksEndpoint     pulumi.StringInput                                             `pulumi:"jwksEndpoint"`
+}
+
+func (GetListenerDefaultActionJwtValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionJwtValidation)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionJwtValidationArgs) ToGetListenerDefaultActionJwtValidationOutput() GetListenerDefaultActionJwtValidationOutput {
+	return i.ToGetListenerDefaultActionJwtValidationOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionJwtValidationArgs) ToGetListenerDefaultActionJwtValidationOutputWithContext(ctx context.Context) GetListenerDefaultActionJwtValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionJwtValidationOutput)
+}
+
+// GetListenerDefaultActionJwtValidationArrayInput is an input type that accepts GetListenerDefaultActionJwtValidationArray and GetListenerDefaultActionJwtValidationArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionJwtValidationArrayInput` via:
+//
+//	GetListenerDefaultActionJwtValidationArray{ GetListenerDefaultActionJwtValidationArgs{...} }
+type GetListenerDefaultActionJwtValidationArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionJwtValidationArrayOutput() GetListenerDefaultActionJwtValidationArrayOutput
+	ToGetListenerDefaultActionJwtValidationArrayOutputWithContext(context.Context) GetListenerDefaultActionJwtValidationArrayOutput
+}
+
+type GetListenerDefaultActionJwtValidationArray []GetListenerDefaultActionJwtValidationInput
+
+func (GetListenerDefaultActionJwtValidationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionJwtValidation)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionJwtValidationArray) ToGetListenerDefaultActionJwtValidationArrayOutput() GetListenerDefaultActionJwtValidationArrayOutput {
+	return i.ToGetListenerDefaultActionJwtValidationArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionJwtValidationArray) ToGetListenerDefaultActionJwtValidationArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionJwtValidationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionJwtValidationArrayOutput)
+}
+
+type GetListenerDefaultActionJwtValidationOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionJwtValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionJwtValidation)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionJwtValidationOutput) ToGetListenerDefaultActionJwtValidationOutput() GetListenerDefaultActionJwtValidationOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionJwtValidationOutput) ToGetListenerDefaultActionJwtValidationOutputWithContext(ctx context.Context) GetListenerDefaultActionJwtValidationOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionJwtValidationOutput) AdditionalClaims() GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionJwtValidation) []GetListenerDefaultActionJwtValidationAdditionalClaim {
+		return v.AdditionalClaims
+	}).(GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput)
+}
+
+func (o GetListenerDefaultActionJwtValidationOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionJwtValidation) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+func (o GetListenerDefaultActionJwtValidationOutput) JwksEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionJwtValidation) string { return v.JwksEndpoint }).(pulumi.StringOutput)
+}
+
+type GetListenerDefaultActionJwtValidationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionJwtValidationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionJwtValidation)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionJwtValidationArrayOutput) ToGetListenerDefaultActionJwtValidationArrayOutput() GetListenerDefaultActionJwtValidationArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionJwtValidationArrayOutput) ToGetListenerDefaultActionJwtValidationArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionJwtValidationArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionJwtValidationArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionJwtValidationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerDefaultActionJwtValidation {
+		return vs[0].([]GetListenerDefaultActionJwtValidation)[vs[1].(int)]
+	}).(GetListenerDefaultActionJwtValidationOutput)
+}
+
+type GetListenerDefaultActionJwtValidationAdditionalClaim struct {
+	Format string   `pulumi:"format"`
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetListenerDefaultActionJwtValidationAdditionalClaimInput is an input type that accepts GetListenerDefaultActionJwtValidationAdditionalClaimArgs and GetListenerDefaultActionJwtValidationAdditionalClaimOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionJwtValidationAdditionalClaimInput` via:
+//
+//	GetListenerDefaultActionJwtValidationAdditionalClaimArgs{...}
+type GetListenerDefaultActionJwtValidationAdditionalClaimInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionJwtValidationAdditionalClaimOutput() GetListenerDefaultActionJwtValidationAdditionalClaimOutput
+	ToGetListenerDefaultActionJwtValidationAdditionalClaimOutputWithContext(context.Context) GetListenerDefaultActionJwtValidationAdditionalClaimOutput
+}
+
+type GetListenerDefaultActionJwtValidationAdditionalClaimArgs struct {
+	Format pulumi.StringInput      `pulumi:"format"`
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetListenerDefaultActionJwtValidationAdditionalClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionJwtValidationAdditionalClaimArgs) ToGetListenerDefaultActionJwtValidationAdditionalClaimOutput() GetListenerDefaultActionJwtValidationAdditionalClaimOutput {
+	return i.ToGetListenerDefaultActionJwtValidationAdditionalClaimOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionJwtValidationAdditionalClaimArgs) ToGetListenerDefaultActionJwtValidationAdditionalClaimOutputWithContext(ctx context.Context) GetListenerDefaultActionJwtValidationAdditionalClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionJwtValidationAdditionalClaimOutput)
+}
+
+// GetListenerDefaultActionJwtValidationAdditionalClaimArrayInput is an input type that accepts GetListenerDefaultActionJwtValidationAdditionalClaimArray and GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionJwtValidationAdditionalClaimArrayInput` via:
+//
+//	GetListenerDefaultActionJwtValidationAdditionalClaimArray{ GetListenerDefaultActionJwtValidationAdditionalClaimArgs{...} }
+type GetListenerDefaultActionJwtValidationAdditionalClaimArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput() GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput
+	ToGetListenerDefaultActionJwtValidationAdditionalClaimArrayOutputWithContext(context.Context) GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput
+}
+
+type GetListenerDefaultActionJwtValidationAdditionalClaimArray []GetListenerDefaultActionJwtValidationAdditionalClaimInput
+
+func (GetListenerDefaultActionJwtValidationAdditionalClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionJwtValidationAdditionalClaimArray) ToGetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput() GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput {
+	return i.ToGetListenerDefaultActionJwtValidationAdditionalClaimArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionJwtValidationAdditionalClaimArray) ToGetListenerDefaultActionJwtValidationAdditionalClaimArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput)
+}
+
+type GetListenerDefaultActionJwtValidationAdditionalClaimOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionJwtValidationAdditionalClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionJwtValidationAdditionalClaimOutput) ToGetListenerDefaultActionJwtValidationAdditionalClaimOutput() GetListenerDefaultActionJwtValidationAdditionalClaimOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionJwtValidationAdditionalClaimOutput) ToGetListenerDefaultActionJwtValidationAdditionalClaimOutputWithContext(ctx context.Context) GetListenerDefaultActionJwtValidationAdditionalClaimOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionJwtValidationAdditionalClaimOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionJwtValidationAdditionalClaim) string { return v.Format }).(pulumi.StringOutput)
+}
+
+func (o GetListenerDefaultActionJwtValidationAdditionalClaimOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionJwtValidationAdditionalClaim) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetListenerDefaultActionJwtValidationAdditionalClaimOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionJwtValidationAdditionalClaim) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionJwtValidationAdditionalClaim)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput) ToGetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput() GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput) ToGetListenerDefaultActionJwtValidationAdditionalClaimArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionJwtValidationAdditionalClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerDefaultActionJwtValidationAdditionalClaim {
+		return vs[0].([]GetListenerDefaultActionJwtValidationAdditionalClaim)[vs[1].(int)]
+	}).(GetListenerDefaultActionJwtValidationAdditionalClaimOutput)
+}
+
 type GetListenerDefaultActionRedirect struct {
 	Host string `pulumi:"host"`
 	Path string `pulumi:"path"`
@@ -8411,6 +9416,112 @@ func (o GetLoadBalancerConnectionLogArrayOutput) Index(i pulumi.IntInput) GetLoa
 	}).(GetLoadBalancerConnectionLogOutput)
 }
 
+type GetLoadBalancerHealthCheckLog struct {
+	Bucket  string `pulumi:"bucket"`
+	Enabled bool   `pulumi:"enabled"`
+	Prefix  string `pulumi:"prefix"`
+}
+
+// GetLoadBalancerHealthCheckLogInput is an input type that accepts GetLoadBalancerHealthCheckLogArgs and GetLoadBalancerHealthCheckLogOutput values.
+// You can construct a concrete instance of `GetLoadBalancerHealthCheckLogInput` via:
+//
+//	GetLoadBalancerHealthCheckLogArgs{...}
+type GetLoadBalancerHealthCheckLogInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerHealthCheckLogOutput() GetLoadBalancerHealthCheckLogOutput
+	ToGetLoadBalancerHealthCheckLogOutputWithContext(context.Context) GetLoadBalancerHealthCheckLogOutput
+}
+
+type GetLoadBalancerHealthCheckLogArgs struct {
+	Bucket  pulumi.StringInput `pulumi:"bucket"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Prefix  pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (GetLoadBalancerHealthCheckLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerHealthCheckLog)(nil)).Elem()
+}
+
+func (i GetLoadBalancerHealthCheckLogArgs) ToGetLoadBalancerHealthCheckLogOutput() GetLoadBalancerHealthCheckLogOutput {
+	return i.ToGetLoadBalancerHealthCheckLogOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerHealthCheckLogArgs) ToGetLoadBalancerHealthCheckLogOutputWithContext(ctx context.Context) GetLoadBalancerHealthCheckLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerHealthCheckLogOutput)
+}
+
+// GetLoadBalancerHealthCheckLogArrayInput is an input type that accepts GetLoadBalancerHealthCheckLogArray and GetLoadBalancerHealthCheckLogArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerHealthCheckLogArrayInput` via:
+//
+//	GetLoadBalancerHealthCheckLogArray{ GetLoadBalancerHealthCheckLogArgs{...} }
+type GetLoadBalancerHealthCheckLogArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerHealthCheckLogArrayOutput() GetLoadBalancerHealthCheckLogArrayOutput
+	ToGetLoadBalancerHealthCheckLogArrayOutputWithContext(context.Context) GetLoadBalancerHealthCheckLogArrayOutput
+}
+
+type GetLoadBalancerHealthCheckLogArray []GetLoadBalancerHealthCheckLogInput
+
+func (GetLoadBalancerHealthCheckLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerHealthCheckLog)(nil)).Elem()
+}
+
+func (i GetLoadBalancerHealthCheckLogArray) ToGetLoadBalancerHealthCheckLogArrayOutput() GetLoadBalancerHealthCheckLogArrayOutput {
+	return i.ToGetLoadBalancerHealthCheckLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerHealthCheckLogArray) ToGetLoadBalancerHealthCheckLogArrayOutputWithContext(ctx context.Context) GetLoadBalancerHealthCheckLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerHealthCheckLogArrayOutput)
+}
+
+type GetLoadBalancerHealthCheckLogOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerHealthCheckLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerHealthCheckLog)(nil)).Elem()
+}
+
+func (o GetLoadBalancerHealthCheckLogOutput) ToGetLoadBalancerHealthCheckLogOutput() GetLoadBalancerHealthCheckLogOutput {
+	return o
+}
+
+func (o GetLoadBalancerHealthCheckLogOutput) ToGetLoadBalancerHealthCheckLogOutputWithContext(ctx context.Context) GetLoadBalancerHealthCheckLogOutput {
+	return o
+}
+
+func (o GetLoadBalancerHealthCheckLogOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerHealthCheckLog) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerHealthCheckLogOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLoadBalancerHealthCheckLog) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetLoadBalancerHealthCheckLogOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerHealthCheckLog) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type GetLoadBalancerHealthCheckLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerHealthCheckLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerHealthCheckLog)(nil)).Elem()
+}
+
+func (o GetLoadBalancerHealthCheckLogArrayOutput) ToGetLoadBalancerHealthCheckLogArrayOutput() GetLoadBalancerHealthCheckLogArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerHealthCheckLogArrayOutput) ToGetLoadBalancerHealthCheckLogArrayOutputWithContext(ctx context.Context) GetLoadBalancerHealthCheckLogArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerHealthCheckLogArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerHealthCheckLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerHealthCheckLog {
+		return vs[0].([]GetLoadBalancerHealthCheckLog)[vs[1].(int)]
+	}).(GetLoadBalancerHealthCheckLogOutput)
+}
+
 type GetLoadBalancerIpamPool struct {
 	Ipv4IpamPoolId string `pulumi:"ipv4IpamPoolId"`
 }
@@ -8802,6 +9913,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionForwardStickinessPtrInput)(nil)).Elem(), ListenerDefaultActionForwardStickinessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionForwardTargetGroupInput)(nil)).Elem(), ListenerDefaultActionForwardTargetGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionForwardTargetGroupArrayInput)(nil)).Elem(), ListenerDefaultActionForwardTargetGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionJwtValidationInput)(nil)).Elem(), ListenerDefaultActionJwtValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionJwtValidationPtrInput)(nil)).Elem(), ListenerDefaultActionJwtValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionJwtValidationAdditionalClaimInput)(nil)).Elem(), ListenerDefaultActionJwtValidationAdditionalClaimArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionJwtValidationAdditionalClaimArrayInput)(nil)).Elem(), ListenerDefaultActionJwtValidationAdditionalClaimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionRedirectInput)(nil)).Elem(), ListenerDefaultActionRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionRedirectPtrInput)(nil)).Elem(), ListenerDefaultActionRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerMutualAuthenticationInput)(nil)).Elem(), ListenerMutualAuthenticationArgs{})
@@ -8820,6 +9935,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionForwardStickinessPtrInput)(nil)).Elem(), ListenerRuleActionForwardStickinessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionForwardTargetGroupInput)(nil)).Elem(), ListenerRuleActionForwardTargetGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionForwardTargetGroupArrayInput)(nil)).Elem(), ListenerRuleActionForwardTargetGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionJwtValidationInput)(nil)).Elem(), ListenerRuleActionJwtValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionJwtValidationPtrInput)(nil)).Elem(), ListenerRuleActionJwtValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionJwtValidationAdditionalClaimInput)(nil)).Elem(), ListenerRuleActionJwtValidationAdditionalClaimArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionJwtValidationAdditionalClaimArrayInput)(nil)).Elem(), ListenerRuleActionJwtValidationAdditionalClaimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionRedirectInput)(nil)).Elem(), ListenerRuleActionRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionRedirectPtrInput)(nil)).Elem(), ListenerRuleActionRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleConditionInput)(nil)).Elem(), ListenerRuleConditionArgs{})
@@ -8850,6 +9969,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLogsPtrInput)(nil)).Elem(), LoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerConnectionLogsInput)(nil)).Elem(), LoadBalancerConnectionLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerConnectionLogsPtrInput)(nil)).Elem(), LoadBalancerConnectionLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerHealthCheckLogsInput)(nil)).Elem(), LoadBalancerHealthCheckLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerHealthCheckLogsPtrInput)(nil)).Elem(), LoadBalancerHealthCheckLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerIpamPoolsInput)(nil)).Elem(), LoadBalancerIpamPoolsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerIpamPoolsPtrInput)(nil)).Elem(), LoadBalancerIpamPoolsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerMinimumLoadBalancerCapacityInput)(nil)).Elem(), LoadBalancerMinimumLoadBalancerCapacityArgs{})
@@ -8884,6 +10005,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardStickinessArrayInput)(nil)).Elem(), GetListenerDefaultActionForwardStickinessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroupInput)(nil)).Elem(), GetListenerDefaultActionForwardTargetGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroupArrayInput)(nil)).Elem(), GetListenerDefaultActionForwardTargetGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionJwtValidationInput)(nil)).Elem(), GetListenerDefaultActionJwtValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionJwtValidationArrayInput)(nil)).Elem(), GetListenerDefaultActionJwtValidationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionJwtValidationAdditionalClaimInput)(nil)).Elem(), GetListenerDefaultActionJwtValidationAdditionalClaimArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionJwtValidationAdditionalClaimArrayInput)(nil)).Elem(), GetListenerDefaultActionJwtValidationAdditionalClaimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectInput)(nil)).Elem(), GetListenerDefaultActionRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectArrayInput)(nil)).Elem(), GetListenerDefaultActionRedirectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerMutualAuthenticationInput)(nil)).Elem(), GetListenerMutualAuthenticationArgs{})
@@ -8891,6 +10016,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogInput)(nil)).Elem(), GetLoadBalancerConnectionLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogArrayInput)(nil)).Elem(), GetLoadBalancerConnectionLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerHealthCheckLogInput)(nil)).Elem(), GetLoadBalancerHealthCheckLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerHealthCheckLogArrayInput)(nil)).Elem(), GetLoadBalancerHealthCheckLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerIpamPoolInput)(nil)).Elem(), GetLoadBalancerIpamPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerIpamPoolArrayInput)(nil)).Elem(), GetLoadBalancerIpamPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArgs{})
@@ -8911,6 +10038,10 @@ func init() {
 	pulumi.RegisterOutputType(ListenerDefaultActionForwardStickinessPtrOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionForwardTargetGroupOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionForwardTargetGroupArrayOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionJwtValidationOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionJwtValidationPtrOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionJwtValidationAdditionalClaimOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionJwtValidationAdditionalClaimArrayOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionRedirectOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionRedirectPtrOutput{})
 	pulumi.RegisterOutputType(ListenerMutualAuthenticationOutput{})
@@ -8929,6 +10060,10 @@ func init() {
 	pulumi.RegisterOutputType(ListenerRuleActionForwardStickinessPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionForwardTargetGroupOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionForwardTargetGroupArrayOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionJwtValidationOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionJwtValidationPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionJwtValidationAdditionalClaimOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionJwtValidationAdditionalClaimArrayOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionRedirectOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionRedirectPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleConditionOutput{})
@@ -8959,6 +10094,8 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerAccessLogsPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConnectionLogsOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConnectionLogsPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerHealthCheckLogsOutput{})
+	pulumi.RegisterOutputType(LoadBalancerHealthCheckLogsPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerIpamPoolsOutput{})
 	pulumi.RegisterOutputType(LoadBalancerIpamPoolsPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerMinimumLoadBalancerCapacityOutput{})
@@ -8993,6 +10130,10 @@ func init() {
 	pulumi.RegisterOutputType(GetListenerDefaultActionForwardStickinessArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionForwardTargetGroupOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionForwardTargetGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionJwtValidationOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionJwtValidationArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionJwtValidationAdditionalClaimOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionJwtValidationAdditionalClaimArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerMutualAuthenticationOutput{})
@@ -9000,6 +10141,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogArrayOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerHealthCheckLogOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerHealthCheckLogArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerIpamPoolOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerIpamPoolArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingOutput{})

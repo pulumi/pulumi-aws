@@ -108,8 +108,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import SSM Contact using the `ARN`. For example:
  * 
- * console
- * 
  * % pulumi import aws_ssmcontacts_contact.example {ARNValue}
  * 
  */

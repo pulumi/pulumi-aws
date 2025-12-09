@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
  *
- * console
- *
  * % pulumi import aws_apprunner_vpc_connector.example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
  */
 export class VpcConnector extends pulumi.CustomResource {

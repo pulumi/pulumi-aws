@@ -112,8 +112,10 @@ type LookupTransitGatewayResult struct {
 	// Description of the EC2 Transit Gateway
 	Description string `pulumi:"description"`
 	// Whether DNS support is enabled
-	DnsSupport string                    `pulumi:"dnsSupport"`
-	Filters    []GetTransitGatewayFilter `pulumi:"filters"`
+	DnsSupport string `pulumi:"dnsSupport"`
+	// Whether encryption support for VPC Encryption Control is enabled.
+	EncryptionSupport string                    `pulumi:"encryptionSupport"`
+	Filters           []GetTransitGatewayFilter `pulumi:"filters"`
 	// EC2 Transit Gateway identifier
 	Id string `pulumi:"id"`
 	// Whether Multicast support is enabled
@@ -211,6 +213,11 @@ func (o LookupTransitGatewayResultOutput) Description() pulumi.StringOutput {
 // Whether DNS support is enabled
 func (o LookupTransitGatewayResultOutput) DnsSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.DnsSupport }).(pulumi.StringOutput)
+}
+
+// Whether encryption support for VPC Encryption Control is enabled.
+func (o LookupTransitGatewayResultOutput) EncryptionSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.EncryptionSupport }).(pulumi.StringOutput)
 }
 
 func (o LookupTransitGatewayResultOutput) Filters() GetTransitGatewayFilterArrayOutput {

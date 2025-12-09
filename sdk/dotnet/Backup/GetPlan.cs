@@ -172,6 +172,10 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPlanRuleResult> Rules;
         /// <summary>
+        /// Scanning configuration for the backup rule.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPlanScanSettingResult> ScanSettings;
+        /// <summary>
         /// Metadata that you can assign to help organize the plans you create.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -194,6 +198,8 @@ namespace Pulumi.Aws.Backup
 
             ImmutableArray<Outputs.GetPlanRuleResult> rules,
 
+            ImmutableArray<Outputs.GetPlanScanSettingResult> scanSettings,
+
             ImmutableDictionary<string, string> tags,
 
             string version)
@@ -204,6 +210,7 @@ namespace Pulumi.Aws.Backup
             PlanId = planId;
             Region = region;
             Rules = rules;
+            ScanSettings = scanSettings;
             Tags = tags;
             Version = version;
         }

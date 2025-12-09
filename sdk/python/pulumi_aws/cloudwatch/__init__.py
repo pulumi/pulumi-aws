@@ -43,6 +43,7 @@ from .log_metric_filter import *
 from .log_resource_policy import *
 from .log_stream import *
 from .log_subscription_filter import *
+from .log_transformer import *
 from .metric_alarm import *
 from .metric_stream import *
 from .query_definition import *

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.CapacityProviderManagedInstancesProviderInfrastructureOptimization;
 import com.pulumi.aws.ecs.outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplate;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProvider {
+    /**
+     * @return Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+     * 
+     */
+    private @Nullable CapacityProviderManagedInstancesProviderInfrastructureOptimization infrastructureOptimization;
     /**
      * @return The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
      * 
@@ -30,6 +36,13 @@ public final class CapacityProviderManagedInstancesProvider {
     private @Nullable String propagateTags;
 
     private CapacityProviderManagedInstancesProvider() {}
+    /**
+     * @return Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+     * 
+     */
+    public Optional<CapacityProviderManagedInstancesProviderInfrastructureOptimization> infrastructureOptimization() {
+        return Optional.ofNullable(this.infrastructureOptimization);
+    }
     /**
      * @return The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
      * 
@@ -61,17 +74,25 @@ public final class CapacityProviderManagedInstancesProvider {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable CapacityProviderManagedInstancesProviderInfrastructureOptimization infrastructureOptimization;
         private String infrastructureRoleArn;
         private CapacityProviderManagedInstancesProviderInstanceLaunchTemplate instanceLaunchTemplate;
         private @Nullable String propagateTags;
         public Builder() {}
         public Builder(CapacityProviderManagedInstancesProvider defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.infrastructureOptimization = defaults.infrastructureOptimization;
     	      this.infrastructureRoleArn = defaults.infrastructureRoleArn;
     	      this.instanceLaunchTemplate = defaults.instanceLaunchTemplate;
     	      this.propagateTags = defaults.propagateTags;
         }
 
+        @CustomType.Setter
+        public Builder infrastructureOptimization(@Nullable CapacityProviderManagedInstancesProviderInfrastructureOptimization infrastructureOptimization) {
+
+            this.infrastructureOptimization = infrastructureOptimization;
+            return this;
+        }
         @CustomType.Setter
         public Builder infrastructureRoleArn(String infrastructureRoleArn) {
             if (infrastructureRoleArn == null) {
@@ -96,6 +117,7 @@ public final class CapacityProviderManagedInstancesProvider {
         }
         public CapacityProviderManagedInstancesProvider build() {
             final var _resultValue = new CapacityProviderManagedInstancesProvider();
+            _resultValue.infrastructureOptimization = infrastructureOptimization;
             _resultValue.infrastructureRoleArn = infrastructureRoleArn;
             _resultValue.instanceLaunchTemplate = instanceLaunchTemplate;
             _resultValue.propagateTags = propagateTags;

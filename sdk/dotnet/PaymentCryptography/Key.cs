@@ -61,8 +61,6 @@ namespace Pulumi.Aws.PaymentCryptography
     /// 
     /// Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_paymentcryptography_key.example arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf
     /// </summary>
     [AwsResourceType("aws:paymentcryptography/key:Key")]

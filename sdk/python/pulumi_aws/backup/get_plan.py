@@ -27,7 +27,7 @@ class GetPlanResult:
     """
     A collection of values returned by getPlan.
     """
-    def __init__(__self__, arn=None, id=None, name=None, plan_id=None, region=None, rules=None, tags=None, version=None):
+    def __init__(__self__, arn=None, id=None, name=None, plan_id=None, region=None, rules=None, scan_settings=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetPlanResult:
         if rules and not isinstance(rules, list):
             raise TypeError("Expected argument 'rules' to be a list")
         pulumi.set(__self__, "rules", rules)
+        if scan_settings and not isinstance(scan_settings, list):
+            raise TypeError("Expected argument 'scan_settings' to be a list")
+        pulumi.set(__self__, "scan_settings", scan_settings)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -96,6 +99,14 @@ class GetPlanResult:
         return pulumi.get(self, "rules")
 
     @_builtins.property
+    @pulumi.getter(name="scanSettings")
+    def scan_settings(self) -> Sequence['outputs.GetPlanScanSettingResult']:
+        """
+        Scanning configuration for the backup rule.
+        """
+        return pulumi.get(self, "scan_settings")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
@@ -124,6 +135,7 @@ class AwaitableGetPlanResult(GetPlanResult):
             plan_id=self.plan_id,
             region=self.region,
             rules=self.rules,
+            scan_settings=self.scan_settings,
             tags=self.tags,
             version=self.version)
 
@@ -163,6 +175,7 @@ def get_plan(plan_id: Optional[_builtins.str] = None,
         plan_id=pulumi.get(__ret__, 'plan_id'),
         region=pulumi.get(__ret__, 'region'),
         rules=pulumi.get(__ret__, 'rules'),
+        scan_settings=pulumi.get(__ret__, 'scan_settings'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
 def get_plan_output(plan_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -199,5 +212,6 @@ def get_plan_output(plan_id: Optional[pulumi.Input[_builtins.str]] = None,
         plan_id=pulumi.get(__response__, 'plan_id'),
         region=pulumi.get(__response__, 'region'),
         rules=pulumi.get(__response__, 'rules'),
+        scan_settings=pulumi.get(__response__, 'scan_settings'),
         tags=pulumi.get(__response__, 'tags'),
         version=pulumi.get(__response__, 'version')))

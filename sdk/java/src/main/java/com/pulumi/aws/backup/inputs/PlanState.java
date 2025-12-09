@@ -5,6 +5,7 @@ package com.pulumi.aws.backup.inputs;
 
 import com.pulumi.aws.backup.inputs.PlanAdvancedBackupSettingArgs;
 import com.pulumi.aws.backup.inputs.PlanRuleArgs;
+import com.pulumi.aws.backup.inputs.PlanScanSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -95,6 +96,21 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+     * 
+     */
+    @Import(name="scanSettings")
+    private @Nullable Output<List<PlanScanSettingArgs>> scanSettings;
+
+    /**
+     * @return Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+     * 
+     */
+    public Optional<Output<List<PlanScanSettingArgs>>> scanSettings() {
+        return Optional.ofNullable(this.scanSettings);
+    }
+
+    /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -147,6 +163,7 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.region = $.region;
         this.rules = $.rules;
+        this.scanSettings = $.scanSettings;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.version = $.version;
@@ -293,6 +310,37 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder rules(PlanRuleArgs... rules) {
             return rules(List.of(rules));
+        }
+
+        /**
+         * @param scanSettings Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanSettings(@Nullable Output<List<PlanScanSettingArgs>> scanSettings) {
+            $.scanSettings = scanSettings;
+            return this;
+        }
+
+        /**
+         * @param scanSettings Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanSettings(List<PlanScanSettingArgs> scanSettings) {
+            return scanSettings(Output.of(scanSettings));
+        }
+
+        /**
+         * @param scanSettings Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanSettings(PlanScanSettingArgs... scanSettings) {
+            return scanSettings(List.of(scanSettings));
         }
 
         /**

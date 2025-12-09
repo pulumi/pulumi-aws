@@ -150,6 +150,21 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+     * 
+     */
+    @Import(name="integrationTarget")
+    private @Nullable Output<String> integrationTarget;
+
+    /**
+     * @return The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+     * 
+     */
+    public Optional<Output<String>> integrationTarget() {
+        return Optional.ofNullable(this.integrationTarget);
+    }
+
+    /**
      * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      * 
      */
@@ -224,6 +239,23 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
+    }
+
+    /**
+     * Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+     * Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+     * 
+     */
+    @Import(name="responseTransferMode")
+    private @Nullable Output<String> responseTransferMode;
+
+    /**
+     * @return Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+     * Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+     * 
+     */
+    public Optional<Output<String>> responseTransferMode() {
+        return Optional.ofNullable(this.responseTransferMode);
     }
 
     /**
@@ -316,11 +348,13 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         this.credentials = $.credentials;
         this.httpMethod = $.httpMethod;
         this.integrationHttpMethod = $.integrationHttpMethod;
+        this.integrationTarget = $.integrationTarget;
         this.passthroughBehavior = $.passthroughBehavior;
         this.region = $.region;
         this.requestParameters = $.requestParameters;
         this.requestTemplates = $.requestTemplates;
         this.resourceId = $.resourceId;
+        this.responseTransferMode = $.responseTransferMode;
         this.restApi = $.restApi;
         this.timeoutMilliseconds = $.timeoutMilliseconds;
         this.tlsConfig = $.tlsConfig;
@@ -535,6 +569,27 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param integrationTarget The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder integrationTarget(@Nullable Output<String> integrationTarget) {
+            $.integrationTarget = integrationTarget;
+            return this;
+        }
+
+        /**
+         * @param integrationTarget The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder integrationTarget(String integrationTarget) {
+            return integrationTarget(Output.of(integrationTarget));
+        }
+
+        /**
          * @param passthroughBehavior Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
          * 
          * @return builder
@@ -639,6 +694,29 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
+        }
+
+        /**
+         * @param responseTransferMode Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+         * Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder responseTransferMode(@Nullable Output<String> responseTransferMode) {
+            $.responseTransferMode = responseTransferMode;
+            return this;
+        }
+
+        /**
+         * @param responseTransferMode Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+         * Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder responseTransferMode(String responseTransferMode) {
+            return responseTransferMode(Output.of(responseTransferMode));
         }
 
         /**

@@ -20,6 +20,8 @@ __all__ = [
     'TableBucketMaintenanceConfiguration',
     'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval',
     'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings',
+    'TableBucketReplicationRule',
+    'TableBucketReplicationRuleDestination',
     'TableEncryptionConfiguration',
     'TableMaintenanceConfiguration',
     'TableMaintenanceConfigurationIcebergCompaction',
@@ -30,6 +32,8 @@ __all__ = [
     'TableMetadataIceberg',
     'TableMetadataIcebergSchema',
     'TableMetadataIcebergSchemaField',
+    'TableReplicationRule',
+    'TableReplicationRuleDestination',
 ]
 
 @pulumi.output_type
@@ -200,6 +204,60 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings(
         Must be at least `1`.
         """
         return pulumi.get(self, "unreferenced_days")
+
+
+@pulumi.output_type
+class TableBucketReplicationRule(dict):
+    def __init__(__self__, *,
+                 destinations: Optional[Sequence['outputs.TableBucketReplicationRuleDestination']] = None):
+        """
+        :param Sequence['TableBucketReplicationRuleDestinationArgs'] destinations: Replication destination. See Destination below for more details.
+        """
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.TableBucketReplicationRuleDestination']]:
+        """
+        Replication destination. See Destination below for more details.
+        """
+        return pulumi.get(self, "destinations")
+
+
+@pulumi.output_type
+class TableBucketReplicationRuleDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationTableBucketArn":
+            suggest = "destination_table_bucket_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableBucketReplicationRuleDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableBucketReplicationRuleDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableBucketReplicationRuleDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_table_bucket_arn: _builtins.str):
+        """
+        :param _builtins.str destination_table_bucket_arn: ARN of destination table bucket to replicate source tables to.
+        """
+        pulumi.set(__self__, "destination_table_bucket_arn", destination_table_bucket_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTableBucketArn")
+    def destination_table_bucket_arn(self) -> _builtins.str:
+        """
+        ARN of destination table bucket to replicate source tables to.
+        """
+        return pulumi.get(self, "destination_table_bucket_arn")
 
 
 @pulumi.output_type
@@ -557,5 +615,59 @@ class TableMetadataIcebergSchemaField(dict):
         A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
         """
         return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class TableReplicationRule(dict):
+    def __init__(__self__, *,
+                 destinations: Optional[Sequence['outputs.TableReplicationRuleDestination']] = None):
+        """
+        :param Sequence['TableReplicationRuleDestinationArgs'] destinations: Replication destination. See Destination below for more details.
+        """
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.TableReplicationRuleDestination']]:
+        """
+        Replication destination. See Destination below for more details.
+        """
+        return pulumi.get(self, "destinations")
+
+
+@pulumi.output_type
+class TableReplicationRuleDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationTableBucketArn":
+            suggest = "destination_table_bucket_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableReplicationRuleDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableReplicationRuleDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableReplicationRuleDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_table_bucket_arn: _builtins.str):
+        """
+        :param _builtins.str destination_table_bucket_arn: ARN of destination table bucket to replicate source tables to.
+        """
+        pulumi.set(__self__, "destination_table_bucket_arn", destination_table_bucket_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTableBucketArn")
+    def destination_table_bucket_arn(self) -> _builtins.str:
+        """
+        ARN of destination table bucket to replicate source tables to.
+        """
+        return pulumi.get(self, "destination_table_bucket_arn")
 
 

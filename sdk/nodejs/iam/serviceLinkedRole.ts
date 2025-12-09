@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
  *
- * console
- *
  * % pulumi import aws_iam_service_linked_role.elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
  */
 export class ServiceLinkedRole extends pulumi.CustomResource {

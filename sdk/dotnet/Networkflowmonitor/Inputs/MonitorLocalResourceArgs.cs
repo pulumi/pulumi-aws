@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Networkflowmonitor.Inputs
         public Input<string> Identifier { get; set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`.
+        /// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

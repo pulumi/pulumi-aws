@@ -19,6 +19,7 @@ __all__ = ['ProfileArgs', 'Profile']
 @pulumi.input_type
 class ProfileArgs:
     def __init__(__self__, *,
+                 accept_role_session_name: Optional[pulumi.Input[_builtins.bool]] = None,
                  duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -29,6 +30,7 @@ class ProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Profile resource.
+        :param pulumi.Input[_builtins.bool] accept_role_session_name: Whether or not a custom role session name is accepted.
         :param pulumi.Input[_builtins.int] duration_seconds: The number of seconds the vended session credentials are valid for. Defaults to 3600.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Profile is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_policy_arns: A list of managed policy ARNs that apply to the vended session credentials.
@@ -38,6 +40,8 @@ class ProfileArgs:
         :param pulumi.Input[_builtins.str] session_policy: A session policy that applies to the trust boundary of the vended session credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        if accept_role_session_name is not None:
+            pulumi.set(__self__, "accept_role_session_name", accept_role_session_name)
         if duration_seconds is not None:
             pulumi.set(__self__, "duration_seconds", duration_seconds)
         if enabled is not None:
@@ -54,6 +58,18 @@ class ProfileArgs:
             pulumi.set(__self__, "session_policy", session_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptRoleSessionName")
+    def accept_role_session_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether or not a custom role session name is accepted.
+        """
+        return pulumi.get(self, "accept_role_session_name")
+
+    @accept_role_session_name.setter
+    def accept_role_session_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "accept_role_session_name", value)
 
     @_builtins.property
     @pulumi.getter(name="durationSeconds")
@@ -155,6 +171,7 @@ class ProfileArgs:
 @pulumi.input_type
 class _ProfileState:
     def __init__(__self__, *,
+                 accept_role_session_name: Optional[pulumi.Input[_builtins.bool]] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -167,6 +184,7 @@ class _ProfileState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Profile resources.
+        :param pulumi.Input[_builtins.bool] accept_role_session_name: Whether or not a custom role session name is accepted.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Profile
         :param pulumi.Input[_builtins.int] duration_seconds: The number of seconds the vended session credentials are valid for. Defaults to 3600.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Profile is enabled.
@@ -178,6 +196,8 @@ class _ProfileState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        if accept_role_session_name is not None:
+            pulumi.set(__self__, "accept_role_session_name", accept_role_session_name)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if duration_seconds is not None:
@@ -198,6 +218,18 @@ class _ProfileState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptRoleSessionName")
+    def accept_role_session_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether or not a custom role session name is accepted.
+        """
+        return pulumi.get(self, "accept_role_session_name")
+
+    @accept_role_session_name.setter
+    def accept_role_session_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "accept_role_session_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -326,6 +358,7 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accept_role_session_name: Optional[pulumi.Input[_builtins.bool]] = None,
                  duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -378,6 +411,7 @@ class Profile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] accept_role_session_name: Whether or not a custom role session name is accepted.
         :param pulumi.Input[_builtins.int] duration_seconds: The number of seconds the vended session credentials are valid for. Defaults to 3600.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Profile is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_policy_arns: A list of managed policy ARNs that apply to the vended session credentials.
@@ -449,6 +483,7 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accept_role_session_name: Optional[pulumi.Input[_builtins.bool]] = None,
                  duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -466,6 +501,7 @@ class Profile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProfileArgs.__new__(ProfileArgs)
 
+            __props__.__dict__["accept_role_session_name"] = accept_role_session_name
             __props__.__dict__["duration_seconds"] = duration_seconds
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["managed_policy_arns"] = managed_policy_arns
@@ -486,6 +522,7 @@ class Profile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            accept_role_session_name: Optional[pulumi.Input[_builtins.bool]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
             enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -503,6 +540,7 @@ class Profile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] accept_role_session_name: Whether or not a custom role session name is accepted.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Profile
         :param pulumi.Input[_builtins.int] duration_seconds: The number of seconds the vended session credentials are valid for. Defaults to 3600.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Profile is enabled.
@@ -518,6 +556,7 @@ class Profile(pulumi.CustomResource):
 
         __props__ = _ProfileState.__new__(_ProfileState)
 
+        __props__.__dict__["accept_role_session_name"] = accept_role_session_name
         __props__.__dict__["arn"] = arn
         __props__.__dict__["duration_seconds"] = duration_seconds
         __props__.__dict__["enabled"] = enabled
@@ -529,6 +568,14 @@ class Profile(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Profile(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptRoleSessionName")
+    def accept_role_session_name(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether or not a custom role session name is accepted.
+        """
+        return pulumi.get(self, "accept_role_session_name")
 
     @_builtins.property
     @pulumi.getter

@@ -182,8 +182,6 @@ namespace Pulumi.Aws.LB
     /// 
     /// Using `pulumi import`, import Target Groups using their ARN. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
     /// </summary>
     [AwsResourceType("aws:lb/targetGroup:TargetGroup")]
@@ -329,6 +327,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `TargetType` is `Instance` or `Ip`.
+        /// </summary>
+        [Output("targetControlPort")]
+        public Output<int?> TargetControlPort { get; private set; } = null!;
 
         /// <summary>
         /// Target failover block. Only applicable for Gateway Load Balancer target groups. See TargetFailover for more information.
@@ -542,6 +546,12 @@ namespace Pulumi.Aws.LB
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `TargetType` is `Instance` or `Ip`.
+        /// </summary>
+        [Input("targetControlPort")]
+        public Input<int>? TargetControlPort { get; set; }
 
         [Input("targetFailovers")]
         private InputList<Inputs.TargetGroupTargetFailoverArgs>? _targetFailovers;
@@ -761,6 +771,12 @@ namespace Pulumi.Aws.LB
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `TargetType` is `Instance` or `Ip`.
+        /// </summary>
+        [Input("targetControlPort")]
+        public Input<int>? TargetControlPort { get; set; }
 
         [Input("targetFailovers")]
         private InputList<Inputs.TargetGroupTargetFailoverGetArgs>? _targetFailovers;

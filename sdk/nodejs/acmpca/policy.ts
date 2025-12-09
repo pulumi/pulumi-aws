@@ -66,8 +66,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
  *
- * console
- *
  * % pulumi import aws_acmpca_policy.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
  */
 export class Policy extends pulumi.CustomResource {

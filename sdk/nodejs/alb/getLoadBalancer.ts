@@ -88,6 +88,7 @@ export interface GetLoadBalancerResult {
     readonly enableXffClientPort: boolean;
     readonly enableZonalShift: boolean;
     readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic: string;
+    readonly healthCheckLogs: outputs.alb.GetLoadBalancerHealthCheckLog[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */

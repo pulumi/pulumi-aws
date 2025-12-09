@@ -84,8 +84,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import SSM Documents using the name. For example:
  *
- * console
- *
  * % pulumi import aws_ssm_document.example example
  *
  * The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:

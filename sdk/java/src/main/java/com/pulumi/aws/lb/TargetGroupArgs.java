@@ -316,6 +316,21 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+     * 
+     */
+    @Import(name="targetControlPort")
+    private @Nullable Output<Integer> targetControlPort;
+
+    /**
+     * @return Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+     * 
+     */
+    public Optional<Output<Integer>> targetControlPort() {
+        return Optional.ofNullable(this.targetControlPort);
+    }
+
+    /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      * 
      */
@@ -432,6 +447,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.slowStart = $.slowStart;
         this.stickiness = $.stickiness;
         this.tags = $.tags;
+        this.targetControlPort = $.targetControlPort;
         this.targetFailovers = $.targetFailovers;
         this.targetGroupHealth = $.targetGroupHealth;
         this.targetHealthStates = $.targetHealthStates;
@@ -860,6 +876,27 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param targetControlPort Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetControlPort(@Nullable Output<Integer> targetControlPort) {
+            $.targetControlPort = targetControlPort;
+            return this;
+        }
+
+        /**
+         * @param targetControlPort Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `targetType` is `instance` or `ip`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetControlPort(Integer targetControlPort) {
+            return targetControlPort(Output.of(targetControlPort));
         }
 
         /**

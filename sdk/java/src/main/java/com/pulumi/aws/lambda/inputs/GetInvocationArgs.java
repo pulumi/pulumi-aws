@@ -80,6 +80,21 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Tenant Id to serve invocations from specified tenant.
+     * 
+     */
+    @Import(name="tenantId")
+    private @Nullable Output<String> tenantId;
+
+    /**
+     * @return Tenant Id to serve invocations from specified tenant.
+     * 
+     */
+    public Optional<Output<String>> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
+
     private GetInvocationArgs() {}
 
     private GetInvocationArgs(GetInvocationArgs $) {
@@ -87,6 +102,7 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
         this.input = $.input;
         this.qualifier = $.qualifier;
         this.region = $.region;
+        this.tenantId = $.tenantId;
     }
 
     public static Builder builder() {
@@ -193,6 +209,27 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param tenantId Tenant Id to serve invocations from specified tenant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantId(@Nullable Output<String> tenantId) {
+            $.tenantId = tenantId;
+            return this;
+        }
+
+        /**
+         * @param tenantId Tenant Id to serve invocations from specified tenant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantId(String tenantId) {
+            return tenantId(Output.of(tenantId));
         }
 
         public GetInvocationArgs build() {

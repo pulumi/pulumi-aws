@@ -96,6 +96,7 @@ export interface GetTargetGroupResult {
     readonly slowStart: number;
     readonly stickiness: outputs.alb.GetTargetGroupStickiness;
     readonly tags: {[key: string]: string};
+    readonly targetControlPort: number;
     readonly targetType: string;
     readonly vpcId: string;
 }

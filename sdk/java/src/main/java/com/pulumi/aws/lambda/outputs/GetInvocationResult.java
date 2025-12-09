@@ -26,6 +26,7 @@ public final class GetInvocationResult {
      * 
      */
     private String result;
+    private @Nullable String tenantId;
 
     private GetInvocationResult() {}
     public String functionName() {
@@ -54,6 +55,9 @@ public final class GetInvocationResult {
     public String result() {
         return this.result;
     }
+    public Optional<String> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -70,6 +74,7 @@ public final class GetInvocationResult {
         private @Nullable String qualifier;
         private String region;
         private String result;
+        private @Nullable String tenantId;
         public Builder() {}
         public Builder(GetInvocationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -79,6 +84,7 @@ public final class GetInvocationResult {
     	      this.qualifier = defaults.qualifier;
     	      this.region = defaults.region;
     	      this.result = defaults.result;
+    	      this.tenantId = defaults.tenantId;
         }
 
         @CustomType.Setter
@@ -127,6 +133,12 @@ public final class GetInvocationResult {
             this.result = result;
             return this;
         }
+        @CustomType.Setter
+        public Builder tenantId(@Nullable String tenantId) {
+
+            this.tenantId = tenantId;
+            return this;
+        }
         public GetInvocationResult build() {
             final var _resultValue = new GetInvocationResult();
             _resultValue.functionName = functionName;
@@ -135,6 +147,7 @@ public final class GetInvocationResult {
             _resultValue.qualifier = qualifier;
             _resultValue.region = region;
             _resultValue.result = result;
+            _resultValue.tenantId = tenantId;
             return _resultValue;
         }
     }

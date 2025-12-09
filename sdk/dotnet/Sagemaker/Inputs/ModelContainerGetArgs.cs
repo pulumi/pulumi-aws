@@ -12,8 +12,20 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class ModelContainerGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalModelDataSources")]
+        private InputList<Inputs.ModelContainerAdditionalModelDataSourceGetArgs>? _additionalModelDataSources;
+
         /// <summary>
-        /// The DNS host name for the container.
+        /// Additional data sources that are available to the model in addition to those specified in `ModelDataSource`. See Additional Model Data Source.
+        /// </summary>
+        public InputList<Inputs.ModelContainerAdditionalModelDataSourceGetArgs> AdditionalModelDataSources
+        {
+            get => _additionalModelDataSources ?? (_additionalModelDataSources = new InputList<Inputs.ModelContainerAdditionalModelDataSourceGetArgs>());
+            set => _additionalModelDataSources = value;
+        }
+
+        /// <summary>
+        /// DNS host name for the container.
         /// </summary>
         [Input("containerHostname")]
         public Input<string>? ContainerHostname { get; set; }
@@ -23,7 +35,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
         /// <summary>
         /// Environment variables for the Docker container.
-        /// A list of key value pairs.
         /// </summary>
         public InputMap<string> Environment
         {
@@ -32,7 +43,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The registry path where the inference code image is stored in Amazon ECR.
+        /// Registry path where the inference code image is stored in Amazon ECR.
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
@@ -44,31 +55,32 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.ModelContainerImageConfigGetArgs>? ImageConfig { get; set; }
 
         /// <summary>
-        /// The inference specification name in the model package version.
+        /// Inference specification name in the model package version.
         /// </summary>
         [Input("inferenceSpecificationName")]
         public Input<string>? InferenceSpecificationName { get; set; }
 
         /// <summary>
-        /// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        /// Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
+        /// Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
         /// </summary>
         [Input("modelDataSource")]
         public Input<Inputs.ModelContainerModelDataSourceGetArgs>? ModelDataSource { get; set; }
 
         /// <summary>
-        /// The URL for the S3 location where model artifacts are stored.
+        /// URL for the S3 location where model artifacts are stored.
         /// </summary>
         [Input("modelDataUrl")]
         public Input<string>? ModelDataUrl { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the model package to use to create the model.
+        /// Amazon Resource Name (ARN) of the model package to use to create the model.
+        /// A list of key value pairs.
         /// </summary>
         [Input("modelPackageName")]
         public Input<string>? ModelPackageName { get; set; }

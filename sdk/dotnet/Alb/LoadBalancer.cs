@@ -158,8 +158,6 @@ namespace Pulumi.Aws.Alb
     /// 
     /// Using `pulumi import`, import LBs using their ARN. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
     /// </summary>
     [AwsResourceType("aws:alb/loadBalancer:LoadBalancer")]
@@ -273,6 +271,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Output("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
         public Output<string> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; private set; } = null!;
+
+        /// <summary>
+        /// Health Check Logs block. See below. Only valid for Load Balancers of type `Application`.
+        /// </summary>
+        [Output("healthCheckLogs")]
+        public Output<Outputs.LoadBalancerHealthCheckLogs?> HealthCheckLogs { get; private set; } = null!;
 
         /// <summary>
         /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `Application`. Default: 60.
@@ -530,6 +534,12 @@ namespace Pulumi.Aws.Alb
         public Input<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
 
         /// <summary>
+        /// Health Check Logs block. See below. Only valid for Load Balancers of type `Application`.
+        /// </summary>
+        [Input("healthCheckLogs")]
+        public Input<Inputs.LoadBalancerHealthCheckLogsArgs>? HealthCheckLogs { get; set; }
+
+        /// <summary>
         /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `Application`. Default: 60.
         /// </summary>
         [Input("idleTimeout")]
@@ -769,6 +779,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
         public Input<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
+
+        /// <summary>
+        /// Health Check Logs block. See below. Only valid for Load Balancers of type `Application`.
+        /// </summary>
+        [Input("healthCheckLogs")]
+        public Input<Inputs.LoadBalancerHealthCheckLogsGetArgs>? HealthCheckLogs { get; set; }
 
         /// <summary>
         /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `Application`. Default: 60.

@@ -586,6 +586,100 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
+    /// ### Function with Durable Configuration
+    /// 
+    /// Stopping durable executions and deleting the Lambda function may take up to `60m`. Use configured `Timeouts` as shown below.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.Function("example", new()
+    ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_durable_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS22dX,
+    ///         MemorySize = 512,
+    ///         Timeout = 30,
+    ///         DurableConfig = new Aws.Lambda.Inputs.FunctionDurableConfigArgs
+    ///         {
+    ///             ExecutionTimeout = 3600,
+    ///             RetentionPeriod = 7,
+    ///         },
+    ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
+    ///         {
+    ///             Variables = 
+    ///             {
+    ///                 { "DURABLE_MODE", "enabled" },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///             { "Type", "durable" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Capacity Provider Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleCapacityProvider = new Aws.Lambda.CapacityProvider("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         VpcConfig = new Aws.Lambda.Inputs.CapacityProviderVpcConfigArgs
+    ///         {
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 exampleAwsSubnet.Id,
+    ///             },
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 exampleAwsSecurityGroup.Id,
+    ///             },
+    ///         },
+    ///         PermissionsConfig = new Aws.Lambda.Inputs.CapacityProviderPermissionsConfigArgs
+    ///         {
+    ///             CapacityProviderOperatorRoleArn = exampleAwsIamRole.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var example = new Aws.Lambda.Function("example", new()
+    ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         MemorySize = 2048,
+    ///         Publish = true,
+    ///         CapacityProviderConfig = new Aws.Lambda.Inputs.FunctionCapacityProviderConfigArgs
+    ///         {
+    ///             LambdaManagedInstancesCapacityProviderConfig = new Aws.Lambda.Inputs.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs
+    ///             {
+    ///                 CapacityProviderArn = exampleCapacityProvider.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Specifying the Deployment Package
     /// 
     /// AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `Runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `Runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
@@ -610,8 +704,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
     /// 
-    /// console
-    /// 
     /// % pulumi import aws_lambda_function.example example
     /// </summary>
     [AwsResourceType("aws:lambda/function:Function")]
@@ -628,6 +720,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for Lambda Capacity Provider. See below.
+        /// </summary>
+        [Output("capacityProviderConfig")]
+        public Output<Outputs.FunctionCapacityProviderConfig?> CapacityProviderConfig { get; private set; } = null!;
 
         /// <summary>
         /// Path to the function's deployment package within the local filesystem. Conflicts with `ImageUri` and `S3Bucket`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
@@ -658,6 +756,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for durable function settings. See below. `DurableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+        /// </summary>
+        [Output("durableConfig")]
+        public Output<Outputs.FunctionDurableConfig?> DurableConfig { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for environment variables. See below.
@@ -748,6 +852,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("publish")]
         public Output<bool?> Publish { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+        /// </summary>
+        [Output("publishTo")]
+        public Output<string?> PublishTo { get; private set; } = null!;
 
         /// <summary>
         /// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
@@ -872,6 +982,12 @@ namespace Pulumi.Aws.Lambda
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for Tenancy. See below.
+        /// </summary>
+        [Output("tenancyConfig")]
+        public Output<Outputs.FunctionTenancyConfig?> TenancyConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
         /// </summary>
         [Output("timeout")]
@@ -954,6 +1070,12 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
+        /// Configuration block for Lambda Capacity Provider. See below.
+        /// </summary>
+        [Input("capacityProviderConfig")]
+        public Input<Inputs.FunctionCapacityProviderConfigArgs>? CapacityProviderConfig { get; set; }
+
+        /// <summary>
         /// Path to the function's deployment package within the local filesystem. Conflicts with `ImageUri` and `S3Bucket`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
         /// </summary>
         [Input("code")]
@@ -976,6 +1098,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Configuration block for durable function settings. See below. `DurableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+        /// </summary>
+        [Input("durableConfig")]
+        public Input<Inputs.FunctionDurableConfigArgs>? DurableConfig { get; set; }
 
         /// <summary>
         /// Configuration block for environment variables. See below.
@@ -1060,6 +1188,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("publish")]
         public Input<bool>? Publish { get; set; }
+
+        /// <summary>
+        /// Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+        /// </summary>
+        [Input("publishTo")]
+        public Input<string>? PublishTo { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1160,6 +1294,12 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
+        /// Configuration block for Tenancy. See below.
+        /// </summary>
+        [Input("tenancyConfig")]
+        public Input<Inputs.FunctionTenancyConfigArgs>? TenancyConfig { get; set; }
+
+        /// <summary>
         /// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
         /// </summary>
         [Input("timeout")]
@@ -1204,6 +1344,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// Configuration block for Lambda Capacity Provider. See below.
+        /// </summary>
+        [Input("capacityProviderConfig")]
+        public Input<Inputs.FunctionCapacityProviderConfigGetArgs>? CapacityProviderConfig { get; set; }
+
+        /// <summary>
         /// Path to the function's deployment package within the local filesystem. Conflicts with `ImageUri` and `S3Bucket`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
         /// </summary>
         [Input("code")]
@@ -1232,6 +1378,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Configuration block for durable function settings. See below. `DurableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+        /// </summary>
+        [Input("durableConfig")]
+        public Input<Inputs.FunctionDurableConfigGetArgs>? DurableConfig { get; set; }
 
         /// <summary>
         /// Configuration block for environment variables. See below.
@@ -1328,6 +1480,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("publish")]
         public Input<bool>? Publish { get; set; }
+
+        /// <summary>
+        /// Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+        /// </summary>
+        [Input("publishTo")]
+        public Input<string>? PublishTo { get; set; }
 
         /// <summary>
         /// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
@@ -1468,6 +1626,12 @@ namespace Pulumi.Aws.Lambda
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Configuration block for Tenancy. See below.
+        /// </summary>
+        [Input("tenancyConfig")]
+        public Input<Inputs.FunctionTenancyConfigGetArgs>? TenancyConfig { get; set; }
 
         /// <summary>
         /// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.

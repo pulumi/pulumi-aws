@@ -129,6 +129,10 @@ export interface GetVpnConnectionResult {
      * List of objects containing information about the VPN tunnel.
      */
     readonly vgwTelemetries: outputs.ec2.GetVpnConnectionVgwTelemetry[];
+    /**
+     * ID of a VPN concentrator associated with the VPN connection.
+     */
+    readonly vpnConcentratorId: string;
     readonly vpnConnectionId: string;
     /**
      * ID of a virtual private gateway associated with the VPN connection.

@@ -24,6 +24,7 @@ class InvocationArgs:
                  lifecycle_scope: Optional[pulumi.Input[_builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
                  terraform_key: Optional[pulumi.Input[_builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -35,6 +36,7 @@ class InvocationArgs:
         :param pulumi.Input[_builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[_builtins.str] qualifier: Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] tenant_id: Tenant Id to serve invocations from specified tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         pulumi.set(__self__, "function_name", function_name)
@@ -45,6 +47,8 @@ class InvocationArgs:
             pulumi.set(__self__, "qualifier", qualifier)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
         if terraform_key is not None:
             pulumi.set(__self__, "terraform_key", terraform_key)
         if triggers is not None:
@@ -113,6 +117,18 @@ class InvocationArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Tenant Id to serve invocations from specified tenant.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="terraformKey")
     def terraform_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "terraform_key")
@@ -143,6 +159,7 @@ class _InvocationState:
                  qualifier: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  result: Optional[pulumi.Input[_builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
                  terraform_key: Optional[pulumi.Input[_builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -155,6 +172,7 @@ class _InvocationState:
         :param pulumi.Input[_builtins.str] qualifier: Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] result: String result of the Lambda function invocation.
+        :param pulumi.Input[_builtins.str] tenant_id: Tenant Id to serve invocations from specified tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         if function_name is not None:
@@ -169,6 +187,8 @@ class _InvocationState:
             pulumi.set(__self__, "region", region)
         if result is not None:
             pulumi.set(__self__, "result", result)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
         if terraform_key is not None:
             pulumi.set(__self__, "terraform_key", terraform_key)
         if triggers is not None:
@@ -249,6 +269,18 @@ class _InvocationState:
         pulumi.set(self, "result", value)
 
     @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Tenant Id to serve invocations from specified tenant.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="terraformKey")
     def terraform_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "terraform_key")
@@ -281,6 +313,7 @@ class Invocation(pulumi.CustomResource):
                  lifecycle_scope: Optional[pulumi.Input[_builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
                  terraform_key: Optional[pulumi.Input[_builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -378,6 +411,16 @@ class Invocation(pulumi.CustomResource):
 
         When the invocation resource is removed, the final invocation will have:
 
+        ## Import
+
+        Using `pulumi import`, import Lambda Invocation using the `function_name,qualifier,result_hash`. For example:
+
+        ```sh
+        $ pulumi import aws:lambda/invocation:Invocation test_lambda my_test_lambda_function,$LATEST,b326b5062b2f0e69046810717534cb09
+        ```
+        Because it is not possible to retrieve previous invocations, during the next update Pulumi will update the resource calling again the function.
+        To compute the `result_hash`, it is necessary to hash it with the standard `md5` hash function.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] function_name: Name of the Lambda function.
@@ -387,6 +430,7 @@ class Invocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[_builtins.str] qualifier: Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] tenant_id: Tenant Id to serve invocations from specified tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         ...
@@ -489,6 +533,16 @@ class Invocation(pulumi.CustomResource):
 
         When the invocation resource is removed, the final invocation will have:
 
+        ## Import
+
+        Using `pulumi import`, import Lambda Invocation using the `function_name,qualifier,result_hash`. For example:
+
+        ```sh
+        $ pulumi import aws:lambda/invocation:Invocation test_lambda my_test_lambda_function,$LATEST,b326b5062b2f0e69046810717534cb09
+        ```
+        Because it is not possible to retrieve previous invocations, during the next update Pulumi will update the resource calling again the function.
+        To compute the `result_hash`, it is necessary to hash it with the standard `md5` hash function.
+
         :param str resource_name: The name of the resource.
         :param InvocationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -509,6 +563,7 @@ class Invocation(pulumi.CustomResource):
                  lifecycle_scope: Optional[pulumi.Input[_builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
                  terraform_key: Optional[pulumi.Input[_builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -529,6 +584,7 @@ class Invocation(pulumi.CustomResource):
             __props__.__dict__["lifecycle_scope"] = lifecycle_scope
             __props__.__dict__["qualifier"] = qualifier
             __props__.__dict__["region"] = region
+            __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["terraform_key"] = terraform_key
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["result"] = None
@@ -548,6 +604,7 @@ class Invocation(pulumi.CustomResource):
             qualifier: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             result: Optional[pulumi.Input[_builtins.str]] = None,
+            tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
             terraform_key: Optional[pulumi.Input[_builtins.str]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Invocation':
         """
@@ -565,6 +622,7 @@ class Invocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] qualifier: Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] result: String result of the Lambda function invocation.
+        :param pulumi.Input[_builtins.str] tenant_id: Tenant Id to serve invocations from specified tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -577,6 +635,7 @@ class Invocation(pulumi.CustomResource):
         __props__.__dict__["qualifier"] = qualifier
         __props__.__dict__["region"] = region
         __props__.__dict__["result"] = result
+        __props__.__dict__["tenant_id"] = tenant_id
         __props__.__dict__["terraform_key"] = terraform_key
         __props__.__dict__["triggers"] = triggers
         return Invocation(resource_name, opts=opts, __props__=__props__)
@@ -630,6 +689,14 @@ class Invocation(pulumi.CustomResource):
         String result of the Lambda function invocation.
         """
         return pulumi.get(self, "result")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Tenant Id to serve invocations from specified tenant.
+        """
+        return pulumi.get(self, "tenant_id")
 
     @_builtins.property
     @pulumi.getter(name="terraformKey")

@@ -569,8 +569,6 @@ class SecurityGroup(pulumi.CustomResource):
 
         Using `pulumi import`, import Security Groups using the security group `id`. For example:
 
-        console
-
         % pulumi import aws_security_group.example sg-903004f8
 
         :param str resource_name: The name of the resource.
@@ -769,8 +767,6 @@ class SecurityGroup(pulumi.CustomResource):
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Security Groups using the security group `id`. For example:
-
-        console
 
         % pulumi import aws_security_group.example sg-903004f8
 

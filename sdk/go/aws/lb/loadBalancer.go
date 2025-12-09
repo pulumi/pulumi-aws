@@ -105,8 +105,6 @@ import (
 //
 // Using `pulumi import`, import LBs using their ARN. For example:
 //
-// console
-//
 // % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
 type LoadBalancer struct {
 	pulumi.CustomResourceState
@@ -148,6 +146,8 @@ type LoadBalancer struct {
 	EnableZonalShift pulumi.BoolPtrOutput `pulumi:"enableZonalShift"`
 	// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringOutput `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
+	// Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+	HealthCheckLogs LoadBalancerHealthCheckLogsPtrOutput `pulumi:"healthCheckLogs"`
 	// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrOutput `pulumi:"idleTimeout"`
 	// If true, the LB will be internal. Defaults to `false`.
@@ -264,6 +264,8 @@ type loadBalancerState struct {
 	EnableZonalShift *bool `pulumi:"enableZonalShift"`
 	// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
+	// Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+	HealthCheckLogs *LoadBalancerHealthCheckLogs `pulumi:"healthCheckLogs"`
 	// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout *int `pulumi:"idleTimeout"`
 	// If true, the LB will be internal. Defaults to `false`.
@@ -345,6 +347,8 @@ type LoadBalancerState struct {
 	EnableZonalShift pulumi.BoolPtrInput
 	// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrInput
+	// Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+	HealthCheckLogs LoadBalancerHealthCheckLogsPtrInput
 	// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrInput
 	// If true, the LB will be internal. Defaults to `false`.
@@ -423,6 +427,8 @@ type loadBalancerArgs struct {
 	EnableZonalShift *bool `pulumi:"enableZonalShift"`
 	// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
+	// Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+	HealthCheckLogs *LoadBalancerHealthCheckLogs `pulumi:"healthCheckLogs"`
 	// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout *int `pulumi:"idleTimeout"`
 	// If true, the LB will be internal. Defaults to `false`.
@@ -493,6 +499,8 @@ type LoadBalancerArgs struct {
 	EnableZonalShift pulumi.BoolPtrInput
 	// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrInput
+	// Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+	HealthCheckLogs LoadBalancerHealthCheckLogsPtrInput
 	// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrInput
 	// If true, the LB will be internal. Defaults to `false`.
@@ -709,6 +717,11 @@ func (o LoadBalancerOutput) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput {
 		return v.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
 	}).(pulumi.StringOutput)
+}
+
+// Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
+func (o LoadBalancerOutput) HealthCheckLogs() LoadBalancerHealthCheckLogsPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerHealthCheckLogsPtrOutput { return v.HealthCheckLogs }).(LoadBalancerHealthCheckLogsPtrOutput)
 }
 
 // Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.

@@ -71,6 +71,10 @@ export interface GetPlanResult {
      */
     readonly rules: outputs.backup.GetPlanRule[];
     /**
+     * Scanning configuration for the backup rule.
+     */
+    readonly scanSettings: outputs.backup.GetPlanScanSetting[];
+    /**
      * Metadata that you can assign to help organize the plans you create.
      */
     readonly tags: {[key: string]: string};

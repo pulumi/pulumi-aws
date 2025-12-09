@@ -304,8 +304,6 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
 
-        console
-
         % pulumi import aws_ivschat_logging_configuration.example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
 
         :param str resource_name: The name of the resource.
@@ -403,8 +401,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat logging configuration.
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
-
-        console
 
         % pulumi import aws_ivschat_logging_configuration.example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
 

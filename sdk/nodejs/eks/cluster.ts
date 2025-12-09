@@ -340,6 +340,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly computeConfig: pulumi.Output<outputs.eks.ClusterComputeConfig>;
     /**
+     * Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+     */
+    declare public readonly controlPlaneScalingConfig: pulumi.Output<outputs.eks.ClusterControlPlaneScalingConfig>;
+    /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
@@ -453,6 +457,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["certificateAuthority"] = state?.certificateAuthority;
             resourceInputs["clusterId"] = state?.clusterId;
             resourceInputs["computeConfig"] = state?.computeConfig;
+            resourceInputs["controlPlaneScalingConfig"] = state?.controlPlaneScalingConfig;
             resourceInputs["createdAt"] = state?.createdAt;
             resourceInputs["defaultAddonsToRemoves"] = state?.defaultAddonsToRemoves;
             resourceInputs["deletionProtection"] = state?.deletionProtection;
@@ -487,6 +492,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["accessConfig"] = args?.accessConfig;
             resourceInputs["bootstrapSelfManagedAddons"] = args?.bootstrapSelfManagedAddons;
             resourceInputs["computeConfig"] = args?.computeConfig;
+            resourceInputs["controlPlaneScalingConfig"] = args?.controlPlaneScalingConfig;
             resourceInputs["defaultAddonsToRemoves"] = args?.defaultAddonsToRemoves;
             resourceInputs["deletionProtection"] = args?.deletionProtection;
             resourceInputs["enabledClusterLogTypes"] = args?.enabledClusterLogTypes;
@@ -547,6 +553,10 @@ export interface ClusterState {
      * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      */
     computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfig>;
+    /**
+     * Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+     */
+    controlPlaneScalingConfig?: pulumi.Input<inputs.eks.ClusterControlPlaneScalingConfig>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
@@ -659,6 +669,10 @@ export interface ClusterArgs {
      * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      */
     computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfig>;
+    /**
+     * Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+     */
+    controlPlaneScalingConfig?: pulumi.Input<inputs.eks.ClusterControlPlaneScalingConfig>;
     /**
      * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
      */

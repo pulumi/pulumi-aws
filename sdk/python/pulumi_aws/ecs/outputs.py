@@ -19,6 +19,7 @@ __all__ = [
     'CapacityProviderAutoScalingGroupProvider',
     'CapacityProviderAutoScalingGroupProviderManagedScaling',
     'CapacityProviderManagedInstancesProvider',
+    'CapacityProviderManagedInstancesProviderInfrastructureOptimization',
     'CapacityProviderManagedInstancesProviderInstanceLaunchTemplate',
     'CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements',
     'CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount',
@@ -39,6 +40,15 @@ __all__ = [
     'ClusterConfigurationManagedStorageConfiguration',
     'ClusterServiceConnectDefaults',
     'ClusterSetting',
+    'ExpressGatewayServiceIngressPath',
+    'ExpressGatewayServiceNetworkConfiguration',
+    'ExpressGatewayServicePrimaryContainer',
+    'ExpressGatewayServicePrimaryContainerAwsLogsConfiguration',
+    'ExpressGatewayServicePrimaryContainerEnvironment',
+    'ExpressGatewayServicePrimaryContainerRepositoryCredentials',
+    'ExpressGatewayServicePrimaryContainerSecret',
+    'ExpressGatewayServiceScalingTarget',
+    'ExpressGatewayServiceTimeouts',
     'ServiceAlarms',
     'ServiceCapacityProviderStrategy',
     'ServiceDeploymentCircuitBreaker',
@@ -302,6 +312,8 @@ class CapacityProviderManagedInstancesProvider(dict):
             suggest = "infrastructure_role_arn"
         elif key == "instanceLaunchTemplate":
             suggest = "instance_launch_template"
+        elif key == "infrastructureOptimization":
+            suggest = "infrastructure_optimization"
         elif key == "propagateTags":
             suggest = "propagate_tags"
 
@@ -319,14 +331,18 @@ class CapacityProviderManagedInstancesProvider(dict):
     def __init__(__self__, *,
                  infrastructure_role_arn: _builtins.str,
                  instance_launch_template: 'outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplate',
+                 infrastructure_optimization: Optional['outputs.CapacityProviderManagedInstancesProviderInfrastructureOptimization'] = None,
                  propagate_tags: Optional[_builtins.str] = None):
         """
         :param _builtins.str infrastructure_role_arn: The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
         :param 'CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs' instance_launch_template: The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+        :param 'CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs' infrastructure_optimization: Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
         :param _builtins.str propagate_tags: Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
         """
         pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
         pulumi.set(__self__, "instance_launch_template", instance_launch_template)
+        if infrastructure_optimization is not None:
+            pulumi.set(__self__, "infrastructure_optimization", infrastructure_optimization)
         if propagate_tags is not None:
             pulumi.set(__self__, "propagate_tags", propagate_tags)
 
@@ -347,12 +363,60 @@ class CapacityProviderManagedInstancesProvider(dict):
         return pulumi.get(self, "instance_launch_template")
 
     @_builtins.property
+    @pulumi.getter(name="infrastructureOptimization")
+    def infrastructure_optimization(self) -> Optional['outputs.CapacityProviderManagedInstancesProviderInfrastructureOptimization']:
+        """
+        Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+        """
+        return pulumi.get(self, "infrastructure_optimization")
+
+    @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[_builtins.str]:
         """
         Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
         """
         return pulumi.get(self, "propagate_tags")
+
+
+@pulumi.output_type
+class CapacityProviderManagedInstancesProviderInfrastructureOptimization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleInAfter":
+            suggest = "scale_in_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderManagedInstancesProviderInfrastructureOptimization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderManagedInstancesProviderInfrastructureOptimization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderManagedInstancesProviderInfrastructureOptimization.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scale_in_after: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int scale_in_after: This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
+               * Not set (null) - Uses the default optimization behavior.
+               * `-1` - Disables automatic infrastructure optimization.
+        """
+        if scale_in_after is not None:
+            pulumi.set(__self__, "scale_in_after", scale_in_after)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleInAfter")
+    def scale_in_after(self) -> Optional[_builtins.int]:
+        """
+        This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
+        * Not set (null) - Uses the default optimization behavior.
+        * `-1` - Disables automatic infrastructure optimization.
+        """
+        return pulumi.get(self, "scale_in_after")
 
 
 @pulumi.output_type
@@ -1426,6 +1490,454 @@ class ClusterSetting(dict):
         Value to assign to the setting. Valid values: `enhanced`, `enabled`, `disabled`.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceIngressPath(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessType":
+            suggest = "access_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceIngressPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceIngressPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceIngressPath.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_type: _builtins.str,
+                 endpoint: _builtins.str):
+        pulumi.set(__self__, "access_type", access_type)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> _builtins.str:
+        return pulumi.get(self, "access_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_groups: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] security_groups: Security groups associated with the task. If not specified, the default security group for the VPC is used.
+        :param Sequence[_builtins.str] subnets: Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Sequence[_builtins.str]:
+        """
+        Security groups associated with the task. If not specified, the default security group for the VPC is used.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        """
+        Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
+        """
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class ExpressGatewayServicePrimaryContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsLogsConfigurations":
+            suggest = "aws_logs_configurations"
+        elif key == "containerPort":
+            suggest = "container_port"
+        elif key == "repositoryCredentials":
+            suggest = "repository_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServicePrimaryContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServicePrimaryContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServicePrimaryContainer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image: _builtins.str,
+                 aws_logs_configurations: Optional[Sequence['outputs.ExpressGatewayServicePrimaryContainerAwsLogsConfiguration']] = None,
+                 commands: Optional[Sequence[_builtins.str]] = None,
+                 container_port: Optional[_builtins.int] = None,
+                 environments: Optional[Sequence['outputs.ExpressGatewayServicePrimaryContainerEnvironment']] = None,
+                 repository_credentials: Optional['outputs.ExpressGatewayServicePrimaryContainerRepositoryCredentials'] = None,
+                 secrets: Optional[Sequence['outputs.ExpressGatewayServicePrimaryContainerSecret']] = None):
+        """
+        :param _builtins.str image: Docker image to use for the container.
+        :param Sequence[_builtins.str] commands: Command to run in the container. Overrides the default command from the Docker image.
+        :param _builtins.int container_port: Port on which the container listens for connections.
+        """
+        pulumi.set(__self__, "image", image)
+        if aws_logs_configurations is not None:
+            pulumi.set(__self__, "aws_logs_configurations", aws_logs_configurations)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if container_port is not None:
+            pulumi.set(__self__, "container_port", container_port)
+        if environments is not None:
+            pulumi.set(__self__, "environments", environments)
+        if repository_credentials is not None:
+            pulumi.set(__self__, "repository_credentials", repository_credentials)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> _builtins.str:
+        """
+        Docker image to use for the container.
+        """
+        return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter(name="awsLogsConfigurations")
+    def aws_logs_configurations(self) -> Optional[Sequence['outputs.ExpressGatewayServicePrimaryContainerAwsLogsConfiguration']]:
+        return pulumi.get(self, "aws_logs_configurations")
+
+    @_builtins.property
+    @pulumi.getter
+    def commands(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Command to run in the container. Overrides the default command from the Docker image.
+        """
+        return pulumi.get(self, "commands")
+
+    @_builtins.property
+    @pulumi.getter(name="containerPort")
+    def container_port(self) -> Optional[_builtins.int]:
+        """
+        Port on which the container listens for connections.
+        """
+        return pulumi.get(self, "container_port")
+
+    @_builtins.property
+    @pulumi.getter
+    def environments(self) -> Optional[Sequence['outputs.ExpressGatewayServicePrimaryContainerEnvironment']]:
+        return pulumi.get(self, "environments")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryCredentials")
+    def repository_credentials(self) -> Optional['outputs.ExpressGatewayServicePrimaryContainerRepositoryCredentials']:
+        return pulumi.get(self, "repository_credentials")
+
+    @_builtins.property
+    @pulumi.getter
+    def secrets(self) -> Optional[Sequence['outputs.ExpressGatewayServicePrimaryContainerSecret']]:
+        return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class ExpressGatewayServicePrimaryContainerAwsLogsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroup":
+            suggest = "log_group"
+        elif key == "logStreamPrefix":
+            suggest = "log_stream_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServicePrimaryContainerAwsLogsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServicePrimaryContainerAwsLogsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServicePrimaryContainerAwsLogsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group: _builtins.str,
+                 log_stream_prefix: _builtins.str):
+        """
+        :param _builtins.str log_group: CloudWatch log group name.
+        :param _builtins.str log_stream_prefix: Prefix for log stream names. If not specified, a default prefix will be used.
+        """
+        pulumi.set(__self__, "log_group", log_group)
+        pulumi.set(__self__, "log_stream_prefix", log_stream_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> _builtins.str:
+        """
+        CloudWatch log group name.
+        """
+        return pulumi.get(self, "log_group")
+
+    @_builtins.property
+    @pulumi.getter(name="logStreamPrefix")
+    def log_stream_prefix(self) -> _builtins.str:
+        """
+        Prefix for log stream names. If not specified, a default prefix will be used.
+        """
+        return pulumi.get(self, "log_stream_prefix")
+
+
+@pulumi.output_type
+class ExpressGatewayServicePrimaryContainerEnvironment(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Name of the environment variable.
+        :param _builtins.str value: Value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExpressGatewayServicePrimaryContainerRepositoryCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "credentialsParameter":
+            suggest = "credentials_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServicePrimaryContainerRepositoryCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServicePrimaryContainerRepositoryCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServicePrimaryContainerRepositoryCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credentials_parameter: _builtins.str):
+        """
+        :param _builtins.str credentials_parameter: ARN of the AWS Systems Manager parameter containing the repository credentials.
+        """
+        pulumi.set(__self__, "credentials_parameter", credentials_parameter)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsParameter")
+    def credentials_parameter(self) -> _builtins.str:
+        """
+        ARN of the AWS Systems Manager parameter containing the repository credentials.
+        """
+        return pulumi.get(self, "credentials_parameter")
+
+
+@pulumi.output_type
+class ExpressGatewayServicePrimaryContainerSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueFrom":
+            suggest = "value_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServicePrimaryContainerSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServicePrimaryContainerSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServicePrimaryContainerSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value_from: _builtins.str):
+        """
+        :param _builtins.str value_from: ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> _builtins.str:
+        """
+        ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
+        """
+        return pulumi.get(self, "value_from")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceScalingTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoScalingMetric":
+            suggest = "auto_scaling_metric"
+        elif key == "autoScalingTargetValue":
+            suggest = "auto_scaling_target_value"
+        elif key == "maxTaskCount":
+            suggest = "max_task_count"
+        elif key == "minTaskCount":
+            suggest = "min_task_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceScalingTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceScalingTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceScalingTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_scaling_metric: _builtins.str,
+                 auto_scaling_target_value: _builtins.int,
+                 max_task_count: _builtins.int,
+                 min_task_count: _builtins.int):
+        """
+        :param _builtins.str auto_scaling_metric: Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+        :param _builtins.int auto_scaling_target_value: Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
+        :param _builtins.int max_task_count: Maximum number of tasks to run.
+        :param _builtins.int min_task_count: Minimum number of tasks to run.
+        """
+        pulumi.set(__self__, "auto_scaling_metric", auto_scaling_metric)
+        pulumi.set(__self__, "auto_scaling_target_value", auto_scaling_target_value)
+        pulumi.set(__self__, "max_task_count", max_task_count)
+        pulumi.set(__self__, "min_task_count", min_task_count)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingMetric")
+    def auto_scaling_metric(self) -> _builtins.str:
+        """
+        Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+        """
+        return pulumi.get(self, "auto_scaling_metric")
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingTargetValue")
+    def auto_scaling_target_value(self) -> _builtins.int:
+        """
+        Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
+        """
+        return pulumi.get(self, "auto_scaling_target_value")
+
+    @_builtins.property
+    @pulumi.getter(name="maxTaskCount")
+    def max_task_count(self) -> _builtins.int:
+        """
+        Maximum number of tasks to run.
+        """
+        return pulumi.get(self, "max_task_count")
+
+    @_builtins.property
+    @pulumi.getter(name="minTaskCount")
+    def min_task_count(self) -> _builtins.int:
+        """
+        Minimum number of tasks to run.
+        """
+        return pulumi.get(self, "min_task_count")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

@@ -5,6 +5,7 @@ package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.aws.alb.outputs.GetLoadBalancerAccessLogs;
 import com.pulumi.aws.alb.outputs.GetLoadBalancerConnectionLog;
+import com.pulumi.aws.alb.outputs.GetLoadBalancerHealthCheckLog;
 import com.pulumi.aws.alb.outputs.GetLoadBalancerIpamPool;
 import com.pulumi.aws.alb.outputs.GetLoadBalancerSubnetMapping;
 import com.pulumi.core.annotations.CustomType;
@@ -36,6 +37,7 @@ public final class GetLoadBalancerResult {
     private Boolean enableXffClientPort;
     private Boolean enableZonalShift;
     private String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+    private List<GetLoadBalancerHealthCheckLog> healthCheckLogs;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -112,6 +114,9 @@ public final class GetLoadBalancerResult {
     }
     public String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
         return this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+    }
+    public List<GetLoadBalancerHealthCheckLog> healthCheckLogs() {
+        return this.healthCheckLogs;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -196,6 +201,7 @@ public final class GetLoadBalancerResult {
         private Boolean enableXffClientPort;
         private Boolean enableZonalShift;
         private String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+        private List<GetLoadBalancerHealthCheckLog> healthCheckLogs;
         private String id;
         private Integer idleTimeout;
         private Boolean internal;
@@ -234,6 +240,7 @@ public final class GetLoadBalancerResult {
     	      this.enableXffClientPort = defaults.enableXffClientPort;
     	      this.enableZonalShift = defaults.enableZonalShift;
     	      this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = defaults.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+    	      this.healthCheckLogs = defaults.healthCheckLogs;
     	      this.id = defaults.id;
     	      this.idleTimeout = defaults.idleTimeout;
     	      this.internal = defaults.internal;
@@ -399,6 +406,17 @@ public final class GetLoadBalancerResult {
             }
             this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
             return this;
+        }
+        @CustomType.Setter
+        public Builder healthCheckLogs(List<GetLoadBalancerHealthCheckLog> healthCheckLogs) {
+            if (healthCheckLogs == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "healthCheckLogs");
+            }
+            this.healthCheckLogs = healthCheckLogs;
+            return this;
+        }
+        public Builder healthCheckLogs(GetLoadBalancerHealthCheckLog... healthCheckLogs) {
+            return healthCheckLogs(List.of(healthCheckLogs));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -568,6 +586,7 @@ public final class GetLoadBalancerResult {
             _resultValue.enableXffClientPort = enableXffClientPort;
             _resultValue.enableZonalShift = enableZonalShift;
             _resultValue.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+            _resultValue.healthCheckLogs = healthCheckLogs;
             _resultValue.id = id;
             _resultValue.idleTimeout = idleTimeout;
             _resultValue.internal = internal;

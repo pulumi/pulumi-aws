@@ -316,7 +316,7 @@ class CapacityProvider(pulumi.CustomResource):
             cluster="my-cluster",
             managed_instances_provider={
                 "infrastructure_role_arn": ecs_infrastructure["arn"],
-                "propagate_tags": "TASK_DEFINITION",
+                "propagate_tags": "CAPACITY_PROVIDER",
                 "instance_launch_template": {
                     "ec2_instance_profile_arn": ecs_instance["arn"],
                     "monitoring": "ENABLED",
@@ -355,8 +355,6 @@ class CapacityProvider(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the ECS capacity provider.
 
         Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
-
-        console
 
         % pulumi import aws_ecs_capacity_provider.example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
 
@@ -420,7 +418,7 @@ class CapacityProvider(pulumi.CustomResource):
             cluster="my-cluster",
             managed_instances_provider={
                 "infrastructure_role_arn": ecs_infrastructure["arn"],
-                "propagate_tags": "TASK_DEFINITION",
+                "propagate_tags": "CAPACITY_PROVIDER",
                 "instance_launch_template": {
                     "ec2_instance_profile_arn": ecs_instance["arn"],
                     "monitoring": "ENABLED",
@@ -459,8 +457,6 @@ class CapacityProvider(pulumi.CustomResource):
         - `arn` (String) Amazon Resource Name (ARN) of the ECS capacity provider.
 
         Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
-
-        console
 
         % pulumi import aws_ecs_capacity_provider.example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
 

@@ -50,8 +50,6 @@ import (
 //
 // Using `pulumi import`, import Glue Registries using `arn`. For example:
 //
-// console
-//
 // % pulumi import aws_glue_registry.example arn:aws:glue:us-west-2:123456789012:registry/example
 type Registry struct {
 	pulumi.CustomResourceState

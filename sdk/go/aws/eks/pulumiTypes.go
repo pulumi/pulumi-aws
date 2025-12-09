@@ -275,6 +275,1057 @@ func (o AddonPodIdentityAssociationArrayOutput) Index(i pulumi.IntInput) AddonPo
 	}).(AddonPodIdentityAssociationOutput)
 }
 
+type CapabilityConfiguration struct {
+	// ArgoCD configuration. See `argoCd` below.
+	ArgoCd *CapabilityConfigurationArgoCd `pulumi:"argoCd"`
+}
+
+// CapabilityConfigurationInput is an input type that accepts CapabilityConfigurationArgs and CapabilityConfigurationOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationInput` via:
+//
+//	CapabilityConfigurationArgs{...}
+type CapabilityConfigurationInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationOutput() CapabilityConfigurationOutput
+	ToCapabilityConfigurationOutputWithContext(context.Context) CapabilityConfigurationOutput
+}
+
+type CapabilityConfigurationArgs struct {
+	// ArgoCD configuration. See `argoCd` below.
+	ArgoCd CapabilityConfigurationArgoCdPtrInput `pulumi:"argoCd"`
+}
+
+func (CapabilityConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfiguration)(nil)).Elem()
+}
+
+func (i CapabilityConfigurationArgs) ToCapabilityConfigurationOutput() CapabilityConfigurationOutput {
+	return i.ToCapabilityConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgs) ToCapabilityConfigurationOutputWithContext(ctx context.Context) CapabilityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationOutput)
+}
+
+func (i CapabilityConfigurationArgs) ToCapabilityConfigurationPtrOutput() CapabilityConfigurationPtrOutput {
+	return i.ToCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgs) ToCapabilityConfigurationPtrOutputWithContext(ctx context.Context) CapabilityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationOutput).ToCapabilityConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapabilityConfigurationPtrInput is an input type that accepts CapabilityConfigurationArgs, CapabilityConfigurationPtr and CapabilityConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationPtrInput` via:
+//
+//	        CapabilityConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapabilityConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationPtrOutput() CapabilityConfigurationPtrOutput
+	ToCapabilityConfigurationPtrOutputWithContext(context.Context) CapabilityConfigurationPtrOutput
+}
+
+type capabilityConfigurationPtrType CapabilityConfigurationArgs
+
+func CapabilityConfigurationPtr(v *CapabilityConfigurationArgs) CapabilityConfigurationPtrInput {
+	return (*capabilityConfigurationPtrType)(v)
+}
+
+func (*capabilityConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityConfiguration)(nil)).Elem()
+}
+
+func (i *capabilityConfigurationPtrType) ToCapabilityConfigurationPtrOutput() CapabilityConfigurationPtrOutput {
+	return i.ToCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capabilityConfigurationPtrType) ToCapabilityConfigurationPtrOutputWithContext(ctx context.Context) CapabilityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationPtrOutput)
+}
+
+type CapabilityConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfiguration)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationOutput) ToCapabilityConfigurationOutput() CapabilityConfigurationOutput {
+	return o
+}
+
+func (o CapabilityConfigurationOutput) ToCapabilityConfigurationOutputWithContext(ctx context.Context) CapabilityConfigurationOutput {
+	return o
+}
+
+func (o CapabilityConfigurationOutput) ToCapabilityConfigurationPtrOutput() CapabilityConfigurationPtrOutput {
+	return o.ToCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityConfigurationOutput) ToCapabilityConfigurationPtrOutputWithContext(ctx context.Context) CapabilityConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapabilityConfiguration) *CapabilityConfiguration {
+		return &v
+	}).(CapabilityConfigurationPtrOutput)
+}
+
+// ArgoCD configuration. See `argoCd` below.
+func (o CapabilityConfigurationOutput) ArgoCd() CapabilityConfigurationArgoCdPtrOutput {
+	return o.ApplyT(func(v CapabilityConfiguration) *CapabilityConfigurationArgoCd { return v.ArgoCd }).(CapabilityConfigurationArgoCdPtrOutput)
+}
+
+type CapabilityConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityConfiguration)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationPtrOutput) ToCapabilityConfigurationPtrOutput() CapabilityConfigurationPtrOutput {
+	return o
+}
+
+func (o CapabilityConfigurationPtrOutput) ToCapabilityConfigurationPtrOutputWithContext(ctx context.Context) CapabilityConfigurationPtrOutput {
+	return o
+}
+
+func (o CapabilityConfigurationPtrOutput) Elem() CapabilityConfigurationOutput {
+	return o.ApplyT(func(v *CapabilityConfiguration) CapabilityConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapabilityConfiguration
+		return ret
+	}).(CapabilityConfigurationOutput)
+}
+
+// ArgoCD configuration. See `argoCd` below.
+func (o CapabilityConfigurationPtrOutput) ArgoCd() CapabilityConfigurationArgoCdPtrOutput {
+	return o.ApplyT(func(v *CapabilityConfiguration) *CapabilityConfigurationArgoCd {
+		if v == nil {
+			return nil
+		}
+		return v.ArgoCd
+	}).(CapabilityConfigurationArgoCdPtrOutput)
+}
+
+type CapabilityConfigurationArgoCd struct {
+	// AWS IAM Identity Center configuration. See `awsIdc` below.
+	AwsIdc *CapabilityConfigurationArgoCdAwsIdc `pulumi:"awsIdc"`
+	// Kubernetes namespace for ArgoCD.
+	Namespace *string `pulumi:"namespace"`
+	// Network access configuration. See `networkAccess` below.
+	NetworkAccess *CapabilityConfigurationArgoCdNetworkAccess `pulumi:"networkAccess"`
+	// RBAC role mappings. See `rbacRoleMapping` below.
+	RbacRoleMappings []CapabilityConfigurationArgoCdRbacRoleMapping `pulumi:"rbacRoleMappings"`
+	// URL of the Argo CD server.
+	ServerUrl *string `pulumi:"serverUrl"`
+}
+
+// CapabilityConfigurationArgoCdInput is an input type that accepts CapabilityConfigurationArgoCdArgs and CapabilityConfigurationArgoCdOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationArgoCdInput` via:
+//
+//	CapabilityConfigurationArgoCdArgs{...}
+type CapabilityConfigurationArgoCdInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationArgoCdOutput() CapabilityConfigurationArgoCdOutput
+	ToCapabilityConfigurationArgoCdOutputWithContext(context.Context) CapabilityConfigurationArgoCdOutput
+}
+
+type CapabilityConfigurationArgoCdArgs struct {
+	// AWS IAM Identity Center configuration. See `awsIdc` below.
+	AwsIdc CapabilityConfigurationArgoCdAwsIdcPtrInput `pulumi:"awsIdc"`
+	// Kubernetes namespace for ArgoCD.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// Network access configuration. See `networkAccess` below.
+	NetworkAccess CapabilityConfigurationArgoCdNetworkAccessPtrInput `pulumi:"networkAccess"`
+	// RBAC role mappings. See `rbacRoleMapping` below.
+	RbacRoleMappings CapabilityConfigurationArgoCdRbacRoleMappingArrayInput `pulumi:"rbacRoleMappings"`
+	// URL of the Argo CD server.
+	ServerUrl pulumi.StringPtrInput `pulumi:"serverUrl"`
+}
+
+func (CapabilityConfigurationArgoCdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfigurationArgoCd)(nil)).Elem()
+}
+
+func (i CapabilityConfigurationArgoCdArgs) ToCapabilityConfigurationArgoCdOutput() CapabilityConfigurationArgoCdOutput {
+	return i.ToCapabilityConfigurationArgoCdOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgoCdArgs) ToCapabilityConfigurationArgoCdOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdOutput)
+}
+
+func (i CapabilityConfigurationArgoCdArgs) ToCapabilityConfigurationArgoCdPtrOutput() CapabilityConfigurationArgoCdPtrOutput {
+	return i.ToCapabilityConfigurationArgoCdPtrOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgoCdArgs) ToCapabilityConfigurationArgoCdPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdOutput).ToCapabilityConfigurationArgoCdPtrOutputWithContext(ctx)
+}
+
+// CapabilityConfigurationArgoCdPtrInput is an input type that accepts CapabilityConfigurationArgoCdArgs, CapabilityConfigurationArgoCdPtr and CapabilityConfigurationArgoCdPtrOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationArgoCdPtrInput` via:
+//
+//	        CapabilityConfigurationArgoCdArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapabilityConfigurationArgoCdPtrInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationArgoCdPtrOutput() CapabilityConfigurationArgoCdPtrOutput
+	ToCapabilityConfigurationArgoCdPtrOutputWithContext(context.Context) CapabilityConfigurationArgoCdPtrOutput
+}
+
+type capabilityConfigurationArgoCdPtrType CapabilityConfigurationArgoCdArgs
+
+func CapabilityConfigurationArgoCdPtr(v *CapabilityConfigurationArgoCdArgs) CapabilityConfigurationArgoCdPtrInput {
+	return (*capabilityConfigurationArgoCdPtrType)(v)
+}
+
+func (*capabilityConfigurationArgoCdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityConfigurationArgoCd)(nil)).Elem()
+}
+
+func (i *capabilityConfigurationArgoCdPtrType) ToCapabilityConfigurationArgoCdPtrOutput() CapabilityConfigurationArgoCdPtrOutput {
+	return i.ToCapabilityConfigurationArgoCdPtrOutputWithContext(context.Background())
+}
+
+func (i *capabilityConfigurationArgoCdPtrType) ToCapabilityConfigurationArgoCdPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdPtrOutput)
+}
+
+type CapabilityConfigurationArgoCdOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationArgoCdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfigurationArgoCd)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationArgoCdOutput) ToCapabilityConfigurationArgoCdOutput() CapabilityConfigurationArgoCdOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdOutput) ToCapabilityConfigurationArgoCdOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdOutput) ToCapabilityConfigurationArgoCdPtrOutput() CapabilityConfigurationArgoCdPtrOutput {
+	return o.ToCapabilityConfigurationArgoCdPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityConfigurationArgoCdOutput) ToCapabilityConfigurationArgoCdPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapabilityConfigurationArgoCd) *CapabilityConfigurationArgoCd {
+		return &v
+	}).(CapabilityConfigurationArgoCdPtrOutput)
+}
+
+// AWS IAM Identity Center configuration. See `awsIdc` below.
+func (o CapabilityConfigurationArgoCdOutput) AwsIdc() CapabilityConfigurationArgoCdAwsIdcPtrOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCd) *CapabilityConfigurationArgoCdAwsIdc { return v.AwsIdc }).(CapabilityConfigurationArgoCdAwsIdcPtrOutput)
+}
+
+// Kubernetes namespace for ArgoCD.
+func (o CapabilityConfigurationArgoCdOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCd) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Network access configuration. See `networkAccess` below.
+func (o CapabilityConfigurationArgoCdOutput) NetworkAccess() CapabilityConfigurationArgoCdNetworkAccessPtrOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCd) *CapabilityConfigurationArgoCdNetworkAccess {
+		return v.NetworkAccess
+	}).(CapabilityConfigurationArgoCdNetworkAccessPtrOutput)
+}
+
+// RBAC role mappings. See `rbacRoleMapping` below.
+func (o CapabilityConfigurationArgoCdOutput) RbacRoleMappings() CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCd) []CapabilityConfigurationArgoCdRbacRoleMapping {
+		return v.RbacRoleMappings
+	}).(CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput)
+}
+
+// URL of the Argo CD server.
+func (o CapabilityConfigurationArgoCdOutput) ServerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCd) *string { return v.ServerUrl }).(pulumi.StringPtrOutput)
+}
+
+type CapabilityConfigurationArgoCdPtrOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationArgoCdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityConfigurationArgoCd)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationArgoCdPtrOutput) ToCapabilityConfigurationArgoCdPtrOutput() CapabilityConfigurationArgoCdPtrOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdPtrOutput) ToCapabilityConfigurationArgoCdPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdPtrOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdPtrOutput) Elem() CapabilityConfigurationArgoCdOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCd) CapabilityConfigurationArgoCd {
+		if v != nil {
+			return *v
+		}
+		var ret CapabilityConfigurationArgoCd
+		return ret
+	}).(CapabilityConfigurationArgoCdOutput)
+}
+
+// AWS IAM Identity Center configuration. See `awsIdc` below.
+func (o CapabilityConfigurationArgoCdPtrOutput) AwsIdc() CapabilityConfigurationArgoCdAwsIdcPtrOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCd) *CapabilityConfigurationArgoCdAwsIdc {
+		if v == nil {
+			return nil
+		}
+		return v.AwsIdc
+	}).(CapabilityConfigurationArgoCdAwsIdcPtrOutput)
+}
+
+// Kubernetes namespace for ArgoCD.
+func (o CapabilityConfigurationArgoCdPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCd) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network access configuration. See `networkAccess` below.
+func (o CapabilityConfigurationArgoCdPtrOutput) NetworkAccess() CapabilityConfigurationArgoCdNetworkAccessPtrOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCd) *CapabilityConfigurationArgoCdNetworkAccess {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkAccess
+	}).(CapabilityConfigurationArgoCdNetworkAccessPtrOutput)
+}
+
+// RBAC role mappings. See `rbacRoleMapping` below.
+func (o CapabilityConfigurationArgoCdPtrOutput) RbacRoleMappings() CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCd) []CapabilityConfigurationArgoCdRbacRoleMapping {
+		if v == nil {
+			return nil
+		}
+		return v.RbacRoleMappings
+	}).(CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput)
+}
+
+// URL of the Argo CD server.
+func (o CapabilityConfigurationArgoCdPtrOutput) ServerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCd) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapabilityConfigurationArgoCdAwsIdc struct {
+	// ARN of the IAM Identity Center instance.
+	IdcInstanceArn           string  `pulumi:"idcInstanceArn"`
+	IdcManagedApplicationArn *string `pulumi:"idcManagedApplicationArn"`
+	// Region of the IAM Identity Center instance.
+	IdcRegion *string `pulumi:"idcRegion"`
+}
+
+// CapabilityConfigurationArgoCdAwsIdcInput is an input type that accepts CapabilityConfigurationArgoCdAwsIdcArgs and CapabilityConfigurationArgoCdAwsIdcOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationArgoCdAwsIdcInput` via:
+//
+//	CapabilityConfigurationArgoCdAwsIdcArgs{...}
+type CapabilityConfigurationArgoCdAwsIdcInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationArgoCdAwsIdcOutput() CapabilityConfigurationArgoCdAwsIdcOutput
+	ToCapabilityConfigurationArgoCdAwsIdcOutputWithContext(context.Context) CapabilityConfigurationArgoCdAwsIdcOutput
+}
+
+type CapabilityConfigurationArgoCdAwsIdcArgs struct {
+	// ARN of the IAM Identity Center instance.
+	IdcInstanceArn           pulumi.StringInput    `pulumi:"idcInstanceArn"`
+	IdcManagedApplicationArn pulumi.StringPtrInput `pulumi:"idcManagedApplicationArn"`
+	// Region of the IAM Identity Center instance.
+	IdcRegion pulumi.StringPtrInput `pulumi:"idcRegion"`
+}
+
+func (CapabilityConfigurationArgoCdAwsIdcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfigurationArgoCdAwsIdc)(nil)).Elem()
+}
+
+func (i CapabilityConfigurationArgoCdAwsIdcArgs) ToCapabilityConfigurationArgoCdAwsIdcOutput() CapabilityConfigurationArgoCdAwsIdcOutput {
+	return i.ToCapabilityConfigurationArgoCdAwsIdcOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgoCdAwsIdcArgs) ToCapabilityConfigurationArgoCdAwsIdcOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdAwsIdcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdAwsIdcOutput)
+}
+
+func (i CapabilityConfigurationArgoCdAwsIdcArgs) ToCapabilityConfigurationArgoCdAwsIdcPtrOutput() CapabilityConfigurationArgoCdAwsIdcPtrOutput {
+	return i.ToCapabilityConfigurationArgoCdAwsIdcPtrOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgoCdAwsIdcArgs) ToCapabilityConfigurationArgoCdAwsIdcPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdAwsIdcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdAwsIdcOutput).ToCapabilityConfigurationArgoCdAwsIdcPtrOutputWithContext(ctx)
+}
+
+// CapabilityConfigurationArgoCdAwsIdcPtrInput is an input type that accepts CapabilityConfigurationArgoCdAwsIdcArgs, CapabilityConfigurationArgoCdAwsIdcPtr and CapabilityConfigurationArgoCdAwsIdcPtrOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationArgoCdAwsIdcPtrInput` via:
+//
+//	        CapabilityConfigurationArgoCdAwsIdcArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapabilityConfigurationArgoCdAwsIdcPtrInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationArgoCdAwsIdcPtrOutput() CapabilityConfigurationArgoCdAwsIdcPtrOutput
+	ToCapabilityConfigurationArgoCdAwsIdcPtrOutputWithContext(context.Context) CapabilityConfigurationArgoCdAwsIdcPtrOutput
+}
+
+type capabilityConfigurationArgoCdAwsIdcPtrType CapabilityConfigurationArgoCdAwsIdcArgs
+
+func CapabilityConfigurationArgoCdAwsIdcPtr(v *CapabilityConfigurationArgoCdAwsIdcArgs) CapabilityConfigurationArgoCdAwsIdcPtrInput {
+	return (*capabilityConfigurationArgoCdAwsIdcPtrType)(v)
+}
+
+func (*capabilityConfigurationArgoCdAwsIdcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityConfigurationArgoCdAwsIdc)(nil)).Elem()
+}
+
+func (i *capabilityConfigurationArgoCdAwsIdcPtrType) ToCapabilityConfigurationArgoCdAwsIdcPtrOutput() CapabilityConfigurationArgoCdAwsIdcPtrOutput {
+	return i.ToCapabilityConfigurationArgoCdAwsIdcPtrOutputWithContext(context.Background())
+}
+
+func (i *capabilityConfigurationArgoCdAwsIdcPtrType) ToCapabilityConfigurationArgoCdAwsIdcPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdAwsIdcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdAwsIdcPtrOutput)
+}
+
+type CapabilityConfigurationArgoCdAwsIdcOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationArgoCdAwsIdcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfigurationArgoCdAwsIdc)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationArgoCdAwsIdcOutput) ToCapabilityConfigurationArgoCdAwsIdcOutput() CapabilityConfigurationArgoCdAwsIdcOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdAwsIdcOutput) ToCapabilityConfigurationArgoCdAwsIdcOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdAwsIdcOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdAwsIdcOutput) ToCapabilityConfigurationArgoCdAwsIdcPtrOutput() CapabilityConfigurationArgoCdAwsIdcPtrOutput {
+	return o.ToCapabilityConfigurationArgoCdAwsIdcPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityConfigurationArgoCdAwsIdcOutput) ToCapabilityConfigurationArgoCdAwsIdcPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdAwsIdcPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapabilityConfigurationArgoCdAwsIdc) *CapabilityConfigurationArgoCdAwsIdc {
+		return &v
+	}).(CapabilityConfigurationArgoCdAwsIdcPtrOutput)
+}
+
+// ARN of the IAM Identity Center instance.
+func (o CapabilityConfigurationArgoCdAwsIdcOutput) IdcInstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCdAwsIdc) string { return v.IdcInstanceArn }).(pulumi.StringOutput)
+}
+
+func (o CapabilityConfigurationArgoCdAwsIdcOutput) IdcManagedApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCdAwsIdc) *string { return v.IdcManagedApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// Region of the IAM Identity Center instance.
+func (o CapabilityConfigurationArgoCdAwsIdcOutput) IdcRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCdAwsIdc) *string { return v.IdcRegion }).(pulumi.StringPtrOutput)
+}
+
+type CapabilityConfigurationArgoCdAwsIdcPtrOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationArgoCdAwsIdcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityConfigurationArgoCdAwsIdc)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationArgoCdAwsIdcPtrOutput) ToCapabilityConfigurationArgoCdAwsIdcPtrOutput() CapabilityConfigurationArgoCdAwsIdcPtrOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdAwsIdcPtrOutput) ToCapabilityConfigurationArgoCdAwsIdcPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdAwsIdcPtrOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdAwsIdcPtrOutput) Elem() CapabilityConfigurationArgoCdAwsIdcOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCdAwsIdc) CapabilityConfigurationArgoCdAwsIdc {
+		if v != nil {
+			return *v
+		}
+		var ret CapabilityConfigurationArgoCdAwsIdc
+		return ret
+	}).(CapabilityConfigurationArgoCdAwsIdcOutput)
+}
+
+// ARN of the IAM Identity Center instance.
+func (o CapabilityConfigurationArgoCdAwsIdcPtrOutput) IdcInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCdAwsIdc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdcInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CapabilityConfigurationArgoCdAwsIdcPtrOutput) IdcManagedApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCdAwsIdc) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdcManagedApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Region of the IAM Identity Center instance.
+func (o CapabilityConfigurationArgoCdAwsIdcPtrOutput) IdcRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCdAwsIdc) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdcRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapabilityConfigurationArgoCdNetworkAccess struct {
+	// VPC Endpoint IDs.
+	VpceIds []string `pulumi:"vpceIds"`
+}
+
+// CapabilityConfigurationArgoCdNetworkAccessInput is an input type that accepts CapabilityConfigurationArgoCdNetworkAccessArgs and CapabilityConfigurationArgoCdNetworkAccessOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationArgoCdNetworkAccessInput` via:
+//
+//	CapabilityConfigurationArgoCdNetworkAccessArgs{...}
+type CapabilityConfigurationArgoCdNetworkAccessInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationArgoCdNetworkAccessOutput() CapabilityConfigurationArgoCdNetworkAccessOutput
+	ToCapabilityConfigurationArgoCdNetworkAccessOutputWithContext(context.Context) CapabilityConfigurationArgoCdNetworkAccessOutput
+}
+
+type CapabilityConfigurationArgoCdNetworkAccessArgs struct {
+	// VPC Endpoint IDs.
+	VpceIds pulumi.StringArrayInput `pulumi:"vpceIds"`
+}
+
+func (CapabilityConfigurationArgoCdNetworkAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfigurationArgoCdNetworkAccess)(nil)).Elem()
+}
+
+func (i CapabilityConfigurationArgoCdNetworkAccessArgs) ToCapabilityConfigurationArgoCdNetworkAccessOutput() CapabilityConfigurationArgoCdNetworkAccessOutput {
+	return i.ToCapabilityConfigurationArgoCdNetworkAccessOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgoCdNetworkAccessArgs) ToCapabilityConfigurationArgoCdNetworkAccessOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdNetworkAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdNetworkAccessOutput)
+}
+
+func (i CapabilityConfigurationArgoCdNetworkAccessArgs) ToCapabilityConfigurationArgoCdNetworkAccessPtrOutput() CapabilityConfigurationArgoCdNetworkAccessPtrOutput {
+	return i.ToCapabilityConfigurationArgoCdNetworkAccessPtrOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgoCdNetworkAccessArgs) ToCapabilityConfigurationArgoCdNetworkAccessPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdNetworkAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdNetworkAccessOutput).ToCapabilityConfigurationArgoCdNetworkAccessPtrOutputWithContext(ctx)
+}
+
+// CapabilityConfigurationArgoCdNetworkAccessPtrInput is an input type that accepts CapabilityConfigurationArgoCdNetworkAccessArgs, CapabilityConfigurationArgoCdNetworkAccessPtr and CapabilityConfigurationArgoCdNetworkAccessPtrOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationArgoCdNetworkAccessPtrInput` via:
+//
+//	        CapabilityConfigurationArgoCdNetworkAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapabilityConfigurationArgoCdNetworkAccessPtrInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationArgoCdNetworkAccessPtrOutput() CapabilityConfigurationArgoCdNetworkAccessPtrOutput
+	ToCapabilityConfigurationArgoCdNetworkAccessPtrOutputWithContext(context.Context) CapabilityConfigurationArgoCdNetworkAccessPtrOutput
+}
+
+type capabilityConfigurationArgoCdNetworkAccessPtrType CapabilityConfigurationArgoCdNetworkAccessArgs
+
+func CapabilityConfigurationArgoCdNetworkAccessPtr(v *CapabilityConfigurationArgoCdNetworkAccessArgs) CapabilityConfigurationArgoCdNetworkAccessPtrInput {
+	return (*capabilityConfigurationArgoCdNetworkAccessPtrType)(v)
+}
+
+func (*capabilityConfigurationArgoCdNetworkAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityConfigurationArgoCdNetworkAccess)(nil)).Elem()
+}
+
+func (i *capabilityConfigurationArgoCdNetworkAccessPtrType) ToCapabilityConfigurationArgoCdNetworkAccessPtrOutput() CapabilityConfigurationArgoCdNetworkAccessPtrOutput {
+	return i.ToCapabilityConfigurationArgoCdNetworkAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *capabilityConfigurationArgoCdNetworkAccessPtrType) ToCapabilityConfigurationArgoCdNetworkAccessPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdNetworkAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdNetworkAccessPtrOutput)
+}
+
+type CapabilityConfigurationArgoCdNetworkAccessOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationArgoCdNetworkAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfigurationArgoCdNetworkAccess)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationArgoCdNetworkAccessOutput) ToCapabilityConfigurationArgoCdNetworkAccessOutput() CapabilityConfigurationArgoCdNetworkAccessOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdNetworkAccessOutput) ToCapabilityConfigurationArgoCdNetworkAccessOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdNetworkAccessOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdNetworkAccessOutput) ToCapabilityConfigurationArgoCdNetworkAccessPtrOutput() CapabilityConfigurationArgoCdNetworkAccessPtrOutput {
+	return o.ToCapabilityConfigurationArgoCdNetworkAccessPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityConfigurationArgoCdNetworkAccessOutput) ToCapabilityConfigurationArgoCdNetworkAccessPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdNetworkAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapabilityConfigurationArgoCdNetworkAccess) *CapabilityConfigurationArgoCdNetworkAccess {
+		return &v
+	}).(CapabilityConfigurationArgoCdNetworkAccessPtrOutput)
+}
+
+// VPC Endpoint IDs.
+func (o CapabilityConfigurationArgoCdNetworkAccessOutput) VpceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCdNetworkAccess) []string { return v.VpceIds }).(pulumi.StringArrayOutput)
+}
+
+type CapabilityConfigurationArgoCdNetworkAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationArgoCdNetworkAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityConfigurationArgoCdNetworkAccess)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationArgoCdNetworkAccessPtrOutput) ToCapabilityConfigurationArgoCdNetworkAccessPtrOutput() CapabilityConfigurationArgoCdNetworkAccessPtrOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdNetworkAccessPtrOutput) ToCapabilityConfigurationArgoCdNetworkAccessPtrOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdNetworkAccessPtrOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdNetworkAccessPtrOutput) Elem() CapabilityConfigurationArgoCdNetworkAccessOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCdNetworkAccess) CapabilityConfigurationArgoCdNetworkAccess {
+		if v != nil {
+			return *v
+		}
+		var ret CapabilityConfigurationArgoCdNetworkAccess
+		return ret
+	}).(CapabilityConfigurationArgoCdNetworkAccessOutput)
+}
+
+// VPC Endpoint IDs.
+func (o CapabilityConfigurationArgoCdNetworkAccessPtrOutput) VpceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapabilityConfigurationArgoCdNetworkAccess) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VpceIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type CapabilityConfigurationArgoCdRbacRoleMapping struct {
+	// List of identities. See `identity` below.
+	Identities []CapabilityConfigurationArgoCdRbacRoleMappingIdentity `pulumi:"identities"`
+	// ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
+	Role string `pulumi:"role"`
+}
+
+// CapabilityConfigurationArgoCdRbacRoleMappingInput is an input type that accepts CapabilityConfigurationArgoCdRbacRoleMappingArgs and CapabilityConfigurationArgoCdRbacRoleMappingOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationArgoCdRbacRoleMappingInput` via:
+//
+//	CapabilityConfigurationArgoCdRbacRoleMappingArgs{...}
+type CapabilityConfigurationArgoCdRbacRoleMappingInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationArgoCdRbacRoleMappingOutput() CapabilityConfigurationArgoCdRbacRoleMappingOutput
+	ToCapabilityConfigurationArgoCdRbacRoleMappingOutputWithContext(context.Context) CapabilityConfigurationArgoCdRbacRoleMappingOutput
+}
+
+type CapabilityConfigurationArgoCdRbacRoleMappingArgs struct {
+	// List of identities. See `identity` below.
+	Identities CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayInput `pulumi:"identities"`
+	// ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
+	Role pulumi.StringInput `pulumi:"role"`
+}
+
+func (CapabilityConfigurationArgoCdRbacRoleMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfigurationArgoCdRbacRoleMapping)(nil)).Elem()
+}
+
+func (i CapabilityConfigurationArgoCdRbacRoleMappingArgs) ToCapabilityConfigurationArgoCdRbacRoleMappingOutput() CapabilityConfigurationArgoCdRbacRoleMappingOutput {
+	return i.ToCapabilityConfigurationArgoCdRbacRoleMappingOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgoCdRbacRoleMappingArgs) ToCapabilityConfigurationArgoCdRbacRoleMappingOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdRbacRoleMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdRbacRoleMappingOutput)
+}
+
+// CapabilityConfigurationArgoCdRbacRoleMappingArrayInput is an input type that accepts CapabilityConfigurationArgoCdRbacRoleMappingArray and CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationArgoCdRbacRoleMappingArrayInput` via:
+//
+//	CapabilityConfigurationArgoCdRbacRoleMappingArray{ CapabilityConfigurationArgoCdRbacRoleMappingArgs{...} }
+type CapabilityConfigurationArgoCdRbacRoleMappingArrayInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationArgoCdRbacRoleMappingArrayOutput() CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput
+	ToCapabilityConfigurationArgoCdRbacRoleMappingArrayOutputWithContext(context.Context) CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput
+}
+
+type CapabilityConfigurationArgoCdRbacRoleMappingArray []CapabilityConfigurationArgoCdRbacRoleMappingInput
+
+func (CapabilityConfigurationArgoCdRbacRoleMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilityConfigurationArgoCdRbacRoleMapping)(nil)).Elem()
+}
+
+func (i CapabilityConfigurationArgoCdRbacRoleMappingArray) ToCapabilityConfigurationArgoCdRbacRoleMappingArrayOutput() CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput {
+	return i.ToCapabilityConfigurationArgoCdRbacRoleMappingArrayOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgoCdRbacRoleMappingArray) ToCapabilityConfigurationArgoCdRbacRoleMappingArrayOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput)
+}
+
+type CapabilityConfigurationArgoCdRbacRoleMappingOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationArgoCdRbacRoleMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfigurationArgoCdRbacRoleMapping)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationArgoCdRbacRoleMappingOutput) ToCapabilityConfigurationArgoCdRbacRoleMappingOutput() CapabilityConfigurationArgoCdRbacRoleMappingOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdRbacRoleMappingOutput) ToCapabilityConfigurationArgoCdRbacRoleMappingOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdRbacRoleMappingOutput {
+	return o
+}
+
+// List of identities. See `identity` below.
+func (o CapabilityConfigurationArgoCdRbacRoleMappingOutput) Identities() CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCdRbacRoleMapping) []CapabilityConfigurationArgoCdRbacRoleMappingIdentity {
+		return v.Identities
+	}).(CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput)
+}
+
+// ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
+func (o CapabilityConfigurationArgoCdRbacRoleMappingOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCdRbacRoleMapping) string { return v.Role }).(pulumi.StringOutput)
+}
+
+type CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilityConfigurationArgoCdRbacRoleMapping)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput) ToCapabilityConfigurationArgoCdRbacRoleMappingArrayOutput() CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput) ToCapabilityConfigurationArgoCdRbacRoleMappingArrayOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput) Index(i pulumi.IntInput) CapabilityConfigurationArgoCdRbacRoleMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapabilityConfigurationArgoCdRbacRoleMapping {
+		return vs[0].([]CapabilityConfigurationArgoCdRbacRoleMapping)[vs[1].(int)]
+	}).(CapabilityConfigurationArgoCdRbacRoleMappingOutput)
+}
+
+type CapabilityConfigurationArgoCdRbacRoleMappingIdentity struct {
+	// Identity ID.
+	Id string `pulumi:"id"`
+	// Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
+	Type string `pulumi:"type"`
+}
+
+// CapabilityConfigurationArgoCdRbacRoleMappingIdentityInput is an input type that accepts CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs and CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationArgoCdRbacRoleMappingIdentityInput` via:
+//
+//	CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs{...}
+type CapabilityConfigurationArgoCdRbacRoleMappingIdentityInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput() CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput
+	ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityOutputWithContext(context.Context) CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput
+}
+
+type CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs struct {
+	// Identity ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfigurationArgoCdRbacRoleMappingIdentity)(nil)).Elem()
+}
+
+func (i CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs) ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput() CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput {
+	return i.ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs) ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput)
+}
+
+// CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayInput is an input type that accepts CapabilityConfigurationArgoCdRbacRoleMappingIdentityArray and CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayInput` via:
+//
+//	CapabilityConfigurationArgoCdRbacRoleMappingIdentityArray{ CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs{...} }
+type CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput() CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput
+	ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutputWithContext(context.Context) CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput
+}
+
+type CapabilityConfigurationArgoCdRbacRoleMappingIdentityArray []CapabilityConfigurationArgoCdRbacRoleMappingIdentityInput
+
+func (CapabilityConfigurationArgoCdRbacRoleMappingIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilityConfigurationArgoCdRbacRoleMappingIdentity)(nil)).Elem()
+}
+
+func (i CapabilityConfigurationArgoCdRbacRoleMappingIdentityArray) ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput() CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput {
+	return i.ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgoCdRbacRoleMappingIdentityArray) ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput)
+}
+
+type CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfigurationArgoCdRbacRoleMappingIdentity)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput) ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput() CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput) ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput {
+	return o
+}
+
+// Identity ID.
+func (o CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCdRbacRoleMappingIdentity) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
+func (o CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCdRbacRoleMappingIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilityConfigurationArgoCdRbacRoleMappingIdentity)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput) ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput() CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput) ToCapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutputWithContext(ctx context.Context) CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput {
+	return o
+}
+
+func (o CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput) Index(i pulumi.IntInput) CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapabilityConfigurationArgoCdRbacRoleMappingIdentity {
+		return vs[0].([]CapabilityConfigurationArgoCdRbacRoleMappingIdentity)[vs[1].(int)]
+	}).(CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput)
+}
+
+type CapabilityTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// CapabilityTimeoutsInput is an input type that accepts CapabilityTimeoutsArgs and CapabilityTimeoutsOutput values.
+// You can construct a concrete instance of `CapabilityTimeoutsInput` via:
+//
+//	CapabilityTimeoutsArgs{...}
+type CapabilityTimeoutsInput interface {
+	pulumi.Input
+
+	ToCapabilityTimeoutsOutput() CapabilityTimeoutsOutput
+	ToCapabilityTimeoutsOutputWithContext(context.Context) CapabilityTimeoutsOutput
+}
+
+type CapabilityTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (CapabilityTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityTimeouts)(nil)).Elem()
+}
+
+func (i CapabilityTimeoutsArgs) ToCapabilityTimeoutsOutput() CapabilityTimeoutsOutput {
+	return i.ToCapabilityTimeoutsOutputWithContext(context.Background())
+}
+
+func (i CapabilityTimeoutsArgs) ToCapabilityTimeoutsOutputWithContext(ctx context.Context) CapabilityTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityTimeoutsOutput)
+}
+
+func (i CapabilityTimeoutsArgs) ToCapabilityTimeoutsPtrOutput() CapabilityTimeoutsPtrOutput {
+	return i.ToCapabilityTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i CapabilityTimeoutsArgs) ToCapabilityTimeoutsPtrOutputWithContext(ctx context.Context) CapabilityTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityTimeoutsOutput).ToCapabilityTimeoutsPtrOutputWithContext(ctx)
+}
+
+// CapabilityTimeoutsPtrInput is an input type that accepts CapabilityTimeoutsArgs, CapabilityTimeoutsPtr and CapabilityTimeoutsPtrOutput values.
+// You can construct a concrete instance of `CapabilityTimeoutsPtrInput` via:
+//
+//	        CapabilityTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapabilityTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToCapabilityTimeoutsPtrOutput() CapabilityTimeoutsPtrOutput
+	ToCapabilityTimeoutsPtrOutputWithContext(context.Context) CapabilityTimeoutsPtrOutput
+}
+
+type capabilityTimeoutsPtrType CapabilityTimeoutsArgs
+
+func CapabilityTimeoutsPtr(v *CapabilityTimeoutsArgs) CapabilityTimeoutsPtrInput {
+	return (*capabilityTimeoutsPtrType)(v)
+}
+
+func (*capabilityTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityTimeouts)(nil)).Elem()
+}
+
+func (i *capabilityTimeoutsPtrType) ToCapabilityTimeoutsPtrOutput() CapabilityTimeoutsPtrOutput {
+	return i.ToCapabilityTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *capabilityTimeoutsPtrType) ToCapabilityTimeoutsPtrOutputWithContext(ctx context.Context) CapabilityTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityTimeoutsPtrOutput)
+}
+
+type CapabilityTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (CapabilityTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityTimeouts)(nil)).Elem()
+}
+
+func (o CapabilityTimeoutsOutput) ToCapabilityTimeoutsOutput() CapabilityTimeoutsOutput {
+	return o
+}
+
+func (o CapabilityTimeoutsOutput) ToCapabilityTimeoutsOutputWithContext(ctx context.Context) CapabilityTimeoutsOutput {
+	return o
+}
+
+func (o CapabilityTimeoutsOutput) ToCapabilityTimeoutsPtrOutput() CapabilityTimeoutsPtrOutput {
+	return o.ToCapabilityTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityTimeoutsOutput) ToCapabilityTimeoutsPtrOutputWithContext(ctx context.Context) CapabilityTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapabilityTimeouts) *CapabilityTimeouts {
+		return &v
+	}).(CapabilityTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapabilityTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o CapabilityTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapabilityTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type CapabilityTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (CapabilityTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityTimeouts)(nil)).Elem()
+}
+
+func (o CapabilityTimeoutsPtrOutput) ToCapabilityTimeoutsPtrOutput() CapabilityTimeoutsPtrOutput {
+	return o
+}
+
+func (o CapabilityTimeoutsPtrOutput) ToCapabilityTimeoutsPtrOutputWithContext(ctx context.Context) CapabilityTimeoutsPtrOutput {
+	return o
+}
+
+func (o CapabilityTimeoutsPtrOutput) Elem() CapabilityTimeoutsOutput {
+	return o.ApplyT(func(v *CapabilityTimeouts) CapabilityTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret CapabilityTimeouts
+		return ret
+	}).(CapabilityTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapabilityTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o CapabilityTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapabilityTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterAccessConfig struct {
 	// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
 	AuthenticationMode *string `pulumi:"authenticationMode"`
@@ -740,6 +1791,143 @@ func (o ClusterComputeConfigPtrOutput) NodeRoleArn() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.NodeRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterControlPlaneScalingConfig struct {
+	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+	Tier *string `pulumi:"tier"`
+}
+
+// ClusterControlPlaneScalingConfigInput is an input type that accepts ClusterControlPlaneScalingConfigArgs and ClusterControlPlaneScalingConfigOutput values.
+// You can construct a concrete instance of `ClusterControlPlaneScalingConfigInput` via:
+//
+//	ClusterControlPlaneScalingConfigArgs{...}
+type ClusterControlPlaneScalingConfigInput interface {
+	pulumi.Input
+
+	ToClusterControlPlaneScalingConfigOutput() ClusterControlPlaneScalingConfigOutput
+	ToClusterControlPlaneScalingConfigOutputWithContext(context.Context) ClusterControlPlaneScalingConfigOutput
+}
+
+type ClusterControlPlaneScalingConfigArgs struct {
+	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (ClusterControlPlaneScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (i ClusterControlPlaneScalingConfigArgs) ToClusterControlPlaneScalingConfigOutput() ClusterControlPlaneScalingConfigOutput {
+	return i.ToClusterControlPlaneScalingConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterControlPlaneScalingConfigArgs) ToClusterControlPlaneScalingConfigOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlaneScalingConfigOutput)
+}
+
+func (i ClusterControlPlaneScalingConfigArgs) ToClusterControlPlaneScalingConfigPtrOutput() ClusterControlPlaneScalingConfigPtrOutput {
+	return i.ToClusterControlPlaneScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterControlPlaneScalingConfigArgs) ToClusterControlPlaneScalingConfigPtrOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlaneScalingConfigOutput).ToClusterControlPlaneScalingConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterControlPlaneScalingConfigPtrInput is an input type that accepts ClusterControlPlaneScalingConfigArgs, ClusterControlPlaneScalingConfigPtr and ClusterControlPlaneScalingConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterControlPlaneScalingConfigPtrInput` via:
+//
+//	        ClusterControlPlaneScalingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterControlPlaneScalingConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterControlPlaneScalingConfigPtrOutput() ClusterControlPlaneScalingConfigPtrOutput
+	ToClusterControlPlaneScalingConfigPtrOutputWithContext(context.Context) ClusterControlPlaneScalingConfigPtrOutput
+}
+
+type clusterControlPlaneScalingConfigPtrType ClusterControlPlaneScalingConfigArgs
+
+func ClusterControlPlaneScalingConfigPtr(v *ClusterControlPlaneScalingConfigArgs) ClusterControlPlaneScalingConfigPtrInput {
+	return (*clusterControlPlaneScalingConfigPtrType)(v)
+}
+
+func (*clusterControlPlaneScalingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (i *clusterControlPlaneScalingConfigPtrType) ToClusterControlPlaneScalingConfigPtrOutput() ClusterControlPlaneScalingConfigPtrOutput {
+	return i.ToClusterControlPlaneScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterControlPlaneScalingConfigPtrType) ToClusterControlPlaneScalingConfigPtrOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlaneScalingConfigPtrOutput)
+}
+
+type ClusterControlPlaneScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterControlPlaneScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (o ClusterControlPlaneScalingConfigOutput) ToClusterControlPlaneScalingConfigOutput() ClusterControlPlaneScalingConfigOutput {
+	return o
+}
+
+func (o ClusterControlPlaneScalingConfigOutput) ToClusterControlPlaneScalingConfigOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigOutput {
+	return o
+}
+
+func (o ClusterControlPlaneScalingConfigOutput) ToClusterControlPlaneScalingConfigPtrOutput() ClusterControlPlaneScalingConfigPtrOutput {
+	return o.ToClusterControlPlaneScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterControlPlaneScalingConfigOutput) ToClusterControlPlaneScalingConfigPtrOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterControlPlaneScalingConfig) *ClusterControlPlaneScalingConfig {
+		return &v
+	}).(ClusterControlPlaneScalingConfigPtrOutput)
+}
+
+// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+func (o ClusterControlPlaneScalingConfigOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterControlPlaneScalingConfig) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type ClusterControlPlaneScalingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterControlPlaneScalingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (o ClusterControlPlaneScalingConfigPtrOutput) ToClusterControlPlaneScalingConfigPtrOutput() ClusterControlPlaneScalingConfigPtrOutput {
+	return o
+}
+
+func (o ClusterControlPlaneScalingConfigPtrOutput) ToClusterControlPlaneScalingConfigPtrOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigPtrOutput {
+	return o
+}
+
+func (o ClusterControlPlaneScalingConfigPtrOutput) Elem() ClusterControlPlaneScalingConfigOutput {
+	return o.ApplyT(func(v *ClusterControlPlaneScalingConfig) ClusterControlPlaneScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterControlPlaneScalingConfig
+		return ret
+	}).(ClusterControlPlaneScalingConfigOutput)
+}
+
+// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+func (o ClusterControlPlaneScalingConfigPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterControlPlaneScalingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5314,6 +6502,103 @@ func (o GetClusterComputeConfigArrayOutput) Index(i pulumi.IntInput) GetClusterC
 	}).(GetClusterComputeConfigOutput)
 }
 
+type GetClusterControlPlaneScalingConfig struct {
+	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
+	Tier string `pulumi:"tier"`
+}
+
+// GetClusterControlPlaneScalingConfigInput is an input type that accepts GetClusterControlPlaneScalingConfigArgs and GetClusterControlPlaneScalingConfigOutput values.
+// You can construct a concrete instance of `GetClusterControlPlaneScalingConfigInput` via:
+//
+//	GetClusterControlPlaneScalingConfigArgs{...}
+type GetClusterControlPlaneScalingConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterControlPlaneScalingConfigOutput() GetClusterControlPlaneScalingConfigOutput
+	ToGetClusterControlPlaneScalingConfigOutputWithContext(context.Context) GetClusterControlPlaneScalingConfigOutput
+}
+
+type GetClusterControlPlaneScalingConfigArgs struct {
+	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (GetClusterControlPlaneScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (i GetClusterControlPlaneScalingConfigArgs) ToGetClusterControlPlaneScalingConfigOutput() GetClusterControlPlaneScalingConfigOutput {
+	return i.ToGetClusterControlPlaneScalingConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterControlPlaneScalingConfigArgs) ToGetClusterControlPlaneScalingConfigOutputWithContext(ctx context.Context) GetClusterControlPlaneScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterControlPlaneScalingConfigOutput)
+}
+
+// GetClusterControlPlaneScalingConfigArrayInput is an input type that accepts GetClusterControlPlaneScalingConfigArray and GetClusterControlPlaneScalingConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterControlPlaneScalingConfigArrayInput` via:
+//
+//	GetClusterControlPlaneScalingConfigArray{ GetClusterControlPlaneScalingConfigArgs{...} }
+type GetClusterControlPlaneScalingConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterControlPlaneScalingConfigArrayOutput() GetClusterControlPlaneScalingConfigArrayOutput
+	ToGetClusterControlPlaneScalingConfigArrayOutputWithContext(context.Context) GetClusterControlPlaneScalingConfigArrayOutput
+}
+
+type GetClusterControlPlaneScalingConfigArray []GetClusterControlPlaneScalingConfigInput
+
+func (GetClusterControlPlaneScalingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (i GetClusterControlPlaneScalingConfigArray) ToGetClusterControlPlaneScalingConfigArrayOutput() GetClusterControlPlaneScalingConfigArrayOutput {
+	return i.ToGetClusterControlPlaneScalingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterControlPlaneScalingConfigArray) ToGetClusterControlPlaneScalingConfigArrayOutputWithContext(ctx context.Context) GetClusterControlPlaneScalingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterControlPlaneScalingConfigArrayOutput)
+}
+
+type GetClusterControlPlaneScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterControlPlaneScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (o GetClusterControlPlaneScalingConfigOutput) ToGetClusterControlPlaneScalingConfigOutput() GetClusterControlPlaneScalingConfigOutput {
+	return o
+}
+
+func (o GetClusterControlPlaneScalingConfigOutput) ToGetClusterControlPlaneScalingConfigOutputWithContext(ctx context.Context) GetClusterControlPlaneScalingConfigOutput {
+	return o
+}
+
+// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
+func (o GetClusterControlPlaneScalingConfigOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterControlPlaneScalingConfig) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+type GetClusterControlPlaneScalingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterControlPlaneScalingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (o GetClusterControlPlaneScalingConfigArrayOutput) ToGetClusterControlPlaneScalingConfigArrayOutput() GetClusterControlPlaneScalingConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterControlPlaneScalingConfigArrayOutput) ToGetClusterControlPlaneScalingConfigArrayOutputWithContext(ctx context.Context) GetClusterControlPlaneScalingConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterControlPlaneScalingConfigArrayOutput) Index(i pulumi.IntInput) GetClusterControlPlaneScalingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterControlPlaneScalingConfig {
+		return vs[0].([]GetClusterControlPlaneScalingConfig)[vs[1].(int)]
+	}).(GetClusterControlPlaneScalingConfigOutput)
+}
+
 type GetClusterIdentity struct {
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
 	Oidcs []GetClusterIdentityOidc `pulumi:"oidcs"`
@@ -7577,12 +8862,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyAssociationAccessScopePtrInput)(nil)).Elem(), AccessPolicyAssociationAccessScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonPodIdentityAssociationInput)(nil)).Elem(), AddonPodIdentityAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonPodIdentityAssociationArrayInput)(nil)).Elem(), AddonPodIdentityAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationInput)(nil)).Elem(), CapabilityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationPtrInput)(nil)).Elem(), CapabilityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationArgoCdInput)(nil)).Elem(), CapabilityConfigurationArgoCdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationArgoCdPtrInput)(nil)).Elem(), CapabilityConfigurationArgoCdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationArgoCdAwsIdcInput)(nil)).Elem(), CapabilityConfigurationArgoCdAwsIdcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationArgoCdAwsIdcPtrInput)(nil)).Elem(), CapabilityConfigurationArgoCdAwsIdcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationArgoCdNetworkAccessInput)(nil)).Elem(), CapabilityConfigurationArgoCdNetworkAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationArgoCdNetworkAccessPtrInput)(nil)).Elem(), CapabilityConfigurationArgoCdNetworkAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationArgoCdRbacRoleMappingInput)(nil)).Elem(), CapabilityConfigurationArgoCdRbacRoleMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationArgoCdRbacRoleMappingArrayInput)(nil)).Elem(), CapabilityConfigurationArgoCdRbacRoleMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationArgoCdRbacRoleMappingIdentityInput)(nil)).Elem(), CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayInput)(nil)).Elem(), CapabilityConfigurationArgoCdRbacRoleMappingIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityTimeoutsInput)(nil)).Elem(), CapabilityTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityTimeoutsPtrInput)(nil)).Elem(), CapabilityTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigInput)(nil)).Elem(), ClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigPtrInput)(nil)).Elem(), ClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityPtrInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeConfigInput)(nil)).Elem(), ClusterComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeConfigPtrInput)(nil)).Elem(), ClusterComputeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlaneScalingConfigInput)(nil)).Elem(), ClusterControlPlaneScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlaneScalingConfigPtrInput)(nil)).Elem(), ClusterControlPlaneScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigPtrInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigProviderInput)(nil)).Elem(), ClusterEncryptionConfigProviderArgs{})
@@ -7645,6 +8946,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCertificateAuthorityArrayInput)(nil)).Elem(), GetClusterCertificateAuthorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterComputeConfigInput)(nil)).Elem(), GetClusterComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterComputeConfigArrayInput)(nil)).Elem(), GetClusterComputeConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterControlPlaneScalingConfigInput)(nil)).Elem(), GetClusterControlPlaneScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterControlPlaneScalingConfigArrayInput)(nil)).Elem(), GetClusterControlPlaneScalingConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityInput)(nil)).Elem(), GetClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityArrayInput)(nil)).Elem(), GetClusterIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityOidcInput)(nil)).Elem(), GetClusterIdentityOidcArgs{})
@@ -7690,12 +8993,28 @@ func init() {
 	pulumi.RegisterOutputType(AccessPolicyAssociationAccessScopePtrOutput{})
 	pulumi.RegisterOutputType(AddonPodIdentityAssociationOutput{})
 	pulumi.RegisterOutputType(AddonPodIdentityAssociationArrayOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationArgoCdOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationArgoCdPtrOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationArgoCdAwsIdcOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationArgoCdAwsIdcPtrOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationArgoCdNetworkAccessOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationArgoCdNetworkAccessPtrOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationArgoCdRbacRoleMappingOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationArgoCdRbacRoleMappingArrayOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationArgoCdRbacRoleMappingIdentityOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationArgoCdRbacRoleMappingIdentityArrayOutput{})
+	pulumi.RegisterOutputType(CapabilityTimeoutsOutput{})
+	pulumi.RegisterOutputType(CapabilityTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterAccessConfigOutput{})
 	pulumi.RegisterOutputType(ClusterAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterComputeConfigOutput{})
 	pulumi.RegisterOutputType(ClusterComputeConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterControlPlaneScalingConfigOutput{})
+	pulumi.RegisterOutputType(ClusterControlPlaneScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderOutput{})
@@ -7758,6 +9077,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterCertificateAuthorityArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterComputeConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterComputeConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterControlPlaneScalingConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterControlPlaneScalingConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOidcOutput{})

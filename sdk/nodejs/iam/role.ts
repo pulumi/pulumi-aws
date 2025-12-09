@@ -198,8 +198,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import IAM Roles using the `name`. For example:
  *
- * console
- *
  * % pulumi import aws_iam_role.example developer_name
  */
 export class Role extends pulumi.CustomResource {

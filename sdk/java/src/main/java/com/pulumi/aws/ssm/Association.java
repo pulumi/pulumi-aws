@@ -412,8 +412,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import SSM associations using the `association_id`. For example:
  * 
- * console
- * 
  * % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
  * 
  */
@@ -488,6 +486,20 @@ public class Association extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> automationTargetParameterName() {
         return Codegen.optional(this.automationTargetParameterName);
+    }
+    /**
+     * One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+     * 
+     */
+    @Export(name="calendarNames", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> calendarNames;
+
+    /**
+     * @return One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
+     * 
+     */
+    public Output<Optional<List<String>>> calendarNames() {
+        return Codegen.optional(this.calendarNames);
     }
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`

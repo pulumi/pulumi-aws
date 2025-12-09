@@ -818,6 +818,21 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+     * 
+     */
+    @Import(name="tunnelBandwidth")
+    private @Nullable Output<String> tunnelBandwidth;
+
+    /**
+     * @return Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+     * 
+     */
+    public Optional<Output<String>> tunnelBandwidth() {
+        return Optional.ofNullable(this.tunnelBandwidth);
+    }
+
+    /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      * 
      */
@@ -845,6 +860,21 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> type() {
         return this.type;
+    }
+
+    /**
+     * ID of the VPN concentrator to associate with the VPN connection.
+     * 
+     */
+    @Import(name="vpnConcentratorId")
+    private @Nullable Output<String> vpnConcentratorId;
+
+    /**
+     * @return ID of the VPN concentrator to associate with the VPN connection.
+     * 
+     */
+    public Optional<Output<String>> vpnConcentratorId() {
+        return Optional.ofNullable(this.vpnConcentratorId);
     }
 
     /**
@@ -918,8 +948,10 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         this.tunnel2RekeyMarginTimeSeconds = $.tunnel2RekeyMarginTimeSeconds;
         this.tunnel2ReplayWindowSize = $.tunnel2ReplayWindowSize;
         this.tunnel2StartupAction = $.tunnel2StartupAction;
+        this.tunnelBandwidth = $.tunnelBandwidth;
         this.tunnelInsideIpVersion = $.tunnelInsideIpVersion;
         this.type = $.type;
+        this.vpnConcentratorId = $.vpnConcentratorId;
         this.vpnGatewayId = $.vpnGatewayId;
     }
 
@@ -2195,6 +2227,27 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param tunnelBandwidth Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnelBandwidth(@Nullable Output<String> tunnelBandwidth) {
+            $.tunnelBandwidth = tunnelBandwidth;
+            return this;
+        }
+
+        /**
+         * @param tunnelBandwidth Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnelBandwidth(String tunnelBandwidth) {
+            return tunnelBandwidth(Output.of(tunnelBandwidth));
+        }
+
+        /**
          * @param tunnelInsideIpVersion Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
          * 
          * @return builder
@@ -2234,6 +2287,27 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param vpnConcentratorId ID of the VPN concentrator to associate with the VPN connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpnConcentratorId(@Nullable Output<String> vpnConcentratorId) {
+            $.vpnConcentratorId = vpnConcentratorId;
+            return this;
+        }
+
+        /**
+         * @param vpnConcentratorId ID of the VPN concentrator to associate with the VPN connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpnConcentratorId(String vpnConcentratorId) {
+            return vpnConcentratorId(Output.of(vpnConcentratorId));
         }
 
         /**

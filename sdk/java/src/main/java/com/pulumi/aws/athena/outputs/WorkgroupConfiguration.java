@@ -5,6 +5,7 @@ package com.pulumi.aws.athena.outputs;
 
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationEngineVersion;
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationIdentityCenterConfiguration;
+import com.pulumi.aws.athena.outputs.WorkgroupConfigurationManagedQueryResultsConfiguration;
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationResultConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -41,6 +42,11 @@ public final class WorkgroupConfiguration {
      * 
      */
     private @Nullable WorkgroupConfigurationIdentityCenterConfiguration identityCenterConfiguration;
+    /**
+     * @return Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+     * 
+     */
+    private @Nullable WorkgroupConfigurationManagedQueryResultsConfiguration managedQueryResultsConfiguration;
     /**
      * @return Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
@@ -94,6 +100,13 @@ public final class WorkgroupConfiguration {
         return Optional.ofNullable(this.identityCenterConfiguration);
     }
     /**
+     * @return Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+     * 
+     */
+    public Optional<WorkgroupConfigurationManagedQueryResultsConfiguration> managedQueryResultsConfiguration() {
+        return Optional.ofNullable(this.managedQueryResultsConfiguration);
+    }
+    /**
      * @return Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
      */
@@ -129,6 +142,7 @@ public final class WorkgroupConfiguration {
         private @Nullable WorkgroupConfigurationEngineVersion engineVersion;
         private @Nullable String executionRole;
         private @Nullable WorkgroupConfigurationIdentityCenterConfiguration identityCenterConfiguration;
+        private @Nullable WorkgroupConfigurationManagedQueryResultsConfiguration managedQueryResultsConfiguration;
         private @Nullable Boolean publishCloudwatchMetricsEnabled;
         private @Nullable Boolean requesterPaysEnabled;
         private @Nullable WorkgroupConfigurationResultConfiguration resultConfiguration;
@@ -140,6 +154,7 @@ public final class WorkgroupConfiguration {
     	      this.engineVersion = defaults.engineVersion;
     	      this.executionRole = defaults.executionRole;
     	      this.identityCenterConfiguration = defaults.identityCenterConfiguration;
+    	      this.managedQueryResultsConfiguration = defaults.managedQueryResultsConfiguration;
     	      this.publishCloudwatchMetricsEnabled = defaults.publishCloudwatchMetricsEnabled;
     	      this.requesterPaysEnabled = defaults.requesterPaysEnabled;
     	      this.resultConfiguration = defaults.resultConfiguration;
@@ -176,6 +191,12 @@ public final class WorkgroupConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder managedQueryResultsConfiguration(@Nullable WorkgroupConfigurationManagedQueryResultsConfiguration managedQueryResultsConfiguration) {
+
+            this.managedQueryResultsConfiguration = managedQueryResultsConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder publishCloudwatchMetricsEnabled(@Nullable Boolean publishCloudwatchMetricsEnabled) {
 
             this.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
@@ -200,6 +221,7 @@ public final class WorkgroupConfiguration {
             _resultValue.engineVersion = engineVersion;
             _resultValue.executionRole = executionRole;
             _resultValue.identityCenterConfiguration = identityCenterConfiguration;
+            _resultValue.managedQueryResultsConfiguration = managedQueryResultsConfiguration;
             _resultValue.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             _resultValue.requesterPaysEnabled = requesterPaysEnabled;
             _resultValue.resultConfiguration = resultConfiguration;

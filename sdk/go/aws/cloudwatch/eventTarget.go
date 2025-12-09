@@ -925,8 +925,6 @@ import (
 //
 // Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 //
-//	console
-//
 // % pulumi import aws_cloudwatch_event_target.example rule-name/target-id
 type EventTarget struct {
 	pulumi.CustomResourceState

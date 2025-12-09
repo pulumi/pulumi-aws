@@ -39,15 +39,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3tables.NewTableBucketPolicy(ctx, "example", &s3tables.TableBucketPolicyArgs{
-//				ResourcePolicy: pulumi.String(example.Json),
-//				TableBucketArn: pulumi.Any(exampleAwsS3tablesTableBucket.Arn),
+//			exampleTableBucket, err := s3tables.NewTableBucket(ctx, "example", &s3tables.TableBucketArgs{
+//				Name: pulumi.String("example-bucket"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3tables.NewTableBucket(ctx, "test", &s3tables.TableBucketArgs{
-//				Name: pulumi.String("example-bucket"),
+//			_, err = s3tables.NewTableBucketPolicy(ctx, "example", &s3tables.TableBucketPolicyArgs{
+//				ResourcePolicy: pulumi.String(example.Json),
+//				TableBucketArn: exampleTableBucket.Arn,
 //			})
 //			if err != nil {
 //				return err

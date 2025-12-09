@@ -113,6 +113,68 @@ __all__ = [
     'LogDeliveryS3DeliveryConfigurationArgsDict',
     'LogMetricFilterMetricTransformationArgs',
     'LogMetricFilterMetricTransformationArgsDict',
+    'LogTransformerTransformerConfigArgs',
+    'LogTransformerTransformerConfigArgsDict',
+    'LogTransformerTransformerConfigAddKeysArgs',
+    'LogTransformerTransformerConfigAddKeysArgsDict',
+    'LogTransformerTransformerConfigAddKeysEntryArgs',
+    'LogTransformerTransformerConfigAddKeysEntryArgsDict',
+    'LogTransformerTransformerConfigCopyValueArgs',
+    'LogTransformerTransformerConfigCopyValueArgsDict',
+    'LogTransformerTransformerConfigCopyValueEntryArgs',
+    'LogTransformerTransformerConfigCopyValueEntryArgsDict',
+    'LogTransformerTransformerConfigCsvArgs',
+    'LogTransformerTransformerConfigCsvArgsDict',
+    'LogTransformerTransformerConfigDateTimeConverterArgs',
+    'LogTransformerTransformerConfigDateTimeConverterArgsDict',
+    'LogTransformerTransformerConfigDeleteKeyArgs',
+    'LogTransformerTransformerConfigDeleteKeyArgsDict',
+    'LogTransformerTransformerConfigGrokArgs',
+    'LogTransformerTransformerConfigGrokArgsDict',
+    'LogTransformerTransformerConfigListToMapArgs',
+    'LogTransformerTransformerConfigListToMapArgsDict',
+    'LogTransformerTransformerConfigLowerCaseStringArgs',
+    'LogTransformerTransformerConfigLowerCaseStringArgsDict',
+    'LogTransformerTransformerConfigMoveKeyArgs',
+    'LogTransformerTransformerConfigMoveKeyArgsDict',
+    'LogTransformerTransformerConfigMoveKeyEntryArgs',
+    'LogTransformerTransformerConfigMoveKeyEntryArgsDict',
+    'LogTransformerTransformerConfigParseCloudfrontArgs',
+    'LogTransformerTransformerConfigParseCloudfrontArgsDict',
+    'LogTransformerTransformerConfigParseJsonArgs',
+    'LogTransformerTransformerConfigParseJsonArgsDict',
+    'LogTransformerTransformerConfigParseKeyValueArgs',
+    'LogTransformerTransformerConfigParseKeyValueArgsDict',
+    'LogTransformerTransformerConfigParsePostgresArgs',
+    'LogTransformerTransformerConfigParsePostgresArgsDict',
+    'LogTransformerTransformerConfigParseRoute53Args',
+    'LogTransformerTransformerConfigParseRoute53ArgsDict',
+    'LogTransformerTransformerConfigParseToOcsfArgs',
+    'LogTransformerTransformerConfigParseToOcsfArgsDict',
+    'LogTransformerTransformerConfigParseVpcArgs',
+    'LogTransformerTransformerConfigParseVpcArgsDict',
+    'LogTransformerTransformerConfigParseWafArgs',
+    'LogTransformerTransformerConfigParseWafArgsDict',
+    'LogTransformerTransformerConfigRenameKeyArgs',
+    'LogTransformerTransformerConfigRenameKeyArgsDict',
+    'LogTransformerTransformerConfigRenameKeyEntryArgs',
+    'LogTransformerTransformerConfigRenameKeyEntryArgsDict',
+    'LogTransformerTransformerConfigSplitStringArgs',
+    'LogTransformerTransformerConfigSplitStringArgsDict',
+    'LogTransformerTransformerConfigSplitStringEntryArgs',
+    'LogTransformerTransformerConfigSplitStringEntryArgsDict',
+    'LogTransformerTransformerConfigSubstituteStringArgs',
+    'LogTransformerTransformerConfigSubstituteStringArgsDict',
+    'LogTransformerTransformerConfigSubstituteStringEntryArgs',
+    'LogTransformerTransformerConfigSubstituteStringEntryArgsDict',
+    'LogTransformerTransformerConfigTrimStringArgs',
+    'LogTransformerTransformerConfigTrimStringArgsDict',
+    'LogTransformerTransformerConfigTypeConverterArgs',
+    'LogTransformerTransformerConfigTypeConverterArgsDict',
+    'LogTransformerTransformerConfigTypeConverterEntryArgs',
+    'LogTransformerTransformerConfigTypeConverterEntryArgsDict',
+    'LogTransformerTransformerConfigUpperCaseStringArgs',
+    'LogTransformerTransformerConfigUpperCaseStringArgsDict',
     'MetricAlarmMetricQueryArgs',
     'MetricAlarmMetricQueryArgsDict',
     'MetricAlarmMetricQueryMetricArgs',
@@ -3083,6 +3145,2122 @@ class LogMetricFilterMetricTransformationArgs:
     @unit.setter
     def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "unit", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigArgsDict(TypedDict):
+        add_keys: NotRequired[pulumi.Input['LogTransformerTransformerConfigAddKeysArgsDict']]
+        """
+        Adds new key-value pairs to the log event. See `add_keys` below for details.
+        """
+        copy_value: NotRequired[pulumi.Input['LogTransformerTransformerConfigCopyValueArgsDict']]
+        """
+        Copies values within a log event. See `copy_value` below for details.
+        """
+        csvs: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCsvArgsDict']]]]
+        """
+        Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
+        """
+        date_time_converters: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDateTimeConverterArgsDict']]]]
+        """
+        Converts a datetime string into a format that you specify. See `date_time_converter` below for details.
+        """
+        delete_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDeleteKeyArgsDict']]]]
+        """
+        Deletes entry from a log event. See `delete_keys` below for details.
+        """
+        grok: NotRequired[pulumi.Input['LogTransformerTransformerConfigGrokArgsDict']]
+        """
+        Parses and structures unstructured data by using pattern matching. See `grok` below for details.
+        """
+        list_to_maps: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigListToMapArgsDict']]]]
+        """
+        Converts list of objects that contain key fields into a map of target keys. See `list_to_map` below for details.
+        """
+        lower_case_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigLowerCaseStringArgsDict']]]]
+        """
+        Converts a string to lowercase. See `lower_case_string` below for details.
+        """
+        move_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyArgsDict']]]]
+        """
+        Moves a key from one field to another. See `move_keys` below for details.
+        """
+        parse_cloudfront: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseCloudfrontArgsDict']]
+        """
+        Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parse_cloudfront` below for details.
+        """
+        parse_jsons: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseJsonArgsDict']]]]
+        """
+        Parses log events that are in JSON format. See `parse_json` below for details.
+        """
+        parse_key_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseKeyValueArgsDict']]]]
+        """
+        Parses a specified field in the original log event into key-value pairs. See `parse_key_value` below for details.
+        """
+        parse_postgres: NotRequired[pulumi.Input['LogTransformerTransformerConfigParsePostgresArgsDict']]
+        """
+        Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parse_postgres` below for details.
+        """
+        parse_route53: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseRoute53ArgsDict']]
+        """
+        Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parse_route53` below for details.
+        """
+        parse_to_ocsf: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseToOcsfArgsDict']]
+        """
+        Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parse_to_ocsf` below for details.
+        """
+        parse_vpc: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseVpcArgsDict']]
+        """
+        Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parse_vpc` below for details.
+        """
+        parse_waf: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseWafArgsDict']]
+        """
+        Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parse_waf` below for details.
+        """
+        rename_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyArgsDict']]]]
+        """
+        Renames keys in a log event. See `rename_keys` below for details.
+        """
+        split_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringArgsDict']]]]
+        """
+        Splits a field into an array of strings using a delimiting character. See `split_string` below for details.
+        """
+        substitute_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringArgsDict']]]]
+        """
+        Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substitute_string` below for details.
+        """
+        trim_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTrimStringArgsDict']]]]
+        """
+        Removes leading and trailing whitespace from a string. See `trim_string` below for details.
+        """
+        type_converters: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterArgsDict']]]]
+        """
+        Converts a value type associated with the specified key to the specified type. See `type_converter` below for details.
+        """
+        upper_case_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigUpperCaseStringArgsDict']]]]
+        """
+        Converts a string to uppercase. See `upper_case_string` below for details.
+        """
+elif False:
+    LogTransformerTransformerConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigArgs:
+    def __init__(__self__, *,
+                 add_keys: Optional[pulumi.Input['LogTransformerTransformerConfigAddKeysArgs']] = None,
+                 copy_value: Optional[pulumi.Input['LogTransformerTransformerConfigCopyValueArgs']] = None,
+                 csvs: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCsvArgs']]]] = None,
+                 date_time_converters: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDateTimeConverterArgs']]]] = None,
+                 delete_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDeleteKeyArgs']]]] = None,
+                 grok: Optional[pulumi.Input['LogTransformerTransformerConfigGrokArgs']] = None,
+                 list_to_maps: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigListToMapArgs']]]] = None,
+                 lower_case_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigLowerCaseStringArgs']]]] = None,
+                 move_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyArgs']]]] = None,
+                 parse_cloudfront: Optional[pulumi.Input['LogTransformerTransformerConfigParseCloudfrontArgs']] = None,
+                 parse_jsons: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseJsonArgs']]]] = None,
+                 parse_key_values: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseKeyValueArgs']]]] = None,
+                 parse_postgres: Optional[pulumi.Input['LogTransformerTransformerConfigParsePostgresArgs']] = None,
+                 parse_route53: Optional[pulumi.Input['LogTransformerTransformerConfigParseRoute53Args']] = None,
+                 parse_to_ocsf: Optional[pulumi.Input['LogTransformerTransformerConfigParseToOcsfArgs']] = None,
+                 parse_vpc: Optional[pulumi.Input['LogTransformerTransformerConfigParseVpcArgs']] = None,
+                 parse_waf: Optional[pulumi.Input['LogTransformerTransformerConfigParseWafArgs']] = None,
+                 rename_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyArgs']]]] = None,
+                 split_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringArgs']]]] = None,
+                 substitute_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringArgs']]]] = None,
+                 trim_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTrimStringArgs']]]] = None,
+                 type_converters: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterArgs']]]] = None,
+                 upper_case_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigUpperCaseStringArgs']]]] = None):
+        """
+        :param pulumi.Input['LogTransformerTransformerConfigAddKeysArgs'] add_keys: Adds new key-value pairs to the log event. See `add_keys` below for details.
+        :param pulumi.Input['LogTransformerTransformerConfigCopyValueArgs'] copy_value: Copies values within a log event. See `copy_value` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCsvArgs']]] csvs: Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDateTimeConverterArgs']]] date_time_converters: Converts a datetime string into a format that you specify. See `date_time_converter` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDeleteKeyArgs']]] delete_keys: Deletes entry from a log event. See `delete_keys` below for details.
+        :param pulumi.Input['LogTransformerTransformerConfigGrokArgs'] grok: Parses and structures unstructured data by using pattern matching. See `grok` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigListToMapArgs']]] list_to_maps: Converts list of objects that contain key fields into a map of target keys. See `list_to_map` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigLowerCaseStringArgs']]] lower_case_strings: Converts a string to lowercase. See `lower_case_string` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyArgs']]] move_keys: Moves a key from one field to another. See `move_keys` below for details.
+        :param pulumi.Input['LogTransformerTransformerConfigParseCloudfrontArgs'] parse_cloudfront: Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parse_cloudfront` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseJsonArgs']]] parse_jsons: Parses log events that are in JSON format. See `parse_json` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseKeyValueArgs']]] parse_key_values: Parses a specified field in the original log event into key-value pairs. See `parse_key_value` below for details.
+        :param pulumi.Input['LogTransformerTransformerConfigParsePostgresArgs'] parse_postgres: Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parse_postgres` below for details.
+        :param pulumi.Input['LogTransformerTransformerConfigParseRoute53Args'] parse_route53: Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parse_route53` below for details.
+        :param pulumi.Input['LogTransformerTransformerConfigParseToOcsfArgs'] parse_to_ocsf: Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parse_to_ocsf` below for details.
+        :param pulumi.Input['LogTransformerTransformerConfigParseVpcArgs'] parse_vpc: Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parse_vpc` below for details.
+        :param pulumi.Input['LogTransformerTransformerConfigParseWafArgs'] parse_waf: Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parse_waf` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyArgs']]] rename_keys: Renames keys in a log event. See `rename_keys` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringArgs']]] split_strings: Splits a field into an array of strings using a delimiting character. See `split_string` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringArgs']]] substitute_strings: Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substitute_string` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTrimStringArgs']]] trim_strings: Removes leading and trailing whitespace from a string. See `trim_string` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterArgs']]] type_converters: Converts a value type associated with the specified key to the specified type. See `type_converter` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigUpperCaseStringArgs']]] upper_case_strings: Converts a string to uppercase. See `upper_case_string` below for details.
+        """
+        if add_keys is not None:
+            pulumi.set(__self__, "add_keys", add_keys)
+        if copy_value is not None:
+            pulumi.set(__self__, "copy_value", copy_value)
+        if csvs is not None:
+            pulumi.set(__self__, "csvs", csvs)
+        if date_time_converters is not None:
+            pulumi.set(__self__, "date_time_converters", date_time_converters)
+        if delete_keys is not None:
+            pulumi.set(__self__, "delete_keys", delete_keys)
+        if grok is not None:
+            pulumi.set(__self__, "grok", grok)
+        if list_to_maps is not None:
+            pulumi.set(__self__, "list_to_maps", list_to_maps)
+        if lower_case_strings is not None:
+            pulumi.set(__self__, "lower_case_strings", lower_case_strings)
+        if move_keys is not None:
+            pulumi.set(__self__, "move_keys", move_keys)
+        if parse_cloudfront is not None:
+            pulumi.set(__self__, "parse_cloudfront", parse_cloudfront)
+        if parse_jsons is not None:
+            pulumi.set(__self__, "parse_jsons", parse_jsons)
+        if parse_key_values is not None:
+            pulumi.set(__self__, "parse_key_values", parse_key_values)
+        if parse_postgres is not None:
+            pulumi.set(__self__, "parse_postgres", parse_postgres)
+        if parse_route53 is not None:
+            pulumi.set(__self__, "parse_route53", parse_route53)
+        if parse_to_ocsf is not None:
+            pulumi.set(__self__, "parse_to_ocsf", parse_to_ocsf)
+        if parse_vpc is not None:
+            pulumi.set(__self__, "parse_vpc", parse_vpc)
+        if parse_waf is not None:
+            pulumi.set(__self__, "parse_waf", parse_waf)
+        if rename_keys is not None:
+            pulumi.set(__self__, "rename_keys", rename_keys)
+        if split_strings is not None:
+            pulumi.set(__self__, "split_strings", split_strings)
+        if substitute_strings is not None:
+            pulumi.set(__self__, "substitute_strings", substitute_strings)
+        if trim_strings is not None:
+            pulumi.set(__self__, "trim_strings", trim_strings)
+        if type_converters is not None:
+            pulumi.set(__self__, "type_converters", type_converters)
+        if upper_case_strings is not None:
+            pulumi.set(__self__, "upper_case_strings", upper_case_strings)
+
+    @_builtins.property
+    @pulumi.getter(name="addKeys")
+    def add_keys(self) -> Optional[pulumi.Input['LogTransformerTransformerConfigAddKeysArgs']]:
+        """
+        Adds new key-value pairs to the log event. See `add_keys` below for details.
+        """
+        return pulumi.get(self, "add_keys")
+
+    @add_keys.setter
+    def add_keys(self, value: Optional[pulumi.Input['LogTransformerTransformerConfigAddKeysArgs']]):
+        pulumi.set(self, "add_keys", value)
+
+    @_builtins.property
+    @pulumi.getter(name="copyValue")
+    def copy_value(self) -> Optional[pulumi.Input['LogTransformerTransformerConfigCopyValueArgs']]:
+        """
+        Copies values within a log event. See `copy_value` below for details.
+        """
+        return pulumi.get(self, "copy_value")
+
+    @copy_value.setter
+    def copy_value(self, value: Optional[pulumi.Input['LogTransformerTransformerConfigCopyValueArgs']]):
+        pulumi.set(self, "copy_value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def csvs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCsvArgs']]]]:
+        """
+        Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
+        """
+        return pulumi.get(self, "csvs")
+
+    @csvs.setter
+    def csvs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCsvArgs']]]]):
+        pulumi.set(self, "csvs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dateTimeConverters")
+    def date_time_converters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDateTimeConverterArgs']]]]:
+        """
+        Converts a datetime string into a format that you specify. See `date_time_converter` below for details.
+        """
+        return pulumi.get(self, "date_time_converters")
+
+    @date_time_converters.setter
+    def date_time_converters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDateTimeConverterArgs']]]]):
+        pulumi.set(self, "date_time_converters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteKeys")
+    def delete_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDeleteKeyArgs']]]]:
+        """
+        Deletes entry from a log event. See `delete_keys` below for details.
+        """
+        return pulumi.get(self, "delete_keys")
+
+    @delete_keys.setter
+    def delete_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDeleteKeyArgs']]]]):
+        pulumi.set(self, "delete_keys", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def grok(self) -> Optional[pulumi.Input['LogTransformerTransformerConfigGrokArgs']]:
+        """
+        Parses and structures unstructured data by using pattern matching. See `grok` below for details.
+        """
+        return pulumi.get(self, "grok")
+
+    @grok.setter
+    def grok(self, value: Optional[pulumi.Input['LogTransformerTransformerConfigGrokArgs']]):
+        pulumi.set(self, "grok", value)
+
+    @_builtins.property
+    @pulumi.getter(name="listToMaps")
+    def list_to_maps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigListToMapArgs']]]]:
+        """
+        Converts list of objects that contain key fields into a map of target keys. See `list_to_map` below for details.
+        """
+        return pulumi.get(self, "list_to_maps")
+
+    @list_to_maps.setter
+    def list_to_maps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigListToMapArgs']]]]):
+        pulumi.set(self, "list_to_maps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lowerCaseStrings")
+    def lower_case_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigLowerCaseStringArgs']]]]:
+        """
+        Converts a string to lowercase. See `lower_case_string` below for details.
+        """
+        return pulumi.get(self, "lower_case_strings")
+
+    @lower_case_strings.setter
+    def lower_case_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigLowerCaseStringArgs']]]]):
+        pulumi.set(self, "lower_case_strings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="moveKeys")
+    def move_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyArgs']]]]:
+        """
+        Moves a key from one field to another. See `move_keys` below for details.
+        """
+        return pulumi.get(self, "move_keys")
+
+    @move_keys.setter
+    def move_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyArgs']]]]):
+        pulumi.set(self, "move_keys", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parseCloudfront")
+    def parse_cloudfront(self) -> Optional[pulumi.Input['LogTransformerTransformerConfigParseCloudfrontArgs']]:
+        """
+        Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parse_cloudfront` below for details.
+        """
+        return pulumi.get(self, "parse_cloudfront")
+
+    @parse_cloudfront.setter
+    def parse_cloudfront(self, value: Optional[pulumi.Input['LogTransformerTransformerConfigParseCloudfrontArgs']]):
+        pulumi.set(self, "parse_cloudfront", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parseJsons")
+    def parse_jsons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseJsonArgs']]]]:
+        """
+        Parses log events that are in JSON format. See `parse_json` below for details.
+        """
+        return pulumi.get(self, "parse_jsons")
+
+    @parse_jsons.setter
+    def parse_jsons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseJsonArgs']]]]):
+        pulumi.set(self, "parse_jsons", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parseKeyValues")
+    def parse_key_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseKeyValueArgs']]]]:
+        """
+        Parses a specified field in the original log event into key-value pairs. See `parse_key_value` below for details.
+        """
+        return pulumi.get(self, "parse_key_values")
+
+    @parse_key_values.setter
+    def parse_key_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseKeyValueArgs']]]]):
+        pulumi.set(self, "parse_key_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parsePostgres")
+    def parse_postgres(self) -> Optional[pulumi.Input['LogTransformerTransformerConfigParsePostgresArgs']]:
+        """
+        Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parse_postgres` below for details.
+        """
+        return pulumi.get(self, "parse_postgres")
+
+    @parse_postgres.setter
+    def parse_postgres(self, value: Optional[pulumi.Input['LogTransformerTransformerConfigParsePostgresArgs']]):
+        pulumi.set(self, "parse_postgres", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parseRoute53")
+    def parse_route53(self) -> Optional[pulumi.Input['LogTransformerTransformerConfigParseRoute53Args']]:
+        """
+        Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parse_route53` below for details.
+        """
+        return pulumi.get(self, "parse_route53")
+
+    @parse_route53.setter
+    def parse_route53(self, value: Optional[pulumi.Input['LogTransformerTransformerConfigParseRoute53Args']]):
+        pulumi.set(self, "parse_route53", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parseToOcsf")
+    def parse_to_ocsf(self) -> Optional[pulumi.Input['LogTransformerTransformerConfigParseToOcsfArgs']]:
+        """
+        Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parse_to_ocsf` below for details.
+        """
+        return pulumi.get(self, "parse_to_ocsf")
+
+    @parse_to_ocsf.setter
+    def parse_to_ocsf(self, value: Optional[pulumi.Input['LogTransformerTransformerConfigParseToOcsfArgs']]):
+        pulumi.set(self, "parse_to_ocsf", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parseVpc")
+    def parse_vpc(self) -> Optional[pulumi.Input['LogTransformerTransformerConfigParseVpcArgs']]:
+        """
+        Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parse_vpc` below for details.
+        """
+        return pulumi.get(self, "parse_vpc")
+
+    @parse_vpc.setter
+    def parse_vpc(self, value: Optional[pulumi.Input['LogTransformerTransformerConfigParseVpcArgs']]):
+        pulumi.set(self, "parse_vpc", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parseWaf")
+    def parse_waf(self) -> Optional[pulumi.Input['LogTransformerTransformerConfigParseWafArgs']]:
+        """
+        Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parse_waf` below for details.
+        """
+        return pulumi.get(self, "parse_waf")
+
+    @parse_waf.setter
+    def parse_waf(self, value: Optional[pulumi.Input['LogTransformerTransformerConfigParseWafArgs']]):
+        pulumi.set(self, "parse_waf", value)
+
+    @_builtins.property
+    @pulumi.getter(name="renameKeys")
+    def rename_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyArgs']]]]:
+        """
+        Renames keys in a log event. See `rename_keys` below for details.
+        """
+        return pulumi.get(self, "rename_keys")
+
+    @rename_keys.setter
+    def rename_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyArgs']]]]):
+        pulumi.set(self, "rename_keys", value)
+
+    @_builtins.property
+    @pulumi.getter(name="splitStrings")
+    def split_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringArgs']]]]:
+        """
+        Splits a field into an array of strings using a delimiting character. See `split_string` below for details.
+        """
+        return pulumi.get(self, "split_strings")
+
+    @split_strings.setter
+    def split_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringArgs']]]]):
+        pulumi.set(self, "split_strings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="substituteStrings")
+    def substitute_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringArgs']]]]:
+        """
+        Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substitute_string` below for details.
+        """
+        return pulumi.get(self, "substitute_strings")
+
+    @substitute_strings.setter
+    def substitute_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringArgs']]]]):
+        pulumi.set(self, "substitute_strings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trimStrings")
+    def trim_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTrimStringArgs']]]]:
+        """
+        Removes leading and trailing whitespace from a string. See `trim_string` below for details.
+        """
+        return pulumi.get(self, "trim_strings")
+
+    @trim_strings.setter
+    def trim_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTrimStringArgs']]]]):
+        pulumi.set(self, "trim_strings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="typeConverters")
+    def type_converters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterArgs']]]]:
+        """
+        Converts a value type associated with the specified key to the specified type. See `type_converter` below for details.
+        """
+        return pulumi.get(self, "type_converters")
+
+    @type_converters.setter
+    def type_converters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterArgs']]]]):
+        pulumi.set(self, "type_converters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="upperCaseStrings")
+    def upper_case_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigUpperCaseStringArgs']]]]:
+        """
+        Converts a string to uppercase. See `upper_case_string` below for details.
+        """
+        return pulumi.get(self, "upper_case_strings")
+
+    @upper_case_strings.setter
+    def upper_case_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigUpperCaseStringArgs']]]]):
+        pulumi.set(self, "upper_case_strings", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigAddKeysArgsDict(TypedDict):
+        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigAddKeysEntryArgsDict']]]
+        """
+        Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `add_keys` `entry` below for details.
+        """
+elif False:
+    LogTransformerTransformerConfigAddKeysArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigAddKeysArgs:
+    def __init__(__self__, *,
+                 entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigAddKeysEntryArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigAddKeysEntryArgs']]] entries: Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `add_keys` `entry` below for details.
+        """
+        pulumi.set(__self__, "entries", entries)
+
+    @_builtins.property
+    @pulumi.getter
+    def entries(self) -> pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigAddKeysEntryArgs']]]:
+        """
+        Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `add_keys` `entry` below for details.
+        """
+        return pulumi.get(self, "entries")
+
+    @entries.setter
+    def entries(self, value: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigAddKeysEntryArgs']]]):
+        pulumi.set(self, "entries", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigAddKeysEntryArgsDict(TypedDict):
+        key: pulumi.Input[_builtins.str]
+        """
+        Specifies the key with the value that will be converted to a different type.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Specifies the value of the new entry to be added to the log event.
+        """
+        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+        * `renameTo` - (Required) Specifies the new name of the key.
+        """
+elif False:
+    LogTransformerTransformerConfigAddKeysEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigAddKeysEntryArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str],
+                 overwrite_if_exists: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] key: Specifies the key with the value that will be converted to a different type.
+        :param pulumi.Input[_builtins.str] value: Specifies the value of the new entry to be added to the log event.
+        :param pulumi.Input[_builtins.bool] overwrite_if_exists: Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+               * `renameTo` - (Required) Specifies the new name of the key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if overwrite_if_exists is not None:
+            pulumi.set(__self__, "overwrite_if_exists", overwrite_if_exists)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key with the value that will be converted to a different type.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the value of the new entry to be added to the log event.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overwriteIfExists")
+    def overwrite_if_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+        * `renameTo` - (Required) Specifies the new name of the key.
+        """
+        return pulumi.get(self, "overwrite_if_exists")
+
+    @overwrite_if_exists.setter
+    def overwrite_if_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "overwrite_if_exists", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigCopyValueArgsDict(TypedDict):
+        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCopyValueEntryArgsDict']]]
+        """
+        Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copy_value` `entry` below for details.
+        """
+elif False:
+    LogTransformerTransformerConfigCopyValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigCopyValueArgs:
+    def __init__(__self__, *,
+                 entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCopyValueEntryArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCopyValueEntryArgs']]] entries: Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copy_value` `entry` below for details.
+        """
+        pulumi.set(__self__, "entries", entries)
+
+    @_builtins.property
+    @pulumi.getter
+    def entries(self) -> pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCopyValueEntryArgs']]]:
+        """
+        Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copy_value` `entry` below for details.
+        """
+        return pulumi.get(self, "entries")
+
+    @entries.setter
+    def entries(self, value: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCopyValueEntryArgs']]]):
+        pulumi.set(self, "entries", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigCopyValueEntryArgsDict(TypedDict):
+        source: pulumi.Input[_builtins.str]
+        """
+        Specifies the key to modify.
+        """
+        target: pulumi.Input[_builtins.str]
+        """
+        Specifies the key to move to.
+        """
+        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+        * `renameTo` - (Required) Specifies the new name of the key.
+        """
+elif False:
+    LogTransformerTransformerConfigCopyValueEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigCopyValueEntryArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[_builtins.str],
+                 target: pulumi.Input[_builtins.str],
+                 overwrite_if_exists: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] source: Specifies the key to modify.
+        :param pulumi.Input[_builtins.str] target: Specifies the key to move to.
+        :param pulumi.Input[_builtins.bool] overwrite_if_exists: Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+               * `renameTo` - (Required) Specifies the new name of the key.
+        """
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if overwrite_if_exists is not None:
+            pulumi.set(__self__, "overwrite_if_exists", overwrite_if_exists)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key to modify.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key to move to.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overwriteIfExists")
+    def overwrite_if_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+        * `renameTo` - (Required) Specifies the new name of the key.
+        """
+        return pulumi.get(self, "overwrite_if_exists")
+
+    @overwrite_if_exists.setter
+    def overwrite_if_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "overwrite_if_exists", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigCsvArgsDict(TypedDict):
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column_2 ...]`) are used.
+        """
+        delimiter: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
+        """
+        quote_character: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `"` character.
+        """
+        source: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+        """
+elif False:
+    LogTransformerTransformerConfigCsvArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigCsvArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 delimiter: Optional[pulumi.Input[_builtins.str]] = None,
+                 quote_character: Optional[pulumi.Input[_builtins.str]] = None,
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column_2 ...]`) are used.
+        :param pulumi.Input[_builtins.str] delimiter: Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
+        :param pulumi.Input[_builtins.str] quote_character: Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `"` character.
+        :param pulumi.Input[_builtins.str] source: Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if quote_character is not None:
+            pulumi.set(__self__, "quote_character", quote_character)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column_2 ...]`) are used.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "columns", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
+        """
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delimiter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="quoteCharacter")
+    def quote_character(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `"` character.
+        """
+        return pulumi.get(self, "quote_character")
+
+    @quote_character.setter
+    def quote_character(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "quote_character", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigDateTimeConverterArgsDict(TypedDict):
+        match_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies the list of patterns to match against the `source` field.
+        """
+        source: pulumi.Input[_builtins.str]
+        """
+        Specifies the key to apply the date conversion to.
+        """
+        target: pulumi.Input[_builtins.str]
+        """
+        Specifies the JSON field to store the result in.
+        """
+        locale: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the locale of the source field. Defaults to `locale.ROOT`.
+        """
+        source_timezone: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the time zone of the source field. Defaults to `UTC`.
+        """
+        target_format: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd'T'HH:mm:ss.SSS'Z`.
+        """
+        target_timezone: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the time zone of the target field. Defaults to `UTC`.
+        """
+elif False:
+    LogTransformerTransformerConfigDateTimeConverterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigDateTimeConverterArgs:
+    def __init__(__self__, *,
+                 match_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 source: pulumi.Input[_builtins.str],
+                 target: pulumi.Input[_builtins.str],
+                 locale: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_timezone: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_format: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_timezone: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_patterns: Specifies the list of patterns to match against the `source` field.
+        :param pulumi.Input[_builtins.str] source: Specifies the key to apply the date conversion to.
+        :param pulumi.Input[_builtins.str] target: Specifies the JSON field to store the result in.
+        :param pulumi.Input[_builtins.str] locale: Specifies the locale of the source field. Defaults to `locale.ROOT`.
+        :param pulumi.Input[_builtins.str] source_timezone: Specifies the time zone of the source field. Defaults to `UTC`.
+        :param pulumi.Input[_builtins.str] target_format: Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd'T'HH:mm:ss.SSS'Z`.
+        :param pulumi.Input[_builtins.str] target_timezone: Specifies the time zone of the target field. Defaults to `UTC`.
+        """
+        pulumi.set(__self__, "match_patterns", match_patterns)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+        if source_timezone is not None:
+            pulumi.set(__self__, "source_timezone", source_timezone)
+        if target_format is not None:
+            pulumi.set(__self__, "target_format", target_format)
+        if target_timezone is not None:
+            pulumi.set(__self__, "target_timezone", target_timezone)
+
+    @_builtins.property
+    @pulumi.getter(name="matchPatterns")
+    def match_patterns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies the list of patterns to match against the `source` field.
+        """
+        return pulumi.get(self, "match_patterns")
+
+    @match_patterns.setter
+    def match_patterns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "match_patterns", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key to apply the date conversion to.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the JSON field to store the result in.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the locale of the source field. Defaults to `locale.ROOT`.
+        """
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "locale", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceTimezone")
+    def source_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the time zone of the source field. Defaults to `UTC`.
+        """
+        return pulumi.get(self, "source_timezone")
+
+    @source_timezone.setter
+    def source_timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_timezone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetFormat")
+    def target_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd'T'HH:mm:ss.SSS'Z`.
+        """
+        return pulumi.get(self, "target_format")
+
+    @target_format.setter
+    def target_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetTimezone")
+    def target_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the time zone of the target field. Defaults to `UTC`.
+        """
+        return pulumi.get(self, "target_timezone")
+
+    @target_timezone.setter
+    def target_timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target_timezone", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigDeleteKeyArgsDict(TypedDict):
+        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies the keys to be deleted.
+        """
+elif False:
+    LogTransformerTransformerConfigDeleteKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigDeleteKeyArgs:
+    def __init__(__self__, *,
+                 with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] with_keys: Specifies the keys to be deleted.
+        """
+        pulumi.set(__self__, "with_keys", with_keys)
+
+    @_builtins.property
+    @pulumi.getter(name="withKeys")
+    def with_keys(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies the keys to be deleted.
+        """
+        return pulumi.get(self, "with_keys")
+
+    @with_keys.setter
+    def with_keys(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "with_keys", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigGrokArgsDict(TypedDict):
+        match: pulumi.Input[_builtins.str]
+        """
+        Specifies the grok pattern to match against the log event.
+        """
+        source: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+        """
+elif False:
+    LogTransformerTransformerConfigGrokArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigGrokArgs:
+    def __init__(__self__, *,
+                 match: pulumi.Input[_builtins.str],
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] match: Specifies the grok pattern to match against the log event.
+        :param pulumi.Input[_builtins.str] source: Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+        """
+        pulumi.set(__self__, "match", match)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def match(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the grok pattern to match against the log event.
+        """
+        return pulumi.get(self, "match")
+
+    @match.setter
+    def match(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "match", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigListToMapArgsDict(TypedDict):
+        key: pulumi.Input[_builtins.str]
+        """
+        Specifies the key of the field to be extracted as keys in the generated map.
+        """
+        source: pulumi.Input[_builtins.str]
+        """
+        Specifies the key in the log event that has a list of objects that will be converted to a map.
+        """
+        flatten: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether the list will be flattened into single items. Defaults to `false`.
+        """
+        flattened_element: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
+        """
+        target: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the key of the field that will hold the generated map.
+        """
+        value_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
+        """
+elif False:
+    LogTransformerTransformerConfigListToMapArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigListToMapArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 source: pulumi.Input[_builtins.str],
+                 flatten: Optional[pulumi.Input[_builtins.bool]] = None,
+                 flattened_element: Optional[pulumi.Input[_builtins.str]] = None,
+                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_key: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] key: Specifies the key of the field to be extracted as keys in the generated map.
+        :param pulumi.Input[_builtins.str] source: Specifies the key in the log event that has a list of objects that will be converted to a map.
+        :param pulumi.Input[_builtins.bool] flatten: Specifies whether the list will be flattened into single items. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] flattened_element: Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
+        :param pulumi.Input[_builtins.str] target: Specifies the key of the field that will hold the generated map.
+        :param pulumi.Input[_builtins.str] value_key: Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "source", source)
+        if flatten is not None:
+            pulumi.set(__self__, "flatten", flatten)
+        if flattened_element is not None:
+            pulumi.set(__self__, "flattened_element", flattened_element)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if value_key is not None:
+            pulumi.set(__self__, "value_key", value_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key of the field to be extracted as keys in the generated map.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key in the log event that has a list of objects that will be converted to a map.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def flatten(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether the list will be flattened into single items. Defaults to `false`.
+        """
+        return pulumi.get(self, "flatten")
+
+    @flatten.setter
+    def flatten(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "flatten", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flattenedElement")
+    def flattened_element(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
+        """
+        return pulumi.get(self, "flattened_element")
+
+    @flattened_element.setter
+    def flattened_element(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "flattened_element", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the key of the field that will hold the generated map.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueKey")
+    def value_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
+        """
+        return pulumi.get(self, "value_key")
+
+    @value_key.setter
+    def value_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value_key", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigLowerCaseStringArgsDict(TypedDict):
+        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies the keys of the fields to convert to lowercase.
+        """
+elif False:
+    LogTransformerTransformerConfigLowerCaseStringArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigLowerCaseStringArgs:
+    def __init__(__self__, *,
+                 with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] with_keys: Specifies the keys of the fields to convert to lowercase.
+        """
+        pulumi.set(__self__, "with_keys", with_keys)
+
+    @_builtins.property
+    @pulumi.getter(name="withKeys")
+    def with_keys(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies the keys of the fields to convert to lowercase.
+        """
+        return pulumi.get(self, "with_keys")
+
+    @with_keys.setter
+    def with_keys(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "with_keys", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigMoveKeyArgsDict(TypedDict):
+        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyEntryArgsDict']]]
+        """
+        Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `move_keys` `entry` below for details.
+        """
+elif False:
+    LogTransformerTransformerConfigMoveKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigMoveKeyArgs:
+    def __init__(__self__, *,
+                 entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyEntryArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyEntryArgs']]] entries: Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `move_keys` `entry` below for details.
+        """
+        pulumi.set(__self__, "entries", entries)
+
+    @_builtins.property
+    @pulumi.getter
+    def entries(self) -> pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyEntryArgs']]]:
+        """
+        Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `move_keys` `entry` below for details.
+        """
+        return pulumi.get(self, "entries")
+
+    @entries.setter
+    def entries(self, value: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyEntryArgs']]]):
+        pulumi.set(self, "entries", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigMoveKeyEntryArgsDict(TypedDict):
+        source: pulumi.Input[_builtins.str]
+        """
+        Specifies the key to modify.
+        """
+        target: pulumi.Input[_builtins.str]
+        """
+        Specifies the key to move to.
+        """
+        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+        * `renameTo` - (Required) Specifies the new name of the key.
+        """
+elif False:
+    LogTransformerTransformerConfigMoveKeyEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigMoveKeyEntryArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[_builtins.str],
+                 target: pulumi.Input[_builtins.str],
+                 overwrite_if_exists: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] source: Specifies the key to modify.
+        :param pulumi.Input[_builtins.str] target: Specifies the key to move to.
+        :param pulumi.Input[_builtins.bool] overwrite_if_exists: Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+               * `renameTo` - (Required) Specifies the new name of the key.
+        """
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if overwrite_if_exists is not None:
+            pulumi.set(__self__, "overwrite_if_exists", overwrite_if_exists)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key to modify.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key to move to.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overwriteIfExists")
+    def overwrite_if_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+        * `renameTo` - (Required) Specifies the new name of the key.
+        """
+        return pulumi.get(self, "overwrite_if_exists")
+
+    @overwrite_if_exists.setter
+    def overwrite_if_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "overwrite_if_exists", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigParseCloudfrontArgsDict(TypedDict):
+        source: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+elif False:
+    LogTransformerTransformerConfigParseCloudfrontArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigParseCloudfrontArgs:
+    def __init__(__self__, *,
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigParseJsonArgsDict(TypedDict):
+        destination: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
+        """
+        source: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+        """
+elif False:
+    LogTransformerTransformerConfigParseJsonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigParseJsonArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input[_builtins.str]] = None,
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] destination: Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
+        :param pulumi.Input[_builtins.str] source: Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigParseKeyValueArgsDict(TypedDict):
+        destination: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the destination field to put the extracted key-value pairs into.
+        """
+        field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&` character.
+        """
+        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies a prefix that will be added to all transformed keys.
+        """
+        key_value_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
+        """
+        non_match_value: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
+        """
+        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+        """
+        source: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+        """
+elif False:
+    LogTransformerTransformerConfigParseKeyValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigParseKeyValueArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input[_builtins.str]] = None,
+                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_value_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
+                 non_match_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 overwrite_if_exists: Optional[pulumi.Input[_builtins.bool]] = None,
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] destination: Specifies the destination field to put the extracted key-value pairs into.
+        :param pulumi.Input[_builtins.str] field_delimiter: Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&` character.
+        :param pulumi.Input[_builtins.str] key_prefix: Specifies a prefix that will be added to all transformed keys.
+        :param pulumi.Input[_builtins.str] key_value_delimiter: Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
+        :param pulumi.Input[_builtins.str] non_match_value: Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
+        :param pulumi.Input[_builtins.bool] overwrite_if_exists: Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] source: Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+        if key_value_delimiter is not None:
+            pulumi.set(__self__, "key_value_delimiter", key_value_delimiter)
+        if non_match_value is not None:
+            pulumi.set(__self__, "non_match_value", non_match_value)
+        if overwrite_if_exists is not None:
+            pulumi.set(__self__, "overwrite_if_exists", overwrite_if_exists)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the destination field to put the extracted key-value pairs into.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&` character.
+        """
+        return pulumi.get(self, "field_delimiter")
+
+    @field_delimiter.setter
+    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "field_delimiter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a prefix that will be added to all transformed keys.
+        """
+        return pulumi.get(self, "key_prefix")
+
+    @key_prefix.setter
+    def key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyValueDelimiter")
+    def key_value_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
+        """
+        return pulumi.get(self, "key_value_delimiter")
+
+    @key_value_delimiter.setter
+    def key_value_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_value_delimiter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nonMatchValue")
+    def non_match_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
+        """
+        return pulumi.get(self, "non_match_value")
+
+    @non_match_value.setter
+    def non_match_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "non_match_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overwriteIfExists")
+    def overwrite_if_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+        """
+        return pulumi.get(self, "overwrite_if_exists")
+
+    @overwrite_if_exists.setter
+    def overwrite_if_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "overwrite_if_exists", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigParsePostgresArgsDict(TypedDict):
+        source: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+elif False:
+    LogTransformerTransformerConfigParsePostgresArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigParsePostgresArgs:
+    def __init__(__self__, *,
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigParseRoute53ArgsDict(TypedDict):
+        source: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+elif False:
+    LogTransformerTransformerConfigParseRoute53ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigParseRoute53Args:
+    def __init__(__self__, *,
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigParseToOcsfArgsDict(TypedDict):
+        event_source: pulumi.Input[_builtins.str]
+        ocsf_version: pulumi.Input[_builtins.str]
+        """
+        Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
+        """
+        source: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+elif False:
+    LogTransformerTransformerConfigParseToOcsfArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigParseToOcsfArgs:
+    def __init__(__self__, *,
+                 event_source: pulumi.Input[_builtins.str],
+                 ocsf_version: pulumi.Input[_builtins.str],
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] ocsf_version: Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
+        :param pulumi.Input[_builtins.str] source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        pulumi.set(__self__, "event_source", event_source)
+        pulumi.set(__self__, "ocsf_version", ocsf_version)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter(name="eventSource")
+    def event_source(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "event_source")
+
+    @event_source.setter
+    def event_source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "event_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ocsfVersion")
+    def ocsf_version(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
+        """
+        return pulumi.get(self, "ocsf_version")
+
+    @ocsf_version.setter
+    def ocsf_version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ocsf_version", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigParseVpcArgsDict(TypedDict):
+        source: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+elif False:
+    LogTransformerTransformerConfigParseVpcArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigParseVpcArgs:
+    def __init__(__self__, *,
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigParseWafArgsDict(TypedDict):
+        source: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+elif False:
+    LogTransformerTransformerConfigParseWafArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigParseWafArgs:
+    def __init__(__self__, *,
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigRenameKeyArgsDict(TypedDict):
+        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyEntryArgsDict']]]
+        """
+        Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `rename_keys` `entry` below for details.
+        """
+elif False:
+    LogTransformerTransformerConfigRenameKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigRenameKeyArgs:
+    def __init__(__self__, *,
+                 entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyEntryArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyEntryArgs']]] entries: Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `rename_keys` `entry` below for details.
+        """
+        pulumi.set(__self__, "entries", entries)
+
+    @_builtins.property
+    @pulumi.getter
+    def entries(self) -> pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyEntryArgs']]]:
+        """
+        Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `rename_keys` `entry` below for details.
+        """
+        return pulumi.get(self, "entries")
+
+    @entries.setter
+    def entries(self, value: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyEntryArgs']]]):
+        pulumi.set(self, "entries", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigRenameKeyEntryArgsDict(TypedDict):
+        key: pulumi.Input[_builtins.str]
+        """
+        Specifies the key with the value that will be converted to a different type.
+        """
+        rename_to: pulumi.Input[_builtins.str]
+        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+        * `renameTo` - (Required) Specifies the new name of the key.
+        """
+elif False:
+    LogTransformerTransformerConfigRenameKeyEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigRenameKeyEntryArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 rename_to: pulumi.Input[_builtins.str],
+                 overwrite_if_exists: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] key: Specifies the key with the value that will be converted to a different type.
+        :param pulumi.Input[_builtins.bool] overwrite_if_exists: Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+               * `renameTo` - (Required) Specifies the new name of the key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "rename_to", rename_to)
+        if overwrite_if_exists is not None:
+            pulumi.set(__self__, "overwrite_if_exists", overwrite_if_exists)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key with the value that will be converted to a different type.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="renameTo")
+    def rename_to(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "rename_to")
+
+    @rename_to.setter
+    def rename_to(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rename_to", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overwriteIfExists")
+    def overwrite_if_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+        * `renameTo` - (Required) Specifies the new name of the key.
+        """
+        return pulumi.get(self, "overwrite_if_exists")
+
+    @overwrite_if_exists.setter
+    def overwrite_if_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "overwrite_if_exists", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigSplitStringArgsDict(TypedDict):
+        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringEntryArgsDict']]]
+        """
+        Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `split_string` `entry` below for details.
+        """
+elif False:
+    LogTransformerTransformerConfigSplitStringArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigSplitStringArgs:
+    def __init__(__self__, *,
+                 entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringEntryArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringEntryArgs']]] entries: Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `split_string` `entry` below for details.
+        """
+        pulumi.set(__self__, "entries", entries)
+
+    @_builtins.property
+    @pulumi.getter
+    def entries(self) -> pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringEntryArgs']]]:
+        """
+        Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `split_string` `entry` below for details.
+        """
+        return pulumi.get(self, "entries")
+
+    @entries.setter
+    def entries(self, value: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringEntryArgs']]]):
+        pulumi.set(self, "entries", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigSplitStringEntryArgsDict(TypedDict):
+        delimiter: pulumi.Input[_builtins.str]
+        """
+        Specifies the separator characters to split the string entry on.
+        """
+        source: pulumi.Input[_builtins.str]
+        """
+        Specifies the key to modify.
+        """
+elif False:
+    LogTransformerTransformerConfigSplitStringEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigSplitStringEntryArgs:
+    def __init__(__self__, *,
+                 delimiter: pulumi.Input[_builtins.str],
+                 source: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] delimiter: Specifies the separator characters to split the string entry on.
+        :param pulumi.Input[_builtins.str] source: Specifies the key to modify.
+        """
+        pulumi.set(__self__, "delimiter", delimiter)
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def delimiter(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the separator characters to split the string entry on.
+        """
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "delimiter", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key to modify.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigSubstituteStringArgsDict(TypedDict):
+        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringEntryArgsDict']]]
+        """
+        Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substitute_string` `entry` below for details.
+        """
+elif False:
+    LogTransformerTransformerConfigSubstituteStringArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigSubstituteStringArgs:
+    def __init__(__self__, *,
+                 entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringEntryArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringEntryArgs']]] entries: Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substitute_string` `entry` below for details.
+        """
+        pulumi.set(__self__, "entries", entries)
+
+    @_builtins.property
+    @pulumi.getter
+    def entries(self) -> pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringEntryArgs']]]:
+        """
+        Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substitute_string` `entry` below for details.
+        """
+        return pulumi.get(self, "entries")
+
+    @entries.setter
+    def entries(self, value: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringEntryArgs']]]):
+        pulumi.set(self, "entries", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigSubstituteStringEntryArgsDict(TypedDict):
+        from_: pulumi.Input[_builtins.str]
+        """
+        Specifies the regular expression string to be replaced.
+        """
+        source: pulumi.Input[_builtins.str]
+        """
+        Specifies the key to modify.
+        """
+        to: pulumi.Input[_builtins.str]
+        """
+        Specifies the string to be substituted for each match of `from`.
+        """
+elif False:
+    LogTransformerTransformerConfigSubstituteStringEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigSubstituteStringEntryArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[_builtins.str],
+                 source: pulumi.Input[_builtins.str],
+                 to: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] from_: Specifies the regular expression string to be replaced.
+        :param pulumi.Input[_builtins.str] source: Specifies the key to modify.
+        :param pulumi.Input[_builtins.str] to: Specifies the string to be substituted for each match of `from`.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "to", to)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the regular expression string to be replaced.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key to modify.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the string to be substituted for each match of `from`.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "to", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigTrimStringArgsDict(TypedDict):
+        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies the keys of the fields to trim.
+        """
+elif False:
+    LogTransformerTransformerConfigTrimStringArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigTrimStringArgs:
+    def __init__(__self__, *,
+                 with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] with_keys: Specifies the keys of the fields to trim.
+        """
+        pulumi.set(__self__, "with_keys", with_keys)
+
+    @_builtins.property
+    @pulumi.getter(name="withKeys")
+    def with_keys(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies the keys of the fields to trim.
+        """
+        return pulumi.get(self, "with_keys")
+
+    @with_keys.setter
+    def with_keys(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "with_keys", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigTypeConverterArgsDict(TypedDict):
+        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterEntryArgsDict']]]
+        """
+        Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `type_converter` `entry` below for details.
+        """
+elif False:
+    LogTransformerTransformerConfigTypeConverterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigTypeConverterArgs:
+    def __init__(__self__, *,
+                 entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterEntryArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterEntryArgs']]] entries: Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `type_converter` `entry` below for details.
+        """
+        pulumi.set(__self__, "entries", entries)
+
+    @_builtins.property
+    @pulumi.getter
+    def entries(self) -> pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterEntryArgs']]]:
+        """
+        Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `type_converter` `entry` below for details.
+        """
+        return pulumi.get(self, "entries")
+
+    @entries.setter
+    def entries(self, value: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterEntryArgs']]]):
+        pulumi.set(self, "entries", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigTypeConverterEntryArgsDict(TypedDict):
+        key: pulumi.Input[_builtins.str]
+        """
+        Specifies the key with the value that will be converted to a different type.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
+        """
+elif False:
+    LogTransformerTransformerConfigTypeConverterEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigTypeConverterEntryArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key: Specifies the key with the value that will be converted to a different type.
+        :param pulumi.Input[_builtins.str] type: Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the key with the value that will be converted to a different type.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class LogTransformerTransformerConfigUpperCaseStringArgsDict(TypedDict):
+        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies the keys of the fields to convert to uppercase.
+        """
+elif False:
+    LogTransformerTransformerConfigUpperCaseStringArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogTransformerTransformerConfigUpperCaseStringArgs:
+    def __init__(__self__, *,
+                 with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] with_keys: Specifies the keys of the fields to convert to uppercase.
+        """
+        pulumi.set(__self__, "with_keys", with_keys)
+
+    @_builtins.property
+    @pulumi.getter(name="withKeys")
+    def with_keys(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies the keys of the fields to convert to uppercase.
+        """
+        return pulumi.get(self, "with_keys")
+
+    @with_keys.setter
+    def with_keys(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "with_keys", value)
 
 
 if not MYPY:

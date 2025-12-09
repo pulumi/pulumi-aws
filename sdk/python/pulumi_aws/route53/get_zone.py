@@ -26,7 +26,7 @@ class GetZoneResult:
     """
     A collection of values returned by getZone.
     """
-    def __init__(__self__, arn=None, caller_reference=None, comment=None, id=None, linked_service_description=None, linked_service_principal=None, name=None, name_servers=None, primary_name_server=None, private_zone=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, arn=None, caller_reference=None, comment=None, enable_accelerated_recovery=None, id=None, linked_service_description=None, linked_service_principal=None, name=None, name_servers=None, primary_name_server=None, private_zone=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetZoneResult:
         if comment and not isinstance(comment, str):
             raise TypeError("Expected argument 'comment' to be a str")
         pulumi.set(__self__, "comment", comment)
+        if enable_accelerated_recovery and not isinstance(enable_accelerated_recovery, bool):
+            raise TypeError("Expected argument 'enable_accelerated_recovery' to be a bool")
+        pulumi.set(__self__, "enable_accelerated_recovery", enable_accelerated_recovery)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -93,6 +96,14 @@ class GetZoneResult:
         Comment field of the Hosted Zone.
         """
         return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="enableAcceleratedRecovery")
+    def enable_accelerated_recovery(self) -> Optional[_builtins.bool]:
+        """
+        Boolean to indicate whether to enable accelerated recovery for the hosted zone.
+        """
+        return pulumi.get(self, "enable_accelerated_recovery")
 
     @_builtins.property
     @pulumi.getter
@@ -168,7 +179,7 @@ class GetZoneResult:
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> _builtins.str:
+    def vpc_id(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
@@ -189,6 +200,7 @@ class AwaitableGetZoneResult(GetZoneResult):
             arn=self.arn,
             caller_reference=self.caller_reference,
             comment=self.comment,
+            enable_accelerated_recovery=self.enable_accelerated_recovery,
             id=self.id,
             linked_service_description=self.linked_service_description,
             linked_service_principal=self.linked_service_principal,
@@ -202,7 +214,8 @@ class AwaitableGetZoneResult(GetZoneResult):
             zone_id=self.zone_id)
 
 
-def get_zone(name: Optional[_builtins.str] = None,
+def get_zone(enable_accelerated_recovery: Optional[_builtins.bool] = None,
+             name: Optional[_builtins.str] = None,
              private_zone: Optional[_builtins.bool] = None,
              tags: Optional[Mapping[str, _builtins.str]] = None,
              vpc_id: Optional[_builtins.str] = None,
@@ -231,18 +244,34 @@ def get_zone(name: Optional[_builtins.str] = None,
         records=["10.0.0.1"])
     ```
 
+    The following example shows how to get a Hosted Zone from a unique combination of its tags:
 
-    :param _builtins.str name: Hosted Zone name of the desired Hosted Zone.
-    :param _builtins.bool private_zone: Used with `name` field to get a private Hosted Zone.
-    :param Mapping[str, _builtins.str] tags: Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.route53.get_zone(tags={
+        "scope": "local",
+        "category": "api",
+    })
+    pulumi.export("localApiZone", selected.zone_id)
+    ```
+
+
+    :param _builtins.bool enable_accelerated_recovery: Boolean to indicate whether to enable accelerated recovery for the hosted zone.
+    :param _builtins.str name: Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `private_zone`, `vpc_id` and `tags`.
+    :param _builtins.bool private_zone: Filter to only private Hosted Zones.
+    :param Mapping[str, _builtins.str] tags: A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
            
-           The arguments of this data source act as filters for querying the available
-           Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
-           Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
-    :param _builtins.str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
-    :param _builtins.str zone_id: Hosted Zone id of the desired Hosted Zone.
+           The arguments of this data source act as filters for querying the available Hosted Zone.
+           
+           - The given filter must match exactly one Hosted Zone.
+    :param _builtins.str vpc_id: Filter to private Hosted Zones associated with the specified `vpc_id`.
+    :param _builtins.str zone_id: and `name` are mutually exclusive.
+           - If you use the `name` argument for a private Hosted Zone, you need to set the `private_zone` argument to `true`.
     """
     __args__ = dict()
+    __args__['enableAcceleratedRecovery'] = enable_accelerated_recovery
     __args__['name'] = name
     __args__['privateZone'] = private_zone
     __args__['tags'] = tags
@@ -255,6 +284,7 @@ def get_zone(name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         caller_reference=pulumi.get(__ret__, 'caller_reference'),
         comment=pulumi.get(__ret__, 'comment'),
+        enable_accelerated_recovery=pulumi.get(__ret__, 'enable_accelerated_recovery'),
         id=pulumi.get(__ret__, 'id'),
         linked_service_description=pulumi.get(__ret__, 'linked_service_description'),
         linked_service_principal=pulumi.get(__ret__, 'linked_service_principal'),
@@ -266,7 +296,8 @@ def get_zone(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
-def get_zone_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_zone_output(enable_accelerated_recovery: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                    name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                     private_zone: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                     vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -295,18 +326,34 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None
         records=["10.0.0.1"])
     ```
 
+    The following example shows how to get a Hosted Zone from a unique combination of its tags:
 
-    :param _builtins.str name: Hosted Zone name of the desired Hosted Zone.
-    :param _builtins.bool private_zone: Used with `name` field to get a private Hosted Zone.
-    :param Mapping[str, _builtins.str] tags: Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.route53.get_zone(tags={
+        "scope": "local",
+        "category": "api",
+    })
+    pulumi.export("localApiZone", selected.zone_id)
+    ```
+
+
+    :param _builtins.bool enable_accelerated_recovery: Boolean to indicate whether to enable accelerated recovery for the hosted zone.
+    :param _builtins.str name: Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `private_zone`, `vpc_id` and `tags`.
+    :param _builtins.bool private_zone: Filter to only private Hosted Zones.
+    :param Mapping[str, _builtins.str] tags: A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
            
-           The arguments of this data source act as filters for querying the available
-           Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
-           Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
-    :param _builtins.str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
-    :param _builtins.str zone_id: Hosted Zone id of the desired Hosted Zone.
+           The arguments of this data source act as filters for querying the available Hosted Zone.
+           
+           - The given filter must match exactly one Hosted Zone.
+    :param _builtins.str vpc_id: Filter to private Hosted Zones associated with the specified `vpc_id`.
+    :param _builtins.str zone_id: and `name` are mutually exclusive.
+           - If you use the `name` argument for a private Hosted Zone, you need to set the `private_zone` argument to `true`.
     """
     __args__ = dict()
+    __args__['enableAcceleratedRecovery'] = enable_accelerated_recovery
     __args__['name'] = name
     __args__['privateZone'] = private_zone
     __args__['tags'] = tags
@@ -318,6 +365,7 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None
         arn=pulumi.get(__response__, 'arn'),
         caller_reference=pulumi.get(__response__, 'caller_reference'),
         comment=pulumi.get(__response__, 'comment'),
+        enable_accelerated_recovery=pulumi.get(__response__, 'enable_accelerated_recovery'),
         id=pulumi.get(__response__, 'id'),
         linked_service_description=pulumi.get(__response__, 'linked_service_description'),
         linked_service_principal=pulumi.get(__response__, 'linked_service_principal'),

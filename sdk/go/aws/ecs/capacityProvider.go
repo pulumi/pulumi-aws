@@ -87,7 +87,7 @@ import (
 //				Cluster: pulumi.String("my-cluster"),
 //				ManagedInstancesProvider: &ecs.CapacityProviderManagedInstancesProviderArgs{
 //					InfrastructureRoleArn: pulumi.Any(ecsInfrastructure.Arn),
-//					PropagateTags:         pulumi.String("TASK_DEFINITION"),
+//					PropagateTags:         pulumi.String("CAPACITY_PROVIDER"),
 //					InstanceLaunchTemplate: &ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{
 //						Ec2InstanceProfileArn: pulumi.Any(ecsInstance.Arn),
 //						Monitoring:            pulumi.String("ENABLED"),
@@ -140,8 +140,6 @@ import (
 // - `arn` (String) Amazon Resource Name (ARN) of the ECS capacity provider.
 //
 // Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
-//
-// console
 //
 // % pulumi import aws_ecs_capacity_provider.example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
 type CapacityProvider struct {

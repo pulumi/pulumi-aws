@@ -5,6 +5,7 @@ package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.aws.backup.outputs.GetPlanRuleCopyAction;
 import com.pulumi.aws.backup.outputs.GetPlanRuleLifecycle;
+import com.pulumi.aws.backup.outputs.GetPlanRuleScanAction;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -23,9 +24,11 @@ public final class GetPlanRule {
     private List<GetPlanRuleLifecycle> lifecycles;
     private @Nullable Map<String,String> recoveryPointTags;
     private String ruleName;
+    private List<GetPlanRuleScanAction> scanActions;
     private String schedule;
     private String scheduleExpressionTimezone;
     private Integer startWindow;
+    private String targetLogicallyAirGappedBackupVaultArn;
     private String targetVaultName;
 
     private GetPlanRule() {}
@@ -47,6 +50,9 @@ public final class GetPlanRule {
     public String ruleName() {
         return this.ruleName;
     }
+    public List<GetPlanRuleScanAction> scanActions() {
+        return this.scanActions;
+    }
     public String schedule() {
         return this.schedule;
     }
@@ -55,6 +61,9 @@ public final class GetPlanRule {
     }
     public Integer startWindow() {
         return this.startWindow;
+    }
+    public String targetLogicallyAirGappedBackupVaultArn() {
+        return this.targetLogicallyAirGappedBackupVaultArn;
     }
     public String targetVaultName() {
         return this.targetVaultName;
@@ -75,9 +84,11 @@ public final class GetPlanRule {
         private List<GetPlanRuleLifecycle> lifecycles;
         private @Nullable Map<String,String> recoveryPointTags;
         private String ruleName;
+        private List<GetPlanRuleScanAction> scanActions;
         private String schedule;
         private String scheduleExpressionTimezone;
         private Integer startWindow;
+        private String targetLogicallyAirGappedBackupVaultArn;
         private String targetVaultName;
         public Builder() {}
         public Builder(GetPlanRule defaults) {
@@ -88,9 +99,11 @@ public final class GetPlanRule {
     	      this.lifecycles = defaults.lifecycles;
     	      this.recoveryPointTags = defaults.recoveryPointTags;
     	      this.ruleName = defaults.ruleName;
+    	      this.scanActions = defaults.scanActions;
     	      this.schedule = defaults.schedule;
     	      this.scheduleExpressionTimezone = defaults.scheduleExpressionTimezone;
     	      this.startWindow = defaults.startWindow;
+    	      this.targetLogicallyAirGappedBackupVaultArn = defaults.targetLogicallyAirGappedBackupVaultArn;
     	      this.targetVaultName = defaults.targetVaultName;
         }
 
@@ -147,6 +160,17 @@ public final class GetPlanRule {
             return this;
         }
         @CustomType.Setter
+        public Builder scanActions(List<GetPlanRuleScanAction> scanActions) {
+            if (scanActions == null) {
+              throw new MissingRequiredPropertyException("GetPlanRule", "scanActions");
+            }
+            this.scanActions = scanActions;
+            return this;
+        }
+        public Builder scanActions(GetPlanRuleScanAction... scanActions) {
+            return scanActions(List.of(scanActions));
+        }
+        @CustomType.Setter
         public Builder schedule(String schedule) {
             if (schedule == null) {
               throw new MissingRequiredPropertyException("GetPlanRule", "schedule");
@@ -171,6 +195,14 @@ public final class GetPlanRule {
             return this;
         }
         @CustomType.Setter
+        public Builder targetLogicallyAirGappedBackupVaultArn(String targetLogicallyAirGappedBackupVaultArn) {
+            if (targetLogicallyAirGappedBackupVaultArn == null) {
+              throw new MissingRequiredPropertyException("GetPlanRule", "targetLogicallyAirGappedBackupVaultArn");
+            }
+            this.targetLogicallyAirGappedBackupVaultArn = targetLogicallyAirGappedBackupVaultArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder targetVaultName(String targetVaultName) {
             if (targetVaultName == null) {
               throw new MissingRequiredPropertyException("GetPlanRule", "targetVaultName");
@@ -186,9 +218,11 @@ public final class GetPlanRule {
             _resultValue.lifecycles = lifecycles;
             _resultValue.recoveryPointTags = recoveryPointTags;
             _resultValue.ruleName = ruleName;
+            _resultValue.scanActions = scanActions;
             _resultValue.schedule = schedule;
             _resultValue.scheduleExpressionTimezone = scheduleExpressionTimezone;
             _resultValue.startWindow = startWindow;
+            _resultValue.targetLogicallyAirGappedBackupVaultArn = targetLogicallyAirGappedBackupVaultArn;
             _resultValue.targetVaultName = targetVaultName;
             return _resultValue;
         }

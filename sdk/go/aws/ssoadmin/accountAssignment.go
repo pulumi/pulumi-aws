@@ -157,7 +157,7 @@ type AccountAssignment struct {
 	// An AWS account identifier, typically a 10-12 digit string.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
+	TargetType pulumi.StringOutput `pulumi:"targetType"`
 }
 
 // NewAccountAssignment registers a new resource with the given unique name, arguments, and options.
@@ -181,6 +181,9 @@ func NewAccountAssignment(ctx *pulumi.Context,
 	}
 	if args.TargetId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetId'")
+	}
+	if args.TargetType == nil {
+		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccountAssignment
@@ -256,7 +259,7 @@ type accountAssignmentArgs struct {
 	// An AWS account identifier, typically a 10-12 digit string.
 	TargetId string `pulumi:"targetId"`
 	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-	TargetType *string `pulumi:"targetType"`
+	TargetType string `pulumi:"targetType"`
 }
 
 // The set of arguments for constructing a AccountAssignment resource.
@@ -274,7 +277,7 @@ type AccountAssignmentArgs struct {
 	// An AWS account identifier, typically a 10-12 digit string.
 	TargetId pulumi.StringInput
 	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-	TargetType pulumi.StringPtrInput
+	TargetType pulumi.StringInput
 }
 
 func (AccountAssignmentArgs) ElementType() reflect.Type {
@@ -395,8 +398,8 @@ func (o AccountAssignmentOutput) TargetId() pulumi.StringOutput {
 }
 
 // The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-func (o AccountAssignmentOutput) TargetType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccountAssignment) pulumi.StringPtrOutput { return v.TargetType }).(pulumi.StringPtrOutput)
+func (o AccountAssignmentOutput) TargetType() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.TargetType }).(pulumi.StringOutput)
 }
 
 type AccountAssignmentArrayOutput struct{ *pulumi.OutputState }

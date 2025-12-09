@@ -148,10 +148,10 @@ class TableBucketPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{}])
+        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
         example_table_bucket_policy = aws.s3tables.TableBucketPolicy("example",
             resource_policy=example.json,
-            table_bucket_arn=example_aws_s3tables_table_bucket["arn"])
-        test = aws.s3tables.TableBucket("test", name="example-bucket")
+            table_bucket_arn=example_table_bucket.arn)
         ```
 
         ## Import
@@ -186,10 +186,10 @@ class TableBucketPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{}])
+        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
         example_table_bucket_policy = aws.s3tables.TableBucketPolicy("example",
             resource_policy=example.json,
-            table_bucket_arn=example_aws_s3tables_table_bucket["arn"])
-        test = aws.s3tables.TableBucket("test", name="example-bucket")
+            table_bucket_arn=example_table_bucket.arn)
         ```
 
         ## Import

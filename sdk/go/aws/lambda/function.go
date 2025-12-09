@@ -636,6 +636,107 @@ import (
 //
 // ```
 //
+// ### Function with Durable Configuration
+//
+// Stopping durable executions and deleting the Lambda function may take up to `60m`. Use configured `timeouts` as shown below.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
+//				Code:       pulumi.NewFileArchive("function.zip"),
+//				Name:       pulumi.String("example_durable_function"),
+//				Role:       pulumi.Any(exampleAwsIamRole.Arn),
+//				Handler:    pulumi.String("index.handler"),
+//				Runtime:    pulumi.String(lambda.RuntimeNodeJS22dX),
+//				MemorySize: pulumi.Int(512),
+//				Timeout:    pulumi.Int(30),
+//				DurableConfig: &lambda.FunctionDurableConfigArgs{
+//					ExecutionTimeout: pulumi.Int(3600),
+//					RetentionPeriod:  pulumi.Int(7),
+//				},
+//				Environment: &lambda.FunctionEnvironmentArgs{
+//					Variables: pulumi.StringMap{
+//						"DURABLE_MODE": pulumi.String("enabled"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//					"Type":        pulumi.String("durable"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Capacity Provider Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCapacityProvider, err := lambda.NewCapacityProvider(ctx, "example", &lambda.CapacityProviderArgs{
+//				Name: pulumi.String("example"),
+//				VpcConfig: &lambda.CapacityProviderVpcConfigArgs{
+//					SubnetIds: pulumi.StringArray{
+//						exampleAwsSubnet.Id,
+//					},
+//					SecurityGroupIds: pulumi.StringArray{
+//						exampleAwsSecurityGroup.Id,
+//					},
+//				},
+//				PermissionsConfig: &lambda.CapacityProviderPermissionsConfigArgs{
+//					CapacityProviderOperatorRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
+//				Code:       pulumi.NewFileArchive("function.zip"),
+//				Name:       pulumi.String("example"),
+//				Role:       pulumi.Any(exampleAwsIamRole.Arn),
+//				Handler:    pulumi.String("index.handler"),
+//				Runtime:    pulumi.String(lambda.RuntimeNodeJS20dX),
+//				MemorySize: pulumi.Int(2048),
+//				Publish:    pulumi.Bool(true),
+//				CapacityProviderConfig: &lambda.FunctionCapacityProviderConfigArgs{
+//					LambdaManagedInstancesCapacityProviderConfig: &lambda.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{
+//						CapacityProviderArn: exampleCapacityProvider.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Specifying the Deployment Package
 //
 // AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
@@ -660,8 +761,6 @@ import (
 //
 // Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 //
-// console
-//
 // % pulumi import aws_lambda_function.example example
 type Function struct {
 	pulumi.CustomResourceState
@@ -670,6 +769,8 @@ type Function struct {
 	Architectures pulumi.StringArrayOutput `pulumi:"architectures"`
 	// ARN identifying your Lambda Function.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration block for Lambda Capacity Provider. See below.
+	CapacityProviderConfig FunctionCapacityProviderConfigPtrOutput `pulumi:"capacityProviderConfig"`
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveOutput `pulumi:"code"`
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
@@ -680,6 +781,8 @@ type Function struct {
 	DeadLetterConfig FunctionDeadLetterConfigPtrOutput `pulumi:"deadLetterConfig"`
 	// Description of what your Lambda Function does.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+	DurableConfig FunctionDurableConfigPtrOutput `pulumi:"durableConfig"`
 	// Configuration block for environment variables. See below.
 	Environment FunctionEnvironmentPtrOutput `pulumi:"environment"`
 	// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
@@ -710,6 +813,8 @@ type Function struct {
 	PackageType pulumi.StringPtrOutput `pulumi:"packageType"`
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
+	// Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+	PublishTo pulumi.StringPtrOutput `pulumi:"publishTo"`
 	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
 	QualifiedArn pulumi.StringOutput `pulumi:"qualifiedArn"`
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
@@ -752,6 +857,8 @@ type Function struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Configuration block for Tenancy. See below.
+	TenancyConfig FunctionTenancyConfigPtrOutput `pulumi:"tenancyConfig"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Configuration block for X-Ray tracing. See below.
@@ -799,6 +906,8 @@ type functionState struct {
 	Architectures []string `pulumi:"architectures"`
 	// ARN identifying your Lambda Function.
 	Arn *string `pulumi:"arn"`
+	// Configuration block for Lambda Capacity Provider. See below.
+	CapacityProviderConfig *FunctionCapacityProviderConfig `pulumi:"capacityProviderConfig"`
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.Archive `pulumi:"code"`
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
@@ -809,6 +918,8 @@ type functionState struct {
 	DeadLetterConfig *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Description of what your Lambda Function does.
 	Description *string `pulumi:"description"`
+	// Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+	DurableConfig *FunctionDurableConfig `pulumi:"durableConfig"`
 	// Configuration block for environment variables. See below.
 	Environment *FunctionEnvironment `pulumi:"environment"`
 	// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
@@ -839,6 +950,8 @@ type functionState struct {
 	PackageType *string `pulumi:"packageType"`
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish *bool `pulumi:"publish"`
+	// Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+	PublishTo *string `pulumi:"publishTo"`
 	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
 	QualifiedArn *string `pulumi:"qualifiedArn"`
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
@@ -881,6 +994,8 @@ type functionState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Configuration block for Tenancy. See below.
+	TenancyConfig *FunctionTenancyConfig `pulumi:"tenancyConfig"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
 	Timeout *int `pulumi:"timeout"`
 	// Configuration block for X-Ray tracing. See below.
@@ -896,6 +1011,8 @@ type FunctionState struct {
 	Architectures pulumi.StringArrayInput
 	// ARN identifying your Lambda Function.
 	Arn pulumi.StringPtrInput
+	// Configuration block for Lambda Capacity Provider. See below.
+	CapacityProviderConfig FunctionCapacityProviderConfigPtrInput
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveInput
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
@@ -906,6 +1023,8 @@ type FunctionState struct {
 	DeadLetterConfig FunctionDeadLetterConfigPtrInput
 	// Description of what your Lambda Function does.
 	Description pulumi.StringPtrInput
+	// Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+	DurableConfig FunctionDurableConfigPtrInput
 	// Configuration block for environment variables. See below.
 	Environment FunctionEnvironmentPtrInput
 	// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
@@ -936,6 +1055,8 @@ type FunctionState struct {
 	PackageType pulumi.StringPtrInput
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish pulumi.BoolPtrInput
+	// Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+	PublishTo pulumi.StringPtrInput
 	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
 	QualifiedArn pulumi.StringPtrInput
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
@@ -978,6 +1099,8 @@ type FunctionState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Configuration block for Tenancy. See below.
+	TenancyConfig FunctionTenancyConfigPtrInput
 	// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
 	Timeout pulumi.IntPtrInput
 	// Configuration block for X-Ray tracing. See below.
@@ -995,6 +1118,8 @@ func (FunctionState) ElementType() reflect.Type {
 type functionArgs struct {
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stays the same.
 	Architectures []string `pulumi:"architectures"`
+	// Configuration block for Lambda Capacity Provider. See below.
+	CapacityProviderConfig *FunctionCapacityProviderConfig `pulumi:"capacityProviderConfig"`
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.Archive `pulumi:"code"`
 	// ARN of a code-signing configuration to enable code signing for this function.
@@ -1003,6 +1128,8 @@ type functionArgs struct {
 	DeadLetterConfig *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Description of what your Lambda Function does.
 	Description *string `pulumi:"description"`
+	// Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+	DurableConfig *FunctionDurableConfig `pulumi:"durableConfig"`
 	// Configuration block for environment variables. See below.
 	Environment *FunctionEnvironment `pulumi:"environment"`
 	// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
@@ -1029,6 +1156,8 @@ type functionArgs struct {
 	PackageType *string `pulumi:"packageType"`
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish *bool `pulumi:"publish"`
+	// Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+	PublishTo *string `pulumi:"publishTo"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
@@ -1059,6 +1188,8 @@ type functionArgs struct {
 	SourceKmsKeyArn *string `pulumi:"sourceKmsKeyArn"`
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Configuration block for Tenancy. See below.
+	TenancyConfig *FunctionTenancyConfig `pulumi:"tenancyConfig"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
 	Timeout *int `pulumi:"timeout"`
 	// Configuration block for X-Ray tracing. See below.
@@ -1071,6 +1202,8 @@ type functionArgs struct {
 type FunctionArgs struct {
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stays the same.
 	Architectures pulumi.StringArrayInput
+	// Configuration block for Lambda Capacity Provider. See below.
+	CapacityProviderConfig FunctionCapacityProviderConfigPtrInput
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveInput
 	// ARN of a code-signing configuration to enable code signing for this function.
@@ -1079,6 +1212,8 @@ type FunctionArgs struct {
 	DeadLetterConfig FunctionDeadLetterConfigPtrInput
 	// Description of what your Lambda Function does.
 	Description pulumi.StringPtrInput
+	// Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+	DurableConfig FunctionDurableConfigPtrInput
 	// Configuration block for environment variables. See below.
 	Environment FunctionEnvironmentPtrInput
 	// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
@@ -1105,6 +1240,8 @@ type FunctionArgs struct {
 	PackageType pulumi.StringPtrInput
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish pulumi.BoolPtrInput
+	// Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+	PublishTo pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
@@ -1135,6 +1272,8 @@ type FunctionArgs struct {
 	SourceKmsKeyArn pulumi.StringPtrInput
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Configuration block for Tenancy. See below.
+	TenancyConfig FunctionTenancyConfigPtrInput
 	// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
 	Timeout pulumi.IntPtrInput
 	// Configuration block for X-Ray tracing. See below.
@@ -1240,6 +1379,11 @@ func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Configuration block for Lambda Capacity Provider. See below.
+func (o FunctionOutput) CapacityProviderConfig() FunctionCapacityProviderConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionCapacityProviderConfigPtrOutput { return v.CapacityProviderConfig }).(FunctionCapacityProviderConfigPtrOutput)
+}
+
 // Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 func (o FunctionOutput) Code() pulumi.ArchiveOutput {
 	return o.ApplyT(func(v *Function) pulumi.ArchiveOutput { return v.Code }).(pulumi.ArchiveOutput)
@@ -1263,6 +1407,11 @@ func (o FunctionOutput) DeadLetterConfig() FunctionDeadLetterConfigPtrOutput {
 // Description of what your Lambda Function does.
 func (o FunctionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
+func (o FunctionOutput) DurableConfig() FunctionDurableConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionDurableConfigPtrOutput { return v.DurableConfig }).(FunctionDurableConfigPtrOutput)
 }
 
 // Configuration block for environment variables. See below.
@@ -1338,6 +1487,11 @@ func (o FunctionOutput) PackageType() pulumi.StringPtrOutput {
 // Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 func (o FunctionOutput) Publish() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.Publish }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
+func (o FunctionOutput) PublishTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.PublishTo }).(pulumi.StringPtrOutput)
 }
 
 // ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
@@ -1440,6 +1594,11 @@ func (o FunctionOutput) Tags() pulumi.StringMapOutput {
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FunctionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Configuration block for Tenancy. See below.
+func (o FunctionOutput) TenancyConfig() FunctionTenancyConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionTenancyConfigPtrOutput { return v.TenancyConfig }).(FunctionTenancyConfigPtrOutput)
 }
 
 // Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.

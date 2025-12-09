@@ -308,8 +308,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
  * 
- * console
- * 
  * % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
  * 
  */

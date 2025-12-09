@@ -113,8 +113,6 @@ import (
 //
 // Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:
 //
-// console
-//
 // % pulumi import aws_datasync_location_hdfs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 type LocationHdfs struct {
 	pulumi.CustomResourceState

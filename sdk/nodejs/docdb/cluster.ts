@@ -184,6 +184,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly masterUsername: pulumi.Output<string>;
     /**
+     * The network type of the DB cluster (`IPV4` or `DUAL`).
+     */
+    declare public readonly networkType: pulumi.Output<string>;
+    /**
      * The port on which the DB accepts connections
      */
     declare public readonly port: pulumi.Output<number | undefined>;
@@ -284,6 +288,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterPasswordWoVersion"] = state?.masterPasswordWoVersion;
             resourceInputs["masterUserSecrets"] = state?.masterUserSecrets;
             resourceInputs["masterUsername"] = state?.masterUsername;
+            resourceInputs["networkType"] = state?.networkType;
             resourceInputs["port"] = state?.port;
             resourceInputs["preferredBackupWindow"] = state?.preferredBackupWindow;
             resourceInputs["preferredMaintenanceWindow"] = state?.preferredMaintenanceWindow;
@@ -321,6 +326,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterPasswordWo"] = args?.masterPasswordWo ? pulumi.secret(args.masterPasswordWo) : undefined;
             resourceInputs["masterPasswordWoVersion"] = args?.masterPasswordWoVersion;
             resourceInputs["masterUsername"] = args?.masterUsername;
+            resourceInputs["networkType"] = args?.networkType;
             resourceInputs["port"] = args?.port;
             resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
             resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
@@ -463,6 +469,10 @@ export interface ClusterState {
      * Username for the master DB user.
      */
     masterUsername?: pulumi.Input<string>;
+    /**
+     * The network type of the DB cluster (`IPV4` or `DUAL`).
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * The port on which the DB accepts connections
      */
@@ -624,6 +634,10 @@ export interface ClusterArgs {
      * Username for the master DB user.
      */
     masterUsername?: pulumi.Input<string>;
+    /**
+     * The network type of the DB cluster (`IPV4` or `DUAL`).
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * The port on which the DB accepts connections
      */

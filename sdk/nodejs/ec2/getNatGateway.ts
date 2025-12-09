@@ -93,13 +93,29 @@ export interface GetNatGatewayArgs {
  */
 export interface GetNatGatewayResult {
     /**
-     * ID of the EIP allocated to the selected NAT Gateway.
+     * Allocation ID of the Elastic IP address.
      */
     readonly allocationId: string;
     /**
-     * The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
+     * Association ID of the Elastic IP address.
      */
     readonly associationId: string;
+    /**
+     * (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
+     */
+    readonly autoProvisionZones: string;
+    /**
+     * (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+     */
+    readonly autoScalingIps: string;
+    /**
+     * Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+     */
+    readonly availabilityMode: string;
+    /**
+     * (regional NAT gateways only) Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway.
+     */
+    readonly availabilityZoneAddresses: outputs.ec2.GetNatGatewayAvailabilityZoneAddress[];
     /**
      * Connectivity type of the NAT Gateway.
      */
@@ -107,28 +123,36 @@ export interface GetNatGatewayResult {
     readonly filters?: outputs.ec2.GetNatGatewayFilter[];
     readonly id: string;
     /**
-     * The ID of the ENI allocated to the selected NAT Gateway.
+     * ID of the network interface.
      */
     readonly networkInterfaceId: string;
     /**
-     * Private IP address of the selected NAT Gateway.
+     * (zonal NAT gateways only) Private IP address of the selected NAT Gateway.
      */
     readonly privateIp: string;
     /**
-     * Public IP (EIP) address of the selected NAT Gateway.
+     * Public IP address.
      */
     readonly publicIp: string;
     readonly region: string;
     /**
-     * Secondary allocation EIP IDs for the selected NAT Gateway.
+     * (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
+     */
+    readonly regionalNatGatewayAddresses: outputs.ec2.GetNatGatewayRegionalNatGatewayAddress[];
+    /**
+     * (regional NAT gateways only) ID of the automatically created route table.
+     */
+    readonly routeTableId: string;
+    /**
+     * (zonal NAT gateways only) Secondary allocation EIP IDs for the selected NAT Gateway.
      */
     readonly secondaryAllocationIds: string[];
     /**
-     * The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
+     * (zonal NAT gateways only) The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
      */
     readonly secondaryPrivateIpAddressCount: number;
     /**
-     * Secondary private IPv4 addresses assigned to the selected NAT Gateway.
+     * (zonal NAT gateways only) Secondary private IPv4 addresses assigned to the selected NAT Gateway.
      */
     readonly secondaryPrivateIpAddresses: string[];
     readonly state: string;

@@ -79,6 +79,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LogStream{}
 	case "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter":
 		r = &LogSubscriptionFilter{}
+	case "aws:cloudwatch/logTransformer:LogTransformer":
+		r = &LogTransformer{}
 	case "aws:cloudwatch/metricAlarm:MetricAlarm":
 		r = &MetricAlarm{}
 	case "aws:cloudwatch/metricStream:MetricStream":
@@ -241,6 +243,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudwatch/logSubscriptionFilter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/logTransformer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

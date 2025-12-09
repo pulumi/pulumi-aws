@@ -15,14 +15,14 @@ public final class ChannelAssociationArgs extends com.pulumi.resources.ResourceA
     public static final ChannelAssociationArgs Empty = new ChannelAssociationArgs();
 
     /**
-     * ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+     * ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+     * @return ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
      * 
      */
     public Output<String> arn() {
@@ -70,7 +70,7 @@ public final class ChannelAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+         * @param arn ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ChannelAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
+         * @param arn ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
          * 
          * @return builder
          * 

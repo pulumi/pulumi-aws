@@ -305,8 +305,6 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import CodeBuild Project using the `name`. For example:
  * 
- * console
- * 
  * % pulumi import aws_codebuild_project.name project-name
  * 
  */

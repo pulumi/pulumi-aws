@@ -287,8 +287,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
  *
- * console
- *
  * % pulumi import aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example abcdef123456
  */
 export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {

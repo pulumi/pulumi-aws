@@ -43,6 +43,12 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<Inputs.WorkgroupConfigurationIdentityCenterConfigurationGetArgs>? IdentityCenterConfiguration { get; set; }
 
         /// <summary>
+        /// Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+        /// </summary>
+        [Input("managedQueryResultsConfiguration")]
+        public Input<Inputs.WorkgroupConfigurationManagedQueryResultsConfigurationGetArgs>? ManagedQueryResultsConfiguration { get; set; }
+
+        /// <summary>
         /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `True`.
         /// </summary>
         [Input("publishCloudwatchMetricsEnabled")]

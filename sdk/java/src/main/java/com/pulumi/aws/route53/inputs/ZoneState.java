@@ -66,6 +66,21 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    @Import(name="enableAcceleratedRecovery")
+    private @Nullable Output<Boolean> enableAcceleratedRecovery;
+
+    /**
+     * @return Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    public Optional<Output<Boolean>> enableAcceleratedRecovery() {
+        return Optional.ofNullable(this.enableAcceleratedRecovery);
+    }
+
+    /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      * 
      */
@@ -193,6 +208,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.comment = $.comment;
         this.delegationSetId = $.delegationSetId;
+        this.enableAcceleratedRecovery = $.enableAcceleratedRecovery;
         this.forceDestroy = $.forceDestroy;
         this.name = $.name;
         this.nameServers = $.nameServers;
@@ -282,6 +298,27 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder delegationSetId(String delegationSetId) {
             return delegationSetId(Output.of(delegationSetId));
+        }
+
+        /**
+         * @param enableAcceleratedRecovery Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableAcceleratedRecovery(@Nullable Output<Boolean> enableAcceleratedRecovery) {
+            $.enableAcceleratedRecovery = enableAcceleratedRecovery;
+            return this;
+        }
+
+        /**
+         * @param enableAcceleratedRecovery Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableAcceleratedRecovery(Boolean enableAcceleratedRecovery) {
+            return enableAcceleratedRecovery(Output.of(enableAcceleratedRecovery));
         }
 
         /**

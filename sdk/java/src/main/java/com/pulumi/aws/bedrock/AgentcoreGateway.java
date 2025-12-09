@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.bedrock.AgentcoreGatewayArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayState;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayAuthorizerConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayInterceptorConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayProtocolConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTimeouts;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayWorkloadIdentityDetail;
@@ -152,6 +153,70 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Gateway with Interceptor Configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.bedrock.AgentcoreGateway;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayInterceptorConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayInterceptorConfigurationInterceptorArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var interceptor = new Function("interceptor", FunctionArgs.builder()
+ *             .code(new FileArchive("interceptor.zip"))
+ *             .name("gateway-interceptor")
+ *             .role(lambda.arn())
+ *             .handler("index.handler")
+ *             .runtime("python3.12")
+ *             .build());
+ * 
+ *         var example = new AgentcoreGateway("example", AgentcoreGatewayArgs.builder()
+ *             .name("gateway-with-interceptor")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .authorizerType("AWS_IAM")
+ *             .protocolType("MCP")
+ *             .interceptorConfigurations(AgentcoreGatewayInterceptorConfigurationArgs.builder()
+ *                 .interceptionPoints(                
+ *                     "REQUEST",
+ *                     "RESPONSE")
+ *                 .interceptor(AgentcoreGatewayInterceptorConfigurationInterceptorArgs.builder()
+ *                     .lambda(AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs.builder()
+ *                         .arn(interceptor.arn())
+ *                         .build())
+ *                     .build())
+ *                 .inputConfiguration(AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs.builder()
+ *                     .passRequestHeaders(true)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Bedrock AgentCore Gateway using the gateway ID. For example:
@@ -260,6 +325,20 @@ public class AgentcoreGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<String> gatewayUrl() {
         return this.gatewayUrl;
+    }
+    /**
+     * List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+     * 
+     */
+    @Export(name="interceptorConfigurations", refs={List.class,AgentcoreGatewayInterceptorConfiguration.class}, tree="[0,1]")
+    private Output<List<AgentcoreGatewayInterceptorConfiguration>> interceptorConfigurations;
+
+    /**
+     * @return List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+     * 
+     */
+    public Output<List<AgentcoreGatewayInterceptorConfiguration>> interceptorConfigurations() {
+        return this.interceptorConfigurations;
     }
     /**
      * ARN of the KMS key used to encrypt the gateway data.

@@ -14,13 +14,21 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreAgentRuntimeAgentRuntimeArtifact
     {
         /// <summary>
-        /// Container configuration block. See `ContainerConfiguration` below.
+        /// Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `CodeConfiguration` or `ContainerConfiguration` must be specified. See `CodeConfiguration` below.
+        /// </summary>
+        public readonly Outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration? CodeConfiguration;
+        /// <summary>
+        /// Container configuration block for the agent artifact. Exactly one of `CodeConfiguration` or `ContainerConfiguration` must be specified. See `ContainerConfiguration` below.
         /// </summary>
         public readonly Outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration? ContainerConfiguration;
 
         [OutputConstructor]
-        private AgentcoreAgentRuntimeAgentRuntimeArtifact(Outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration? containerConfiguration)
+        private AgentcoreAgentRuntimeAgentRuntimeArtifact(
+            Outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration? codeConfiguration,
+
+            Outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration? containerConfiguration)
         {
+            CodeConfiguration = codeConfiguration;
             ContainerConfiguration = containerConfiguration;
         }
     }

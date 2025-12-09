@@ -53,12 +53,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * function singleOrNone<T>(elements: pulumi.Input<T>[]): pulumi.Input<T> {
+ *     if (elements.length != 1) {
+ *         throw new Error("singleOrNone expected input list to have a single element");
+ *     }
+ *     return elements[0];
+ * }
+ *
  * // Get existing function details
  * const reference = aws.lambda.getFunction({
  *     functionName: "existing-function",
  * });
  * // Create new function with similar configuration
  * const example = new aws.lambda.Function("example", {
+ *     durableConfig: singleOrNone(.map(entry => ({
+ *         executionTimeout: entry.value.executionTimeout,
+ *         retentionPeriod: entry.value.retentionPeriod,
+ *     }))),
  *     code: new pulumi.asset.FileArchive("new-function.zip"),
  *     name: "new-function",
  *     role: reference.then(reference => reference.role),
@@ -97,6 +108,22 @@ import * as utilities from "../utilities";
  *     specificVersion: version.then(version => version.version),
  *     latestVersion: latest.then(latest => latest.version),
  *     codeDifference: Promise.all([version, latest]).then(([version, latest]) => version.codeSha256 != latest.codeSha256),
+ * };
+ * ```
+ *
+ * ### Accessing Durable Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const durableFunction = aws.lambda.getFunction({
+ *     functionName: "my-durable-function",
+ * });
+ * export const durableSettings = {
+ *     hasDurableConfig: durableFunction.then(durableFunction => durableFunction.durableConfigs).length.apply(length => length > 0),
+ *     executionTimeout: pulumi.all([durableFunction.then(durableFunction => durableFunction.durableConfigs).length, durableFunction]).apply(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.executionTimeout : null),
+ *     retentionPeriod: pulumi.all([durableFunction.then(durableFunction => durableFunction.durableConfigs).length, durableFunction]).apply(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.retentionPeriod : null),
  * };
  * ```
  */
@@ -147,6 +174,10 @@ export interface GetFunctionResult {
      */
     readonly arn: string;
     /**
+     * Configuration for Lambda function's capacity provider. See below.
+     */
+    readonly capacityProviderConfigs: outputs.lambda.GetFunctionCapacityProviderConfig[];
+    /**
      * Base64-encoded representation of raw SHA-256 sum of the zip file.
      */
     readonly codeSha256: string;
@@ -162,6 +193,10 @@ export interface GetFunctionResult {
      * Description of what your Lambda Function does.
      */
     readonly description: string;
+    /**
+     * Configuration for the function's durable settings. See below.
+     */
+    readonly durableConfigs: outputs.lambda.GetFunctionDurableConfig[];
     /**
      * Lambda environment's configuration settings. See below.
      */
@@ -260,6 +295,10 @@ export interface GetFunctionResult {
      */
     readonly tags: {[key: string]: string};
     /**
+     * Tenancy settings of the function. See below.
+     */
+    readonly tenancyConfigs: outputs.lambda.GetFunctionTenancyConfig[];
+    /**
      * Function execution time at which Lambda should terminate the function.
      */
     readonly timeout: number;
@@ -322,12 +361,23 @@ export interface GetFunctionResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * function singleOrNone<T>(elements: pulumi.Input<T>[]): pulumi.Input<T> {
+ *     if (elements.length != 1) {
+ *         throw new Error("singleOrNone expected input list to have a single element");
+ *     }
+ *     return elements[0];
+ * }
+ *
  * // Get existing function details
  * const reference = aws.lambda.getFunction({
  *     functionName: "existing-function",
  * });
  * // Create new function with similar configuration
  * const example = new aws.lambda.Function("example", {
+ *     durableConfig: singleOrNone(.map(entry => ({
+ *         executionTimeout: entry.value.executionTimeout,
+ *         retentionPeriod: entry.value.retentionPeriod,
+ *     }))),
  *     code: new pulumi.asset.FileArchive("new-function.zip"),
  *     name: "new-function",
  *     role: reference.then(reference => reference.role),
@@ -366,6 +416,22 @@ export interface GetFunctionResult {
  *     specificVersion: version.then(version => version.version),
  *     latestVersion: latest.then(latest => latest.version),
  *     codeDifference: Promise.all([version, latest]).then(([version, latest]) => version.codeSha256 != latest.codeSha256),
+ * };
+ * ```
+ *
+ * ### Accessing Durable Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const durableFunction = aws.lambda.getFunction({
+ *     functionName: "my-durable-function",
+ * });
+ * export const durableSettings = {
+ *     hasDurableConfig: durableFunction.then(durableFunction => durableFunction.durableConfigs).length.apply(length => length > 0),
+ *     executionTimeout: pulumi.all([durableFunction.then(durableFunction => durableFunction.durableConfigs).length, durableFunction]).apply(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.executionTimeout : null),
+ *     retentionPeriod: pulumi.all([durableFunction.then(durableFunction => durableFunction.durableConfigs).length, durableFunction]).apply(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.retentionPeriod : null),
  * };
  * ```
  */

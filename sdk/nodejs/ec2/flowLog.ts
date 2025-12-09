@@ -284,13 +284,15 @@ export class FlowLog extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * Regional NAT Gateway ID to attach to.
+     */
+    declare public readonly regionalNatGatewayId: pulumi.Output<string | undefined>;
+    /**
      * Subnet ID to attach to.
      */
     declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -298,7 +300,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      */
     declare public readonly trafficType: pulumi.Output<string | undefined>;
     /**
@@ -311,6 +313,8 @@ export class FlowLog extends pulumi.CustomResource {
     declare public readonly transitGatewayId: pulumi.Output<string | undefined>;
     /**
      * VPC ID to attach to.
+     *
+     * > **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
     declare public readonly vpcId: pulumi.Output<string | undefined>;
 
@@ -337,6 +341,7 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["logFormat"] = state?.logFormat;
             resourceInputs["maxAggregationInterval"] = state?.maxAggregationInterval;
             resourceInputs["region"] = state?.region;
+            resourceInputs["regionalNatGatewayId"] = state?.regionalNatGatewayId;
             resourceInputs["subnetId"] = state?.subnetId;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
@@ -355,6 +360,7 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["logFormat"] = args?.logFormat;
             resourceInputs["maxAggregationInterval"] = args?.maxAggregationInterval;
             resourceInputs["region"] = args?.region;
+            resourceInputs["regionalNatGatewayId"] = args?.regionalNatGatewayId;
             resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["trafficType"] = args?.trafficType;
@@ -416,13 +422,15 @@ export interface FlowLogState {
      */
     region?: pulumi.Input<string>;
     /**
+     * Regional NAT Gateway ID to attach to.
+     */
+    regionalNatGatewayId?: pulumi.Input<string>;
+    /**
      * Subnet ID to attach to.
      */
     subnetId?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -430,7 +438,7 @@ export interface FlowLogState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      */
     trafficType?: pulumi.Input<string>;
     /**
@@ -443,6 +451,8 @@ export interface FlowLogState {
     transitGatewayId?: pulumi.Input<string>;
     /**
      * VPC ID to attach to.
+     *
+     * > **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
     vpcId?: pulumi.Input<string>;
 }
@@ -490,17 +500,19 @@ export interface FlowLogArgs {
      */
     region?: pulumi.Input<string>;
     /**
+     * Regional NAT Gateway ID to attach to.
+     */
+    regionalNatGatewayId?: pulumi.Input<string>;
+    /**
      * Subnet ID to attach to.
      */
     subnetId?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      */
     trafficType?: pulumi.Input<string>;
     /**
@@ -513,6 +525,8 @@ export interface FlowLogArgs {
     transitGatewayId?: pulumi.Input<string>;
     /**
      * VPC ID to attach to.
+     *
+     * > **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
     vpcId?: pulumi.Input<string>;
 }

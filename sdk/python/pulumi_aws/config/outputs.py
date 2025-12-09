@@ -266,6 +266,7 @@ class Endpoints(dict):
                  appstream: Optional[_builtins.str] = None,
                  appsync: Optional[_builtins.str] = None,
                  arcregionswitch: Optional[_builtins.str] = None,
+                 arczonalshift: Optional[_builtins.str] = None,
                  athena: Optional[_builtins.str] = None,
                  auditmanager: Optional[_builtins.str] = None,
                  autoscaling: Optional[_builtins.str] = None,
@@ -422,7 +423,6 @@ class Endpoints(dict):
                  location: Optional[_builtins.str] = None,
                  locationservice: Optional[_builtins.str] = None,
                  logs: Optional[_builtins.str] = None,
-                 lookoutmetrics: Optional[_builtins.str] = None,
                  m2: Optional[_builtins.str] = None,
                  macie2: Optional[_builtins.str] = None,
                  managedgrafana: Optional[_builtins.str] = None,
@@ -438,6 +438,7 @@ class Endpoints(dict):
                  mq: Optional[_builtins.str] = None,
                  msk: Optional[_builtins.str] = None,
                  mwaa: Optional[_builtins.str] = None,
+                 mwaaserverless: Optional[_builtins.str] = None,
                  neptune: Optional[_builtins.str] = None,
                  neptunegraph: Optional[_builtins.str] = None,
                  networkfirewall: Optional[_builtins.str] = None,
@@ -472,6 +473,8 @@ class Endpoints(dict):
                  ram: Optional[_builtins.str] = None,
                  rbin: Optional[_builtins.str] = None,
                  rds: Optional[_builtins.str] = None,
+                 rdsdata: Optional[_builtins.str] = None,
+                 rdsdataservice: Optional[_builtins.str] = None,
                  recyclebin: Optional[_builtins.str] = None,
                  redshift: Optional[_builtins.str] = None,
                  redshiftdata: Optional[_builtins.str] = None,
@@ -571,6 +574,7 @@ class Endpoints(dict):
         :param _builtins.str appstream: Use this to override the default service endpoint URL
         :param _builtins.str appsync: Use this to override the default service endpoint URL
         :param _builtins.str arcregionswitch: Use this to override the default service endpoint URL
+        :param _builtins.str arczonalshift: Use this to override the default service endpoint URL
         :param _builtins.str athena: Use this to override the default service endpoint URL
         :param _builtins.str auditmanager: Use this to override the default service endpoint URL
         :param _builtins.str autoscaling: Use this to override the default service endpoint URL
@@ -727,7 +731,6 @@ class Endpoints(dict):
         :param _builtins.str location: Use this to override the default service endpoint URL
         :param _builtins.str locationservice: Use this to override the default service endpoint URL
         :param _builtins.str logs: Use this to override the default service endpoint URL
-        :param _builtins.str lookoutmetrics: Use this to override the default service endpoint URL
         :param _builtins.str m2: Use this to override the default service endpoint URL
         :param _builtins.str macie2: Use this to override the default service endpoint URL
         :param _builtins.str managedgrafana: Use this to override the default service endpoint URL
@@ -743,6 +746,7 @@ class Endpoints(dict):
         :param _builtins.str mq: Use this to override the default service endpoint URL
         :param _builtins.str msk: Use this to override the default service endpoint URL
         :param _builtins.str mwaa: Use this to override the default service endpoint URL
+        :param _builtins.str mwaaserverless: Use this to override the default service endpoint URL
         :param _builtins.str neptune: Use this to override the default service endpoint URL
         :param _builtins.str neptunegraph: Use this to override the default service endpoint URL
         :param _builtins.str networkfirewall: Use this to override the default service endpoint URL
@@ -777,6 +781,8 @@ class Endpoints(dict):
         :param _builtins.str ram: Use this to override the default service endpoint URL
         :param _builtins.str rbin: Use this to override the default service endpoint URL
         :param _builtins.str rds: Use this to override the default service endpoint URL
+        :param _builtins.str rdsdata: Use this to override the default service endpoint URL
+        :param _builtins.str rdsdataservice: Use this to override the default service endpoint URL
         :param _builtins.str recyclebin: Use this to override the default service endpoint URL
         :param _builtins.str redshift: Use this to override the default service endpoint URL
         :param _builtins.str redshiftdata: Use this to override the default service endpoint URL
@@ -900,6 +906,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "appsync", appsync)
         if arcregionswitch is not None:
             pulumi.set(__self__, "arcregionswitch", arcregionswitch)
+        if arczonalshift is not None:
+            pulumi.set(__self__, "arczonalshift", arczonalshift)
         if athena is not None:
             pulumi.set(__self__, "athena", athena)
         if auditmanager is not None:
@@ -1212,8 +1220,6 @@ class Endpoints(dict):
             pulumi.set(__self__, "locationservice", locationservice)
         if logs is not None:
             pulumi.set(__self__, "logs", logs)
-        if lookoutmetrics is not None:
-            pulumi.set(__self__, "lookoutmetrics", lookoutmetrics)
         if m2 is not None:
             pulumi.set(__self__, "m2", m2)
         if macie2 is not None:
@@ -1244,6 +1250,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "msk", msk)
         if mwaa is not None:
             pulumi.set(__self__, "mwaa", mwaa)
+        if mwaaserverless is not None:
+            pulumi.set(__self__, "mwaaserverless", mwaaserverless)
         if neptune is not None:
             pulumi.set(__self__, "neptune", neptune)
         if neptunegraph is not None:
@@ -1312,6 +1320,10 @@ class Endpoints(dict):
             pulumi.set(__self__, "rbin", rbin)
         if rds is not None:
             pulumi.set(__self__, "rds", rds)
+        if rdsdata is not None:
+            pulumi.set(__self__, "rdsdata", rdsdata)
+        if rdsdataservice is not None:
+            pulumi.set(__self__, "rdsdataservice", rdsdataservice)
         if recyclebin is not None:
             pulumi.set(__self__, "recyclebin", recyclebin)
         if redshift is not None:
@@ -1652,6 +1664,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "arcregionswitch")
+
+    @_builtins.property
+    @pulumi.getter
+    def arczonalshift(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "arczonalshift")
 
     @_builtins.property
     @pulumi.getter
@@ -2903,14 +2923,6 @@ class Endpoints(dict):
 
     @_builtins.property
     @pulumi.getter
-    def lookoutmetrics(self) -> Optional[_builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "lookoutmetrics")
-
-    @_builtins.property
-    @pulumi.getter
     def m2(self) -> Optional[_builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3028,6 +3040,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "mwaa")
+
+    @_builtins.property
+    @pulumi.getter
+    def mwaaserverless(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "mwaaserverless")
 
     @_builtins.property
     @pulumi.getter
@@ -3300,6 +3320,22 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "rds")
+
+    @_builtins.property
+    @pulumi.getter
+    def rdsdata(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "rdsdata")
+
+    @_builtins.property
+    @pulumi.getter
+    def rdsdataservice(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "rdsdataservice")
 
     @_builtins.property
     @pulumi.getter

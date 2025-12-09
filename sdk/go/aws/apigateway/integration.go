@@ -296,6 +296,118 @@ import (
 //
 // ```
 //
+// ## VPC Link V2 with Application Load Balancer
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var splat0 []interface{}
+// for _, val0 := range exampleAwsSubnet {
+// splat0 = append(splat0, val0.Id)
+// }
+// example, err := apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
+// Name: pulumi.String("example"),
+// SecurityGroupIds: pulumi.StringArray{
+// exampleAwsSecurityGroup.Id,
+// },
+// SubnetIds: toPulumiArray(splat0),
+// })
+// if err != nil {
+// return err
+// }
+// var splat1 []interface{}
+// for _, val0 := range exampleAwsSubnet {
+// splat1 = append(splat1, val0.Id)
+// }
+// exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+// Name: pulumi.String("example-alb"),
+// Internal: pulumi.Bool(true),
+// LoadBalancerType: pulumi.String("application"),
+// SecurityGroups: pulumi.StringArray{
+// exampleAwsSecurityGroup.Id,
+// },
+// Subnets: toPulumiArray(splat1),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb.NewListener(ctx, "example", &lb.ListenerArgs{
+// LoadBalancerArn: exampleLoadBalancer.Arn,
+// Port: pulumi.Int(80),
+// Protocol: pulumi.String("HTTP"),
+// DefaultActions: lb.ListenerDefaultActionArray{
+// &lb.ListenerDefaultActionArgs{
+// Type: pulumi.String("fixed-response"),
+// FixedResponse: &lb.ListenerDefaultActionFixedResponseArgs{
+// ContentType: pulumi.String("text/plain"),
+// MessageBody: pulumi.String("OK"),
+// StatusCode: pulumi.String("200"),
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleRestApi, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
+// Name: pulumi.String("example"),
+// })
+// if err != nil {
+// return err
+// }
+// exampleResource, err := apigateway.NewResource(ctx, "example", &apigateway.ResourceArgs{
+// RestApi: exampleRestApi.ID(),
+// ParentId: exampleRestApi.RootResourceId,
+// PathPart: pulumi.String("example"),
+// })
+// if err != nil {
+// return err
+// }
+// exampleMethod, err := apigateway.NewMethod(ctx, "example", &apigateway.MethodArgs{
+// RestApi: exampleRestApi.ID(),
+// ResourceId: exampleResource.ID(),
+// HttpMethod: pulumi.String("GET"),
+// Authorization: pulumi.String("NONE"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigateway.NewIntegration(ctx, "example", &apigateway.IntegrationArgs{
+// RestApi: exampleRestApi.ID(),
+// ResourceId: exampleResource.ID(),
+// HttpMethod: exampleMethod.HttpMethod,
+// IntegrationHttpMethod: pulumi.String("GET"),
+// Type: pulumi.String("HTTP_PROXY"),
+// ConnectionType: pulumi.String("VPC_LINK"),
+// ConnectionId: example.ID(),
+// IntegrationTarget: exampleLoadBalancer.Arn,
+// Uri: pulumi.String("http://example.com"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
@@ -327,6 +439,8 @@ type Integration struct {
 	// Not all methods are compatible with all `AWS` integrations.
 	// e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
 	IntegrationHttpMethod pulumi.StringPtrOutput `pulumi:"integrationHttpMethod"`
+	// The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+	IntegrationTarget pulumi.StringPtrOutput `pulumi:"integrationTarget"`
 	// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 	PassthroughBehavior pulumi.StringOutput `pulumi:"passthroughBehavior"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -338,6 +452,9 @@ type Integration struct {
 	RequestTemplates pulumi.StringMapOutput `pulumi:"requestTemplates"`
 	// API resource ID.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+	// Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+	ResponseTransferMode pulumi.StringOutput `pulumi:"responseTransferMode"`
 	// ID of the associated REST API.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
@@ -415,6 +532,8 @@ type integrationState struct {
 	// Not all methods are compatible with all `AWS` integrations.
 	// e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
 	IntegrationHttpMethod *string `pulumi:"integrationHttpMethod"`
+	// The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+	IntegrationTarget *string `pulumi:"integrationTarget"`
 	// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 	PassthroughBehavior *string `pulumi:"passthroughBehavior"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -426,6 +545,9 @@ type integrationState struct {
 	RequestTemplates map[string]string `pulumi:"requestTemplates"`
 	// API resource ID.
 	ResourceId *string `pulumi:"resourceId"`
+	// Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+	// Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+	ResponseTransferMode *string `pulumi:"responseTransferMode"`
 	// ID of the associated REST API.
 	RestApi interface{} `pulumi:"restApi"`
 	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
@@ -462,6 +584,8 @@ type IntegrationState struct {
 	// Not all methods are compatible with all `AWS` integrations.
 	// e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
 	IntegrationHttpMethod pulumi.StringPtrInput
+	// The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+	IntegrationTarget pulumi.StringPtrInput
 	// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 	PassthroughBehavior pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -473,6 +597,9 @@ type IntegrationState struct {
 	RequestTemplates pulumi.StringMapInput
 	// API resource ID.
 	ResourceId pulumi.StringPtrInput
+	// Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+	// Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+	ResponseTransferMode pulumi.StringPtrInput
 	// ID of the associated REST API.
 	RestApi pulumi.Input
 	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
@@ -513,6 +640,8 @@ type integrationArgs struct {
 	// Not all methods are compatible with all `AWS` integrations.
 	// e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
 	IntegrationHttpMethod *string `pulumi:"integrationHttpMethod"`
+	// The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+	IntegrationTarget *string `pulumi:"integrationTarget"`
 	// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 	PassthroughBehavior *string `pulumi:"passthroughBehavior"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -524,6 +653,9 @@ type integrationArgs struct {
 	RequestTemplates map[string]string `pulumi:"requestTemplates"`
 	// API resource ID.
 	ResourceId string `pulumi:"resourceId"`
+	// Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+	// Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+	ResponseTransferMode *string `pulumi:"responseTransferMode"`
 	// ID of the associated REST API.
 	RestApi interface{} `pulumi:"restApi"`
 	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
@@ -561,6 +693,8 @@ type IntegrationArgs struct {
 	// Not all methods are compatible with all `AWS` integrations.
 	// e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
 	IntegrationHttpMethod pulumi.StringPtrInput
+	// The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+	IntegrationTarget pulumi.StringPtrInput
 	// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 	PassthroughBehavior pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -572,6 +706,9 @@ type IntegrationArgs struct {
 	RequestTemplates pulumi.StringMapInput
 	// API resource ID.
 	ResourceId pulumi.StringInput
+	// Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+	// Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+	ResponseTransferMode pulumi.StringPtrInput
 	// ID of the associated REST API.
 	RestApi pulumi.Input
 	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
@@ -718,6 +855,11 @@ func (o IntegrationOutput) IntegrationHttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.IntegrationHttpMethod }).(pulumi.StringPtrOutput)
 }
 
+// The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
+func (o IntegrationOutput) IntegrationTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.IntegrationTarget }).(pulumi.StringPtrOutput)
+}
+
 // Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 func (o IntegrationOutput) PassthroughBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.PassthroughBehavior }).(pulumi.StringOutput)
@@ -742,6 +884,12 @@ func (o IntegrationOutput) RequestTemplates() pulumi.StringMapOutput {
 // API resource ID.
 func (o IntegrationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
+// Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
+func (o IntegrationOutput) ResponseTransferMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ResponseTransferMode }).(pulumi.StringOutput)
 }
 
 // ID of the associated REST API.

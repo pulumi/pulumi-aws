@@ -135,6 +135,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String arczonalshift;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String athena;
     /**
      * @return Use this to override the default service endpoint URL
@@ -915,11 +920,6 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
-    private @Nullable String lookoutmetrics;
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
     private @Nullable String m2;
     /**
      * @return Use this to override the default service endpoint URL
@@ -991,6 +991,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String mwaa;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String mwaaserverless;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -1161,6 +1166,16 @@ public final class Endpoints {
      * 
      */
     private @Nullable String rds;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String rdsdata;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String rdsdataservice;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -1700,6 +1715,13 @@ public final class Endpoints {
      */
     public Optional<String> arcregionswitch() {
         return Optional.ofNullable(this.arcregionswitch);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> arczonalshift() {
+        return Optional.ofNullable(this.arczonalshift);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -2797,13 +2819,6 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
-    public Optional<String> lookoutmetrics() {
-        return Optional.ofNullable(this.lookoutmetrics);
-    }
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
     public Optional<String> m2() {
         return Optional.ofNullable(this.m2);
     }
@@ -2904,6 +2919,13 @@ public final class Endpoints {
      */
     public Optional<String> mwaa() {
         return Optional.ofNullable(this.mwaa);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> mwaaserverless() {
+        return Optional.ofNullable(this.mwaaserverless);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3142,6 +3164,20 @@ public final class Endpoints {
      */
     public Optional<String> rds() {
         return Optional.ofNullable(this.rds);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> rdsdata() {
+        return Optional.ofNullable(this.rdsdata);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> rdsdataservice() {
+        return Optional.ofNullable(this.rdsdataservice);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3695,6 +3731,7 @@ public final class Endpoints {
         private @Nullable String appstream;
         private @Nullable String appsync;
         private @Nullable String arcregionswitch;
+        private @Nullable String arczonalshift;
         private @Nullable String athena;
         private @Nullable String auditmanager;
         private @Nullable String autoscaling;
@@ -3851,7 +3888,6 @@ public final class Endpoints {
         private @Nullable String location;
         private @Nullable String locationservice;
         private @Nullable String logs;
-        private @Nullable String lookoutmetrics;
         private @Nullable String m2;
         private @Nullable String macie2;
         private @Nullable String managedgrafana;
@@ -3867,6 +3903,7 @@ public final class Endpoints {
         private @Nullable String mq;
         private @Nullable String msk;
         private @Nullable String mwaa;
+        private @Nullable String mwaaserverless;
         private @Nullable String neptune;
         private @Nullable String neptunegraph;
         private @Nullable String networkfirewall;
@@ -3901,6 +3938,8 @@ public final class Endpoints {
         private @Nullable String ram;
         private @Nullable String rbin;
         private @Nullable String rds;
+        private @Nullable String rdsdata;
+        private @Nullable String rdsdataservice;
         private @Nullable String recyclebin;
         private @Nullable String redshift;
         private @Nullable String redshiftdata;
@@ -4002,6 +4041,7 @@ public final class Endpoints {
     	      this.appstream = defaults.appstream;
     	      this.appsync = defaults.appsync;
     	      this.arcregionswitch = defaults.arcregionswitch;
+    	      this.arczonalshift = defaults.arczonalshift;
     	      this.athena = defaults.athena;
     	      this.auditmanager = defaults.auditmanager;
     	      this.autoscaling = defaults.autoscaling;
@@ -4158,7 +4198,6 @@ public final class Endpoints {
     	      this.location = defaults.location;
     	      this.locationservice = defaults.locationservice;
     	      this.logs = defaults.logs;
-    	      this.lookoutmetrics = defaults.lookoutmetrics;
     	      this.m2 = defaults.m2;
     	      this.macie2 = defaults.macie2;
     	      this.managedgrafana = defaults.managedgrafana;
@@ -4174,6 +4213,7 @@ public final class Endpoints {
     	      this.mq = defaults.mq;
     	      this.msk = defaults.msk;
     	      this.mwaa = defaults.mwaa;
+    	      this.mwaaserverless = defaults.mwaaserverless;
     	      this.neptune = defaults.neptune;
     	      this.neptunegraph = defaults.neptunegraph;
     	      this.networkfirewall = defaults.networkfirewall;
@@ -4208,6 +4248,8 @@ public final class Endpoints {
     	      this.ram = defaults.ram;
     	      this.rbin = defaults.rbin;
     	      this.rds = defaults.rds;
+    	      this.rdsdata = defaults.rdsdata;
+    	      this.rdsdataservice = defaults.rdsdataservice;
     	      this.recyclebin = defaults.recyclebin;
     	      this.redshift = defaults.redshift;
     	      this.redshiftdata = defaults.redshiftdata;
@@ -4426,6 +4468,12 @@ public final class Endpoints {
         public Builder arcregionswitch(@Nullable String arcregionswitch) {
 
             this.arcregionswitch = arcregionswitch;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder arczonalshift(@Nullable String arczonalshift) {
+
+            this.arczonalshift = arczonalshift;
             return this;
         }
         @CustomType.Setter
@@ -5365,12 +5413,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder lookoutmetrics(@Nullable String lookoutmetrics) {
-
-            this.lookoutmetrics = lookoutmetrics;
-            return this;
-        }
-        @CustomType.Setter
         public Builder m2(@Nullable String m2) {
 
             this.m2 = m2;
@@ -5458,6 +5500,12 @@ public final class Endpoints {
         public Builder mwaa(@Nullable String mwaa) {
 
             this.mwaa = mwaa;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder mwaaserverless(@Nullable String mwaaserverless) {
+
+            this.mwaaserverless = mwaaserverless;
             return this;
         }
         @CustomType.Setter
@@ -5662,6 +5710,18 @@ public final class Endpoints {
         public Builder rds(@Nullable String rds) {
 
             this.rds = rds;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rdsdata(@Nullable String rdsdata) {
+
+            this.rdsdata = rdsdata;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rdsdataservice(@Nullable String rdsdataservice) {
+
+            this.rdsdataservice = rdsdataservice;
             return this;
         }
         @CustomType.Setter
@@ -6134,6 +6194,7 @@ public final class Endpoints {
             _resultValue.appstream = appstream;
             _resultValue.appsync = appsync;
             _resultValue.arcregionswitch = arcregionswitch;
+            _resultValue.arczonalshift = arczonalshift;
             _resultValue.athena = athena;
             _resultValue.auditmanager = auditmanager;
             _resultValue.autoscaling = autoscaling;
@@ -6290,7 +6351,6 @@ public final class Endpoints {
             _resultValue.location = location;
             _resultValue.locationservice = locationservice;
             _resultValue.logs = logs;
-            _resultValue.lookoutmetrics = lookoutmetrics;
             _resultValue.m2 = m2;
             _resultValue.macie2 = macie2;
             _resultValue.managedgrafana = managedgrafana;
@@ -6306,6 +6366,7 @@ public final class Endpoints {
             _resultValue.mq = mq;
             _resultValue.msk = msk;
             _resultValue.mwaa = mwaa;
+            _resultValue.mwaaserverless = mwaaserverless;
             _resultValue.neptune = neptune;
             _resultValue.neptunegraph = neptunegraph;
             _resultValue.networkfirewall = networkfirewall;
@@ -6340,6 +6401,8 @@ public final class Endpoints {
             _resultValue.ram = ram;
             _resultValue.rbin = rbin;
             _resultValue.rds = rds;
+            _resultValue.rdsdata = rdsdata;
+            _resultValue.rdsdataservice = rdsdataservice;
             _resultValue.recyclebin = recyclebin;
             _resultValue.redshift = redshift;
             _resultValue.redshiftdata = redshiftdata;

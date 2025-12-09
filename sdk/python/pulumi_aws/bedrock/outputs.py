@@ -179,6 +179,9 @@ __all__ = [
     'AgentPromptVariantTemplateConfigurationTextCachePoint',
     'AgentPromptVariantTemplateConfigurationTextInputVariable',
     'AgentcoreAgentRuntimeAgentRuntimeArtifact',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3',
     'AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration',
     'AgentcoreAgentRuntimeAuthorizerConfiguration',
     'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer',
@@ -201,6 +204,10 @@ __all__ = [
     'AgentcoreCodeInterpreterTimeouts',
     'AgentcoreGatewayAuthorizerConfiguration',
     'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer',
+    'AgentcoreGatewayInterceptorConfiguration',
+    'AgentcoreGatewayInterceptorConfigurationInputConfiguration',
+    'AgentcoreGatewayInterceptorConfigurationInterceptor',
+    'AgentcoreGatewayInterceptorConfigurationInterceptorLambda',
     'AgentcoreGatewayProtocolConfiguration',
     'AgentcoreGatewayProtocolConfigurationMcp',
     'AgentcoreGatewayTargetCredentialProviderConfiguration',
@@ -6051,6 +6058,8 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping(dict):
             suggest = "text_field"
         elif key == "vectorField":
             suggest = "vector_field"
+        elif key == "customMetadataField":
+            suggest = "custom_metadata_field"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping. Access the value via the '{suggest}' property getter instead.")
@@ -6067,17 +6076,21 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping(dict):
                  metadata_field: _builtins.str,
                  primary_key_field: _builtins.str,
                  text_field: _builtins.str,
-                 vector_field: _builtins.str):
+                 vector_field: _builtins.str,
+                 custom_metadata_field: Optional[_builtins.str] = None):
         """
         :param _builtins.str metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param _builtins.str primary_key_field: Name of the field in which Amazon Bedrock stores the ID for each entry.
         :param _builtins.str text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         :param _builtins.str vector_field: Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        :param _builtins.str custom_metadata_field: Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
         """
         pulumi.set(__self__, "metadata_field", metadata_field)
         pulumi.set(__self__, "primary_key_field", primary_key_field)
         pulumi.set(__self__, "text_field", text_field)
         pulumi.set(__self__, "vector_field", vector_field)
+        if custom_metadata_field is not None:
+            pulumi.set(__self__, "custom_metadata_field", custom_metadata_field)
 
     @_builtins.property
     @pulumi.getter(name="metadataField")
@@ -6110,6 +6123,14 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping(dict):
         Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
         """
         return pulumi.get(self, "vector_field")
+
+    @_builtins.property
+    @pulumi.getter(name="customMetadataField")
+    def custom_metadata_field(self) -> Optional[_builtins.str]:
+        """
+        Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+        """
+        return pulumi.get(self, "custom_metadata_field")
 
 
 @pulumi.output_type
@@ -7232,7 +7253,9 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifact(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "containerConfiguration":
+        if key == "codeConfiguration":
+            suggest = "code_configuration"
+        elif key == "containerConfiguration":
             suggest = "container_configuration"
 
         if suggest:
@@ -7247,20 +7270,167 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifact(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 code_configuration: Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration'] = None,
                  container_configuration: Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration'] = None):
         """
-        :param 'AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs' container_configuration: Container configuration block. See `container_configuration` below.
+        :param 'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs' code_configuration: Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `code_configuration` or `container_configuration` must be specified. See `code_configuration` below.
+        :param 'AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs' container_configuration: Container configuration block for the agent artifact. Exactly one of `code_configuration` or `container_configuration` must be specified. See `container_configuration` below.
         """
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration']:
+        """
+        Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `code_configuration` or `container_configuration` must be specified. See `code_configuration` below.
+        """
+        return pulumi.get(self, "code_configuration")
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
     def container_configuration(self) -> Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration']:
         """
-        Container configuration block. See `container_configuration` below.
+        Container configuration block for the agent artifact. Exactly one of `code_configuration` or `container_configuration` must be specified. See `container_configuration` below.
         """
         return pulumi.get(self, "container_configuration")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entryPoints":
+            suggest = "entry_points"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entry_points: Sequence[_builtins.str],
+                 runtime: _builtins.str,
+                 code: Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode'] = None):
+        """
+        :param Sequence[_builtins.str] entry_points: Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
+        :param _builtins.str runtime: Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+        :param 'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs' code: Configuration block for the source code location and configuration details. See `code` below.
+        """
+        pulumi.set(__self__, "entry_points", entry_points)
+        pulumi.set(__self__, "runtime", runtime)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+
+    @_builtins.property
+    @pulumi.getter(name="entryPoints")
+    def entry_points(self) -> Sequence[_builtins.str]:
+        """
+        Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
+        """
+        return pulumi.get(self, "entry_points")
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> _builtins.str:
+        """
+        Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+        """
+        return pulumi.get(self, "runtime")
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode']:
+        """
+        Configuration block for the source code location and configuration details. See `code` below.
+        """
+        return pulumi.get(self, "code")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode(dict):
+    def __init__(__self__, *,
+                 s3: Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3'] = None):
+        """
+        :param 'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args' s3: Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3']:
+        """
+        Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
+        """
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "versionId":
+            suggest = "version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: _builtins.str,
+                 prefix: _builtins.str,
+                 version_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket: Name of the Amazon S3 bucket.
+        :param _builtins.str prefix: Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
+        :param _builtins.str version_id: Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "prefix", prefix)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        Name of the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> _builtins.str:
+        """
+        Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[_builtins.str]:
+        """
+        Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
+        """
+        return pulumi.get(self, "version_id")
 
 
 @pulumi.output_type
@@ -8194,6 +8364,156 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer(dict):
         Set of allowed client IDs for JWT token validation.
         """
         return pulumi.get(self, "allowed_clients")
+
+
+@pulumi.output_type
+class AgentcoreGatewayInterceptorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "interceptionPoints":
+            suggest = "interception_points"
+        elif key == "inputConfiguration":
+            suggest = "input_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayInterceptorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayInterceptorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayInterceptorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interception_points: Sequence[_builtins.str],
+                 input_configuration: Optional['outputs.AgentcoreGatewayInterceptorConfigurationInputConfiguration'] = None,
+                 interceptor: Optional['outputs.AgentcoreGatewayInterceptorConfigurationInterceptor'] = None):
+        """
+        :param Sequence[_builtins.str] interception_points: Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
+        :param 'AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs' input_configuration: Input configuration for the interceptor. See `input_configuration` below.
+        :param 'AgentcoreGatewayInterceptorConfigurationInterceptorArgs' interceptor: Interceptor infrastructure configuration. See `interceptor` below.
+        """
+        pulumi.set(__self__, "interception_points", interception_points)
+        if input_configuration is not None:
+            pulumi.set(__self__, "input_configuration", input_configuration)
+        if interceptor is not None:
+            pulumi.set(__self__, "interceptor", interceptor)
+
+    @_builtins.property
+    @pulumi.getter(name="interceptionPoints")
+    def interception_points(self) -> Sequence[_builtins.str]:
+        """
+        Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
+        """
+        return pulumi.get(self, "interception_points")
+
+    @_builtins.property
+    @pulumi.getter(name="inputConfiguration")
+    def input_configuration(self) -> Optional['outputs.AgentcoreGatewayInterceptorConfigurationInputConfiguration']:
+        """
+        Input configuration for the interceptor. See `input_configuration` below.
+        """
+        return pulumi.get(self, "input_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def interceptor(self) -> Optional['outputs.AgentcoreGatewayInterceptorConfigurationInterceptor']:
+        """
+        Interceptor infrastructure configuration. See `interceptor` below.
+        """
+        return pulumi.get(self, "interceptor")
+
+
+@pulumi.output_type
+class AgentcoreGatewayInterceptorConfigurationInputConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passRequestHeaders":
+            suggest = "pass_request_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayInterceptorConfigurationInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayInterceptorConfigurationInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayInterceptorConfigurationInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pass_request_headers: _builtins.bool):
+        """
+        :param _builtins.bool pass_request_headers: Whether to pass request headers to the interceptor.
+        """
+        pulumi.set(__self__, "pass_request_headers", pass_request_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="passRequestHeaders")
+    def pass_request_headers(self) -> _builtins.bool:
+        """
+        Whether to pass request headers to the interceptor.
+        """
+        return pulumi.get(self, "pass_request_headers")
+
+
+@pulumi.output_type
+class AgentcoreGatewayInterceptorConfigurationInterceptor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambda":
+            suggest = "lambda_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayInterceptorConfigurationInterceptor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayInterceptorConfigurationInterceptor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayInterceptorConfigurationInterceptor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_: Optional['outputs.AgentcoreGatewayInterceptorConfigurationInterceptorLambda'] = None):
+        """
+        :param 'AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs' lambda_: Lambda function configuration for the interceptor. See `lambda` below.
+        """
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
+
+    @_builtins.property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional['outputs.AgentcoreGatewayInterceptorConfigurationInterceptorLambda']:
+        """
+        Lambda function configuration for the interceptor. See `lambda` below.
+        """
+        return pulumi.get(self, "lambda_")
+
+
+@pulumi.output_type
+class AgentcoreGatewayInterceptorConfigurationInterceptorLambda(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str):
+        """
+        :param _builtins.str arn: ARN of the Lambda function to invoke for the interceptor.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the Lambda function to invoke for the interceptor.
+        """
+        return pulumi.get(self, "arn")
 
 
 @pulumi.output_type
@@ -12512,6 +12832,18 @@ class GuardrailContentPolicyConfigFiltersConfig(dict):
             suggest = "input_strength"
         elif key == "outputStrength":
             suggest = "output_strength"
+        elif key == "inputAction":
+            suggest = "input_action"
+        elif key == "inputEnabled":
+            suggest = "input_enabled"
+        elif key == "inputModalities":
+            suggest = "input_modalities"
+        elif key == "outputAction":
+            suggest = "output_action"
+        elif key == "outputEnabled":
+            suggest = "output_enabled"
+        elif key == "outputModalities":
+            suggest = "output_modalities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GuardrailContentPolicyConfigFiltersConfig. Access the value via the '{suggest}' property getter instead.")
@@ -12527,21 +12859,45 @@ class GuardrailContentPolicyConfigFiltersConfig(dict):
     def __init__(__self__, *,
                  input_strength: _builtins.str,
                  output_strength: _builtins.str,
-                 type: _builtins.str):
+                 type: _builtins.str,
+                 input_action: Optional[_builtins.str] = None,
+                 input_enabled: Optional[_builtins.bool] = None,
+                 input_modalities: Optional[Sequence[_builtins.str]] = None,
+                 output_action: Optional[_builtins.str] = None,
+                 output_enabled: Optional[_builtins.bool] = None,
+                 output_modalities: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str input_strength: Strength for filters.
-        :param _builtins.str output_strength: Strength for filters.
+        :param _builtins.str input_strength: Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
+        :param _builtins.str output_strength: Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
         :param _builtins.str type: Type of contextual grounding filter.
+        :param _builtins.str input_action: Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        :param _builtins.bool input_enabled: Toggles guardrail evaluation on input.
+        :param Sequence[_builtins.str] input_modalities: List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+        :param _builtins.str output_action: Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        :param _builtins.bool output_enabled: Toggles guardrail evaluation on output.
+        :param Sequence[_builtins.str] output_modalities: List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
         """
         pulumi.set(__self__, "input_strength", input_strength)
         pulumi.set(__self__, "output_strength", output_strength)
         pulumi.set(__self__, "type", type)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
+        if input_modalities is not None:
+            pulumi.set(__self__, "input_modalities", input_modalities)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
+        if output_modalities is not None:
+            pulumi.set(__self__, "output_modalities", output_modalities)
 
     @_builtins.property
     @pulumi.getter(name="inputStrength")
     def input_strength(self) -> _builtins.str:
         """
-        Strength for filters.
+        Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
         """
         return pulumi.get(self, "input_strength")
 
@@ -12549,7 +12905,7 @@ class GuardrailContentPolicyConfigFiltersConfig(dict):
     @pulumi.getter(name="outputStrength")
     def output_strength(self) -> _builtins.str:
         """
-        Strength for filters.
+        Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
         """
         return pulumi.get(self, "output_strength")
 
@@ -12560,6 +12916,54 @@ class GuardrailContentPolicyConfigFiltersConfig(dict):
         Type of contextual grounding filter.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[_builtins.str]:
+        """
+        Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        """
+        return pulumi.get(self, "input_action")
+
+    @_builtins.property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Toggles guardrail evaluation on input.
+        """
+        return pulumi.get(self, "input_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="inputModalities")
+    def input_modalities(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+        """
+        return pulumi.get(self, "input_modalities")
+
+    @_builtins.property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[_builtins.str]:
+        """
+        Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+        """
+        return pulumi.get(self, "output_action")
+
+    @_builtins.property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Toggles guardrail evaluation on output.
+        """
+        return pulumi.get(self, "output_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="outputModalities")
+    def output_modalities(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+        """
+        return pulumi.get(self, "output_modalities")
 
 
 @pulumi.output_type

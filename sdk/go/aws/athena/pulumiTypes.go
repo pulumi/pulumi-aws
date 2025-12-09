@@ -500,6 +500,8 @@ type WorkgroupConfiguration struct {
 	ExecutionRole *string `pulumi:"executionRole"`
 	// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
 	IdentityCenterConfiguration *WorkgroupConfigurationIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
+	// Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+	ManagedQueryResultsConfiguration *WorkgroupConfigurationManagedQueryResultsConfiguration `pulumi:"managedQueryResultsConfiguration"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled *bool `pulumi:"publishCloudwatchMetricsEnabled"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
@@ -530,6 +532,8 @@ type WorkgroupConfigurationArgs struct {
 	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
 	// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
 	IdentityCenterConfiguration WorkgroupConfigurationIdentityCenterConfigurationPtrInput `pulumi:"identityCenterConfiguration"`
+	// Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+	ManagedQueryResultsConfiguration WorkgroupConfigurationManagedQueryResultsConfigurationPtrInput `pulumi:"managedQueryResultsConfiguration"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudwatchMetricsEnabled"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
@@ -642,6 +646,13 @@ func (o WorkgroupConfigurationOutput) IdentityCenterConfiguration() WorkgroupCon
 	}).(WorkgroupConfigurationIdentityCenterConfigurationPtrOutput)
 }
 
+// Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+func (o WorkgroupConfigurationOutput) ManagedQueryResultsConfiguration() WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationManagedQueryResultsConfiguration {
+		return v.ManagedQueryResultsConfiguration
+	}).(WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput)
+}
+
 // Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 func (o WorkgroupConfigurationOutput) PublishCloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.PublishCloudwatchMetricsEnabled }).(pulumi.BoolPtrOutput)
@@ -731,6 +742,16 @@ func (o WorkgroupConfigurationPtrOutput) IdentityCenterConfiguration() Workgroup
 		}
 		return v.IdentityCenterConfiguration
 	}).(WorkgroupConfigurationIdentityCenterConfigurationPtrOutput)
+}
+
+// Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+func (o WorkgroupConfigurationPtrOutput) ManagedQueryResultsConfiguration() WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationManagedQueryResultsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedQueryResultsConfiguration
+	}).(WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput)
 }
 
 // Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
@@ -1072,6 +1093,303 @@ func (o WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) IdentityCent
 			return nil
 		}
 		return v.IdentityCenterInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkgroupConfigurationManagedQueryResultsConfiguration struct {
+	// If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
+	EncryptionConfiguration *WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+}
+
+// WorkgroupConfigurationManagedQueryResultsConfigurationInput is an input type that accepts WorkgroupConfigurationManagedQueryResultsConfigurationArgs and WorkgroupConfigurationManagedQueryResultsConfigurationOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationManagedQueryResultsConfigurationInput` via:
+//
+//	WorkgroupConfigurationManagedQueryResultsConfigurationArgs{...}
+type WorkgroupConfigurationManagedQueryResultsConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationManagedQueryResultsConfigurationOutput() WorkgroupConfigurationManagedQueryResultsConfigurationOutput
+	ToWorkgroupConfigurationManagedQueryResultsConfigurationOutputWithContext(context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationOutput
+}
+
+type WorkgroupConfigurationManagedQueryResultsConfigurationArgs struct {
+	// If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
+	EncryptionConfiguration WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
+}
+
+func (WorkgroupConfigurationManagedQueryResultsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationManagedQueryResultsConfiguration)(nil)).Elem()
+}
+
+func (i WorkgroupConfigurationManagedQueryResultsConfigurationArgs) ToWorkgroupConfigurationManagedQueryResultsConfigurationOutput() WorkgroupConfigurationManagedQueryResultsConfigurationOutput {
+	return i.ToWorkgroupConfigurationManagedQueryResultsConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationManagedQueryResultsConfigurationArgs) ToWorkgroupConfigurationManagedQueryResultsConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationManagedQueryResultsConfigurationOutput)
+}
+
+func (i WorkgroupConfigurationManagedQueryResultsConfigurationArgs) ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput() WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
+	return i.ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationManagedQueryResultsConfigurationArgs) ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationManagedQueryResultsConfigurationOutput).ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkgroupConfigurationManagedQueryResultsConfigurationPtrInput is an input type that accepts WorkgroupConfigurationManagedQueryResultsConfigurationArgs, WorkgroupConfigurationManagedQueryResultsConfigurationPtr and WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationManagedQueryResultsConfigurationPtrInput` via:
+//
+//	        WorkgroupConfigurationManagedQueryResultsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkgroupConfigurationManagedQueryResultsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput() WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput
+	ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutputWithContext(context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput
+}
+
+type workgroupConfigurationManagedQueryResultsConfigurationPtrType WorkgroupConfigurationManagedQueryResultsConfigurationArgs
+
+func WorkgroupConfigurationManagedQueryResultsConfigurationPtr(v *WorkgroupConfigurationManagedQueryResultsConfigurationArgs) WorkgroupConfigurationManagedQueryResultsConfigurationPtrInput {
+	return (*workgroupConfigurationManagedQueryResultsConfigurationPtrType)(v)
+}
+
+func (*workgroupConfigurationManagedQueryResultsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationManagedQueryResultsConfiguration)(nil)).Elem()
+}
+
+func (i *workgroupConfigurationManagedQueryResultsConfigurationPtrType) ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput() WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
+	return i.ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workgroupConfigurationManagedQueryResultsConfigurationPtrType) ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput)
+}
+
+type WorkgroupConfigurationManagedQueryResultsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationManagedQueryResultsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationManagedQueryResultsConfiguration)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationOutput() WorkgroupConfigurationManagedQueryResultsConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput() WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
+	return o.ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfigurationManagedQueryResultsConfiguration) *WorkgroupConfigurationManagedQueryResultsConfiguration {
+		return &v
+	}).(WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput)
+}
+
+// If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationManagedQueryResultsConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationOutput) EncryptionConfiguration() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationManagedQueryResultsConfiguration) *WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration {
+		return v.EncryptionConfiguration
+	}).(WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput)
+}
+
+type WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationManagedQueryResultsConfiguration)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput() WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput) Elem() WorkgroupConfigurationManagedQueryResultsConfigurationOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationManagedQueryResultsConfiguration) WorkgroupConfigurationManagedQueryResultsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupConfigurationManagedQueryResultsConfiguration
+		return ret
+	}).(WorkgroupConfigurationManagedQueryResultsConfigurationOutput)
+}
+
+// If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationManagedQueryResultsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput) EncryptionConfiguration() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationManagedQueryResultsConfiguration) *WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionConfiguration
+	}).(WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput)
+}
+
+type WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration struct {
+	// KMS key ARN for encrypting managed query results.
+	KmsKey *string `pulumi:"kmsKey"`
+}
+
+// WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationInput is an input type that accepts WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs and WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationInput` via:
+//
+//	WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs{...}
+type WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput
+	ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutputWithContext(context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput
+}
+
+type WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs struct {
+	// KMS key ARN for encrypting managed query results.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+}
+
+func (WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput {
+	return i.ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput)
+}
+
+func (i WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
+	return i.ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput).ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrInput is an input type that accepts WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs, WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtr and WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrInput` via:
+//
+//	        WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput
+	ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutputWithContext(context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput
+}
+
+type workgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrType WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs
+
+func WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtr(v *WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs) WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrInput {
+	return (*workgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrType)(v)
+}
+
+func (*workgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *workgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrType) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
+	return i.ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrType) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput)
+}
+
+type WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
+	return o.ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration) *WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration {
+		return &v
+	}).(WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput)
+}
+
+// KMS key ARN for encrypting managed query results.
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration) *string {
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput) ToWorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput) Elem() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration) WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration
+		return ret
+	}).(WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput)
+}
+
+// KMS key ARN for encrypting managed query results.
+func (o WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1581,6 +1899,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationEngineVersionPtrInput)(nil)).Elem(), WorkgroupConfigurationEngineVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationIdentityCenterConfigurationInput)(nil)).Elem(), WorkgroupConfigurationIdentityCenterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationIdentityCenterConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationIdentityCenterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationManagedQueryResultsConfigurationInput)(nil)).Elem(), WorkgroupConfigurationManagedQueryResultsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationManagedQueryResultsConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationManagedQueryResultsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationInput)(nil)).Elem(), WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationAclConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationAclConfigurationArgs{})
@@ -1599,6 +1921,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkgroupConfigurationEngineVersionPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationIdentityCenterConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationIdentityCenterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationManagedQueryResultsConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationAclConfigurationOutput{})

@@ -72,6 +72,8 @@ type LookupClusterResult struct {
 	ClusterId string `pulumi:"clusterId"`
 	// Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
 	ComputeConfigs []GetClusterComputeConfig `pulumi:"computeConfigs"`
+	// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information.
+	ControlPlaneScalingConfigs []GetClusterControlPlaneScalingConfig `pulumi:"controlPlaneScalingConfigs"`
 	// Unix epoch time stamp in seconds for when the cluster was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// Whether deletion protection for the cluster is enabled.
@@ -173,6 +175,11 @@ func (o LookupClusterResultOutput) ClusterId() pulumi.StringOutput {
 // Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
 func (o LookupClusterResultOutput) ComputeConfigs() GetClusterComputeConfigArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterComputeConfig { return v.ComputeConfigs }).(GetClusterComputeConfigArrayOutput)
+}
+
+// Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information.
+func (o LookupClusterResultOutput) ControlPlaneScalingConfigs() GetClusterControlPlaneScalingConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterControlPlaneScalingConfig { return v.ControlPlaneScalingConfigs }).(GetClusterControlPlaneScalingConfigArrayOutput)
 }
 
 // Unix epoch time stamp in seconds for when the cluster was created.

@@ -72,8 +72,6 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import `aws_imagebuilder_lifecycle_policy` using the Amazon Resource Name (ARN). For example:
  *
- * console
- *
  * % pulumi import aws_imagebuilder_lifecycle_policy.example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
  */
 export class LifecyclePolicy extends pulumi.CustomResource {
