@@ -181,6 +181,7 @@ func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 //
 //	RegionAFSouth1
 //	RegionAPEast1
+//	RegionAPEast2
 //	RegionAPNortheast1
 //	RegionAPNortheast2
 //	RegionAPNortheast3
