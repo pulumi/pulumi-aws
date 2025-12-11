@@ -10,10 +10,10 @@ We think this was an optimization for a special edge case that
 drastically worsens the UX for the majority of users.
 
 diff --git a/internal/service/lambda/function.go b/internal/service/lambda/function.go
-index 0a13d62cd73..3ed062a07c6 100644
+index 61636c38cc5..06c728f5174 100644
 --- a/internal/service/lambda/function.go
 +++ b/internal/service/lambda/function.go
-@@ -37,7 +37,6 @@ import (
+@@ -38,7 +38,6 @@ import (
  
  const (
  	FunctionVersionLatest = "$LATEST"
@@ -21,7 +21,7 @@ index 0a13d62cd73..3ed062a07c6 100644
  	listVersionsMaxItems  = 10000
  )
  
-@@ -582,11 +581,6 @@ func resourceFunctionCreate(ctx context.Context, d *schema.ResourceData, meta an
+@@ -607,11 +606,6 @@ func resourceFunctionCreate(ctx context.Context, d *schema.ResourceData, meta an
  	}
  
  	if v, ok := d.GetOk("filename"); ok {
@@ -33,7 +33,7 @@ index 0a13d62cd73..3ed062a07c6 100644
  		zipFile, err := tfio.ReadFileContents(v.(string))
  
  		if err != nil {
-@@ -1124,11 +1118,6 @@ func resourceFunctionUpdate(ctx context.Context, d *schema.ResourceData, meta an
+@@ -1149,11 +1143,6 @@ func resourceFunctionUpdate(ctx context.Context, d *schema.ResourceData, meta an
  		}
  
  		if v, ok := d.GetOk("filename"); ok {
