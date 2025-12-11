@@ -23321,6 +23321,246 @@ func (o PolicyDocumentPtrOutput) Version() iam.PolicyDocumentVersionPtrOutput {
 	}).(iam.PolicyDocumentVersionPtrOutput)
 }
 
+type VectorsIndexEncryptionConfiguration struct {
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	// Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
+	SseType string `pulumi:"sseType"`
+}
+
+// VectorsIndexEncryptionConfigurationInput is an input type that accepts VectorsIndexEncryptionConfigurationArgs and VectorsIndexEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `VectorsIndexEncryptionConfigurationInput` via:
+//
+//	VectorsIndexEncryptionConfigurationArgs{...}
+type VectorsIndexEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToVectorsIndexEncryptionConfigurationOutput() VectorsIndexEncryptionConfigurationOutput
+	ToVectorsIndexEncryptionConfigurationOutputWithContext(context.Context) VectorsIndexEncryptionConfigurationOutput
+}
+
+type VectorsIndexEncryptionConfigurationArgs struct {
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+	// Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
+	SseType pulumi.StringInput `pulumi:"sseType"`
+}
+
+func (VectorsIndexEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VectorsIndexEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i VectorsIndexEncryptionConfigurationArgs) ToVectorsIndexEncryptionConfigurationOutput() VectorsIndexEncryptionConfigurationOutput {
+	return i.ToVectorsIndexEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i VectorsIndexEncryptionConfigurationArgs) ToVectorsIndexEncryptionConfigurationOutputWithContext(ctx context.Context) VectorsIndexEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VectorsIndexEncryptionConfigurationOutput)
+}
+
+// VectorsIndexEncryptionConfigurationArrayInput is an input type that accepts VectorsIndexEncryptionConfigurationArray and VectorsIndexEncryptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `VectorsIndexEncryptionConfigurationArrayInput` via:
+//
+//	VectorsIndexEncryptionConfigurationArray{ VectorsIndexEncryptionConfigurationArgs{...} }
+type VectorsIndexEncryptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToVectorsIndexEncryptionConfigurationArrayOutput() VectorsIndexEncryptionConfigurationArrayOutput
+	ToVectorsIndexEncryptionConfigurationArrayOutputWithContext(context.Context) VectorsIndexEncryptionConfigurationArrayOutput
+}
+
+type VectorsIndexEncryptionConfigurationArray []VectorsIndexEncryptionConfigurationInput
+
+func (VectorsIndexEncryptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VectorsIndexEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i VectorsIndexEncryptionConfigurationArray) ToVectorsIndexEncryptionConfigurationArrayOutput() VectorsIndexEncryptionConfigurationArrayOutput {
+	return i.ToVectorsIndexEncryptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i VectorsIndexEncryptionConfigurationArray) ToVectorsIndexEncryptionConfigurationArrayOutputWithContext(ctx context.Context) VectorsIndexEncryptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VectorsIndexEncryptionConfigurationArrayOutput)
+}
+
+type VectorsIndexEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VectorsIndexEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VectorsIndexEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o VectorsIndexEncryptionConfigurationOutput) ToVectorsIndexEncryptionConfigurationOutput() VectorsIndexEncryptionConfigurationOutput {
+	return o
+}
+
+func (o VectorsIndexEncryptionConfigurationOutput) ToVectorsIndexEncryptionConfigurationOutputWithContext(ctx context.Context) VectorsIndexEncryptionConfigurationOutput {
+	return o
+}
+
+func (o VectorsIndexEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v VectorsIndexEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+// Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
+func (o VectorsIndexEncryptionConfigurationOutput) SseType() pulumi.StringOutput {
+	return o.ApplyT(func(v VectorsIndexEncryptionConfiguration) string { return v.SseType }).(pulumi.StringOutput)
+}
+
+type VectorsIndexEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (VectorsIndexEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VectorsIndexEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o VectorsIndexEncryptionConfigurationArrayOutput) ToVectorsIndexEncryptionConfigurationArrayOutput() VectorsIndexEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o VectorsIndexEncryptionConfigurationArrayOutput) ToVectorsIndexEncryptionConfigurationArrayOutputWithContext(ctx context.Context) VectorsIndexEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o VectorsIndexEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) VectorsIndexEncryptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VectorsIndexEncryptionConfiguration {
+		return vs[0].([]VectorsIndexEncryptionConfiguration)[vs[1].(int)]
+	}).(VectorsIndexEncryptionConfigurationOutput)
+}
+
+type VectorsIndexMetadataConfiguration struct {
+	// List of non-filterable metadata keys.
+	NonFilterableMetadataKeys []string `pulumi:"nonFilterableMetadataKeys"`
+}
+
+// VectorsIndexMetadataConfigurationInput is an input type that accepts VectorsIndexMetadataConfigurationArgs and VectorsIndexMetadataConfigurationOutput values.
+// You can construct a concrete instance of `VectorsIndexMetadataConfigurationInput` via:
+//
+//	VectorsIndexMetadataConfigurationArgs{...}
+type VectorsIndexMetadataConfigurationInput interface {
+	pulumi.Input
+
+	ToVectorsIndexMetadataConfigurationOutput() VectorsIndexMetadataConfigurationOutput
+	ToVectorsIndexMetadataConfigurationOutputWithContext(context.Context) VectorsIndexMetadataConfigurationOutput
+}
+
+type VectorsIndexMetadataConfigurationArgs struct {
+	// List of non-filterable metadata keys.
+	NonFilterableMetadataKeys pulumi.StringArrayInput `pulumi:"nonFilterableMetadataKeys"`
+}
+
+func (VectorsIndexMetadataConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VectorsIndexMetadataConfiguration)(nil)).Elem()
+}
+
+func (i VectorsIndexMetadataConfigurationArgs) ToVectorsIndexMetadataConfigurationOutput() VectorsIndexMetadataConfigurationOutput {
+	return i.ToVectorsIndexMetadataConfigurationOutputWithContext(context.Background())
+}
+
+func (i VectorsIndexMetadataConfigurationArgs) ToVectorsIndexMetadataConfigurationOutputWithContext(ctx context.Context) VectorsIndexMetadataConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VectorsIndexMetadataConfigurationOutput)
+}
+
+func (i VectorsIndexMetadataConfigurationArgs) ToVectorsIndexMetadataConfigurationPtrOutput() VectorsIndexMetadataConfigurationPtrOutput {
+	return i.ToVectorsIndexMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VectorsIndexMetadataConfigurationArgs) ToVectorsIndexMetadataConfigurationPtrOutputWithContext(ctx context.Context) VectorsIndexMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VectorsIndexMetadataConfigurationOutput).ToVectorsIndexMetadataConfigurationPtrOutputWithContext(ctx)
+}
+
+// VectorsIndexMetadataConfigurationPtrInput is an input type that accepts VectorsIndexMetadataConfigurationArgs, VectorsIndexMetadataConfigurationPtr and VectorsIndexMetadataConfigurationPtrOutput values.
+// You can construct a concrete instance of `VectorsIndexMetadataConfigurationPtrInput` via:
+//
+//	        VectorsIndexMetadataConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VectorsIndexMetadataConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVectorsIndexMetadataConfigurationPtrOutput() VectorsIndexMetadataConfigurationPtrOutput
+	ToVectorsIndexMetadataConfigurationPtrOutputWithContext(context.Context) VectorsIndexMetadataConfigurationPtrOutput
+}
+
+type vectorsIndexMetadataConfigurationPtrType VectorsIndexMetadataConfigurationArgs
+
+func VectorsIndexMetadataConfigurationPtr(v *VectorsIndexMetadataConfigurationArgs) VectorsIndexMetadataConfigurationPtrInput {
+	return (*vectorsIndexMetadataConfigurationPtrType)(v)
+}
+
+func (*vectorsIndexMetadataConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VectorsIndexMetadataConfiguration)(nil)).Elem()
+}
+
+func (i *vectorsIndexMetadataConfigurationPtrType) ToVectorsIndexMetadataConfigurationPtrOutput() VectorsIndexMetadataConfigurationPtrOutput {
+	return i.ToVectorsIndexMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *vectorsIndexMetadataConfigurationPtrType) ToVectorsIndexMetadataConfigurationPtrOutputWithContext(ctx context.Context) VectorsIndexMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VectorsIndexMetadataConfigurationPtrOutput)
+}
+
+type VectorsIndexMetadataConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VectorsIndexMetadataConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VectorsIndexMetadataConfiguration)(nil)).Elem()
+}
+
+func (o VectorsIndexMetadataConfigurationOutput) ToVectorsIndexMetadataConfigurationOutput() VectorsIndexMetadataConfigurationOutput {
+	return o
+}
+
+func (o VectorsIndexMetadataConfigurationOutput) ToVectorsIndexMetadataConfigurationOutputWithContext(ctx context.Context) VectorsIndexMetadataConfigurationOutput {
+	return o
+}
+
+func (o VectorsIndexMetadataConfigurationOutput) ToVectorsIndexMetadataConfigurationPtrOutput() VectorsIndexMetadataConfigurationPtrOutput {
+	return o.ToVectorsIndexMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VectorsIndexMetadataConfigurationOutput) ToVectorsIndexMetadataConfigurationPtrOutputWithContext(ctx context.Context) VectorsIndexMetadataConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VectorsIndexMetadataConfiguration) *VectorsIndexMetadataConfiguration {
+		return &v
+	}).(VectorsIndexMetadataConfigurationPtrOutput)
+}
+
+// List of non-filterable metadata keys.
+func (o VectorsIndexMetadataConfigurationOutput) NonFilterableMetadataKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VectorsIndexMetadataConfiguration) []string { return v.NonFilterableMetadataKeys }).(pulumi.StringArrayOutput)
+}
+
+type VectorsIndexMetadataConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VectorsIndexMetadataConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VectorsIndexMetadataConfiguration)(nil)).Elem()
+}
+
+func (o VectorsIndexMetadataConfigurationPtrOutput) ToVectorsIndexMetadataConfigurationPtrOutput() VectorsIndexMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o VectorsIndexMetadataConfigurationPtrOutput) ToVectorsIndexMetadataConfigurationPtrOutputWithContext(ctx context.Context) VectorsIndexMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o VectorsIndexMetadataConfigurationPtrOutput) Elem() VectorsIndexMetadataConfigurationOutput {
+	return o.ApplyT(func(v *VectorsIndexMetadataConfiguration) VectorsIndexMetadataConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VectorsIndexMetadataConfiguration
+		return ret
+	}).(VectorsIndexMetadataConfigurationOutput)
+}
+
+// List of non-filterable metadata keys.
+func (o VectorsIndexMetadataConfigurationPtrOutput) NonFilterableMetadataKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VectorsIndexMetadataConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NonFilterableMetadataKeys
+	}).(pulumi.StringArrayOutput)
+}
+
 type VectorsVectorBucketEncryptionConfiguration struct {
 	// AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sseType` is set to `aws:kms`.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
@@ -23966,6 +24206,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyOverrideProviderDefaultTagsPtrInput)(nil)).Elem(), ObjectCopyOverrideProviderDefaultTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentInput)(nil)).Elem(), PolicyDocumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentPtrInput)(nil)).Elem(), PolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VectorsIndexEncryptionConfigurationInput)(nil)).Elem(), VectorsIndexEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VectorsIndexEncryptionConfigurationArrayInput)(nil)).Elem(), VectorsIndexEncryptionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VectorsIndexMetadataConfigurationInput)(nil)).Elem(), VectorsIndexMetadataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VectorsIndexMetadataConfigurationPtrInput)(nil)).Elem(), VectorsIndexMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorsVectorBucketEncryptionConfigurationInput)(nil)).Elem(), VectorsVectorBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorsVectorBucketEncryptionConfigurationArrayInput)(nil)).Elem(), VectorsVectorBucketEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), GetAccessPointPublicAccessBlockConfigurationArgs{})
@@ -24289,6 +24533,10 @@ func init() {
 	pulumi.RegisterOutputType(ObjectCopyOverrideProviderDefaultTagsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDocumentOutput{})
 	pulumi.RegisterOutputType(PolicyDocumentPtrOutput{})
+	pulumi.RegisterOutputType(VectorsIndexEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(VectorsIndexEncryptionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(VectorsIndexMetadataConfigurationOutput{})
+	pulumi.RegisterOutputType(VectorsIndexMetadataConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VectorsVectorBucketEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(VectorsVectorBucketEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessPointPublicAccessBlockConfigurationOutput{})

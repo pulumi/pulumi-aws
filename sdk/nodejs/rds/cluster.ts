@@ -549,6 +549,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
+     * Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     */
+    declare public /*out*/ readonly upgradeRolloutOrder: pulumi.Output<string>;
+    /**
      * List of VPC security groups to associate with the Cluster
      *
      * For more detailed documentation about each argument, refer to
@@ -645,6 +649,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["storageType"] = state?.storageType;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["upgradeRolloutOrder"] = state?.upgradeRolloutOrder;
             resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
@@ -725,6 +730,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterUserSecrets"] = undefined /*out*/;
             resourceInputs["readerEndpoint"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["upgradeRolloutOrder"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["masterPassword", "masterPasswordWo"] };
@@ -1034,6 +1040,10 @@ export interface ClusterState {
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     */
+    upgradeRolloutOrder?: pulumi.Input<string>;
     /**
      * List of VPC security groups to associate with the Cluster
      *

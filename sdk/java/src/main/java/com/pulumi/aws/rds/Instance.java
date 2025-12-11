@@ -1762,6 +1762,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.timezone;
     }
     /**
+     * Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     * 
+     */
+    @Export(name="upgradeRolloutOrder", refs={String.class}, tree="[0]")
+    private Output<String> upgradeRolloutOrder;
+
+    /**
+     * @return Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     * 
+     */
+    public Output<String> upgradeRolloutOrder() {
+        return this.upgradeRolloutOrder;
+    }
+    /**
      * Whether to upgrade the storage file system configuration on the read replica.
      * Can only be set with `replicateSourceDb`.
      * 

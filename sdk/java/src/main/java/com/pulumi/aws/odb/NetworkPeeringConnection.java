@@ -94,14 +94,14 @@ public class NetworkPeeringConnection extends com.pulumi.resources.CustomResourc
         return this.displayName;
     }
     /**
-     * ARN of the ODB network peering connection.
+     * ARN of the odb network peering connection.
      * 
      */
     @Export(name="odbNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> odbNetworkArn;
 
     /**
-     * @return ARN of the ODB network peering connection.
+     * @return ARN of the odb network peering connection.
      * 
      */
     public Output<String> odbNetworkArn() {

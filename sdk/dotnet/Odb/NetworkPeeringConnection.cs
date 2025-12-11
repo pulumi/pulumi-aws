@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the ODB network peering connection.
+        /// ARN of the odb network peering connection.
         /// </summary>
         [Output("odbNetworkArn")]
         public Output<string> OdbNetworkArn { get; private set; } = null!;
@@ -171,8 +171,14 @@ namespace Pulumi.Aws.Odb
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        [Input("odbNetworkId", required: true)]
-        public Input<string> OdbNetworkId { get; set; } = null!;
+        /// <summary>
+        /// ARN of the odb network peering connection.
+        /// </summary>
+        [Input("odbNetworkArn")]
+        public Input<string>? OdbNetworkArn { get; set; }
+
+        [Input("odbNetworkId")]
+        public Input<string>? OdbNetworkId { get; set; }
 
         [Input("peerNetworkId", required: true)]
         public Input<string> PeerNetworkId { get; set; } = null!;
@@ -219,7 +225,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// ARN of the ODB network peering connection.
+        /// ARN of the odb network peering connection.
         /// </summary>
         [Input("odbNetworkArn")]
         public Input<string>? OdbNetworkArn { get; set; }

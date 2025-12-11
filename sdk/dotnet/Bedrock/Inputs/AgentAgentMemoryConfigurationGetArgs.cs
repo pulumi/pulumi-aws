@@ -24,6 +24,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _enabledMemoryTypes = value;
         }
 
+        [Input("sessionSummaryConfigurations", required: true)]
+        private InputList<Inputs.AgentAgentMemoryConfigurationSessionSummaryConfigurationGetArgs>? _sessionSummaryConfigurations;
+
+        /// <summary>
+        /// Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `SessionSummaryConfiguration` Block for details.
+        /// </summary>
+        public InputList<Inputs.AgentAgentMemoryConfigurationSessionSummaryConfigurationGetArgs> SessionSummaryConfigurations
+        {
+            get => _sessionSummaryConfigurations ?? (_sessionSummaryConfigurations = new InputList<Inputs.AgentAgentMemoryConfigurationSessionSummaryConfigurationGetArgs>());
+            set => _sessionSummaryConfigurations = value;
+        }
+
         /// <summary>
         /// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
         /// </summary>

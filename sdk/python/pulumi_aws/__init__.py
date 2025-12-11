@@ -6961,6 +6961,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iam/outboundWebIdentityFederation",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation": "OutboundWebIdentityFederation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iam/policy",
   "fqn": "pulumi_aws.iam",
   "classes": {

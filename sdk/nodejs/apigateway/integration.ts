@@ -340,7 +340,7 @@ export class Integration extends pulumi.CustomResource {
      */
     declare public readonly restApi: pulumi.Output<string>;
     /**
-     * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+     * Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `responseTransferMode` is `BUFFERED`, and 900,000 when `responseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
      */
     declare public readonly timeoutMilliseconds: pulumi.Output<number | undefined>;
     /**
@@ -507,7 +507,7 @@ export interface IntegrationState {
      */
     restApi?: pulumi.Input<string | RestApi>;
     /**
-     * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+     * Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `responseTransferMode` is `BUFFERED`, and 900,000 when `responseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
      */
     timeoutMilliseconds?: pulumi.Input<number>;
     /**
@@ -602,7 +602,7 @@ export interface IntegrationArgs {
      */
     restApi: pulumi.Input<string | RestApi>;
     /**
-     * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+     * Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `responseTransferMode` is `BUFFERED`, and 900,000 when `responseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
      */
     timeoutMilliseconds?: pulumi.Input<number>;
     /**

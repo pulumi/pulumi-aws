@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly ImmutableArray<string> EnabledMemoryTypes;
         /// <summary>
+        /// Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `SessionSummaryConfiguration` Block for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AgentAgentMemoryConfigurationSessionSummaryConfiguration> SessionSummaryConfigurations;
+        /// <summary>
         /// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
         /// </summary>
         public readonly int StorageDays;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Bedrock.Outputs
         private AgentAgentMemoryConfiguration(
             ImmutableArray<string> enabledMemoryTypes,
 
+            ImmutableArray<Outputs.AgentAgentMemoryConfigurationSessionSummaryConfiguration> sessionSummaryConfigurations,
+
             int storageDays)
         {
             EnabledMemoryTypes = enabledMemoryTypes;
+            SessionSummaryConfigurations = sessionSummaryConfigurations;
             StorageDays = storageDays;
         }
     }

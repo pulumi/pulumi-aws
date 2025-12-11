@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrockmodel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,7 +16,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLa
      * @return S3 bucket name.
      * 
      */
-    private @Nullable String bucketName;
+    private String bucketName;
     /**
      * @return S3 prefix.
      * 
@@ -27,8 +28,8 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLa
      * @return S3 bucket name.
      * 
      */
-    public Optional<String> bucketName() {
-        return Optional.ofNullable(this.bucketName);
+    public String bucketName() {
+        return this.bucketName;
     }
     /**
      * @return S3 prefix.
@@ -47,7 +48,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLa
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String bucketName;
+        private String bucketName;
         private @Nullable String keyPrefix;
         public Builder() {}
         public Builder(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config defaults) {
@@ -57,8 +58,10 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLa
         }
 
         @CustomType.Setter
-        public Builder bucketName(@Nullable String bucketName) {
-
+        public Builder bucketName(String bucketName) {
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config", "bucketName");
+            }
             this.bucketName = bucketName;
             return this;
         }

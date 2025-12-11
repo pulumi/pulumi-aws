@@ -27,7 +27,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, database_insights_mode=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, region=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, database_insights_mode=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, region=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, upgrade_rollout_order=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
@@ -160,6 +160,9 @@ class GetInstanceResult:
         if timezone and not isinstance(timezone, str):
             raise TypeError("Expected argument 'timezone' to be a str")
         pulumi.set(__self__, "timezone", timezone)
+        if upgrade_rollout_order and not isinstance(upgrade_rollout_order, str):
+            raise TypeError("Expected argument 'upgrade_rollout_order' to be a str")
+        pulumi.set(__self__, "upgrade_rollout_order", upgrade_rollout_order)
         if vpc_security_groups and not isinstance(vpc_security_groups, list):
             raise TypeError("Expected argument 'vpc_security_groups' to be a list")
         pulumi.set(__self__, "vpc_security_groups", vpc_security_groups)
@@ -508,6 +511,14 @@ class GetInstanceResult:
         return pulumi.get(self, "timezone")
 
     @_builtins.property
+    @pulumi.getter(name="upgradeRolloutOrder")
+    def upgrade_rollout_order(self) -> _builtins.str:
+        """
+        Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+        """
+        return pulumi.get(self, "upgrade_rollout_order")
+
+    @_builtins.property
     @pulumi.getter(name="vpcSecurityGroups")
     def vpc_security_groups(self) -> Sequence[_builtins.str]:
         """
@@ -566,6 +577,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             storage_type=self.storage_type,
             tags=self.tags,
             timezone=self.timezone,
+            upgrade_rollout_order=self.upgrade_rollout_order,
             vpc_security_groups=self.vpc_security_groups)
 
 
@@ -642,6 +654,7 @@ def get_instance(db_instance_identifier: Optional[_builtins.str] = None,
         storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
         timezone=pulumi.get(__ret__, 'timezone'),
+        upgrade_rollout_order=pulumi.get(__ret__, 'upgrade_rollout_order'),
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
 def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -715,4 +728,5 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[_
         storage_type=pulumi.get(__response__, 'storage_type'),
         tags=pulumi.get(__response__, 'tags'),
         timezone=pulumi.get(__response__, 'timezone'),
+        upgrade_rollout_order=pulumi.get(__response__, 'upgrade_rollout_order'),
         vpc_security_groups=pulumi.get(__response__, 'vpc_security_groups')))

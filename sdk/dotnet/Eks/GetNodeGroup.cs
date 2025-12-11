@@ -239,6 +239,7 @@ namespace Pulumi.Aws.Eks
         /// List of objects containing information about taints applied to the nodes in the EKS Node Group.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNodeGroupTaintResult> Taints;
+        public readonly ImmutableArray<Outputs.GetNodeGroupUpdateConfigResult> UpdateConfigs;
         /// <summary>
         /// Kubernetes version.
         /// </summary>
@@ -286,6 +287,8 @@ namespace Pulumi.Aws.Eks
 
             ImmutableArray<Outputs.GetNodeGroupTaintResult> taints,
 
+            ImmutableArray<Outputs.GetNodeGroupUpdateConfigResult> updateConfigs,
+
             string version)
         {
             AmiType = amiType;
@@ -308,6 +311,7 @@ namespace Pulumi.Aws.Eks
             SubnetIds = subnetIds;
             Tags = tags;
             Taints = taints;
+            UpdateConfigs = updateConfigs;
             Version = version;
         }
     }

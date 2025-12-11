@@ -59,7 +59,7 @@ type NetworkPeeringConnection struct {
 	// Created time of the ODB network peering connection.
 	CreatedAt   pulumi.StringOutput `pulumi:"createdAt"`
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// ARN of the ODB network peering connection.
+	// ARN of the odb network peering connection.
 	OdbNetworkArn pulumi.StringOutput `pulumi:"odbNetworkArn"`
 	OdbNetworkId  pulumi.StringOutput `pulumi:"odbNetworkId"`
 	// Type of the ODB peering connection.
@@ -92,9 +92,6 @@ func NewNetworkPeeringConnection(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
-	if args.OdbNetworkId == nil {
-		return nil, errors.New("invalid value for required argument 'OdbNetworkId'")
-	}
 	if args.PeerNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'PeerNetworkId'")
 	}
@@ -125,7 +122,7 @@ type networkPeeringConnectionState struct {
 	// Created time of the ODB network peering connection.
 	CreatedAt   *string `pulumi:"createdAt"`
 	DisplayName *string `pulumi:"displayName"`
-	// ARN of the ODB network peering connection.
+	// ARN of the odb network peering connection.
 	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
 	OdbNetworkId  *string `pulumi:"odbNetworkId"`
 	// Type of the ODB peering connection.
@@ -153,7 +150,7 @@ type NetworkPeeringConnectionState struct {
 	// Created time of the ODB network peering connection.
 	CreatedAt   pulumi.StringPtrInput
 	DisplayName pulumi.StringPtrInput
-	// ARN of the ODB network peering connection.
+	// ARN of the odb network peering connection.
 	OdbNetworkArn pulumi.StringPtrInput
 	OdbNetworkId  pulumi.StringPtrInput
 	// Type of the ODB peering connection.
@@ -181,9 +178,11 @@ func (NetworkPeeringConnectionState) ElementType() reflect.Type {
 }
 
 type networkPeeringConnectionArgs struct {
-	DisplayName   string `pulumi:"displayName"`
-	OdbNetworkId  string `pulumi:"odbNetworkId"`
-	PeerNetworkId string `pulumi:"peerNetworkId"`
+	DisplayName string `pulumi:"displayName"`
+	// ARN of the odb network peering connection.
+	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
+	OdbNetworkId  *string `pulumi:"odbNetworkId"`
+	PeerNetworkId string  `pulumi:"peerNetworkId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -193,8 +192,10 @@ type networkPeeringConnectionArgs struct {
 
 // The set of arguments for constructing a NetworkPeeringConnection resource.
 type NetworkPeeringConnectionArgs struct {
-	DisplayName   pulumi.StringInput
-	OdbNetworkId  pulumi.StringInput
+	DisplayName pulumi.StringInput
+	// ARN of the odb network peering connection.
+	OdbNetworkArn pulumi.StringPtrInput
+	OdbNetworkId  pulumi.StringPtrInput
 	PeerNetworkId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -303,7 +304,7 @@ func (o NetworkPeeringConnectionOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// ARN of the ODB network peering connection.
+// ARN of the odb network peering connection.
 func (o NetworkPeeringConnectionOutput) OdbNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.OdbNetworkArn }).(pulumi.StringOutput)
 }

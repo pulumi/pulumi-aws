@@ -466,7 +466,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> RestApi { get; private set; } = null!;
 
         /// <summary>
-        /// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+        /// Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `ResponseTransferMode` is `BUFFERED`, and 900,000 when `ResponseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
         /// </summary>
         [Output("timeoutMilliseconds")]
         public Output<int?> TimeoutMilliseconds { get; private set; } = null!;
@@ -659,7 +659,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> RestApi { get; set; } = null!;
 
         /// <summary>
-        /// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+        /// Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `ResponseTransferMode` is `BUFFERED`, and 900,000 when `ResponseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
         /// </summary>
         [Input("timeoutMilliseconds")]
         public Input<int>? TimeoutMilliseconds { get; set; }
@@ -814,7 +814,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? RestApi { get; set; }
 
         /// <summary>
-        /// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+        /// Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `ResponseTransferMode` is `BUFFERED`, and 900,000 when `ResponseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
         /// </summary>
         [Input("timeoutMilliseconds")]
         public Input<int>? TimeoutMilliseconds { get; set; }

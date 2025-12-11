@@ -20,6 +20,7 @@ __all__ = [
     'ApplicationApplicationConfigurationApplicationCodeConfiguration',
     'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent',
     'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation',
+    'ApplicationApplicationConfigurationApplicationEncryptionConfiguration',
     'ApplicationApplicationConfigurationApplicationSnapshotConfiguration',
     'ApplicationApplicationConfigurationEnvironmentProperties',
     'ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup',
@@ -68,6 +69,8 @@ class ApplicationApplicationConfiguration(dict):
         suggest = None
         if key == "applicationCodeConfiguration":
             suggest = "application_code_configuration"
+        elif key == "applicationEncryptionConfiguration":
+            suggest = "application_encryption_configuration"
         elif key == "applicationSnapshotConfiguration":
             suggest = "application_snapshot_configuration"
         elif key == "environmentProperties":
@@ -94,6 +97,7 @@ class ApplicationApplicationConfiguration(dict):
 
     def __init__(__self__, *,
                  application_code_configuration: 'outputs.ApplicationApplicationConfigurationApplicationCodeConfiguration',
+                 application_encryption_configuration: Optional['outputs.ApplicationApplicationConfigurationApplicationEncryptionConfiguration'] = None,
                  application_snapshot_configuration: Optional['outputs.ApplicationApplicationConfigurationApplicationSnapshotConfiguration'] = None,
                  environment_properties: Optional['outputs.ApplicationApplicationConfigurationEnvironmentProperties'] = None,
                  flink_application_configuration: Optional['outputs.ApplicationApplicationConfigurationFlinkApplicationConfiguration'] = None,
@@ -102,6 +106,7 @@ class ApplicationApplicationConfiguration(dict):
                  vpc_configuration: Optional['outputs.ApplicationApplicationConfigurationVpcConfiguration'] = None):
         """
         :param 'ApplicationApplicationConfigurationApplicationCodeConfigurationArgs' application_code_configuration: The code location and type parameters for the application.
+        :param 'ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs' application_encryption_configuration: The encryption configuration for the application. This can be used to encrypt data at rest in the application.
         :param 'ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs' application_snapshot_configuration: Describes whether snapshots are enabled for a Flink-based application.
         :param 'ApplicationApplicationConfigurationEnvironmentPropertiesArgs' environment_properties: Describes execution properties for a Flink-based application.
         :param 'ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs' flink_application_configuration: The configuration of a Flink-based application.
@@ -110,6 +115,8 @@ class ApplicationApplicationConfiguration(dict):
         :param 'ApplicationApplicationConfigurationVpcConfigurationArgs' vpc_configuration: The VPC configuration of a Flink-based application.
         """
         pulumi.set(__self__, "application_code_configuration", application_code_configuration)
+        if application_encryption_configuration is not None:
+            pulumi.set(__self__, "application_encryption_configuration", application_encryption_configuration)
         if application_snapshot_configuration is not None:
             pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
         if environment_properties is not None:
@@ -130,6 +137,14 @@ class ApplicationApplicationConfiguration(dict):
         The code location and type parameters for the application.
         """
         return pulumi.get(self, "application_code_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationEncryptionConfiguration")
+    def application_encryption_configuration(self) -> Optional['outputs.ApplicationApplicationConfigurationApplicationEncryptionConfiguration']:
+        """
+        The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+        """
+        return pulumi.get(self, "application_encryption_configuration")
 
     @_builtins.property
     @pulumi.getter(name="applicationSnapshotConfiguration")
@@ -339,6 +354,55 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
         The version of the object containing the application code.
         """
         return pulumi.get(self, "object_version")
+
+
+@pulumi.output_type
+class ApplicationApplicationConfigurationApplicationEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyType":
+            suggest = "key_type"
+        elif key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationApplicationEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationApplicationEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationApplicationEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_type: _builtins.str,
+                 key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str key_type: The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+        :param _builtins.str key_id: The ARN of the KMS key to use for encryption. Required when `key_type` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+        """
+        pulumi.set(__self__, "key_type", key_type)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> _builtins.str:
+        """
+        The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+        """
+        return pulumi.get(self, "key_type")
+
+    @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the KMS key to use for encryption. Required when `key_type` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+        """
+        return pulumi.get(self, "key_id")
 
 
 @pulumi.output_type

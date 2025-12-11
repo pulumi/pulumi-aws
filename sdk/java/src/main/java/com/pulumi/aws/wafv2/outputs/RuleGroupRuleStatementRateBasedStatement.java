@@ -40,7 +40,7 @@ public final class RuleGroupRuleStatementRateBasedStatement {
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig;
     /**
-     * @return The limit on requests per 5-minute period for a single originating IP address.
+     * @return Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
      * 
      */
     private Integer limit;
@@ -82,7 +82,7 @@ public final class RuleGroupRuleStatementRateBasedStatement {
         return Optional.ofNullable(this.forwardedIpConfig);
     }
     /**
-     * @return The limit on requests per 5-minute period for a single originating IP address.
+     * @return Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
      * 
      */
     public Integer limit() {

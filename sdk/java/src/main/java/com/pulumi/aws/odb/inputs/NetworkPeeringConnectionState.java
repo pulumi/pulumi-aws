@@ -48,14 +48,14 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
     }
 
     /**
-     * ARN of the ODB network peering connection.
+     * ARN of the odb network peering connection.
      * 
      */
     @Import(name="odbNetworkArn")
     private @Nullable Output<String> odbNetworkArn;
 
     /**
-     * @return ARN of the ODB network peering connection.
+     * @return ARN of the odb network peering connection.
      * 
      */
     public Optional<Output<String>> odbNetworkArn() {
@@ -281,7 +281,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param odbNetworkArn ARN of the ODB network peering connection.
+         * @param odbNetworkArn ARN of the odb network peering connection.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param odbNetworkArn ARN of the ODB network peering connection.
+         * @param odbNetworkArn ARN of the odb network peering connection.
          * 
          * @return builder
          * 

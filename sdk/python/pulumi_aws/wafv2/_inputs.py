@@ -4913,7 +4913,7 @@ if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementArgsDict(TypedDict):
         limit: pulumi.Input[_builtins.int]
         """
-        The limit on requests per 5-minute period for a single originating IP address.
+        Limit on requests per 5-minute (or `evaluation_window_sec`) period for a single originating IP address (or for other aggregate key, depending on `aggregate_key_type` and `custom_key`).
         """
         aggregate_key_type: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -4950,7 +4950,7 @@ class RuleGroupRuleStatementRateBasedStatementArgs:
                  forwarded_ip_config: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs']] = None,
                  scope_down_statement: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs']] = None):
         """
-        :param pulumi.Input[_builtins.int] limit: The limit on requests per 5-minute period for a single originating IP address.
+        :param pulumi.Input[_builtins.int] limit: Limit on requests per 5-minute (or `evaluation_window_sec`) period for a single originating IP address (or for other aggregate key, depending on `aggregate_key_type` and `custom_key`).
         :param pulumi.Input[_builtins.str] aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyArgs']]] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
         :param pulumi.Input[_builtins.int] evaluation_window_sec: The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
@@ -4975,7 +4975,7 @@ class RuleGroupRuleStatementRateBasedStatementArgs:
     @pulumi.getter
     def limit(self) -> pulumi.Input[_builtins.int]:
         """
-        The limit on requests per 5-minute period for a single originating IP address.
+        Limit on requests per 5-minute (or `evaluation_window_sec`) period for a single originating IP address (or for other aggregate key, depending on `aggregate_key_type` and `custom_key`).
         """
         return pulumi.get(self, "limit")
 
@@ -35379,7 +35379,7 @@ if not MYPY:
     class WebAclRuleStatementRateBasedStatementArgsDict(TypedDict):
         limit: pulumi.Input[_builtins.int]
         """
-        Limit on requests per 5-minute period for a single originating IP address.
+        Limit on requests per 5-minute (or `evaluation_window_sec`) period for a single originating IP address (or for other aggregate key, depending on `aggregate_key_type` and `custom_key`).
         """
         aggregate_key_type: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -35416,7 +35416,7 @@ class WebAclRuleStatementRateBasedStatementArgs:
                  forwarded_ip_config: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs']] = None,
                  scope_down_statement: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']] = None):
         """
-        :param pulumi.Input[_builtins.int] limit: Limit on requests per 5-minute period for a single originating IP address.
+        :param pulumi.Input[_builtins.int] limit: Limit on requests per 5-minute (or `evaluation_window_sec`) period for a single originating IP address (or for other aggregate key, depending on `aggregate_key_type` and `custom_key`).
         :param pulumi.Input[_builtins.str] aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyArgs']]] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
         :param pulumi.Input[_builtins.int] evaluation_window_sec: The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
@@ -35441,7 +35441,7 @@ class WebAclRuleStatementRateBasedStatementArgs:
     @pulumi.getter
     def limit(self) -> pulumi.Input[_builtins.int]:
         """
-        Limit on requests per 5-minute period for a single originating IP address.
+        Limit on requests per 5-minute (or `evaluation_window_sec`) period for a single originating IP address (or for other aggregate key, depending on `aggregate_key_type` and `custom_key`).
         """
         return pulumi.get(self, "limit")
 

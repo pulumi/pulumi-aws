@@ -1393,6 +1393,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     * 
+     */
+    @Import(name="upgradeRolloutOrder")
+    private @Nullable Output<String> upgradeRolloutOrder;
+
+    /**
+     * @return Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     * 
+     */
+    public Optional<Output<String>> upgradeRolloutOrder() {
+        return Optional.ofNullable(this.upgradeRolloutOrder);
+    }
+
+    /**
      * Whether to upgrade the storage file system configuration on the read replica.
      * Can only be set with `replicateSourceDb`.
      * 
@@ -1527,6 +1542,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timezone = $.timezone;
+        this.upgradeRolloutOrder = $.upgradeRolloutOrder;
         this.upgradeStorageConfig = $.upgradeStorageConfig;
         this.username = $.username;
         this.vpcSecurityGroupIds = $.vpcSecurityGroupIds;
@@ -3485,6 +3501,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder timezone(String timezone) {
             return timezone(Output.of(timezone));
+        }
+
+        /**
+         * @param upgradeRolloutOrder Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder upgradeRolloutOrder(@Nullable Output<String> upgradeRolloutOrder) {
+            $.upgradeRolloutOrder = upgradeRolloutOrder;
+            return this;
+        }
+
+        /**
+         * @param upgradeRolloutOrder Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder upgradeRolloutOrder(String upgradeRolloutOrder) {
+            return upgradeRolloutOrder(Output.of(upgradeRolloutOrder));
         }
 
         /**

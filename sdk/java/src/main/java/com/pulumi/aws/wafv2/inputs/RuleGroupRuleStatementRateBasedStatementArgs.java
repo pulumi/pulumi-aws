@@ -86,14 +86,14 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
     }
 
     /**
-     * The limit on requests per 5-minute period for a single originating IP address.
+     * Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
      * 
      */
     @Import(name="limit", required=true)
     private Output<Integer> limit;
 
     /**
-     * @return The limit on requests per 5-minute period for a single originating IP address.
+     * @return Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
      * 
      */
     public Output<Integer> limit() {
@@ -243,7 +243,7 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
         }
 
         /**
-         * @param limit The limit on requests per 5-minute period for a single originating IP address.
+         * @param limit Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
         }
 
         /**
-         * @param limit The limit on requests per 5-minute period for a single originating IP address.
+         * @param limit Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
          * 
          * @return builder
          * 

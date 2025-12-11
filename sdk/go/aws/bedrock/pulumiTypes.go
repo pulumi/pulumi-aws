@@ -2052,6 +2052,8 @@ func (o AgentAgentKnowledgeBaseAssociationTimeoutsPtrOutput) Update() pulumi.Str
 type AgentAgentMemoryConfiguration struct {
 	// The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
 	EnabledMemoryTypes []string `pulumi:"enabledMemoryTypes"`
+	// Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
+	SessionSummaryConfigurations []AgentAgentMemoryConfigurationSessionSummaryConfiguration `pulumi:"sessionSummaryConfigurations"`
 	// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
 	StorageDays int `pulumi:"storageDays"`
 }
@@ -2070,6 +2072,8 @@ type AgentAgentMemoryConfigurationInput interface {
 type AgentAgentMemoryConfigurationArgs struct {
 	// The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
 	EnabledMemoryTypes pulumi.StringArrayInput `pulumi:"enabledMemoryTypes"`
+	// Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
+	SessionSummaryConfigurations AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayInput `pulumi:"sessionSummaryConfigurations"`
 	// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
 	StorageDays pulumi.IntInput `pulumi:"storageDays"`
 }
@@ -2130,6 +2134,13 @@ func (o AgentAgentMemoryConfigurationOutput) EnabledMemoryTypes() pulumi.StringA
 	return o.ApplyT(func(v AgentAgentMemoryConfiguration) []string { return v.EnabledMemoryTypes }).(pulumi.StringArrayOutput)
 }
 
+// Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
+func (o AgentAgentMemoryConfigurationOutput) SessionSummaryConfigurations() AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput {
+	return o.ApplyT(func(v AgentAgentMemoryConfiguration) []AgentAgentMemoryConfigurationSessionSummaryConfiguration {
+		return v.SessionSummaryConfigurations
+	}).(AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput)
+}
+
 // The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
 func (o AgentAgentMemoryConfigurationOutput) StorageDays() pulumi.IntOutput {
 	return o.ApplyT(func(v AgentAgentMemoryConfiguration) int { return v.StorageDays }).(pulumi.IntOutput)
@@ -2153,6 +2164,103 @@ func (o AgentAgentMemoryConfigurationArrayOutput) Index(i pulumi.IntInput) Agent
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentAgentMemoryConfiguration {
 		return vs[0].([]AgentAgentMemoryConfiguration)[vs[1].(int)]
 	}).(AgentAgentMemoryConfigurationOutput)
+}
+
+type AgentAgentMemoryConfigurationSessionSummaryConfiguration struct {
+	// Maximum number of recent session summaries to include in the agent's prompt context.
+	MaxRecentSessions int `pulumi:"maxRecentSessions"`
+}
+
+// AgentAgentMemoryConfigurationSessionSummaryConfigurationInput is an input type that accepts AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs and AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput values.
+// You can construct a concrete instance of `AgentAgentMemoryConfigurationSessionSummaryConfigurationInput` via:
+//
+//	AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs{...}
+type AgentAgentMemoryConfigurationSessionSummaryConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentAgentMemoryConfigurationSessionSummaryConfigurationOutput() AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput
+	ToAgentAgentMemoryConfigurationSessionSummaryConfigurationOutputWithContext(context.Context) AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput
+}
+
+type AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs struct {
+	// Maximum number of recent session summaries to include in the agent's prompt context.
+	MaxRecentSessions pulumi.IntInput `pulumi:"maxRecentSessions"`
+}
+
+func (AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentMemoryConfigurationSessionSummaryConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs) ToAgentAgentMemoryConfigurationSessionSummaryConfigurationOutput() AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput {
+	return i.ToAgentAgentMemoryConfigurationSessionSummaryConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs) ToAgentAgentMemoryConfigurationSessionSummaryConfigurationOutputWithContext(ctx context.Context) AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput)
+}
+
+// AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayInput is an input type that accepts AgentAgentMemoryConfigurationSessionSummaryConfigurationArray and AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayInput` via:
+//
+//	AgentAgentMemoryConfigurationSessionSummaryConfigurationArray{ AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs{...} }
+type AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput() AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput
+	ToAgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutputWithContext(context.Context) AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput
+}
+
+type AgentAgentMemoryConfigurationSessionSummaryConfigurationArray []AgentAgentMemoryConfigurationSessionSummaryConfigurationInput
+
+func (AgentAgentMemoryConfigurationSessionSummaryConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentMemoryConfigurationSessionSummaryConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentMemoryConfigurationSessionSummaryConfigurationArray) ToAgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput() AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput {
+	return i.ToAgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentAgentMemoryConfigurationSessionSummaryConfigurationArray) ToAgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput)
+}
+
+type AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentMemoryConfigurationSessionSummaryConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput) ToAgentAgentMemoryConfigurationSessionSummaryConfigurationOutput() AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput {
+	return o
+}
+
+func (o AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput) ToAgentAgentMemoryConfigurationSessionSummaryConfigurationOutputWithContext(ctx context.Context) AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput {
+	return o
+}
+
+// Maximum number of recent session summaries to include in the agent's prompt context.
+func (o AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput) MaxRecentSessions() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentAgentMemoryConfigurationSessionSummaryConfiguration) int { return v.MaxRecentSessions }).(pulumi.IntOutput)
+}
+
+type AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentMemoryConfigurationSessionSummaryConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput) ToAgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput() AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput) ToAgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput) Index(i pulumi.IntInput) AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentAgentMemoryConfigurationSessionSummaryConfiguration {
+		return vs[0].([]AgentAgentMemoryConfigurationSessionSummaryConfiguration)[vs[1].(int)]
+	}).(AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput)
 }
 
 type AgentAgentPromptOverrideConfiguration struct {
@@ -45082,6 +45190,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentKnowledgeBaseAssociationTimeoutsPtrInput)(nil)).Elem(), AgentAgentKnowledgeBaseAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentMemoryConfigurationInput)(nil)).Elem(), AgentAgentMemoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentMemoryConfigurationArrayInput)(nil)).Elem(), AgentAgentMemoryConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentMemoryConfigurationSessionSummaryConfigurationInput)(nil)).Elem(), AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayInput)(nil)).Elem(), AgentAgentMemoryConfigurationSessionSummaryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationArrayInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationPromptConfigurationInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationPromptConfigurationArgs{})
@@ -45680,6 +45790,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentAgentKnowledgeBaseAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentMemoryConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentAgentMemoryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AgentAgentMemoryConfigurationSessionSummaryConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationPromptConfigurationOutput{})

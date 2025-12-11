@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesisanalyticsv2.inputs;
 
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs;
+import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs;
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs;
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationEnvironmentPropertiesArgs;
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs;
@@ -35,6 +36,21 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
      */
     public Output<ApplicationApplicationConfigurationApplicationCodeConfigurationArgs> applicationCodeConfiguration() {
         return this.applicationCodeConfiguration;
+    }
+
+    /**
+     * The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+     * 
+     */
+    @Import(name="applicationEncryptionConfiguration")
+    private @Nullable Output<ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs> applicationEncryptionConfiguration;
+
+    /**
+     * @return The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+     * 
+     */
+    public Optional<Output<ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs>> applicationEncryptionConfiguration() {
+        return Optional.ofNullable(this.applicationEncryptionConfiguration);
     }
 
     /**
@@ -131,6 +147,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
 
     private ApplicationApplicationConfigurationArgs(ApplicationApplicationConfigurationArgs $) {
         this.applicationCodeConfiguration = $.applicationCodeConfiguration;
+        this.applicationEncryptionConfiguration = $.applicationEncryptionConfiguration;
         this.applicationSnapshotConfiguration = $.applicationSnapshotConfiguration;
         this.environmentProperties = $.environmentProperties;
         this.flinkApplicationConfiguration = $.flinkApplicationConfiguration;
@@ -176,6 +193,27 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
          */
         public Builder applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs applicationCodeConfiguration) {
             return applicationCodeConfiguration(Output.of(applicationCodeConfiguration));
+        }
+
+        /**
+         * @param applicationEncryptionConfiguration The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationEncryptionConfiguration(@Nullable Output<ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs> applicationEncryptionConfiguration) {
+            $.applicationEncryptionConfiguration = applicationEncryptionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param applicationEncryptionConfiguration The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationEncryptionConfiguration(ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs applicationEncryptionConfiguration) {
+            return applicationEncryptionConfiguration(Output.of(applicationEncryptionConfiguration));
         }
 
         /**

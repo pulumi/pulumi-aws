@@ -15,8 +15,8 @@ namespace Pulumi.Aws.BedrockModel.Inputs
         /// <summary>
         /// S3 bucket name.
         /// </summary>
-        [Input("bucketName")]
-        public Input<string>? BucketName { get; set; }
+        [Input("bucketName", required: true)]
+        public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
         /// S3 prefix.

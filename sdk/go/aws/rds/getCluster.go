@@ -99,6 +99,7 @@ type LookupClusterResult struct {
 	StorageEncrypted            bool                         `pulumi:"storageEncrypted"`
 	// A map of tags assigned to the resource.
 	Tags                map[string]string `pulumi:"tags"`
+	UpgradeRolloutOrder string            `pulumi:"upgradeRolloutOrder"`
 	VpcSecurityGroupIds []string          `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -288,6 +289,10 @@ func (o LookupClusterResultOutput) StorageEncrypted() pulumi.BoolOutput {
 // A map of tags assigned to the resource.
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupClusterResultOutput) UpgradeRolloutOrder() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.UpgradeRolloutOrder }).(pulumi.StringOutput)
 }
 
 func (o LookupClusterResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

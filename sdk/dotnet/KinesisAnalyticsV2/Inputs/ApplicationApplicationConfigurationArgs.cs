@@ -19,6 +19,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public Input<Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs> ApplicationCodeConfiguration { get; set; } = null!;
 
         /// <summary>
+        /// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+        /// </summary>
+        [Input("applicationEncryptionConfiguration")]
+        public Input<Inputs.ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs>? ApplicationEncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// Describes whether snapshots are enabled for a Flink-based application.
         /// </summary>
         [Input("applicationSnapshotConfiguration")]

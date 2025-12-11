@@ -6,12 +6,15 @@ package com.pulumi.aws.s3;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3.VectorsIndexArgs;
 import com.pulumi.aws.s3.inputs.VectorsIndexState;
+import com.pulumi.aws.s3.outputs.VectorsIndexEncryptionConfiguration;
+import com.pulumi.aws.s3.outputs.VectorsIndexMetadataConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -126,6 +129,20 @@ public class VectorsIndex extends com.pulumi.resources.CustomResource {
         return this.distanceMetric;
     }
     /**
+     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * 
+     */
+    @Export(name="encryptionConfigurations", refs={List.class,VectorsIndexEncryptionConfiguration.class}, tree="[0,1]")
+    private Output<List<VectorsIndexEncryptionConfiguration>> encryptionConfigurations;
+
+    /**
+     * @return Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * 
+     */
+    public Output<List<VectorsIndexEncryptionConfiguration>> encryptionConfigurations() {
+        return this.encryptionConfigurations;
+    }
+    /**
      * ARN of the vector index.
      * 
      */
@@ -152,6 +169,20 @@ public class VectorsIndex extends com.pulumi.resources.CustomResource {
      */
     public Output<String> indexName() {
         return this.indexName;
+    }
+    /**
+     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * 
+     */
+    @Export(name="metadataConfiguration", refs={VectorsIndexMetadataConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ VectorsIndexMetadataConfiguration> metadataConfiguration;
+
+    /**
+     * @return Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * 
+     */
+    public Output<Optional<VectorsIndexMetadataConfiguration>> metadataConfiguration() {
+        return Codegen.optional(this.metadataConfiguration);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

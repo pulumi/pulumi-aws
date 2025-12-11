@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.s3;
 
+import com.pulumi.aws.s3.inputs.VectorsIndexEncryptionConfigurationArgs;
+import com.pulumi.aws.s3.inputs.VectorsIndexMetadataConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -64,6 +67,21 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * 
+     */
+    @Import(name="encryptionConfigurations")
+    private @Nullable Output<List<VectorsIndexEncryptionConfigurationArgs>> encryptionConfigurations;
+
+    /**
+     * @return Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * 
+     */
+    public Optional<Output<List<VectorsIndexEncryptionConfigurationArgs>>> encryptionConfigurations() {
+        return Optional.ofNullable(this.encryptionConfigurations);
+    }
+
+    /**
      * Name of the vector index.
      * 
      */
@@ -76,6 +94,21 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> indexName() {
         return this.indexName;
+    }
+
+    /**
+     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * 
+     */
+    @Import(name="metadataConfiguration")
+    private @Nullable Output<VectorsIndexMetadataConfigurationArgs> metadataConfiguration;
+
+    /**
+     * @return Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * 
+     */
+    public Optional<Output<VectorsIndexMetadataConfigurationArgs>> metadataConfiguration() {
+        return Optional.ofNullable(this.metadataConfiguration);
     }
 
     /**
@@ -133,7 +166,9 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
         this.dataType = $.dataType;
         this.dimension = $.dimension;
         this.distanceMetric = $.distanceMetric;
+        this.encryptionConfigurations = $.encryptionConfigurations;
         this.indexName = $.indexName;
+        this.metadataConfiguration = $.metadataConfiguration;
         this.region = $.region;
         this.tags = $.tags;
         this.vectorBucketName = $.vectorBucketName;
@@ -221,6 +256,37 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfigurations(@Nullable Output<List<VectorsIndexEncryptionConfigurationArgs>> encryptionConfigurations) {
+            $.encryptionConfigurations = encryptionConfigurations;
+            return this;
+        }
+
+        /**
+         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfigurations(List<VectorsIndexEncryptionConfigurationArgs> encryptionConfigurations) {
+            return encryptionConfigurations(Output.of(encryptionConfigurations));
+        }
+
+        /**
+         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfigurations(VectorsIndexEncryptionConfigurationArgs... encryptionConfigurations) {
+            return encryptionConfigurations(List.of(encryptionConfigurations));
+        }
+
+        /**
          * @param indexName Name of the vector index.
          * 
          * @return builder
@@ -239,6 +305,27 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder indexName(String indexName) {
             return indexName(Output.of(indexName));
+        }
+
+        /**
+         * @param metadataConfiguration Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataConfiguration(@Nullable Output<VectorsIndexMetadataConfigurationArgs> metadataConfiguration) {
+            $.metadataConfiguration = metadataConfiguration;
+            return this;
+        }
+
+        /**
+         * @param metadataConfiguration Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataConfiguration(VectorsIndexMetadataConfigurationArgs metadataConfiguration) {
+            return metadataConfiguration(Output.of(metadataConfiguration));
         }
 
         /**

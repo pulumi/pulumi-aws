@@ -253,9 +253,9 @@ type InvocationLoggingConfigurationLoggingConfigCloudwatchConfig struct {
 	// S3 configuration for delivering a large amount of data. See `largeDataDeliveryS3Config` Block for details.
 	LargeDataDeliveryS3Config *InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config `pulumi:"largeDataDeliveryS3Config"`
 	// Log group name.
-	LogGroupName *string `pulumi:"logGroupName"`
+	LogGroupName string `pulumi:"logGroupName"`
 	// The role ARN.
-	RoleArn *string `pulumi:"roleArn"`
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // InvocationLoggingConfigurationLoggingConfigCloudwatchConfigInput is an input type that accepts InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs and InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput values.
@@ -273,9 +273,9 @@ type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs struct {
 	// S3 configuration for delivering a large amount of data. See `largeDataDeliveryS3Config` Block for details.
 	LargeDataDeliveryS3Config InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrInput `pulumi:"largeDataDeliveryS3Config"`
 	// Log group name.
-	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 	// The role ARN.
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs) ElementType() reflect.Type {
@@ -363,13 +363,13 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) Large
 }
 
 // Log group name.
-func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) LogGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
 // The role ARN.
-func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput struct{ *pulumi.OutputState }
@@ -412,7 +412,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) Lo
 		if v == nil {
 			return nil
 		}
-		return v.LogGroupName
+		return &v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -422,13 +422,13 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) Ro
 		if v == nil {
 			return nil
 		}
-		return v.RoleArn
+		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
 type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config struct {
 	// S3 bucket name.
-	BucketName *string `pulumi:"bucketName"`
+	BucketName string `pulumi:"bucketName"`
 	// S3 prefix.
 	KeyPrefix *string `pulumi:"keyPrefix"`
 }
@@ -446,7 +446,7 @@ type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliver
 
 type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs struct {
 	// S3 bucket name.
-	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// S3 prefix.
 	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
 }
@@ -529,10 +529,10 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeli
 }
 
 // S3 bucket name.
-func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config) *string {
+func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config) string {
 		return v.BucketName
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.StringOutput)
 }
 
 // S3 prefix.
@@ -572,7 +572,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeli
 		if v == nil {
 			return nil
 		}
-		return v.BucketName
+		return &v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -588,7 +588,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeli
 
 type InvocationLoggingConfigurationLoggingConfigS3Config struct {
 	// S3 bucket name.
-	BucketName *string `pulumi:"bucketName"`
+	BucketName string `pulumi:"bucketName"`
 	// S3 prefix.
 	KeyPrefix *string `pulumi:"keyPrefix"`
 }
@@ -606,7 +606,7 @@ type InvocationLoggingConfigurationLoggingConfigS3ConfigInput interface {
 
 type InvocationLoggingConfigurationLoggingConfigS3ConfigArgs struct {
 	// S3 bucket name.
-	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// S3 prefix.
 	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
 }
@@ -689,8 +689,8 @@ func (o InvocationLoggingConfigurationLoggingConfigS3ConfigOutput) ToInvocationL
 }
 
 // S3 bucket name.
-func (o InvocationLoggingConfigurationLoggingConfigS3ConfigOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigS3Config) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+func (o InvocationLoggingConfigurationLoggingConfigS3ConfigOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigS3Config) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
 // S3 prefix.
@@ -728,7 +728,7 @@ func (o InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput) BucketName
 		if v == nil {
 			return nil
 		}
-		return v.BucketName
+		return &v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 

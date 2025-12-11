@@ -1131,6 +1131,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     * 
+     */
+    @Import(name="upgradeRolloutOrder")
+    private @Nullable Output<String> upgradeRolloutOrder;
+
+    /**
+     * @return Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     * 
+     */
+    public Optional<Output<String>> upgradeRolloutOrder() {
+        return Optional.ofNullable(this.upgradeRolloutOrder);
+    }
+
+    /**
      * List of VPC security groups to associate with the Cluster
      * 
      * For more detailed documentation about each argument, refer to
@@ -1233,6 +1248,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.storageType = $.storageType;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.upgradeRolloutOrder = $.upgradeRolloutOrder;
         this.vpcSecurityGroupIds = $.vpcSecurityGroupIds;
     }
 
@@ -2882,6 +2898,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param upgradeRolloutOrder Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder upgradeRolloutOrder(@Nullable Output<String> upgradeRolloutOrder) {
+            $.upgradeRolloutOrder = upgradeRolloutOrder;
+            return this;
+        }
+
+        /**
+         * @param upgradeRolloutOrder Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder upgradeRolloutOrder(String upgradeRolloutOrder) {
+            return upgradeRolloutOrder(Output.of(upgradeRolloutOrder));
         }
 
         /**

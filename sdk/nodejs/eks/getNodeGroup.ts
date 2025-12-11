@@ -129,6 +129,7 @@ export interface GetNodeGroupResult {
      * List of objects containing information about taints applied to the nodes in the EKS Node Group.
      */
     readonly taints: outputs.eks.GetNodeGroupTaint[];
+    readonly updateConfigs: outputs.eks.GetNodeGroupUpdateConfig[];
     /**
      * Kubernetes version.
      */

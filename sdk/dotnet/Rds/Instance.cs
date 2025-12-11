@@ -924,6 +924,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> Timezone { get; private set; } = null!;
 
         /// <summary>
+        /// Order in which the instances are upgraded (`First`, `Second`, `Last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+        /// </summary>
+        [Output("upgradeRolloutOrder")]
+        public Output<string> UpgradeRolloutOrder { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to upgrade the storage file system configuration on the read replica.
         /// Can only be set with `ReplicateSourceDb`.
         /// </summary>
@@ -2183,6 +2189,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
+
+        /// <summary>
+        /// Order in which the instances are upgraded (`First`, `Second`, `Last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+        /// </summary>
+        [Input("upgradeRolloutOrder")]
+        public Input<string>? UpgradeRolloutOrder { get; set; }
 
         /// <summary>
         /// Whether to upgrade the storage file system configuration on the read replica.

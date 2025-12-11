@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrockmodel.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,15 +20,15 @@ public final class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs exten
      * S3 bucket name.
      * 
      */
-    @Import(name="bucketName")
-    private @Nullable Output<String> bucketName;
+    @Import(name="bucketName", required=true)
+    private Output<String> bucketName;
 
     /**
      * @return S3 bucket name.
      * 
      */
-    public Optional<Output<String>> bucketName() {
-        return Optional.ofNullable(this.bucketName);
+    public Output<String> bucketName() {
+        return this.bucketName;
     }
 
     /**
@@ -76,7 +77,7 @@ public final class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs exten
          * @return builder
          * 
          */
-        public Builder bucketName(@Nullable Output<String> bucketName) {
+        public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
@@ -113,6 +114,9 @@ public final class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs exten
         }
 
         public InvocationLoggingConfigurationLoggingConfigS3ConfigArgs build() {
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigS3ConfigArgs", "bucketName");
+            }
             return $;
         }
     }

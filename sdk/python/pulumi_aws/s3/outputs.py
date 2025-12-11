@@ -177,6 +177,8 @@ __all__ = [
     'ObjectCopyGrant',
     'ObjectCopyOverrideProvider',
     'ObjectCopyOverrideProviderDefaultTags',
+    'VectorsIndexEncryptionConfiguration',
+    'VectorsIndexMetadataConfiguration',
     'VectorsVectorBucketEncryptionConfiguration',
     'GetAccessPointPublicAccessBlockConfigurationResult',
     'GetAccessPointVpcConfigurationResult',
@@ -8217,6 +8219,85 @@ class ObjectCopyOverrideProviderDefaultTags(dict):
         Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class VectorsIndexEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "sseType":
+            suggest = "sse_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VectorsIndexEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VectorsIndexEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VectorsIndexEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: _builtins.str,
+                 sse_type: _builtins.str):
+        """
+        :param _builtins.str sse_type: Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        pulumi.set(__self__, "sse_type", sse_type)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> _builtins.str:
+        return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="sseType")
+    def sse_type(self) -> _builtins.str:
+        """
+        Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
+        """
+        return pulumi.get(self, "sse_type")
+
+
+@pulumi.output_type
+class VectorsIndexMetadataConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nonFilterableMetadataKeys":
+            suggest = "non_filterable_metadata_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VectorsIndexMetadataConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VectorsIndexMetadataConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VectorsIndexMetadataConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 non_filterable_metadata_keys: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] non_filterable_metadata_keys: List of non-filterable metadata keys.
+        """
+        pulumi.set(__self__, "non_filterable_metadata_keys", non_filterable_metadata_keys)
+
+    @_builtins.property
+    @pulumi.getter(name="nonFilterableMetadataKeys")
+    def non_filterable_metadata_keys(self) -> Sequence[_builtins.str]:
+        """
+        List of non-filterable metadata keys.
+        """
+        return pulumi.get(self, "non_filterable_metadata_keys")
 
 
 @pulumi.output_type

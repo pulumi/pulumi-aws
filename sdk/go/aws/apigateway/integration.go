@@ -457,7 +457,7 @@ type Integration struct {
 	ResponseTransferMode pulumi.StringOutput `pulumi:"responseTransferMode"`
 	// ID of the associated REST API.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
-	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+	// Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `responseTransferMode` is `BUFFERED`, and 900,000 when `responseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
 	TimeoutMilliseconds pulumi.IntPtrOutput `pulumi:"timeoutMilliseconds"`
 	// TLS configuration. See below.
 	TlsConfig IntegrationTlsConfigPtrOutput `pulumi:"tlsConfig"`
@@ -550,7 +550,7 @@ type integrationState struct {
 	ResponseTransferMode *string `pulumi:"responseTransferMode"`
 	// ID of the associated REST API.
 	RestApi interface{} `pulumi:"restApi"`
-	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+	// Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `responseTransferMode` is `BUFFERED`, and 900,000 when `responseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
 	// TLS configuration. See below.
 	TlsConfig *IntegrationTlsConfig `pulumi:"tlsConfig"`
@@ -602,7 +602,7 @@ type IntegrationState struct {
 	ResponseTransferMode pulumi.StringPtrInput
 	// ID of the associated REST API.
 	RestApi pulumi.Input
-	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+	// Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `responseTransferMode` is `BUFFERED`, and 900,000 when `responseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
 	TimeoutMilliseconds pulumi.IntPtrInput
 	// TLS configuration. See below.
 	TlsConfig IntegrationTlsConfigPtrInput
@@ -658,7 +658,7 @@ type integrationArgs struct {
 	ResponseTransferMode *string `pulumi:"responseTransferMode"`
 	// ID of the associated REST API.
 	RestApi interface{} `pulumi:"restApi"`
-	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+	// Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `responseTransferMode` is `BUFFERED`, and 900,000 when `responseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
 	// TLS configuration. See below.
 	TlsConfig *IntegrationTlsConfig `pulumi:"tlsConfig"`
@@ -711,7 +711,7 @@ type IntegrationArgs struct {
 	ResponseTransferMode pulumi.StringPtrInput
 	// ID of the associated REST API.
 	RestApi pulumi.Input
-	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+	// Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `responseTransferMode` is `BUFFERED`, and 900,000 when `responseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
 	TimeoutMilliseconds pulumi.IntPtrInput
 	// TLS configuration. See below.
 	TlsConfig IntegrationTlsConfigPtrInput
@@ -897,7 +897,7 @@ func (o IntegrationOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
-// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+// Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `responseTransferMode` is `BUFFERED`, and 900,000 when `responseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
 func (o IntegrationOutput) TimeoutMilliseconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.IntPtrOutput { return v.TimeoutMilliseconds }).(pulumi.IntPtrOutput)
 }

@@ -1426,6 +1426,7 @@ class _InstanceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timezone: Optional[pulumi.Input[_builtins.str]] = None,
+                 upgrade_rollout_order: Optional[pulumi.Input[_builtins.str]] = None,
                  upgrade_storage_config: Optional[pulumi.Input[_builtins.bool]] = None,
                  username: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
@@ -1590,6 +1591,7 @@ class _InstanceState:
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
+        :param pulumi.Input[_builtins.str] upgrade_rollout_order: Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
         :param pulumi.Input[_builtins.bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica.
                Can only be set with `replicate_source_db`.
         :param pulumi.Input[_builtins.str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
@@ -1759,6 +1761,8 @@ class _InstanceState:
             pulumi.set(__self__, "tags_all", tags_all)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if upgrade_rollout_order is not None:
+            pulumi.set(__self__, "upgrade_rollout_order", upgrade_rollout_order)
         if upgrade_storage_config is not None:
             pulumi.set(__self__, "upgrade_storage_config", upgrade_storage_config)
         if username is not None:
@@ -2815,6 +2819,18 @@ class _InstanceState:
         pulumi.set(self, "timezone", value)
 
     @_builtins.property
+    @pulumi.getter(name="upgradeRolloutOrder")
+    def upgrade_rollout_order(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+        """
+        return pulumi.get(self, "upgrade_rollout_order")
+
+    @upgrade_rollout_order.setter
+    def upgrade_rollout_order(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "upgrade_rollout_order", value)
+
+    @_builtins.property
     @pulumi.getter(name="upgradeStorageConfig")
     def upgrade_storage_config(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -3784,6 +3800,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["upgrade_rollout_order"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "passwordWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Instance, __self__).__init__(
@@ -3877,6 +3894,7 @@ class Instance(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timezone: Optional[pulumi.Input[_builtins.str]] = None,
+            upgrade_rollout_order: Optional[pulumi.Input[_builtins.str]] = None,
             upgrade_storage_config: Optional[pulumi.Input[_builtins.bool]] = None,
             username: Optional[pulumi.Input[_builtins.str]] = None,
             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Instance':
@@ -4046,6 +4064,7 @@ class Instance(pulumi.CustomResource):
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
+        :param pulumi.Input[_builtins.str] upgrade_rollout_order: Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
         :param pulumi.Input[_builtins.bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica.
                Can only be set with `replicate_source_db`.
         :param pulumi.Input[_builtins.str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
@@ -4138,6 +4157,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timezone"] = timezone
+        __props__.__dict__["upgrade_rollout_order"] = upgrade_rollout_order
         __props__.__dict__["upgrade_storage_config"] = upgrade_storage_config
         __props__.__dict__["username"] = username
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
@@ -4866,6 +4886,14 @@ class Instance(pulumi.CustomResource):
         for more information.
         """
         return pulumi.get(self, "timezone")
+
+    @_builtins.property
+    @pulumi.getter(name="upgradeRolloutOrder")
+    def upgrade_rollout_order(self) -> pulumi.Output[_builtins.str]:
+        """
+        Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+        """
+        return pulumi.get(self, "upgrade_rollout_order")
 
     @_builtins.property
     @pulumi.getter(name="upgradeStorageConfig")

@@ -1236,6 +1236,7 @@
         "iam/instanceProfile.ts",
         "iam/openIdConnectProvider.ts",
         "iam/organizationsFeatures.ts",
+        "iam/outboundWebIdentityFederation.ts",
         "iam/policy.ts",
         "iam/policyAttachment.ts",
         "iam/principals.ts",

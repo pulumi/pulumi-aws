@@ -196,6 +196,7 @@ namespace Pulumi.Aws.Rds
         /// A map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string UpgradeRolloutOrder;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
@@ -274,6 +275,8 @@ namespace Pulumi.Aws.Rds
 
             ImmutableDictionary<string, string> tags,
 
+            string upgradeRolloutOrder,
+
             ImmutableArray<string> vpcSecurityGroupIds)
         {
             Arn = arn;
@@ -313,6 +316,7 @@ namespace Pulumi.Aws.Rds
             ReplicationSourceIdentifier = replicationSourceIdentifier;
             StorageEncrypted = storageEncrypted;
             Tags = tags;
+            UpgradeRolloutOrder = upgradeRolloutOrder;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
         }
     }

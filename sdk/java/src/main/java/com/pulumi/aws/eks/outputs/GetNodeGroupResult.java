@@ -8,6 +8,7 @@ import com.pulumi.aws.eks.outputs.GetNodeGroupRemoteAccess;
 import com.pulumi.aws.eks.outputs.GetNodeGroupResource;
 import com.pulumi.aws.eks.outputs.GetNodeGroupScalingConfig;
 import com.pulumi.aws.eks.outputs.GetNodeGroupTaint;
+import com.pulumi.aws.eks.outputs.GetNodeGroupUpdateConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -106,6 +107,7 @@ public final class GetNodeGroupResult {
      * 
      */
     private List<GetNodeGroupTaint> taints;
+    private List<GetNodeGroupUpdateConfig> updateConfigs;
     /**
      * @return Kubernetes version.
      * 
@@ -241,6 +243,9 @@ public final class GetNodeGroupResult {
     public List<GetNodeGroupTaint> taints() {
         return this.taints;
     }
+    public List<GetNodeGroupUpdateConfig> updateConfigs() {
+        return this.updateConfigs;
+    }
     /**
      * @return Kubernetes version.
      * 
@@ -278,6 +283,7 @@ public final class GetNodeGroupResult {
         private List<String> subnetIds;
         private Map<String,String> tags;
         private List<GetNodeGroupTaint> taints;
+        private List<GetNodeGroupUpdateConfig> updateConfigs;
         private String version;
         public Builder() {}
         public Builder(GetNodeGroupResult defaults) {
@@ -302,6 +308,7 @@ public final class GetNodeGroupResult {
     	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
     	      this.taints = defaults.taints;
+    	      this.updateConfigs = defaults.updateConfigs;
     	      this.version = defaults.version;
         }
 
@@ -487,6 +494,17 @@ public final class GetNodeGroupResult {
             return taints(List.of(taints));
         }
         @CustomType.Setter
+        public Builder updateConfigs(List<GetNodeGroupUpdateConfig> updateConfigs) {
+            if (updateConfigs == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "updateConfigs");
+            }
+            this.updateConfigs = updateConfigs;
+            return this;
+        }
+        public Builder updateConfigs(GetNodeGroupUpdateConfig... updateConfigs) {
+            return updateConfigs(List.of(updateConfigs));
+        }
+        @CustomType.Setter
         public Builder version(String version) {
             if (version == null) {
               throw new MissingRequiredPropertyException("GetNodeGroupResult", "version");
@@ -516,6 +534,7 @@ public final class GetNodeGroupResult {
             _resultValue.subnetIds = subnetIds;
             _resultValue.tags = tags;
             _resultValue.taints = taints;
+            _resultValue.updateConfigs = updateConfigs;
             _resultValue.version = version;
             return _resultValue;
         }

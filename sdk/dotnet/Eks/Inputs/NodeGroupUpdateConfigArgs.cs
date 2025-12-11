@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Eks.Inputs
         [Input("maxUnavailablePercentage")]
         public Input<int>? MaxUnavailablePercentage { get; set; }
 
+        /// <summary>
+        /// Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+        /// </summary>
+        [Input("updateStrategy")]
+        public Input<string>? UpdateStrategy { get; set; }
+
         public NodeGroupUpdateConfigArgs()
         {
         }

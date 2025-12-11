@@ -72,6 +72,12 @@ namespace Pulumi.Aws.S3
         public Output<string> DistanceMetric { get; private set; } = null!;
 
         /// <summary>
+        /// Block for encryption configuration for the vector index. See `EncyptionConfiguration` block below.
+        /// </summary>
+        [Output("encryptionConfigurations")]
+        public Output<ImmutableArray<Outputs.VectorsIndexEncryptionConfiguration>> EncryptionConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the vector index.
         /// </summary>
         [Output("indexArn")]
@@ -82,6 +88,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("indexName")]
         public Output<string> IndexName { get; private set; } = null!;
+
+        /// <summary>
+        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` block below.
+        /// </summary>
+        [Output("metadataConfiguration")]
+        public Output<Outputs.VectorsIndexMetadataConfiguration?> MetadataConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -173,11 +185,29 @@ namespace Pulumi.Aws.S3
         [Input("distanceMetric", required: true)]
         public Input<string> DistanceMetric { get; set; } = null!;
 
+        [Input("encryptionConfigurations")]
+        private InputList<Inputs.VectorsIndexEncryptionConfigurationArgs>? _encryptionConfigurations;
+
+        /// <summary>
+        /// Block for encryption configuration for the vector index. See `EncyptionConfiguration` block below.
+        /// </summary>
+        public InputList<Inputs.VectorsIndexEncryptionConfigurationArgs> EncryptionConfigurations
+        {
+            get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<Inputs.VectorsIndexEncryptionConfigurationArgs>());
+            set => _encryptionConfigurations = value;
+        }
+
         /// <summary>
         /// Name of the vector index.
         /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
+
+        /// <summary>
+        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` block below.
+        /// </summary>
+        [Input("metadataConfiguration")]
+        public Input<Inputs.VectorsIndexMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -237,6 +267,18 @@ namespace Pulumi.Aws.S3
         [Input("distanceMetric")]
         public Input<string>? DistanceMetric { get; set; }
 
+        [Input("encryptionConfigurations")]
+        private InputList<Inputs.VectorsIndexEncryptionConfigurationGetArgs>? _encryptionConfigurations;
+
+        /// <summary>
+        /// Block for encryption configuration for the vector index. See `EncyptionConfiguration` block below.
+        /// </summary>
+        public InputList<Inputs.VectorsIndexEncryptionConfigurationGetArgs> EncryptionConfigurations
+        {
+            get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<Inputs.VectorsIndexEncryptionConfigurationGetArgs>());
+            set => _encryptionConfigurations = value;
+        }
+
         /// <summary>
         /// ARN of the vector index.
         /// </summary>
@@ -248,6 +290,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
+
+        /// <summary>
+        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` block below.
+        /// </summary>
+        [Input("metadataConfiguration")]
+        public Input<Inputs.VectorsIndexMetadataConfigurationGetArgs>? MetadataConfiguration { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

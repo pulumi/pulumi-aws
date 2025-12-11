@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -77,6 +80,10 @@ export class VectorsIndex extends pulumi.CustomResource {
      */
     declare public readonly distanceMetric: pulumi.Output<string>;
     /**
+     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     */
+    declare public readonly encryptionConfigurations: pulumi.Output<outputs.s3.VectorsIndexEncryptionConfiguration[]>;
+    /**
      * ARN of the vector index.
      */
     declare public /*out*/ readonly indexArn: pulumi.Output<string>;
@@ -84,6 +91,10 @@ export class VectorsIndex extends pulumi.CustomResource {
      * Name of the vector index.
      */
     declare public readonly indexName: pulumi.Output<string>;
+    /**
+     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     */
+    declare public readonly metadataConfiguration: pulumi.Output<outputs.s3.VectorsIndexMetadataConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -120,8 +131,10 @@ export class VectorsIndex extends pulumi.CustomResource {
             resourceInputs["dataType"] = state?.dataType;
             resourceInputs["dimension"] = state?.dimension;
             resourceInputs["distanceMetric"] = state?.distanceMetric;
+            resourceInputs["encryptionConfigurations"] = state?.encryptionConfigurations;
             resourceInputs["indexArn"] = state?.indexArn;
             resourceInputs["indexName"] = state?.indexName;
+            resourceInputs["metadataConfiguration"] = state?.metadataConfiguration;
             resourceInputs["region"] = state?.region;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
@@ -146,7 +159,9 @@ export class VectorsIndex extends pulumi.CustomResource {
             resourceInputs["dataType"] = args?.dataType;
             resourceInputs["dimension"] = args?.dimension;
             resourceInputs["distanceMetric"] = args?.distanceMetric;
+            resourceInputs["encryptionConfigurations"] = args?.encryptionConfigurations;
             resourceInputs["indexName"] = args?.indexName;
+            resourceInputs["metadataConfiguration"] = args?.metadataConfiguration;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vectorBucketName"] = args?.vectorBucketName;
@@ -180,6 +195,10 @@ export interface VectorsIndexState {
      */
     distanceMetric?: pulumi.Input<string>;
     /**
+     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     */
+    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsIndexEncryptionConfiguration>[]>;
+    /**
      * ARN of the vector index.
      */
     indexArn?: pulumi.Input<string>;
@@ -187,6 +206,10 @@ export interface VectorsIndexState {
      * Name of the vector index.
      */
     indexName?: pulumi.Input<string>;
+    /**
+     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     */
+    metadataConfiguration?: pulumi.Input<inputs.s3.VectorsIndexMetadataConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -224,9 +247,17 @@ export interface VectorsIndexArgs {
      */
     distanceMetric: pulumi.Input<string>;
     /**
+     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     */
+    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsIndexEncryptionConfiguration>[]>;
+    /**
      * Name of the vector index.
      */
     indexName: pulumi.Input<string>;
+    /**
+     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     */
+    metadataConfiguration?: pulumi.Input<inputs.s3.VectorsIndexMetadataConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

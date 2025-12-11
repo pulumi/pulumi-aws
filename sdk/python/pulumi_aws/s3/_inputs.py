@@ -340,6 +340,10 @@ __all__ = [
     'ObjectCopyOverrideProviderDefaultTagsArgsDict',
     'PolicyDocumentArgs',
     'PolicyDocumentArgsDict',
+    'VectorsIndexEncryptionConfigurationArgs',
+    'VectorsIndexEncryptionConfigurationArgsDict',
+    'VectorsIndexMetadataConfigurationArgs',
+    'VectorsIndexMetadataConfigurationArgsDict',
     'VectorsVectorBucketEncryptionConfigurationArgs',
     'VectorsVectorBucketEncryptionConfigurationArgsDict',
 ]
@@ -10829,6 +10833,80 @@ class PolicyDocumentArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class VectorsIndexEncryptionConfigurationArgsDict(TypedDict):
+        kms_key_arn: pulumi.Input[_builtins.str]
+        sse_type: pulumi.Input[_builtins.str]
+        """
+        Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
+        """
+elif False:
+    VectorsIndexEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VectorsIndexEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_arn: pulumi.Input[_builtins.str],
+                 sse_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] sse_type: Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        pulumi.set(__self__, "sse_type", sse_type)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sseType")
+    def sse_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
+        """
+        return pulumi.get(self, "sse_type")
+
+    @sse_type.setter
+    def sse_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sse_type", value)
+
+
+if not MYPY:
+    class VectorsIndexMetadataConfigurationArgsDict(TypedDict):
+        non_filterable_metadata_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of non-filterable metadata keys.
+        """
+elif False:
+    VectorsIndexMetadataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VectorsIndexMetadataConfigurationArgs:
+    def __init__(__self__, *,
+                 non_filterable_metadata_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] non_filterable_metadata_keys: List of non-filterable metadata keys.
+        """
+        pulumi.set(__self__, "non_filterable_metadata_keys", non_filterable_metadata_keys)
+
+    @_builtins.property
+    @pulumi.getter(name="nonFilterableMetadataKeys")
+    def non_filterable_metadata_keys(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of non-filterable metadata keys.
+        """
+        return pulumi.get(self, "non_filterable_metadata_keys")
+
+    @non_filterable_metadata_keys.setter
+    def non_filterable_metadata_keys(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "non_filterable_metadata_keys", value)
 
 
 if not MYPY:

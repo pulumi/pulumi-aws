@@ -99,7 +99,8 @@ type LookupNodeGroupResult struct {
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// List of objects containing information about taints applied to the nodes in the EKS Node Group.
-	Taints []GetNodeGroupTaint `pulumi:"taints"`
+	Taints        []GetNodeGroupTaint        `pulumi:"taints"`
+	UpdateConfigs []GetNodeGroupUpdateConfig `pulumi:"updateConfigs"`
 	// Kubernetes version.
 	Version string `pulumi:"version"`
 }
@@ -239,6 +240,10 @@ func (o LookupNodeGroupResultOutput) Tags() pulumi.StringMapOutput {
 // List of objects containing information about taints applied to the nodes in the EKS Node Group.
 func (o LookupNodeGroupResultOutput) Taints() GetNodeGroupTaintArrayOutput {
 	return o.ApplyT(func(v LookupNodeGroupResult) []GetNodeGroupTaint { return v.Taints }).(GetNodeGroupTaintArrayOutput)
+}
+
+func (o LookupNodeGroupResultOutput) UpdateConfigs() GetNodeGroupUpdateConfigArrayOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) []GetNodeGroupUpdateConfig { return v.UpdateConfigs }).(GetNodeGroupUpdateConfigArrayOutput)
 }
 
 // Kubernetes version.

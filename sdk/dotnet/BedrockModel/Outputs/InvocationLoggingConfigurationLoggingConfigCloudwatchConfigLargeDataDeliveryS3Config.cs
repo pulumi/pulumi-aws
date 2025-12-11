@@ -16,7 +16,7 @@ namespace Pulumi.Aws.BedrockModel.Outputs
         /// <summary>
         /// S3 bucket name.
         /// </summary>
-        public readonly string? BucketName;
+        public readonly string BucketName;
         /// <summary>
         /// S3 prefix.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.BedrockModel.Outputs
 
         [OutputConstructor]
         private InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config(
-            string? bucketName,
+            string bucketName,
 
             string? keyPrefix)
         {

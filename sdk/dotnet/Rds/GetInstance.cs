@@ -321,6 +321,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string Timezone;
         /// <summary>
+        /// Order in which the instances are upgraded (`First`, `Second`, `Last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+        /// </summary>
+        public readonly string UpgradeRolloutOrder;
+        /// <summary>
         /// Provides a list of VPC security group elements that the DB instance belongs to.
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroups;
@@ -415,6 +419,8 @@ namespace Pulumi.Aws.Rds
 
             string timezone,
 
+            string upgradeRolloutOrder,
+
             ImmutableArray<string> vpcSecurityGroups)
         {
             Address = address;
@@ -461,6 +467,7 @@ namespace Pulumi.Aws.Rds
             StorageType = storageType;
             Tags = tags;
             Timezone = timezone;
+            UpgradeRolloutOrder = upgradeRolloutOrder;
             VpcSecurityGroups = vpcSecurityGroups;
         }
     }

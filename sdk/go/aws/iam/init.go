@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OpenIdConnectProvider{}
 	case "aws:iam/organizationsFeatures:OrganizationsFeatures":
 		r = &OrganizationsFeatures{}
+	case "aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation":
+		r = &OutboundWebIdentityFederation{}
 	case "aws:iam/policy:Policy":
 		r = &Policy{}
 	case "aws:iam/policyAttachment:PolicyAttachment":
@@ -160,6 +162,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iam/organizationsFeatures",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iam/outboundWebIdentityFederation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -21,14 +21,14 @@ namespace Pulumi.Aws.BedrockModel.Inputs
         /// <summary>
         /// Log group name.
         /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
+        [Input("logGroupName", required: true)]
+        public Input<string> LogGroupName { get; set; } = null!;
 
         /// <summary>
         /// The role ARN.
         /// </summary>
-        [Input("roleArn")]
-        public Input<string>? RoleArn { get; set; }
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
         public InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs()
         {

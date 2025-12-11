@@ -31,6 +31,7 @@ __all__ = [
     'AgentAgentGuardrailConfiguration',
     'AgentAgentKnowledgeBaseAssociationTimeouts',
     'AgentAgentMemoryConfiguration',
+    'AgentAgentMemoryConfigurationSessionSummaryConfiguration',
     'AgentAgentPromptOverrideConfiguration',
     'AgentAgentPromptOverrideConfigurationPromptConfiguration',
     'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration',
@@ -919,6 +920,8 @@ class AgentAgentMemoryConfiguration(dict):
         suggest = None
         if key == "enabledMemoryTypes":
             suggest = "enabled_memory_types"
+        elif key == "sessionSummaryConfigurations":
+            suggest = "session_summary_configurations"
         elif key == "storageDays":
             suggest = "storage_days"
 
@@ -935,12 +938,15 @@ class AgentAgentMemoryConfiguration(dict):
 
     def __init__(__self__, *,
                  enabled_memory_types: Sequence[_builtins.str],
+                 session_summary_configurations: Sequence['outputs.AgentAgentMemoryConfigurationSessionSummaryConfiguration'],
                  storage_days: _builtins.int):
         """
         :param Sequence[_builtins.str] enabled_memory_types: The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+        :param Sequence['AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs'] session_summary_configurations: Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `session_summary_configuration` Block for details.
         :param _builtins.int storage_days: The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
         """
         pulumi.set(__self__, "enabled_memory_types", enabled_memory_types)
+        pulumi.set(__self__, "session_summary_configurations", session_summary_configurations)
         pulumi.set(__self__, "storage_days", storage_days)
 
     @_builtins.property
@@ -952,12 +958,55 @@ class AgentAgentMemoryConfiguration(dict):
         return pulumi.get(self, "enabled_memory_types")
 
     @_builtins.property
+    @pulumi.getter(name="sessionSummaryConfigurations")
+    def session_summary_configurations(self) -> Sequence['outputs.AgentAgentMemoryConfigurationSessionSummaryConfiguration']:
+        """
+        Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `session_summary_configuration` Block for details.
+        """
+        return pulumi.get(self, "session_summary_configurations")
+
+    @_builtins.property
     @pulumi.getter(name="storageDays")
     def storage_days(self) -> _builtins.int:
         """
         The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
         """
         return pulumi.get(self, "storage_days")
+
+
+@pulumi.output_type
+class AgentAgentMemoryConfigurationSessionSummaryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRecentSessions":
+            suggest = "max_recent_sessions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentAgentMemoryConfigurationSessionSummaryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentAgentMemoryConfigurationSessionSummaryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentAgentMemoryConfigurationSessionSummaryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_recent_sessions: _builtins.int):
+        """
+        :param _builtins.int max_recent_sessions: Maximum number of recent session summaries to include in the agent's prompt context.
+        """
+        pulumi.set(__self__, "max_recent_sessions", max_recent_sessions)
+
+    @_builtins.property
+    @pulumi.getter(name="maxRecentSessions")
+    def max_recent_sessions(self) -> _builtins.int:
+        """
+        Maximum number of recent session summaries to include in the agent's prompt context.
+        """
+        return pulumi.get(self, "max_recent_sessions")
 
 
 @pulumi.output_type

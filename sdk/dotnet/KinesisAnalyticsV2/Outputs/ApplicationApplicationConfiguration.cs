@@ -18,6 +18,10 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationApplicationCodeConfiguration ApplicationCodeConfiguration;
         /// <summary>
+        /// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+        /// </summary>
+        public readonly Outputs.ApplicationApplicationConfigurationApplicationEncryptionConfiguration? ApplicationEncryptionConfiguration;
+        /// <summary>
         /// Describes whether snapshots are enabled for a Flink-based application.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationApplicationSnapshotConfiguration? ApplicationSnapshotConfiguration;
@@ -46,6 +50,8 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
         private ApplicationApplicationConfiguration(
             Outputs.ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration,
 
+            Outputs.ApplicationApplicationConfigurationApplicationEncryptionConfiguration? applicationEncryptionConfiguration,
+
             Outputs.ApplicationApplicationConfigurationApplicationSnapshotConfiguration? applicationSnapshotConfiguration,
 
             Outputs.ApplicationApplicationConfigurationEnvironmentProperties? environmentProperties,
@@ -59,6 +65,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
             Outputs.ApplicationApplicationConfigurationVpcConfiguration? vpcConfiguration)
         {
             ApplicationCodeConfiguration = applicationCodeConfiguration;
+            ApplicationEncryptionConfiguration = applicationEncryptionConfiguration;
             ApplicationSnapshotConfiguration = applicationSnapshotConfiguration;
             EnvironmentProperties = environmentProperties;
             FlinkApplicationConfiguration = flinkApplicationConfiguration;

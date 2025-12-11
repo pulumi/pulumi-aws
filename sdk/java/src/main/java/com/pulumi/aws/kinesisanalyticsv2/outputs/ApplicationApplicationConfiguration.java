@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationApplicationCodeConfiguration;
+import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationApplicationEncryptionConfiguration;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationApplicationSnapshotConfiguration;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationEnvironmentProperties;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationFlinkApplicationConfiguration;
@@ -23,6 +24,11 @@ public final class ApplicationApplicationConfiguration {
      * 
      */
     private ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration;
+    /**
+     * @return The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+     * 
+     */
+    private @Nullable ApplicationApplicationConfigurationApplicationEncryptionConfiguration applicationEncryptionConfiguration;
     /**
      * @return Describes whether snapshots are enabled for a Flink-based application.
      * 
@@ -61,6 +67,13 @@ public final class ApplicationApplicationConfiguration {
      */
     public ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration() {
         return this.applicationCodeConfiguration;
+    }
+    /**
+     * @return The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+     * 
+     */
+    public Optional<ApplicationApplicationConfigurationApplicationEncryptionConfiguration> applicationEncryptionConfiguration() {
+        return Optional.ofNullable(this.applicationEncryptionConfiguration);
     }
     /**
      * @return Describes whether snapshots are enabled for a Flink-based application.
@@ -115,6 +128,7 @@ public final class ApplicationApplicationConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration;
+        private @Nullable ApplicationApplicationConfigurationApplicationEncryptionConfiguration applicationEncryptionConfiguration;
         private @Nullable ApplicationApplicationConfigurationApplicationSnapshotConfiguration applicationSnapshotConfiguration;
         private @Nullable ApplicationApplicationConfigurationEnvironmentProperties environmentProperties;
         private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfiguration flinkApplicationConfiguration;
@@ -125,6 +139,7 @@ public final class ApplicationApplicationConfiguration {
         public Builder(ApplicationApplicationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationCodeConfiguration = defaults.applicationCodeConfiguration;
+    	      this.applicationEncryptionConfiguration = defaults.applicationEncryptionConfiguration;
     	      this.applicationSnapshotConfiguration = defaults.applicationSnapshotConfiguration;
     	      this.environmentProperties = defaults.environmentProperties;
     	      this.flinkApplicationConfiguration = defaults.flinkApplicationConfiguration;
@@ -139,6 +154,12 @@ public final class ApplicationApplicationConfiguration {
               throw new MissingRequiredPropertyException("ApplicationApplicationConfiguration", "applicationCodeConfiguration");
             }
             this.applicationCodeConfiguration = applicationCodeConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder applicationEncryptionConfiguration(@Nullable ApplicationApplicationConfigurationApplicationEncryptionConfiguration applicationEncryptionConfiguration) {
+
+            this.applicationEncryptionConfiguration = applicationEncryptionConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -180,6 +201,7 @@ public final class ApplicationApplicationConfiguration {
         public ApplicationApplicationConfiguration build() {
             final var _resultValue = new ApplicationApplicationConfiguration();
             _resultValue.applicationCodeConfiguration = applicationCodeConfiguration;
+            _resultValue.applicationEncryptionConfiguration = applicationEncryptionConfiguration;
             _resultValue.applicationSnapshotConfiguration = applicationSnapshotConfiguration;
             _resultValue.environmentProperties = environmentProperties;
             _resultValue.flinkApplicationConfiguration = flinkApplicationConfiguration;

@@ -145,6 +145,8 @@ type LookupInstanceResult struct {
 	Tags        map[string]string `pulumi:"tags"`
 	// Time zone of the DB instance.
 	Timezone string `pulumi:"timezone"`
+	// Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+	UpgradeRolloutOrder string `pulumi:"upgradeRolloutOrder"`
 	// Provides a list of VPC security group elements that the DB instance belongs to.
 	VpcSecurityGroups []string `pulumi:"vpcSecurityGroups"`
 }
@@ -402,6 +404,11 @@ func (o LookupInstanceResultOutput) Tags() pulumi.StringMapOutput {
 // Time zone of the DB instance.
 func (o LookupInstanceResultOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+// Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+func (o LookupInstanceResultOutput) UpgradeRolloutOrder() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.UpgradeRolloutOrder }).(pulumi.StringOutput)
 }
 
 // Provides a list of VPC security group elements that the DB instance belongs to.
