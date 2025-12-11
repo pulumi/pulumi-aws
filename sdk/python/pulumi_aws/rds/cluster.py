@@ -1164,6 +1164,7 @@ class _ClusterState:
                  storage_type: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_rollout_order: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
@@ -1247,6 +1248,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] upgrade_rollout_order: Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
                
                For more detailed documentation about each argument, refer to
@@ -1401,6 +1403,8 @@ class _ClusterState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if upgrade_rollout_order is not None:
+            pulumi.set(__self__, "upgrade_rollout_order", upgrade_rollout_order)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
@@ -2286,6 +2290,18 @@ class _ClusterState:
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
+    @pulumi.getter(name="upgradeRolloutOrder")
+    def upgrade_rollout_order(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+        """
+        return pulumi.get(self, "upgrade_rollout_order")
+
+    @upgrade_rollout_order.setter
+    def upgrade_rollout_order(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "upgrade_rollout_order", value)
+
+    @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -3035,6 +3051,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["master_user_secrets"] = None
             __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["upgrade_rollout_order"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword", "masterPasswordWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
@@ -3120,6 +3137,7 @@ class Cluster(pulumi.CustomResource):
             storage_type: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            upgrade_rollout_order: Optional[pulumi.Input[_builtins.str]] = None,
             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
@@ -3208,6 +3226,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] upgrade_rollout_order: Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
                
                For more detailed documentation about each argument, refer to
@@ -3293,6 +3312,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["storage_type"] = storage_type
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["upgrade_rollout_order"] = upgrade_rollout_order
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
@@ -3884,6 +3904,14 @@ class Cluster(pulumi.CustomResource):
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @_builtins.property
+    @pulumi.getter(name="upgradeRolloutOrder")
+    def upgrade_rollout_order(self) -> pulumi.Output[_builtins.str]:
+        """
+        Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+        """
+        return pulumi.get(self, "upgrade_rollout_order")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")

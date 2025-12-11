@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, cluster_scalability_type=None, database_insights_mode=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, db_system_id=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, id=None, kms_key_id=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, region=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, cluster_scalability_type=None, database_insights_mode=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, db_system_id=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, id=None, kms_key_id=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, region=None, replication_source_identifier=None, storage_encrypted=None, tags=None, upgrade_rollout_order=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -139,6 +139,9 @@ class GetClusterResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if upgrade_rollout_order and not isinstance(upgrade_rollout_order, str):
+            raise TypeError("Expected argument 'upgrade_rollout_order' to be a str")
+        pulumi.set(__self__, "upgrade_rollout_order", upgrade_rollout_order)
         if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError("Expected argument 'vpc_security_group_ids' to be a list")
         pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
@@ -335,6 +338,11 @@ class GetClusterResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="upgradeRolloutOrder")
+    def upgrade_rollout_order(self) -> _builtins.str:
+        return pulumi.get(self, "upgrade_rollout_order")
+
+    @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "vpc_security_group_ids")
@@ -383,6 +391,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             replication_source_identifier=self.replication_source_identifier,
             storage_encrypted=self.storage_encrypted,
             tags=self.tags,
+            upgrade_rollout_order=self.upgrade_rollout_order,
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
@@ -452,6 +461,7 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
         replication_source_identifier=pulumi.get(__ret__, 'replication_source_identifier'),
         storage_encrypted=pulumi.get(__ret__, 'storage_encrypted'),
         tags=pulumi.get(__ret__, 'tags'),
+        upgrade_rollout_order=pulumi.get(__ret__, 'upgrade_rollout_order'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 def get_cluster_output(cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -518,4 +528,5 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[_builtins.str]]
         replication_source_identifier=pulumi.get(__response__, 'replication_source_identifier'),
         storage_encrypted=pulumi.get(__response__, 'storage_encrypted'),
         tags=pulumi.get(__response__, 'tags'),
+        upgrade_rollout_order=pulumi.get(__response__, 'upgrade_rollout_order'),
         vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids')))

@@ -710,6 +710,10 @@ export class Instance extends pulumi.CustomResource {
      */
     declare public readonly timezone: pulumi.Output<string>;
     /**
+     * Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     */
+    declare public /*out*/ readonly upgradeRolloutOrder: pulumi.Output<string>;
+    /**
      * Whether to upgrade the storage file system configuration on the read replica.
      * Can only be set with `replicateSourceDb`.
      */
@@ -819,6 +823,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timezone"] = state?.timezone;
+            resourceInputs["upgradeRolloutOrder"] = state?.upgradeRolloutOrder;
             resourceInputs["upgradeStorageConfig"] = state?.upgradeStorageConfig;
             resourceInputs["username"] = state?.username;
             resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
@@ -911,6 +916,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["upgradeRolloutOrder"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password", "passwordWo"] };
@@ -1323,6 +1329,10 @@ export interface InstanceState {
      * for more information.
      */
     timezone?: pulumi.Input<string>;
+    /**
+     * Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     */
+    upgradeRolloutOrder?: pulumi.Input<string>;
     /**
      * Whether to upgrade the storage file system configuration on the read replica.
      * Can only be set with `replicateSourceDb`.

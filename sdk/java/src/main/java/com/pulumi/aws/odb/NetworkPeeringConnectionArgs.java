@@ -25,11 +25,26 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
         return this.displayName;
     }
 
-    @Import(name="odbNetworkId", required=true)
-    private Output<String> odbNetworkId;
+    /**
+     * ARN of the odb network peering connection.
+     * 
+     */
+    @Import(name="odbNetworkArn")
+    private @Nullable Output<String> odbNetworkArn;
 
-    public Output<String> odbNetworkId() {
-        return this.odbNetworkId;
+    /**
+     * @return ARN of the odb network peering connection.
+     * 
+     */
+    public Optional<Output<String>> odbNetworkArn() {
+        return Optional.ofNullable(this.odbNetworkArn);
+    }
+
+    @Import(name="odbNetworkId")
+    private @Nullable Output<String> odbNetworkId;
+
+    public Optional<Output<String>> odbNetworkId() {
+        return Optional.ofNullable(this.odbNetworkId);
     }
 
     @Import(name="peerNetworkId", required=true)
@@ -80,6 +95,7 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
 
     private NetworkPeeringConnectionArgs(NetworkPeeringConnectionArgs $) {
         this.displayName = $.displayName;
+        this.odbNetworkArn = $.odbNetworkArn;
         this.odbNetworkId = $.odbNetworkId;
         this.peerNetworkId = $.peerNetworkId;
         this.region = $.region;
@@ -114,7 +130,28 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
             return displayName(Output.of(displayName));
         }
 
-        public Builder odbNetworkId(Output<String> odbNetworkId) {
+        /**
+         * @param odbNetworkArn ARN of the odb network peering connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(@Nullable Output<String> odbNetworkArn) {
+            $.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+
+        /**
+         * @param odbNetworkArn ARN of the odb network peering connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(String odbNetworkArn) {
+            return odbNetworkArn(Output.of(odbNetworkArn));
+        }
+
+        public Builder odbNetworkId(@Nullable Output<String> odbNetworkId) {
             $.odbNetworkId = odbNetworkId;
             return this;
         }
@@ -186,9 +223,6 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
         public NetworkPeeringConnectionArgs build() {
             if ($.displayName == null) {
                 throw new MissingRequiredPropertyException("NetworkPeeringConnectionArgs", "displayName");
-            }
-            if ($.odbNetworkId == null) {
-                throw new MissingRequiredPropertyException("NetworkPeeringConnectionArgs", "odbNetworkId");
             }
             if ($.peerNetworkId == null) {
                 throw new MissingRequiredPropertyException("NetworkPeeringConnectionArgs", "peerNetworkId");

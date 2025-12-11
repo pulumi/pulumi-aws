@@ -69,9 +69,9 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     declare public readonly displayName: pulumi.Output<string>;
     /**
-     * ARN of the ODB network peering connection.
+     * ARN of the odb network peering connection.
      */
-    declare public /*out*/ readonly odbNetworkArn: pulumi.Output<string>;
+    declare public readonly odbNetworkArn: pulumi.Output<string>;
     declare public readonly odbNetworkId: pulumi.Output<string>;
     /**
      * Type of the ODB peering connection.
@@ -141,13 +141,11 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (args?.odbNetworkId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'odbNetworkId'");
-            }
             if (args?.peerNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerNetworkId'");
             }
             resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["odbNetworkArn"] = args?.odbNetworkArn;
             resourceInputs["odbNetworkId"] = args?.odbNetworkId;
             resourceInputs["peerNetworkId"] = args?.peerNetworkId;
             resourceInputs["region"] = args?.region;
@@ -155,7 +153,6 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["odbNetworkArn"] = undefined /*out*/;
             resourceInputs["odbPeeringConnectionType"] = undefined /*out*/;
             resourceInputs["peerNetworkArn"] = undefined /*out*/;
             resourceInputs["percentProgress"] = undefined /*out*/;
@@ -179,7 +176,7 @@ export interface NetworkPeeringConnectionState {
     createdAt?: pulumi.Input<string>;
     displayName?: pulumi.Input<string>;
     /**
-     * ARN of the ODB network peering connection.
+     * ARN of the odb network peering connection.
      */
     odbNetworkArn?: pulumi.Input<string>;
     odbNetworkId?: pulumi.Input<string>;
@@ -224,7 +221,11 @@ export interface NetworkPeeringConnectionState {
  */
 export interface NetworkPeeringConnectionArgs {
     displayName: pulumi.Input<string>;
-    odbNetworkId: pulumi.Input<string>;
+    /**
+     * ARN of the odb network peering connection.
+     */
+    odbNetworkArn?: pulumi.Input<string>;
+    odbNetworkId?: pulumi.Input<string>;
     peerNetworkId: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

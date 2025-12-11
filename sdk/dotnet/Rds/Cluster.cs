@@ -743,6 +743,12 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// Order in which the clusters are upgraded (`First`, `Second`, `Last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+        /// </summary>
+        [Output("upgradeRolloutOrder")]
+        public Output<string> UpgradeRolloutOrder { get; private set; } = null!;
+
+        /// <summary>
         /// List of VPC security groups to associate with the Cluster
         /// 
         /// For more detailed documentation about each argument, refer to
@@ -1773,6 +1779,12 @@ namespace Pulumi.Aws.Rds
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Order in which the clusters are upgraded (`First`, `Second`, `Last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+        /// </summary>
+        [Input("upgradeRolloutOrder")]
+        public Input<string>? UpgradeRolloutOrder { get; set; }
 
         [Input("vpcSecurityGroupIds")]
         private InputList<string>? _vpcSecurityGroupIds;

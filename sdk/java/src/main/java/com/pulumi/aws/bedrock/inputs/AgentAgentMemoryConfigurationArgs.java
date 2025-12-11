@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -32,6 +33,21 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
     }
 
     /**
+     * Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
+     * 
+     */
+    @Import(name="sessionSummaryConfigurations", required=true)
+    private Output<List<AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs>> sessionSummaryConfigurations;
+
+    /**
+     * @return Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
+     * 
+     */
+    public Output<List<AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs>> sessionSummaryConfigurations() {
+        return this.sessionSummaryConfigurations;
+    }
+
+    /**
      * The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
      * 
      */
@@ -50,6 +66,7 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
 
     private AgentAgentMemoryConfigurationArgs(AgentAgentMemoryConfigurationArgs $) {
         this.enabledMemoryTypes = $.enabledMemoryTypes;
+        this.sessionSummaryConfigurations = $.sessionSummaryConfigurations;
         this.storageDays = $.storageDays;
     }
 
@@ -103,6 +120,37 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
         }
 
         /**
+         * @param sessionSummaryConfigurations Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionSummaryConfigurations(Output<List<AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs>> sessionSummaryConfigurations) {
+            $.sessionSummaryConfigurations = sessionSummaryConfigurations;
+            return this;
+        }
+
+        /**
+         * @param sessionSummaryConfigurations Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionSummaryConfigurations(List<AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs> sessionSummaryConfigurations) {
+            return sessionSummaryConfigurations(Output.of(sessionSummaryConfigurations));
+        }
+
+        /**
+         * @param sessionSummaryConfigurations Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionSummaryConfigurations(AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs... sessionSummaryConfigurations) {
+            return sessionSummaryConfigurations(List.of(sessionSummaryConfigurations));
+        }
+
+        /**
          * @param storageDays The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
          * 
          * @return builder
@@ -126,6 +174,9 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
         public AgentAgentMemoryConfigurationArgs build() {
             if ($.enabledMemoryTypes == null) {
                 throw new MissingRequiredPropertyException("AgentAgentMemoryConfigurationArgs", "enabledMemoryTypes");
+            }
+            if ($.sessionSummaryConfigurations == null) {
+                throw new MissingRequiredPropertyException("AgentAgentMemoryConfigurationArgs", "sessionSummaryConfigurations");
             }
             if ($.storageDays == null) {
                 throw new MissingRequiredPropertyException("AgentAgentMemoryConfigurationArgs", "storageDays");

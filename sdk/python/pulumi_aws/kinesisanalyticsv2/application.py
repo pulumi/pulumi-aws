@@ -34,7 +34,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
+        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
         :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input['ApplicationApplicationConfigurationArgs'] application_configuration: The application's configuration
         :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
@@ -71,7 +71,7 @@ class ApplicationArgs:
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Input[_builtins.str]:
         """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
+        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
         """
         return pulumi.get(self, "runtime_environment")
 
@@ -232,7 +232,7 @@ class _ApplicationState:
         :param pulumi.Input[_builtins.str] last_update_timestamp: The current timestamp when the application was last updated.
         :param pulumi.Input[_builtins.str] name: The name of the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
+        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
         :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[_builtins.str] status: The status of the application.
@@ -399,7 +399,7 @@ class _ApplicationState:
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
+        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
         """
         return pulumi.get(self, "runtime_environment")
 
@@ -724,7 +724,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[_builtins.str] name: The name of the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
+        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
         :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -1052,7 +1052,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] last_update_timestamp: The current timestamp when the application was last updated.
         :param pulumi.Input[_builtins.str] name: The name of the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
+        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
         :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[_builtins.str] status: The status of the application.
@@ -1167,7 +1167,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Output[_builtins.str]:
         """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
+        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
         """
         return pulumi.get(self, "runtime_environment")
 

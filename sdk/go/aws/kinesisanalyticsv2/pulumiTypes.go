@@ -16,6 +16,8 @@ var _ = internal.GetEnvOrDefault
 type ApplicationApplicationConfiguration struct {
 	// The code location and type parameters for the application.
 	ApplicationCodeConfiguration ApplicationApplicationConfigurationApplicationCodeConfiguration `pulumi:"applicationCodeConfiguration"`
+	// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+	ApplicationEncryptionConfiguration *ApplicationApplicationConfigurationApplicationEncryptionConfiguration `pulumi:"applicationEncryptionConfiguration"`
 	// Describes whether snapshots are enabled for a Flink-based application.
 	ApplicationSnapshotConfiguration *ApplicationApplicationConfigurationApplicationSnapshotConfiguration `pulumi:"applicationSnapshotConfiguration"`
 	// Describes execution properties for a Flink-based application.
@@ -44,6 +46,8 @@ type ApplicationApplicationConfigurationInput interface {
 type ApplicationApplicationConfigurationArgs struct {
 	// The code location and type parameters for the application.
 	ApplicationCodeConfiguration ApplicationApplicationConfigurationApplicationCodeConfigurationInput `pulumi:"applicationCodeConfiguration"`
+	// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+	ApplicationEncryptionConfiguration ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrInput `pulumi:"applicationEncryptionConfiguration"`
 	// Describes whether snapshots are enabled for a Flink-based application.
 	ApplicationSnapshotConfiguration ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrInput `pulumi:"applicationSnapshotConfiguration"`
 	// Describes execution properties for a Flink-based application.
@@ -142,6 +146,13 @@ func (o ApplicationApplicationConfigurationOutput) ApplicationCodeConfiguration(
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationOutput)
 }
 
+// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+func (o ApplicationApplicationConfigurationOutput) ApplicationEncryptionConfiguration() ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationApplicationEncryptionConfiguration {
+		return v.ApplicationEncryptionConfiguration
+	}).(ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput)
+}
+
 // Describes whether snapshots are enabled for a Flink-based application.
 func (o ApplicationApplicationConfigurationOutput) ApplicationSnapshotConfiguration() ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationApplicationSnapshotConfiguration {
@@ -216,6 +227,16 @@ func (o ApplicationApplicationConfigurationPtrOutput) ApplicationCodeConfigurati
 		}
 		return &v.ApplicationCodeConfiguration
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput)
+}
+
+// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+func (o ApplicationApplicationConfigurationPtrOutput) ApplicationEncryptionConfiguration() ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationApplicationEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationEncryptionConfiguration
+	}).(ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput)
 }
 
 // Describes whether snapshots are enabled for a Flink-based application.
@@ -776,6 +797,162 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 			return nil
 		}
 		return v.ObjectVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationApplicationConfigurationApplicationEncryptionConfiguration struct {
+	// The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+	KeyId *string `pulumi:"keyId"`
+	// The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+	KeyType string `pulumi:"keyType"`
+}
+
+// ApplicationApplicationConfigurationApplicationEncryptionConfigurationInput is an input type that accepts ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs and ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationApplicationConfigurationApplicationEncryptionConfigurationInput` via:
+//
+//	ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs{...}
+type ApplicationApplicationConfigurationApplicationEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput() ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput
+	ToApplicationApplicationConfigurationApplicationEncryptionConfigurationOutputWithContext(context.Context) ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput
+}
+
+type ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs struct {
+	// The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
+	// The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+	KeyType pulumi.StringInput `pulumi:"keyType"`
+}
+
+func (ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationApplicationConfigurationApplicationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput() ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput {
+	return i.ToApplicationApplicationConfigurationApplicationEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput)
+}
+
+func (i ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput() ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
+	return i.ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput).ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs, ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtr and ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrInput` via:
+//
+//	        ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput() ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput
+	ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutputWithContext(context.Context) ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput
+}
+
+type applicationApplicationConfigurationApplicationEncryptionConfigurationPtrType ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs
+
+func ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtr(v *ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs) ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrInput {
+	return (*applicationApplicationConfigurationApplicationEncryptionConfigurationPtrType)(v)
+}
+
+func (*applicationApplicationConfigurationApplicationEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationApplicationConfigurationApplicationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *applicationApplicationConfigurationApplicationEncryptionConfigurationPtrType) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput() ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
+	return i.ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationApplicationConfigurationApplicationEncryptionConfigurationPtrType) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput)
+}
+
+type ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationApplicationConfigurationApplicationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput() ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput() ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
+	return o.ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationApplicationEncryptionConfiguration) *ApplicationApplicationConfigurationApplicationEncryptionConfiguration {
+		return &v
+	}).(ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput)
+}
+
+// The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationEncryptionConfiguration) *string { return v.KeyId }).(pulumi.StringPtrOutput)
+}
+
+// The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
+}
+
+type ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationApplicationConfigurationApplicationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput() ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput) ToApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationEncryptionConfiguration) ApplicationApplicationConfigurationApplicationEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationApplicationEncryptionConfiguration
+		return ret
+	}).(ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput)
+}
+
+// The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6849,6 +7026,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrInput)(nil)).Elem(), ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationInput)(nil)).Elem(), ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrInput)(nil)).Elem(), ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationApplicationConfigurationApplicationEncryptionConfigurationInput)(nil)).Elem(), ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrInput)(nil)).Elem(), ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationApplicationConfigurationApplicationSnapshotConfigurationInput)(nil)).Elem(), ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrInput)(nil)).Elem(), ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationApplicationConfigurationEnvironmentPropertiesInput)(nil)).Elem(), ApplicationApplicationConfigurationEnvironmentPropertiesArgs{})
@@ -6934,6 +7113,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationEnvironmentPropertiesOutput{})

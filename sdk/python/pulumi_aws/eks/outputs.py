@@ -82,6 +82,7 @@ __all__ = [
     'GetNodeGroupResourceAutoscalingGroupResult',
     'GetNodeGroupScalingConfigResult',
     'GetNodeGroupTaintResult',
+    'GetNodeGroupUpdateConfigResult',
 ]
 
 @pulumi.output_type
@@ -1892,6 +1893,8 @@ class NodeGroupUpdateConfig(dict):
             suggest = "max_unavailable"
         elif key == "maxUnavailablePercentage":
             suggest = "max_unavailable_percentage"
+        elif key == "updateStrategy":
+            suggest = "update_strategy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NodeGroupUpdateConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1906,15 +1909,19 @@ class NodeGroupUpdateConfig(dict):
 
     def __init__(__self__, *,
                  max_unavailable: Optional[_builtins.int] = None,
-                 max_unavailable_percentage: Optional[_builtins.int] = None):
+                 max_unavailable_percentage: Optional[_builtins.int] = None,
+                 update_strategy: Optional[_builtins.str] = None):
         """
         :param _builtins.int max_unavailable: Desired max number of unavailable worker nodes during node group update.
         :param _builtins.int max_unavailable_percentage: Desired max percentage of unavailable worker nodes during node group update.
+        :param _builtins.str update_strategy: Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
         """
         if max_unavailable is not None:
             pulumi.set(__self__, "max_unavailable", max_unavailable)
         if max_unavailable_percentage is not None:
             pulumi.set(__self__, "max_unavailable_percentage", max_unavailable_percentage)
+        if update_strategy is not None:
+            pulumi.set(__self__, "update_strategy", update_strategy)
 
     @_builtins.property
     @pulumi.getter(name="maxUnavailable")
@@ -1931,6 +1938,14 @@ class NodeGroupUpdateConfig(dict):
         Desired max percentage of unavailable worker nodes during node group update.
         """
         return pulumi.get(self, "max_unavailable_percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="updateStrategy")
+    def update_strategy(self) -> Optional[_builtins.str]:
+        """
+        Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+        """
+        return pulumi.get(self, "update_strategy")
 
 
 @pulumi.output_type
@@ -2755,5 +2770,31 @@ class GetNodeGroupTaintResult(dict):
         The value of the taint.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetNodeGroupUpdateConfigResult(dict):
+    def __init__(__self__, *,
+                 max_unavailable: _builtins.int,
+                 max_unavailable_percentage: _builtins.int,
+                 update_strategy: _builtins.str):
+        pulumi.set(__self__, "max_unavailable", max_unavailable)
+        pulumi.set(__self__, "max_unavailable_percentage", max_unavailable_percentage)
+        pulumi.set(__self__, "update_strategy", update_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> _builtins.int:
+        return pulumi.get(self, "max_unavailable")
+
+    @_builtins.property
+    @pulumi.getter(name="maxUnavailablePercentage")
+    def max_unavailable_percentage(self) -> _builtins.int:
+        return pulumi.get(self, "max_unavailable_percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="updateStrategy")
+    def update_strategy(self) -> _builtins.str:
+        return pulumi.get(self, "update_strategy")
 
 

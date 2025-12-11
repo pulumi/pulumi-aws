@@ -664,6 +664,8 @@ type Instance struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone pulumi.StringOutput `pulumi:"timezone"`
+	// Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+	UpgradeRolloutOrder pulumi.StringOutput `pulumi:"upgradeRolloutOrder"`
 	// Whether to upgrade the storage file system configuration on the read replica.
 	// Can only be set with `replicateSourceDb`.
 	UpgradeStorageConfig pulumi.BoolPtrOutput `pulumi:"upgradeStorageConfig"`
@@ -959,6 +961,8 @@ type instanceState struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone *string `pulumi:"timezone"`
+	// Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+	UpgradeRolloutOrder *string `pulumi:"upgradeRolloutOrder"`
 	// Whether to upgrade the storage file system configuration on the read replica.
 	// Can only be set with `replicateSourceDb`.
 	UpgradeStorageConfig *bool `pulumi:"upgradeStorageConfig"`
@@ -1211,6 +1215,8 @@ type InstanceState struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone pulumi.StringPtrInput
+	// Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+	UpgradeRolloutOrder pulumi.StringPtrInput
 	// Whether to upgrade the storage file system configuration on the read replica.
 	// Can only be set with `replicateSourceDb`.
 	UpgradeStorageConfig pulumi.BoolPtrInput
@@ -2253,6 +2259,11 @@ func (o InstanceOutput) TagsAll() pulumi.StringMapOutput {
 // for more information.
 func (o InstanceOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Timezone }).(pulumi.StringOutput)
+}
+
+// Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+func (o InstanceOutput) UpgradeRolloutOrder() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.UpgradeRolloutOrder }).(pulumi.StringOutput)
 }
 
 // Whether to upgrade the storage file system configuration on the read replica.

@@ -161,17 +161,17 @@ class InvocationLoggingConfigurationLoggingConfigArgs:
 
 if not MYPY:
     class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict(TypedDict):
-        large_data_delivery_s3_config: NotRequired[pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict']]
-        """
-        S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
-        """
-        log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+        log_group_name: pulumi.Input[_builtins.str]
         """
         Log group name.
         """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
+        role_arn: pulumi.Input[_builtins.str]
         """
         The role ARN.
+        """
+        large_data_delivery_s3_config: NotRequired[pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict']]
+        """
+        S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
         """
 elif False:
     InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -179,20 +179,42 @@ elif False:
 @pulumi.input_type
 class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs:
     def __init__(__self__, *,
-                 large_data_delivery_s3_config: Optional[pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs']] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group_name: pulumi.Input[_builtins.str],
+                 role_arn: pulumi.Input[_builtins.str],
+                 large_data_delivery_s3_config: Optional[pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs']] = None):
         """
-        :param pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs'] large_data_delivery_s3_config: S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
         :param pulumi.Input[_builtins.str] log_group_name: Log group name.
         :param pulumi.Input[_builtins.str] role_arn: The role ARN.
+        :param pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs'] large_data_delivery_s3_config: S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
         """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        pulumi.set(__self__, "role_arn", role_arn)
         if large_data_delivery_s3_config is not None:
             pulumi.set(__self__, "large_data_delivery_s3_config", large_data_delivery_s3_config)
-        if log_group_name is not None:
-            pulumi.set(__self__, "log_group_name", log_group_name)
-        if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Log group name.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The role ARN.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="largeDataDeliveryS3Config")
@@ -206,34 +228,10 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs:
     def large_data_delivery_s3_config(self, value: Optional[pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs']]):
         pulumi.set(self, "large_data_delivery_s3_config", value)
 
-    @_builtins.property
-    @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Log group name.
-        """
-        return pulumi.get(self, "log_group_name")
-
-    @log_group_name.setter
-    def log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "log_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The role ARN.
-        """
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "role_arn", value)
-
 
 if not MYPY:
     class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+        bucket_name: pulumi.Input[_builtins.str]
         """
         S3 bucket name.
         """
@@ -247,27 +245,26 @@ elif False:
 @pulumi.input_type
 class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs:
     def __init__(__self__, *,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[_builtins.str],
                  key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
         :param pulumi.Input[_builtins.str] key_prefix: S3 prefix.
         """
-        if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_name", bucket_name)
         if key_prefix is not None:
             pulumi.set(__self__, "key_prefix", key_prefix)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[_builtins.str]:
         """
         S3 bucket name.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
@@ -285,7 +282,7 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDelive
 
 if not MYPY:
     class InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+        bucket_name: pulumi.Input[_builtins.str]
         """
         S3 bucket name.
         """
@@ -299,27 +296,26 @@ elif False:
 @pulumi.input_type
 class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs:
     def __init__(__self__, *,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[_builtins.str],
                  key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
         :param pulumi.Input[_builtins.str] key_prefix: S3 prefix.
         """
-        if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_name", bucket_name)
         if key_prefix is not None:
             pulumi.set(__self__, "key_prefix", key_prefix)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[_builtins.str]:
         """
         S3 bucket name.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property

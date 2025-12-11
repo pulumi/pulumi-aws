@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +22,11 @@ public final class NodeGroupUpdateConfig {
      * 
      */
     private @Nullable Integer maxUnavailablePercentage;
+    /**
+     * @return Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+     * 
+     */
+    private @Nullable String updateStrategy;
 
     private NodeGroupUpdateConfig() {}
     /**
@@ -37,6 +43,13 @@ public final class NodeGroupUpdateConfig {
     public Optional<Integer> maxUnavailablePercentage() {
         return Optional.ofNullable(this.maxUnavailablePercentage);
     }
+    /**
+     * @return Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+     * 
+     */
+    public Optional<String> updateStrategy() {
+        return Optional.ofNullable(this.updateStrategy);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +62,13 @@ public final class NodeGroupUpdateConfig {
     public static final class Builder {
         private @Nullable Integer maxUnavailable;
         private @Nullable Integer maxUnavailablePercentage;
+        private @Nullable String updateStrategy;
         public Builder() {}
         public Builder(NodeGroupUpdateConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxUnavailable = defaults.maxUnavailable;
     	      this.maxUnavailablePercentage = defaults.maxUnavailablePercentage;
+    	      this.updateStrategy = defaults.updateStrategy;
         }
 
         @CustomType.Setter
@@ -68,10 +83,17 @@ public final class NodeGroupUpdateConfig {
             this.maxUnavailablePercentage = maxUnavailablePercentage;
             return this;
         }
+        @CustomType.Setter
+        public Builder updateStrategy(@Nullable String updateStrategy) {
+
+            this.updateStrategy = updateStrategy;
+            return this;
+        }
         public NodeGroupUpdateConfig build() {
             final var _resultValue = new NodeGroupUpdateConfig();
             _resultValue.maxUnavailable = maxUnavailable;
             _resultValue.maxUnavailablePercentage = maxUnavailablePercentage;
+            _resultValue.updateStrategy = updateStrategy;
             return _resultValue;
         }
     }

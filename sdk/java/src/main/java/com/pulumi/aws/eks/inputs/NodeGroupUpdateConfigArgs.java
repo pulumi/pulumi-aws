@@ -6,6 +6,7 @@ package com.pulumi.aws.eks.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -45,11 +46,27 @@ public final class NodeGroupUpdateConfigArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.maxUnavailablePercentage);
     }
 
+    /**
+     * Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+     * 
+     */
+    @Import(name="updateStrategy")
+    private @Nullable Output<String> updateStrategy;
+
+    /**
+     * @return Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+     * 
+     */
+    public Optional<Output<String>> updateStrategy() {
+        return Optional.ofNullable(this.updateStrategy);
+    }
+
     private NodeGroupUpdateConfigArgs() {}
 
     private NodeGroupUpdateConfigArgs(NodeGroupUpdateConfigArgs $) {
         this.maxUnavailable = $.maxUnavailable;
         this.maxUnavailablePercentage = $.maxUnavailablePercentage;
+        this.updateStrategy = $.updateStrategy;
     }
 
     public static Builder builder() {
@@ -110,6 +127,27 @@ public final class NodeGroupUpdateConfigArgs extends com.pulumi.resources.Resour
          */
         public Builder maxUnavailablePercentage(Integer maxUnavailablePercentage) {
             return maxUnavailablePercentage(Output.of(maxUnavailablePercentage));
+        }
+
+        /**
+         * @param updateStrategy Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updateStrategy(@Nullable Output<String> updateStrategy) {
+            $.updateStrategy = updateStrategy;
+            return this;
+        }
+
+        /**
+         * @param updateStrategy Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updateStrategy(String updateStrategy) {
+            return updateStrategy(Output.of(updateStrategy));
         }
 
         public NodeGroupUpdateConfigArgs build() {

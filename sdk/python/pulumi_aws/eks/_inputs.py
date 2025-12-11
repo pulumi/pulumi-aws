@@ -2412,6 +2412,10 @@ if not MYPY:
         """
         Desired max percentage of unavailable worker nodes during node group update.
         """
+        update_strategy: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+        """
 elif False:
     NodeGroupUpdateConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2419,15 +2423,19 @@ elif False:
 class NodeGroupUpdateConfigArgs:
     def __init__(__self__, *,
                  max_unavailable: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_unavailable_percentage: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_unavailable_percentage: Optional[pulumi.Input[_builtins.int]] = None,
+                 update_strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] max_unavailable: Desired max number of unavailable worker nodes during node group update.
         :param pulumi.Input[_builtins.int] max_unavailable_percentage: Desired max percentage of unavailable worker nodes during node group update.
+        :param pulumi.Input[_builtins.str] update_strategy: Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
         """
         if max_unavailable is not None:
             pulumi.set(__self__, "max_unavailable", max_unavailable)
         if max_unavailable_percentage is not None:
             pulumi.set(__self__, "max_unavailable_percentage", max_unavailable_percentage)
+        if update_strategy is not None:
+            pulumi.set(__self__, "update_strategy", update_strategy)
 
     @_builtins.property
     @pulumi.getter(name="maxUnavailable")
@@ -2452,5 +2460,17 @@ class NodeGroupUpdateConfigArgs:
     @max_unavailable_percentage.setter
     def max_unavailable_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "max_unavailable_percentage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateStrategy")
+    def update_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+        """
+        return pulumi.get(self, "update_strategy")
+
+    @update_strategy.setter
+    def update_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update_strategy", value)
 
 

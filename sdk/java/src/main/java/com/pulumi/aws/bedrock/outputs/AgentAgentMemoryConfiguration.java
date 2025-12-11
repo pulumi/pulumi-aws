@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentAgentMemoryConfigurationSessionSummaryConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -18,6 +19,11 @@ public final class AgentAgentMemoryConfiguration {
      */
     private List<String> enabledMemoryTypes;
     /**
+     * @return Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
+     * 
+     */
+    private List<AgentAgentMemoryConfigurationSessionSummaryConfiguration> sessionSummaryConfigurations;
+    /**
      * @return The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
      * 
      */
@@ -30,6 +36,13 @@ public final class AgentAgentMemoryConfiguration {
      */
     public List<String> enabledMemoryTypes() {
         return this.enabledMemoryTypes;
+    }
+    /**
+     * @return Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
+     * 
+     */
+    public List<AgentAgentMemoryConfigurationSessionSummaryConfiguration> sessionSummaryConfigurations() {
+        return this.sessionSummaryConfigurations;
     }
     /**
      * @return The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
@@ -49,11 +62,13 @@ public final class AgentAgentMemoryConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private List<String> enabledMemoryTypes;
+        private List<AgentAgentMemoryConfigurationSessionSummaryConfiguration> sessionSummaryConfigurations;
         private Integer storageDays;
         public Builder() {}
         public Builder(AgentAgentMemoryConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabledMemoryTypes = defaults.enabledMemoryTypes;
+    	      this.sessionSummaryConfigurations = defaults.sessionSummaryConfigurations;
     	      this.storageDays = defaults.storageDays;
         }
 
@@ -69,6 +84,17 @@ public final class AgentAgentMemoryConfiguration {
             return enabledMemoryTypes(List.of(enabledMemoryTypes));
         }
         @CustomType.Setter
+        public Builder sessionSummaryConfigurations(List<AgentAgentMemoryConfigurationSessionSummaryConfiguration> sessionSummaryConfigurations) {
+            if (sessionSummaryConfigurations == null) {
+              throw new MissingRequiredPropertyException("AgentAgentMemoryConfiguration", "sessionSummaryConfigurations");
+            }
+            this.sessionSummaryConfigurations = sessionSummaryConfigurations;
+            return this;
+        }
+        public Builder sessionSummaryConfigurations(AgentAgentMemoryConfigurationSessionSummaryConfiguration... sessionSummaryConfigurations) {
+            return sessionSummaryConfigurations(List.of(sessionSummaryConfigurations));
+        }
+        @CustomType.Setter
         public Builder storageDays(Integer storageDays) {
             if (storageDays == null) {
               throw new MissingRequiredPropertyException("AgentAgentMemoryConfiguration", "storageDays");
@@ -79,6 +105,7 @@ public final class AgentAgentMemoryConfiguration {
         public AgentAgentMemoryConfiguration build() {
             final var _resultValue = new AgentAgentMemoryConfiguration();
             _resultValue.enabledMemoryTypes = enabledMemoryTypes;
+            _resultValue.sessionSummaryConfigurations = sessionSummaryConfigurations;
             _resultValue.storageDays = storageDays;
             return _resultValue;
         }

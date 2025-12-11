@@ -23,6 +23,8 @@ __all__ = [
     'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgsDict',
     'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs',
     'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgsDict',
+    'ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs',
+    'ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict',
     'ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs',
     'ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgsDict',
     'ApplicationApplicationConfigurationEnvironmentPropertiesArgs',
@@ -111,6 +113,10 @@ if not MYPY:
         """
         The code location and type parameters for the application.
         """
+        application_encryption_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict']]
+        """
+        The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+        """
         application_snapshot_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgsDict']]
         """
         Describes whether snapshots are enabled for a Flink-based application.
@@ -142,6 +148,7 @@ elif False:
 class ApplicationApplicationConfigurationArgs:
     def __init__(__self__, *,
                  application_code_configuration: pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationArgs'],
+                 application_encryption_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs']] = None,
                  application_snapshot_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs']] = None,
                  environment_properties: Optional[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesArgs']] = None,
                  flink_application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs']] = None,
@@ -150,6 +157,7 @@ class ApplicationApplicationConfigurationArgs:
                  vpc_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgs']] = None):
         """
         :param pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationArgs'] application_code_configuration: The code location and type parameters for the application.
+        :param pulumi.Input['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs'] application_encryption_configuration: The encryption configuration for the application. This can be used to encrypt data at rest in the application.
         :param pulumi.Input['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs'] application_snapshot_configuration: Describes whether snapshots are enabled for a Flink-based application.
         :param pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesArgs'] environment_properties: Describes execution properties for a Flink-based application.
         :param pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs'] flink_application_configuration: The configuration of a Flink-based application.
@@ -158,6 +166,8 @@ class ApplicationApplicationConfigurationArgs:
         :param pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgs'] vpc_configuration: The VPC configuration of a Flink-based application.
         """
         pulumi.set(__self__, "application_code_configuration", application_code_configuration)
+        if application_encryption_configuration is not None:
+            pulumi.set(__self__, "application_encryption_configuration", application_encryption_configuration)
         if application_snapshot_configuration is not None:
             pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
         if environment_properties is not None:
@@ -182,6 +192,18 @@ class ApplicationApplicationConfigurationArgs:
     @application_code_configuration.setter
     def application_code_configuration(self, value: pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationArgs']):
         pulumi.set(self, "application_code_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationEncryptionConfiguration")
+    def application_encryption_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs']]:
+        """
+        The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+        """
+        return pulumi.get(self, "application_encryption_configuration")
+
+    @application_encryption_configuration.setter
+    def application_encryption_configuration(self, value: Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs']]):
+        pulumi.set(self, "application_encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationSnapshotConfiguration")
@@ -427,6 +449,57 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
     @object_version.setter
     def object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "object_version", value)
+
+
+if not MYPY:
+    class ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict(TypedDict):
+        key_type: pulumi.Input[_builtins.str]
+        """
+        The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+        """
+        key_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of the KMS key to use for encryption. Required when `key_type` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+        """
+elif False:
+    ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 key_type: pulumi.Input[_builtins.str],
+                 key_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] key_type: The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+        :param pulumi.Input[_builtins.str] key_id: The ARN of the KMS key to use for encryption. Required when `key_type` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+        """
+        pulumi.set(__self__, "key_type", key_type)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the KMS key to use for encryption. Required when `key_type` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_id", value)
 
 
 if not MYPY:

@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['VectorsIndexArgs', 'VectorsIndex']
 
@@ -24,6 +26,8 @@ class VectorsIndexArgs:
                  distance_metric: pulumi.Input[_builtins.str],
                  index_name: pulumi.Input[_builtins.str],
                  vector_bucket_name: pulumi.Input[_builtins.str],
+                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VectorsIndexEncryptionConfigurationArgs']]]] = None,
+                 metadata_configuration: Optional[pulumi.Input['VectorsIndexMetadataConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -35,6 +39,8 @@ class VectorsIndexArgs:
         :param pulumi.Input[_builtins.str] vector_bucket_name: Name of the vector bucket for the vector index.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input['VectorsIndexEncryptionConfigurationArgs']]] encryption_configurations: Block for encryption configuration for the vector index. See `encyption_configuration` block below.
+        :param pulumi.Input['VectorsIndexMetadataConfigurationArgs'] metadata_configuration: Block for metadata configuration for the vector index. See `metadata_configuration` block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -43,6 +49,10 @@ class VectorsIndexArgs:
         pulumi.set(__self__, "distance_metric", distance_metric)
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "vector_bucket_name", vector_bucket_name)
+        if encryption_configurations is not None:
+            pulumi.set(__self__, "encryption_configurations", encryption_configurations)
+        if metadata_configuration is not None:
+            pulumi.set(__self__, "metadata_configuration", metadata_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -111,6 +121,30 @@ class VectorsIndexArgs:
         pulumi.set(self, "vector_bucket_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="encryptionConfigurations")
+    def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VectorsIndexEncryptionConfigurationArgs']]]]:
+        """
+        Block for encryption configuration for the vector index. See `encyption_configuration` block below.
+        """
+        return pulumi.get(self, "encryption_configurations")
+
+    @encryption_configurations.setter
+    def encryption_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VectorsIndexEncryptionConfigurationArgs']]]]):
+        pulumi.set(self, "encryption_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> Optional[pulumi.Input['VectorsIndexMetadataConfigurationArgs']]:
+        """
+        Block for metadata configuration for the vector index. See `metadata_configuration` block below.
+        """
+        return pulumi.get(self, "metadata_configuration")
+
+    @metadata_configuration.setter
+    def metadata_configuration(self, value: Optional[pulumi.Input['VectorsIndexMetadataConfigurationArgs']]):
+        pulumi.set(self, "metadata_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -142,8 +176,10 @@ class _VectorsIndexState:
                  data_type: Optional[pulumi.Input[_builtins.str]] = None,
                  dimension: Optional[pulumi.Input[_builtins.int]] = None,
                  distance_metric: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VectorsIndexEncryptionConfigurationArgs']]]] = None,
                  index_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  index_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_configuration: Optional[pulumi.Input['VectorsIndexMetadataConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -154,8 +190,10 @@ class _VectorsIndexState:
         :param pulumi.Input[_builtins.str] data_type: Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
         :param pulumi.Input[_builtins.int] dimension: Dimensions of the vectors to be inserted into the vector index.
         :param pulumi.Input[_builtins.str] distance_metric: Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
+        :param pulumi.Input[Sequence[pulumi.Input['VectorsIndexEncryptionConfigurationArgs']]] encryption_configurations: Block for encryption configuration for the vector index. See `encyption_configuration` block below.
         :param pulumi.Input[_builtins.str] index_arn: ARN of the vector index.
         :param pulumi.Input[_builtins.str] index_name: Name of the vector index.
+        :param pulumi.Input['VectorsIndexMetadataConfigurationArgs'] metadata_configuration: Block for metadata configuration for the vector index. See `metadata_configuration` block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -171,10 +209,14 @@ class _VectorsIndexState:
             pulumi.set(__self__, "dimension", dimension)
         if distance_metric is not None:
             pulumi.set(__self__, "distance_metric", distance_metric)
+        if encryption_configurations is not None:
+            pulumi.set(__self__, "encryption_configurations", encryption_configurations)
         if index_arn is not None:
             pulumi.set(__self__, "index_arn", index_arn)
         if index_name is not None:
             pulumi.set(__self__, "index_name", index_name)
+        if metadata_configuration is not None:
+            pulumi.set(__self__, "metadata_configuration", metadata_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -233,6 +275,18 @@ class _VectorsIndexState:
         pulumi.set(self, "distance_metric", value)
 
     @_builtins.property
+    @pulumi.getter(name="encryptionConfigurations")
+    def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VectorsIndexEncryptionConfigurationArgs']]]]:
+        """
+        Block for encryption configuration for the vector index. See `encyption_configuration` block below.
+        """
+        return pulumi.get(self, "encryption_configurations")
+
+    @encryption_configurations.setter
+    def encryption_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VectorsIndexEncryptionConfigurationArgs']]]]):
+        pulumi.set(self, "encryption_configurations", value)
+
+    @_builtins.property
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -255,6 +309,18 @@ class _VectorsIndexState:
     @index_name.setter
     def index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "index_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> Optional[pulumi.Input['VectorsIndexMetadataConfigurationArgs']]:
+        """
+        Block for metadata configuration for the vector index. See `metadata_configuration` block below.
+        """
+        return pulumi.get(self, "metadata_configuration")
+
+    @metadata_configuration.setter
+    def metadata_configuration(self, value: Optional[pulumi.Input['VectorsIndexMetadataConfigurationArgs']]):
+        pulumi.set(self, "metadata_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -316,7 +382,9 @@ class VectorsIndex(pulumi.CustomResource):
                  data_type: Optional[pulumi.Input[_builtins.str]] = None,
                  dimension: Optional[pulumi.Input[_builtins.int]] = None,
                  distance_metric: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VectorsIndexEncryptionConfigurationArgs', 'VectorsIndexEncryptionConfigurationArgsDict']]]]] = None,
                  index_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_configuration: Optional[pulumi.Input[Union['VectorsIndexMetadataConfigurationArgs', 'VectorsIndexMetadataConfigurationArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -353,7 +421,9 @@ class VectorsIndex(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_type: Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
         :param pulumi.Input[_builtins.int] dimension: Dimensions of the vectors to be inserted into the vector index.
         :param pulumi.Input[_builtins.str] distance_metric: Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VectorsIndexEncryptionConfigurationArgs', 'VectorsIndexEncryptionConfigurationArgsDict']]]] encryption_configurations: Block for encryption configuration for the vector index. See `encyption_configuration` block below.
         :param pulumi.Input[_builtins.str] index_name: Name of the vector index.
+        :param pulumi.Input[Union['VectorsIndexMetadataConfigurationArgs', 'VectorsIndexMetadataConfigurationArgsDict']] metadata_configuration: Block for metadata configuration for the vector index. See `metadata_configuration` block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] vector_bucket_name: Name of the vector bucket for the vector index.
@@ -411,7 +481,9 @@ class VectorsIndex(pulumi.CustomResource):
                  data_type: Optional[pulumi.Input[_builtins.str]] = None,
                  dimension: Optional[pulumi.Input[_builtins.int]] = None,
                  distance_metric: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VectorsIndexEncryptionConfigurationArgs', 'VectorsIndexEncryptionConfigurationArgsDict']]]]] = None,
                  index_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_configuration: Optional[pulumi.Input[Union['VectorsIndexMetadataConfigurationArgs', 'VectorsIndexMetadataConfigurationArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -433,9 +505,11 @@ class VectorsIndex(pulumi.CustomResource):
             if distance_metric is None and not opts.urn:
                 raise TypeError("Missing required property 'distance_metric'")
             __props__.__dict__["distance_metric"] = distance_metric
+            __props__.__dict__["encryption_configurations"] = encryption_configurations
             if index_name is None and not opts.urn:
                 raise TypeError("Missing required property 'index_name'")
             __props__.__dict__["index_name"] = index_name
+            __props__.__dict__["metadata_configuration"] = metadata_configuration
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if vector_bucket_name is None and not opts.urn:
@@ -458,8 +532,10 @@ class VectorsIndex(pulumi.CustomResource):
             data_type: Optional[pulumi.Input[_builtins.str]] = None,
             dimension: Optional[pulumi.Input[_builtins.int]] = None,
             distance_metric: Optional[pulumi.Input[_builtins.str]] = None,
+            encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VectorsIndexEncryptionConfigurationArgs', 'VectorsIndexEncryptionConfigurationArgsDict']]]]] = None,
             index_arn: Optional[pulumi.Input[_builtins.str]] = None,
             index_name: Optional[pulumi.Input[_builtins.str]] = None,
+            metadata_configuration: Optional[pulumi.Input[Union['VectorsIndexMetadataConfigurationArgs', 'VectorsIndexMetadataConfigurationArgsDict']]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -475,8 +551,10 @@ class VectorsIndex(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_type: Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
         :param pulumi.Input[_builtins.int] dimension: Dimensions of the vectors to be inserted into the vector index.
         :param pulumi.Input[_builtins.str] distance_metric: Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VectorsIndexEncryptionConfigurationArgs', 'VectorsIndexEncryptionConfigurationArgsDict']]]] encryption_configurations: Block for encryption configuration for the vector index. See `encyption_configuration` block below.
         :param pulumi.Input[_builtins.str] index_arn: ARN of the vector index.
         :param pulumi.Input[_builtins.str] index_name: Name of the vector index.
+        :param pulumi.Input[Union['VectorsIndexMetadataConfigurationArgs', 'VectorsIndexMetadataConfigurationArgsDict']] metadata_configuration: Block for metadata configuration for the vector index. See `metadata_configuration` block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -492,8 +570,10 @@ class VectorsIndex(pulumi.CustomResource):
         __props__.__dict__["data_type"] = data_type
         __props__.__dict__["dimension"] = dimension
         __props__.__dict__["distance_metric"] = distance_metric
+        __props__.__dict__["encryption_configurations"] = encryption_configurations
         __props__.__dict__["index_arn"] = index_arn
         __props__.__dict__["index_name"] = index_name
+        __props__.__dict__["metadata_configuration"] = metadata_configuration
         __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -533,6 +613,14 @@ class VectorsIndex(pulumi.CustomResource):
         return pulumi.get(self, "distance_metric")
 
     @_builtins.property
+    @pulumi.getter(name="encryptionConfigurations")
+    def encryption_configurations(self) -> pulumi.Output[Sequence['outputs.VectorsIndexEncryptionConfiguration']]:
+        """
+        Block for encryption configuration for the vector index. See `encyption_configuration` block below.
+        """
+        return pulumi.get(self, "encryption_configurations")
+
+    @_builtins.property
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> pulumi.Output[_builtins.str]:
         """
@@ -547,6 +635,14 @@ class VectorsIndex(pulumi.CustomResource):
         Name of the vector index.
         """
         return pulumi.get(self, "index_name")
+
+    @_builtins.property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> pulumi.Output[Optional['outputs.VectorsIndexMetadataConfiguration']]:
+        """
+        Block for metadata configuration for the vector index. See `metadata_configuration` block below.
+        """
+        return pulumi.get(self, "metadata_configuration")
 
     @_builtins.property
     @pulumi.getter

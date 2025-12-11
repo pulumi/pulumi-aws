@@ -60,6 +60,7 @@ public final class GetClusterResult {
      * 
      */
     private Map<String,String> tags;
+    private String upgradeRolloutOrder;
     private List<String> vpcSecurityGroupIds;
 
     private GetClusterResult() {}
@@ -182,6 +183,9 @@ public final class GetClusterResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    public String upgradeRolloutOrder() {
+        return this.upgradeRolloutOrder;
+    }
     public List<String> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds;
     }
@@ -232,6 +236,7 @@ public final class GetClusterResult {
         private String replicationSourceIdentifier;
         private Boolean storageEncrypted;
         private Map<String,String> tags;
+        private String upgradeRolloutOrder;
         private List<String> vpcSecurityGroupIds;
         public Builder() {}
         public Builder(GetClusterResult defaults) {
@@ -273,6 +278,7 @@ public final class GetClusterResult {
     	      this.replicationSourceIdentifier = defaults.replicationSourceIdentifier;
     	      this.storageEncrypted = defaults.storageEncrypted;
     	      this.tags = defaults.tags;
+    	      this.upgradeRolloutOrder = defaults.upgradeRolloutOrder;
     	      this.vpcSecurityGroupIds = defaults.vpcSecurityGroupIds;
         }
 
@@ -588,6 +594,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder upgradeRolloutOrder(String upgradeRolloutOrder) {
+            if (upgradeRolloutOrder == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "upgradeRolloutOrder");
+            }
+            this.upgradeRolloutOrder = upgradeRolloutOrder;
+            return this;
+        }
+        @CustomType.Setter
         public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
             if (vpcSecurityGroupIds == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "vpcSecurityGroupIds");
@@ -637,6 +651,7 @@ public final class GetClusterResult {
             _resultValue.replicationSourceIdentifier = replicationSourceIdentifier;
             _resultValue.storageEncrypted = storageEncrypted;
             _resultValue.tags = tags;
+            _resultValue.upgradeRolloutOrder = upgradeRolloutOrder;
             _resultValue.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return _resultValue;
         }

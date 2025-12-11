@@ -95,6 +95,7 @@ export interface GetClusterResult {
      * A map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
+    readonly upgradeRolloutOrder: string;
     readonly vpcSecurityGroupIds: string[];
 }
 /**

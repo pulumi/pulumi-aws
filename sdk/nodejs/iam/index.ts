@@ -151,6 +151,11 @@ export type OrganizationsFeatures = import("./organizationsFeatures").Organizati
 export const OrganizationsFeatures: typeof import("./organizationsFeatures").OrganizationsFeatures = null as any;
 utilities.lazyLoad(exports, ["OrganizationsFeatures"], () => require("./organizationsFeatures"));
 
+export { OutboundWebIdentityFederationArgs, OutboundWebIdentityFederationState } from "./outboundWebIdentityFederation";
+export type OutboundWebIdentityFederation = import("./outboundWebIdentityFederation").OutboundWebIdentityFederation;
+export const OutboundWebIdentityFederation: typeof import("./outboundWebIdentityFederation").OutboundWebIdentityFederation = null as any;
+utilities.lazyLoad(exports, ["OutboundWebIdentityFederation"], () => require("./outboundWebIdentityFederation"));
+
 export { PolicyArgs, PolicyState } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
@@ -294,6 +299,8 @@ const _module = {
                 return new OpenIdConnectProvider(name, <any>undefined, { urn })
             case "aws:iam/organizationsFeatures:OrganizationsFeatures":
                 return new OrganizationsFeatures(name, <any>undefined, { urn })
+            case "aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation":
+                return new OutboundWebIdentityFederation(name, <any>undefined, { urn })
             case "aws:iam/policy:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "aws:iam/policyAttachment:PolicyAttachment":
@@ -355,6 +362,7 @@ pulumi.runtime.registerResourceModule("aws", "iam/groupPolicyAttachmentsExclusiv
 pulumi.runtime.registerResourceModule("aws", "iam/instanceProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/openIdConnectProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/organizationsFeatures", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/outboundWebIdentityFederation", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/policy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/policyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/role", _module)

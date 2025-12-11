@@ -32,7 +32,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementForwardedIpConfig? ForwardedIpConfig;
         /// <summary>
-        /// Limit on requests per 5-minute period for a single originating IP address.
+        /// Limit on requests per 5-minute (or `EvaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `AggregateKeyType` and `CustomKey`).
         /// </summary>
         public readonly int Limit;
         /// <summary>

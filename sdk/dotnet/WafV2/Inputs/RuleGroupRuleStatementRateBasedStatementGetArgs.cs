@@ -45,7 +45,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfigGetArgs>? ForwardedIpConfig { get; set; }
 
         /// <summary>
-        /// The limit on requests per 5-minute period for a single originating IP address.
+        /// Limit on requests per 5-minute (or `EvaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `AggregateKeyType` and `CustomKey`).
         /// </summary>
         [Input("limit", required: true)]
         public Input<int> Limit { get; set; } = null!;

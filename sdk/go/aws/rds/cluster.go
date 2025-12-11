@@ -517,6 +517,8 @@ type Cluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+	UpgradeRolloutOrder pulumi.StringOutput `pulumi:"upgradeRolloutOrder"`
 	// List of VPC security groups to associate with the Cluster
 	//
 	// For more detailed documentation about each argument, refer to
@@ -724,6 +726,8 @@ type clusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+	UpgradeRolloutOrder *string `pulumi:"upgradeRolloutOrder"`
 	// List of VPC security groups to associate with the Cluster
 	//
 	// For more detailed documentation about each argument, refer to
@@ -888,6 +892,8 @@ type ClusterState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+	UpgradeRolloutOrder pulumi.StringPtrInput
 	// List of VPC security groups to associate with the Cluster
 	//
 	// For more detailed documentation about each argument, refer to
@@ -1652,6 +1658,11 @@ func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+func (o ClusterOutput) UpgradeRolloutOrder() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.UpgradeRolloutOrder }).(pulumi.StringOutput)
 }
 
 // List of VPC security groups to associate with the Cluster

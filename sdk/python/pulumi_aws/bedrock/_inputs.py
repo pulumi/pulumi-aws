@@ -45,6 +45,8 @@ __all__ = [
     'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict',
     'AgentAgentMemoryConfigurationArgs',
     'AgentAgentMemoryConfigurationArgsDict',
+    'AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs',
+    'AgentAgentMemoryConfigurationSessionSummaryConfigurationArgsDict',
     'AgentAgentPromptOverrideConfigurationArgs',
     'AgentAgentPromptOverrideConfigurationArgsDict',
     'AgentAgentPromptOverrideConfigurationPromptConfigurationArgs',
@@ -1390,6 +1392,10 @@ if not MYPY:
         """
         The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
         """
+        session_summary_configurations: pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationSessionSummaryConfigurationArgsDict']]]
+        """
+        Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `session_summary_configuration` Block for details.
+        """
         storage_days: pulumi.Input[_builtins.int]
         """
         The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
@@ -1401,12 +1407,15 @@ elif False:
 class AgentAgentMemoryConfigurationArgs:
     def __init__(__self__, *,
                  enabled_memory_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 session_summary_configurations: pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs']]],
                  storage_days: pulumi.Input[_builtins.int]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_memory_types: The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs']]] session_summary_configurations: Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `session_summary_configuration` Block for details.
         :param pulumi.Input[_builtins.int] storage_days: The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
         """
         pulumi.set(__self__, "enabled_memory_types", enabled_memory_types)
+        pulumi.set(__self__, "session_summary_configurations", session_summary_configurations)
         pulumi.set(__self__, "storage_days", storage_days)
 
     @_builtins.property
@@ -1422,6 +1431,18 @@ class AgentAgentMemoryConfigurationArgs:
         pulumi.set(self, "enabled_memory_types", value)
 
     @_builtins.property
+    @pulumi.getter(name="sessionSummaryConfigurations")
+    def session_summary_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs']]]:
+        """
+        Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `session_summary_configuration` Block for details.
+        """
+        return pulumi.get(self, "session_summary_configurations")
+
+    @session_summary_configurations.setter
+    def session_summary_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs']]]):
+        pulumi.set(self, "session_summary_configurations", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageDays")
     def storage_days(self) -> pulumi.Input[_builtins.int]:
         """
@@ -1432,6 +1453,37 @@ class AgentAgentMemoryConfigurationArgs:
     @storage_days.setter
     def storage_days(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "storage_days", value)
+
+
+if not MYPY:
+    class AgentAgentMemoryConfigurationSessionSummaryConfigurationArgsDict(TypedDict):
+        max_recent_sessions: pulumi.Input[_builtins.int]
+        """
+        Maximum number of recent session summaries to include in the agent's prompt context.
+        """
+elif False:
+    AgentAgentMemoryConfigurationSessionSummaryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs:
+    def __init__(__self__, *,
+                 max_recent_sessions: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] max_recent_sessions: Maximum number of recent session summaries to include in the agent's prompt context.
+        """
+        pulumi.set(__self__, "max_recent_sessions", max_recent_sessions)
+
+    @_builtins.property
+    @pulumi.getter(name="maxRecentSessions")
+    def max_recent_sessions(self) -> pulumi.Input[_builtins.int]:
+        """
+        Maximum number of recent session summaries to include in the agent's prompt context.
+        """
+        return pulumi.get(self, "max_recent_sessions")
+
+    @max_recent_sessions.setter
+    def max_recent_sessions(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_recent_sessions", value)
 
 
 if not MYPY:

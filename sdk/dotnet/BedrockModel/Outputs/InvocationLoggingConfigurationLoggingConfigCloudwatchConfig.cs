@@ -20,19 +20,19 @@ namespace Pulumi.Aws.BedrockModel.Outputs
         /// <summary>
         /// Log group name.
         /// </summary>
-        public readonly string? LogGroupName;
+        public readonly string LogGroupName;
         /// <summary>
         /// The role ARN.
         /// </summary>
-        public readonly string? RoleArn;
+        public readonly string RoleArn;
 
         [OutputConstructor]
         private InvocationLoggingConfigurationLoggingConfigCloudwatchConfig(
             Outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config? largeDataDeliveryS3Config,
 
-            string? logGroupName,
+            string logGroupName,
 
-            string? roleArn)
+            string roleArn)
         {
             LargeDataDeliveryS3Config = largeDataDeliveryS3Config;
             LogGroupName = logGroupName;

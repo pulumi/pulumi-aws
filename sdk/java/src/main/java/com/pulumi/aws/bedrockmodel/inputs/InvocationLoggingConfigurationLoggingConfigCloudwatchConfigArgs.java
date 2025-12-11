@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrockmodel.inputs;
 import com.pulumi.aws.bedrockmodel.inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,30 +36,30 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
      * Log group name.
      * 
      */
-    @Import(name="logGroupName")
-    private @Nullable Output<String> logGroupName;
+    @Import(name="logGroupName", required=true)
+    private Output<String> logGroupName;
 
     /**
      * @return Log group name.
      * 
      */
-    public Optional<Output<String>> logGroupName() {
-        return Optional.ofNullable(this.logGroupName);
+    public Output<String> logGroupName() {
+        return this.logGroupName;
     }
 
     /**
      * The role ARN.
      * 
      */
-    @Import(name="roleArn")
-    private @Nullable Output<String> roleArn;
+    @Import(name="roleArn", required=true)
+    private Output<String> roleArn;
 
     /**
      * @return The role ARN.
      * 
      */
-    public Optional<Output<String>> roleArn() {
-        return Optional.ofNullable(this.roleArn);
+    public Output<String> roleArn() {
+        return this.roleArn;
     }
 
     private InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs() {}
@@ -114,7 +115,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
          * @return builder
          * 
          */
-        public Builder logGroupName(@Nullable Output<String> logGroupName) {
+        public Builder logGroupName(Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
@@ -135,7 +136,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
          * @return builder
          * 
          */
-        public Builder roleArn(@Nullable Output<String> roleArn) {
+        public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
@@ -151,6 +152,12 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
         }
 
         public InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs build() {
+            if ($.logGroupName == null) {
+                throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs", "logGroupName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs", "roleArn");
+            }
             return $;
         }
     }

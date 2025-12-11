@@ -221,6 +221,10 @@ export interface GetInstanceResult {
      */
     readonly timezone: string;
     /**
+     * Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     */
+    readonly upgradeRolloutOrder: string;
+    /**
      * Provides a list of VPC security group elements that the DB instance belongs to.
      */
     readonly vpcSecurityGroups: string[];

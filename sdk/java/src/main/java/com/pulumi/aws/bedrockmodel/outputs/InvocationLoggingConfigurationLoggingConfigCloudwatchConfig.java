@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrockmodel.outputs;
 
 import com.pulumi.aws.bedrockmodel.outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,12 +22,12 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
      * @return Log group name.
      * 
      */
-    private @Nullable String logGroupName;
+    private String logGroupName;
     /**
      * @return The role ARN.
      * 
      */
-    private @Nullable String roleArn;
+    private String roleArn;
 
     private InvocationLoggingConfigurationLoggingConfigCloudwatchConfig() {}
     /**
@@ -40,15 +41,15 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
      * @return Log group name.
      * 
      */
-    public Optional<String> logGroupName() {
-        return Optional.ofNullable(this.logGroupName);
+    public String logGroupName() {
+        return this.logGroupName;
     }
     /**
      * @return The role ARN.
      * 
      */
-    public Optional<String> roleArn() {
-        return Optional.ofNullable(this.roleArn);
+    public String roleArn() {
+        return this.roleArn;
     }
 
     public static Builder builder() {
@@ -61,8 +62,8 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config largeDataDeliveryS3Config;
-        private @Nullable String logGroupName;
-        private @Nullable String roleArn;
+        private String logGroupName;
+        private String roleArn;
         public Builder() {}
         public Builder(InvocationLoggingConfigurationLoggingConfigCloudwatchConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -78,14 +79,18 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder logGroupName(@Nullable String logGroupName) {
-
+        public Builder logGroupName(String logGroupName) {
+            if (logGroupName == null) {
+              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigCloudwatchConfig", "logGroupName");
+            }
             this.logGroupName = logGroupName;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(@Nullable String roleArn) {
-
+        public Builder roleArn(String roleArn) {
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigCloudwatchConfig", "roleArn");
+            }
             this.roleArn = roleArn;
             return this;
         }

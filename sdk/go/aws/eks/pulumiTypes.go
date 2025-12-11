@@ -5927,6 +5927,8 @@ type NodeGroupUpdateConfig struct {
 	MaxUnavailable *int `pulumi:"maxUnavailable"`
 	// Desired max percentage of unavailable worker nodes during node group update.
 	MaxUnavailablePercentage *int `pulumi:"maxUnavailablePercentage"`
+	// Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+	UpdateStrategy *string `pulumi:"updateStrategy"`
 }
 
 // NodeGroupUpdateConfigInput is an input type that accepts NodeGroupUpdateConfigArgs and NodeGroupUpdateConfigOutput values.
@@ -5945,6 +5947,8 @@ type NodeGroupUpdateConfigArgs struct {
 	MaxUnavailable pulumi.IntPtrInput `pulumi:"maxUnavailable"`
 	// Desired max percentage of unavailable worker nodes during node group update.
 	MaxUnavailablePercentage pulumi.IntPtrInput `pulumi:"maxUnavailablePercentage"`
+	// Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+	UpdateStrategy pulumi.StringPtrInput `pulumi:"updateStrategy"`
 }
 
 func (NodeGroupUpdateConfigArgs) ElementType() reflect.Type {
@@ -6034,6 +6038,11 @@ func (o NodeGroupUpdateConfigOutput) MaxUnavailablePercentage() pulumi.IntPtrOut
 	return o.ApplyT(func(v NodeGroupUpdateConfig) *int { return v.MaxUnavailablePercentage }).(pulumi.IntPtrOutput)
 }
 
+// Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+func (o NodeGroupUpdateConfigOutput) UpdateStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeGroupUpdateConfig) *string { return v.UpdateStrategy }).(pulumi.StringPtrOutput)
+}
+
 type NodeGroupUpdateConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (NodeGroupUpdateConfigPtrOutput) ElementType() reflect.Type {
@@ -6076,6 +6085,16 @@ func (o NodeGroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.IntPtr
 		}
 		return v.MaxUnavailablePercentage
 	}).(pulumi.IntPtrOutput)
+}
+
+// Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+func (o NodeGroupUpdateConfigPtrOutput) UpdateStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroupUpdateConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetAddonPodIdentityAssociation struct {
@@ -8857,6 +8876,112 @@ func (o GetNodeGroupTaintArrayOutput) Index(i pulumi.IntInput) GetNodeGroupTaint
 	}).(GetNodeGroupTaintOutput)
 }
 
+type GetNodeGroupUpdateConfig struct {
+	MaxUnavailable           int    `pulumi:"maxUnavailable"`
+	MaxUnavailablePercentage int    `pulumi:"maxUnavailablePercentage"`
+	UpdateStrategy           string `pulumi:"updateStrategy"`
+}
+
+// GetNodeGroupUpdateConfigInput is an input type that accepts GetNodeGroupUpdateConfigArgs and GetNodeGroupUpdateConfigOutput values.
+// You can construct a concrete instance of `GetNodeGroupUpdateConfigInput` via:
+//
+//	GetNodeGroupUpdateConfigArgs{...}
+type GetNodeGroupUpdateConfigInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupUpdateConfigOutput() GetNodeGroupUpdateConfigOutput
+	ToGetNodeGroupUpdateConfigOutputWithContext(context.Context) GetNodeGroupUpdateConfigOutput
+}
+
+type GetNodeGroupUpdateConfigArgs struct {
+	MaxUnavailable           pulumi.IntInput    `pulumi:"maxUnavailable"`
+	MaxUnavailablePercentage pulumi.IntInput    `pulumi:"maxUnavailablePercentage"`
+	UpdateStrategy           pulumi.StringInput `pulumi:"updateStrategy"`
+}
+
+func (GetNodeGroupUpdateConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupUpdateConfig)(nil)).Elem()
+}
+
+func (i GetNodeGroupUpdateConfigArgs) ToGetNodeGroupUpdateConfigOutput() GetNodeGroupUpdateConfigOutput {
+	return i.ToGetNodeGroupUpdateConfigOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupUpdateConfigArgs) ToGetNodeGroupUpdateConfigOutputWithContext(ctx context.Context) GetNodeGroupUpdateConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupUpdateConfigOutput)
+}
+
+// GetNodeGroupUpdateConfigArrayInput is an input type that accepts GetNodeGroupUpdateConfigArray and GetNodeGroupUpdateConfigArrayOutput values.
+// You can construct a concrete instance of `GetNodeGroupUpdateConfigArrayInput` via:
+//
+//	GetNodeGroupUpdateConfigArray{ GetNodeGroupUpdateConfigArgs{...} }
+type GetNodeGroupUpdateConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupUpdateConfigArrayOutput() GetNodeGroupUpdateConfigArrayOutput
+	ToGetNodeGroupUpdateConfigArrayOutputWithContext(context.Context) GetNodeGroupUpdateConfigArrayOutput
+}
+
+type GetNodeGroupUpdateConfigArray []GetNodeGroupUpdateConfigInput
+
+func (GetNodeGroupUpdateConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupUpdateConfig)(nil)).Elem()
+}
+
+func (i GetNodeGroupUpdateConfigArray) ToGetNodeGroupUpdateConfigArrayOutput() GetNodeGroupUpdateConfigArrayOutput {
+	return i.ToGetNodeGroupUpdateConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupUpdateConfigArray) ToGetNodeGroupUpdateConfigArrayOutputWithContext(ctx context.Context) GetNodeGroupUpdateConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupUpdateConfigArrayOutput)
+}
+
+type GetNodeGroupUpdateConfigOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupUpdateConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupUpdateConfig)(nil)).Elem()
+}
+
+func (o GetNodeGroupUpdateConfigOutput) ToGetNodeGroupUpdateConfigOutput() GetNodeGroupUpdateConfigOutput {
+	return o
+}
+
+func (o GetNodeGroupUpdateConfigOutput) ToGetNodeGroupUpdateConfigOutputWithContext(ctx context.Context) GetNodeGroupUpdateConfigOutput {
+	return o
+}
+
+func (o GetNodeGroupUpdateConfigOutput) MaxUnavailable() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNodeGroupUpdateConfig) int { return v.MaxUnavailable }).(pulumi.IntOutput)
+}
+
+func (o GetNodeGroupUpdateConfigOutput) MaxUnavailablePercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNodeGroupUpdateConfig) int { return v.MaxUnavailablePercentage }).(pulumi.IntOutput)
+}
+
+func (o GetNodeGroupUpdateConfigOutput) UpdateStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupUpdateConfig) string { return v.UpdateStrategy }).(pulumi.StringOutput)
+}
+
+type GetNodeGroupUpdateConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupUpdateConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupUpdateConfig)(nil)).Elem()
+}
+
+func (o GetNodeGroupUpdateConfigArrayOutput) ToGetNodeGroupUpdateConfigArrayOutput() GetNodeGroupUpdateConfigArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupUpdateConfigArrayOutput) ToGetNodeGroupUpdateConfigArrayOutputWithContext(ctx context.Context) GetNodeGroupUpdateConfigArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupUpdateConfigArrayOutput) Index(i pulumi.IntInput) GetNodeGroupUpdateConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNodeGroupUpdateConfig {
+		return vs[0].([]GetNodeGroupUpdateConfig)[vs[1].(int)]
+	}).(GetNodeGroupUpdateConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyAssociationAccessScopeInput)(nil)).Elem(), AccessPolicyAssociationAccessScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyAssociationAccessScopePtrInput)(nil)).Elem(), AccessPolicyAssociationAccessScopeArgs{})
@@ -8989,6 +9114,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupScalingConfigArrayInput)(nil)).Elem(), GetNodeGroupScalingConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupTaintInput)(nil)).Elem(), GetNodeGroupTaintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupTaintArrayInput)(nil)).Elem(), GetNodeGroupTaintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupUpdateConfigInput)(nil)).Elem(), GetNodeGroupUpdateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupUpdateConfigArrayInput)(nil)).Elem(), GetNodeGroupUpdateConfigArray{})
 	pulumi.RegisterOutputType(AccessPolicyAssociationAccessScopeOutput{})
 	pulumi.RegisterOutputType(AccessPolicyAssociationAccessScopePtrOutput{})
 	pulumi.RegisterOutputType(AddonPodIdentityAssociationOutput{})
@@ -9120,4 +9247,6 @@ func init() {
 	pulumi.RegisterOutputType(GetNodeGroupScalingConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetNodeGroupTaintOutput{})
 	pulumi.RegisterOutputType(GetNodeGroupTaintArrayOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupUpdateConfigOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupUpdateConfigArrayOutput{})
 }

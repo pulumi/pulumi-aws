@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Eks.Outputs
         /// Desired max percentage of unavailable worker nodes during node group update.
         /// </summary>
         public readonly int? MaxUnavailablePercentage;
+        /// <summary>
+        /// Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
+        /// </summary>
+        public readonly string? UpdateStrategy;
 
         [OutputConstructor]
         private NodeGroupUpdateConfig(
             int? maxUnavailable,
 
-            int? maxUnavailablePercentage)
+            int? maxUnavailablePercentage,
+
+            string? updateStrategy)
         {
             MaxUnavailable = maxUnavailable;
             MaxUnavailablePercentage = maxUnavailablePercentage;
+            UpdateStrategy = updateStrategy;
         }
     }
 }

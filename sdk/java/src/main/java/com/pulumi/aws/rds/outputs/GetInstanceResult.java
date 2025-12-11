@@ -224,6 +224,11 @@ public final class GetInstanceResult {
      */
     private String timezone;
     /**
+     * @return Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     * 
+     */
+    private String upgradeRolloutOrder;
+    /**
      * @return Provides a list of VPC security group elements that the DB instance belongs to.
      * 
      */
@@ -527,6 +532,13 @@ public final class GetInstanceResult {
         return this.timezone;
     }
     /**
+     * @return Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
+     * 
+     */
+    public String upgradeRolloutOrder() {
+        return this.upgradeRolloutOrder;
+    }
+    /**
      * @return Provides a list of VPC security group elements that the DB instance belongs to.
      * 
      */
@@ -587,6 +599,7 @@ public final class GetInstanceResult {
         private String storageType;
         private Map<String,String> tags;
         private String timezone;
+        private String upgradeRolloutOrder;
         private List<String> vpcSecurityGroups;
         public Builder() {}
         public Builder(GetInstanceResult defaults) {
@@ -635,6 +648,7 @@ public final class GetInstanceResult {
     	      this.storageType = defaults.storageType;
     	      this.tags = defaults.tags;
     	      this.timezone = defaults.timezone;
+    	      this.upgradeRolloutOrder = defaults.upgradeRolloutOrder;
     	      this.vpcSecurityGroups = defaults.vpcSecurityGroups;
         }
 
@@ -1003,6 +1017,14 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder upgradeRolloutOrder(String upgradeRolloutOrder) {
+            if (upgradeRolloutOrder == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "upgradeRolloutOrder");
+            }
+            this.upgradeRolloutOrder = upgradeRolloutOrder;
+            return this;
+        }
+        @CustomType.Setter
         public Builder vpcSecurityGroups(List<String> vpcSecurityGroups) {
             if (vpcSecurityGroups == null) {
               throw new MissingRequiredPropertyException("GetInstanceResult", "vpcSecurityGroups");
@@ -1059,6 +1081,7 @@ public final class GetInstanceResult {
             _resultValue.storageType = storageType;
             _resultValue.tags = tags;
             _resultValue.timezone = timezone;
+            _resultValue.upgradeRolloutOrder = upgradeRolloutOrder;
             _resultValue.vpcSecurityGroups = vpcSecurityGroups;
             return _resultValue;
         }
