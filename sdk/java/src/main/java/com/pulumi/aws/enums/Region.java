@@ -16,6 +16,7 @@ import java.util.StringJoiner;
     public enum Region {
         AFSouth1("af-south-1"),
         APEast1("ap-east-1"),
+        APEast2("ap-east-2"),
         APNortheast1("ap-northeast-1"),
         APNortheast2("ap-northeast-2"),
         APNortheast3("ap-northeast-3"),

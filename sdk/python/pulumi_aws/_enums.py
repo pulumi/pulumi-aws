@@ -18,6 +18,7 @@ class Region(_builtins.str, Enum):
     """
     AF_SOUTH1 = "af-south-1"
     AP_EAST1 = "ap-east-1"
+    AP_EAST2 = "ap-east-2"
     AP_NORTHEAST1 = "ap-northeast-1"
     AP_NORTHEAST2 = "ap-northeast-2"
     AP_NORTHEAST3 = "ap-northeast-3"
