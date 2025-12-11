@@ -237,6 +237,7 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			{Value: "java11", Name: "Java11"},
 			{Value: "java17", Name: "Java17"},
 			{Value: "java21", Name: "Java21"},
+			{Value: "java25", Name: "Java25"},
 			{Value: "java8.al2", Name: "Java8AL2"},
 			{Value: "nodejs18.x", Name: "NodeJS18dX"},
 			{Value: "nodejs20.x", Name: "NodeJS20dX"},
