@@ -19,6 +19,7 @@ env:
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PULUMI_MISSING_DOCS_ERROR: "true"
+  PULUMI_PULUMI_ENABLE_JOURNALING: "true"
   TF_APPEND_USER_AGENT: pulumi
 
 jobs:
@@ -38,7 +39,7 @@ jobs:
         swap-storage: false
         dotnet: false
     - name: Checkout Repo
-      uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
@@ -52,19 +53,25 @@ jobs:
       id: esc-secrets
       name: Fetch secrets from ESC
       uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
+    - uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+      id: app-auth
+      with:
+        app-id: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_APP_ID }}
+        private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
+        owner: ${{ github.repository_owner }}
     - name: Checkout p/examples
-      uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         repository: pulumi/examples
         path: p-examples
     - name: Setup mise
-      uses: jdx/mise-action@v3
+      uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3
       env:
         MISE_ENV: test
         MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
       with:
         version: 2025.11.6
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ steps.app-auth.outputs.token }}
         # also save this cache since we are using a different mise env.
         cache_save: true
     - name: Prepare local workspace
@@ -109,7 +116,7 @@ jobs:
         requested-token-type: urn:pulumi:token-type:access_token:organization
         export-environment-variables: false
     - name: Export AWS Credentials
-      uses: pulumi/esc-action@efb0bc8946938f0dfbfa00e829196ec95f0d0ea7 # v1.4.0
+      uses: pulumi/esc-action@6cf9520e68354d86f81c455e8d43eabd58f5c9f5 # v1.5.0
       env:
         PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
       with:
