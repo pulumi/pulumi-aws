@@ -6,6 +6,7 @@ env:
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PULUMI_MISSING_DOCS_ERROR: "true"
+  PULUMI_PULUMI_ENABLE_JOURNALING: "true"
   TF_APPEND_USER_AGENT: pulumi
 
 jobs:
@@ -17,7 +18,7 @@ jobs:
       id-token: write # For ESC secrets.
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         submodules: true
         persist-credentials: false    
@@ -30,7 +31,7 @@ jobs:
       id: esc-secrets
       name: Fetch secrets from ESC
       uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
-    - uses: peter-evans/slash-command-dispatch@13bc09769d122a64f75aa5037256f6f2d78be8c4 # v4
+    - uses: peter-evans/slash-command-dispatch@5c11dc7efead556e3bdabf664302212f79eb26fa # v5
       with:
         commands: |
           run-acceptance-tests

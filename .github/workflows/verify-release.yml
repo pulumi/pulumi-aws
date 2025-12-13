@@ -58,7 +58,7 @@ jobs:
       - name: Configure Git to checkout files with long names
         run: git config --global core.longpaths true
       - name: Checkout Repo
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           persist-credentials: false      
       - env:
@@ -71,11 +71,11 @@ jobs:
         name: Fetch secrets from ESC
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
       - name: Setup Python
-        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
         with:
           python-version: 3.11.8
       - name: Setup Java
-        uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+        uses: actions/setup-java@f2beeb24e141e01a676f977032f5a29d81c9e27e # v5.1.0
         with:
           cache: gradle
           distribution: temurin
@@ -85,11 +85,11 @@ jobs:
         with:
           gradle-version: 7.6
       - name: Setup DotNet
-        uses: actions/setup-dotnet@d4c94342e560b34958eacfc5d055d21461ed1c5d # v5.0.0
+        uses: actions/setup-dotnet@2016bd2012dba4e32de620c46fe006a3ac9f0602 # v5.0.1
         with:
           dotnet-version: 8.0.x
       - name: Setup Node
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
           node-version: 20.x
           registry-url: https://registry.npmjs.org
@@ -108,7 +108,7 @@ jobs:
         run: |
           echo "GOTOOLCHAIN=auto" >> "$GITHUB_ENV"
       - name: Install Pulumi CLI
-        uses: pulumi/actions@d7ceb0215da5a14ec84f50b703365ddf0194a9c8 # v6
+        uses: pulumi/actions@8582a9e8cc630786854029b4e09281acd6794b58 # v6
         with:
           pulumi-version: "dev"
       - name: Generate Pulumi Access Token
@@ -127,7 +127,7 @@ jobs:
           iex ((New-Object System.Net.WebClient).DownloadString('https://get.pulumi.com/esc/install.ps1'))
           Copy-Item "$env:USERPROFILE\.pulumi\bin\esc.exe" "C:\Windows\System32\esc.exe"
       - name: Export AWS Credentials
-        uses: pulumi/esc-action@efb0bc8946938f0dfbfa00e829196ec95f0d0ea7 # v1.4.0
+        uses: pulumi/esc-action@6cf9520e68354d86f81c455e8d43eabd58f5c9f5 # v1.5.0
         env:
           PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
         with:
