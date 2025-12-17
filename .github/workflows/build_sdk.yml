@@ -15,6 +15,7 @@ env:
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PULUMI_MISSING_DOCS_ERROR: "true"
+  PULUMI_PULUMI_ENABLE_JOURNALING: "true"
   TF_APPEND_USER_AGENT: pulumi
   PROVIDER_VERSION: ${{ inputs.version }}
 
@@ -45,7 +46,7 @@ jobs:
           swap-storage: false
           dotnet: false
       - name: Checkout Repo
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           submodules: true
           persist-credentials: false      
@@ -58,6 +59,12 @@ jobs:
         id: esc-secrets
         name: Fetch secrets from ESC
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
+      - uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+        id: app-auth
+        with:
+          app-id: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_APP_ID }}
+          private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
       - name: Cache examples generation
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -65,12 +72,12 @@ jobs:
             .pulumi/examples-cache
           key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
       - name: Setup mise
-        uses: jdx/mise-action@v3
+        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3
         env:
           MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:
           version: 2025.11.6
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ steps.app-auth.outputs.token }}
           # only saving the cache in the prerequisites job
           cache_save: false
       - name: Setup Go Cache
@@ -86,7 +93,7 @@ jobs:
       - name: Prepare local workspace
         run: make prepare_local_workspace
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-auth.outputs.token }}
       - name: Download prerequisites
         uses: ./.github/actions/download-prerequisites
       - name: Update path
@@ -108,11 +115,15 @@ jobs:
             sdk/nodejs/package.json
             sdk/python/pyproject.toml
             sdk/java/build.gradle
+        # This worktree check is a safeguard against someone forgetting to
+        # re-build and commit locally, but we handle that commit automatically
+        # in the case of dependency bumps.
+        continue-on-error: ${{ contains(github.actor, 'renovate') }}
       - name: Commit ${{ matrix.language }} SDK changes for Renovate
         # If the worktree is dirty and this is a Renovate PR to bump
         # dependencies, commit the updated SDK and push it back to the PR. The
         # job will still be marked as a failure.
-        if: failure() && steps.worktreeClean.outcome == 'failure' && contains(github.actor, 'renovate') && github.event_name == 'pull_request'
+        if: steps.worktreeClean.outcome == 'failure' && contains(github.actor, 'renovate') && github.event_name == 'pull_request'
         shell: bash
         run: |
           git diff --quiet -- sdk && echo "no changes to sdk" && exit
@@ -128,7 +139,7 @@ jobs:
           # Apply and add our changes, but don't commit any files we expect to
           # always change due to versioning.
           git stash pop
-          git add sdk
+          git add sdk provider/cmd/aws/schema.json
           git reset \
               sdk/python/*/pulumi-plugin.json \
               sdk/python/pyproject.toml \
