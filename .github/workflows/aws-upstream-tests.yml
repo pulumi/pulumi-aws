@@ -92,6 +92,13 @@ jobs:
           role-duration-seconds: 7200
           role-session-name: aws@githubActions
           role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+      # Free space before running tests.
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
+        with:
+          tool-cache: false
+          swap-storage: false
+          dotnet: false
       - if: ${{ matrix.tests }}
         name: Test ${{ matrix.service }}
         run: |
