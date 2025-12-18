@@ -5,10 +5,10 @@ Subject: [PATCH] Allow creating lambdas without code related properties
 
 
 diff --git a/internal/service/lambda/function.go b/internal/service/lambda/function.go
-index a76edf37871..61636c38cc5 100644
+index daa70c7dc3b..b795c108d45 100644
 --- a/internal/service/lambda/function.go
 +++ b/internal/service/lambda/function.go
-@@ -235,9 +235,9 @@ func resourceFunction() *schema.Resource {
+@@ -236,9 +236,9 @@ func resourceFunction() *schema.Resource {
  				},
  			},
  			"filename": {
@@ -21,7 +21,7 @@ index a76edf37871..61636c38cc5 100644
  			},
  			"function_name": {
  				Type:         schema.TypeString,
-@@ -298,9 +298,9 @@ func resourceFunction() *schema.Resource {
+@@ -299,9 +299,9 @@ func resourceFunction() *schema.Resource {
  				},
  			},
  			"image_uri": {
@@ -34,7 +34,7 @@ index a76edf37871..61636c38cc5 100644
  			},
  			"invoke_arn": {
  				Type:     schema.TypeString,
-@@ -417,10 +417,10 @@ func resourceFunction() *schema.Resource {
+@@ -418,10 +418,10 @@ func resourceFunction() *schema.Resource {
  				ValidateDiagFunc: enum.Validate[awstypes.Runtime](),
  			},
  			names.AttrS3Bucket: {
