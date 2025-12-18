@@ -26,7 +26,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, arn=None, created_at=None, description=None, domain_version=None, id=None, last_updated_at=None, managed_account_id=None, name=None, portal_url=None, region=None, status=None):
+    def __init__(__self__, arn=None, created_at=None, description=None, domain_version=None, id=None, last_updated_at=None, managed_account_id=None, name=None, portal_url=None, region=None, root_domain_unit_id=None, status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -57,6 +57,9 @@ class GetDomainResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if root_domain_unit_id and not isinstance(root_domain_unit_id, str):
+            raise TypeError("Expected argument 'root_domain_unit_id' to be a str")
+        pulumi.set(__self__, "root_domain_unit_id", root_domain_unit_id)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -133,6 +136,14 @@ class GetDomainResult:
         return pulumi.get(self, "region")
 
     @_builtins.property
+    @pulumi.getter(name="rootDomainUnitId")
+    def root_domain_unit_id(self) -> _builtins.str:
+        """
+        ID of the root domain unit.
+        """
+        return pulumi.get(self, "root_domain_unit_id")
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
@@ -157,6 +168,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             name=self.name,
             portal_url=self.portal_url,
             region=self.region,
+            root_domain_unit_id=self.root_domain_unit_id,
             status=self.status)
 
 
@@ -201,6 +213,7 @@ def get_domain(id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         portal_url=pulumi.get(__ret__, 'portal_url'),
         region=pulumi.get(__ret__, 'region'),
+        root_domain_unit_id=pulumi.get(__ret__, 'root_domain_unit_id'),
         status=pulumi.get(__ret__, 'status'))
 def get_domain_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -242,4 +255,5 @@ def get_domain_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None
         name=pulumi.get(__response__, 'name'),
         portal_url=pulumi.get(__response__, 'portal_url'),
         region=pulumi.get(__response__, 'region'),
+        root_domain_unit_id=pulumi.get(__response__, 'root_domain_unit_id'),
         status=pulumi.get(__response__, 'status')))

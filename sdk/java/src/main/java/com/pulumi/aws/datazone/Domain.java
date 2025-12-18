@@ -356,6 +356,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
+     * ID of the root domain unit.
+     * 
+     */
+    @Export(name="rootDomainUnitId", refs={String.class}, tree="[0]")
+    private Output<String> rootDomainUnitId;
+
+    /**
+     * @return ID of the root domain unit.
+     * 
+     */
+    public Output<String> rootDomainUnitId() {
+        return this.rootDomainUnitId;
+    }
+    /**
      * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      * 
      */

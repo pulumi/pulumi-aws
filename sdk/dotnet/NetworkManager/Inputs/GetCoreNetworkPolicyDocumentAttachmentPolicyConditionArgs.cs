@@ -25,13 +25,13 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public Input<string>? Operator { get; set; }
 
         /// <summary>
-        /// Valid values include: `account-id`, `Any`, `tag-value`, `tag-exists`, `resource-id`, `Region`, `attachment-type`.
+        /// Must be `routing-policy-label`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// string value
+        /// Routing policy label to match.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

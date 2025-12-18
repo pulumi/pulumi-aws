@@ -15,14 +15,14 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// Name of the field in which Amazon Bedrock stores metadata about the vector store.
         /// </summary>
-        [Input("metadataField")]
-        public Input<string>? MetadataField { get; set; }
+        [Input("metadataField", required: true)]
+        public Input<string> MetadataField { get; set; } = null!;
 
         /// <summary>
         /// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         /// </summary>
-        [Input("textField")]
-        public Input<string>? TextField { get; set; }
+        [Input("textField", required: true)]
+        public Input<string> TextField { get; set; } = null!;
 
         public AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingGetArgs()
         {

@@ -151,8 +151,8 @@ func (o ConnectAttachmentOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 }
 
 type ConnectPeerBgpOptions struct {
-	// Peer ASN.
-	PeerAsn *int `pulumi:"peerAsn"`
+	// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
+	PeerAsn *string `pulumi:"peerAsn"`
 }
 
 // ConnectPeerBgpOptionsInput is an input type that accepts ConnectPeerBgpOptionsArgs and ConnectPeerBgpOptionsOutput values.
@@ -167,8 +167,8 @@ type ConnectPeerBgpOptionsInput interface {
 }
 
 type ConnectPeerBgpOptionsArgs struct {
-	// Peer ASN.
-	PeerAsn pulumi.IntPtrInput `pulumi:"peerAsn"`
+	// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
+	PeerAsn pulumi.StringPtrInput `pulumi:"peerAsn"`
 }
 
 func (ConnectPeerBgpOptionsArgs) ElementType() reflect.Type {
@@ -248,9 +248,9 @@ func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsPtrOutputWithContext
 	}).(ConnectPeerBgpOptionsPtrOutput)
 }
 
-// Peer ASN.
-func (o ConnectPeerBgpOptionsOutput) PeerAsn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConnectPeerBgpOptions) *int { return v.PeerAsn }).(pulumi.IntPtrOutput)
+// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
+func (o ConnectPeerBgpOptionsOutput) PeerAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerBgpOptions) *string { return v.PeerAsn }).(pulumi.StringPtrOutput)
 }
 
 type ConnectPeerBgpOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -277,14 +277,14 @@ func (o ConnectPeerBgpOptionsPtrOutput) Elem() ConnectPeerBgpOptionsOutput {
 	}).(ConnectPeerBgpOptionsOutput)
 }
 
-// Peer ASN.
-func (o ConnectPeerBgpOptionsPtrOutput) PeerAsn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConnectPeerBgpOptions) *int {
+// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
+func (o ConnectPeerBgpOptionsPtrOutput) PeerAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectPeerBgpOptions) *string {
 		if v == nil {
 			return nil
 		}
 		return v.PeerAsn
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type ConnectPeerConfiguration struct {
@@ -430,8 +430,8 @@ type ConnectPeerConfigurationBgpConfiguration struct {
 	//
 	// The following arguments are optional:
 	PeerAddress *string `pulumi:"peerAddress"`
-	// Peer ASN.
-	PeerAsn *int `pulumi:"peerAsn"`
+	// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
+	PeerAsn *string `pulumi:"peerAsn"`
 }
 
 // ConnectPeerConfigurationBgpConfigurationInput is an input type that accepts ConnectPeerConfigurationBgpConfigurationArgs and ConnectPeerConfigurationBgpConfigurationOutput values.
@@ -453,8 +453,8 @@ type ConnectPeerConfigurationBgpConfigurationArgs struct {
 	//
 	// The following arguments are optional:
 	PeerAddress pulumi.StringPtrInput `pulumi:"peerAddress"`
-	// Peer ASN.
-	PeerAsn pulumi.IntPtrInput `pulumi:"peerAsn"`
+	// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
+	PeerAsn pulumi.StringPtrInput `pulumi:"peerAsn"`
 }
 
 func (ConnectPeerConfigurationBgpConfigurationArgs) ElementType() reflect.Type {
@@ -524,9 +524,9 @@ func (o ConnectPeerConfigurationBgpConfigurationOutput) PeerAddress() pulumi.Str
 	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
 }
 
-// Peer ASN.
-func (o ConnectPeerConfigurationBgpConfigurationOutput) PeerAsn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *int { return v.PeerAsn }).(pulumi.IntPtrOutput)
+// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
+func (o ConnectPeerConfigurationBgpConfigurationOutput) PeerAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *string { return v.PeerAsn }).(pulumi.StringPtrOutput)
 }
 
 type ConnectPeerConfigurationBgpConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -2040,9 +2040,9 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicyCondition struct {
 	Key *string `pulumi:"key"`
 	// Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
 	Operator *string `pulumi:"operator"`
-	// Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+	// Must be `routing-policy-label`.
 	Type string `pulumi:"type"`
-	// string value
+	// Routing policy label to match.
 	Value *string `pulumi:"value"`
 }
 
@@ -2062,9 +2062,9 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs struct {
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+	// Must be `routing-policy-label`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// string value
+	// Routing policy label to match.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -2129,12 +2129,12 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) Operator() 
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+// Must be `routing-policy-label`.
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyCondition) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// string value
+// Routing policy label to match.
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyCondition) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2157,6 +2157,303 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput) Index(
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentAttachmentPolicyCondition {
 		return vs[0].([]GetCoreNetworkPolicyDocumentAttachmentPolicyCondition)[vs[1].(int)]
 	}).(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule struct {
+	// Block defining the action to take when conditions match. Detailed below.
+	Action GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction `pulumi:"action"`
+	// A block argument. Detailed below.
+	Conditions []GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition `pulumi:"conditions"`
+	// A user-defined description that further helps identify the rule.
+	Description *string `pulumi:"description"`
+	// A set of AWS Region codes where this rule applies.
+	EdgeLocations []string `pulumi:"edgeLocations"`
+	// An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
+	RuleNumber int `pulumi:"ruleNumber"`
+}
+
+// GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs and GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleInput` via:
+//
+//	GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs{...}
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput
+	ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs struct {
+	// Block defining the action to take when conditions match. Detailed below.
+	Action GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionInput `pulumi:"action"`
+	// A block argument. Detailed below.
+	Conditions GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayInput `pulumi:"conditions"`
+	// A user-defined description that further helps identify the rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A set of AWS Region codes where this rule applies.
+	EdgeLocations pulumi.StringArrayInput `pulumi:"edgeLocations"`
+	// An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
+	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
+}
+
+func (GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput {
+	return i.ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput)
+}
+
+// GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArray and GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayInput` via:
+//
+//	GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArray{ GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs{...} }
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput
+	ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArray []GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleInput
+
+func (GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArray) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArray) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput {
+	return o
+}
+
+// Block defining the action to take when conditions match. Detailed below.
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput) Action() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction {
+		return v.Action
+	}).(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput)
+}
+
+// A block argument. Detailed below.
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput) Conditions() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule) []GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition {
+		return v.Conditions
+	}).(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput)
+}
+
+// A user-defined description that further helps identify the rule.
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A set of AWS Region codes where this rule applies.
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput) EdgeLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule) []string { return v.EdgeLocations }).(pulumi.StringArrayOutput)
+}
+
+// An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput) RuleNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule) int { return v.RuleNumber }).(pulumi.IntOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule {
+		return vs[0].([]GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction struct {
+	// Set of routing policy names to associate when the conditions match.
+	AssociateRoutingPolicies []string `pulumi:"associateRoutingPolicies"`
+}
+
+// GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs and GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionInput` via:
+//
+//	GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs{...}
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput
+	ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs struct {
+	// Set of routing policy names to associate when the conditions match.
+	AssociateRoutingPolicies pulumi.StringArrayInput `pulumi:"associateRoutingPolicies"`
+}
+
+func (GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput {
+	return i.ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput {
+	return o
+}
+
+// Set of routing policy names to associate when the conditions match.
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput) AssociateRoutingPolicies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction) []string {
+		return v.AssociateRoutingPolicies
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition struct {
+	// Must be `routing-policy-label`.
+	Type string `pulumi:"type"`
+	// Routing policy label to match.
+	Value string `pulumi:"value"`
+}
+
+// GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs and GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionInput` via:
+//
+//	GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs{...}
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput
+	ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs struct {
+	// Must be `routing-policy-label`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Routing policy label to match.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput {
+	return i.ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput)
+}
+
+// GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArray and GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayInput` via:
+//
+//	GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArray{ GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs{...} }
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput
+	ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArray []GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionInput
+
+func (GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArray) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArray) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput {
+	return o
+}
+
+// Must be `routing-policy-label`.
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Routing policy label to match.
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput) ToGetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition {
+		return vs[0].([]GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput)
 }
 
 type GetCoreNetworkPolicyDocumentCoreNetworkConfiguration struct {
@@ -2534,6 +2831,500 @@ func (o GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput) Index(i pul
 	}).(GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput)
 }
 
+type GetCoreNetworkPolicyDocumentRoutingPolicy struct {
+	// Description of the routing policy.
+	RoutingPolicyDescription *string `pulumi:"routingPolicyDescription"`
+	// Direction of the routing policy. Valid values: `inbound`, `outbound`.
+	RoutingPolicyDirection string `pulumi:"routingPolicyDirection"`
+	// Name of the routing policy. Must be 1-100 alphanumeric characters.
+	RoutingPolicyName string `pulumi:"routingPolicyName"`
+	// Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+	RoutingPolicyNumber int `pulumi:"routingPolicyNumber"`
+	// List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
+	RoutingPolicyRules []GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule `pulumi:"routingPolicyRules"`
+}
+
+// GetCoreNetworkPolicyDocumentRoutingPolicyInput is an input type that accepts GetCoreNetworkPolicyDocumentRoutingPolicyArgs and GetCoreNetworkPolicyDocumentRoutingPolicyOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentRoutingPolicyInput` via:
+//
+//	GetCoreNetworkPolicyDocumentRoutingPolicyArgs{...}
+type GetCoreNetworkPolicyDocumentRoutingPolicyInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyOutput() GetCoreNetworkPolicyDocumentRoutingPolicyOutput
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyOutput
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyArgs struct {
+	// Description of the routing policy.
+	RoutingPolicyDescription pulumi.StringPtrInput `pulumi:"routingPolicyDescription"`
+	// Direction of the routing policy. Valid values: `inbound`, `outbound`.
+	RoutingPolicyDirection pulumi.StringInput `pulumi:"routingPolicyDirection"`
+	// Name of the routing policy. Must be 1-100 alphanumeric characters.
+	RoutingPolicyName pulumi.StringInput `pulumi:"routingPolicyName"`
+	// Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+	RoutingPolicyNumber pulumi.IntInput `pulumi:"routingPolicyNumber"`
+	// List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
+	RoutingPolicyRules GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayInput `pulumi:"routingPolicyRules"`
+}
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicy)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyArgs) ToGetCoreNetworkPolicyDocumentRoutingPolicyOutput() GetCoreNetworkPolicyDocumentRoutingPolicyOutput {
+	return i.ToGetCoreNetworkPolicyDocumentRoutingPolicyOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyArgs) ToGetCoreNetworkPolicyDocumentRoutingPolicyOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentRoutingPolicyOutput)
+}
+
+// GetCoreNetworkPolicyDocumentRoutingPolicyArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentRoutingPolicyArray and GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentRoutingPolicyArrayInput` via:
+//
+//	GetCoreNetworkPolicyDocumentRoutingPolicyArray{ GetCoreNetworkPolicyDocumentRoutingPolicyArgs{...} }
+type GetCoreNetworkPolicyDocumentRoutingPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput() GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyArray []GetCoreNetworkPolicyDocumentRoutingPolicyInput
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentRoutingPolicy)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyArray) ToGetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput() GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentRoutingPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyArray) ToGetCoreNetworkPolicyDocumentRoutingPolicyArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicy)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyOutput() GetCoreNetworkPolicyDocumentRoutingPolicyOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyOutput {
+	return o
+}
+
+// Description of the routing policy.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyOutput) RoutingPolicyDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicy) *string { return v.RoutingPolicyDescription }).(pulumi.StringPtrOutput)
+}
+
+// Direction of the routing policy. Valid values: `inbound`, `outbound`.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyOutput) RoutingPolicyDirection() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicy) string { return v.RoutingPolicyDirection }).(pulumi.StringOutput)
+}
+
+// Name of the routing policy. Must be 1-100 alphanumeric characters.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyOutput) RoutingPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicy) string { return v.RoutingPolicyName }).(pulumi.StringOutput)
+}
+
+// Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyOutput) RoutingPolicyNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicy) int { return v.RoutingPolicyNumber }).(pulumi.IntOutput)
+}
+
+// List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyOutput) RoutingPolicyRules() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicy) []GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule {
+		return v.RoutingPolicyRules
+	}).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentRoutingPolicy)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput() GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentRoutingPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentRoutingPolicy {
+		return vs[0].([]GetCoreNetworkPolicyDocumentRoutingPolicy)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentRoutingPolicyOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule struct {
+	// Defines the match conditions and actions for the rule. Detailed below.
+	RuleDefinition GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition `pulumi:"ruleDefinition"`
+	// Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+	RuleNumber int `pulumi:"ruleNumber"`
+}
+
+// GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleInput is an input type that accepts GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs and GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleInput` via:
+//
+//	GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs{...}
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs struct {
+	// Defines the match conditions and actions for the rule. Detailed below.
+	RuleDefinition GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionInput `pulumi:"ruleDefinition"`
+	// Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
+}
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput {
+	return i.ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput)
+}
+
+// GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArray and GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayInput` via:
+//
+//	GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArray{ GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs{...} }
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArray []GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleInput
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArray) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArray) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput {
+	return o
+}
+
+// Defines the match conditions and actions for the rule. Detailed below.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput) RuleDefinition() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition {
+		return v.RuleDefinition
+	}).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput)
+}
+
+// Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput) RuleNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule) int { return v.RuleNumber }).(pulumi.IntOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule {
+		return vs[0].([]GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition struct {
+	// Block defining the action to take when conditions match. Detailed below.
+	Action GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction `pulumi:"action"`
+	// Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
+	ConditionLogic *string `pulumi:"conditionLogic"`
+	// List of conditions to match against routes. Detailed below.
+	MatchConditions []GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition `pulumi:"matchConditions"`
+}
+
+// GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionInput is an input type that accepts GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs and GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionInput` via:
+//
+//	GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs{...}
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs struct {
+	// Block defining the action to take when conditions match. Detailed below.
+	Action GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionInput `pulumi:"action"`
+	// Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
+	ConditionLogic pulumi.StringPtrInput `pulumi:"conditionLogic"`
+	// List of conditions to match against routes. Detailed below.
+	MatchConditions GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayInput `pulumi:"matchConditions"`
+}
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput {
+	return i.ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput {
+	return o
+}
+
+// Block defining the action to take when conditions match. Detailed below.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput) Action() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction {
+		return v.Action
+	}).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput)
+}
+
+// Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput) ConditionLogic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition) *string {
+		return v.ConditionLogic
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of conditions to match against routes. Detailed below.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput) MatchConditions() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition) []GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition {
+		return v.MatchConditions
+	}).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction struct {
+	// Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
+	Type string `pulumi:"type"`
+	// Value for the action, required for certain action types.
+	Value *string `pulumi:"value"`
+}
+
+// GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionInput is an input type that accepts GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs and GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionInput` via:
+//
+//	GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs{...}
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs struct {
+	// Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value for the action, required for certain action types.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput {
+	return i.ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput {
+	return o
+}
+
+// Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Value for the action, required for certain action types.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction) *string {
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition struct {
+	// Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
+	Type string `pulumi:"type"`
+	// Value to match against, depending on the condition type.
+	Value string `pulumi:"value"`
+}
+
+// GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionInput is an input type that accepts GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs and GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionInput` via:
+//
+//	GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs{...}
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs struct {
+	// Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value to match against, depending on the condition type.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput {
+	return i.ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput)
+}
+
+// GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArray and GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayInput` via:
+//
+//	GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArray{ GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs{...} }
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput
+	ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArray []GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionInput
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArray) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArray) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput {
+	return o
+}
+
+// Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Value to match against, depending on the condition type.
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+type GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput() GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput) ToGetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition {
+		return vs[0].([]GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput)
+}
+
 type GetCoreNetworkPolicyDocumentSegment struct {
 	// List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allowFilter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segmentActions`. If a segment is listed in `allowFilter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named "video-producer" that should only ever share routes with a "video-distributor" segment, no matter how many other share statements are created.
 	AllowFilters []string `pulumi:"allowFilters"`
@@ -2686,7 +3477,7 @@ func (o GetCoreNetworkPolicyDocumentSegmentArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetCoreNetworkPolicyDocumentSegmentAction struct {
-	// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+	// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
 	Action string `pulumi:"action"`
 	// A user-defined string describing the segment action.
 	Description *string `pulumi:"description"`
@@ -2694,6 +3485,8 @@ type GetCoreNetworkPolicyDocumentSegmentAction struct {
 	DestinationCidrBlocks []string `pulumi:"destinationCidrBlocks"`
 	// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
 	Destinations []string `pulumi:"destinations"`
+	// Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+	EdgeLocationAssociation *GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation `pulumi:"edgeLocationAssociation"`
 	// String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
 	Mode *string `pulumi:"mode"`
 	// Name of the segment.
@@ -2720,7 +3513,7 @@ type GetCoreNetworkPolicyDocumentSegmentActionInput interface {
 }
 
 type GetCoreNetworkPolicyDocumentSegmentActionArgs struct {
-	// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+	// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
 	Action pulumi.StringInput `pulumi:"action"`
 	// A user-defined string describing the segment action.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -2728,6 +3521,8 @@ type GetCoreNetworkPolicyDocumentSegmentActionArgs struct {
 	DestinationCidrBlocks pulumi.StringArrayInput `pulumi:"destinationCidrBlocks"`
 	// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
 	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
+	// Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+	EdgeLocationAssociation GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrInput `pulumi:"edgeLocationAssociation"`
 	// String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Name of the segment.
@@ -2793,7 +3588,7 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ToGetCoreNetworkPolicyD
 	return o
 }
 
-// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
 func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -2811,6 +3606,13 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) DestinationCidrBlocks()
 // A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
 func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Destinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) []string { return v.Destinations }).(pulumi.StringArrayOutput)
+}
+
+// Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) EdgeLocationAssociation() GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) *GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation {
+		return v.EdgeLocationAssociation
+	}).(GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput)
 }
 
 // String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
@@ -2865,6 +3667,185 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentSegmentAction {
 		return vs[0].([]GetCoreNetworkPolicyDocumentSegmentAction)[vs[1].(int)]
 	}).(GetCoreNetworkPolicyDocumentSegmentActionOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation struct {
+	// The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
+	EdgeLocation string `pulumi:"edgeLocation"`
+	// The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
+	PeerEdgeLocation string `pulumi:"peerEdgeLocation"`
+	// A set of routing policy names to apply to this edge location pair.
+	RoutingPolicyNames []string `pulumi:"routingPolicyNames"`
+}
+
+// GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs and GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationInput` via:
+//
+//	GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs{...}
+type GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput() GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput
+	ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs struct {
+	// The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
+	EdgeLocation pulumi.StringInput `pulumi:"edgeLocation"`
+	// The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
+	PeerEdgeLocation pulumi.StringInput `pulumi:"peerEdgeLocation"`
+	// A set of routing policy names to apply to this edge location pair.
+	RoutingPolicyNames pulumi.StringArrayInput `pulumi:"routingPolicyNames"`
+}
+
+func (GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput() GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput)
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput).ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutputWithContext(ctx)
+}
+
+// GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs, GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtr and GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrInput` via:
+//
+//	        GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput
+	ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput
+}
+
+type getCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrType GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs
+
+func GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtr(v *GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs) GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrInput {
+	return (*getCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrType)(v)
+}
+
+func (*getCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation)(nil)).Elem()
+}
+
+func (i *getCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrType) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *getCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrType) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput() GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput {
+	return o.ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation) *GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation {
+		return &v
+	}).(GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput)
+}
+
+// The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput) EdgeLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation) string { return v.EdgeLocation }).(pulumi.StringOutput)
+}
+
+// The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput) PeerEdgeLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation) string {
+		return v.PeerEdgeLocation
+	}).(pulumi.StringOutput)
+}
+
+// A set of routing policy names to apply to this edge location pair.
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput) RoutingPolicyNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation) []string {
+		return v.RoutingPolicyNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput) ToGetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput) Elem() GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput {
+	return o.ApplyT(func(v *GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation) GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation
+		return ret
+	}).(GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput)
+}
+
+// The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput) EdgeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EdgeLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput) PeerEdgeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PeerEdgeLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// A set of routing policy names to apply to this edge location pair.
+func (o GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput) RoutingPolicyNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingPolicyNames
+	}).(pulumi.StringArrayOutput)
 }
 
 type GetCoreNetworkPolicyDocumentSegmentActionVia struct {
@@ -3755,16 +4736,31 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentNetworkFunctionGroupInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentNetworkFunctionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentRoutingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentRoutingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionViaInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionViaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionViaPtrInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionViaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs{})
@@ -3808,16 +4804,31 @@ func init() {
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentRoutingPolicyOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionViaOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput{})

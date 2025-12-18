@@ -95,14 +95,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
      * 
      */
     @Import(name="codeSha256")
     private @Nullable Output<String> codeSha256;
 
     /**
-     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * @return Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
      * 
      */
     public Optional<Output<String>> codeSha256() {
@@ -639,14 +639,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+     * User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
      * 
      */
     @Import(name="sourceCodeHash")
     private @Nullable Output<String> sourceCodeHash;
 
     /**
-     * @return Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+     * @return User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
      * 
      */
     public Optional<Output<String>> sourceCodeHash() {
@@ -956,7 +956,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param codeSha256 Base64-encoded representation of raw SHA-256 sum of the zip file.
+         * @param codeSha256 Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
          * 
          * @return builder
          * 
@@ -967,7 +967,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param codeSha256 Base64-encoded representation of raw SHA-256 sum of the zip file.
+         * @param codeSha256 Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
          * 
          * @return builder
          * 
@@ -1756,7 +1756,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCodeHash Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+         * @param sourceCodeHash User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
          * 
          * @return builder
          * 
@@ -1767,7 +1767,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCodeHash Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+         * @param sourceCodeHash User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
          * 
          * @return builder
          * 

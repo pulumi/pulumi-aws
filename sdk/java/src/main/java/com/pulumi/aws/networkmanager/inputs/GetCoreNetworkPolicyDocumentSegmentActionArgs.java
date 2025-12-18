@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkmanager.inputs;
 
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionViaArgs;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs;
 import com.pulumi.core.Output;
@@ -20,14 +21,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
     public static final GetCoreNetworkPolicyDocumentSegmentActionArgs Empty = new GetCoreNetworkPolicyDocumentSegmentActionArgs();
 
     /**
-     * Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+     * Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
      * 
      */
     public Output<String> action() {
@@ -77,6 +78,21 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
      */
     public Optional<Output<List<String>>> destinations() {
         return Optional.ofNullable(this.destinations);
+    }
+
+    /**
+     * Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+     * 
+     */
+    @Import(name="edgeLocationAssociation")
+    private @Nullable Output<GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs> edgeLocationAssociation;
+
+    /**
+     * @return Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+     * 
+     */
+    public Optional<Output<GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs>> edgeLocationAssociation() {
+        return Optional.ofNullable(this.edgeLocationAssociation);
     }
 
     /**
@@ -176,6 +192,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         this.description = $.description;
         this.destinationCidrBlocks = $.destinationCidrBlocks;
         this.destinations = $.destinations;
+        this.edgeLocationAssociation = $.edgeLocationAssociation;
         this.mode = $.mode;
         this.segment = $.segment;
         this.shareWithExcepts = $.shareWithExcepts;
@@ -203,7 +220,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param action Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+         * @param action Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
          * 
          * @return builder
          * 
@@ -214,7 +231,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param action Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+         * @param action Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
          * 
          * @return builder
          * 
@@ -304,6 +321,27 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
          */
         public Builder destinations(String... destinations) {
             return destinations(List.of(destinations));
+        }
+
+        /**
+         * @param edgeLocationAssociation Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeLocationAssociation(@Nullable Output<GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs> edgeLocationAssociation) {
+            $.edgeLocationAssociation = edgeLocationAssociation;
+            return this;
+        }
+
+        /**
+         * @param edgeLocationAssociation Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeLocationAssociation(GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs edgeLocationAssociation) {
+            return edgeLocationAssociation(Output.of(edgeLocationAssociation));
         }
 
         /**

@@ -181,3 +181,8 @@ useFipsEndpoint: Optional[bool]
 Resolve an endpoint with FIPS capability
 """
 
+userAgents: Optional[str]
+"""
+Product details to append to the User-Agent string sent in all AWS API calls.
+"""
+

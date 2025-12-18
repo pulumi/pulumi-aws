@@ -2713,6 +2713,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudfront/trustStore",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/trustStore:TrustStore": "TrustStore"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudfront/vpcOrigin",
   "fqn": "pulumi_aws.cloudfront",
   "classes": {

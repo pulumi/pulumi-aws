@@ -101,6 +101,12 @@ namespace Pulumi.Aws.NetworkManager
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        /// </summary>
+        [Output("routingPolicyLabel")]
+        public Output<string?> RoutingPolicyLabel { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the segment attachment.
         /// </summary>
         [Output("segmentName")]
@@ -199,6 +205,12 @@ namespace Pulumi.Aws.NetworkManager
             set => _edgeLocations = value;
         }
 
+        /// <summary>
+        /// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        /// </summary>
+        [Input("routingPolicyLabel")]
+        public Input<string>? RoutingPolicyLabel { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -277,6 +289,12 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
+
+        /// <summary>
+        /// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        /// </summary>
+        [Input("routingPolicyLabel")]
+        public Input<string>? RoutingPolicyLabel { get; set; }
 
         /// <summary>
         /// Name of the segment attachment.

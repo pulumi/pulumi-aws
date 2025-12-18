@@ -58,17 +58,17 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
     }
 
     /**
-     * Peer ASN.
+     * Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
      * 
      */
     @Import(name="peerAsn")
-    private @Nullable Output<Integer> peerAsn;
+    private @Nullable Output<String> peerAsn;
 
     /**
-     * @return Peer ASN.
+     * @return Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
      * 
      */
-    public Optional<Output<Integer>> peerAsn() {
+    public Optional<Output<String>> peerAsn() {
         return Optional.ofNullable(this.peerAsn);
     }
 
@@ -155,23 +155,23 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param peerAsn Peer ASN.
+         * @param peerAsn Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
          * 
          * @return builder
          * 
          */
-        public Builder peerAsn(@Nullable Output<Integer> peerAsn) {
+        public Builder peerAsn(@Nullable Output<String> peerAsn) {
             $.peerAsn = peerAsn;
             return this;
         }
 
         /**
-         * @param peerAsn Peer ASN.
+         * @param peerAsn Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
          * 
          * @return builder
          * 
          */
-        public Builder peerAsn(Integer peerAsn) {
+        public Builder peerAsn(String peerAsn) {
             return peerAsn(Output.of(peerAsn));
         }
 

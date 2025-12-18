@@ -53,7 +53,8 @@ class ProviderArgs:
                  token: Optional[pulumi.Input[_builtins.str]] = None,
                  token_bucket_rate_limiter_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_fips_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
+                 use_fips_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 user_agents: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[_builtins.str] access_key: The access key for API operations. You can retrieve this
@@ -96,6 +97,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.int] token_bucket_rate_limiter_capacity: The capacity of the AWS SDK's token bucket rate limiter.
         :param pulumi.Input[_builtins.bool] use_dualstack_endpoint: Resolve an endpoint with DualStack capability
         :param pulumi.Input[_builtins.bool] use_fips_endpoint: Resolve an endpoint with FIPS capability
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_agents: Product details to append to the User-Agent string sent in all AWS API calls.
         """
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
@@ -171,6 +173,8 @@ class ProviderArgs:
             pulumi.set(__self__, "use_dualstack_endpoint", use_dualstack_endpoint)
         if use_fips_endpoint is not None:
             pulumi.set(__self__, "use_fips_endpoint", use_fips_endpoint)
+        if user_agents is not None:
+            pulumi.set(__self__, "user_agents", user_agents)
 
     @_builtins.property
     @pulumi.getter(name="accessKey")
@@ -576,6 +580,18 @@ class ProviderArgs:
     def use_fips_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "use_fips_endpoint", value)
 
+    @_builtins.property
+    @pulumi.getter(name="userAgents")
+    def user_agents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Product details to append to the User-Agent string sent in all AWS API calls.
+        """
+        return pulumi.get(self, "user_agents")
+
+    @user_agents.setter
+    def user_agents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "user_agents", value)
+
 
 @pulumi.type_token("pulumi:providers:aws")
 class Provider(pulumi.ProviderResource):
@@ -617,6 +633,7 @@ class Provider(pulumi.ProviderResource):
                  token_bucket_rate_limiter_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
                  use_fips_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 user_agents: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The provider type for the aws package. By default, resources use package-wide configuration
@@ -666,6 +683,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.int] token_bucket_rate_limiter_capacity: The capacity of the AWS SDK's token bucket rate limiter.
         :param pulumi.Input[_builtins.bool] use_dualstack_endpoint: Resolve an endpoint with DualStack capability
         :param pulumi.Input[_builtins.bool] use_fips_endpoint: Resolve an endpoint with FIPS capability
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_agents: Product details to append to the User-Agent string sent in all AWS API calls.
         """
         ...
     @overload
@@ -728,6 +746,7 @@ class Provider(pulumi.ProviderResource):
                  token_bucket_rate_limiter_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
                  use_fips_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 user_agents: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -777,6 +796,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["token_bucket_rate_limiter_capacity"] = pulumi.Output.from_input(token_bucket_rate_limiter_capacity).apply(pulumi.runtime.to_json) if token_bucket_rate_limiter_capacity is not None else None
             __props__.__dict__["use_dualstack_endpoint"] = pulumi.Output.from_input(use_dualstack_endpoint).apply(pulumi.runtime.to_json) if use_dualstack_endpoint is not None else None
             __props__.__dict__["use_fips_endpoint"] = pulumi.Output.from_input(use_fips_endpoint).apply(pulumi.runtime.to_json) if use_fips_endpoint is not None else None
+            __props__.__dict__["user_agents"] = pulumi.Output.from_input(user_agents).apply(pulumi.runtime.to_json) if user_agents is not None else None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessKey", "secretKey", "token"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(

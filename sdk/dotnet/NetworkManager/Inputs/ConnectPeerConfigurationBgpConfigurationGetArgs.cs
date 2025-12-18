@@ -30,10 +30,10 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public Input<string>? PeerAddress { get; set; }
 
         /// <summary>
-        /// Peer ASN.
+        /// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
         /// </summary>
         [Input("peerAsn")]
-        public Input<int>? PeerAsn { get; set; }
+        public Input<string>? PeerAsn { get; set; }
 
         public ConnectPeerConfigurationBgpConfigurationGetArgs()
         {

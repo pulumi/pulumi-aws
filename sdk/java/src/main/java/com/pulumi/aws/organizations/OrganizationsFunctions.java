@@ -4,6 +4,8 @@
 package com.pulumi.aws.organizations;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.organizations.inputs.GetAccountArgs;
+import com.pulumi.aws.organizations.inputs.GetAccountPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedServicesArgs;
@@ -26,6 +28,7 @@ import com.pulumi.aws.organizations.inputs.GetPolicyArgs;
 import com.pulumi.aws.organizations.inputs.GetPolicyPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetResourceTagsArgs;
 import com.pulumi.aws.organizations.inputs.GetResourceTagsPlainArgs;
+import com.pulumi.aws.organizations.outputs.GetAccountResult;
 import com.pulumi.aws.organizations.outputs.GetDelegatedAdministratorsResult;
 import com.pulumi.aws.organizations.outputs.GetDelegatedServicesResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationResult;
@@ -47,6 +50,216 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class OrganizationsFunctions {
+    /**
+     * Get information about an account in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getAccount(GetAccountArgs.builder()
+     *             .accountId("AWS ACCOUNT ID")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
+        return getAccount(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about an account in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getAccount(GetAccountArgs.builder()
+     *             .accountId("AWS ACCOUNT ID")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
+        return getAccountPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about an account in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getAccount(GetAccountArgs.builder()
+     *             .accountId("AWS ACCOUNT ID")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about an account in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getAccount(GetAccountArgs.builder()
+     *             .accountId("AWS ACCOUNT ID")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about an account in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getAccount(GetAccountArgs.builder()
+     *             .accountId("AWS ACCOUNT ID")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:organizations/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 

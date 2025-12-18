@@ -328,14 +328,14 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+     * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
      * 
      */
     @Import(name="userGroupId")
     private @Nullable Output<String> userGroupId;
 
     /**
-     * @return The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+     * @return The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
      * 
      */
     public Optional<Output<String>> userGroupId() {
@@ -861,7 +861,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userGroupId The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+         * @param userGroupId The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
          * 
          * @return builder
          * 
@@ -872,7 +872,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userGroupId The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+         * @param userGroupId The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
          * 
          * @return builder
          * 

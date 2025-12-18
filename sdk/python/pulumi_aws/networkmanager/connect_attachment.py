@@ -25,6 +25,7 @@ class ConnectAttachmentArgs:
                  edge_location: pulumi.Input[_builtins.str],
                  options: pulumi.Input['ConnectAttachmentOptionsArgs'],
                  transport_attachment_id: pulumi.Input[_builtins.str],
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectAttachment resource.
@@ -34,12 +35,15 @@ class ConnectAttachmentArgs:
         :param pulumi.Input[_builtins.str] transport_attachment_id: ID of the attachment between the two connections.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "edge_location", edge_location)
         pulumi.set(__self__, "options", options)
         pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
+        if routing_policy_label is not None:
+            pulumi.set(__self__, "routing_policy_label", routing_policy_label)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -94,6 +98,18 @@ class ConnectAttachmentArgs:
         pulumi.set(self, "transport_attachment_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        """
+        return pulumi.get(self, "routing_policy_label")
+
+    @routing_policy_label.setter
+    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_policy_label", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -119,6 +135,7 @@ class _ConnectAttachmentState:
                  options: Optional[pulumi.Input['ConnectAttachmentOptionsArgs']] = None,
                  owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -136,6 +153,7 @@ class _ConnectAttachmentState:
         :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options block. See options for more information.
         :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
         :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
         :param pulumi.Input[_builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -164,6 +182,8 @@ class _ConnectAttachmentState:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
+        if routing_policy_label is not None:
+            pulumi.set(__self__, "routing_policy_label", routing_policy_label)
         if segment_name is not None:
             pulumi.set(__self__, "segment_name", segment_name)
         if state is not None:
@@ -296,6 +316,18 @@ class _ConnectAttachmentState:
         pulumi.set(self, "resource_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        """
+        return pulumi.get(self, "routing_policy_label")
+
+    @routing_policy_label.setter
+    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_policy_label", value)
+
+    @_builtins.property
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -367,6 +399,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  edge_location: Optional[pulumi.Input[_builtins.str]] = None,
                  options: Optional[pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -435,6 +468,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] core_network_id: ID of a core network where you want to create the attachment.
         :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located.
         :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']] options: Options block. See options for more information.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] transport_attachment_id: ID of the attachment between the two connections.
                
@@ -524,6 +558,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  edge_location: Optional[pulumi.Input[_builtins.str]] = None,
                  options: Optional[pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -544,6 +579,7 @@ class ConnectAttachment(pulumi.CustomResource):
             if options is None and not opts.urn:
                 raise TypeError("Missing required property 'options'")
             __props__.__dict__["options"] = options
+            __props__.__dict__["routing_policy_label"] = routing_policy_label
             __props__.__dict__["tags"] = tags
             if transport_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transport_attachment_id'")
@@ -578,6 +614,7 @@ class ConnectAttachment(pulumi.CustomResource):
             options: Optional[pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
             owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
             resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+            routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
             segment_name: Optional[pulumi.Input[_builtins.str]] = None,
             state: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -600,6 +637,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']] options: Options block. See options for more information.
         :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
         :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
         :param pulumi.Input[_builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -622,6 +660,7 @@ class ConnectAttachment(pulumi.CustomResource):
         __props__.__dict__["options"] = options
         __props__.__dict__["owner_account_id"] = owner_account_id
         __props__.__dict__["resource_arn"] = resource_arn
+        __props__.__dict__["routing_policy_label"] = routing_policy_label
         __props__.__dict__["segment_name"] = segment_name
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
@@ -708,6 +747,14 @@ class ConnectAttachment(pulumi.CustomResource):
         Attachment resource ARN.
         """
         return pulumi.get(self, "resource_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        """
+        return pulumi.get(self, "routing_policy_label")
 
     @_builtins.property
     @pulumi.getter(name="segmentName")

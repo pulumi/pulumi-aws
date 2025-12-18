@@ -22,11 +22,11 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly string? Operator;
         /// <summary>
-        /// Valid values include: `account-id`, `Any`, `tag-value`, `tag-exists`, `resource-id`, `Region`, `attachment-type`.
+        /// Must be `routing-policy-label`.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// string value
+        /// Routing policy label to match.
         /// </summary>
         public readonly string? Value;
 

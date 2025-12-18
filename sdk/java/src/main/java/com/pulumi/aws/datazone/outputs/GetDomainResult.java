@@ -49,6 +49,11 @@ public final class GetDomainResult {
     private String portalUrl;
     private String region;
     /**
+     * @return ID of the root domain unit.
+     * 
+     */
+    private String rootDomainUnitId;
+    /**
      * @return Status of the Domain.
      * 
      */
@@ -114,6 +119,13 @@ public final class GetDomainResult {
         return this.region;
     }
     /**
+     * @return ID of the root domain unit.
+     * 
+     */
+    public String rootDomainUnitId() {
+        return this.rootDomainUnitId;
+    }
+    /**
      * @return Status of the Domain.
      * 
      */
@@ -140,6 +152,7 @@ public final class GetDomainResult {
         private String name;
         private String portalUrl;
         private String region;
+        private String rootDomainUnitId;
         private String status;
         public Builder() {}
         public Builder(GetDomainResult defaults) {
@@ -154,6 +167,7 @@ public final class GetDomainResult {
     	      this.name = defaults.name;
     	      this.portalUrl = defaults.portalUrl;
     	      this.region = defaults.region;
+    	      this.rootDomainUnitId = defaults.rootDomainUnitId;
     	      this.status = defaults.status;
         }
 
@@ -238,6 +252,14 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
+        public Builder rootDomainUnitId(String rootDomainUnitId) {
+            if (rootDomainUnitId == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "rootDomainUnitId");
+            }
+            this.rootDomainUnitId = rootDomainUnitId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetDomainResult", "status");
@@ -257,6 +279,7 @@ public final class GetDomainResult {
             _resultValue.name = name;
             _resultValue.portalUrl = portalUrl;
             _resultValue.region = region;
+            _resultValue.rootDomainUnitId = rootDomainUnitId;
             _resultValue.status = status;
             return _resultValue;
         }

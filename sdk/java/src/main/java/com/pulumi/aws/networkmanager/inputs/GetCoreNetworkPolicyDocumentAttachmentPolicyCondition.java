@@ -46,14 +46,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition extends
     }
 
     /**
-     * Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+     * Must be `routing-policy-label`.
      * 
      */
     @Import(name="type", required=true)
     private String type;
 
     /**
-     * @return Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+     * @return Must be `routing-policy-label`.
      * 
      */
     public String type() {
@@ -61,14 +61,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition extends
     }
 
     /**
-     * string value
+     * Routing policy label to match.
      * 
      */
     @Import(name="value")
     private @Nullable String value;
 
     /**
-     * @return string value
+     * @return Routing policy label to match.
      * 
      */
     public Optional<String> value() {
@@ -125,7 +125,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition extends
         }
 
         /**
-         * @param type Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+         * @param type Must be `routing-policy-label`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition extends
         }
 
         /**
-         * @param value string value
+         * @param value Routing policy label to match.
          * 
          * @return builder
          * 

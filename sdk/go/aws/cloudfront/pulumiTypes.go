@@ -12087,6 +12087,514 @@ func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) SamplingRate() 
 	}).(pulumi.Float64PtrOutput)
 }
 
+type TrustStoreCaCertificatesBundleSource struct {
+	// Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
+	CaCertificatesBundleS3Location *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location `pulumi:"caCertificatesBundleS3Location"`
+}
+
+// TrustStoreCaCertificatesBundleSourceInput is an input type that accepts TrustStoreCaCertificatesBundleSourceArgs and TrustStoreCaCertificatesBundleSourceOutput values.
+// You can construct a concrete instance of `TrustStoreCaCertificatesBundleSourceInput` via:
+//
+//	TrustStoreCaCertificatesBundleSourceArgs{...}
+type TrustStoreCaCertificatesBundleSourceInput interface {
+	pulumi.Input
+
+	ToTrustStoreCaCertificatesBundleSourceOutput() TrustStoreCaCertificatesBundleSourceOutput
+	ToTrustStoreCaCertificatesBundleSourceOutputWithContext(context.Context) TrustStoreCaCertificatesBundleSourceOutput
+}
+
+type TrustStoreCaCertificatesBundleSourceArgs struct {
+	// Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
+	CaCertificatesBundleS3Location TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrInput `pulumi:"caCertificatesBundleS3Location"`
+}
+
+func (TrustStoreCaCertificatesBundleSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreCaCertificatesBundleSource)(nil)).Elem()
+}
+
+func (i TrustStoreCaCertificatesBundleSourceArgs) ToTrustStoreCaCertificatesBundleSourceOutput() TrustStoreCaCertificatesBundleSourceOutput {
+	return i.ToTrustStoreCaCertificatesBundleSourceOutputWithContext(context.Background())
+}
+
+func (i TrustStoreCaCertificatesBundleSourceArgs) ToTrustStoreCaCertificatesBundleSourceOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleSourceOutput)
+}
+
+func (i TrustStoreCaCertificatesBundleSourceArgs) ToTrustStoreCaCertificatesBundleSourcePtrOutput() TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return i.ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(context.Background())
+}
+
+func (i TrustStoreCaCertificatesBundleSourceArgs) ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleSourceOutput).ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(ctx)
+}
+
+// TrustStoreCaCertificatesBundleSourcePtrInput is an input type that accepts TrustStoreCaCertificatesBundleSourceArgs, TrustStoreCaCertificatesBundleSourcePtr and TrustStoreCaCertificatesBundleSourcePtrOutput values.
+// You can construct a concrete instance of `TrustStoreCaCertificatesBundleSourcePtrInput` via:
+//
+//	        TrustStoreCaCertificatesBundleSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrustStoreCaCertificatesBundleSourcePtrInput interface {
+	pulumi.Input
+
+	ToTrustStoreCaCertificatesBundleSourcePtrOutput() TrustStoreCaCertificatesBundleSourcePtrOutput
+	ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(context.Context) TrustStoreCaCertificatesBundleSourcePtrOutput
+}
+
+type trustStoreCaCertificatesBundleSourcePtrType TrustStoreCaCertificatesBundleSourceArgs
+
+func TrustStoreCaCertificatesBundleSourcePtr(v *TrustStoreCaCertificatesBundleSourceArgs) TrustStoreCaCertificatesBundleSourcePtrInput {
+	return (*trustStoreCaCertificatesBundleSourcePtrType)(v)
+}
+
+func (*trustStoreCaCertificatesBundleSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustStoreCaCertificatesBundleSource)(nil)).Elem()
+}
+
+func (i *trustStoreCaCertificatesBundleSourcePtrType) ToTrustStoreCaCertificatesBundleSourcePtrOutput() TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return i.ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *trustStoreCaCertificatesBundleSourcePtrType) ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleSourcePtrOutput)
+}
+
+type TrustStoreCaCertificatesBundleSourceOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreCaCertificatesBundleSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreCaCertificatesBundleSource)(nil)).Elem()
+}
+
+func (o TrustStoreCaCertificatesBundleSourceOutput) ToTrustStoreCaCertificatesBundleSourceOutput() TrustStoreCaCertificatesBundleSourceOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourceOutput) ToTrustStoreCaCertificatesBundleSourceOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourceOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourceOutput) ToTrustStoreCaCertificatesBundleSourcePtrOutput() TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return o.ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(context.Background())
+}
+
+func (o TrustStoreCaCertificatesBundleSourceOutput) ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustStoreCaCertificatesBundleSource) *TrustStoreCaCertificatesBundleSource {
+		return &v
+	}).(TrustStoreCaCertificatesBundleSourcePtrOutput)
+}
+
+// Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
+func (o TrustStoreCaCertificatesBundleSourceOutput) CaCertificatesBundleS3Location() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleSource) *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location {
+		return v.CaCertificatesBundleS3Location
+	}).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput)
+}
+
+type TrustStoreCaCertificatesBundleSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreCaCertificatesBundleSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustStoreCaCertificatesBundleSource)(nil)).Elem()
+}
+
+func (o TrustStoreCaCertificatesBundleSourcePtrOutput) ToTrustStoreCaCertificatesBundleSourcePtrOutput() TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourcePtrOutput) ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourcePtrOutput) Elem() TrustStoreCaCertificatesBundleSourceOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleSource) TrustStoreCaCertificatesBundleSource {
+		if v != nil {
+			return *v
+		}
+		var ret TrustStoreCaCertificatesBundleSource
+		return ret
+	}).(TrustStoreCaCertificatesBundleSourceOutput)
+}
+
+// Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
+func (o TrustStoreCaCertificatesBundleSourcePtrOutput) CaCertificatesBundleS3Location() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleSource) *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.CaCertificatesBundleS3Location
+	}).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput)
+}
+
+type TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location struct {
+	// S3 bucket name containing the CA certificates bundle.
+	Bucket string `pulumi:"bucket"`
+	// S3 object key for the CA certificates bundle.
+	Key string `pulumi:"key"`
+	// AWS region of the S3 bucket.
+	Region string `pulumi:"region"`
+	// S3 object version ID for the CA certificates bundle.
+	Version *string `pulumi:"version"`
+}
+
+// TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationInput is an input type that accepts TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs and TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput values.
+// You can construct a concrete instance of `TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationInput` via:
+//
+//	TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs{...}
+type TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationInput interface {
+	pulumi.Input
+
+	ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput
+	ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutputWithContext(context.Context) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput
+}
+
+type TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs struct {
+	// S3 bucket name containing the CA certificates bundle.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// S3 object key for the CA certificates bundle.
+	Key pulumi.StringInput `pulumi:"key"`
+	// AWS region of the S3 bucket.
+	Region pulumi.StringInput `pulumi:"region"`
+	// S3 object version ID for the CA certificates bundle.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location)(nil)).Elem()
+}
+
+func (i TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput {
+	return i.ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutputWithContext(context.Background())
+}
+
+func (i TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput)
+}
+
+func (i TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
+	return i.ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput).ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutputWithContext(ctx)
+}
+
+// TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrInput is an input type that accepts TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs, TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtr and TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput values.
+// You can construct a concrete instance of `TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrInput` via:
+//
+//	        TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput
+	ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutputWithContext(context.Context) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput
+}
+
+type trustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrType TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs
+
+func TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtr(v *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrInput {
+	return (*trustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrType)(v)
+}
+
+func (*trustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location)(nil)).Elem()
+}
+
+func (i *trustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrType) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
+	return i.ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *trustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrType) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput)
+}
+
+type TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location)(nil)).Elem()
+}
+
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
+	return o.ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location) *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location {
+		return &v
+	}).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput)
+}
+
+// S3 bucket name containing the CA certificates bundle.
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// S3 object key for the CA certificates bundle.
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// AWS region of the S3 bucket.
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// S3 object version ID for the CA certificates bundle.
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location)(nil)).Elem()
+}
+
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput) ToTrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput) Elem() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location
+		return ret
+	}).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput)
+}
+
+// S3 bucket name containing the CA certificates bundle.
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 object key for the CA certificates bundle.
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS region of the S3 bucket.
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 object version ID for the CA certificates bundle.
+func (o TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrustStoreTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// TrustStoreTimeoutsInput is an input type that accepts TrustStoreTimeoutsArgs and TrustStoreTimeoutsOutput values.
+// You can construct a concrete instance of `TrustStoreTimeoutsInput` via:
+//
+//	TrustStoreTimeoutsArgs{...}
+type TrustStoreTimeoutsInput interface {
+	pulumi.Input
+
+	ToTrustStoreTimeoutsOutput() TrustStoreTimeoutsOutput
+	ToTrustStoreTimeoutsOutputWithContext(context.Context) TrustStoreTimeoutsOutput
+}
+
+type TrustStoreTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (TrustStoreTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreTimeouts)(nil)).Elem()
+}
+
+func (i TrustStoreTimeoutsArgs) ToTrustStoreTimeoutsOutput() TrustStoreTimeoutsOutput {
+	return i.ToTrustStoreTimeoutsOutputWithContext(context.Background())
+}
+
+func (i TrustStoreTimeoutsArgs) ToTrustStoreTimeoutsOutputWithContext(ctx context.Context) TrustStoreTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreTimeoutsOutput)
+}
+
+func (i TrustStoreTimeoutsArgs) ToTrustStoreTimeoutsPtrOutput() TrustStoreTimeoutsPtrOutput {
+	return i.ToTrustStoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i TrustStoreTimeoutsArgs) ToTrustStoreTimeoutsPtrOutputWithContext(ctx context.Context) TrustStoreTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreTimeoutsOutput).ToTrustStoreTimeoutsPtrOutputWithContext(ctx)
+}
+
+// TrustStoreTimeoutsPtrInput is an input type that accepts TrustStoreTimeoutsArgs, TrustStoreTimeoutsPtr and TrustStoreTimeoutsPtrOutput values.
+// You can construct a concrete instance of `TrustStoreTimeoutsPtrInput` via:
+//
+//	        TrustStoreTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrustStoreTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToTrustStoreTimeoutsPtrOutput() TrustStoreTimeoutsPtrOutput
+	ToTrustStoreTimeoutsPtrOutputWithContext(context.Context) TrustStoreTimeoutsPtrOutput
+}
+
+type trustStoreTimeoutsPtrType TrustStoreTimeoutsArgs
+
+func TrustStoreTimeoutsPtr(v *TrustStoreTimeoutsArgs) TrustStoreTimeoutsPtrInput {
+	return (*trustStoreTimeoutsPtrType)(v)
+}
+
+func (*trustStoreTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustStoreTimeouts)(nil)).Elem()
+}
+
+func (i *trustStoreTimeoutsPtrType) ToTrustStoreTimeoutsPtrOutput() TrustStoreTimeoutsPtrOutput {
+	return i.ToTrustStoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *trustStoreTimeoutsPtrType) ToTrustStoreTimeoutsPtrOutputWithContext(ctx context.Context) TrustStoreTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreTimeoutsPtrOutput)
+}
+
+type TrustStoreTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreTimeouts)(nil)).Elem()
+}
+
+func (o TrustStoreTimeoutsOutput) ToTrustStoreTimeoutsOutput() TrustStoreTimeoutsOutput {
+	return o
+}
+
+func (o TrustStoreTimeoutsOutput) ToTrustStoreTimeoutsOutputWithContext(ctx context.Context) TrustStoreTimeoutsOutput {
+	return o
+}
+
+func (o TrustStoreTimeoutsOutput) ToTrustStoreTimeoutsPtrOutput() TrustStoreTimeoutsPtrOutput {
+	return o.ToTrustStoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o TrustStoreTimeoutsOutput) ToTrustStoreTimeoutsPtrOutputWithContext(ctx context.Context) TrustStoreTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustStoreTimeouts) *TrustStoreTimeouts {
+		return &v
+	}).(TrustStoreTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TrustStoreTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TrustStoreTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TrustStoreTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type TrustStoreTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustStoreTimeouts)(nil)).Elem()
+}
+
+func (o TrustStoreTimeoutsPtrOutput) ToTrustStoreTimeoutsPtrOutput() TrustStoreTimeoutsPtrOutput {
+	return o
+}
+
+func (o TrustStoreTimeoutsPtrOutput) ToTrustStoreTimeoutsPtrOutputWithContext(ctx context.Context) TrustStoreTimeoutsPtrOutput {
+	return o
+}
+
+func (o TrustStoreTimeoutsPtrOutput) Elem() TrustStoreTimeoutsOutput {
+	return o.ApplyT(func(v *TrustStoreTimeouts) TrustStoreTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret TrustStoreTimeouts
+		return ret
+	}).(TrustStoreTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TrustStoreTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustStoreTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TrustStoreTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustStoreTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TrustStoreTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustStoreTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type VpcOriginTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -16241,6 +16749,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigXssProtectionPtrInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyServerTimingHeadersConfigInput)(nil)).Elem(), ResponseHeadersPolicyServerTimingHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyServerTimingHeadersConfigPtrInput)(nil)).Elem(), ResponseHeadersPolicyServerTimingHeadersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreCaCertificatesBundleSourceInput)(nil)).Elem(), TrustStoreCaCertificatesBundleSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreCaCertificatesBundleSourcePtrInput)(nil)).Elem(), TrustStoreCaCertificatesBundleSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationInput)(nil)).Elem(), TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrInput)(nil)).Elem(), TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreTimeoutsInput)(nil)).Elem(), TrustStoreTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreTimeoutsPtrInput)(nil)).Elem(), TrustStoreTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcOriginTimeoutsInput)(nil)).Elem(), VpcOriginTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcOriginTimeoutsPtrInput)(nil)).Elem(), VpcOriginTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcOriginVpcOriginEndpointConfigInput)(nil)).Elem(), VpcOriginVpcOriginEndpointConfigArgs{})
@@ -16469,6 +16983,12 @@ func init() {
 	pulumi.RegisterOutputType(ResponseHeadersPolicySecurityHeadersConfigXssProtectionPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyServerTimingHeadersConfigOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrustStoreCaCertificatesBundleSourceOutput{})
+	pulumi.RegisterOutputType(TrustStoreCaCertificatesBundleSourcePtrOutput{})
+	pulumi.RegisterOutputType(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput{})
+	pulumi.RegisterOutputType(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(TrustStoreTimeoutsOutput{})
+	pulumi.RegisterOutputType(TrustStoreTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(VpcOriginTimeoutsOutput{})
 	pulumi.RegisterOutputType(VpcOriginTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(VpcOriginVpcOriginEndpointConfigOutput{})

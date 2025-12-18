@@ -92,6 +92,10 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
+     * The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     */
+    declare public readonly routingPolicyLabel: pulumi.Output<string | undefined>;
+    /**
      * Name of the segment attachment.
      */
     declare public /*out*/ readonly segmentName: pulumi.Output<string>;
@@ -136,6 +140,7 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             resourceInputs["ownerAccountId"] = state?.ownerAccountId;
             resourceInputs["peeringId"] = state?.peeringId;
             resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["routingPolicyLabel"] = state?.routingPolicyLabel;
             resourceInputs["segmentName"] = state?.segmentName;
             resourceInputs["state"] = state?.state;
             resourceInputs["tags"] = state?.tags;
@@ -150,6 +155,7 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'transitGatewayRouteTableArn'");
             }
             resourceInputs["peeringId"] = args?.peeringId;
+            resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["transitGatewayRouteTableArn"] = args?.transitGatewayRouteTableArn;
             resourceInputs["arn"] = undefined /*out*/;
@@ -210,6 +216,10 @@ export interface TransitGatewayRouteTableAttachmentState {
      */
     resourceArn?: pulumi.Input<string>;
     /**
+     * The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     */
+    routingPolicyLabel?: pulumi.Input<string>;
+    /**
      * Name of the segment attachment.
      */
     segmentName?: pulumi.Input<string>;
@@ -241,6 +251,10 @@ export interface TransitGatewayRouteTableAttachmentArgs {
      * ID of the peer for the attachment.
      */
     peeringId: pulumi.Input<string>;
+    /**
+     * The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     */
+    routingPolicyLabel?: pulumi.Input<string>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

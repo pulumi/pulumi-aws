@@ -26,10 +26,10 @@ public final class ConnectPeerConfigurationBgpConfiguration {
      */
     private @Nullable String peerAddress;
     /**
-     * @return Peer ASN.
+     * @return Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
      * 
      */
-    private @Nullable Integer peerAsn;
+    private @Nullable String peerAsn;
 
     private ConnectPeerConfigurationBgpConfiguration() {}
     /**
@@ -52,10 +52,10 @@ public final class ConnectPeerConfigurationBgpConfiguration {
         return Optional.ofNullable(this.peerAddress);
     }
     /**
-     * @return Peer ASN.
+     * @return Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
      * 
      */
-    public Optional<Integer> peerAsn() {
+    public Optional<String> peerAsn() {
         return Optional.ofNullable(this.peerAsn);
     }
 
@@ -71,7 +71,7 @@ public final class ConnectPeerConfigurationBgpConfiguration {
         private @Nullable String coreNetworkAddress;
         private @Nullable Integer coreNetworkAsn;
         private @Nullable String peerAddress;
-        private @Nullable Integer peerAsn;
+        private @Nullable String peerAsn;
         public Builder() {}
         public Builder(ConnectPeerConfigurationBgpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -100,7 +100,7 @@ public final class ConnectPeerConfigurationBgpConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder peerAsn(@Nullable Integer peerAsn) {
+        public Builder peerAsn(@Nullable String peerAsn) {
 
             this.peerAsn = peerAsn;
             return this;

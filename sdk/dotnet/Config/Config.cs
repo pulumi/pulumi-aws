@@ -368,6 +368,16 @@ namespace Pulumi.Aws
             set => _useFipsEndpoint.Set(value);
         }
 
+        private static readonly __Value<ImmutableArray<string>> _userAgents = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("userAgents"));
+        /// <summary>
+        /// Product details to append to the User-Agent string sent in all AWS API calls.
+        /// </summary>
+        public static ImmutableArray<string> UserAgents
+        {
+            get => _userAgents.Get();
+            set => _userAgents.Set(value);
+        }
+
         public static class Types
         {
 

@@ -28,7 +28,9 @@ class ResolverEndpointArgs:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  resolver_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 rni_enhanced_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ResolverEndpoint resource.
         :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
@@ -42,7 +44,9 @@ class ResolverEndpointArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
                Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
+        :param pulumi.Input[_builtins.bool] rni_enhanced_metrics_enabled: Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.bool] target_name_server_metrics_enabled: Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         """
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -55,8 +59,12 @@ class ResolverEndpointArgs:
             pulumi.set(__self__, "region", region)
         if resolver_endpoint_type is not None:
             pulumi.set(__self__, "resolver_endpoint_type", resolver_endpoint_type)
+        if rni_enhanced_metrics_enabled is not None:
+            pulumi.set(__self__, "rni_enhanced_metrics_enabled", rni_enhanced_metrics_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_name_server_metrics_enabled is not None:
+            pulumi.set(__self__, "target_name_server_metrics_enabled", target_name_server_metrics_enabled)
 
     @_builtins.property
     @pulumi.getter
@@ -147,6 +155,18 @@ class ResolverEndpointArgs:
         pulumi.set(self, "resolver_endpoint_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="rniEnhancedMetricsEnabled")
+    def rni_enhanced_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+        """
+        return pulumi.get(self, "rni_enhanced_metrics_enabled")
+
+    @rni_enhanced_metrics_enabled.setter
+    def rni_enhanced_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "rni_enhanced_metrics_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -157,6 +177,18 @@ class ResolverEndpointArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetNameServerMetricsEnabled")
+    def target_name_server_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+        """
+        return pulumi.get(self, "target_name_server_metrics_enabled")
+
+    @target_name_server_metrics_enabled.setter
+    def target_name_server_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "target_name_server_metrics_enabled", value)
 
 
 @pulumi.input_type
@@ -170,9 +202,11 @@ class _ResolverEndpointState:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  resolver_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 rni_enhanced_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ResolverEndpoint resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the Route 53 Resolver endpoint.
@@ -187,9 +221,11 @@ class _ResolverEndpointState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
                Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
+        :param pulumi.Input[_builtins.bool] rni_enhanced_metrics_enabled: Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.bool] target_name_server_metrics_enabled: Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -207,12 +243,16 @@ class _ResolverEndpointState:
             pulumi.set(__self__, "region", region)
         if resolver_endpoint_type is not None:
             pulumi.set(__self__, "resolver_endpoint_type", resolver_endpoint_type)
+        if rni_enhanced_metrics_enabled is not None:
+            pulumi.set(__self__, "rni_enhanced_metrics_enabled", rni_enhanced_metrics_enabled)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if target_name_server_metrics_enabled is not None:
+            pulumi.set(__self__, "target_name_server_metrics_enabled", target_name_server_metrics_enabled)
 
     @_builtins.property
     @pulumi.getter
@@ -315,6 +355,18 @@ class _ResolverEndpointState:
         pulumi.set(self, "resolver_endpoint_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="rniEnhancedMetricsEnabled")
+    def rni_enhanced_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+        """
+        return pulumi.get(self, "rni_enhanced_metrics_enabled")
+
+    @rni_enhanced_metrics_enabled.setter
+    def rni_enhanced_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "rni_enhanced_metrics_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -350,6 +402,18 @@ class _ResolverEndpointState:
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @_builtins.property
+    @pulumi.getter(name="targetNameServerMetricsEnabled")
+    def target_name_server_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+        """
+        return pulumi.get(self, "target_name_server_metrics_enabled")
+
+    @target_name_server_metrics_enabled.setter
+    def target_name_server_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "target_name_server_metrics_enabled", value)
+
 
 @pulumi.type_token("aws:route53/resolverEndpoint:ResolverEndpoint")
 class ResolverEndpoint(pulumi.CustomResource):
@@ -363,8 +427,10 @@ class ResolverEndpoint(pulumi.CustomResource):
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  resolver_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 rni_enhanced_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides a Route 53 Resolver endpoint resource.
@@ -421,8 +487,10 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
                Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
+        :param pulumi.Input[_builtins.bool] rni_enhanced_metrics_enabled: Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.bool] target_name_server_metrics_enabled: Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         """
         ...
     @overload
@@ -494,8 +562,10 @@ class ResolverEndpoint(pulumi.CustomResource):
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  resolver_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 rni_enhanced_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -515,10 +585,12 @@ class ResolverEndpoint(pulumi.CustomResource):
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["region"] = region
             __props__.__dict__["resolver_endpoint_type"] = resolver_endpoint_type
+            __props__.__dict__["rni_enhanced_metrics_enabled"] = rni_enhanced_metrics_enabled
             if security_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_ids'")
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_name_server_metrics_enabled"] = target_name_server_metrics_enabled
             __props__.__dict__["arn"] = None
             __props__.__dict__["host_vpc_id"] = None
             __props__.__dict__["tags_all"] = None
@@ -540,9 +612,11 @@ class ResolverEndpoint(pulumi.CustomResource):
             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             resolver_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
+            rni_enhanced_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ResolverEndpoint':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ResolverEndpoint':
         """
         Get an existing ResolverEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -562,9 +636,11 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
                Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
+        :param pulumi.Input[_builtins.bool] rni_enhanced_metrics_enabled: Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.bool] target_name_server_metrics_enabled: Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -578,9 +654,11 @@ class ResolverEndpoint(pulumi.CustomResource):
         __props__.__dict__["protocols"] = protocols
         __props__.__dict__["region"] = region
         __props__.__dict__["resolver_endpoint_type"] = resolver_endpoint_type
+        __props__.__dict__["rni_enhanced_metrics_enabled"] = rni_enhanced_metrics_enabled
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["target_name_server_metrics_enabled"] = target_name_server_metrics_enabled
         return ResolverEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -652,6 +730,14 @@ class ResolverEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "resolver_endpoint_type")
 
     @_builtins.property
+    @pulumi.getter(name="rniEnhancedMetricsEnabled")
+    def rni_enhanced_metrics_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+        """
+        return pulumi.get(self, "rni_enhanced_metrics_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
@@ -674,4 +760,12 @@ class ResolverEndpoint(pulumi.CustomResource):
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @_builtins.property
+    @pulumi.getter(name="targetNameServerMetricsEnabled")
+    def target_name_server_metrics_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+        """
+        return pulumi.get(self, "target_name_server_metrics_enabled")
 

@@ -60,6 +60,10 @@ type ServiceNetworkVpcAssociation struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The account that created the association.
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
+	// Configuration block for DNS option. See `dnsOptions` block below for details.
+	DnsOptions ServiceNetworkVpcAssociationDnsOptionsPtrOutput `pulumi:"dnsOptions"`
+	// Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+	PrivateDnsEnabled pulumi.BoolOutput `pulumi:"privateDnsEnabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IDs of the security groups.
@@ -117,6 +121,10 @@ type serviceNetworkVpcAssociationState struct {
 	Arn *string `pulumi:"arn"`
 	// The account that created the association.
 	CreatedBy *string `pulumi:"createdBy"`
+	// Configuration block for DNS option. See `dnsOptions` block below for details.
+	DnsOptions *ServiceNetworkVpcAssociationDnsOptions `pulumi:"dnsOptions"`
+	// Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IDs of the security groups.
@@ -139,6 +147,10 @@ type ServiceNetworkVpcAssociationState struct {
 	Arn pulumi.StringPtrInput
 	// The account that created the association.
 	CreatedBy pulumi.StringPtrInput
+	// Configuration block for DNS option. See `dnsOptions` block below for details.
+	DnsOptions ServiceNetworkVpcAssociationDnsOptionsPtrInput
+	// Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+	PrivateDnsEnabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IDs of the security groups.
@@ -161,6 +173,10 @@ func (ServiceNetworkVpcAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkVpcAssociationArgs struct {
+	// Configuration block for DNS option. See `dnsOptions` block below for details.
+	DnsOptions *ServiceNetworkVpcAssociationDnsOptions `pulumi:"dnsOptions"`
+	// Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IDs of the security groups.
@@ -176,6 +192,10 @@ type serviceNetworkVpcAssociationArgs struct {
 
 // The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
 type ServiceNetworkVpcAssociationArgs struct {
+	// Configuration block for DNS option. See `dnsOptions` block below for details.
+	DnsOptions ServiceNetworkVpcAssociationDnsOptionsPtrInput
+	// Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+	PrivateDnsEnabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IDs of the security groups.
@@ -284,6 +304,18 @@ func (o ServiceNetworkVpcAssociationOutput) Arn() pulumi.StringOutput {
 // The account that created the association.
 func (o ServiceNetworkVpcAssociationOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// Configuration block for DNS option. See `dnsOptions` block below for details.
+func (o ServiceNetworkVpcAssociationOutput) DnsOptions() ServiceNetworkVpcAssociationDnsOptionsPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) ServiceNetworkVpcAssociationDnsOptionsPtrOutput {
+		return v.DnsOptions
+	}).(ServiceNetworkVpcAssociationDnsOptionsPtrOutput)
+}
+
+// Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+func (o ServiceNetworkVpcAssociationOutput) PrivateDnsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.BoolOutput { return v.PrivateDnsEnabled }).(pulumi.BoolOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

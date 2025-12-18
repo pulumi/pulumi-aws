@@ -96,6 +96,9 @@ __all__ = [
     'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity',
     'ResponseHeadersPolicySecurityHeadersConfigXssProtection',
     'ResponseHeadersPolicyServerTimingHeadersConfig',
+    'TrustStoreCaCertificatesBundleSource',
+    'TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location',
+    'TrustStoreTimeouts',
     'VpcOriginTimeouts',
     'VpcOriginVpcOriginEndpointConfig',
     'VpcOriginVpcOriginEndpointConfigOriginSslProtocols',
@@ -4138,6 +4141,137 @@ class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
         A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
         """
         return pulumi.get(self, "sampling_rate")
+
+
+@pulumi.output_type
+class TrustStoreCaCertificatesBundleSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caCertificatesBundleS3Location":
+            suggest = "ca_certificates_bundle_s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustStoreCaCertificatesBundleSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustStoreCaCertificatesBundleSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustStoreCaCertificatesBundleSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ca_certificates_bundle_s3_location: Optional['outputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location'] = None):
+        """
+        :param 'TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs' ca_certificates_bundle_s3_location: Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
+        """
+        if ca_certificates_bundle_s3_location is not None:
+            pulumi.set(__self__, "ca_certificates_bundle_s3_location", ca_certificates_bundle_s3_location)
+
+    @_builtins.property
+    @pulumi.getter(name="caCertificatesBundleS3Location")
+    def ca_certificates_bundle_s3_location(self) -> Optional['outputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location']:
+        """
+        Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
+        """
+        return pulumi.get(self, "ca_certificates_bundle_s3_location")
+
+
+@pulumi.output_type
+class TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location(dict):
+    def __init__(__self__, *,
+                 bucket: _builtins.str,
+                 key: _builtins.str,
+                 region: _builtins.str,
+                 version: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket: S3 bucket name containing the CA certificates bundle.
+        :param _builtins.str key: S3 object key for the CA certificates bundle.
+        :param _builtins.str region: AWS region of the S3 bucket.
+        :param _builtins.str version: S3 object version ID for the CA certificates bundle.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "region", region)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        S3 bucket name containing the CA certificates bundle.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        S3 object key for the CA certificates bundle.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        AWS region of the S3 bucket.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        S3 object version ID for the CA certificates bundle.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class TrustStoreTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

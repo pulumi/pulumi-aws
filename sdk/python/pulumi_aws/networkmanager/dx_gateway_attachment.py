@@ -24,6 +24,7 @@ class DxGatewayAttachmentArgs:
                  core_network_id: pulumi.Input[_builtins.str],
                  direct_connect_gateway_arn: pulumi.Input[_builtins.str],
                  edge_locations: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['DxGatewayAttachmentTimeoutsArgs']] = None):
         """
@@ -33,11 +34,14 @@ class DxGatewayAttachmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] edge_locations: One or more core network edge locations to associate with the Direct Connect gateway attachment.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "direct_connect_gateway_arn", direct_connect_gateway_arn)
         pulumi.set(__self__, "edge_locations", edge_locations)
+        if routing_policy_label is not None:
+            pulumi.set(__self__, "routing_policy_label", routing_policy_label)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -82,6 +86,18 @@ class DxGatewayAttachmentArgs:
         pulumi.set(self, "edge_locations", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        """
+        return pulumi.get(self, "routing_policy_label")
+
+    @routing_policy_label.setter
+    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_policy_label", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -114,6 +130,7 @@ class _DxGatewayAttachmentState:
                  direct_connect_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -131,6 +148,7 @@ class _DxGatewayAttachmentState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
         :param pulumi.Input[_builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -152,6 +170,8 @@ class _DxGatewayAttachmentState:
             pulumi.set(__self__, "edge_locations", edge_locations)
         if owner_account_id is not None:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if routing_policy_label is not None:
+            pulumi.set(__self__, "routing_policy_label", routing_policy_label)
         if segment_name is not None:
             pulumi.set(__self__, "segment_name", segment_name)
         if state is not None:
@@ -262,6 +282,18 @@ class _DxGatewayAttachmentState:
         pulumi.set(self, "owner_account_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        """
+        return pulumi.get(self, "routing_policy_label")
+
+    @routing_policy_label.setter
+    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_policy_label", value)
+
+    @_builtins.property
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -328,6 +360,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
                  core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  direct_connect_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -365,6 +398,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] edge_locations: One or more core network edge locations to associate with the Direct Connect gateway attachment.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -418,6 +452,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
                  core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  direct_connect_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -438,6 +473,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
             if edge_locations is None and not opts.urn:
                 raise TypeError("Missing required property 'edge_locations'")
             __props__.__dict__["edge_locations"] = edge_locations
+            __props__.__dict__["routing_policy_label"] = routing_policy_label
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -466,6 +502,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
             direct_connect_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
             edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+            routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
             segment_name: Optional[pulumi.Input[_builtins.str]] = None,
             state: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -488,6 +525,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
         :param pulumi.Input[_builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -505,6 +543,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
         __props__.__dict__["direct_connect_gateway_arn"] = direct_connect_gateway_arn
         __props__.__dict__["edge_locations"] = edge_locations
         __props__.__dict__["owner_account_id"] = owner_account_id
+        __props__.__dict__["routing_policy_label"] = routing_policy_label
         __props__.__dict__["segment_name"] = segment_name
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
@@ -577,6 +616,14 @@ class DxGatewayAttachment(pulumi.CustomResource):
         ID of the attachment account owner.
         """
         return pulumi.get(self, "owner_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        """
+        return pulumi.get(self, "routing_policy_label")
 
     @_builtins.property
     @pulumi.getter(name="segmentName")

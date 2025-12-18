@@ -27,10 +27,13 @@ class GetCloudVmClusterResult:
     """
     A collection of values returned by getCloudVmCluster.
     """
-    def __init__(__self__, arn=None, cloud_exadata_infrastructure_id=None, cluster_name=None, compute_model=None, cpu_core_count=None, created_at=None, data_collection_options=None, data_storage_size_in_tbs=None, db_node_storage_size_in_gbs=None, db_servers=None, disk_redundancy=None, display_name=None, domain=None, gi_version=None, hostname_prefix_computed=None, id=None, iorm_config_caches=None, is_local_backup_enabled=None, is_sparse_disk_group_enabled=None, last_update_history_entry_id=None, license_model=None, listener_port=None, memory_size_in_gbs=None, node_count=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, odb_network_id=None, percent_progress=None, region=None, scan_dns_name=None, scan_dns_record_id=None, scan_ip_ids=None, shape=None, ssh_public_keys=None, status=None, status_reason=None, storage_size_in_gbs=None, system_version=None, tags=None, timezone=None, vip_ids=None):
+    def __init__(__self__, arn=None, cloud_exadata_infrastructure_arn=None, cloud_exadata_infrastructure_id=None, cluster_name=None, compute_model=None, cpu_core_count=None, created_at=None, data_collection_options=None, data_storage_size_in_tbs=None, db_node_storage_size_in_gbs=None, db_servers=None, disk_redundancy=None, display_name=None, domain=None, gi_version=None, hostname_prefix_computed=None, id=None, iorm_config_caches=None, is_local_backup_enabled=None, is_sparse_disk_group_enabled=None, last_update_history_entry_id=None, license_model=None, listener_port=None, memory_size_in_gbs=None, node_count=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, odb_network_arn=None, odb_network_id=None, percent_progress=None, region=None, scan_dns_name=None, scan_dns_record_id=None, scan_ip_ids=None, shape=None, ssh_public_keys=None, status=None, status_reason=None, storage_size_in_gbs=None, system_version=None, tags=None, timezone=None, vip_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if cloud_exadata_infrastructure_arn and not isinstance(cloud_exadata_infrastructure_arn, str):
+            raise TypeError("Expected argument 'cloud_exadata_infrastructure_arn' to be a str")
+        pulumi.set(__self__, "cloud_exadata_infrastructure_arn", cloud_exadata_infrastructure_arn)
         if cloud_exadata_infrastructure_id and not isinstance(cloud_exadata_infrastructure_id, str):
             raise TypeError("Expected argument 'cloud_exadata_infrastructure_id' to be a str")
         pulumi.set(__self__, "cloud_exadata_infrastructure_id", cloud_exadata_infrastructure_id)
@@ -109,6 +112,9 @@ class GetCloudVmClusterResult:
         if ocid and not isinstance(ocid, str):
             raise TypeError("Expected argument 'ocid' to be a str")
         pulumi.set(__self__, "ocid", ocid)
+        if odb_network_arn and not isinstance(odb_network_arn, str):
+            raise TypeError("Expected argument 'odb_network_arn' to be a str")
+        pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         if odb_network_id and not isinstance(odb_network_id, str):
             raise TypeError("Expected argument 'odb_network_id' to be a str")
         pulumi.set(__self__, "odb_network_id", odb_network_id)
@@ -162,6 +168,11 @@ class GetCloudVmClusterResult:
         The Amazon Resource Name (ARN) for the cloud vm cluster.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudExadataInfrastructureArn")
+    def cloud_exadata_infrastructure_arn(self) -> _builtins.str:
+        return pulumi.get(self, "cloud_exadata_infrastructure_arn")
 
     @_builtins.property
     @pulumi.getter(name="cloudExadataInfrastructureId")
@@ -369,6 +380,11 @@ class GetCloudVmClusterResult:
         return pulumi.get(self, "ocid")
 
     @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> _builtins.str:
+        return pulumi.get(self, "odb_network_arn")
+
+    @_builtins.property
     @pulumi.getter(name="odbNetworkId")
     def odb_network_id(self) -> _builtins.str:
         """
@@ -490,6 +506,7 @@ class AwaitableGetCloudVmClusterResult(GetCloudVmClusterResult):
             yield self
         return GetCloudVmClusterResult(
             arn=self.arn,
+            cloud_exadata_infrastructure_arn=self.cloud_exadata_infrastructure_arn,
             cloud_exadata_infrastructure_id=self.cloud_exadata_infrastructure_id,
             cluster_name=self.cluster_name,
             compute_model=self.compute_model,
@@ -516,6 +533,7 @@ class AwaitableGetCloudVmClusterResult(GetCloudVmClusterResult):
             oci_resource_anchor_name=self.oci_resource_anchor_name,
             oci_url=self.oci_url,
             ocid=self.ocid,
+            odb_network_arn=self.odb_network_arn,
             odb_network_id=self.odb_network_id,
             percent_progress=self.percent_progress,
             region=self.region,
@@ -566,6 +584,7 @@ def get_cloud_vm_cluster(id: Optional[_builtins.str] = None,
 
     return AwaitableGetCloudVmClusterResult(
         arn=pulumi.get(__ret__, 'arn'),
+        cloud_exadata_infrastructure_arn=pulumi.get(__ret__, 'cloud_exadata_infrastructure_arn'),
         cloud_exadata_infrastructure_id=pulumi.get(__ret__, 'cloud_exadata_infrastructure_id'),
         cluster_name=pulumi.get(__ret__, 'cluster_name'),
         compute_model=pulumi.get(__ret__, 'compute_model'),
@@ -592,6 +611,7 @@ def get_cloud_vm_cluster(id: Optional[_builtins.str] = None,
         oci_resource_anchor_name=pulumi.get(__ret__, 'oci_resource_anchor_name'),
         oci_url=pulumi.get(__ret__, 'oci_url'),
         ocid=pulumi.get(__ret__, 'ocid'),
+        odb_network_arn=pulumi.get(__ret__, 'odb_network_arn'),
         odb_network_id=pulumi.get(__ret__, 'odb_network_id'),
         percent_progress=pulumi.get(__ret__, 'percent_progress'),
         region=pulumi.get(__ret__, 'region'),
@@ -639,6 +659,7 @@ def get_cloud_vm_cluster_output(id: Optional[pulumi.Input[_builtins.str]] = None
     __ret__ = pulumi.runtime.invoke_output('aws:odb/getCloudVmCluster:getCloudVmCluster', __args__, opts=opts, typ=GetCloudVmClusterResult)
     return __ret__.apply(lambda __response__: GetCloudVmClusterResult(
         arn=pulumi.get(__response__, 'arn'),
+        cloud_exadata_infrastructure_arn=pulumi.get(__response__, 'cloud_exadata_infrastructure_arn'),
         cloud_exadata_infrastructure_id=pulumi.get(__response__, 'cloud_exadata_infrastructure_id'),
         cluster_name=pulumi.get(__response__, 'cluster_name'),
         compute_model=pulumi.get(__response__, 'compute_model'),
@@ -665,6 +686,7 @@ def get_cloud_vm_cluster_output(id: Optional[pulumi.Input[_builtins.str]] = None
         oci_resource_anchor_name=pulumi.get(__response__, 'oci_resource_anchor_name'),
         oci_url=pulumi.get(__response__, 'oci_url'),
         ocid=pulumi.get(__response__, 'ocid'),
+        odb_network_arn=pulumi.get(__response__, 'odb_network_arn'),
         odb_network_id=pulumi.get(__response__, 'odb_network_id'),
         percent_progress=pulumi.get(__response__, 'percent_progress'),
         region=pulumi.get(__response__, 'region'),

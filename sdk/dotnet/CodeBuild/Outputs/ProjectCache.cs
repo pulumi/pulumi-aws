@@ -14,6 +14,10 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectCache
     {
         /// <summary>
+        /// Namespace that determines the scope in which a cache is shared across multiple projects.
+        /// </summary>
+        public readonly string? CacheNamespace;
+        /// <summary>
         /// Location where the AWS CodeBuild project stores cached resources. For
         /// type `S3`, the value must be a valid S3 bucket name/prefix.
         /// </summary>
@@ -31,12 +35,15 @@ namespace Pulumi.Aws.CodeBuild.Outputs
 
         [OutputConstructor]
         private ProjectCache(
+            string? cacheNamespace,
+
             string? location,
 
             ImmutableArray<string> modes,
 
             string? type)
         {
+            CacheNamespace = cacheNamespace;
             Location = location;
             Modes = modes;
             Type = type;

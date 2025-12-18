@@ -84,6 +84,10 @@ export interface GetDomainResult {
     readonly portalUrl: string;
     readonly region: string;
     /**
+     * ID of the root domain unit.
+     */
+    readonly rootDomainUnitId: string;
+    /**
      * Status of the Domain.
      */
     readonly status: string;

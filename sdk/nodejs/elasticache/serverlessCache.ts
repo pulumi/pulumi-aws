@@ -212,7 +212,7 @@ export class ServerlessCache extends pulumi.CustomResource {
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.elasticache.ServerlessCacheTimeouts | undefined>;
     /**
-     * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+     * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
      */
     declare public readonly userGroupId: pulumi.Output<string | undefined>;
 
@@ -370,7 +370,7 @@ export interface ServerlessCacheState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.elasticache.ServerlessCacheTimeouts>;
     /**
-     * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+     * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
      */
     userGroupId?: pulumi.Input<string>;
 }
@@ -436,7 +436,7 @@ export interface ServerlessCacheArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.elasticache.ServerlessCacheTimeouts>;
     /**
-     * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+     * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
      */
     userGroupId?: pulumi.Input<string>;
 }

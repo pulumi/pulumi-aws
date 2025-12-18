@@ -61,6 +61,18 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for DNS option. See `DnsOptions` block below for details.
+        /// </summary>
+        [Output("dnsOptions")]
+        public Output<Outputs.ServiceNetworkVpcAssociationDnsOptions?> DnsOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `False`.
+        /// </summary>
+        [Output("privateDnsEnabled")]
+        public Output<bool> PrivateDnsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -150,6 +162,18 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ServiceNetworkVpcAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration block for DNS option. See `DnsOptions` block below for details.
+        /// </summary>
+        [Input("dnsOptions")]
+        public Input<Inputs.ServiceNetworkVpcAssociationDnsOptionsArgs>? DnsOptions { get; set; }
+
+        /// <summary>
+        /// Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `False`.
+        /// </summary>
+        [Input("privateDnsEnabled")]
+        public Input<bool>? PrivateDnsEnabled { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -211,6 +235,18 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
+
+        /// <summary>
+        /// Configuration block for DNS option. See `DnsOptions` block below for details.
+        /// </summary>
+        [Input("dnsOptions")]
+        public Input<Inputs.ServiceNetworkVpcAssociationDnsOptionsGetArgs>? DnsOptions { get; set; }
+
+        /// <summary>
+        /// Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `False`.
+        /// </summary>
+        [Input("privateDnsEnabled")]
+        public Input<bool>? PrivateDnsEnabled { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -869,14 +869,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.code);
     }
     /**
-     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
      * 
      */
     @Export(name="codeSha256", refs={String.class}, tree="[0]")
     private Output<String> codeSha256;
 
     /**
-     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * @return Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
      * 
      */
     public Output<String> codeSha256() {
@@ -1377,14 +1377,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snapStart);
     }
     /**
-     * Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+     * User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
      * 
      */
     @Export(name="sourceCodeHash", refs={String.class}, tree="[0]")
     private Output<String> sourceCodeHash;
 
     /**
-     * @return Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+     * @return User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
      * 
      */
     public Output<String> sourceCodeHash() {

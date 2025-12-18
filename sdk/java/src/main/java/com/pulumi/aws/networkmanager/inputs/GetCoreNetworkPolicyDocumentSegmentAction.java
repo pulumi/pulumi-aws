@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkmanager.inputs;
 
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionVia;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo;
 import com.pulumi.core.annotations.Import;
@@ -19,14 +20,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
     public static final GetCoreNetworkPolicyDocumentSegmentAction Empty = new GetCoreNetworkPolicyDocumentSegmentAction();
 
     /**
-     * Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+     * Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
      * 
      */
     @Import(name="action", required=true)
     private String action;
 
     /**
-     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
      * 
      */
     public String action() {
@@ -76,6 +77,21 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
      */
     public Optional<List<String>> destinations() {
         return Optional.ofNullable(this.destinations);
+    }
+
+    /**
+     * Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+     * 
+     */
+    @Import(name="edgeLocationAssociation")
+    private @Nullable GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation edgeLocationAssociation;
+
+    /**
+     * @return Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+     * 
+     */
+    public Optional<GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation> edgeLocationAssociation() {
+        return Optional.ofNullable(this.edgeLocationAssociation);
     }
 
     /**
@@ -175,6 +191,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
         this.description = $.description;
         this.destinationCidrBlocks = $.destinationCidrBlocks;
         this.destinations = $.destinations;
+        this.edgeLocationAssociation = $.edgeLocationAssociation;
         this.mode = $.mode;
         this.segment = $.segment;
         this.shareWithExcepts = $.shareWithExcepts;
@@ -202,7 +219,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
         }
 
         /**
-         * @param action Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+         * @param action Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
          * 
          * @return builder
          * 
@@ -263,6 +280,17 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
          */
         public Builder destinations(String... destinations) {
             return destinations(List.of(destinations));
+        }
+
+        /**
+         * @param edgeLocationAssociation Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeLocationAssociation(@Nullable GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation edgeLocationAssociation) {
+            $.edgeLocationAssociation = edgeLocationAssociation;
+            return this;
         }
 
         /**

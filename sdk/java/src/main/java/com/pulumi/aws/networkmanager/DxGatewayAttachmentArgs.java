@@ -69,6 +69,21 @@ public final class DxGatewayAttachmentArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * 
+     */
+    @Import(name="routingPolicyLabel")
+    private @Nullable Output<String> routingPolicyLabel;
+
+    /**
+     * @return The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * 
+     */
+    public Optional<Output<String>> routingPolicyLabel() {
+        return Optional.ofNullable(this.routingPolicyLabel);
+    }
+
+    /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -96,6 +111,7 @@ public final class DxGatewayAttachmentArgs extends com.pulumi.resources.Resource
         this.coreNetworkId = $.coreNetworkId;
         this.directConnectGatewayArn = $.directConnectGatewayArn;
         this.edgeLocations = $.edgeLocations;
+        this.routingPolicyLabel = $.routingPolicyLabel;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
     }
@@ -195,6 +211,27 @@ public final class DxGatewayAttachmentArgs extends com.pulumi.resources.Resource
          */
         public Builder edgeLocations(String... edgeLocations) {
             return edgeLocations(List.of(edgeLocations));
+        }
+
+        /**
+         * @param routingPolicyLabel The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPolicyLabel(@Nullable Output<String> routingPolicyLabel) {
+            $.routingPolicyLabel = routingPolicyLabel;
+            return this;
+        }
+
+        /**
+         * @param routingPolicyLabel The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPolicyLabel(String routingPolicyLabel) {
+            return routingPolicyLabel(Output.of(routingPolicyLabel));
         }
 
         /**

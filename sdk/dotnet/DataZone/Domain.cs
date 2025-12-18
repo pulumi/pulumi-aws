@@ -303,6 +303,12 @@ namespace Pulumi.Aws.DataZone
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// ID of the root domain unit.
+        /// </summary>
+        [Output("rootDomainUnitId")]
+        public Output<string> RootDomainUnitId { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the service role used by DataZone. Required when `DomainVersion` is set to `V2`.
         /// </summary>
         [Output("serviceRole")]
@@ -502,6 +508,12 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// ID of the root domain unit.
+        /// </summary>
+        [Input("rootDomainUnitId")]
+        public Input<string>? RootDomainUnitId { get; set; }
 
         /// <summary>
         /// ARN of the service role used by DataZone. Required when `DomainVersion` is set to `V2`.

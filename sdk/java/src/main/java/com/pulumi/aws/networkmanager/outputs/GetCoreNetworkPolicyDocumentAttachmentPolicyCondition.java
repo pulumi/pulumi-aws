@@ -23,12 +23,12 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition {
      */
     private @Nullable String operator;
     /**
-     * @return Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+     * @return Must be `routing-policy-label`.
      * 
      */
     private String type;
     /**
-     * @return string value
+     * @return Routing policy label to match.
      * 
      */
     private @Nullable String value;
@@ -49,14 +49,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition {
         return Optional.ofNullable(this.operator);
     }
     /**
-     * @return Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+     * @return Must be `routing-policy-label`.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return string value
+     * @return Routing policy label to match.
      * 
      */
     public Optional<String> value() {

@@ -3955,9 +3955,9 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput
 }
 
 type ClusterConfigurationManagedStorageConfiguration struct {
-	// AWS Key Management Service key ID for the Fargate ephemeral storage.
+	// AWS Key Management Service key ARN for the Fargate ephemeral storage.
 	FargateEphemeralStorageKmsKeyId *string `pulumi:"fargateEphemeralStorageKmsKeyId"`
-	// AWS Key Management Service key ID to encrypt the managed storage.
+	// AWS Key Management Service key ARN to encrypt the managed storage.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -3973,9 +3973,9 @@ type ClusterConfigurationManagedStorageConfigurationInput interface {
 }
 
 type ClusterConfigurationManagedStorageConfigurationArgs struct {
-	// AWS Key Management Service key ID for the Fargate ephemeral storage.
+	// AWS Key Management Service key ARN for the Fargate ephemeral storage.
 	FargateEphemeralStorageKmsKeyId pulumi.StringPtrInput `pulumi:"fargateEphemeralStorageKmsKeyId"`
-	// AWS Key Management Service key ID to encrypt the managed storage.
+	// AWS Key Management Service key ARN to encrypt the managed storage.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -4056,14 +4056,14 @@ func (o ClusterConfigurationManagedStorageConfigurationOutput) ToClusterConfigur
 	}).(ClusterConfigurationManagedStorageConfigurationPtrOutput)
 }
 
-// AWS Key Management Service key ID for the Fargate ephemeral storage.
+// AWS Key Management Service key ARN for the Fargate ephemeral storage.
 func (o ClusterConfigurationManagedStorageConfigurationOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationManagedStorageConfiguration) *string {
 		return v.FargateEphemeralStorageKmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS Key Management Service key ID to encrypt the managed storage.
+// AWS Key Management Service key ARN to encrypt the managed storage.
 func (o ClusterConfigurationManagedStorageConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationManagedStorageConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -4092,7 +4092,7 @@ func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) Elem() Cluster
 	}).(ClusterConfigurationManagedStorageConfigurationOutput)
 }
 
-// AWS Key Management Service key ID for the Fargate ephemeral storage.
+// AWS Key Management Service key ARN for the Fargate ephemeral storage.
 func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationManagedStorageConfiguration) *string {
 		if v == nil {
@@ -4102,7 +4102,7 @@ func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) FargateEphemer
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS Key Management Service key ID to encrypt the managed storage.
+// AWS Key Management Service key ARN to encrypt the managed storage.
 func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationManagedStorageConfiguration) *string {
 		if v == nil {

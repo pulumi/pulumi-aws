@@ -175,6 +175,12 @@ __all__ = [
     'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgsDict',
     'ResponseHeadersPolicyServerTimingHeadersConfigArgs',
     'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict',
+    'TrustStoreCaCertificatesBundleSourceArgs',
+    'TrustStoreCaCertificatesBundleSourceArgsDict',
+    'TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs',
+    'TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgsDict',
+    'TrustStoreTimeoutsArgs',
+    'TrustStoreTimeoutsArgsDict',
     'VpcOriginTimeoutsArgs',
     'VpcOriginTimeoutsArgsDict',
     'VpcOriginVpcOriginEndpointConfigArgs',
@@ -5151,6 +5157,199 @@ class ResponseHeadersPolicyServerTimingHeadersConfigArgs:
     @sampling_rate.setter
     def sampling_rate(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "sampling_rate", value)
+
+
+if not MYPY:
+    class TrustStoreCaCertificatesBundleSourceArgsDict(TypedDict):
+        ca_certificates_bundle_s3_location: NotRequired[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgsDict']]
+        """
+        Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
+        """
+elif False:
+    TrustStoreCaCertificatesBundleSourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrustStoreCaCertificatesBundleSourceArgs:
+    def __init__(__self__, *,
+                 ca_certificates_bundle_s3_location: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']] = None):
+        """
+        :param pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs'] ca_certificates_bundle_s3_location: Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
+        """
+        if ca_certificates_bundle_s3_location is not None:
+            pulumi.set(__self__, "ca_certificates_bundle_s3_location", ca_certificates_bundle_s3_location)
+
+    @_builtins.property
+    @pulumi.getter(name="caCertificatesBundleS3Location")
+    def ca_certificates_bundle_s3_location(self) -> Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']]:
+        """
+        Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
+        """
+        return pulumi.get(self, "ca_certificates_bundle_s3_location")
+
+    @ca_certificates_bundle_s3_location.setter
+    def ca_certificates_bundle_s3_location(self, value: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']]):
+        pulumi.set(self, "ca_certificates_bundle_s3_location", value)
+
+
+if not MYPY:
+    class TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgsDict(TypedDict):
+        bucket: pulumi.Input[_builtins.str]
+        """
+        S3 bucket name containing the CA certificates bundle.
+        """
+        key: pulumi.Input[_builtins.str]
+        """
+        S3 object key for the CA certificates bundle.
+        """
+        region: pulumi.Input[_builtins.str]
+        """
+        AWS region of the S3 bucket.
+        """
+        version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        S3 object version ID for the CA certificates bundle.
+        """
+elif False:
+    TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[_builtins.str],
+                 region: pulumi.Input[_builtins.str],
+                 version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket: S3 bucket name containing the CA certificates bundle.
+        :param pulumi.Input[_builtins.str] key: S3 object key for the CA certificates bundle.
+        :param pulumi.Input[_builtins.str] region: AWS region of the S3 bucket.
+        :param pulumi.Input[_builtins.str] version: S3 object version ID for the CA certificates bundle.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "region", region)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 bucket name containing the CA certificates bundle.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 object key for the CA certificates bundle.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS region of the S3 bucket.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        S3 object version ID for the CA certificates bundle.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class TrustStoreTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    TrustStoreTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrustStoreTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 if not MYPY:

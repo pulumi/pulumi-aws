@@ -160,6 +160,8 @@ type ConnectAttachment struct {
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// Attachment resource ARN.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
 	// Name of the segment attachment.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// State of the attachment.
@@ -236,6 +238,8 @@ type connectAttachmentState struct {
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// Attachment resource ARN.
 	ResourceArn *string `pulumi:"resourceArn"`
+	// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Name of the segment attachment.
 	SegmentName *string `pulumi:"segmentName"`
 	// State of the attachment.
@@ -271,6 +275,8 @@ type ConnectAttachmentState struct {
 	OwnerAccountId pulumi.StringPtrInput
 	// Attachment resource ARN.
 	ResourceArn pulumi.StringPtrInput
+	// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Name of the segment attachment.
 	SegmentName pulumi.StringPtrInput
 	// State of the attachment.
@@ -296,6 +302,8 @@ type connectAttachmentArgs struct {
 	EdgeLocation string `pulumi:"edgeLocation"`
 	// Options block. See options for more information.
 	Options ConnectAttachmentOptions `pulumi:"options"`
+	// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the attachment between the two connections.
@@ -312,6 +320,8 @@ type ConnectAttachmentArgs struct {
 	EdgeLocation pulumi.StringInput
 	// Options block. See options for more information.
 	Options ConnectAttachmentOptionsInput
+	// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// ID of the attachment between the two connections.
@@ -455,6 +465,11 @@ func (o ConnectAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 // Attachment resource ARN.
 func (o ConnectAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+func (o ConnectAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
 // Name of the segment attachment.

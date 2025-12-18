@@ -10838,6 +10838,9 @@ class PolicyDocumentArgs:
 if not MYPY:
     class VectorsIndexEncryptionConfigurationArgsDict(TypedDict):
         kms_key_arn: pulumi.Input[_builtins.str]
+        """
+        AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+        """
         sse_type: pulumi.Input[_builtins.str]
         """
         Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
@@ -10851,6 +10854,7 @@ class VectorsIndexEncryptionConfigurationArgs:
                  kms_key_arn: pulumi.Input[_builtins.str],
                  sse_type: pulumi.Input[_builtins.str]):
         """
+        :param pulumi.Input[_builtins.str] kms_key_arn: AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] sse_type: Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
         """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -10859,6 +10863,9 @@ class VectorsIndexEncryptionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter

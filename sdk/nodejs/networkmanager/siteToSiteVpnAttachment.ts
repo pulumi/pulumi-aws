@@ -167,6 +167,10 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
+     * The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     */
+    declare public readonly routingPolicyLabel: pulumi.Output<string | undefined>;
+    /**
      * Name of the segment attachment.
      */
     declare public /*out*/ readonly segmentName: pulumi.Output<string>;
@@ -210,6 +214,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
             resourceInputs["edgeLocation"] = state?.edgeLocation;
             resourceInputs["ownerAccountId"] = state?.ownerAccountId;
             resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["routingPolicyLabel"] = state?.routingPolicyLabel;
             resourceInputs["segmentName"] = state?.segmentName;
             resourceInputs["state"] = state?.state;
             resourceInputs["tags"] = state?.tags;
@@ -224,6 +229,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpnConnectionArn'");
             }
             resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpnConnectionArn"] = args?.vpnConnectionArn;
             resourceInputs["arn"] = undefined /*out*/;
@@ -279,6 +285,10 @@ export interface SiteToSiteVpnAttachmentState {
      */
     resourceArn?: pulumi.Input<string>;
     /**
+     * The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     */
+    routingPolicyLabel?: pulumi.Input<string>;
+    /**
      * Name of the segment attachment.
      */
     segmentName?: pulumi.Input<string>;
@@ -310,6 +320,10 @@ export interface SiteToSiteVpnAttachmentArgs {
      * ID of a core network for the VPN attachment.
      */
     coreNetworkId: pulumi.Input<string>;
+    /**
+     * The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     */
+    routingPolicyLabel?: pulumi.Input<string>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

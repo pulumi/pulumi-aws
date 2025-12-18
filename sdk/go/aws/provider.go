@@ -173,6 +173,8 @@ type providerArgs struct {
 	UseDualstackEndpoint *bool `pulumi:"useDualstackEndpoint"`
 	// Resolve an endpoint with FIPS capability
 	UseFipsEndpoint *bool `pulumi:"useFipsEndpoint"`
+	// Product details to append to the User-Agent string sent in all AWS API calls.
+	UserAgents []string `pulumi:"userAgents"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -251,6 +253,8 @@ type ProviderArgs struct {
 	UseDualstackEndpoint pulumi.BoolPtrInput
 	// Resolve an endpoint with FIPS capability
 	UseFipsEndpoint pulumi.BoolPtrInput
+	// Product details to append to the User-Agent string sent in all AWS API calls.
+	UserAgents pulumi.StringArrayInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

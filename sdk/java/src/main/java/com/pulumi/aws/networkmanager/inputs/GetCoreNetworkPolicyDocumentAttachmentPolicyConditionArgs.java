@@ -47,14 +47,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs ext
     }
 
     /**
-     * Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+     * Must be `routing-policy-label`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+     * @return Must be `routing-policy-label`.
      * 
      */
     public Output<String> type() {
@@ -62,14 +62,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs ext
     }
 
     /**
-     * string value
+     * Routing policy label to match.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return string value
+     * @return Routing policy label to match.
      * 
      */
     public Optional<Output<String>> value() {
@@ -146,7 +146,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs ext
         }
 
         /**
-         * @param type Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+         * @param type Must be `routing-policy-label`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs ext
         }
 
         /**
-         * @param type Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+         * @param type Must be `routing-policy-label`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs ext
         }
 
         /**
-         * @param value string value
+         * @param value Routing policy label to match.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs ext
         }
 
         /**
-         * @param value string value
+         * @param value Routing policy label to match.
          * 
          * @return builder
          * 

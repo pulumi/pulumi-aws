@@ -6,10 +6,12 @@ package com.pulumi.aws.vpclattice;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.vpclattice.ServiceNetworkVpcAssociationArgs;
 import com.pulumi.aws.vpclattice.inputs.ServiceNetworkVpcAssociationState;
+import com.pulumi.aws.vpclattice.outputs.ServiceNetworkVpcAssociationDnsOptions;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -94,6 +96,34 @@ public class ServiceNetworkVpcAssociation extends com.pulumi.resources.CustomRes
      */
     public Output<String> createdBy() {
         return this.createdBy;
+    }
+    /**
+     * Configuration block for DNS option. See `dnsOptions` block below for details.
+     * 
+     */
+    @Export(name="dnsOptions", refs={ServiceNetworkVpcAssociationDnsOptions.class}, tree="[0]")
+    private Output</* @Nullable */ ServiceNetworkVpcAssociationDnsOptions> dnsOptions;
+
+    /**
+     * @return Configuration block for DNS option. See `dnsOptions` block below for details.
+     * 
+     */
+    public Output<Optional<ServiceNetworkVpcAssociationDnsOptions>> dnsOptions() {
+        return Codegen.optional(this.dnsOptions);
+    }
+    /**
+     * Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+     * 
+     */
+    @Export(name="privateDnsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> privateDnsEnabled;
+
+    /**
+     * @return Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+     * 
+     */
+    public Output<Boolean> privateDnsEnabled() {
+        return this.privateDnsEnabled;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

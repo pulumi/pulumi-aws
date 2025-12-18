@@ -92,12 +92,16 @@ type ResolverEndpoint struct {
 	// Endpoint IP type. This endpoint type is applied to all IP addresses.
 	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType pulumi.StringOutput `pulumi:"resolverEndpointType"`
+	// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	RniEnhancedMetricsEnabled pulumi.BoolOutput `pulumi:"rniEnhancedMetricsEnabled"`
 	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	TargetNameServerMetricsEnabled pulumi.BoolOutput `pulumi:"targetNameServerMetricsEnabled"`
 }
 
 // NewResolverEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -159,12 +163,16 @@ type resolverEndpointState struct {
 	// Endpoint IP type. This endpoint type is applied to all IP addresses.
 	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
+	// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	RniEnhancedMetricsEnabled *bool `pulumi:"rniEnhancedMetricsEnabled"`
 	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	TargetNameServerMetricsEnabled *bool `pulumi:"targetNameServerMetricsEnabled"`
 }
 
 type ResolverEndpointState struct {
@@ -188,12 +196,16 @@ type ResolverEndpointState struct {
 	// Endpoint IP type. This endpoint type is applied to all IP addresses.
 	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType pulumi.StringPtrInput
+	// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	RniEnhancedMetricsEnabled pulumi.BoolPtrInput
 	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	TargetNameServerMetricsEnabled pulumi.BoolPtrInput
 }
 
 func (ResolverEndpointState) ElementType() reflect.Type {
@@ -217,10 +229,14 @@ type resolverEndpointArgs struct {
 	// Endpoint IP type. This endpoint type is applied to all IP addresses.
 	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
+	// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	RniEnhancedMetricsEnabled *bool `pulumi:"rniEnhancedMetricsEnabled"`
 	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	TargetNameServerMetricsEnabled *bool `pulumi:"targetNameServerMetricsEnabled"`
 }
 
 // The set of arguments for constructing a ResolverEndpoint resource.
@@ -241,10 +257,14 @@ type ResolverEndpointArgs struct {
 	// Endpoint IP type. This endpoint type is applied to all IP addresses.
 	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType pulumi.StringPtrInput
+	// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	RniEnhancedMetricsEnabled pulumi.BoolPtrInput
 	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	TargetNameServerMetricsEnabled pulumi.BoolPtrInput
 }
 
 func (ResolverEndpointArgs) ElementType() reflect.Type {
@@ -378,6 +398,11 @@ func (o ResolverEndpointOutput) ResolverEndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.ResolverEndpointType }).(pulumi.StringOutput)
 }
 
+// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+func (o ResolverEndpointOutput) RniEnhancedMetricsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.BoolOutput { return v.RniEnhancedMetricsEnabled }).(pulumi.BoolOutput)
+}
+
 // ID of one or more security groups that you want to use to control access to this VPC.
 func (o ResolverEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -391,6 +416,11 @@ func (o ResolverEndpointOutput) Tags() pulumi.StringMapOutput {
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResolverEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+func (o ResolverEndpointOutput) TargetNameServerMetricsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.BoolOutput { return v.TargetNameServerMetricsEnabled }).(pulumi.BoolOutput)
 }
 
 type ResolverEndpointArrayOutput struct{ *pulumi.OutputState }

@@ -380,3 +380,14 @@ Object.defineProperty(exports, "useFipsEndpoint", {
     enumerable: true,
 });
 
+/**
+ * Product details to append to the User-Agent string sent in all AWS API calls.
+ */
+export declare const userAgents: string[] | undefined;
+Object.defineProperty(exports, "userAgents", {
+    get() {
+        return __config.getObject<string[]>("userAgents");
+    },
+    enumerable: true,
+});
+

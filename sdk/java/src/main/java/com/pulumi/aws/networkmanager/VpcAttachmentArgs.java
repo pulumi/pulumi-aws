@@ -50,6 +50,21 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * 
+     */
+    @Import(name="routingPolicyLabel")
+    private @Nullable Output<String> routingPolicyLabel;
+
+    /**
+     * @return The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * 
+     */
+    public Optional<Output<String>> routingPolicyLabel() {
+        return Optional.ofNullable(this.routingPolicyLabel);
+    }
+
+    /**
      * Subnet ARNs of the VPC attachment.
      * 
      */
@@ -103,6 +118,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
     private VpcAttachmentArgs(VpcAttachmentArgs $) {
         this.coreNetworkId = $.coreNetworkId;
         this.options = $.options;
+        this.routingPolicyLabel = $.routingPolicyLabel;
         this.subnetArns = $.subnetArns;
         this.tags = $.tags;
         this.vpcArn = $.vpcArn;
@@ -166,6 +182,27 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder options(VpcAttachmentOptionsArgs options) {
             return options(Output.of(options));
+        }
+
+        /**
+         * @param routingPolicyLabel The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPolicyLabel(@Nullable Output<String> routingPolicyLabel) {
+            $.routingPolicyLabel = routingPolicyLabel;
+            return this;
+        }
+
+        /**
+         * @param routingPolicyLabel The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPolicyLabel(String routingPolicyLabel) {
+            return routingPolicyLabel(Output.of(routingPolicyLabel));
         }
 
         /**

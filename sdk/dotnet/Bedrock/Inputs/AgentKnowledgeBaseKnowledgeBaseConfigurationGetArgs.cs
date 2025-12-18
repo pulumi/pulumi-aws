@@ -13,13 +13,25 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
+        /// Settings for an Amazon Kendra knowledge base. See `KendraKnowledgeBaseConfiguration` block for details.
+        /// </summary>
+        [Input("kendraKnowledgeBaseConfiguration")]
+        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationGetArgs>? KendraKnowledgeBaseConfiguration { get; set; }
+
+        /// <summary>
+        /// Configurations for a knowledge base connected to an SQL database. See `SqlKnowledgeBaseConfiguration` block for details.
+        /// </summary>
+        [Input("sqlKnowledgeBaseConfiguration")]
+        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationGetArgs>? SqlKnowledgeBaseConfiguration { get; set; }
+
+        /// <summary>
+        /// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Details about the embeddings model that'sused to convert the data source. See `VectorKnowledgeBaseConfiguration` block for details.
+        /// Details about the model that's used to convert the data source into vector embeddings. See `VectorKnowledgeBaseConfiguration` block for details.
         /// </summary>
         [Input("vectorKnowledgeBaseConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationGetArgs>? VectorKnowledgeBaseConfiguration { get; set; }

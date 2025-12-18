@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -67,6 +70,14 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
+     * Configuration block for DNS option. See `dnsOptions` block below for details.
+     */
+    declare public readonly dnsOptions: pulumi.Output<outputs.vpclattice.ServiceNetworkVpcAssociationDnsOptions | undefined>;
+    /**
+     * Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+     */
+    declare public readonly privateDnsEnabled: pulumi.Output<boolean>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -111,6 +122,8 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             const state = argsOrState as ServiceNetworkVpcAssociationState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["dnsOptions"] = state?.dnsOptions;
+            resourceInputs["privateDnsEnabled"] = state?.privateDnsEnabled;
             resourceInputs["region"] = state?.region;
             resourceInputs["securityGroupIds"] = state?.securityGroupIds;
             resourceInputs["serviceNetworkIdentifier"] = state?.serviceNetworkIdentifier;
@@ -126,6 +139,8 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             if (args?.vpcIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcIdentifier'");
             }
+            resourceInputs["dnsOptions"] = args?.dnsOptions;
+            resourceInputs["privateDnsEnabled"] = args?.privateDnsEnabled;
             resourceInputs["region"] = args?.region;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["serviceNetworkIdentifier"] = args?.serviceNetworkIdentifier;
@@ -153,6 +168,14 @@ export interface ServiceNetworkVpcAssociationState {
      * The account that created the association.
      */
     createdBy?: pulumi.Input<string>;
+    /**
+     * Configuration block for DNS option. See `dnsOptions` block below for details.
+     */
+    dnsOptions?: pulumi.Input<inputs.vpclattice.ServiceNetworkVpcAssociationDnsOptions>;
+    /**
+     * Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+     */
+    privateDnsEnabled?: pulumi.Input<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -188,6 +211,14 @@ export interface ServiceNetworkVpcAssociationState {
  * The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
  */
 export interface ServiceNetworkVpcAssociationArgs {
+    /**
+     * Configuration block for DNS option. See `dnsOptions` block below for details.
+     */
+    dnsOptions?: pulumi.Input<inputs.vpclattice.ServiceNetworkVpcAssociationDnsOptions>;
+    /**
+     * Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+     */
+    privateDnsEnabled?: pulumi.Input<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

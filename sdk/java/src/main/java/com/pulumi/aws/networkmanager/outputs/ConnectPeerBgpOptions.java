@@ -4,7 +4,7 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -12,17 +12,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectPeerBgpOptions {
     /**
-     * @return Peer ASN.
+     * @return Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
      * 
      */
-    private @Nullable Integer peerAsn;
+    private @Nullable String peerAsn;
 
     private ConnectPeerBgpOptions() {}
     /**
-     * @return Peer ASN.
+     * @return Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
      * 
      */
-    public Optional<Integer> peerAsn() {
+    public Optional<String> peerAsn() {
         return Optional.ofNullable(this.peerAsn);
     }
 
@@ -35,7 +35,7 @@ public final class ConnectPeerBgpOptions {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Integer peerAsn;
+        private @Nullable String peerAsn;
         public Builder() {}
         public Builder(ConnectPeerBgpOptions defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,7 +43,7 @@ public final class ConnectPeerBgpOptions {
         }
 
         @CustomType.Setter
-        public Builder peerAsn(@Nullable Integer peerAsn) {
+        public Builder peerAsn(@Nullable String peerAsn) {
 
             this.peerAsn = peerAsn;
             return this;

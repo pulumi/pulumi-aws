@@ -279,7 +279,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<Outputs.ServerlessCacheTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+        /// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         /// </summary>
         [Output("userGroupId")]
         public Output<string?> UserGroupId { get; private set; } = null!;
@@ -439,7 +439,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<Inputs.ServerlessCacheTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+        /// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         /// </summary>
         [Input("userGroupId")]
         public Input<string>? UserGroupId { get; set; }
@@ -617,7 +617,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<Inputs.ServerlessCacheTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+        /// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         /// </summary>
         [Input("userGroupId")]
         public Input<string>? UserGroupId { get; set; }

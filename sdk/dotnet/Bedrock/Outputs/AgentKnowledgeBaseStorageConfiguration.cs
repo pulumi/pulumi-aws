@@ -14,7 +14,19 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseStorageConfiguration
     {
         /// <summary>
-        /// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `OpensearchServerlessConfiguration` block for details.
+        /// The storage configuration of the knowledge base in MongoDB Atlas. See `MongoDbAtlasConfiguration` block for details.
+        /// </summary>
+        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration? MongoDbAtlasConfiguration;
+        /// <summary>
+        /// The storage configuration of the knowledge base in Amazon Neptune Analytics. See `NeptuneAnalyticsConfiguration` block for details.
+        /// </summary>
+        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration? NeptuneAnalyticsConfiguration;
+        /// <summary>
+        /// The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `OpensearchManagedClusterConfiguration` block for details.
+        /// </summary>
+        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration? OpensearchManagedClusterConfiguration;
+        /// <summary>
+        /// The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `OpensearchServerlessConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration? OpensearchServerlessConfiguration;
         /// <summary>
@@ -30,12 +42,22 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration? RedisEnterpriseCloudConfiguration;
         /// <summary>
-        /// Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
+        /// The storage configuration of the knowledge base in Amazon S3 Vectors. See `S3VectorsConfiguration` block for details.
+        /// </summary>
+        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration? S3VectorsConfiguration;
+        /// <summary>
+        /// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private AgentKnowledgeBaseStorageConfiguration(
+            Outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration? mongoDbAtlasConfiguration,
+
+            Outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration? neptuneAnalyticsConfiguration,
+
+            Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration? opensearchManagedClusterConfiguration,
+
             Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration? opensearchServerlessConfiguration,
 
             Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration? pineconeConfiguration,
@@ -44,12 +66,18 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration? redisEnterpriseCloudConfiguration,
 
+            Outputs.AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration? s3VectorsConfiguration,
+
             string type)
         {
+            MongoDbAtlasConfiguration = mongoDbAtlasConfiguration;
+            NeptuneAnalyticsConfiguration = neptuneAnalyticsConfiguration;
+            OpensearchManagedClusterConfiguration = opensearchManagedClusterConfiguration;
             OpensearchServerlessConfiguration = opensearchServerlessConfiguration;
             PineconeConfiguration = pineconeConfiguration;
             RdsConfiguration = rdsConfiguration;
             RedisEnterpriseCloudConfiguration = redisEnterpriseCloudConfiguration;
+            S3VectorsConfiguration = s3VectorsConfiguration;
             Type = type;
         }
     }

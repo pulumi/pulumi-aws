@@ -4,8 +4,10 @@
 package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicy;
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroup;
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentRoutingPolicy;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegment;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentAction;
 import com.pulumi.core.annotations.Import;
@@ -34,6 +36,21 @@ public final class GetCoreNetworkPolicyDocumentPlainArgs extends com.pulumi.reso
      */
     public Optional<List<GetCoreNetworkPolicyDocumentAttachmentPolicy>> attachmentPolicies() {
         return Optional.ofNullable(this.attachmentPolicies);
+    }
+
+    /**
+     * Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+     * 
+     */
+    @Import(name="attachmentRoutingPolicyRules")
+    private @Nullable List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule> attachmentRoutingPolicyRules;
+
+    /**
+     * @return Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+     * 
+     */
+    public Optional<List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule>> attachmentRoutingPolicyRules() {
+        return Optional.ofNullable(this.attachmentRoutingPolicyRules);
     }
 
     /**
@@ -67,6 +84,21 @@ public final class GetCoreNetworkPolicyDocumentPlainArgs extends com.pulumi.reso
     }
 
     /**
+     * Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+     * 
+     */
+    @Import(name="routingPolicies")
+    private @Nullable List<GetCoreNetworkPolicyDocumentRoutingPolicy> routingPolicies;
+
+    /**
+     * @return Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+     * 
+     */
+    public Optional<List<GetCoreNetworkPolicyDocumentRoutingPolicy>> routingPolicies() {
+        return Optional.ofNullable(this.routingPolicies);
+    }
+
+    /**
      * A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      * 
      */
@@ -96,9 +128,17 @@ public final class GetCoreNetworkPolicyDocumentPlainArgs extends com.pulumi.reso
         return this.segments;
     }
 
+    /**
+     * Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
+     * 
+     */
     @Import(name="version")
     private @Nullable String version;
 
+    /**
+     * @return Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
+     * 
+     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }
@@ -107,8 +147,10 @@ public final class GetCoreNetworkPolicyDocumentPlainArgs extends com.pulumi.reso
 
     private GetCoreNetworkPolicyDocumentPlainArgs(GetCoreNetworkPolicyDocumentPlainArgs $) {
         this.attachmentPolicies = $.attachmentPolicies;
+        this.attachmentRoutingPolicyRules = $.attachmentRoutingPolicyRules;
         this.coreNetworkConfigurations = $.coreNetworkConfigurations;
         this.networkFunctionGroups = $.networkFunctionGroups;
+        this.routingPolicies = $.routingPolicies;
         this.segmentActions = $.segmentActions;
         this.segments = $.segments;
         this.version = $.version;
@@ -154,6 +196,27 @@ public final class GetCoreNetworkPolicyDocumentPlainArgs extends com.pulumi.reso
         }
 
         /**
+         * @param attachmentRoutingPolicyRules Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder attachmentRoutingPolicyRules(@Nullable List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule> attachmentRoutingPolicyRules) {
+            $.attachmentRoutingPolicyRules = attachmentRoutingPolicyRules;
+            return this;
+        }
+
+        /**
+         * @param attachmentRoutingPolicyRules Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder attachmentRoutingPolicyRules(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule... attachmentRoutingPolicyRules) {
+            return attachmentRoutingPolicyRules(List.of(attachmentRoutingPolicyRules));
+        }
+
+        /**
          * @param coreNetworkConfigurations The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it&#39;s created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
          * 
          * @return builder
@@ -193,6 +256,27 @@ public final class GetCoreNetworkPolicyDocumentPlainArgs extends com.pulumi.reso
          */
         public Builder networkFunctionGroups(GetCoreNetworkPolicyDocumentNetworkFunctionGroup... networkFunctionGroups) {
             return networkFunctionGroups(List.of(networkFunctionGroups));
+        }
+
+        /**
+         * @param routingPolicies Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPolicies(@Nullable List<GetCoreNetworkPolicyDocumentRoutingPolicy> routingPolicies) {
+            $.routingPolicies = routingPolicies;
+            return this;
+        }
+
+        /**
+         * @param routingPolicies Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPolicies(GetCoreNetworkPolicyDocumentRoutingPolicy... routingPolicies) {
+            return routingPolicies(List.of(routingPolicies));
         }
 
         /**
@@ -237,6 +321,12 @@ public final class GetCoreNetworkPolicyDocumentPlainArgs extends com.pulumi.reso
             return segments(List.of(segments));
         }
 
+        /**
+         * @param version Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable String version) {
             $.version = version;
             return this;

@@ -33,6 +33,21 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * 
+     */
+    @Import(name="routingPolicyLabel")
+    private @Nullable Output<String> routingPolicyLabel;
+
+    /**
+     * @return The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * 
+     */
+    public Optional<Output<String>> routingPolicyLabel() {
+        return Optional.ofNullable(this.routingPolicyLabel);
+    }
+
+    /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -70,6 +85,7 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
 
     private SiteToSiteVpnAttachmentArgs(SiteToSiteVpnAttachmentArgs $) {
         this.coreNetworkId = $.coreNetworkId;
+        this.routingPolicyLabel = $.routingPolicyLabel;
         this.tags = $.tags;
         this.vpnConnectionArn = $.vpnConnectionArn;
     }
@@ -111,6 +127,27 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
          */
         public Builder coreNetworkId(String coreNetworkId) {
             return coreNetworkId(Output.of(coreNetworkId));
+        }
+
+        /**
+         * @param routingPolicyLabel The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPolicyLabel(@Nullable Output<String> routingPolicyLabel) {
+            $.routingPolicyLabel = routingPolicyLabel;
+            return this;
+        }
+
+        /**
+         * @param routingPolicyLabel The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPolicyLabel(String routingPolicyLabel) {
+            return routingPolicyLabel(Output.of(routingPolicyLabel));
         }
 
         /**

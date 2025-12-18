@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -203,6 +204,20 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
         return this.resolverEndpointType;
     }
     /**
+     * Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    @Export(name="rniEnhancedMetricsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> rniEnhancedMetricsEnabled;
+
+    /**
+     * @return Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    public Output<Boolean> rniEnhancedMetricsEnabled() {
+        return this.rniEnhancedMetricsEnabled;
+    }
+    /**
      * ID of one or more security groups that you want to use to control access to this VPC.
      * 
      */
@@ -243,6 +258,20 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    @Export(name="targetNameServerMetricsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> targetNameServerMetricsEnabled;
+
+    /**
+     * @return Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    public Output<Boolean> targetNameServerMetricsEnabled() {
+        return this.targetNameServerMetricsEnabled;
     }
 
     /**

@@ -50,7 +50,7 @@ namespace Pulumi.Aws.NetworkManager
     ///         PeerAddress = "127.0.0.1",
     ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
     ///         {
-    ///             PeerAsn = 65000,
+    ///             PeerAsn = "65000",
     ///         },
     ///         InsideCidrBlocks = new[]
     ///         {
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.NetworkManager
     ///         PeerAddress = "127.0.0.1",
     ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
     ///         {
-    ///             PeerAsn = 65500,
+    ///             PeerAsn = "65500",
     ///         },
     ///         InsideCidrBlocks = new[]
     ///         {
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.NetworkManager
     ///         PeerAddress = "127.0.0.1",
     ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
     ///         {
-    ///             PeerAsn = 65000,
+    ///             PeerAsn = "65000",
     ///         },
     ///         SubnetArn = example2.Arn,
     ///     });
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.NetworkManager
         /// Connect peer BGP options. See BgpOptions for more information.
         /// </summary>
         [Output("bgpOptions")]
-        public Output<Outputs.ConnectPeerBgpOptions?> BgpOptions { get; private set; } = null!;
+        public Output<Outputs.ConnectPeerBgpOptions> BgpOptions { get; private set; } = null!;
 
         /// <summary>
         /// Configuration of the Connect peer.

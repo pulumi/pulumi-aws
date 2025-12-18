@@ -78,6 +78,8 @@ type DxGatewayAttachment struct {
 	EdgeLocations pulumi.StringArrayOutput `pulumi:"edgeLocations"`
 	// ID of the attachment account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
 	// Name of the segment attachment.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// State of the attachment.
@@ -146,6 +148,8 @@ type dxGatewayAttachmentState struct {
 	EdgeLocations []string `pulumi:"edgeLocations"`
 	// ID of the attachment account owner.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Name of the segment attachment.
 	SegmentName *string `pulumi:"segmentName"`
 	// State of the attachment.
@@ -176,6 +180,8 @@ type DxGatewayAttachmentState struct {
 	EdgeLocations pulumi.StringArrayInput
 	// ID of the attachment account owner.
 	OwnerAccountId pulumi.StringPtrInput
+	// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Name of the segment attachment.
 	SegmentName pulumi.StringPtrInput
 	// State of the attachment.
@@ -200,6 +206,8 @@ type dxGatewayAttachmentArgs struct {
 	//
 	// The following arguments are optional:
 	EdgeLocations []string `pulumi:"edgeLocations"`
+	// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string            `pulumi:"tags"`
 	Timeouts *DxGatewayAttachmentTimeouts `pulumi:"timeouts"`
@@ -215,6 +223,8 @@ type DxGatewayAttachmentArgs struct {
 	//
 	// The following arguments are optional:
 	EdgeLocations pulumi.StringArrayInput
+	// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts DxGatewayAttachmentTimeoutsPtrInput
@@ -347,6 +357,11 @@ func (o DxGatewayAttachmentOutput) EdgeLocations() pulumi.StringArrayOutput {
 // ID of the attachment account owner.
 func (o DxGatewayAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+func (o DxGatewayAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
 // Name of the segment attachment.

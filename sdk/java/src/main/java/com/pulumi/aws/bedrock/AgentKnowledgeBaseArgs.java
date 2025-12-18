@@ -83,12 +83,16 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
     /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
      * @return ARN of the IAM role with permissions to invoke API operations on the knowledge base.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> roleArn() {
@@ -98,16 +102,12 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
     /**
      * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="storageConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationArgs> storageConfiguration;
 
     /**
      * @return Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationArgs>> storageConfiguration() {
@@ -254,6 +254,8 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         /**
          * @param roleArn ARN of the IAM role with permissions to invoke API operations on the knowledge base.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -265,6 +267,8 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         /**
          * @param roleArn ARN of the IAM role with permissions to invoke API operations on the knowledge base.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -274,8 +278,6 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -287,8 +289,6 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

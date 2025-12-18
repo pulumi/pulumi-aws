@@ -149,6 +149,7 @@ namespace Pulumi.Aws.Odb
         /// The Amazon Resource Name (ARN) for the cloud vm cluster.
         /// </summary>
         public readonly string Arn;
+        public readonly string CloudExadataInfrastructureArn;
         /// <summary>
         /// The ID of the Cloud Exadata Infrastructure.
         /// </summary>
@@ -250,6 +251,7 @@ namespace Pulumi.Aws.Odb
         /// The OCID of the VM cluster.
         /// </summary>
         public readonly string Ocid;
+        public readonly string OdbNetworkArn;
         /// <summary>
         /// The ID of the ODB network.
         /// </summary>
@@ -309,6 +311,8 @@ namespace Pulumi.Aws.Odb
         private GetCloudVmClusterResult(
             string arn,
 
+            string cloudExadataInfrastructureArn,
+
             string cloudExadataInfrastructureId,
 
             string clusterName,
@@ -361,6 +365,8 @@ namespace Pulumi.Aws.Odb
 
             string ocid,
 
+            string odbNetworkArn,
+
             string odbNetworkId,
 
             double percentProgress,
@@ -392,6 +398,7 @@ namespace Pulumi.Aws.Odb
             ImmutableArray<string> vipIds)
         {
             Arn = arn;
+            CloudExadataInfrastructureArn = cloudExadataInfrastructureArn;
             CloudExadataInfrastructureId = cloudExadataInfrastructureId;
             ClusterName = clusterName;
             ComputeModel = computeModel;
@@ -418,6 +425,7 @@ namespace Pulumi.Aws.Odb
             OciResourceAnchorName = ociResourceAnchorName;
             OciUrl = ociUrl;
             Ocid = ocid;
+            OdbNetworkArn = odbNetworkArn;
             OdbNetworkId = odbNetworkId;
             PercentProgress = percentProgress;
             Region = region;

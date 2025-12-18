@@ -202,7 +202,7 @@ import (
 //				Name: pulumi.String("example"),
 //				Configuration: &ecs.ClusterConfigurationArgs{
 //					ManagedStorageConfiguration: &ecs.ClusterConfigurationManagedStorageConfigurationArgs{
-//						FargateEphemeralStorageKmsKeyId: example.ID(),
+//						FargateEphemeralStorageKmsKeyId: example.Arn,
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{

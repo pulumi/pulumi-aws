@@ -79,6 +79,8 @@ type LookupDomainResult struct {
 	// URL of the Domain.
 	PortalUrl string `pulumi:"portalUrl"`
 	Region    string `pulumi:"region"`
+	// ID of the root domain unit.
+	RootDomainUnitId string `pulumi:"rootDomainUnitId"`
 	// Status of the Domain.
 	Status string `pulumi:"status"`
 }
@@ -166,6 +168,11 @@ func (o LookupDomainResultOutput) PortalUrl() pulumi.StringOutput {
 
 func (o LookupDomainResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// ID of the root domain unit.
+func (o LookupDomainResultOutput) RootDomainUnitId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.RootDomainUnitId }).(pulumi.StringOutput)
 }
 
 // Status of the Domain.

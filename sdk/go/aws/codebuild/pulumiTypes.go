@@ -1469,6 +1469,8 @@ func (o ProjectBuildBatchConfigRestrictionsPtrOutput) MaximumBuildsAllowed() pul
 }
 
 type ProjectCache struct {
+	// Namespace that determines the scope in which a cache is shared across multiple projects.
+	CacheNamespace *string `pulumi:"cacheNamespace"`
 	// Location where the AWS CodeBuild project stores cached resources. For
 	// type `S3`, the value must be a valid S3 bucket name/prefix.
 	Location *string `pulumi:"location"`
@@ -1492,6 +1494,8 @@ type ProjectCacheInput interface {
 }
 
 type ProjectCacheArgs struct {
+	// Namespace that determines the scope in which a cache is shared across multiple projects.
+	CacheNamespace pulumi.StringPtrInput `pulumi:"cacheNamespace"`
 	// Location where the AWS CodeBuild project stores cached resources. For
 	// type `S3`, the value must be a valid S3 bucket name/prefix.
 	Location pulumi.StringPtrInput `pulumi:"location"`
@@ -1580,6 +1584,11 @@ func (o ProjectCacheOutput) ToProjectCachePtrOutputWithContext(ctx context.Conte
 	}).(ProjectCachePtrOutput)
 }
 
+// Namespace that determines the scope in which a cache is shared across multiple projects.
+func (o ProjectCacheOutput) CacheNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectCache) *string { return v.CacheNamespace }).(pulumi.StringPtrOutput)
+}
+
 // Location where the AWS CodeBuild project stores cached resources. For
 // type `S3`, the value must be a valid S3 bucket name/prefix.
 func (o ProjectCacheOutput) Location() pulumi.StringPtrOutput {
@@ -1620,6 +1629,16 @@ func (o ProjectCachePtrOutput) Elem() ProjectCacheOutput {
 		var ret ProjectCache
 		return ret
 	}).(ProjectCacheOutput)
+}
+
+// Namespace that determines the scope in which a cache is shared across multiple projects.
+func (o ProjectCachePtrOutput) CacheNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCache) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CacheNamespace
+	}).(pulumi.StringPtrOutput)
 }
 
 // Location where the AWS CodeBuild project stores cached resources. For

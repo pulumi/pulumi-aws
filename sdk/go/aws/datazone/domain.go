@@ -280,6 +280,8 @@ type Domain struct {
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// ID of the root domain unit.
+	RootDomainUnitId pulumi.StringOutput `pulumi:"rootDomainUnitId"`
 	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
 	ServiceRole pulumi.StringPtrOutput `pulumi:"serviceRole"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
@@ -343,6 +345,8 @@ type domainState struct {
 	PortalUrl *string `pulumi:"portalUrl"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// ID of the root domain unit.
+	RootDomainUnitId *string `pulumi:"rootDomainUnitId"`
 	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
@@ -374,6 +378,8 @@ type DomainState struct {
 	PortalUrl pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// ID of the root domain unit.
+	RootDomainUnitId pulumi.StringPtrInput
 	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
 	ServiceRole pulumi.StringPtrInput
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
@@ -568,6 +574,11 @@ func (o DomainOutput) PortalUrl() pulumi.StringOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// ID of the root domain unit.
+func (o DomainOutput) RootDomainUnitId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.RootDomainUnitId }).(pulumi.StringOutput)
 }
 
 // ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.

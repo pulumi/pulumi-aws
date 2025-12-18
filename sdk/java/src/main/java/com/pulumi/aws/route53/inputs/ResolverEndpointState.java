@@ -6,6 +6,7 @@ package com.pulumi.aws.route53.inputs;
 import com.pulumi.aws.route53.inputs.ResolverEndpointIpAddressArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -147,6 +148,21 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    @Import(name="rniEnhancedMetricsEnabled")
+    private @Nullable Output<Boolean> rniEnhancedMetricsEnabled;
+
+    /**
+     * @return Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    public Optional<Output<Boolean>> rniEnhancedMetricsEnabled() {
+        return Optional.ofNullable(this.rniEnhancedMetricsEnabled);
+    }
+
+    /**
      * ID of one or more security groups that you want to use to control access to this VPC.
      * 
      */
@@ -191,6 +207,21 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    @Import(name="targetNameServerMetricsEnabled")
+    private @Nullable Output<Boolean> targetNameServerMetricsEnabled;
+
+    /**
+     * @return Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     * 
+     */
+    public Optional<Output<Boolean>> targetNameServerMetricsEnabled() {
+        return Optional.ofNullable(this.targetNameServerMetricsEnabled);
+    }
+
     private ResolverEndpointState() {}
 
     private ResolverEndpointState(ResolverEndpointState $) {
@@ -202,9 +233,11 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
         this.protocols = $.protocols;
         this.region = $.region;
         this.resolverEndpointType = $.resolverEndpointType;
+        this.rniEnhancedMetricsEnabled = $.rniEnhancedMetricsEnabled;
         this.securityGroupIds = $.securityGroupIds;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.targetNameServerMetricsEnabled = $.targetNameServerMetricsEnabled;
     }
 
     public static Builder builder() {
@@ -424,6 +457,27 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param rniEnhancedMetricsEnabled Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rniEnhancedMetricsEnabled(@Nullable Output<Boolean> rniEnhancedMetricsEnabled) {
+            $.rniEnhancedMetricsEnabled = rniEnhancedMetricsEnabled;
+            return this;
+        }
+
+        /**
+         * @param rniEnhancedMetricsEnabled Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rniEnhancedMetricsEnabled(Boolean rniEnhancedMetricsEnabled) {
+            return rniEnhancedMetricsEnabled(Output.of(rniEnhancedMetricsEnabled));
+        }
+
+        /**
          * @param securityGroupIds ID of one or more security groups that you want to use to control access to this VPC.
          * 
          * @return builder
@@ -494,6 +548,27 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param targetNameServerMetricsEnabled Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetNameServerMetricsEnabled(@Nullable Output<Boolean> targetNameServerMetricsEnabled) {
+            $.targetNameServerMetricsEnabled = targetNameServerMetricsEnabled;
+            return this;
+        }
+
+        /**
+         * @param targetNameServerMetricsEnabled Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetNameServerMetricsEnabled(Boolean targetNameServerMetricsEnabled) {
+            return targetNameServerMetricsEnabled(Output.of(targetNameServerMetricsEnabled));
         }
 
         public ResolverEndpointState build() {

@@ -140,6 +140,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["tokenBucketRateLimiterCapacity"] = pulumi.output(args?.tokenBucketRateLimiterCapacity).apply(JSON.stringify);
             resourceInputs["useDualstackEndpoint"] = pulumi.output(args?.useDualstackEndpoint).apply(JSON.stringify);
             resourceInputs["useFipsEndpoint"] = pulumi.output(args?.useFipsEndpoint).apply(JSON.stringify);
+            resourceInputs["userAgents"] = pulumi.output(args?.userAgents).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accessKey", "secretKey", "token"] };
@@ -293,6 +294,10 @@ export interface ProviderArgs {
      * Resolve an endpoint with FIPS capability
      */
     useFipsEndpoint?: pulumi.Input<boolean>;
+    /**
+     * Product details to append to the User-Agent string sent in all AWS API calls.
+     */
+    userAgents?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export namespace Provider {

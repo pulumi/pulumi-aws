@@ -196,6 +196,8 @@ type SiteToSiteVpnAttachment struct {
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// Attachment resource ARN.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
 	// Name of the segment attachment.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// State of the attachment.
@@ -262,6 +264,8 @@ type siteToSiteVpnAttachmentState struct {
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// Attachment resource ARN.
 	ResourceArn *string `pulumi:"resourceArn"`
+	// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Name of the segment attachment.
 	SegmentName *string `pulumi:"segmentName"`
 	// State of the attachment.
@@ -293,6 +297,8 @@ type SiteToSiteVpnAttachmentState struct {
 	OwnerAccountId pulumi.StringPtrInput
 	// Attachment resource ARN.
 	ResourceArn pulumi.StringPtrInput
+	// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Name of the segment attachment.
 	SegmentName pulumi.StringPtrInput
 	// State of the attachment.
@@ -314,6 +320,8 @@ func (SiteToSiteVpnAttachmentState) ElementType() reflect.Type {
 type siteToSiteVpnAttachmentArgs struct {
 	// ID of a core network for the VPN attachment.
 	CoreNetworkId string `pulumi:"coreNetworkId"`
+	// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// ARN of the site-to-site VPN connection.
@@ -326,6 +334,8 @@ type siteToSiteVpnAttachmentArgs struct {
 type SiteToSiteVpnAttachmentArgs struct {
 	// ID of a core network for the VPN attachment.
 	CoreNetworkId pulumi.StringInput
+	// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// ARN of the site-to-site VPN connection.
@@ -459,6 +469,11 @@ func (o SiteToSiteVpnAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 // Attachment resource ARN.
 func (o SiteToSiteVpnAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+func (o SiteToSiteVpnAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
 // Name of the segment attachment.

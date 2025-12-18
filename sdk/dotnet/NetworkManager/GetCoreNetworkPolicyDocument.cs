@@ -633,6 +633,18 @@ namespace Pulumi.Aws.NetworkManager
             set => _attachmentPolicies = value;
         }
 
+        [Input("attachmentRoutingPolicyRules")]
+        private List<Inputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs>? _attachmentRoutingPolicyRules;
+
+        /// <summary>
+        /// Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+        /// </summary>
+        public List<Inputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs> AttachmentRoutingPolicyRules
+        {
+            get => _attachmentRoutingPolicyRules ?? (_attachmentRoutingPolicyRules = new List<Inputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs>());
+            set => _attachmentRoutingPolicyRules = value;
+        }
+
         [Input("coreNetworkConfigurations", required: true)]
         private List<Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs>? _coreNetworkConfigurations;
 
@@ -655,6 +667,18 @@ namespace Pulumi.Aws.NetworkManager
         {
             get => _networkFunctionGroups ?? (_networkFunctionGroups = new List<Inputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>());
             set => _networkFunctionGroups = value;
+        }
+
+        [Input("routingPolicies")]
+        private List<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyArgs>? _routingPolicies;
+
+        /// <summary>
+        /// Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+        /// </summary>
+        public List<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyArgs> RoutingPolicies
+        {
+            get => _routingPolicies ?? (_routingPolicies = new List<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyArgs>());
+            set => _routingPolicies = value;
         }
 
         [Input("segmentActions")]
@@ -681,6 +705,9 @@ namespace Pulumi.Aws.NetworkManager
             set => _segments = value;
         }
 
+        /// <summary>
+        /// Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
+        /// </summary>
         [Input("version")]
         public string? Version { get; set; }
 
@@ -702,6 +729,18 @@ namespace Pulumi.Aws.NetworkManager
         {
             get => _attachmentPolicies ?? (_attachmentPolicies = new InputList<Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs>());
             set => _attachmentPolicies = value;
+        }
+
+        [Input("attachmentRoutingPolicyRules")]
+        private InputList<Inputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleInputArgs>? _attachmentRoutingPolicyRules;
+
+        /// <summary>
+        /// Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleInputArgs> AttachmentRoutingPolicyRules
+        {
+            get => _attachmentRoutingPolicyRules ?? (_attachmentRoutingPolicyRules = new InputList<Inputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleInputArgs>());
+            set => _attachmentRoutingPolicyRules = value;
         }
 
         [Input("coreNetworkConfigurations", required: true)]
@@ -728,6 +767,18 @@ namespace Pulumi.Aws.NetworkManager
             set => _networkFunctionGroups = value;
         }
 
+        [Input("routingPolicies")]
+        private InputList<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyInputArgs>? _routingPolicies;
+
+        /// <summary>
+        /// Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyInputArgs> RoutingPolicies
+        {
+            get => _routingPolicies ?? (_routingPolicies = new InputList<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyInputArgs>());
+            set => _routingPolicies = value;
+        }
+
         [Input("segmentActions")]
         private InputList<Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs>? _segmentActions;
 
@@ -752,6 +803,9 @@ namespace Pulumi.Aws.NetworkManager
             set => _segments = value;
         }
 
+        /// <summary>
+        /// Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -766,6 +820,7 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetCoreNetworkPolicyDocumentResult
     {
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyResult> AttachmentPolicies;
+        public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleResult> AttachmentRoutingPolicyRules;
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult> CoreNetworkConfigurations;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -776,6 +831,7 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly string Json;
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult> NetworkFunctionGroups;
+        public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentRoutingPolicyResult> RoutingPolicies;
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentActionResult> SegmentActions;
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentResult> Segments;
         public readonly string? Version;
@@ -783,6 +839,8 @@ namespace Pulumi.Aws.NetworkManager
         [OutputConstructor]
         private GetCoreNetworkPolicyDocumentResult(
             ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyResult> attachmentPolicies,
+
+            ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleResult> attachmentRoutingPolicyRules,
 
             ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult> coreNetworkConfigurations,
 
@@ -792,6 +850,8 @@ namespace Pulumi.Aws.NetworkManager
 
             ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult> networkFunctionGroups,
 
+            ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentRoutingPolicyResult> routingPolicies,
+
             ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentActionResult> segmentActions,
 
             ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentResult> segments,
@@ -799,10 +859,12 @@ namespace Pulumi.Aws.NetworkManager
             string? version)
         {
             AttachmentPolicies = attachmentPolicies;
+            AttachmentRoutingPolicyRules = attachmentRoutingPolicyRules;
             CoreNetworkConfigurations = coreNetworkConfigurations;
             Id = id;
             Json = json;
             NetworkFunctionGroups = networkFunctionGroups;
+            RoutingPolicies = routingPolicies;
             SegmentActions = segmentActions;
             Segments = segments;
             Version = version;
