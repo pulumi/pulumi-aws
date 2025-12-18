@@ -416,6 +416,18 @@ namespace Pulumi.Aws
         [Input("useFipsEndpoint", json: true)]
         public Input<bool>? UseFipsEndpoint { get; set; }
 
+        [Input("userAgents", json: true)]
+        private InputList<string>? _userAgents;
+
+        /// <summary>
+        /// Product details to append to the User-Agent string sent in all AWS API calls.
+        /// </summary>
+        public InputList<string> UserAgents
+        {
+            get => _userAgents ?? (_userAgents = new InputList<string>());
+            set => _userAgents = value;
+        }
+
         public ProviderArgs()
         {
             Region = Utilities.GetEnv("AWS_REGION", "AWS_DEFAULT_REGION");

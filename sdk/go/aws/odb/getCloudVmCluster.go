@@ -65,7 +65,8 @@ type LookupCloudVmClusterArgs struct {
 // A collection of values returned by getCloudVmCluster.
 type LookupCloudVmClusterResult struct {
 	// The Amazon Resource Name (ARN) for the cloud vm cluster.
-	Arn string `pulumi:"arn"`
+	Arn                           string `pulumi:"arn"`
+	CloudExadataInfrastructureArn string `pulumi:"cloudExadataInfrastructureArn"`
 	// The ID of the Cloud Exadata Infrastructure.
 	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
 	// The name of the Grid Infrastructure (GI) cluster.
@@ -116,7 +117,8 @@ type LookupCloudVmClusterResult struct {
 	// The HTTPS link to the VM cluster in OCI.
 	OciUrl string `pulumi:"ociUrl"`
 	// The OCID of the VM cluster.
-	Ocid string `pulumi:"ocid"`
+	Ocid          string `pulumi:"ocid"`
+	OdbNetworkArn string `pulumi:"odbNetworkArn"`
 	// The ID of the ODB network.
 	OdbNetworkId string `pulumi:"odbNetworkId"`
 	// The amount of progress made on the current operation on the VM cluster, expressed as a percentage.
@@ -188,6 +190,10 @@ func (o LookupCloudVmClusterResultOutput) ToLookupCloudVmClusterResultOutputWith
 // The Amazon Resource Name (ARN) for the cloud vm cluster.
 func (o LookupCloudVmClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupCloudVmClusterResultOutput) CloudExadataInfrastructureArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.CloudExadataInfrastructureArn }).(pulumi.StringOutput)
 }
 
 // The ID of the Cloud Exadata Infrastructure.
@@ -319,6 +325,10 @@ func (o LookupCloudVmClusterResultOutput) OciUrl() pulumi.StringOutput {
 // The OCID of the VM cluster.
 func (o LookupCloudVmClusterResultOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Ocid }).(pulumi.StringOutput)
+}
+
+func (o LookupCloudVmClusterResultOutput) OdbNetworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.OdbNetworkArn }).(pulumi.StringOutput)
 }
 
 // The ID of the ODB network.

@@ -54,7 +54,7 @@ class ServerlessCacheArgs:
         :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         pulumi.set(__self__, "engine", engine)
         if cache_usage_limits is not None:
@@ -258,7 +258,7 @@ class ServerlessCacheArgs:
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+        The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         return pulumi.get(self, "user_group_id")
 
@@ -316,7 +316,7 @@ class _ServerlessCacheState:
         :param pulumi.Input[_builtins.str] status: The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -616,7 +616,7 @@ class _ServerlessCacheState:
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+        The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         return pulumi.get(self, "user_group_id")
 
@@ -757,7 +757,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         ...
     @overload
@@ -981,7 +981,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] status: The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1180,7 +1180,7 @@ class ServerlessCache(pulumi.CustomResource):
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+        The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         return pulumi.get(self, "user_group_id")
 

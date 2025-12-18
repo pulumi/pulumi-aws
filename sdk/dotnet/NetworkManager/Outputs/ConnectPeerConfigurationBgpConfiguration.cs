@@ -25,9 +25,9 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly string? PeerAddress;
         /// <summary>
-        /// Peer ASN.
+        /// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
         /// </summary>
-        public readonly int? PeerAsn;
+        public readonly string? PeerAsn;
 
         [OutputConstructor]
         private ConnectPeerConfigurationBgpConfiguration(
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
 
             string? peerAddress,
 
-            int? peerAsn)
+            string? peerAsn)
         {
             CoreNetworkAddress = coreNetworkAddress;
             CoreNetworkAsn = coreNetworkAsn;

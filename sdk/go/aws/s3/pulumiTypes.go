@@ -23322,6 +23322,7 @@ func (o PolicyDocumentPtrOutput) Version() iam.PolicyDocumentVersionPtrOutput {
 }
 
 type VectorsIndexEncryptionConfiguration struct {
+	// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
 	SseType string `pulumi:"sseType"`
@@ -23339,6 +23340,7 @@ type VectorsIndexEncryptionConfigurationInput interface {
 }
 
 type VectorsIndexEncryptionConfigurationArgs struct {
+	// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
 	SseType pulumi.StringInput `pulumi:"sseType"`
@@ -23395,6 +23397,7 @@ func (o VectorsIndexEncryptionConfigurationOutput) ToVectorsIndexEncryptionConfi
 	return o
 }
 
+// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
 func (o VectorsIndexEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v VectorsIndexEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }

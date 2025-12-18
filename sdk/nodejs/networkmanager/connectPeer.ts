@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     connectAttachmentId: exampleConnectAttachment.id,
  *     peerAddress: "127.0.0.1",
  *     bgpOptions: {
- *         peerAsn: 65000,
+ *         peerAsn: "65000",
  *     },
  *     insideCidrBlocks: ["172.16.0.0/16"],
  * });
@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *     connectAttachmentId: exampleConnectAttachment.id,
  *     peerAddress: "127.0.0.1",
  *     bgpOptions: {
- *         peerAsn: 65500,
+ *         peerAsn: "65500",
  *     },
  *     insideCidrBlocks: ["172.16.0.0/16"],
  * }, {
@@ -107,7 +107,7 @@ import * as utilities from "../utilities";
  *     connectAttachmentId: exampleConnectAttachment.id,
  *     peerAddress: "127.0.0.1",
  *     bgpOptions: {
- *         peerAsn: 65000,
+ *         peerAsn: "65000",
  *     },
  *     subnetArn: example2.arn,
  * });
@@ -156,7 +156,7 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * Connect peer BGP options. See bgpOptions for more information.
      */
-    declare public readonly bgpOptions: pulumi.Output<outputs.networkmanager.ConnectPeerBgpOptions | undefined>;
+    declare public readonly bgpOptions: pulumi.Output<outputs.networkmanager.ConnectPeerBgpOptions>;
     /**
      * Configuration of the Connect peer.
      */

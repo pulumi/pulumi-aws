@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionResult
     {
         /// <summary>
-        /// Action to take for the chosen segment. Valid values: `create-route`, `Share`, `send-via` and `send-to`.
+        /// Action to take for the chosen segment. Valid values: `create-route`, `Share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
         /// </summary>
         public readonly string Action;
         /// <summary>
@@ -29,6 +29,10 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
         /// </summary>
         public readonly ImmutableArray<string> Destinations;
+        /// <summary>
+        /// Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+        /// </summary>
+        public readonly Outputs.GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationResult? EdgeLocationAssociation;
         /// <summary>
         /// String. When `Action` is `Share`, a `Mode` value of `attachment-route` places the attachment and return routes in each of the `ShareWith` segments. When `Action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
         /// </summary>
@@ -64,6 +68,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
 
             ImmutableArray<string> destinations,
 
+            Outputs.GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationResult? edgeLocationAssociation,
+
             string? mode,
 
             string segment,
@@ -80,6 +86,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
             Description = description;
             DestinationCidrBlocks = destinationCidrBlocks;
             Destinations = destinations;
+            EdgeLocationAssociation = edgeLocationAssociation;
             Mode = mode;
             Segment = segment;
             ShareWithExcepts = shareWithExcepts;

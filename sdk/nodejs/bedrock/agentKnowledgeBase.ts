@@ -42,6 +42,91 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Kendra Knowledge Base
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const kendraExample = new aws.bedrock.AgentKnowledgeBase("kendra_example", {
+ *     name: "example-kendra-kb",
+ *     roleArn: example.arn,
+ *     knowledgeBaseConfiguration: {
+ *         type: "KENDRA",
+ *         kendraKnowledgeBaseConfiguration: {
+ *             kendraIndexArn: "arn:aws:kendra:us-east-1:123456789012:index/example-index-id",
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Structured Data Store
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentKnowledgeBase("example", {
+ *     name: "example-kb",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     knowledgeBaseConfiguration: {
+ *         type: "SQL",
+ *         sqlKnowledgeBaseConfiguration: {
+ *             type: "REDSHIFT",
+ *             redshiftConfiguration: {
+ *                 queryEngineConfiguration: {
+ *                     type: "PROVISIONED",
+ *                     provisionedConfiguration: {
+ *                         clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
+ *                         authConfiguration: {
+ *                             type: "USERNAME",
+ *                             databaseUser: exampleAwsRedshiftCluster.masterUsername,
+ *                         },
+ *                     },
+ *                 },
+ *                 storageConfiguration: {
+ *                     type: "REDSHIFT",
+ *                     redshiftConfiguration: {
+ *                         databaseName: exampleAwsRedshiftCluster.databaseName,
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### OpenSearch Managed Cluster Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentKnowledgeBase("example", {
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     knowledgeBaseConfiguration: {
+ *         vectorKnowledgeBaseConfiguration: {
+ *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
+ *         },
+ *         type: "VECTOR",
+ *     },
+ *     storageConfiguration: {
+ *         type: "OPENSEARCH_MANAGED_CLUSTER",
+ *         opensearchManagedClusterConfiguration: {
+ *             domainArn: "arn:aws:es:us-west-2:123456789012:domain/example-domain",
+ *             domainEndpoint: "https://search-example-domain.us-west-2.es.amazonaws.com",
+ *             vectorIndexName: "example_index",
+ *             fieldMapping: {
+ *                 metadataField: "metadata",
+ *                 textField: "chunks",
+ *                 vectorField: "embedding",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ### With Supplemental Data Storage Configuration
  *
  * ```typescript
@@ -61,12 +146,12 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *             supplementalDataStorageConfiguration: {
- *                 storageLocations: [{
+ *                 storageLocation: {
  *                     type: "S3",
  *                     s3Location: {
  *                         uri: "s3://my-bucket/chunk-processor/",
  *                     },
- *                 }],
+ *                 },
  *             },
  *         },
  *         type: "VECTOR",
@@ -81,6 +166,44 @@ import * as utilities from "../utilities";
  *                 textField: "AMAZON_BEDROCK_TEXT_CHUNK",
  *                 metadataField: "AMAZON_BEDROCK_METADATA",
  *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### S3 Vectors Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.s3.VectorsVectorBucket("example", {vectorBucketName: "example-bucket"});
+ * const exampleVectorsIndex = new aws.s3.VectorsIndex("example", {
+ *     indexName: "example-index",
+ *     vectorBucketName: example.vectorBucketName,
+ *     dataType: "float32",
+ *     dimension: 256,
+ *     distanceMetric: "euclidean",
+ * });
+ * const exampleAgentKnowledgeBase = new aws.bedrock.AgentKnowledgeBase("example", {
+ *     name: "example-s3vectors-kb",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     knowledgeBaseConfiguration: {
+ *         vectorKnowledgeBaseConfiguration: {
+ *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
+ *             embeddingModelConfiguration: {
+ *                 bedrockEmbeddingModelConfiguration: {
+ *                     dimensions: 256,
+ *                     embeddingDataType: "FLOAT32",
+ *                 },
+ *             },
+ *         },
+ *         type: "VECTOR",
+ *     },
+ *     storageConfiguration: {
+ *         type: "S3_VECTORS",
+ *         s3VectorsConfiguration: {
+ *             indexArn: exampleVectorsIndex.indexArn,
  *         },
  *     },
  * });
@@ -149,12 +272,12 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
     declare public readonly region: pulumi.Output<string>;
     /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
+     *
+     * The following arguments are optional:
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-     *
-     * The following arguments are optional:
      */
     declare public readonly storageConfiguration: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseStorageConfiguration | undefined>;
     /**
@@ -252,12 +375,12 @@ export interface AgentKnowledgeBaseState {
     region?: pulumi.Input<string>;
     /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
+     *
+     * The following arguments are optional:
      */
     roleArn?: pulumi.Input<string>;
     /**
      * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-     *
-     * The following arguments are optional:
      */
     storageConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfiguration>;
     /**
@@ -297,12 +420,12 @@ export interface AgentKnowledgeBaseArgs {
     region?: pulumi.Input<string>;
     /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
+     *
+     * The following arguments are optional:
      */
     roleArn: pulumi.Input<string>;
     /**
      * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-     *
-     * The following arguments are optional:
      */
     storageConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfiguration>;
     /**

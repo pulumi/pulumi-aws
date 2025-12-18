@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action to take for the chosen segment. Valid values: `create-route`, `Share`, `send-via` and `send-to`.
+        /// Action to take for the chosen segment. Valid values: `create-route`, `Share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -47,6 +47,12 @@ namespace Pulumi.Aws.NetworkManager.Inputs
             get => _destinations ?? (_destinations = new InputList<string>());
             set => _destinations = value;
         }
+
+        /// <summary>
+        /// Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+        /// </summary>
+        [Input("edgeLocationAssociation")]
+        public Input<Inputs.GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationInputArgs>? EdgeLocationAssociation { get; set; }
 
         /// <summary>
         /// String. When `Action` is `Share`, a `Mode` value of `attachment-route` places the attachment and return routes in each of the `ShareWith` segments. When `Action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.

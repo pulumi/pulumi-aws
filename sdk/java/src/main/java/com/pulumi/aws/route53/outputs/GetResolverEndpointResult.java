@@ -6,6 +6,7 @@ package com.pulumi.aws.route53.outputs;
 import com.pulumi.aws.route53.outputs.GetResolverEndpointFilter;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -49,10 +50,20 @@ public final class GetResolverEndpointResult {
      */
     private String resolverEndpointType;
     /**
+     * @return Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint.
+     * 
+     */
+    private Boolean rniEnhancedMetricsEnabled;
+    /**
      * @return Current status of the Resolver Endpoint.
      * 
      */
     private String status;
+    /**
+     * @return Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints.
+     * 
+     */
+    private Boolean targetNameServerMetricsEnabled;
     /**
      * @return ID of the Host VPC that the Resolver Endpoint resides in.
      * 
@@ -115,11 +126,25 @@ public final class GetResolverEndpointResult {
         return this.resolverEndpointType;
     }
     /**
+     * @return Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint.
+     * 
+     */
+    public Boolean rniEnhancedMetricsEnabled() {
+        return this.rniEnhancedMetricsEnabled;
+    }
+    /**
      * @return Current status of the Resolver Endpoint.
      * 
      */
     public String status() {
         return this.status;
+    }
+    /**
+     * @return Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints.
+     * 
+     */
+    public Boolean targetNameServerMetricsEnabled() {
+        return this.targetNameServerMetricsEnabled;
     }
     /**
      * @return ID of the Host VPC that the Resolver Endpoint resides in.
@@ -148,7 +173,9 @@ public final class GetResolverEndpointResult {
         private String region;
         private @Nullable String resolverEndpointId;
         private String resolverEndpointType;
+        private Boolean rniEnhancedMetricsEnabled;
         private String status;
+        private Boolean targetNameServerMetricsEnabled;
         private String vpcId;
         public Builder() {}
         public Builder(GetResolverEndpointResult defaults) {
@@ -163,7 +190,9 @@ public final class GetResolverEndpointResult {
     	      this.region = defaults.region;
     	      this.resolverEndpointId = defaults.resolverEndpointId;
     	      this.resolverEndpointType = defaults.resolverEndpointType;
+    	      this.rniEnhancedMetricsEnabled = defaults.rniEnhancedMetricsEnabled;
     	      this.status = defaults.status;
+    	      this.targetNameServerMetricsEnabled = defaults.targetNameServerMetricsEnabled;
     	      this.vpcId = defaults.vpcId;
         }
 
@@ -253,11 +282,27 @@ public final class GetResolverEndpointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder rniEnhancedMetricsEnabled(Boolean rniEnhancedMetricsEnabled) {
+            if (rniEnhancedMetricsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "rniEnhancedMetricsEnabled");
+            }
+            this.rniEnhancedMetricsEnabled = rniEnhancedMetricsEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetResolverEndpointResult", "status");
             }
             this.status = status;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder targetNameServerMetricsEnabled(Boolean targetNameServerMetricsEnabled) {
+            if (targetNameServerMetricsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "targetNameServerMetricsEnabled");
+            }
+            this.targetNameServerMetricsEnabled = targetNameServerMetricsEnabled;
             return this;
         }
         @CustomType.Setter
@@ -280,7 +325,9 @@ public final class GetResolverEndpointResult {
             _resultValue.region = region;
             _resultValue.resolverEndpointId = resolverEndpointId;
             _resultValue.resolverEndpointType = resolverEndpointType;
+            _resultValue.rniEnhancedMetricsEnabled = rniEnhancedMetricsEnabled;
             _resultValue.status = status;
+            _resultValue.targetNameServerMetricsEnabled = targetNameServerMetricsEnabled;
             _resultValue.vpcId = vpcId;
             return _resultValue;
         }

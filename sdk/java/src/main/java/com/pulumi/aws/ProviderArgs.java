@@ -516,6 +516,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.useFipsEndpoint);
     }
 
+    /**
+     * Product details to append to the User-Agent string sent in all AWS API calls.
+     * 
+     */
+    @Import(name="userAgents", json=true)
+    private @Nullable Output<List<String>> userAgents;
+
+    /**
+     * @return Product details to append to the User-Agent string sent in all AWS API calls.
+     * 
+     */
+    public Optional<Output<List<String>>> userAgents() {
+        return Optional.ofNullable(this.userAgents);
+    }
+
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
@@ -553,6 +568,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.tokenBucketRateLimiterCapacity = $.tokenBucketRateLimiterCapacity;
         this.useDualstackEndpoint = $.useDualstackEndpoint;
         this.useFipsEndpoint = $.useFipsEndpoint;
+        this.userAgents = $.userAgents;
     }
 
     public static Builder builder() {
@@ -1283,6 +1299,37 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder useFipsEndpoint(Boolean useFipsEndpoint) {
             return useFipsEndpoint(Output.of(useFipsEndpoint));
+        }
+
+        /**
+         * @param userAgents Product details to append to the User-Agent string sent in all AWS API calls.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAgents(@Nullable Output<List<String>> userAgents) {
+            $.userAgents = userAgents;
+            return this;
+        }
+
+        /**
+         * @param userAgents Product details to append to the User-Agent string sent in all AWS API calls.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAgents(List<String> userAgents) {
+            return userAgents(Output.of(userAgents));
+        }
+
+        /**
+         * @param userAgents Product details to append to the User-Agent string sent in all AWS API calls.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAgents(String... userAgents) {
+            return userAgents(List.of(userAgents));
         }
 
         public ProviderArgs build() {

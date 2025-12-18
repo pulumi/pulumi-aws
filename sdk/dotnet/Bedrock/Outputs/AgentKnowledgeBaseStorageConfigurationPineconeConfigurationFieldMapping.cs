@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Name of the field in which Amazon Bedrock stores metadata about the vector store.
         /// </summary>
-        public readonly string? MetadataField;
+        public readonly string MetadataField;
         /// <summary>
         /// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         /// </summary>
-        public readonly string? TextField;
+        public readonly string TextField;
 
         [OutputConstructor]
         private AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping(
-            string? metadataField,
+            string metadataField,
 
-            string? textField)
+            string textField)
         {
             MetadataField = metadataField;
             TextField = textField;

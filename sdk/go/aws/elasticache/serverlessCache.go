@@ -235,7 +235,7 @@ type ServerlessCache struct {
 	Tags     pulumi.StringMapOutput           `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
 	Timeouts ServerlessCacheTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
 	UserGroupId pulumi.StringPtrOutput `pulumi:"userGroupId"`
 }
 
@@ -315,7 +315,7 @@ type serverlessCacheState struct {
 	Tags     map[string]string        `pulumi:"tags"`
 	TagsAll  map[string]string        `pulumi:"tagsAll"`
 	Timeouts *ServerlessCacheTimeouts `pulumi:"timeouts"`
-	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
 	UserGroupId *string `pulumi:"userGroupId"`
 }
 
@@ -363,7 +363,7 @@ type ServerlessCacheState struct {
 	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ServerlessCacheTimeoutsPtrInput
-	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
 	UserGroupId pulumi.StringPtrInput
 }
 
@@ -402,7 +402,7 @@ type serverlessCacheArgs struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string        `pulumi:"tags"`
 	Timeouts *ServerlessCacheTimeouts `pulumi:"timeouts"`
-	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
 	UserGroupId *string `pulumi:"userGroupId"`
 }
 
@@ -438,7 +438,7 @@ type ServerlessCacheArgs struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ServerlessCacheTimeoutsPtrInput
-	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
 	UserGroupId pulumi.StringPtrInput
 }
 
@@ -635,7 +635,7 @@ func (o ServerlessCacheOutput) Timeouts() ServerlessCacheTimeoutsPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheTimeoutsPtrOutput { return v.Timeouts }).(ServerlessCacheTimeoutsPtrOutput)
 }
 
-// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
 func (o ServerlessCacheOutput) UserGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringPtrOutput { return v.UserGroupId }).(pulumi.StringPtrOutput)
 }

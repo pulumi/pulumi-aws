@@ -15,6 +15,11 @@ export type DelegatedAdministrator = import("./delegatedAdministrator").Delegate
 export const DelegatedAdministrator: typeof import("./delegatedAdministrator").DelegatedAdministrator = null as any;
 utilities.lazyLoad(exports, ["DelegatedAdministrator"], () => require("./delegatedAdministrator"));
 
+export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
+export const getAccount: typeof import("./getAccount").getAccount = null as any;
+export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+
 export { GetDelegatedAdministratorsArgs, GetDelegatedAdministratorsResult, GetDelegatedAdministratorsOutputArgs } from "./getDelegatedAdministrators";
 export const getDelegatedAdministrators: typeof import("./getDelegatedAdministrators").getDelegatedAdministrators = null as any;
 export const getDelegatedAdministratorsOutput: typeof import("./getDelegatedAdministrators").getDelegatedAdministratorsOutput = null as any;

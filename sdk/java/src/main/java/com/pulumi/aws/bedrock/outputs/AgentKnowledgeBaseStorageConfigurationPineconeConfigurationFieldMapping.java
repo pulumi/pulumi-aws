@@ -4,10 +4,9 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
@@ -15,27 +14,27 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
      * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
-    private @Nullable String metadataField;
+    private String metadataField;
     /**
      * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
-    private @Nullable String textField;
+    private String textField;
 
     private AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping() {}
     /**
      * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
-    public Optional<String> metadataField() {
-        return Optional.ofNullable(this.metadataField);
+    public String metadataField() {
+        return this.metadataField;
     }
     /**
      * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
-    public Optional<String> textField() {
-        return Optional.ofNullable(this.textField);
+    public String textField() {
+        return this.textField;
     }
 
     public static Builder builder() {
@@ -47,8 +46,8 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String metadataField;
-        private @Nullable String textField;
+        private String metadataField;
+        private String textField;
         public Builder() {}
         public Builder(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,14 +56,18 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
         }
 
         @CustomType.Setter
-        public Builder metadataField(@Nullable String metadataField) {
-
+        public Builder metadataField(String metadataField) {
+            if (metadataField == null) {
+              throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping", "metadataField");
+            }
             this.metadataField = metadataField;
             return this;
         }
         @CustomType.Setter
-        public Builder textField(@Nullable String textField) {
-
+        public Builder textField(String textField) {
+            if (textField == null) {
+              throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping", "textField");
+            }
             this.textField = textField;
             return this;
         }

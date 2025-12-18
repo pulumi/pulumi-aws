@@ -26,6 +26,7 @@ class FunctionArgs:
                  architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  capacity_provider_config: Optional[pulumi.Input['FunctionCapacityProviderConfigArgs']] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
+                 code_sha256: Optional[pulumi.Input[_builtins.str]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -69,6 +70,7 @@ class FunctionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stays the same.
         :param pulumi.Input['FunctionCapacityProviderConfigArgs'] capacity_provider_config: Configuration block for Lambda Capacity Provider. See below.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        :param pulumi.Input[_builtins.str] code_sha256: Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `source_code_hash` argument instead.
         :param pulumi.Input[_builtins.str] code_signing_config_arn: ARN of a code-signing configuration to enable code signing for this function.
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: Configuration block for dead letter queue. See below.
         :param pulumi.Input[_builtins.str] description: Description of what your Lambda Function does.
@@ -97,7 +99,7 @@ class FunctionArgs:
         :param pulumi.Input[_builtins.str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Configuration block for snap start settings. See below.
-        :param pulumi.Input[_builtins.str] source_code_hash: Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+        :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
         :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['FunctionTenancyConfigArgs'] tenancy_config: Configuration block for Tenancy. See below.
@@ -112,6 +114,8 @@ class FunctionArgs:
             pulumi.set(__self__, "capacity_provider_config", capacity_provider_config)
         if code is not None:
             pulumi.set(__self__, "code", code)
+        if code_sha256 is not None:
+            pulumi.set(__self__, "code_sha256", code_sha256)
         if code_signing_config_arn is not None:
             pulumi.set(__self__, "code_signing_config_arn", code_signing_config_arn)
         if dead_letter_config is not None:
@@ -232,6 +236,18 @@ class FunctionArgs:
     @code.setter
     def code(self, value: Optional[pulumi.Input[pulumi.Archive]]):
         pulumi.set(self, "code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="codeSha256")
+    def code_sha256(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `source_code_hash` argument instead.
+        """
+        return pulumi.get(self, "code_sha256")
+
+    @code_sha256.setter
+    def code_sha256(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "code_sha256", value)
 
     @_builtins.property
     @pulumi.getter(name="codeSigningConfigArn")
@@ -573,7 +589,7 @@ class FunctionArgs:
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+        User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
         """
         return pulumi.get(self, "source_code_hash")
 
@@ -713,7 +729,7 @@ class _FunctionState:
         :param pulumi.Input[_builtins.str] arn: ARN identifying your Lambda Function.
         :param pulumi.Input['FunctionCapacityProviderConfigArgs'] capacity_provider_config: Configuration block for Lambda Capacity Provider. See below.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
-        :param pulumi.Input[_builtins.str] code_sha256: Base64-encoded representation of raw SHA-256 sum of the zip file.
+        :param pulumi.Input[_builtins.str] code_sha256: Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `source_code_hash` argument instead.
         :param pulumi.Input[_builtins.str] code_signing_config_arn: ARN of a code-signing configuration to enable code signing for this function.
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: Configuration block for dead letter queue. See below.
         :param pulumi.Input[_builtins.str] description: Description of what your Lambda Function does.
@@ -751,7 +767,7 @@ class _FunctionState:
         :param pulumi.Input[_builtins.str] signing_profile_version_arn: ARN of the signing profile version.
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Configuration block for snap start settings. See below.
-        :param pulumi.Input[_builtins.str] source_code_hash: Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+        :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
         :param pulumi.Input[_builtins.int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -915,7 +931,7 @@ class _FunctionState:
     @pulumi.getter(name="codeSha256")
     def code_sha256(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Base64-encoded representation of raw SHA-256 sum of the zip file.
+        Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `source_code_hash` argument instead.
         """
         return pulumi.get(self, "code_sha256")
 
@@ -1349,7 +1365,7 @@ class _FunctionState:
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+        User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
         """
         return pulumi.get(self, "source_code_hash")
 
@@ -1475,6 +1491,7 @@ class Function(pulumi.CustomResource):
                  architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  capacity_provider_config: Optional[pulumi.Input[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict']]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
+                 code_sha256: Optional[pulumi.Input[_builtins.str]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  dead_letter_config: Optional[pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1962,6 +1979,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stays the same.
         :param pulumi.Input[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict']] capacity_provider_config: Configuration block for Lambda Capacity Provider. See below.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        :param pulumi.Input[_builtins.str] code_sha256: Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `source_code_hash` argument instead.
         :param pulumi.Input[_builtins.str] code_signing_config_arn: ARN of a code-signing configuration to enable code signing for this function.
         :param pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']] dead_letter_config: Configuration block for dead letter queue. See below.
         :param pulumi.Input[_builtins.str] description: Description of what your Lambda Function does.
@@ -1993,7 +2011,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: Configuration block for snap start settings. See below.
-        :param pulumi.Input[_builtins.str] source_code_hash: Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+        :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
         :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']] tenancy_config: Configuration block for Tenancy. See below.
@@ -2470,6 +2488,7 @@ class Function(pulumi.CustomResource):
                  architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  capacity_provider_config: Optional[pulumi.Input[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict']]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
+                 code_sha256: Optional[pulumi.Input[_builtins.str]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  dead_letter_config: Optional[pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2518,6 +2537,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["architectures"] = architectures
             __props__.__dict__["capacity_provider_config"] = capacity_provider_config
             __props__.__dict__["code"] = code
+            __props__.__dict__["code_sha256"] = code_sha256
             __props__.__dict__["code_signing_config_arn"] = code_signing_config_arn
             __props__.__dict__["dead_letter_config"] = dead_letter_config
             __props__.__dict__["description"] = description
@@ -2557,7 +2577,6 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["tracing_config"] = tracing_config
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
-            __props__.__dict__["code_sha256"] = None
             __props__.__dict__["invoke_arn"] = None
             __props__.__dict__["last_modified"] = None
             __props__.__dict__["qualified_arn"] = None
@@ -2638,7 +2657,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN identifying your Lambda Function.
         :param pulumi.Input[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict']] capacity_provider_config: Configuration block for Lambda Capacity Provider. See below.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
-        :param pulumi.Input[_builtins.str] code_sha256: Base64-encoded representation of raw SHA-256 sum of the zip file.
+        :param pulumi.Input[_builtins.str] code_sha256: Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `source_code_hash` argument instead.
         :param pulumi.Input[_builtins.str] code_signing_config_arn: ARN of a code-signing configuration to enable code signing for this function.
         :param pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']] dead_letter_config: Configuration block for dead letter queue. See below.
         :param pulumi.Input[_builtins.str] description: Description of what your Lambda Function does.
@@ -2676,7 +2695,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] signing_profile_version_arn: ARN of the signing profile version.
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: Configuration block for snap start settings. See below.
-        :param pulumi.Input[_builtins.str] source_code_hash: Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+        :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
         :param pulumi.Input[_builtins.int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -2779,7 +2798,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="codeSha256")
     def code_sha256(self) -> pulumi.Output[_builtins.str]:
         """
-        Base64-encoded representation of raw SHA-256 sum of the zip file.
+        Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `source_code_hash` argument instead.
         """
         return pulumi.get(self, "code_sha256")
 
@@ -3069,7 +3088,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> pulumi.Output[_builtins.str]:
         """
-        Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+        User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
         """
         return pulumi.get(self, "source_code_hash")
 

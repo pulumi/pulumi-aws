@@ -14,12 +14,12 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class ConnectPeerBgpOptions
     {
         /// <summary>
-        /// Peer ASN.
+        /// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
         /// </summary>
-        public readonly int? PeerAsn;
+        public readonly string? PeerAsn;
 
         [OutputConstructor]
-        private ConnectPeerBgpOptions(int? peerAsn)
+        private ConnectPeerBgpOptions(string? peerAsn)
         {
             PeerAsn = peerAsn;
         }

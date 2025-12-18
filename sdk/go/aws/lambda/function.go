@@ -773,7 +773,7 @@ type Function struct {
 	CapacityProviderConfig FunctionCapacityProviderConfigPtrOutput `pulumi:"capacityProviderConfig"`
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveOutput `pulumi:"code"`
-	// Base64-encoded representation of raw SHA-256 sum of the zip file.
+	// Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
 	CodeSha256 pulumi.StringOutput `pulumi:"codeSha256"`
 	// ARN of a code-signing configuration to enable code signing for this function.
 	CodeSigningConfigArn pulumi.StringPtrOutput `pulumi:"codeSigningConfigArn"`
@@ -847,7 +847,7 @@ type Function struct {
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Configuration block for snap start settings. See below.
 	SnapStart FunctionSnapStartPtrOutput `pulumi:"snapStart"`
-	// Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+	// User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
 	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
@@ -910,7 +910,7 @@ type functionState struct {
 	CapacityProviderConfig *FunctionCapacityProviderConfig `pulumi:"capacityProviderConfig"`
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.Archive `pulumi:"code"`
-	// Base64-encoded representation of raw SHA-256 sum of the zip file.
+	// Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
 	CodeSha256 *string `pulumi:"codeSha256"`
 	// ARN of a code-signing configuration to enable code signing for this function.
 	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
@@ -984,7 +984,7 @@ type functionState struct {
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Configuration block for snap start settings. See below.
 	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
-	// Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+	// User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize *int `pulumi:"sourceCodeSize"`
@@ -1015,7 +1015,7 @@ type FunctionState struct {
 	CapacityProviderConfig FunctionCapacityProviderConfigPtrInput
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveInput
-	// Base64-encoded representation of raw SHA-256 sum of the zip file.
+	// Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
 	CodeSha256 pulumi.StringPtrInput
 	// ARN of a code-signing configuration to enable code signing for this function.
 	CodeSigningConfigArn pulumi.StringPtrInput
@@ -1089,7 +1089,7 @@ type FunctionState struct {
 	SkipDestroy pulumi.BoolPtrInput
 	// Configuration block for snap start settings. See below.
 	SnapStart FunctionSnapStartPtrInput
-	// Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+	// User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
 	SourceCodeHash pulumi.StringPtrInput
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntPtrInput
@@ -1122,6 +1122,8 @@ type functionArgs struct {
 	CapacityProviderConfig *FunctionCapacityProviderConfig `pulumi:"capacityProviderConfig"`
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.Archive `pulumi:"code"`
+	// Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
+	CodeSha256 *string `pulumi:"codeSha256"`
 	// ARN of a code-signing configuration to enable code signing for this function.
 	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
 	// Configuration block for dead letter queue. See below.
@@ -1182,7 +1184,7 @@ type functionArgs struct {
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Configuration block for snap start settings. See below.
 	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
-	// Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+	// User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
 	SourceKmsKeyArn *string `pulumi:"sourceKmsKeyArn"`
@@ -1206,6 +1208,8 @@ type FunctionArgs struct {
 	CapacityProviderConfig FunctionCapacityProviderConfigPtrInput
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveInput
+	// Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
+	CodeSha256 pulumi.StringPtrInput
 	// ARN of a code-signing configuration to enable code signing for this function.
 	CodeSigningConfigArn pulumi.StringPtrInput
 	// Configuration block for dead letter queue. See below.
@@ -1266,7 +1270,7 @@ type FunctionArgs struct {
 	SkipDestroy pulumi.BoolPtrInput
 	// Configuration block for snap start settings. See below.
 	SnapStart FunctionSnapStartPtrInput
-	// Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+	// User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
 	SourceCodeHash pulumi.StringPtrInput
 	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
 	SourceKmsKeyArn pulumi.StringPtrInput
@@ -1389,7 +1393,7 @@ func (o FunctionOutput) Code() pulumi.ArchiveOutput {
 	return o.ApplyT(func(v *Function) pulumi.ArchiveOutput { return v.Code }).(pulumi.ArchiveOutput)
 }
 
-// Base64-encoded representation of raw SHA-256 sum of the zip file.
+// Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
 func (o FunctionOutput) CodeSha256() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.CodeSha256 }).(pulumi.StringOutput)
 }
@@ -1571,7 +1575,7 @@ func (o FunctionOutput) SnapStart() FunctionSnapStartPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionSnapStartPtrOutput { return v.SnapStart }).(FunctionSnapStartPtrOutput)
 }
 
-// Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+// User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
 func (o FunctionOutput) SourceCodeHash() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SourceCodeHash }).(pulumi.StringOutput)
 }

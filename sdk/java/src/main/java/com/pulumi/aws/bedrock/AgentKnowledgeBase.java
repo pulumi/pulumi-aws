@@ -81,6 +81,172 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Kendra Knowledge Base
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentKnowledgeBase;
+ * import com.pulumi.aws.bedrock.AgentKnowledgeBaseArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var kendraExample = new AgentKnowledgeBase("kendraExample", AgentKnowledgeBaseArgs.builder()
+ *             .name("example-kendra-kb")
+ *             .roleArn(example.arn())
+ *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
+ *                 .type("KENDRA")
+ *                 .kendraKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs.builder()
+ *                     .kendraIndexArn("arn:aws:kendra:us-east-1:123456789012:index/example-index-id")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Structured Data Store
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentKnowledgeBase;
+ * import com.pulumi.aws.bedrock.AgentKnowledgeBaseArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentKnowledgeBase("example", AgentKnowledgeBaseArgs.builder()
+ *             .name("example-kb")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
+ *                 .type("SQL")
+ *                 .sqlKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs.builder()
+ *                     .type("REDSHIFT")
+ *                     .redshiftConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs.builder()
+ *                         .queryEngineConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs.builder()
+ *                             .type("PROVISIONED")
+ *                             .provisionedConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs.builder()
+ *                                 .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
+ *                                 .authConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs.builder()
+ *                                     .type("USERNAME")
+ *                                     .databaseUser(exampleAwsRedshiftCluster.masterUsername())
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                         .storageConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs.builder()
+ *                             .type("REDSHIFT")
+ *                             .redshiftConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs.builder()
+ *                                 .databaseName(exampleAwsRedshiftCluster.databaseName())
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### OpenSearch Managed Cluster Configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentKnowledgeBase;
+ * import com.pulumi.aws.bedrock.AgentKnowledgeBaseArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentKnowledgeBase("example", AgentKnowledgeBaseArgs.builder()
+ *             .name("example")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
+ *                 .vectorKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.builder()
+ *                     .embeddingModelArn("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0")
+ *                     .build())
+ *                 .type("VECTOR")
+ *                 .build())
+ *             .storageConfiguration(AgentKnowledgeBaseStorageConfigurationArgs.builder()
+ *                 .type("OPENSEARCH_MANAGED_CLUSTER")
+ *                 .opensearchManagedClusterConfiguration(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs.builder()
+ *                     .domainArn("arn:aws:es:us-west-2:123456789012:domain/example-domain")
+ *                     .domainEndpoint("https://search-example-domain.us-west-2.es.amazonaws.com")
+ *                     .vectorIndexName("example_index")
+ *                     .fieldMapping(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs.builder()
+ *                         .metadataField("metadata")
+ *                         .textField("chunks")
+ *                         .vectorField("embedding")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### With Supplemental Data Storage Configuration
  * 
  * <pre>
@@ -126,12 +292,10 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                     .supplementalDataStorageConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs.builder()
- *                         .storageLocations(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs.builder()
- *                             .type("S3")
- *                             .s3Location(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs.builder()
- *                                 .uri("s3://my-bucket/chunk-processor/")
- *                                 .build())
- *                             .build())
+ *                         .storageLocation(Map.ofEntries(
+ *                             Map.entry("type", "S3"),
+ *                             Map.entry("s3Location", Map.of("uri", "s3://my-bucket/chunk-processor/"))
+ *                         ))
  *                         .build())
  *                     .build())
  *                 .type("VECTOR")
@@ -146,6 +310,80 @@ import javax.annotation.Nullable;
  *                         .textField("AMAZON_BEDROCK_TEXT_CHUNK")
  *                         .metadataField("AMAZON_BEDROCK_METADATA")
  *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### S3 Vectors Configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.VectorsVectorBucket;
+ * import com.pulumi.aws.s3.VectorsVectorBucketArgs;
+ * import com.pulumi.aws.s3.VectorsIndex;
+ * import com.pulumi.aws.s3.VectorsIndexArgs;
+ * import com.pulumi.aws.bedrock.AgentKnowledgeBase;
+ * import com.pulumi.aws.bedrock.AgentKnowledgeBaseArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VectorsVectorBucket("example", VectorsVectorBucketArgs.builder()
+ *             .vectorBucketName("example-bucket")
+ *             .build());
+ * 
+ *         var exampleVectorsIndex = new VectorsIndex("exampleVectorsIndex", VectorsIndexArgs.builder()
+ *             .indexName("example-index")
+ *             .vectorBucketName(example.vectorBucketName())
+ *             .dataType("float32")
+ *             .dimension(256)
+ *             .distanceMetric("euclidean")
+ *             .build());
+ * 
+ *         var exampleAgentKnowledgeBase = new AgentKnowledgeBase("exampleAgentKnowledgeBase", AgentKnowledgeBaseArgs.builder()
+ *             .name("example-s3vectors-kb")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
+ *                 .vectorKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.builder()
+ *                     .embeddingModelArn("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0")
+ *                     .embeddingModelConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs.builder()
+ *                         .bedrockEmbeddingModelConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs.builder()
+ *                             .dimensions(256)
+ *                             .embeddingDataType("FLOAT32")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .type("VECTOR")
+ *                 .build())
+ *             .storageConfiguration(AgentKnowledgeBaseStorageConfigurationArgs.builder()
+ *                 .type("S3_VECTORS")
+ *                 .s3VectorsConfiguration(AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs.builder()
+ *                     .indexArn(exampleVectorsIndex.indexArn())
  *                     .build())
  *                 .build())
  *             .build());
@@ -259,12 +497,16 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
      * @return ARN of the IAM role with permissions to invoke API operations on the knowledge base.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> roleArn() {
@@ -273,16 +515,12 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
     /**
      * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="storageConfiguration", refs={AgentKnowledgeBaseStorageConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentKnowledgeBaseStorageConfiguration> storageConfiguration;
 
     /**
      * @return Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Optional<AgentKnowledgeBaseStorageConfiguration>> storageConfiguration() {

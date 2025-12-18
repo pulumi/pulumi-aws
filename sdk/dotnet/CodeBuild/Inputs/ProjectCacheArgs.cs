@@ -13,6 +13,12 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectCacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Namespace that determines the scope in which a cache is shared across multiple projects.
+        /// </summary>
+        [Input("cacheNamespace")]
+        public Input<string>? CacheNamespace { get; set; }
+
+        /// <summary>
         /// Location where the AWS CodeBuild project stores cached resources. For
         /// type `S3`, the value must be a valid S3 bucket name/prefix.
         /// </summary>

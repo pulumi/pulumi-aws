@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProjectCache {
     /**
+     * @return Namespace that determines the scope in which a cache is shared across multiple projects.
+     * 
+     */
+    private @Nullable String cacheNamespace;
+    /**
      * @return Location where the AWS CodeBuild project stores cached resources. For
      * type `S3`, the value must be a valid S3 bucket name/prefix.
      * 
@@ -32,6 +37,13 @@ public final class ProjectCache {
     private @Nullable String type;
 
     private ProjectCache() {}
+    /**
+     * @return Namespace that determines the scope in which a cache is shared across multiple projects.
+     * 
+     */
+    public Optional<String> cacheNamespace() {
+        return Optional.ofNullable(this.cacheNamespace);
+    }
     /**
      * @return Location where the AWS CodeBuild project stores cached resources. For
      * type `S3`, the value must be a valid S3 bucket name/prefix.
@@ -66,17 +78,25 @@ public final class ProjectCache {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String cacheNamespace;
         private @Nullable String location;
         private @Nullable List<String> modes;
         private @Nullable String type;
         public Builder() {}
         public Builder(ProjectCache defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.cacheNamespace = defaults.cacheNamespace;
     	      this.location = defaults.location;
     	      this.modes = defaults.modes;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder cacheNamespace(@Nullable String cacheNamespace) {
+
+            this.cacheNamespace = cacheNamespace;
+            return this;
+        }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
 
@@ -100,6 +120,7 @@ public final class ProjectCache {
         }
         public ProjectCache build() {
             final var _resultValue = new ProjectCache();
+            _resultValue.cacheNamespace = cacheNamespace;
             _resultValue.location = location;
             _resultValue.modes = modes;
             _resultValue.type = type;

@@ -61,6 +61,136 @@ import (
 //
 // ```
 //
+// ### Kendra Knowledge Base
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentKnowledgeBase(ctx, "kendra_example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example-kendra-kb"),
+//				RoleArn: pulumi.Any(example.Arn),
+//				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
+//					Type: pulumi.String("KENDRA"),
+//					KendraKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs{
+//						KendraIndexArn: pulumi.String("arn:aws:kendra:us-east-1:123456789012:index/example-index-id"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Structured Data Store
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example-kb"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
+//					Type: pulumi.String("SQL"),
+//					SqlKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs{
+//						Type: pulumi.String("REDSHIFT"),
+//						RedshiftConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs{
+//							QueryEngineConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs{
+//								Type: pulumi.String("PROVISIONED"),
+//								ProvisionedConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs{
+//									ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.ClusterIdentifier),
+//									AuthConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs{
+//										Type:         pulumi.String("USERNAME"),
+//										DatabaseUser: pulumi.Any(exampleAwsRedshiftCluster.MasterUsername),
+//									},
+//								},
+//							},
+//							StorageConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs{
+//								Type: pulumi.String("REDSHIFT"),
+//								RedshiftConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs{
+//									DatabaseName: pulumi.Any(exampleAwsRedshiftCluster.DatabaseName),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### OpenSearch Managed Cluster Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
+//					VectorKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{
+//						EmbeddingModelArn: pulumi.String("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0"),
+//					},
+//					Type: pulumi.String("VECTOR"),
+//				},
+//				StorageConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationArgs{
+//					Type: pulumi.String("OPENSEARCH_MANAGED_CLUSTER"),
+//					OpensearchManagedClusterConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs{
+//						DomainArn:       pulumi.String("arn:aws:es:us-west-2:123456789012:domain/example-domain"),
+//						DomainEndpoint:  pulumi.String("https://search-example-domain.us-west-2.es.amazonaws.com"),
+//						VectorIndexName: pulumi.String("example_index"),
+//						FieldMapping: &bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs{
+//							MetadataField: pulumi.String("metadata"),
+//							TextField:     pulumi.String("chunks"),
+//							VectorField:   pulumi.String("embedding"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### With Supplemental Data Storage Configuration
 //
 // ```go
@@ -88,12 +218,10 @@ import (
 //							},
 //						},
 //						SupplementalDataStorageConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs{
-//							StorageLocations: bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArray{
-//								&bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs{
-//									Type: pulumi.String("S3"),
-//									S3Location: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs{
-//										Uri: pulumi.String("s3://my-bucket/chunk-processor/"),
-//									},
+//							StorageLocation: map[string]interface{}{
+//								"type": "S3",
+//								"s3Location": map[string]interface{}{
+//									"uri": "s3://my-bucket/chunk-processor/",
 //								},
 //							},
 //						},
@@ -110,6 +238,68 @@ import (
 //							TextField:     pulumi.String("AMAZON_BEDROCK_TEXT_CHUNK"),
 //							MetadataField: pulumi.String("AMAZON_BEDROCK_METADATA"),
 //						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### S3 Vectors Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := s3.NewVectorsVectorBucket(ctx, "example", &s3.VectorsVectorBucketArgs{
+//				VectorBucketName: pulumi.String("example-bucket"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVectorsIndex, err := s3.NewVectorsIndex(ctx, "example", &s3.VectorsIndexArgs{
+//				IndexName:        pulumi.String("example-index"),
+//				VectorBucketName: example.VectorBucketName,
+//				DataType:         pulumi.String("float32"),
+//				Dimension:        pulumi.Int(256),
+//				DistanceMetric:   pulumi.String("euclidean"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example-s3vectors-kb"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
+//					VectorKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{
+//						EmbeddingModelArn: pulumi.String("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0"),
+//						EmbeddingModelConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs{
+//							BedrockEmbeddingModelConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs{
+//								Dimensions:        pulumi.Int(256),
+//								EmbeddingDataType: pulumi.String("FLOAT32"),
+//							},
+//						},
+//					},
+//					Type: pulumi.String("VECTOR"),
+//				},
+//				StorageConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationArgs{
+//					Type: pulumi.String("S3_VECTORS"),
+//					S3VectorsConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs{
+//						IndexArn: exampleVectorsIndex.IndexArn,
 //					},
 //				},
 //			})
@@ -146,10 +336,10 @@ type AgentKnowledgeBase struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
 	//
 	// The following arguments are optional:
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
 	StorageConfiguration AgentKnowledgeBaseStorageConfigurationPtrOutput `pulumi:"storageConfiguration"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -207,10 +397,10 @@ type agentKnowledgeBaseState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-	RoleArn *string `pulumi:"roleArn"`
-	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
 	//
 	// The following arguments are optional:
+	RoleArn *string `pulumi:"roleArn"`
+	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
 	StorageConfiguration *AgentKnowledgeBaseStorageConfiguration `pulumi:"storageConfiguration"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -236,10 +426,10 @@ type AgentKnowledgeBaseState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-	RoleArn pulumi.StringPtrInput
-	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
 	//
 	// The following arguments are optional:
+	RoleArn pulumi.StringPtrInput
+	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
 	StorageConfiguration AgentKnowledgeBaseStorageConfigurationPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -264,10 +454,10 @@ type agentKnowledgeBaseArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-	RoleArn string `pulumi:"roleArn"`
-	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
 	//
 	// The following arguments are optional:
+	RoleArn string `pulumi:"roleArn"`
+	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
 	StorageConfiguration *AgentKnowledgeBaseStorageConfiguration `pulumi:"storageConfiguration"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string           `pulumi:"tags"`
@@ -285,10 +475,10 @@ type AgentKnowledgeBaseArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-	RoleArn pulumi.StringInput
-	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
 	//
 	// The following arguments are optional:
+	RoleArn pulumi.StringInput
+	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
 	StorageConfiguration AgentKnowledgeBaseStorageConfigurationPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
@@ -419,13 +609,13 @@ func (o AgentKnowledgeBaseOutput) Region() pulumi.StringOutput {
 }
 
 // ARN of the IAM role with permissions to invoke API operations on the knowledge base.
+//
+// The following arguments are optional:
 func (o AgentKnowledgeBaseOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBase) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-//
-// The following arguments are optional:
 func (o AgentKnowledgeBaseOutput) StorageConfiguration() AgentKnowledgeBaseStorageConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBase) AgentKnowledgeBaseStorageConfigurationPtrOutput {
 		return v.StorageConfiguration

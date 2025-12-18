@@ -434,7 +434,7 @@ class ConnectPeer(pulumi.CustomResource):
             connect_attachment_id=example_connect_attachment.id,
             peer_address="127.0.0.1",
             bgp_options={
-                "peer_asn": 65000,
+                "peer_asn": "65000",
             },
             inside_cidr_blocks=["172.16.0.0/16"])
         ```
@@ -467,7 +467,7 @@ class ConnectPeer(pulumi.CustomResource):
             connect_attachment_id=example_connect_attachment.id,
             peer_address="127.0.0.1",
             bgp_options={
-                "peer_asn": 65500,
+                "peer_asn": "65500",
             },
             inside_cidr_blocks=["172.16.0.0/16"],
             opts = pulumi.ResourceOptions(depends_on=[example2]))
@@ -494,7 +494,7 @@ class ConnectPeer(pulumi.CustomResource):
             connect_attachment_id=example_connect_attachment.id,
             peer_address="127.0.0.1",
             bgp_options={
-                "peer_asn": 65000,
+                "peer_asn": "65000",
             },
             subnet_arn=example2["arn"])
         ```
@@ -553,7 +553,7 @@ class ConnectPeer(pulumi.CustomResource):
             connect_attachment_id=example_connect_attachment.id,
             peer_address="127.0.0.1",
             bgp_options={
-                "peer_asn": 65000,
+                "peer_asn": "65000",
             },
             inside_cidr_blocks=["172.16.0.0/16"])
         ```
@@ -586,7 +586,7 @@ class ConnectPeer(pulumi.CustomResource):
             connect_attachment_id=example_connect_attachment.id,
             peer_address="127.0.0.1",
             bgp_options={
-                "peer_asn": 65500,
+                "peer_asn": "65500",
             },
             inside_cidr_blocks=["172.16.0.0/16"],
             opts = pulumi.ResourceOptions(depends_on=[example2]))
@@ -613,7 +613,7 @@ class ConnectPeer(pulumi.CustomResource):
             connect_attachment_id=example_connect_attachment.id,
             peer_address="127.0.0.1",
             bgp_options={
-                "peer_asn": 65000,
+                "peer_asn": "65000",
             },
             subnet_arn=example2["arn"])
         ```
@@ -757,7 +757,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="bgpOptions")
-    def bgp_options(self) -> pulumi.Output[Optional['outputs.ConnectPeerBgpOptions']]:
+    def bgp_options(self) -> pulumi.Output['outputs.ConnectPeerBgpOptions']:
         """
         Connect peer BGP options. See bgp_options for more information.
         """

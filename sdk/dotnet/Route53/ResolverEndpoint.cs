@@ -122,6 +122,12 @@ namespace Pulumi.Aws.Route53
         public Output<string> ResolverEndpointType { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `False`. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
+        /// </summary>
+        [Output("rniEnhancedMetricsEnabled")]
+        public Output<bool> RniEnhancedMetricsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// ID of one or more security groups that you want to use to control access to this VPC.
         /// </summary>
         [Output("securityGroupIds")]
@@ -138,6 +144,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `False`. This argument is supported only for outbound endpoints. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
+        /// </summary>
+        [Output("targetNameServerMetricsEnabled")]
+        public Output<bool> TargetNameServerMetricsEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -237,6 +249,12 @@ namespace Pulumi.Aws.Route53
         [Input("resolverEndpointType")]
         public Input<string>? ResolverEndpointType { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `False`. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
+        /// </summary>
+        [Input("rniEnhancedMetricsEnabled")]
+        public Input<bool>? RniEnhancedMetricsEnabled { get; set; }
+
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
 
@@ -260,6 +278,12 @@ namespace Pulumi.Aws.Route53
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `False`. This argument is supported only for outbound endpoints. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
+        /// </summary>
+        [Input("targetNameServerMetricsEnabled")]
+        public Input<bool>? TargetNameServerMetricsEnabled { get; set; }
 
         public ResolverEndpointArgs()
         {
@@ -333,6 +357,12 @@ namespace Pulumi.Aws.Route53
         [Input("resolverEndpointType")]
         public Input<string>? ResolverEndpointType { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `False`. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
+        /// </summary>
+        [Input("rniEnhancedMetricsEnabled")]
+        public Input<bool>? RniEnhancedMetricsEnabled { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -368,6 +398,12 @@ namespace Pulumi.Aws.Route53
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `False`. This argument is supported only for outbound endpoints. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
+        /// </summary>
+        [Input("targetNameServerMetricsEnabled")]
+        public Input<bool>? TargetNameServerMetricsEnabled { get; set; }
 
         public ResolverEndpointState()
         {

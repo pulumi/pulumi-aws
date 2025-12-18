@@ -92,8 +92,10 @@ export function getCoreNetworkPolicyDocument(args: GetCoreNetworkPolicyDocumentA
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", {
         "attachmentPolicies": args.attachmentPolicies,
+        "attachmentRoutingPolicyRules": args.attachmentRoutingPolicyRules,
         "coreNetworkConfigurations": args.coreNetworkConfigurations,
         "networkFunctionGroups": args.networkFunctionGroups,
+        "routingPolicies": args.routingPolicies,
         "segmentActions": args.segmentActions,
         "segments": args.segments,
         "version": args.version,
@@ -109,6 +111,10 @@ export interface GetCoreNetworkPolicyDocumentArgs {
      */
     attachmentPolicies?: inputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy[];
     /**
+     * Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+     */
+    attachmentRoutingPolicyRules?: inputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule[];
+    /**
      * The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
      */
     coreNetworkConfigurations: inputs.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration[];
@@ -117,6 +123,10 @@ export interface GetCoreNetworkPolicyDocumentArgs {
      */
     networkFunctionGroups?: inputs.networkmanager.GetCoreNetworkPolicyDocumentNetworkFunctionGroup[];
     /**
+     * Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+     */
+    routingPolicies?: inputs.networkmanager.GetCoreNetworkPolicyDocumentRoutingPolicy[];
+    /**
      * A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */
     segmentActions?: inputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentAction[];
@@ -124,6 +134,9 @@ export interface GetCoreNetworkPolicyDocumentArgs {
      * Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */
     segments: inputs.networkmanager.GetCoreNetworkPolicyDocumentSegment[];
+    /**
+     * Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
+     */
     version?: string;
 }
 
@@ -132,6 +145,7 @@ export interface GetCoreNetworkPolicyDocumentArgs {
  */
 export interface GetCoreNetworkPolicyDocumentResult {
     readonly attachmentPolicies?: outputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy[];
+    readonly attachmentRoutingPolicyRules?: outputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule[];
     readonly coreNetworkConfigurations: outputs.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -142,6 +156,7 @@ export interface GetCoreNetworkPolicyDocumentResult {
      */
     readonly json: string;
     readonly networkFunctionGroups?: outputs.networkmanager.GetCoreNetworkPolicyDocumentNetworkFunctionGroup[];
+    readonly routingPolicies?: outputs.networkmanager.GetCoreNetworkPolicyDocumentRoutingPolicy[];
     readonly segmentActions?: outputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentAction[];
     readonly segments: outputs.networkmanager.GetCoreNetworkPolicyDocumentSegment[];
     readonly version?: string;
@@ -231,8 +246,10 @@ export function getCoreNetworkPolicyDocumentOutput(args: GetCoreNetworkPolicyDoc
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", {
         "attachmentPolicies": args.attachmentPolicies,
+        "attachmentRoutingPolicyRules": args.attachmentRoutingPolicyRules,
         "coreNetworkConfigurations": args.coreNetworkConfigurations,
         "networkFunctionGroups": args.networkFunctionGroups,
+        "routingPolicies": args.routingPolicies,
         "segmentActions": args.segmentActions,
         "segments": args.segments,
         "version": args.version,
@@ -248,6 +265,10 @@ export interface GetCoreNetworkPolicyDocumentOutputArgs {
      */
     attachmentPolicies?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>[]>;
     /**
+     * Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+     */
+    attachmentRoutingPolicyRules?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs>[]>;
+    /**
      * The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
      */
     coreNetworkConfigurations: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs>[]>;
@@ -256,6 +277,10 @@ export interface GetCoreNetworkPolicyDocumentOutputArgs {
      */
     networkFunctionGroups?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>[]>;
     /**
+     * Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+     */
+    routingPolicies?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentRoutingPolicyArgs>[]>;
+    /**
      * A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */
     segmentActions?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs>[]>;
@@ -263,5 +288,8 @@ export interface GetCoreNetworkPolicyDocumentOutputArgs {
      * Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */
     segments: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs>[]>;
+    /**
+     * Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
+     */
     version?: pulumi.Input<string>;
 }

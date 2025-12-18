@@ -22,6 +22,7 @@ public final class GetCloudVmClusterResult {
      * 
      */
     private String arn;
+    private String cloudExadataInfrastructureArn;
     /**
      * @return The ID of the Cloud Exadata Infrastructure.
      * 
@@ -148,6 +149,7 @@ public final class GetCloudVmClusterResult {
      * 
      */
     private String ocid;
+    private String odbNetworkArn;
     /**
      * @return The ID of the ODB network.
      * 
@@ -223,6 +225,9 @@ public final class GetCloudVmClusterResult {
      */
     public String arn() {
         return this.arn;
+    }
+    public String cloudExadataInfrastructureArn() {
+        return this.cloudExadataInfrastructureArn;
     }
     /**
      * @return The ID of the Cloud Exadata Infrastructure.
@@ -402,6 +407,9 @@ public final class GetCloudVmClusterResult {
     public String ocid() {
         return this.ocid;
     }
+    public String odbNetworkArn() {
+        return this.odbNetworkArn;
+    }
     /**
      * @return The ID of the ODB network.
      * 
@@ -510,6 +518,7 @@ public final class GetCloudVmClusterResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private String cloudExadataInfrastructureArn;
         private String cloudExadataInfrastructureId;
         private String clusterName;
         private String computeModel;
@@ -536,6 +545,7 @@ public final class GetCloudVmClusterResult {
         private String ociResourceAnchorName;
         private String ociUrl;
         private String ocid;
+        private String odbNetworkArn;
         private String odbNetworkId;
         private Double percentProgress;
         private String region;
@@ -555,6 +565,7 @@ public final class GetCloudVmClusterResult {
         public Builder(GetCloudVmClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.cloudExadataInfrastructureArn = defaults.cloudExadataInfrastructureArn;
     	      this.cloudExadataInfrastructureId = defaults.cloudExadataInfrastructureId;
     	      this.clusterName = defaults.clusterName;
     	      this.computeModel = defaults.computeModel;
@@ -581,6 +592,7 @@ public final class GetCloudVmClusterResult {
     	      this.ociResourceAnchorName = defaults.ociResourceAnchorName;
     	      this.ociUrl = defaults.ociUrl;
     	      this.ocid = defaults.ocid;
+    	      this.odbNetworkArn = defaults.odbNetworkArn;
     	      this.odbNetworkId = defaults.odbNetworkId;
     	      this.percentProgress = defaults.percentProgress;
     	      this.region = defaults.region;
@@ -604,6 +616,14 @@ public final class GetCloudVmClusterResult {
               throw new MissingRequiredPropertyException("GetCloudVmClusterResult", "arn");
             }
             this.arn = arn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cloudExadataInfrastructureArn(String cloudExadataInfrastructureArn) {
+            if (cloudExadataInfrastructureArn == null) {
+              throw new MissingRequiredPropertyException("GetCloudVmClusterResult", "cloudExadataInfrastructureArn");
+            }
+            this.cloudExadataInfrastructureArn = cloudExadataInfrastructureArn;
             return this;
         }
         @CustomType.Setter
@@ -824,6 +844,14 @@ public final class GetCloudVmClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder odbNetworkArn(String odbNetworkArn) {
+            if (odbNetworkArn == null) {
+              throw new MissingRequiredPropertyException("GetCloudVmClusterResult", "odbNetworkArn");
+            }
+            this.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder odbNetworkId(String odbNetworkId) {
             if (odbNetworkId == null) {
               throw new MissingRequiredPropertyException("GetCloudVmClusterResult", "odbNetworkId");
@@ -955,6 +983,7 @@ public final class GetCloudVmClusterResult {
         public GetCloudVmClusterResult build() {
             final var _resultValue = new GetCloudVmClusterResult();
             _resultValue.arn = arn;
+            _resultValue.cloudExadataInfrastructureArn = cloudExadataInfrastructureArn;
             _resultValue.cloudExadataInfrastructureId = cloudExadataInfrastructureId;
             _resultValue.clusterName = clusterName;
             _resultValue.computeModel = computeModel;
@@ -981,6 +1010,7 @@ public final class GetCloudVmClusterResult {
             _resultValue.ociResourceAnchorName = ociResourceAnchorName;
             _resultValue.ociUrl = ociUrl;
             _resultValue.ocid = ocid;
+            _resultValue.odbNetworkArn = odbNetworkArn;
             _resultValue.odbNetworkId = odbNetworkId;
             _resultValue.percentProgress = percentProgress;
             _resultValue.region = region;

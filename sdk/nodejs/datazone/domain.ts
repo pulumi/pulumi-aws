@@ -218,6 +218,10 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * ID of the root domain unit.
+     */
+    declare public /*out*/ readonly rootDomainUnitId: pulumi.Output<string>;
+    /**
      * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      */
     declare public readonly serviceRole: pulumi.Output<string | undefined>;
@@ -257,6 +261,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["portalUrl"] = state?.portalUrl;
             resourceInputs["region"] = state?.region;
+            resourceInputs["rootDomainUnitId"] = state?.rootDomainUnitId;
             resourceInputs["serviceRole"] = state?.serviceRole;
             resourceInputs["singleSignOn"] = state?.singleSignOn;
             resourceInputs["skipDeletionCheck"] = state?.skipDeletionCheck;
@@ -281,6 +286,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["rootDomainUnitId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -326,6 +332,10 @@ export interface DomainState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * ID of the root domain unit.
+     */
+    rootDomainUnitId?: pulumi.Input<string>;
     /**
      * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      */

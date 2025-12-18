@@ -4,8 +4,10 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentAttachmentPolicy;
+import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroup;
+import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentRoutingPolicy;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentSegment;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentSegmentAction;
 import com.pulumi.core.annotations.CustomType;
@@ -19,6 +21,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCoreNetworkPolicyDocumentResult {
     private @Nullable List<GetCoreNetworkPolicyDocumentAttachmentPolicy> attachmentPolicies;
+    private @Nullable List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule> attachmentRoutingPolicyRules;
     private List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -31,6 +34,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
      */
     private String json;
     private @Nullable List<GetCoreNetworkPolicyDocumentNetworkFunctionGroup> networkFunctionGroups;
+    private @Nullable List<GetCoreNetworkPolicyDocumentRoutingPolicy> routingPolicies;
     private @Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions;
     private List<GetCoreNetworkPolicyDocumentSegment> segments;
     private @Nullable String version;
@@ -38,6 +42,9 @@ public final class GetCoreNetworkPolicyDocumentResult {
     private GetCoreNetworkPolicyDocumentResult() {}
     public List<GetCoreNetworkPolicyDocumentAttachmentPolicy> attachmentPolicies() {
         return this.attachmentPolicies == null ? List.of() : this.attachmentPolicies;
+    }
+    public List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule> attachmentRoutingPolicyRules() {
+        return this.attachmentRoutingPolicyRules == null ? List.of() : this.attachmentRoutingPolicyRules;
     }
     public List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations() {
         return this.coreNetworkConfigurations;
@@ -59,6 +66,9 @@ public final class GetCoreNetworkPolicyDocumentResult {
     public List<GetCoreNetworkPolicyDocumentNetworkFunctionGroup> networkFunctionGroups() {
         return this.networkFunctionGroups == null ? List.of() : this.networkFunctionGroups;
     }
+    public List<GetCoreNetworkPolicyDocumentRoutingPolicy> routingPolicies() {
+        return this.routingPolicies == null ? List.of() : this.routingPolicies;
+    }
     public List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions() {
         return this.segmentActions == null ? List.of() : this.segmentActions;
     }
@@ -79,10 +89,12 @@ public final class GetCoreNetworkPolicyDocumentResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetCoreNetworkPolicyDocumentAttachmentPolicy> attachmentPolicies;
+        private @Nullable List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule> attachmentRoutingPolicyRules;
         private List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations;
         private String id;
         private String json;
         private @Nullable List<GetCoreNetworkPolicyDocumentNetworkFunctionGroup> networkFunctionGroups;
+        private @Nullable List<GetCoreNetworkPolicyDocumentRoutingPolicy> routingPolicies;
         private @Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions;
         private List<GetCoreNetworkPolicyDocumentSegment> segments;
         private @Nullable String version;
@@ -90,10 +102,12 @@ public final class GetCoreNetworkPolicyDocumentResult {
         public Builder(GetCoreNetworkPolicyDocumentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attachmentPolicies = defaults.attachmentPolicies;
+    	      this.attachmentRoutingPolicyRules = defaults.attachmentRoutingPolicyRules;
     	      this.coreNetworkConfigurations = defaults.coreNetworkConfigurations;
     	      this.id = defaults.id;
     	      this.json = defaults.json;
     	      this.networkFunctionGroups = defaults.networkFunctionGroups;
+    	      this.routingPolicies = defaults.routingPolicies;
     	      this.segmentActions = defaults.segmentActions;
     	      this.segments = defaults.segments;
     	      this.version = defaults.version;
@@ -107,6 +121,15 @@ public final class GetCoreNetworkPolicyDocumentResult {
         }
         public Builder attachmentPolicies(GetCoreNetworkPolicyDocumentAttachmentPolicy... attachmentPolicies) {
             return attachmentPolicies(List.of(attachmentPolicies));
+        }
+        @CustomType.Setter
+        public Builder attachmentRoutingPolicyRules(@Nullable List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule> attachmentRoutingPolicyRules) {
+
+            this.attachmentRoutingPolicyRules = attachmentRoutingPolicyRules;
+            return this;
+        }
+        public Builder attachmentRoutingPolicyRules(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule... attachmentRoutingPolicyRules) {
+            return attachmentRoutingPolicyRules(List.of(attachmentRoutingPolicyRules));
         }
         @CustomType.Setter
         public Builder coreNetworkConfigurations(List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations) {
@@ -145,6 +168,15 @@ public final class GetCoreNetworkPolicyDocumentResult {
             return networkFunctionGroups(List.of(networkFunctionGroups));
         }
         @CustomType.Setter
+        public Builder routingPolicies(@Nullable List<GetCoreNetworkPolicyDocumentRoutingPolicy> routingPolicies) {
+
+            this.routingPolicies = routingPolicies;
+            return this;
+        }
+        public Builder routingPolicies(GetCoreNetworkPolicyDocumentRoutingPolicy... routingPolicies) {
+            return routingPolicies(List.of(routingPolicies));
+        }
+        @CustomType.Setter
         public Builder segmentActions(@Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions) {
 
             this.segmentActions = segmentActions;
@@ -173,10 +205,12 @@ public final class GetCoreNetworkPolicyDocumentResult {
         public GetCoreNetworkPolicyDocumentResult build() {
             final var _resultValue = new GetCoreNetworkPolicyDocumentResult();
             _resultValue.attachmentPolicies = attachmentPolicies;
+            _resultValue.attachmentRoutingPolicyRules = attachmentRoutingPolicyRules;
             _resultValue.coreNetworkConfigurations = coreNetworkConfigurations;
             _resultValue.id = id;
             _resultValue.json = json;
             _resultValue.networkFunctionGroups = networkFunctionGroups;
+            _resultValue.routingPolicies = routingPolicies;
             _resultValue.segmentActions = segmentActions;
             _resultValue.segments = segments;
             _resultValue.version = version;

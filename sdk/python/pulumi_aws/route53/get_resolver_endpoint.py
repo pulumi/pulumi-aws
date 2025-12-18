@@ -28,7 +28,7 @@ class GetResolverEndpointResult:
     """
     A collection of values returned by getResolverEndpoint.
     """
-    def __init__(__self__, arn=None, direction=None, filters=None, id=None, ip_addresses=None, name=None, protocols=None, region=None, resolver_endpoint_id=None, resolver_endpoint_type=None, status=None, vpc_id=None):
+    def __init__(__self__, arn=None, direction=None, filters=None, id=None, ip_addresses=None, name=None, protocols=None, region=None, resolver_endpoint_id=None, resolver_endpoint_type=None, rni_enhanced_metrics_enabled=None, status=None, target_name_server_metrics_enabled=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,9 +59,15 @@ class GetResolverEndpointResult:
         if resolver_endpoint_type and not isinstance(resolver_endpoint_type, str):
             raise TypeError("Expected argument 'resolver_endpoint_type' to be a str")
         pulumi.set(__self__, "resolver_endpoint_type", resolver_endpoint_type)
+        if rni_enhanced_metrics_enabled and not isinstance(rni_enhanced_metrics_enabled, bool):
+            raise TypeError("Expected argument 'rni_enhanced_metrics_enabled' to be a bool")
+        pulumi.set(__self__, "rni_enhanced_metrics_enabled", rni_enhanced_metrics_enabled)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if target_name_server_metrics_enabled and not isinstance(target_name_server_metrics_enabled, bool):
+            raise TypeError("Expected argument 'target_name_server_metrics_enabled' to be a bool")
+        pulumi.set(__self__, "target_name_server_metrics_enabled", target_name_server_metrics_enabled)
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -135,12 +141,28 @@ class GetResolverEndpointResult:
         return pulumi.get(self, "resolver_endpoint_type")
 
     @_builtins.property
+    @pulumi.getter(name="rniEnhancedMetricsEnabled")
+    def rni_enhanced_metrics_enabled(self) -> _builtins.bool:
+        """
+        Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint.
+        """
+        return pulumi.get(self, "rni_enhanced_metrics_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
         Current status of the Resolver Endpoint.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="targetNameServerMetricsEnabled")
+    def target_name_server_metrics_enabled(self) -> _builtins.bool:
+        """
+        Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints.
+        """
+        return pulumi.get(self, "target_name_server_metrics_enabled")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
@@ -167,7 +189,9 @@ class AwaitableGetResolverEndpointResult(GetResolverEndpointResult):
             region=self.region,
             resolver_endpoint_id=self.resolver_endpoint_id,
             resolver_endpoint_type=self.resolver_endpoint_type,
+            rni_enhanced_metrics_enabled=self.rni_enhanced_metrics_enabled,
             status=self.status,
+            target_name_server_metrics_enabled=self.target_name_server_metrics_enabled,
             vpc_id=self.vpc_id)
 
 
@@ -224,7 +248,9 @@ def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointF
         region=pulumi.get(__ret__, 'region'),
         resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),
         resolver_endpoint_type=pulumi.get(__ret__, 'resolver_endpoint_type'),
+        rni_enhanced_metrics_enabled=pulumi.get(__ret__, 'rni_enhanced_metrics_enabled'),
         status=pulumi.get(__ret__, 'status'),
+        target_name_server_metrics_enabled=pulumi.get(__ret__, 'target_name_server_metrics_enabled'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']]]]] = None,
                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -278,5 +304,7 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
         region=pulumi.get(__response__, 'region'),
         resolver_endpoint_id=pulumi.get(__response__, 'resolver_endpoint_id'),
         resolver_endpoint_type=pulumi.get(__response__, 'resolver_endpoint_type'),
+        rni_enhanced_metrics_enabled=pulumi.get(__response__, 'rni_enhanced_metrics_enabled'),
         status=pulumi.get(__response__, 'status'),
+        target_name_server_metrics_enabled=pulumi.get(__response__, 'target_name_server_metrics_enabled'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

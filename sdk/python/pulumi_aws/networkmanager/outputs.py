@@ -31,11 +31,20 @@ __all__ = [
     'GetCoreNetworkPolicyDocumentAttachmentPolicyResult',
     'GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult',
     'GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult',
+    'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleResult',
+    'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionResult',
+    'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionResult',
     'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult',
     'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult',
     'GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult',
+    'GetCoreNetworkPolicyDocumentRoutingPolicyResult',
+    'GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleResult',
+    'GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionResult',
+    'GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionResult',
+    'GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionResult',
     'GetCoreNetworkPolicyDocumentSegmentResult',
     'GetCoreNetworkPolicyDocumentSegmentActionResult',
+    'GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationResult',
     'GetCoreNetworkPolicyDocumentSegmentActionViaResult',
     'GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult',
     'GetCoreNetworkPolicyDocumentSegmentActionWhenSentToResult',
@@ -84,18 +93,18 @@ class ConnectPeerBgpOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 peer_asn: Optional[_builtins.int] = None):
+                 peer_asn: Optional[_builtins.str] = None):
         """
-        :param _builtins.int peer_asn: Peer ASN.
+        :param _builtins.str peer_asn: Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
         """
         if peer_asn is not None:
             pulumi.set(__self__, "peer_asn", peer_asn)
 
     @_builtins.property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> Optional[_builtins.int]:
+    def peer_asn(self) -> Optional[_builtins.str]:
         """
-        Peer ASN.
+        Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
         """
         return pulumi.get(self, "peer_asn")
 
@@ -215,13 +224,13 @@ class ConnectPeerConfigurationBgpConfiguration(dict):
                  core_network_address: Optional[_builtins.str] = None,
                  core_network_asn: Optional[_builtins.int] = None,
                  peer_address: Optional[_builtins.str] = None,
-                 peer_asn: Optional[_builtins.int] = None):
+                 peer_asn: Optional[_builtins.str] = None):
         """
         :param _builtins.str core_network_address: Connect peer core network address.
         :param _builtins.str peer_address: Connect peer address.
                
                The following arguments are optional:
-        :param _builtins.int peer_asn: Peer ASN.
+        :param _builtins.str peer_asn: Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
         """
         if core_network_address is not None:
             pulumi.set(__self__, "core_network_address", core_network_address)
@@ -257,9 +266,9 @@ class ConnectPeerConfigurationBgpConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> Optional[_builtins.int]:
+    def peer_asn(self) -> Optional[_builtins.str]:
         """
-        Peer ASN.
+        Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
         """
         return pulumi.get(self, "peer_asn")
 
@@ -832,10 +841,10 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult(dict):
                  operator: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
         """
-        :param _builtins.str type: Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+        :param _builtins.str type: Must be `routing-policy-label`.
         :param _builtins.str key: string value
         :param _builtins.str operator: Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-        :param _builtins.str value: string value
+        :param _builtins.str value: Routing policy label to match.
         """
         pulumi.set(__self__, "type", type)
         if key is not None:
@@ -849,7 +858,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+        Must be `routing-policy-label`.
         """
         return pulumi.get(self, "type")
 
@@ -873,7 +882,118 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
         """
-        string value
+        Routing policy label to match.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleResult(dict):
+    def __init__(__self__, *,
+                 action: 'outputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionResult',
+                 conditions: Sequence['outputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionResult'],
+                 rule_number: _builtins.int,
+                 description: Optional[_builtins.str] = None,
+                 edge_locations: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param 'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs' action: Block defining the action to take when conditions match. Detailed below.
+        :param Sequence['GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs'] conditions: A block argument. Detailed below.
+        :param _builtins.int rule_number: An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
+        :param _builtins.str description: A user-defined description that further helps identify the rule.
+        :param Sequence[_builtins.str] edge_locations: A set of AWS Region codes where this rule applies.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "rule_number", rule_number)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if edge_locations is not None:
+            pulumi.set(__self__, "edge_locations", edge_locations)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'outputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionResult':
+        """
+        Block defining the action to take when conditions match. Detailed below.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionResult']:
+        """
+        A block argument. Detailed below.
+        """
+        return pulumi.get(self, "conditions")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> _builtins.int:
+        """
+        An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
+        """
+        return pulumi.get(self, "rule_number")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A user-defined description that further helps identify the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="edgeLocations")
+    def edge_locations(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A set of AWS Region codes where this rule applies.
+        """
+        return pulumi.get(self, "edge_locations")
+
+
+@pulumi.output_type
+class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionResult(dict):
+    def __init__(__self__, *,
+                 associate_routing_policies: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] associate_routing_policies: Set of routing policy names to associate when the conditions match.
+        """
+        pulumi.set(__self__, "associate_routing_policies", associate_routing_policies)
+
+    @_builtins.property
+    @pulumi.getter(name="associateRoutingPolicies")
+    def associate_routing_policies(self) -> Sequence[_builtins.str]:
+        """
+        Set of routing policy names to associate when the conditions match.
+        """
+        return pulumi.get(self, "associate_routing_policies")
+
+
+@pulumi.output_type
+class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionResult(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str type: Must be `routing-policy-label`.
+        :param _builtins.str value: Routing policy label to match.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Must be `routing-policy-label`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Routing policy label to match.
         """
         return pulumi.get(self, "value")
 
@@ -1035,6 +1155,199 @@ class GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult(dict):
 
 
 @pulumi.output_type
+class GetCoreNetworkPolicyDocumentRoutingPolicyResult(dict):
+    def __init__(__self__, *,
+                 routing_policy_direction: _builtins.str,
+                 routing_policy_name: _builtins.str,
+                 routing_policy_number: _builtins.int,
+                 routing_policy_rules: Sequence['outputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleResult'],
+                 routing_policy_description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str routing_policy_direction: Direction of the routing policy. Valid values: `inbound`, `outbound`.
+        :param _builtins.str routing_policy_name: Name of the routing policy. Must be 1-100 alphanumeric characters.
+        :param _builtins.int routing_policy_number: Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+        :param Sequence['GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs'] routing_policy_rules: List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
+        :param _builtins.str routing_policy_description: Description of the routing policy.
+        """
+        pulumi.set(__self__, "routing_policy_direction", routing_policy_direction)
+        pulumi.set(__self__, "routing_policy_name", routing_policy_name)
+        pulumi.set(__self__, "routing_policy_number", routing_policy_number)
+        pulumi.set(__self__, "routing_policy_rules", routing_policy_rules)
+        if routing_policy_description is not None:
+            pulumi.set(__self__, "routing_policy_description", routing_policy_description)
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyDirection")
+    def routing_policy_direction(self) -> _builtins.str:
+        """
+        Direction of the routing policy. Valid values: `inbound`, `outbound`.
+        """
+        return pulumi.get(self, "routing_policy_direction")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyName")
+    def routing_policy_name(self) -> _builtins.str:
+        """
+        Name of the routing policy. Must be 1-100 alphanumeric characters.
+        """
+        return pulumi.get(self, "routing_policy_name")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyNumber")
+    def routing_policy_number(self) -> _builtins.int:
+        """
+        Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+        """
+        return pulumi.get(self, "routing_policy_number")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyRules")
+    def routing_policy_rules(self) -> Sequence['outputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleResult']:
+        """
+        List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
+        """
+        return pulumi.get(self, "routing_policy_rules")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyDescription")
+    def routing_policy_description(self) -> Optional[_builtins.str]:
+        """
+        Description of the routing policy.
+        """
+        return pulumi.get(self, "routing_policy_description")
+
+
+@pulumi.output_type
+class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleResult(dict):
+    def __init__(__self__, *,
+                 rule_definition: 'outputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionResult',
+                 rule_number: _builtins.int):
+        """
+        :param 'GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs' rule_definition: Defines the match conditions and actions for the rule. Detailed below.
+        :param _builtins.int rule_number: Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+        """
+        pulumi.set(__self__, "rule_definition", rule_definition)
+        pulumi.set(__self__, "rule_number", rule_number)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleDefinition")
+    def rule_definition(self) -> 'outputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionResult':
+        """
+        Defines the match conditions and actions for the rule. Detailed below.
+        """
+        return pulumi.get(self, "rule_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> _builtins.int:
+        """
+        Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+        """
+        return pulumi.get(self, "rule_number")
+
+
+@pulumi.output_type
+class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionResult(dict):
+    def __init__(__self__, *,
+                 action: 'outputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionResult',
+                 condition_logic: Optional[_builtins.str] = None,
+                 match_conditions: Optional[Sequence['outputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionResult']] = None):
+        """
+        :param 'GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs' action: Block defining the action to take when conditions match. Detailed below.
+        :param _builtins.str condition_logic: Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
+        :param Sequence['GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs'] match_conditions: List of conditions to match against routes. Detailed below.
+        """
+        pulumi.set(__self__, "action", action)
+        if condition_logic is not None:
+            pulumi.set(__self__, "condition_logic", condition_logic)
+        if match_conditions is not None:
+            pulumi.set(__self__, "match_conditions", match_conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'outputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionResult':
+        """
+        Block defining the action to take when conditions match. Detailed below.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="conditionLogic")
+    def condition_logic(self) -> Optional[_builtins.str]:
+        """
+        Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
+        """
+        return pulumi.get(self, "condition_logic")
+
+    @_builtins.property
+    @pulumi.getter(name="matchConditions")
+    def match_conditions(self) -> Optional[Sequence['outputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionResult']]:
+        """
+        List of conditions to match against routes. Detailed below.
+        """
+        return pulumi.get(self, "match_conditions")
+
+
+@pulumi.output_type
+class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionResult(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str type: Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
+        :param _builtins.str value: Value for the action, required for certain action types.
+        """
+        pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Value for the action, required for certain action types.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionResult(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str type: Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
+        :param _builtins.str value: Value to match against, depending on the condition type.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value to match against, depending on the condition type.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class GetCoreNetworkPolicyDocumentSegmentResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
@@ -1132,17 +1445,19 @@ class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
                  description: Optional[_builtins.str] = None,
                  destination_cidr_blocks: Optional[Sequence[_builtins.str]] = None,
                  destinations: Optional[Sequence[_builtins.str]] = None,
+                 edge_location_association: Optional['outputs.GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationResult'] = None,
                  mode: Optional[_builtins.str] = None,
                  share_with_excepts: Optional[Sequence[_builtins.str]] = None,
                  share_withs: Optional[Sequence[_builtins.str]] = None,
                  via: Optional['outputs.GetCoreNetworkPolicyDocumentSegmentActionViaResult'] = None,
                  when_sent_to: Optional['outputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentToResult'] = None):
         """
-        :param _builtins.str action: Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+        :param _builtins.str action: Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
         :param _builtins.str segment: Name of the segment.
         :param _builtins.str description: A user-defined string describing the segment action.
         :param Sequence[_builtins.str] destination_cidr_blocks: List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
         :param Sequence[_builtins.str] destinations: A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
+        :param 'GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs' edge_location_association: Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
         :param _builtins.str mode: String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
         :param Sequence[_builtins.str] share_with_excepts: A set subtraction of segments to not share with.
         :param Sequence[_builtins.str] share_withs: A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
@@ -1157,6 +1472,8 @@ class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
             pulumi.set(__self__, "destination_cidr_blocks", destination_cidr_blocks)
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
+        if edge_location_association is not None:
+            pulumi.set(__self__, "edge_location_association", edge_location_association)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if share_with_excepts is not None:
@@ -1172,7 +1489,7 @@ class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
     @pulumi.getter
     def action(self) -> _builtins.str:
         """
-        Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+        Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
         """
         return pulumi.get(self, "action")
 
@@ -1207,6 +1524,14 @@ class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
         A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
         """
         return pulumi.get(self, "destinations")
+
+    @_builtins.property
+    @pulumi.getter(name="edgeLocationAssociation")
+    def edge_location_association(self) -> Optional['outputs.GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationResult']:
+        """
+        Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+        """
+        return pulumi.get(self, "edge_location_association")
 
     @_builtins.property
     @pulumi.getter
@@ -1247,6 +1572,46 @@ class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
         The destination segments for the `send-via` or `send-to` `action`.
         """
         return pulumi.get(self, "when_sent_to")
+
+
+@pulumi.output_type
+class GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationResult(dict):
+    def __init__(__self__, *,
+                 edge_location: _builtins.str,
+                 peer_edge_location: _builtins.str,
+                 routing_policy_names: Sequence[_builtins.str]):
+        """
+        :param _builtins.str edge_location: The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
+        :param _builtins.str peer_edge_location: The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
+        :param Sequence[_builtins.str] routing_policy_names: A set of routing policy names to apply to this edge location pair.
+        """
+        pulumi.set(__self__, "edge_location", edge_location)
+        pulumi.set(__self__, "peer_edge_location", peer_edge_location)
+        pulumi.set(__self__, "routing_policy_names", routing_policy_names)
+
+    @_builtins.property
+    @pulumi.getter(name="edgeLocation")
+    def edge_location(self) -> _builtins.str:
+        """
+        The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
+        """
+        return pulumi.get(self, "edge_location")
+
+    @_builtins.property
+    @pulumi.getter(name="peerEdgeLocation")
+    def peer_edge_location(self) -> _builtins.str:
+        """
+        The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
+        """
+        return pulumi.get(self, "peer_edge_location")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyNames")
+    def routing_policy_names(self) -> Sequence[_builtins.str]:
+        """
+        A set of routing policy names to apply to this edge location pair.
+        """
+        return pulumi.get(self, "routing_policy_names")
 
 
 @pulumi.output_type

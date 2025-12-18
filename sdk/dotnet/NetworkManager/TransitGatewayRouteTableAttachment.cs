@@ -97,6 +97,12 @@ namespace Pulumi.Aws.NetworkManager
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
+        /// The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        /// </summary>
+        [Output("routingPolicyLabel")]
+        public Output<string?> RoutingPolicyLabel { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the segment attachment.
         /// </summary>
         [Output("segmentName")]
@@ -180,6 +186,12 @@ namespace Pulumi.Aws.NetworkManager
         [Input("peeringId", required: true)]
         public Input<string> PeeringId { get; set; } = null!;
 
+        /// <summary>
+        /// The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        /// </summary>
+        [Input("routingPolicyLabel")]
+        public Input<string>? RoutingPolicyLabel { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -261,6 +273,12 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
+
+        /// <summary>
+        /// The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        /// </summary>
+        [Input("routingPolicyLabel")]
+        public Input<string>? RoutingPolicyLabel { get; set; }
 
         /// <summary>
         /// Name of the segment attachment.

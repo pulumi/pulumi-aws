@@ -201,3 +201,8 @@ func GetUseDualstackEndpoint(ctx *pulumi.Context) bool {
 func GetUseFipsEndpoint(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "aws:useFipsEndpoint")
 }
+
+// Product details to append to the User-Agent string sent in all AWS API calls.
+func GetUserAgents(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:userAgents")
+}

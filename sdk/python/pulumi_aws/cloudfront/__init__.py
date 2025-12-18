@@ -33,6 +33,7 @@ from .origin_request_policy import *
 from .public_key import *
 from .realtime_log_config import *
 from .response_headers_policy import *
+from .trust_store import *
 from .vpc_origin import *
 from ._inputs import *
 from . import outputs

@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.vpclattice;
 
+import com.pulumi.aws.vpclattice.inputs.ServiceNetworkVpcAssociationDnsOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +19,36 @@ import javax.annotation.Nullable;
 public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceNetworkVpcAssociationArgs Empty = new ServiceNetworkVpcAssociationArgs();
+
+    /**
+     * Configuration block for DNS option. See `dnsOptions` block below for details.
+     * 
+     */
+    @Import(name="dnsOptions")
+    private @Nullable Output<ServiceNetworkVpcAssociationDnsOptionsArgs> dnsOptions;
+
+    /**
+     * @return Configuration block for DNS option. See `dnsOptions` block below for details.
+     * 
+     */
+    public Optional<Output<ServiceNetworkVpcAssociationDnsOptionsArgs>> dnsOptions() {
+        return Optional.ofNullable(this.dnsOptions);
+    }
+
+    /**
+     * Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+     * 
+     */
+    @Import(name="privateDnsEnabled")
+    private @Nullable Output<Boolean> privateDnsEnabled;
+
+    /**
+     * @return Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> privateDnsEnabled() {
+        return Optional.ofNullable(this.privateDnsEnabled);
+    }
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -98,6 +130,8 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
     private ServiceNetworkVpcAssociationArgs() {}
 
     private ServiceNetworkVpcAssociationArgs(ServiceNetworkVpcAssociationArgs $) {
+        this.dnsOptions = $.dnsOptions;
+        this.privateDnsEnabled = $.privateDnsEnabled;
         this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
         this.serviceNetworkIdentifier = $.serviceNetworkIdentifier;
@@ -121,6 +155,48 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
 
         public Builder(ServiceNetworkVpcAssociationArgs defaults) {
             $ = new ServiceNetworkVpcAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dnsOptions Configuration block for DNS option. See `dnsOptions` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsOptions(@Nullable Output<ServiceNetworkVpcAssociationDnsOptionsArgs> dnsOptions) {
+            $.dnsOptions = dnsOptions;
+            return this;
+        }
+
+        /**
+         * @param dnsOptions Configuration block for DNS option. See `dnsOptions` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsOptions(ServiceNetworkVpcAssociationDnsOptionsArgs dnsOptions) {
+            return dnsOptions(Output.of(dnsOptions));
+        }
+
+        /**
+         * @param privateDnsEnabled Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsEnabled(@Nullable Output<Boolean> privateDnsEnabled) {
+            $.privateDnsEnabled = privateDnsEnabled;
+            return this;
+        }
+
+        /**
+         * @param privateDnsEnabled Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsEnabled(Boolean privateDnsEnabled) {
+            return privateDnsEnabled(Output.of(privateDnsEnabled));
         }
 
         /**

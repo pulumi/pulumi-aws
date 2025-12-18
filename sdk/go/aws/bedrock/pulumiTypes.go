@@ -17834,9 +17834,13 @@ func (o AgentFlowTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfiguration struct {
-	// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
+	// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+	KendraKnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration `pulumi:"kendraKnowledgeBaseConfiguration"`
+	// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+	SqlKnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration `pulumi:"sqlKnowledgeBaseConfiguration"`
+	// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
 	Type string `pulumi:"type"`
-	// Details about the embeddings model that'sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
+	// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
 	VectorKnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
@@ -17852,9 +17856,13 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationInput interface {
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationArgs struct {
-	// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
+	// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+	KendraKnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrInput `pulumi:"kendraKnowledgeBaseConfiguration"`
+	// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+	SqlKnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrInput `pulumi:"sqlKnowledgeBaseConfiguration"`
+	// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Details about the embeddings model that'sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
+	// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
 	VectorKnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrInput `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
@@ -17935,12 +17943,26 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBase
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput)
 }
 
-// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
+// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) KendraKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration {
+		return v.KendraKnowledgeBaseConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput)
+}
+
+// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) SqlKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration {
+		return v.SqlKnowledgeBaseConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput)
+}
+
+// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Details about the embeddings model that'sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
+// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) VectorKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
 		return v.VectorKnowledgeBaseConfiguration
@@ -17971,7 +17993,27 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) Elem() AgentKnowl
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationOutput)
 }
 
-// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
+// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) KendraKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.KendraKnowledgeBaseConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput)
+}
+
+// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) SqlKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SqlKnowledgeBaseConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput)
+}
+
+// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *string {
 		if v == nil {
@@ -17981,7 +18023,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) Type() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details about the embeddings model that'sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
+// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) VectorKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
 		if v == nil {
@@ -17989,6 +18031,2470 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) VectorKnowledgeBa
 		}
 		return v.VectorKnowledgeBaseConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration struct {
+	// ARN of the Amazon Kendra index.
+	KendraIndexArn string `pulumi:"kendraIndexArn"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs struct {
+	// ARN of the Amazon Kendra index.
+	KendraIndexArn pulumi.StringInput `pulumi:"kendraIndexArn"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput)
+}
+
+// ARN of the Amazon Kendra index.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput) KendraIndexArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration) string {
+		return v.KendraIndexArn
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput)
+}
+
+// ARN of the Amazon Kendra index.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput) KendraIndexArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KendraIndexArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration struct {
+	// Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+	RedshiftConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration `pulumi:"redshiftConfiguration"`
+	// Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
+	Type string `pulumi:"type"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs struct {
+	// Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+	RedshiftConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrInput `pulumi:"redshiftConfiguration"`
+	// Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput)
+}
+
+// Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput) RedshiftConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration {
+		return v.RedshiftConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput)
+}
+
+// Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput)
+}
+
+// Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput) RedshiftConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput)
+}
+
+// Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration struct {
+	// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+	QueryEngineConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration `pulumi:"queryEngineConfiguration"`
+	// Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+	QueryGenerationConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration `pulumi:"queryGenerationConfiguration"`
+	// Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+	StorageConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration `pulumi:"storageConfiguration"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs struct {
+	// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+	QueryEngineConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrInput `pulumi:"queryEngineConfiguration"`
+	// Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+	QueryGenerationConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrInput `pulumi:"queryGenerationConfiguration"`
+	// Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+	StorageConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrInput `pulumi:"storageConfiguration"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput)
+}
+
+// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) QueryEngineConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
+		return v.QueryEngineConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput)
+}
+
+// Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) QueryGenerationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration {
+		return v.QueryGenerationConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput)
+}
+
+// Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) StorageConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
+		return v.StorageConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput)
+}
+
+// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput) QueryEngineConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.QueryEngineConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput)
+}
+
+// Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput) QueryGenerationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.QueryGenerationConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput)
+}
+
+// Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput) StorageConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.StorageConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration struct {
+	// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+	ProvisionedConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration `pulumi:"provisionedConfiguration"`
+	// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+	ServerlessConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration `pulumi:"serverlessConfiguration"`
+	// Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
+	Type string `pulumi:"type"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs struct {
+	// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+	ProvisionedConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrInput `pulumi:"provisionedConfiguration"`
+	// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+	ServerlessConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrInput `pulumi:"serverlessConfiguration"`
+	// Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput)
+}
+
+// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput) ProvisionedConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration {
+		return v.ProvisionedConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput)
+}
+
+// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput) ServerlessConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration {
+		return v.ServerlessConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput)
+}
+
+// Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput)
+}
+
+// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput) ProvisionedConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput)
+}
+
+// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput) ServerlessConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ServerlessConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput)
+}
+
+// Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration struct {
+	// Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
+	AuthConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration `pulumi:"authConfiguration"`
+	// ID of the Amazon Redshift cluster.
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs struct {
+	// Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
+	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrInput `pulumi:"authConfiguration"`
+	// ID of the Amazon Redshift cluster.
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput)
+}
+
+// Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration {
+		return v.AuthConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput)
+}
+
+// ID of the Amazon Redshift cluster.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput) ClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration) string {
+		return v.ClusterIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput)
+}
+
+// Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AuthConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput)
+}
+
+// ID of the Amazon Redshift cluster.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration struct {
+	// Database username for authentication to an Amazon Redshift provisioned data warehouse.
+	DatabaseUser *string `pulumi:"databaseUser"`
+	// Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+	Type string `pulumi:"type"`
+	// ARN of a Secrets Manager secret for authentication.
+	UsernamePasswordSecretArn *string `pulumi:"usernamePasswordSecretArn"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs struct {
+	// Database username for authentication to an Amazon Redshift provisioned data warehouse.
+	DatabaseUser pulumi.StringPtrInput `pulumi:"databaseUser"`
+	// Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// ARN of a Secrets Manager secret for authentication.
+	UsernamePasswordSecretArn pulumi.StringPtrInput `pulumi:"usernamePasswordSecretArn"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput)
+}
+
+// Database username for authentication to an Amazon Redshift provisioned data warehouse.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput) DatabaseUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration) *string {
+		return v.DatabaseUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// ARN of a Secrets Manager secret for authentication.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput) UsernamePasswordSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration) *string {
+		return v.UsernamePasswordSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput)
+}
+
+// Database username for authentication to an Amazon Redshift provisioned data warehouse.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput) DatabaseUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of a Secrets Manager secret for authentication.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput) UsernamePasswordSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernamePasswordSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration struct {
+	// Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+	AuthConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration `pulumi:"authConfiguration"`
+	// ARN of the Amazon Redshift workgroup.
+	WorkgroupArn string `pulumi:"workgroupArn"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs struct {
+	// Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrInput `pulumi:"authConfiguration"`
+	// ARN of the Amazon Redshift workgroup.
+	WorkgroupArn pulumi.StringInput `pulumi:"workgroupArn"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput)
+}
+
+// Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration {
+		return v.AuthConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput)
+}
+
+// ARN of the Amazon Redshift workgroup.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput) WorkgroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) string {
+		return v.WorkgroupArn
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput)
+}
+
+// Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AuthConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput)
+}
+
+// ARN of the Amazon Redshift workgroup.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput) WorkgroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkgroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration struct {
+	// Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+	Type string `pulumi:"type"`
+	// ARN of a Secrets Manager secret for authentication.
+	UsernamePasswordSecretArn *string `pulumi:"usernamePasswordSecretArn"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs struct {
+	// Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// ARN of a Secrets Manager secret for authentication.
+	UsernamePasswordSecretArn pulumi.StringPtrInput `pulumi:"usernamePasswordSecretArn"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput)
+}
+
+// Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// ARN of a Secrets Manager secret for authentication.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput) UsernamePasswordSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration) *string {
+		return v.UsernamePasswordSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput)
+}
+
+// Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of a Secrets Manager secret for authentication.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput) UsernamePasswordSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernamePasswordSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration struct {
+	// Time after which query generation will time out.
+	ExecutionTimeoutSeconds *int `pulumi:"executionTimeoutSeconds"`
+	// Configurations for context to use during query generation. See `generationContext` block for details.
+	GenerationContext *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext `pulumi:"generationContext"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs struct {
+	// Time after which query generation will time out.
+	ExecutionTimeoutSeconds pulumi.IntPtrInput `pulumi:"executionTimeoutSeconds"`
+	// Configurations for context to use during query generation. See `generationContext` block for details.
+	GenerationContext AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrInput `pulumi:"generationContext"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput)
+}
+
+// Time after which query generation will time out.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput) ExecutionTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration) *int {
+		return v.ExecutionTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configurations for context to use during query generation. See `generationContext` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput) GenerationContext() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext {
+		return v.GenerationContext
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput)
+}
+
+// Time after which query generation will time out.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput) ExecutionTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configurations for context to use during query generation. See `generationContext` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput) GenerationContext() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext {
+		if v == nil {
+			return nil
+		}
+		return v.GenerationContext
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext struct {
+	// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+	CuratedQueries []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery `pulumi:"curatedQueries"`
+	// Information about a table in the database. See `table` block for details.
+	Tables []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable `pulumi:"tables"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs struct {
+	// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+	CuratedQueries AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayInput `pulumi:"curatedQueries"`
+	// Information about a table in the database. See `table` block for details.
+	Tables AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayInput `pulumi:"tables"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput)
+}
+
+// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput) CuratedQueries() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext) []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery {
+		return v.CuratedQueries
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput)
+}
+
+// Information about a table in the database. See `table` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput) Tables() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext) []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable {
+		return v.Tables
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput)
+}
+
+// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput) CuratedQueries() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext) []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery {
+		if v == nil {
+			return nil
+		}
+		return v.CuratedQueries
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput)
+}
+
+// Information about a table in the database. See `table` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput) Tables() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext) []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable {
+		if v == nil {
+			return nil
+		}
+		return v.Tables
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery struct {
+	// Example natural language query.
+	NaturalLanguage string `pulumi:"naturalLanguage"`
+	// SQL equivalent of `naturalLanguage`.
+	Sql string `pulumi:"sql"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs struct {
+	// Example natural language query.
+	NaturalLanguage pulumi.StringInput `pulumi:"naturalLanguage"`
+	// SQL equivalent of `naturalLanguage`.
+	Sql pulumi.StringInput `pulumi:"sql"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArray and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArray{ AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs{...} }
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArray []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryInput
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArray) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArray) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput {
+	return o
+}
+
+// Example natural language query.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput) NaturalLanguage() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery) string {
+		return v.NaturalLanguage
+	}).(pulumi.StringOutput)
+}
+
+// SQL equivalent of `naturalLanguage`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput) Sql() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery) string {
+		return v.Sql
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput) Index(i pulumi.IntInput) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery {
+		return vs[0].([]AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery)[vs[1].(int)]
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable struct {
+	// Information about a column in the table. See `column` block for details.
+	Columns []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn `pulumi:"columns"`
+	// Description of the table that helps the query engine understand the contents of the table.
+	Description *string `pulumi:"description"`
+	// Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+	Inclusion *string `pulumi:"inclusion"`
+	// Name of the table for which the other fields in this object apply.
+	Name string `pulumi:"name"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs struct {
+	// Information about a column in the table. See `column` block for details.
+	Columns AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayInput `pulumi:"columns"`
+	// Description of the table that helps the query engine understand the contents of the table.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+	Inclusion pulumi.StringPtrInput `pulumi:"inclusion"`
+	// Name of the table for which the other fields in this object apply.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArray and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArray{ AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs{...} }
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArray []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableInput
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArray) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArray) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput {
+	return o
+}
+
+// Information about a column in the table. See `column` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput) Columns() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable) []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn {
+		return v.Columns
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput)
+}
+
+// Description of the table that helps the query engine understand the contents of the table.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput) Inclusion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable) *string {
+		return v.Inclusion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the table for which the other fields in this object apply.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput) Index(i pulumi.IntInput) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable {
+		return vs[0].([]AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable)[vs[1].(int)]
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn struct {
+	// Description of the column that helps the query engine understand the contents of the column.
+	Description *string `pulumi:"description"`
+	// Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+	Inclusion *string `pulumi:"inclusion"`
+	// Name of the column for which the other fields in this object apply.
+	Name *string `pulumi:"name"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs struct {
+	// Description of the column that helps the query engine understand the contents of the column.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+	Inclusion pulumi.StringPtrInput `pulumi:"inclusion"`
+	// Name of the column for which the other fields in this object apply.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArray and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArray{ AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs{...} }
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArray []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnInput
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArray) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArray) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput {
+	return o
+}
+
+// Description of the column that helps the query engine understand the contents of the column.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput) Inclusion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn) *string {
+		return v.Inclusion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the column for which the other fields in this object apply.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput) Index(i pulumi.IntInput) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn {
+		return vs[0].([]AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn)[vs[1].(int)]
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration struct {
+	// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+	AwsDataCatalogConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration `pulumi:"awsDataCatalogConfiguration"`
+	// Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+	RedshiftConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration `pulumi:"redshiftConfiguration"`
+	// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
+	Type string `pulumi:"type"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs struct {
+	// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+	AwsDataCatalogConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrInput `pulumi:"awsDataCatalogConfiguration"`
+	// Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+	RedshiftConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrInput `pulumi:"redshiftConfiguration"`
+	// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput)
+}
+
+// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput) AwsDataCatalogConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration {
+		return v.AwsDataCatalogConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput)
+}
+
+// Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput) RedshiftConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration {
+		return v.RedshiftConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput)
+}
+
+// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput)
+}
+
+// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput) AwsDataCatalogConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AwsDataCatalogConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput)
+}
+
+// Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput) RedshiftConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput)
+}
+
+// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration struct {
+	// List of names of the tables to use.
+	TableNames []string `pulumi:"tableNames"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs struct {
+	// List of names of the tables to use.
+	TableNames pulumi.StringArrayInput `pulumi:"tableNames"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput)
+}
+
+// List of names of the tables to use.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput) TableNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration) []string {
+		return v.TableNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput)
+}
+
+// List of names of the tables to use.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput) TableNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TableNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration struct {
+	// Name of the Amazon Redshift database.
+	DatabaseName string `pulumi:"databaseName"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs struct {
+	// Name of the Amazon Redshift database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput)
+}
+
+// Name of the Amazon Redshift database.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration) string {
+		return v.DatabaseName
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput)
+}
+
+// Name of the Amazon Redshift database.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration struct {
@@ -18860,7 +21366,13 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 }
 
 type AgentKnowledgeBaseStorageConfiguration struct {
-	// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
+	// The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+	MongoDbAtlasConfiguration *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration `pulumi:"mongoDbAtlasConfiguration"`
+	// The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+	NeptuneAnalyticsConfiguration *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration `pulumi:"neptuneAnalyticsConfiguration"`
+	// The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+	OpensearchManagedClusterConfiguration *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration `pulumi:"opensearchManagedClusterConfiguration"`
+	// The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
 	OpensearchServerlessConfiguration *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration `pulumi:"opensearchServerlessConfiguration"`
 	// The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
 	PineconeConfiguration *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration `pulumi:"pineconeConfiguration"`
@@ -18868,7 +21380,9 @@ type AgentKnowledgeBaseStorageConfiguration struct {
 	RdsConfiguration *AgentKnowledgeBaseStorageConfigurationRdsConfiguration `pulumi:"rdsConfiguration"`
 	// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
 	RedisEnterpriseCloudConfiguration *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration `pulumi:"redisEnterpriseCloudConfiguration"`
-	// Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
+	// The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+	S3VectorsConfiguration *AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration `pulumi:"s3VectorsConfiguration"`
+	// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
 	Type string `pulumi:"type"`
 }
 
@@ -18884,7 +21398,13 @@ type AgentKnowledgeBaseStorageConfigurationInput interface {
 }
 
 type AgentKnowledgeBaseStorageConfigurationArgs struct {
-	// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
+	// The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+	MongoDbAtlasConfiguration AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrInput `pulumi:"mongoDbAtlasConfiguration"`
+	// The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+	NeptuneAnalyticsConfiguration AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrInput `pulumi:"neptuneAnalyticsConfiguration"`
+	// The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+	OpensearchManagedClusterConfiguration AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrInput `pulumi:"opensearchManagedClusterConfiguration"`
+	// The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
 	OpensearchServerlessConfiguration AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrInput `pulumi:"opensearchServerlessConfiguration"`
 	// The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
 	PineconeConfiguration AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrInput `pulumi:"pineconeConfiguration"`
@@ -18892,7 +21412,9 @@ type AgentKnowledgeBaseStorageConfigurationArgs struct {
 	RdsConfiguration AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrInput `pulumi:"rdsConfiguration"`
 	// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
 	RedisEnterpriseCloudConfiguration AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrInput `pulumi:"redisEnterpriseCloudConfiguration"`
-	// Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
+	// The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+	S3VectorsConfiguration AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrInput `pulumi:"s3VectorsConfiguration"`
+	// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18973,7 +21495,28 @@ func (o AgentKnowledgeBaseStorageConfigurationOutput) ToAgentKnowledgeBaseStorag
 	}).(AgentKnowledgeBaseStorageConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
+// The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+func (o AgentKnowledgeBaseStorageConfigurationOutput) MongoDbAtlasConfiguration() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration {
+		return v.MongoDbAtlasConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput)
+}
+
+// The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+func (o AgentKnowledgeBaseStorageConfigurationOutput) NeptuneAnalyticsConfiguration() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration {
+		return v.NeptuneAnalyticsConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput)
+}
+
+// The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+func (o AgentKnowledgeBaseStorageConfigurationOutput) OpensearchManagedClusterConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration {
+		return v.OpensearchManagedClusterConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput)
+}
+
+// The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) OpensearchServerlessConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
 		return v.OpensearchServerlessConfiguration
@@ -19001,7 +21544,14 @@ func (o AgentKnowledgeBaseStorageConfigurationOutput) RedisEnterpriseCloudConfig
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput)
 }
 
-// Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
+// The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+func (o AgentKnowledgeBaseStorageConfigurationOutput) S3VectorsConfiguration() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration {
+		return v.S3VectorsConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput)
+}
+
+// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -19030,7 +21580,37 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) Elem() AgentKnowledgeBa
 	}).(AgentKnowledgeBaseStorageConfigurationOutput)
 }
 
-// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
+// The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) MongoDbAtlasConfiguration() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MongoDbAtlasConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput)
+}
+
+// The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) NeptuneAnalyticsConfiguration() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NeptuneAnalyticsConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput)
+}
+
+// The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) OpensearchManagedClusterConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OpensearchManagedClusterConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput)
+}
+
+// The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) OpensearchServerlessConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
 		if v == nil {
@@ -19070,13 +21650,1187 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) RedisEnterpriseCloudCon
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput)
 }
 
-// Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
+// The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) S3VectorsConfiguration() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.S3VectorsConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput)
+}
+
+// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration struct {
+	// The name of the collection in the MongoDB Atlas database.
+	CollectionName string `pulumi:"collectionName"`
+	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// The name of the database in the MongoDB Atlas database.
+	DatabaseName string `pulumi:"databaseName"`
+	// The endpoint URL of the MongoDB Atlas database.
+	Endpoint string `pulumi:"endpoint"`
+	// The name of the service that hosts the MongoDB Atlas database.
+	EndpointServiceName *string `pulumi:"endpointServiceName"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping `pulumi:"fieldMapping"`
+	// The name of the vector index.
+	TextIndexName *string `pulumi:"textIndexName"`
+	// The name of the vector index.
+	VectorIndexName string `pulumi:"vectorIndexName"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs and AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs{...}
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput
+	ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs struct {
+	// The name of the collection in the MongoDB Atlas database.
+	CollectionName pulumi.StringInput `pulumi:"collectionName"`
+	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// The name of the database in the MongoDB Atlas database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The endpoint URL of the MongoDB Atlas database.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The name of the service that hosts the MongoDB Atlas database.
+	EndpointServiceName pulumi.StringPtrInput `pulumi:"endpointServiceName"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	// The name of the vector index.
+	TextIndexName pulumi.StringPtrInput `pulumi:"textIndexName"`
+	// The name of the vector index.
+	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput).ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs, AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtr and AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrType AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs
+
+func AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtr(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput)
+}
+
+// The name of the collection in the MongoDB Atlas database.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) CollectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) string {
+		return v.CollectionName
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) string {
+		return v.CredentialsSecretArn
+	}).(pulumi.StringOutput)
+}
+
+// The name of the database in the MongoDB Atlas database.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The endpoint URL of the MongoDB Atlas database.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The name of the service that hosts the MongoDB Atlas database.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) EndpointServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
+		return v.EndpointServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping {
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput)
+}
+
+// The name of the vector index.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) TextIndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
+		return v.TextIndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the vector index.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) VectorIndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) string {
+		return v.VectorIndexName
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput)
+}
+
+// The name of the collection in the MongoDB Atlas database.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) CollectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CollectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the database in the MongoDB Atlas database.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint URL of the MongoDB Atlas database.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the service that hosts the MongoDB Atlas database.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) EndpointServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping {
+		if v == nil {
+			return nil
+		}
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput)
+}
+
+// The name of the vector index.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) TextIndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextIndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the vector index.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) VectorIndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorIndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField string `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField string `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField string `pulumi:"vectorField"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs and AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs{...}
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput
+	ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField pulumi.StringInput `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField pulumi.StringInput `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField pulumi.StringInput `pulumi:"vectorField"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput).ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs, AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtr and AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrType AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs
+
+func AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtr(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput) MetadataField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) string {
+		return v.MetadataField
+	}).(pulumi.StringOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput) TextField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) string {
+		return v.TextField
+	}).(pulumi.StringOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput) VectorField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) string {
+		return v.VectorField
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput) VectorField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorField
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration struct {
+	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	FieldMapping *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping `pulumi:"fieldMapping"`
+	// ARN of the Neptune Analytics vector store.
+	GraphArn string `pulumi:"graphArn"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs and AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs{...}
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput
+	ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs struct {
+	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	FieldMapping AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	// ARN of the Neptune Analytics vector store.
+	GraphArn pulumi.StringInput `pulumi:"graphArn"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput).ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs, AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtr and AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrType AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs
+
+func AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtr(v *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration) *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput)
+}
+
+// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration) *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping {
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput)
+}
+
+// ARN of the Neptune Analytics vector store.
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput) GraphArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration) string { return v.GraphArn }).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput)
+}
+
+// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration) *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping {
+		if v == nil {
+			return nil
+		}
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput)
+}
+
+// ARN of the Neptune Analytics vector store.
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput) GraphArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GraphArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping struct {
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField string `pulumi:"metadataField"`
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField string `pulumi:"textField"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs and AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs{...}
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput
+	ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs struct {
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField pulumi.StringInput `pulumi:"metadataField"`
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField pulumi.StringInput `pulumi:"textField"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput).ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs, AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtr and AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrType AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs
+
+func AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtr(v *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping) *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput)
+}
+
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput) MetadataField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping) string {
+		return v.MetadataField
+	}).(pulumi.StringOutput)
+}
+
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput) TextField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping) string {
+		return v.TextField
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput)
+}
+
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration struct {
+	// ARN of the OpenSearch domain.
+	DomainArn string `pulumi:"domainArn"`
+	// Endpoint URL of the OpenSearch domain.
+	DomainEndpoint string `pulumi:"domainEndpoint"`
+	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	FieldMapping *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping `pulumi:"fieldMapping"`
+	// Name of the vector store.
+	VectorIndexName string `pulumi:"vectorIndexName"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs and AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs{...}
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs struct {
+	// ARN of the OpenSearch domain.
+	DomainArn pulumi.StringInput `pulumi:"domainArn"`
+	// Endpoint URL of the OpenSearch domain.
+	DomainEndpoint pulumi.StringInput `pulumi:"domainEndpoint"`
+	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	// Name of the vector store.
+	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput).ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs, AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtr and AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrType AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs
+
+func AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtr(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput)
+}
+
+// ARN of the OpenSearch domain.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) DomainArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) string {
+		return v.DomainArn
+	}).(pulumi.StringOutput)
+}
+
+// Endpoint URL of the OpenSearch domain.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) DomainEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) string {
+		return v.DomainEndpoint
+	}).(pulumi.StringOutput)
+}
+
+// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping {
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput)
+}
+
+// Name of the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) VectorIndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) string {
+		return v.VectorIndexName
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput)
+}
+
+// ARN of the OpenSearch domain.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput) DomainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Endpoint URL of the OpenSearch domain.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput) DomainEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping {
+		if v == nil {
+			return nil
+		}
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput)
+}
+
+// Name of the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput) VectorIndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorIndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping struct {
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField string `pulumi:"metadataField"`
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField string `pulumi:"textField"`
+	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField string `pulumi:"vectorField"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs and AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs{...}
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs struct {
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField pulumi.StringInput `pulumi:"metadataField"`
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField pulumi.StringInput `pulumi:"textField"`
+	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField pulumi.StringInput `pulumi:"vectorField"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput).ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs, AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtr and AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrType AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs
+
+func AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtr(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping) *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput)
+}
+
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput) MetadataField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping) string {
+		return v.MetadataField
+	}).(pulumi.StringOutput)
+}
+
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput) TextField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping) string {
+		return v.TextField
+	}).(pulumi.StringOutput)
+}
+
+// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput) VectorField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping) string {
+		return v.VectorField
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput)
+}
+
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput) VectorField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorField
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19263,11 +23017,11 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationP
 
 type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping struct {
 	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
-	MetadataField *string `pulumi:"metadataField"`
+	MetadataField string `pulumi:"metadataField"`
 	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-	TextField *string `pulumi:"textField"`
+	TextField string `pulumi:"textField"`
 	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-	VectorField *string `pulumi:"vectorField"`
+	VectorField string `pulumi:"vectorField"`
 }
 
 // AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs and AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput values.
@@ -19283,11 +23037,11 @@ type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFiel
 
 type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs struct {
 	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
-	MetadataField pulumi.StringPtrInput `pulumi:"metadataField"`
+	MetadataField pulumi.StringInput `pulumi:"metadataField"`
 	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-	TextField pulumi.StringPtrInput `pulumi:"textField"`
+	TextField pulumi.StringInput `pulumi:"textField"`
 	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-	VectorField pulumi.StringPtrInput `pulumi:"vectorField"`
+	VectorField pulumi.StringInput `pulumi:"vectorField"`
 }
 
 func (AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs) ElementType() reflect.Type {
@@ -19368,24 +23122,24 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationF
 }
 
 // Name of the field in which Amazon Bedrock stores metadata about the vector store.
-func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) MetadataField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) MetadataField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) string {
 		return v.MetadataField
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.StringOutput)
 }
 
 // Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) TextField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) TextField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) string {
 		return v.TextField
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.StringOutput)
 }
 
 // Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) VectorField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) VectorField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) string {
 		return v.VectorField
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.StringOutput)
 }
 
 type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput struct{ *pulumi.OutputState }
@@ -19418,7 +23172,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationF
 		if v == nil {
 			return nil
 		}
-		return v.MetadataField
+		return &v.MetadataField
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19428,7 +23182,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationF
 		if v == nil {
 			return nil
 		}
-		return v.TextField
+		return &v.TextField
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19438,7 +23192,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationF
 		if v == nil {
 			return nil
 		}
-		return v.VectorField
+		return &v.VectorField
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19642,9 +23396,9 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) Na
 
 type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping struct {
 	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
-	MetadataField *string `pulumi:"metadataField"`
+	MetadataField string `pulumi:"metadataField"`
 	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-	TextField *string `pulumi:"textField"`
+	TextField string `pulumi:"textField"`
 }
 
 // AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs and AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput values.
@@ -19660,9 +23414,9 @@ type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingInpu
 
 type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs struct {
 	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
-	MetadataField pulumi.StringPtrInput `pulumi:"metadataField"`
+	MetadataField pulumi.StringInput `pulumi:"metadataField"`
 	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-	TextField pulumi.StringPtrInput `pulumi:"textField"`
+	TextField pulumi.StringInput `pulumi:"textField"`
 }
 
 func (AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs) ElementType() reflect.Type {
@@ -19743,17 +23497,17 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingO
 }
 
 // Name of the field in which Amazon Bedrock stores metadata about the vector store.
-func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) MetadataField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) *string {
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) MetadataField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) string {
 		return v.MetadataField
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.StringOutput)
 }
 
 // Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) TextField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) *string {
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) TextField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) string {
 		return v.TextField
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.StringOutput)
 }
 
 type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput struct{ *pulumi.OutputState }
@@ -19786,7 +23540,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingP
 		if v == nil {
 			return nil
 		}
-		return v.MetadataField
+		return &v.MetadataField
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19796,7 +23550,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingP
 		if v == nil {
 			return nil
 		}
-		return v.TextField
+		return &v.TextField
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -20616,6 +24370,181 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationF
 			return nil
 		}
 		return v.VectorField
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration struct {
+	// ARN of the S3 Vectors index. Conflicts with `indexName` and `vectorBucketArn`.
+	IndexArn *string `pulumi:"indexArn"`
+	// Name of the S3 Vectors index. Must be specified with `vectorBucketArn`. Conflicts with `indexArn`.
+	IndexName *string `pulumi:"indexName"`
+	// ARN of the S3 Vectors vector bucket. Must be specified with `indexName`. Conflicts with `indexArn`.
+	VectorBucketArn *string `pulumi:"vectorBucketArn"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs and AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs{...}
+type AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput
+	ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs struct {
+	// ARN of the S3 Vectors index. Conflicts with `indexName` and `vectorBucketArn`.
+	IndexArn pulumi.StringPtrInput `pulumi:"indexArn"`
+	// Name of the S3 Vectors index. Must be specified with `vectorBucketArn`. Conflicts with `indexArn`.
+	IndexName pulumi.StringPtrInput `pulumi:"indexName"`
+	// ARN of the S3 Vectors vector bucket. Must be specified with `indexName`. Conflicts with `indexArn`.
+	VectorBucketArn pulumi.StringPtrInput `pulumi:"vectorBucketArn"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput).ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs, AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtr and AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrType AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs
+
+func AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtr(v *AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs) AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration) *AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput)
+}
+
+// ARN of the S3 Vectors index. Conflicts with `indexName` and `vectorBucketArn`.
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput) IndexArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration) *string { return v.IndexArn }).(pulumi.StringPtrOutput)
+}
+
+// Name of the S3 Vectors index. Must be specified with `vectorBucketArn`. Conflicts with `indexArn`.
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration) *string { return v.IndexName }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the S3 Vectors vector bucket. Must be specified with `indexName`. Conflicts with `indexArn`.
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput) VectorBucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration) *string { return v.VectorBucketArn }).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration) AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput)
+}
+
+// ARN of the S3 Vectors index. Conflicts with `indexName` and `vectorBucketArn`.
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput) IndexArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the S3 Vectors index. Must be specified with `vectorBucketArn`. Conflicts with `indexArn`.
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the S3 Vectors vector bucket. Must be specified with `indexName`. Conflicts with `indexArn`.
+func (o AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput) VectorBucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VectorBucketArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -45402,6 +49331,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowTimeoutsPtrInput)(nil)).Elem(), AgentFlowTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs{})
@@ -45416,6 +49377,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs{})
@@ -45432,6 +49405,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseTimeoutsInput)(nil)).Elem(), AgentKnowledgeBaseTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseTimeoutsPtrInput)(nil)).Elem(), AgentKnowledgeBaseTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantInput)(nil)).Elem(), AgentPromptVariantArgs{})
@@ -46002,6 +49977,38 @@ func init() {
 	pulumi.RegisterOutputType(AgentFlowTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput{})
@@ -46016,6 +50023,18 @@ func init() {
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput{})
@@ -46032,6 +50051,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseTimeoutsOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentPromptVariantOutput{})

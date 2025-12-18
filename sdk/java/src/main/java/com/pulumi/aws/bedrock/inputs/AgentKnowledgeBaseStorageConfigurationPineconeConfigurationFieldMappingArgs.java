@@ -5,10 +5,9 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,30 +18,30 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
      * Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
-    @Import(name="metadataField")
-    private @Nullable Output<String> metadataField;
+    @Import(name="metadataField", required=true)
+    private Output<String> metadataField;
 
     /**
      * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
-    public Optional<Output<String>> metadataField() {
-        return Optional.ofNullable(this.metadataField);
+    public Output<String> metadataField() {
+        return this.metadataField;
     }
 
     /**
      * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
-    @Import(name="textField")
-    private @Nullable Output<String> textField;
+    @Import(name="textField", required=true)
+    private Output<String> textField;
 
     /**
      * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
-    public Optional<Output<String>> textField() {
-        return Optional.ofNullable(this.textField);
+    public Output<String> textField() {
+        return this.textField;
     }
 
     private AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs() {}
@@ -76,7 +75,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
          * @return builder
          * 
          */
-        public Builder metadataField(@Nullable Output<String> metadataField) {
+        public Builder metadataField(Output<String> metadataField) {
             $.metadataField = metadataField;
             return this;
         }
@@ -97,7 +96,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
          * @return builder
          * 
          */
-        public Builder textField(@Nullable Output<String> textField) {
+        public Builder textField(Output<String> textField) {
             $.textField = textField;
             return this;
         }
@@ -113,6 +112,12 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
         }
 
         public AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs build() {
+            if ($.metadataField == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs", "metadataField");
+            }
+            if ($.textField == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs", "textField");
+            }
             return $;
         }
     }

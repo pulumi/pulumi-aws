@@ -57,6 +57,7 @@ export interface GetCloudVmClusterResult {
      * The Amazon Resource Name (ARN) for the cloud vm cluster.
      */
     readonly arn: string;
+    readonly cloudExadataInfrastructureArn: string;
     /**
      * The ID of the Cloud Exadata Infrastructure.
      */
@@ -158,6 +159,7 @@ export interface GetCloudVmClusterResult {
      * The OCID of the VM cluster.
      */
     readonly ocid: string;
+    readonly odbNetworkArn: string;
     /**
      * The ID of the ODB network.
      */

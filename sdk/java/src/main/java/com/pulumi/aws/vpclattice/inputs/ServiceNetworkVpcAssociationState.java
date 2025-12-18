@@ -3,8 +3,10 @@
 
 package com.pulumi.aws.vpclattice.inputs;
 
+import com.pulumi.aws.vpclattice.inputs.ServiceNetworkVpcAssociationDnsOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +47,36 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
      */
     public Optional<Output<String>> createdBy() {
         return Optional.ofNullable(this.createdBy);
+    }
+
+    /**
+     * Configuration block for DNS option. See `dnsOptions` block below for details.
+     * 
+     */
+    @Import(name="dnsOptions")
+    private @Nullable Output<ServiceNetworkVpcAssociationDnsOptionsArgs> dnsOptions;
+
+    /**
+     * @return Configuration block for DNS option. See `dnsOptions` block below for details.
+     * 
+     */
+    public Optional<Output<ServiceNetworkVpcAssociationDnsOptionsArgs>> dnsOptions() {
+        return Optional.ofNullable(this.dnsOptions);
+    }
+
+    /**
+     * Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+     * 
+     */
+    @Import(name="privateDnsEnabled")
+    private @Nullable Output<Boolean> privateDnsEnabled;
+
+    /**
+     * @return Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> privateDnsEnabled() {
+        return Optional.ofNullable(this.privateDnsEnabled);
     }
 
     /**
@@ -159,6 +191,8 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
     private ServiceNetworkVpcAssociationState(ServiceNetworkVpcAssociationState $) {
         this.arn = $.arn;
         this.createdBy = $.createdBy;
+        this.dnsOptions = $.dnsOptions;
+        this.privateDnsEnabled = $.privateDnsEnabled;
         this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
         this.serviceNetworkIdentifier = $.serviceNetworkIdentifier;
@@ -226,6 +260,48 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
          */
         public Builder createdBy(String createdBy) {
             return createdBy(Output.of(createdBy));
+        }
+
+        /**
+         * @param dnsOptions Configuration block for DNS option. See `dnsOptions` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsOptions(@Nullable Output<ServiceNetworkVpcAssociationDnsOptionsArgs> dnsOptions) {
+            $.dnsOptions = dnsOptions;
+            return this;
+        }
+
+        /**
+         * @param dnsOptions Configuration block for DNS option. See `dnsOptions` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsOptions(ServiceNetworkVpcAssociationDnsOptionsArgs dnsOptions) {
+            return dnsOptions(Output.of(dnsOptions));
+        }
+
+        /**
+         * @param privateDnsEnabled Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsEnabled(@Nullable Output<Boolean> privateDnsEnabled) {
+            $.privateDnsEnabled = privateDnsEnabled;
+            return this;
+        }
+
+        /**
+         * @param privateDnsEnabled Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsEnabled(Boolean privateDnsEnabled) {
+            return privateDnsEnabled(Output.of(privateDnsEnabled));
         }
 
         /**

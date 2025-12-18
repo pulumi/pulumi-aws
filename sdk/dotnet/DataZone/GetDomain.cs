@@ -179,6 +179,10 @@ namespace Pulumi.Aws.DataZone
         public readonly string PortalUrl;
         public readonly string Region;
         /// <summary>
+        /// ID of the root domain unit.
+        /// </summary>
+        public readonly string RootDomainUnitId;
+        /// <summary>
         /// Status of the Domain.
         /// </summary>
         public readonly string Status;
@@ -205,6 +209,8 @@ namespace Pulumi.Aws.DataZone
 
             string region,
 
+            string rootDomainUnitId,
+
             string status)
         {
             Arn = arn;
@@ -217,6 +223,7 @@ namespace Pulumi.Aws.DataZone
             Name = name;
             PortalUrl = portalUrl;
             Region = region;
+            RootDomainUnitId = rootDomainUnitId;
             Status = status;
         }
     }

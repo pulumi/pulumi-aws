@@ -248,4 +248,11 @@ public final class Config {
     public Optional<Boolean> useFipsEndpoint() {
         return Codegen.booleanProp("useFipsEndpoint").config(config).get();
     }
+/**
+ * Product details to append to the User-Agent string sent in all AWS API calls.
+ * 
+ */
+    public Optional<List<String>> userAgents() {
+        return Codegen.objectProp("userAgents", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
+    }
 }

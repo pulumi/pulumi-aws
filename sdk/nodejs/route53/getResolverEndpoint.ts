@@ -98,9 +98,17 @@ export interface GetResolverEndpointResult {
      */
     readonly resolverEndpointType: string;
     /**
+     * Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint.
+     */
+    readonly rniEnhancedMetricsEnabled: boolean;
+    /**
      * Current status of the Resolver Endpoint.
      */
     readonly status: string;
+    /**
+     * Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints.
+     */
+    readonly targetNameServerMetricsEnabled: boolean;
     /**
      * ID of the Host VPC that the Resolver Endpoint resides in.
      */

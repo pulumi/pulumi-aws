@@ -257,6 +257,38 @@ __all__ = [
     'AgentFlowTimeoutsArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationArgs',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs',
@@ -271,6 +303,18 @@ __all__ = [
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgsDict',
     'AgentKnowledgeBaseStorageConfigurationArgs',
     'AgentKnowledgeBaseStorageConfigurationArgsDict',
+    'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgsDict',
+    'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs',
+    'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgsDict',
+    'AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgsDict',
+    'AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs',
+    'AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgsDict',
+    'AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgsDict',
+    'AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs',
+    'AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgsDict',
     'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs',
     'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgsDict',
     'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs',
@@ -287,6 +331,8 @@ __all__ = [
     'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgsDict',
     'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs',
     'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgsDict',
+    'AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgsDict',
     'AgentKnowledgeBaseTimeoutsArgs',
     'AgentKnowledgeBaseTimeoutsArgsDict',
     'AgentPromptVariantArgs',
@@ -6819,11 +6865,19 @@ if not MYPY:
     class AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
         """
-        Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
+        Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+        """
+        kendra_knowledge_base_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgsDict']]
+        """
+        Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
+        """
+        sql_knowledge_base_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgsDict']]
+        """
+        Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` block for details.
         """
         vector_knowledge_base_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgsDict']]
         """
-        Details about the embeddings model that'sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
+        Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` block for details.
         """
 elif False:
     AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -6832,12 +6886,20 @@ elif False:
 class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
+                 kendra_knowledge_base_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs']] = None,
+                 sql_knowledge_base_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs']] = None,
                  vector_knowledge_base_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] type: Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
-        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs'] vector_knowledge_base_configuration: Details about the embeddings model that'sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
+        :param pulumi.Input[_builtins.str] type: Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs'] kendra_knowledge_base_configuration: Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs'] sql_knowledge_base_configuration: Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs'] vector_knowledge_base_configuration: Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` block for details.
         """
         pulumi.set(__self__, "type", type)
+        if kendra_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "kendra_knowledge_base_configuration", kendra_knowledge_base_configuration)
+        if sql_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "sql_knowledge_base_configuration", sql_knowledge_base_configuration)
         if vector_knowledge_base_configuration is not None:
             pulumi.set(__self__, "vector_knowledge_base_configuration", vector_knowledge_base_configuration)
 
@@ -6845,7 +6907,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
+        Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
         """
         return pulumi.get(self, "type")
 
@@ -6854,16 +6916,939 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs:
         pulumi.set(self, "type", value)
 
     @_builtins.property
+    @pulumi.getter(name="kendraKnowledgeBaseConfiguration")
+    def kendra_knowledge_base_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs']]:
+        """
+        Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
+        """
+        return pulumi.get(self, "kendra_knowledge_base_configuration")
+
+    @kendra_knowledge_base_configuration.setter
+    def kendra_knowledge_base_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs']]):
+        pulumi.set(self, "kendra_knowledge_base_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
+    def sql_knowledge_base_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs']]:
+        """
+        Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` block for details.
+        """
+        return pulumi.get(self, "sql_knowledge_base_configuration")
+
+    @sql_knowledge_base_configuration.setter
+    def sql_knowledge_base_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs']]):
+        pulumi.set(self, "sql_knowledge_base_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="vectorKnowledgeBaseConfiguration")
     def vector_knowledge_base_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs']]:
         """
-        Details about the embeddings model that'sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
+        Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` block for details.
         """
         return pulumi.get(self, "vector_knowledge_base_configuration")
 
     @vector_knowledge_base_configuration.setter
     def vector_knowledge_base_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs']]):
         pulumi.set(self, "vector_knowledge_base_configuration", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgsDict(TypedDict):
+        kendra_index_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the Amazon Kendra index.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs:
+    def __init__(__self__, *,
+                 kendra_index_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] kendra_index_arn: ARN of the Amazon Kendra index.
+        """
+        pulumi.set(__self__, "kendra_index_arn", kendra_index_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kendraIndexArn")
+    def kendra_index_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Amazon Kendra index.
+        """
+        return pulumi.get(self, "kendra_index_arn")
+
+    @kendra_index_arn.setter
+    def kendra_index_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kendra_index_arn", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
+        """
+        redshift_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgsDict']]
+        """
+        Configurations for a knowledge base connected to an Amazon Redshift database. See `redshift_configuration` block for details.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 redshift_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs'] redshift_configuration: Configurations for a knowledge base connected to an Amazon Redshift database. See `redshift_configuration` block for details.
+        """
+        pulumi.set(__self__, "type", type)
+        if redshift_configuration is not None:
+            pulumi.set(__self__, "redshift_configuration", redshift_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redshiftConfiguration")
+    def redshift_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs']]:
+        """
+        Configurations for a knowledge base connected to an Amazon Redshift database. See `redshift_configuration` block for details.
+        """
+        return pulumi.get(self, "redshift_configuration")
+
+    @redshift_configuration.setter
+    def redshift_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs']]):
+        pulumi.set(self, "redshift_configuration", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgsDict(TypedDict):
+        query_engine_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgsDict']]
+        """
+        Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
+        """
+        query_generation_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgsDict']]
+        """
+        Configurations for generating queries. See `query_generation_configuration` block for details.
+        """
+        storage_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgsDict']]
+        """
+        Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs:
+    def __init__(__self__, *,
+                 query_engine_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs']] = None,
+                 query_generation_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs']] = None,
+                 storage_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs'] query_engine_configuration: Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs'] query_generation_configuration: Configurations for generating queries. See `query_generation_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs'] storage_configuration: Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
+        """
+        if query_engine_configuration is not None:
+            pulumi.set(__self__, "query_engine_configuration", query_engine_configuration)
+        if query_generation_configuration is not None:
+            pulumi.set(__self__, "query_generation_configuration", query_generation_configuration)
+        if storage_configuration is not None:
+            pulumi.set(__self__, "storage_configuration", storage_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="queryEngineConfiguration")
+    def query_engine_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs']]:
+        """
+        Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
+        """
+        return pulumi.get(self, "query_engine_configuration")
+
+    @query_engine_configuration.setter
+    def query_engine_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs']]):
+        pulumi.set(self, "query_engine_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryGenerationConfiguration")
+    def query_generation_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs']]:
+        """
+        Configurations for generating queries. See `query_generation_configuration` block for details.
+        """
+        return pulumi.get(self, "query_generation_configuration")
+
+    @query_generation_configuration.setter
+    def query_generation_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs']]):
+        pulumi.set(self, "query_generation_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs']]:
+        """
+        Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
+        """
+        return pulumi.get(self, "storage_configuration")
+
+    @storage_configuration.setter
+    def storage_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs']]):
+        pulumi.set(self, "storage_configuration", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
+        """
+        provisioned_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgsDict']]
+        """
+        Configurations for a provisioned Amazon Redshift query engine. See `provisioned_configuration` block for details.
+        """
+        serverless_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgsDict']]
+        """
+        Configurations for a serverless Amazon Redshift query engine. See `serverless_configuration` block for details.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 provisioned_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs']] = None,
+                 serverless_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs'] provisioned_configuration: Configurations for a provisioned Amazon Redshift query engine. See `provisioned_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs'] serverless_configuration: Configurations for a serverless Amazon Redshift query engine. See `serverless_configuration` block for details.
+        """
+        pulumi.set(__self__, "type", type)
+        if provisioned_configuration is not None:
+            pulumi.set(__self__, "provisioned_configuration", provisioned_configuration)
+        if serverless_configuration is not None:
+            pulumi.set(__self__, "serverless_configuration", serverless_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="provisionedConfiguration")
+    def provisioned_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs']]:
+        """
+        Configurations for a provisioned Amazon Redshift query engine. See `provisioned_configuration` block for details.
+        """
+        return pulumi.get(self, "provisioned_configuration")
+
+    @provisioned_configuration.setter
+    def provisioned_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs']]):
+        pulumi.set(self, "provisioned_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessConfiguration")
+    def serverless_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs']]:
+        """
+        Configurations for a serverless Amazon Redshift query engine. See `serverless_configuration` block for details.
+        """
+        return pulumi.get(self, "serverless_configuration")
+
+    @serverless_configuration.setter
+    def serverless_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs']]):
+        pulumi.set(self, "serverless_configuration", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgsDict(TypedDict):
+        cluster_identifier: pulumi.Input[_builtins.str]
+        """
+        ID of the Amazon Redshift cluster.
+        """
+        auth_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgsDict']]
+        """
+        Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs:
+    def __init__(__self__, *,
+                 cluster_identifier: pulumi.Input[_builtins.str],
+                 auth_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] cluster_identifier: ID of the Amazon Redshift cluster.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs'] auth_configuration: Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if auth_configuration is not None:
+            pulumi.set(__self__, "auth_configuration", auth_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the Amazon Redshift cluster.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authConfiguration")
+    def auth_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs']]:
+        """
+        Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
+        """
+        return pulumi.get(self, "auth_configuration")
+
+    @auth_configuration.setter
+    def auth_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs']]):
+        pulumi.set(self, "auth_configuration", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+        """
+        database_user: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Database username for authentication to an Amazon Redshift provisioned data warehouse.
+        """
+        username_password_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ARN of a Secrets Manager secret for authentication.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 database_user: Optional[pulumi.Input[_builtins.str]] = None,
+                 username_password_secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+        :param pulumi.Input[_builtins.str] database_user: Database username for authentication to an Amazon Redshift provisioned data warehouse.
+        :param pulumi.Input[_builtins.str] username_password_secret_arn: ARN of a Secrets Manager secret for authentication.
+        """
+        pulumi.set(__self__, "type", type)
+        if database_user is not None:
+            pulumi.set(__self__, "database_user", database_user)
+        if username_password_secret_arn is not None:
+            pulumi.set(__self__, "username_password_secret_arn", username_password_secret_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseUser")
+    def database_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Database username for authentication to an Amazon Redshift provisioned data warehouse.
+        """
+        return pulumi.get(self, "database_user")
+
+    @database_user.setter
+    def database_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "database_user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usernamePasswordSecretArn")
+    def username_password_secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of a Secrets Manager secret for authentication.
+        """
+        return pulumi.get(self, "username_password_secret_arn")
+
+    @username_password_secret_arn.setter
+    def username_password_secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "username_password_secret_arn", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgsDict(TypedDict):
+        workgroup_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the Amazon Redshift workgroup.
+        """
+        auth_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgsDict']]
+        """
+        Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs:
+    def __init__(__self__, *,
+                 workgroup_arn: pulumi.Input[_builtins.str],
+                 auth_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] workgroup_arn: ARN of the Amazon Redshift workgroup.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs'] auth_configuration: Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
+        """
+        pulumi.set(__self__, "workgroup_arn", workgroup_arn)
+        if auth_configuration is not None:
+            pulumi.set(__self__, "auth_configuration", auth_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="workgroupArn")
+    def workgroup_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Amazon Redshift workgroup.
+        """
+        return pulumi.get(self, "workgroup_arn")
+
+    @workgroup_arn.setter
+    def workgroup_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workgroup_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authConfiguration")
+    def auth_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs']]:
+        """
+        Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
+        """
+        return pulumi.get(self, "auth_configuration")
+
+    @auth_configuration.setter
+    def auth_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs']]):
+        pulumi.set(self, "auth_configuration", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+        """
+        username_password_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ARN of a Secrets Manager secret for authentication.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 username_password_secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+        :param pulumi.Input[_builtins.str] username_password_secret_arn: ARN of a Secrets Manager secret for authentication.
+        """
+        pulumi.set(__self__, "type", type)
+        if username_password_secret_arn is not None:
+            pulumi.set(__self__, "username_password_secret_arn", username_password_secret_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usernamePasswordSecretArn")
+    def username_password_secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of a Secrets Manager secret for authentication.
+        """
+        return pulumi.get(self, "username_password_secret_arn")
+
+    @username_password_secret_arn.setter
+    def username_password_secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "username_password_secret_arn", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgsDict(TypedDict):
+        execution_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Time after which query generation will time out.
+        """
+        generation_context: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgsDict']]
+        """
+        Configurations for context to use during query generation. See `generation_context` block for details.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs:
+    def __init__(__self__, *,
+                 execution_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 generation_context: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.int] execution_timeout_seconds: Time after which query generation will time out.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs'] generation_context: Configurations for context to use during query generation. See `generation_context` block for details.
+        """
+        if execution_timeout_seconds is not None:
+            pulumi.set(__self__, "execution_timeout_seconds", execution_timeout_seconds)
+        if generation_context is not None:
+            pulumi.set(__self__, "generation_context", generation_context)
+
+    @_builtins.property
+    @pulumi.getter(name="executionTimeoutSeconds")
+    def execution_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Time after which query generation will time out.
+        """
+        return pulumi.get(self, "execution_timeout_seconds")
+
+    @execution_timeout_seconds.setter
+    def execution_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "execution_timeout_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="generationContext")
+    def generation_context(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs']]:
+        """
+        Configurations for context to use during query generation. See `generation_context` block for details.
+        """
+        return pulumi.get(self, "generation_context")
+
+    @generation_context.setter
+    def generation_context(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs']]):
+        pulumi.set(self, "generation_context", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgsDict(TypedDict):
+        curated_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgsDict']]]]
+        """
+        Information about example queries to help the query engine generate appropriate SQL queries. See `curated_query` block for details.
+        """
+        tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgsDict']]]]
+        """
+        Information about a table in the database. See `table` block for details.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs:
+    def __init__(__self__, *,
+                 curated_queries: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs']]]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs']]] curated_queries: Information about example queries to help the query engine generate appropriate SQL queries. See `curated_query` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs']]] tables: Information about a table in the database. See `table` block for details.
+        """
+        if curated_queries is not None:
+            pulumi.set(__self__, "curated_queries", curated_queries)
+        if tables is not None:
+            pulumi.set(__self__, "tables", tables)
+
+    @_builtins.property
+    @pulumi.getter(name="curatedQueries")
+    def curated_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs']]]]:
+        """
+        Information about example queries to help the query engine generate appropriate SQL queries. See `curated_query` block for details.
+        """
+        return pulumi.get(self, "curated_queries")
+
+    @curated_queries.setter
+    def curated_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs']]]]):
+        pulumi.set(self, "curated_queries", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs']]]]:
+        """
+        Information about a table in the database. See `table` block for details.
+        """
+        return pulumi.get(self, "tables")
+
+    @tables.setter
+    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs']]]]):
+        pulumi.set(self, "tables", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgsDict(TypedDict):
+        natural_language: pulumi.Input[_builtins.str]
+        """
+        Example natural language query.
+        """
+        sql: pulumi.Input[_builtins.str]
+        """
+        SQL equivalent of `natural_language`.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs:
+    def __init__(__self__, *,
+                 natural_language: pulumi.Input[_builtins.str],
+                 sql: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] natural_language: Example natural language query.
+        :param pulumi.Input[_builtins.str] sql: SQL equivalent of `natural_language`.
+        """
+        pulumi.set(__self__, "natural_language", natural_language)
+        pulumi.set(__self__, "sql", sql)
+
+    @_builtins.property
+    @pulumi.getter(name="naturalLanguage")
+    def natural_language(self) -> pulumi.Input[_builtins.str]:
+        """
+        Example natural language query.
+        """
+        return pulumi.get(self, "natural_language")
+
+    @natural_language.setter
+    def natural_language(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "natural_language", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sql(self) -> pulumi.Input[_builtins.str]:
+        """
+        SQL equivalent of `natural_language`.
+        """
+        return pulumi.get(self, "sql")
+
+    @sql.setter
+    def sql(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sql", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the table for which the other fields in this object apply.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgsDict']]]]
+        """
+        Information about a column in the table. See `column` block for details.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the table that helps the query engine understand the contents of the table.
+        """
+        inclusion: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs']]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 inclusion: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the table for which the other fields in this object apply.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs']]] columns: Information about a column in the table. See `column` block for details.
+        :param pulumi.Input[_builtins.str] description: Description of the table that helps the query engine understand the contents of the table.
+        :param pulumi.Input[_builtins.str] inclusion: Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+        """
+        pulumi.set(__self__, "name", name)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if inclusion is not None:
+            pulumi.set(__self__, "inclusion", inclusion)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the table for which the other fields in this object apply.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs']]]]:
+        """
+        Information about a column in the table. See `column` block for details.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the table that helps the query engine understand the contents of the table.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def inclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+        """
+        return pulumi.get(self, "inclusion")
+
+    @inclusion.setter
+    def inclusion(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "inclusion", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the column that helps the query engine understand the contents of the column.
+        """
+        inclusion: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+        """
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Name of the column for which the other fields in this object apply.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 inclusion: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] description: Description of the column that helps the query engine understand the contents of the column.
+        :param pulumi.Input[_builtins.str] inclusion: Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+        :param pulumi.Input[_builtins.str] name: Name of the column for which the other fields in this object apply.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if inclusion is not None:
+            pulumi.set(__self__, "inclusion", inclusion)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the column that helps the query engine understand the contents of the column.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def inclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
+        """
+        return pulumi.get(self, "inclusion")
+
+    @inclusion.setter
+    def inclusion(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "inclusion", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the column for which the other fields in this object apply.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
+        """
+        aws_data_catalog_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgsDict']]
+        """
+        Configurations for storage in AWS Glue Data Catalog. See `aws_data_catalog_configuration` block for details.
+        """
+        redshift_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgsDict']]
+        """
+        Configurations for storage in Amazon Redshift. See `redshift_configuration` block for details.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 aws_data_catalog_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs']] = None,
+                 redshift_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs'] aws_data_catalog_configuration: Configurations for storage in AWS Glue Data Catalog. See `aws_data_catalog_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs'] redshift_configuration: Configurations for storage in Amazon Redshift. See `redshift_configuration` block for details.
+        """
+        pulumi.set(__self__, "type", type)
+        if aws_data_catalog_configuration is not None:
+            pulumi.set(__self__, "aws_data_catalog_configuration", aws_data_catalog_configuration)
+        if redshift_configuration is not None:
+            pulumi.set(__self__, "redshift_configuration", redshift_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsDataCatalogConfiguration")
+    def aws_data_catalog_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs']]:
+        """
+        Configurations for storage in AWS Glue Data Catalog. See `aws_data_catalog_configuration` block for details.
+        """
+        return pulumi.get(self, "aws_data_catalog_configuration")
+
+    @aws_data_catalog_configuration.setter
+    def aws_data_catalog_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs']]):
+        pulumi.set(self, "aws_data_catalog_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redshiftConfiguration")
+    def redshift_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs']]:
+        """
+        Configurations for storage in Amazon Redshift. See `redshift_configuration` block for details.
+        """
+        return pulumi.get(self, "redshift_configuration")
+
+    @redshift_configuration.setter
+    def redshift_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs']]):
+        pulumi.set(self, "redshift_configuration", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgsDict(TypedDict):
+        table_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of names of the tables to use.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs:
+    def __init__(__self__, *,
+                 table_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] table_names: List of names of the tables to use.
+        """
+        pulumi.set(__self__, "table_names", table_names)
+
+    @_builtins.property
+    @pulumi.getter(name="tableNames")
+    def table_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of names of the tables to use.
+        """
+        return pulumi.get(self, "table_names")
+
+    @table_names.setter
+    def table_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "table_names", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgsDict(TypedDict):
+        database_name: pulumi.Input[_builtins.str]
+        """
+        Name of the Amazon Redshift database.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] database_name: Name of the Amazon Redshift database.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Amazon Redshift database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "database_name", value)
 
 
 if not MYPY:
@@ -7139,11 +8124,23 @@ if not MYPY:
     class AgentKnowledgeBaseStorageConfigurationArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
         """
-        Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
+        Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
+        """
+        mongo_db_atlas_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgsDict']]
+        """
+        The storage configuration of the knowledge base in MongoDB Atlas. See `mongo_db_atlas_configuration` block for details.
+        """
+        neptune_analytics_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgsDict']]
+        """
+        The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptune_analytics_configuration` block for details.
+        """
+        opensearch_managed_cluster_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgsDict']]
+        """
+        The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearch_managed_cluster_configuration` block for details.
         """
         opensearch_serverless_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgsDict']]
         """
-        The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
+        The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearch_serverless_configuration` block for details.
         """
         pinecone_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgsDict']]
         """
@@ -7157,6 +8154,10 @@ if not MYPY:
         """
         The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
         """
+        s3_vectors_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgsDict']]
+        """
+        The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3_vectors_configuration` block for details.
+        """
 elif False:
     AgentKnowledgeBaseStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7164,18 +8165,32 @@ elif False:
 class AgentKnowledgeBaseStorageConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
+                 mongo_db_atlas_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs']] = None,
+                 neptune_analytics_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs']] = None,
+                 opensearch_managed_cluster_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs']] = None,
                  opensearch_serverless_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs']] = None,
                  pinecone_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs']] = None,
                  rds_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs']] = None,
-                 redis_enterprise_cloud_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs']] = None):
+                 redis_enterprise_cloud_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs']] = None,
+                 s3_vectors_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] type: Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
-        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs'] opensearch_serverless_configuration: The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
+        :param pulumi.Input[_builtins.str] type: Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs'] mongo_db_atlas_configuration: The storage configuration of the knowledge base in MongoDB Atlas. See `mongo_db_atlas_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs'] neptune_analytics_configuration: The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptune_analytics_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs'] opensearch_managed_cluster_configuration: The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearch_managed_cluster_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs'] opensearch_serverless_configuration: The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearch_serverless_configuration` block for details.
         :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs'] pinecone_configuration: The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
         :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs'] rds_configuration: Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
         :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs'] redis_enterprise_cloud_configuration: The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs'] s3_vectors_configuration: The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3_vectors_configuration` block for details.
         """
         pulumi.set(__self__, "type", type)
+        if mongo_db_atlas_configuration is not None:
+            pulumi.set(__self__, "mongo_db_atlas_configuration", mongo_db_atlas_configuration)
+        if neptune_analytics_configuration is not None:
+            pulumi.set(__self__, "neptune_analytics_configuration", neptune_analytics_configuration)
+        if opensearch_managed_cluster_configuration is not None:
+            pulumi.set(__self__, "opensearch_managed_cluster_configuration", opensearch_managed_cluster_configuration)
         if opensearch_serverless_configuration is not None:
             pulumi.set(__self__, "opensearch_serverless_configuration", opensearch_serverless_configuration)
         if pinecone_configuration is not None:
@@ -7184,12 +8199,14 @@ class AgentKnowledgeBaseStorageConfigurationArgs:
             pulumi.set(__self__, "rds_configuration", rds_configuration)
         if redis_enterprise_cloud_configuration is not None:
             pulumi.set(__self__, "redis_enterprise_cloud_configuration", redis_enterprise_cloud_configuration)
+        if s3_vectors_configuration is not None:
+            pulumi.set(__self__, "s3_vectors_configuration", s3_vectors_configuration)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
+        Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
         """
         return pulumi.get(self, "type")
 
@@ -7198,10 +8215,46 @@ class AgentKnowledgeBaseStorageConfigurationArgs:
         pulumi.set(self, "type", value)
 
     @_builtins.property
+    @pulumi.getter(name="mongoDbAtlasConfiguration")
+    def mongo_db_atlas_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs']]:
+        """
+        The storage configuration of the knowledge base in MongoDB Atlas. See `mongo_db_atlas_configuration` block for details.
+        """
+        return pulumi.get(self, "mongo_db_atlas_configuration")
+
+    @mongo_db_atlas_configuration.setter
+    def mongo_db_atlas_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs']]):
+        pulumi.set(self, "mongo_db_atlas_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="neptuneAnalyticsConfiguration")
+    def neptune_analytics_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs']]:
+        """
+        The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptune_analytics_configuration` block for details.
+        """
+        return pulumi.get(self, "neptune_analytics_configuration")
+
+    @neptune_analytics_configuration.setter
+    def neptune_analytics_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs']]):
+        pulumi.set(self, "neptune_analytics_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="opensearchManagedClusterConfiguration")
+    def opensearch_managed_cluster_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs']]:
+        """
+        The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearch_managed_cluster_configuration` block for details.
+        """
+        return pulumi.get(self, "opensearch_managed_cluster_configuration")
+
+    @opensearch_managed_cluster_configuration.setter
+    def opensearch_managed_cluster_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs']]):
+        pulumi.set(self, "opensearch_managed_cluster_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="opensearchServerlessConfiguration")
     def opensearch_serverless_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs']]:
         """
-        The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
+        The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearch_serverless_configuration` block for details.
         """
         return pulumi.get(self, "opensearch_serverless_configuration")
 
@@ -7244,6 +8297,513 @@ class AgentKnowledgeBaseStorageConfigurationArgs:
     @redis_enterprise_cloud_configuration.setter
     def redis_enterprise_cloud_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs']]):
         pulumi.set(self, "redis_enterprise_cloud_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3VectorsConfiguration")
+    def s3_vectors_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs']]:
+        """
+        The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3_vectors_configuration` block for details.
+        """
+        return pulumi.get(self, "s3_vectors_configuration")
+
+    @s3_vectors_configuration.setter
+    def s3_vectors_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs']]):
+        pulumi.set(self, "s3_vectors_configuration", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgsDict(TypedDict):
+        collection_name: pulumi.Input[_builtins.str]
+        """
+        The name of the collection in the MongoDB Atlas database.
+        """
+        credentials_secret_arn: pulumi.Input[_builtins.str]
+        """
+        The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+        """
+        database_name: pulumi.Input[_builtins.str]
+        """
+        The name of the database in the MongoDB Atlas database.
+        """
+        endpoint: pulumi.Input[_builtins.str]
+        """
+        The endpoint URL of the MongoDB Atlas database.
+        """
+        vector_index_name: pulumi.Input[_builtins.str]
+        """
+        The name of the vector index.
+        """
+        endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The name of the service that hosts the MongoDB Atlas database.
+        """
+        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgsDict']]
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
+        text_index_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The name of the vector index.
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs:
+    def __init__(__self__, *,
+                 collection_name: pulumi.Input[_builtins.str],
+                 credentials_secret_arn: pulumi.Input[_builtins.str],
+                 database_name: pulumi.Input[_builtins.str],
+                 endpoint: pulumi.Input[_builtins.str],
+                 vector_index_name: pulumi.Input[_builtins.str],
+                 endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs']] = None,
+                 text_index_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] collection_name: The name of the collection in the MongoDB Atlas database.
+        :param pulumi.Input[_builtins.str] credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+        :param pulumi.Input[_builtins.str] database_name: The name of the database in the MongoDB Atlas database.
+        :param pulumi.Input[_builtins.str] endpoint: The endpoint URL of the MongoDB Atlas database.
+        :param pulumi.Input[_builtins.str] vector_index_name: The name of the vector index.
+        :param pulumi.Input[_builtins.str] endpoint_service_name: The name of the service that hosts the MongoDB Atlas database.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
+        :param pulumi.Input[_builtins.str] text_index_name: The name of the vector index.
+        """
+        pulumi.set(__self__, "collection_name", collection_name)
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "vector_index_name", vector_index_name)
+        if endpoint_service_name is not None:
+            pulumi.set(__self__, "endpoint_service_name", endpoint_service_name)
+        if field_mapping is not None:
+            pulumi.set(__self__, "field_mapping", field_mapping)
+        if text_index_name is not None:
+            pulumi.set(__self__, "text_index_name", text_index_name)
+
+    @_builtins.property
+    @pulumi.getter(name="collectionName")
+    def collection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the collection in the MongoDB Atlas database.
+        """
+        return pulumi.get(self, "collection_name")
+
+    @collection_name.setter
+    def collection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "collection_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @credentials_secret_arn.setter
+    def credentials_secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "credentials_secret_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the database in the MongoDB Atlas database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        The endpoint URL of the MongoDB Atlas database.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vectorIndexName")
+    def vector_index_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the vector index.
+        """
+        return pulumi.get(self, "vector_index_name")
+
+    @vector_index_name.setter
+    def vector_index_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vector_index_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointServiceName")
+    def endpoint_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the service that hosts the MongoDB Atlas database.
+        """
+        return pulumi.get(self, "endpoint_service_name")
+
+    @endpoint_service_name.setter
+    def endpoint_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "endpoint_service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs']]:
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs']]):
+        pulumi.set(self, "field_mapping", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textIndexName")
+    def text_index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the vector index.
+        """
+        return pulumi.get(self, "text_index_name")
+
+    @text_index_name.setter
+    def text_index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "text_index_name", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgsDict(TypedDict):
+        metadata_field: pulumi.Input[_builtins.str]
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        text_field: pulumi.Input[_builtins.str]
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        vector_field: pulumi.Input[_builtins.str]
+        """
+        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs:
+    def __init__(__self__, *,
+                 metadata_field: pulumi.Input[_builtins.str],
+                 text_field: pulumi.Input[_builtins.str],
+                 vector_field: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param pulumi.Input[_builtins.str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        :param pulumi.Input[_builtins.str] vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        pulumi.set(__self__, "metadata_field", metadata_field)
+        pulumi.set(__self__, "text_field", text_field)
+        pulumi.set(__self__, "vector_field", vector_field)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @metadata_field.setter
+    def metadata_field(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "metadata_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+    @text_field.setter
+    def text_field(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "text_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vectorField")
+    def vector_field(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        return pulumi.get(self, "vector_field")
+
+    @vector_field.setter
+    def vector_field(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vector_field", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgsDict(TypedDict):
+        graph_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the Neptune Analytics vector store.
+        """
+        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgsDict']]
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs:
+    def __init__(__self__, *,
+                 graph_arn: pulumi.Input[_builtins.str],
+                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] graph_arn: ARN of the Neptune Analytics vector store.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs'] field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        pulumi.set(__self__, "graph_arn", graph_arn)
+        if field_mapping is not None:
+            pulumi.set(__self__, "field_mapping", field_mapping)
+
+    @_builtins.property
+    @pulumi.getter(name="graphArn")
+    def graph_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Neptune Analytics vector store.
+        """
+        return pulumi.get(self, "graph_arn")
+
+    @graph_arn.setter
+    def graph_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "graph_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs']]:
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs']]):
+        pulumi.set(self, "field_mapping", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgsDict(TypedDict):
+        metadata_field: pulumi.Input[_builtins.str]
+        """
+        Name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        text_field: pulumi.Input[_builtins.str]
+        """
+        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs:
+    def __init__(__self__, *,
+                 metadata_field: pulumi.Input[_builtins.str],
+                 text_field: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param pulumi.Input[_builtins.str] text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        pulumi.set(__self__, "metadata_field", metadata_field)
+        pulumi.set(__self__, "text_field", text_field)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @metadata_field.setter
+    def metadata_field(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "metadata_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+    @text_field.setter
+    def text_field(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "text_field", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgsDict(TypedDict):
+        domain_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the OpenSearch domain.
+        """
+        domain_endpoint: pulumi.Input[_builtins.str]
+        """
+        Endpoint URL of the OpenSearch domain.
+        """
+        vector_index_name: pulumi.Input[_builtins.str]
+        """
+        Name of the vector store.
+        """
+        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgsDict']]
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs:
+    def __init__(__self__, *,
+                 domain_arn: pulumi.Input[_builtins.str],
+                 domain_endpoint: pulumi.Input[_builtins.str],
+                 vector_index_name: pulumi.Input[_builtins.str],
+                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] domain_arn: ARN of the OpenSearch domain.
+        :param pulumi.Input[_builtins.str] domain_endpoint: Endpoint URL of the OpenSearch domain.
+        :param pulumi.Input[_builtins.str] vector_index_name: Name of the vector store.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs'] field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        pulumi.set(__self__, "domain_arn", domain_arn)
+        pulumi.set(__self__, "domain_endpoint", domain_endpoint)
+        pulumi.set(__self__, "vector_index_name", vector_index_name)
+        if field_mapping is not None:
+            pulumi.set(__self__, "field_mapping", field_mapping)
+
+    @_builtins.property
+    @pulumi.getter(name="domainArn")
+    def domain_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the OpenSearch domain.
+        """
+        return pulumi.get(self, "domain_arn")
+
+    @domain_arn.setter
+    def domain_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainEndpoint")
+    def domain_endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        Endpoint URL of the OpenSearch domain.
+        """
+        return pulumi.get(self, "domain_endpoint")
+
+    @domain_endpoint.setter
+    def domain_endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vectorIndexName")
+    def vector_index_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the vector store.
+        """
+        return pulumi.get(self, "vector_index_name")
+
+    @vector_index_name.setter
+    def vector_index_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vector_index_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs']]:
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs']]):
+        pulumi.set(self, "field_mapping", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgsDict(TypedDict):
+        metadata_field: pulumi.Input[_builtins.str]
+        """
+        Name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        text_field: pulumi.Input[_builtins.str]
+        """
+        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        vector_field: pulumi.Input[_builtins.str]
+        """
+        Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs:
+    def __init__(__self__, *,
+                 metadata_field: pulumi.Input[_builtins.str],
+                 text_field: pulumi.Input[_builtins.str],
+                 vector_field: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param pulumi.Input[_builtins.str] text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        :param pulumi.Input[_builtins.str] vector_field: Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        pulumi.set(__self__, "metadata_field", metadata_field)
+        pulumi.set(__self__, "text_field", text_field)
+        pulumi.set(__self__, "vector_field", vector_field)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @metadata_field.setter
+    def metadata_field(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "metadata_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+    @text_field.setter
+    def text_field(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "text_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vectorField")
+    def vector_field(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        return pulumi.get(self, "vector_field")
+
+    @vector_field.setter
+    def vector_field(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vector_field", value)
 
 
 if not MYPY:
@@ -7318,15 +8878,15 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArg
 
 if not MYPY:
     class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgsDict(TypedDict):
-        metadata_field: NotRequired[pulumi.Input[_builtins.str]]
+        metadata_field: pulumi.Input[_builtins.str]
         """
         Name of the field in which Amazon Bedrock stores metadata about the vector store.
         """
-        text_field: NotRequired[pulumi.Input[_builtins.str]]
+        text_field: pulumi.Input[_builtins.str]
         """
         Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         """
-        vector_field: NotRequired[pulumi.Input[_builtins.str]]
+        vector_field: pulumi.Input[_builtins.str]
         """
         Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
         """
@@ -7336,55 +8896,52 @@ elif False:
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs:
     def __init__(__self__, *,
-                 metadata_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 text_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 vector_field: Optional[pulumi.Input[_builtins.str]] = None):
+                 metadata_field: pulumi.Input[_builtins.str],
+                 text_field: pulumi.Input[_builtins.str],
+                 vector_field: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param pulumi.Input[_builtins.str] text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         :param pulumi.Input[_builtins.str] vector_field: Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
         """
-        if metadata_field is not None:
-            pulumi.set(__self__, "metadata_field", metadata_field)
-        if text_field is not None:
-            pulumi.set(__self__, "text_field", text_field)
-        if vector_field is not None:
-            pulumi.set(__self__, "vector_field", vector_field)
+        pulumi.set(__self__, "metadata_field", metadata_field)
+        pulumi.set(__self__, "text_field", text_field)
+        pulumi.set(__self__, "vector_field", vector_field)
 
     @_builtins.property
     @pulumi.getter(name="metadataField")
-    def metadata_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_field(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the field in which Amazon Bedrock stores metadata about the vector store.
         """
         return pulumi.get(self, "metadata_field")
 
     @metadata_field.setter
-    def metadata_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_field(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "metadata_field", value)
 
     @_builtins.property
     @pulumi.getter(name="textField")
-    def text_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def text_field(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         """
         return pulumi.get(self, "text_field")
 
     @text_field.setter
-    def text_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def text_field(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "text_field", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorField")
-    def vector_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vector_field(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
         """
         return pulumi.get(self, "vector_field")
 
     @vector_field.setter
-    def vector_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vector_field(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vector_field", value)
 
 
@@ -7480,11 +9037,11 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs:
 
 if not MYPY:
     class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgsDict(TypedDict):
-        metadata_field: NotRequired[pulumi.Input[_builtins.str]]
+        metadata_field: pulumi.Input[_builtins.str]
         """
         Name of the field in which Amazon Bedrock stores metadata about the vector store.
         """
-        text_field: NotRequired[pulumi.Input[_builtins.str]]
+        text_field: pulumi.Input[_builtins.str]
         """
         Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         """
@@ -7494,39 +9051,37 @@ elif False:
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs:
     def __init__(__self__, *,
-                 metadata_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 text_field: Optional[pulumi.Input[_builtins.str]] = None):
+                 metadata_field: pulumi.Input[_builtins.str],
+                 text_field: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param pulumi.Input[_builtins.str] text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         """
-        if metadata_field is not None:
-            pulumi.set(__self__, "metadata_field", metadata_field)
-        if text_field is not None:
-            pulumi.set(__self__, "text_field", text_field)
+        pulumi.set(__self__, "metadata_field", metadata_field)
+        pulumi.set(__self__, "text_field", text_field)
 
     @_builtins.property
     @pulumi.getter(name="metadataField")
-    def metadata_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_field(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the field in which Amazon Bedrock stores metadata about the vector store.
         """
         return pulumi.get(self, "metadata_field")
 
     @metadata_field.setter
-    def metadata_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_field(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "metadata_field", value)
 
     @_builtins.property
     @pulumi.getter(name="textField")
-    def text_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def text_field(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         """
         return pulumi.get(self, "text_field")
 
     @text_field.setter
-    def text_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def text_field(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "text_field", value)
 
 
@@ -7905,6 +9460,78 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFie
     @vector_field.setter
     def vector_field(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "vector_field", value)
+
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgsDict(TypedDict):
+        index_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ARN of the S3 Vectors index. Conflicts with `index_name` and `vector_bucket_arn`.
+        """
+        index_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Name of the S3 Vectors index. Must be specified with `vector_bucket_arn`. Conflicts with `index_arn`.
+        """
+        vector_bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ARN of the S3 Vectors vector bucket. Must be specified with `index_name`. Conflicts with `index_arn`.
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs:
+    def __init__(__self__, *,
+                 index_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] index_arn: ARN of the S3 Vectors index. Conflicts with `index_name` and `vector_bucket_arn`.
+        :param pulumi.Input[_builtins.str] index_name: Name of the S3 Vectors index. Must be specified with `vector_bucket_arn`. Conflicts with `index_arn`.
+        :param pulumi.Input[_builtins.str] vector_bucket_arn: ARN of the S3 Vectors vector bucket. Must be specified with `index_name`. Conflicts with `index_arn`.
+        """
+        if index_arn is not None:
+            pulumi.set(__self__, "index_arn", index_arn)
+        if index_name is not None:
+            pulumi.set(__self__, "index_name", index_name)
+        if vector_bucket_arn is not None:
+            pulumi.set(__self__, "vector_bucket_arn", vector_bucket_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="indexArn")
+    def index_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the S3 Vectors index. Conflicts with `index_name` and `vector_bucket_arn`.
+        """
+        return pulumi.get(self, "index_arn")
+
+    @index_arn.setter
+    def index_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "index_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the S3 Vectors index. Must be specified with `vector_bucket_arn`. Conflicts with `index_arn`.
+        """
+        return pulumi.get(self, "index_name")
+
+    @index_name.setter
+    def index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "index_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vectorBucketArn")
+    def vector_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the S3 Vectors vector bucket. Must be specified with `index_name`. Conflicts with `index_arn`.
+        """
+        return pulumi.get(self, "vector_bucket_arn")
+
+    @vector_bucket_arn.setter
+    def vector_bucket_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "vector_bucket_arn", value)
 
 
 if not MYPY:

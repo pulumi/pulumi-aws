@@ -476,14 +476,14 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+     * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
      * 
      */
     @Export(name="userGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userGroupId;
 
     /**
-     * @return The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+     * @return The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
      * 
      */
     public Output<Optional<String>> userGroupId() {

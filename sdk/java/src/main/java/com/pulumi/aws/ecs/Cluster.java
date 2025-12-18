@@ -218,7 +218,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .configuration(ClusterConfigurationArgs.builder()
  *                 .managedStorageConfiguration(ClusterConfigurationManagedStorageConfigurationArgs.builder()
- *                     .fargateEphemeralStorageKmsKeyId(example.id())
+ *                     .fargateEphemeralStorageKmsKeyId(example.arn())
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()

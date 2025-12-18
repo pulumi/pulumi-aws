@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkmanager.outputs;
 
+import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentSegmentActionVia;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo;
 import com.pulumi.core.annotations.CustomType;
@@ -16,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCoreNetworkPolicyDocumentSegmentAction {
     /**
-     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
      * 
      */
     private String action;
@@ -35,6 +36,11 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
      * 
      */
     private @Nullable List<String> destinations;
+    /**
+     * @return Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+     * 
+     */
+    private @Nullable GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation edgeLocationAssociation;
     /**
      * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
      * 
@@ -68,7 +74,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
 
     private GetCoreNetworkPolicyDocumentSegmentAction() {}
     /**
-     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
      * 
      */
     public String action() {
@@ -94,6 +100,13 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
      */
     public List<String> destinations() {
         return this.destinations == null ? List.of() : this.destinations;
+    }
+    /**
+     * @return Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+     * 
+     */
+    public Optional<GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation> edgeLocationAssociation() {
+        return Optional.ofNullable(this.edgeLocationAssociation);
     }
     /**
      * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
@@ -151,6 +164,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         private @Nullable String description;
         private @Nullable List<String> destinationCidrBlocks;
         private @Nullable List<String> destinations;
+        private @Nullable GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation edgeLocationAssociation;
         private @Nullable String mode;
         private String segment;
         private @Nullable List<String> shareWithExcepts;
@@ -164,6 +178,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
     	      this.description = defaults.description;
     	      this.destinationCidrBlocks = defaults.destinationCidrBlocks;
     	      this.destinations = defaults.destinations;
+    	      this.edgeLocationAssociation = defaults.edgeLocationAssociation;
     	      this.mode = defaults.mode;
     	      this.segment = defaults.segment;
     	      this.shareWithExcepts = defaults.shareWithExcepts;
@@ -203,6 +218,12 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         }
         public Builder destinations(String... destinations) {
             return destinations(List.of(destinations));
+        }
+        @CustomType.Setter
+        public Builder edgeLocationAssociation(@Nullable GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation edgeLocationAssociation) {
+
+            this.edgeLocationAssociation = edgeLocationAssociation;
+            return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
@@ -254,6 +275,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
             _resultValue.description = description;
             _resultValue.destinationCidrBlocks = destinationCidrBlocks;
             _resultValue.destinations = destinations;
+            _resultValue.edgeLocationAssociation = edgeLocationAssociation;
             _resultValue.mode = mode;
             _resultValue.segment = segment;
             _resultValue.shareWithExcepts = shareWithExcepts;

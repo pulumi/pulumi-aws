@@ -14,20 +14,34 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfiguration
     {
         /// <summary>
-        /// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
+        /// Settings for an Amazon Kendra knowledge base. See `KendraKnowledgeBaseConfiguration` block for details.
+        /// </summary>
+        public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration? KendraKnowledgeBaseConfiguration;
+        /// <summary>
+        /// Configurations for a knowledge base connected to an SQL database. See `SqlKnowledgeBaseConfiguration` block for details.
+        /// </summary>
+        public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration? SqlKnowledgeBaseConfiguration;
+        /// <summary>
+        /// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Details about the embeddings model that'sused to convert the data source. See `VectorKnowledgeBaseConfiguration` block for details.
+        /// Details about the model that's used to convert the data source into vector embeddings. See `VectorKnowledgeBaseConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration? VectorKnowledgeBaseConfiguration;
 
         [OutputConstructor]
         private AgentKnowledgeBaseKnowledgeBaseConfiguration(
+            Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration? kendraKnowledgeBaseConfiguration,
+
+            Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration? sqlKnowledgeBaseConfiguration,
+
             string type,
 
             Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration? vectorKnowledgeBaseConfiguration)
         {
+            KendraKnowledgeBaseConfiguration = kendraKnowledgeBaseConfiguration;
+            SqlKnowledgeBaseConfiguration = sqlKnowledgeBaseConfiguration;
             Type = type;
             VectorKnowledgeBaseConfiguration = vectorKnowledgeBaseConfiguration;
         }

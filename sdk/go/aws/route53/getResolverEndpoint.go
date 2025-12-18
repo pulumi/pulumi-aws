@@ -111,8 +111,12 @@ type LookupResolverEndpointResult struct {
 	ResolverEndpointId *string  `pulumi:"resolverEndpointId"`
 	// The Resolver endpoint IP address type.
 	ResolverEndpointType string `pulumi:"resolverEndpointType"`
+	// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint.
+	RniEnhancedMetricsEnabled bool `pulumi:"rniEnhancedMetricsEnabled"`
 	// Current status of the Resolver Endpoint.
 	Status string `pulumi:"status"`
+	// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints.
+	TargetNameServerMetricsEnabled bool `pulumi:"targetNameServerMetricsEnabled"`
 	// ID of the Host VPC that the Resolver Endpoint resides in.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -203,9 +207,19 @@ func (o LookupResolverEndpointResultOutput) ResolverEndpointType() pulumi.String
 	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.ResolverEndpointType }).(pulumi.StringOutput)
 }
 
+// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint.
+func (o LookupResolverEndpointResultOutput) RniEnhancedMetricsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) bool { return v.RniEnhancedMetricsEnabled }).(pulumi.BoolOutput)
+}
+
 // Current status of the Resolver Endpoint.
 func (o LookupResolverEndpointResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints.
+func (o LookupResolverEndpointResultOutput) TargetNameServerMetricsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) bool { return v.TargetNameServerMetricsEnabled }).(pulumi.BoolOutput)
 }
 
 // ID of the Host VPC that the Resolver Endpoint resides in.

@@ -110,6 +110,8 @@ type VpcAttachment struct {
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// Attachment resource ARN.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
 	// Name of the segment attachment.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// State of the attachment.
@@ -183,6 +185,8 @@ type vpcAttachmentState struct {
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// Attachment resource ARN.
 	ResourceArn *string `pulumi:"resourceArn"`
+	// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Name of the segment attachment.
 	SegmentName *string `pulumi:"segmentName"`
 	// State of the attachment.
@@ -218,6 +222,8 @@ type VpcAttachmentState struct {
 	OwnerAccountId pulumi.StringPtrInput
 	// Attachment resource ARN.
 	ResourceArn pulumi.StringPtrInput
+	// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Name of the segment attachment.
 	SegmentName pulumi.StringPtrInput
 	// State of the attachment.
@@ -243,6 +249,8 @@ type vpcAttachmentArgs struct {
 	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// Options for the VPC attachment. See below.
 	Options *VpcAttachmentOptions `pulumi:"options"`
+	// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Subnet ARNs of the VPC attachment.
 	SubnetArns []string `pulumi:"subnetArns"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -259,6 +267,8 @@ type VpcAttachmentArgs struct {
 	CoreNetworkId pulumi.StringInput
 	// Options for the VPC attachment. See below.
 	Options VpcAttachmentOptionsPtrInput
+	// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Subnet ARNs of the VPC attachment.
 	SubnetArns pulumi.StringArrayInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -399,6 +409,11 @@ func (o VpcAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 // Attachment resource ARN.
 func (o VpcAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+func (o VpcAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
 // Name of the segment attachment.

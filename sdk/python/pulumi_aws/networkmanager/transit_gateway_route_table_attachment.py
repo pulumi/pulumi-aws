@@ -21,6 +21,7 @@ class TransitGatewayRouteTableAttachmentArgs:
     def __init__(__self__, *,
                  peering_id: pulumi.Input[_builtins.str],
                  transit_gateway_route_table_arn: pulumi.Input[_builtins.str],
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TransitGatewayRouteTableAttachment resource.
@@ -28,10 +29,13 @@ class TransitGatewayRouteTableAttachmentArgs:
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_arn: ARN of the transit gateway route table for the attachment.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "peering_id", peering_id)
         pulumi.set(__self__, "transit_gateway_route_table_arn", transit_gateway_route_table_arn)
+        if routing_policy_label is not None:
+            pulumi.set(__self__, "routing_policy_label", routing_policy_label)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -62,6 +66,18 @@ class TransitGatewayRouteTableAttachmentArgs:
         pulumi.set(self, "transit_gateway_route_table_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        """
+        return pulumi.get(self, "routing_policy_label")
+
+    @routing_policy_label.setter
+    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_policy_label", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -86,6 +102,7 @@ class _TransitGatewayRouteTableAttachmentState:
                  owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  peering_id: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -102,6 +119,7 @@ class _TransitGatewayRouteTableAttachmentState:
         :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
         :param pulumi.Input[_builtins.str] peering_id: ID of the peer for the attachment.
         :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
         :param pulumi.Input[_builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -128,6 +146,8 @@ class _TransitGatewayRouteTableAttachmentState:
             pulumi.set(__self__, "peering_id", peering_id)
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
+        if routing_policy_label is not None:
+            pulumi.set(__self__, "routing_policy_label", routing_policy_label)
         if segment_name is not None:
             pulumi.set(__self__, "segment_name", segment_name)
         if state is not None:
@@ -248,6 +268,18 @@ class _TransitGatewayRouteTableAttachmentState:
         pulumi.set(self, "resource_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        """
+        return pulumi.get(self, "routing_policy_label")
+
+    @routing_policy_label.setter
+    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_policy_label", value)
+
+    @_builtins.property
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -317,6 +349,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  peering_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  transit_gateway_route_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -345,6 +378,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] peering_id: ID of the peer for the attachment.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_arn: ARN of the transit gateway route table for the attachment.
                
@@ -394,6 +428,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  peering_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  transit_gateway_route_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -408,6 +443,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
             if peering_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_id'")
             __props__.__dict__["peering_id"] = peering_id
+            __props__.__dict__["routing_policy_label"] = routing_policy_label
             __props__.__dict__["tags"] = tags
             if transit_gateway_route_table_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_route_table_arn'")
@@ -442,6 +478,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
             owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
             peering_id: Optional[pulumi.Input[_builtins.str]] = None,
             resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+            routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
             segment_name: Optional[pulumi.Input[_builtins.str]] = None,
             state: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -463,6 +500,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
         :param pulumi.Input[_builtins.str] peering_id: ID of the peer for the attachment.
         :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
         :param pulumi.Input[_builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -484,6 +522,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         __props__.__dict__["owner_account_id"] = owner_account_id
         __props__.__dict__["peering_id"] = peering_id
         __props__.__dict__["resource_arn"] = resource_arn
+        __props__.__dict__["routing_policy_label"] = routing_policy_label
         __props__.__dict__["segment_name"] = segment_name
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
@@ -562,6 +601,14 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         Attachment resource ARN.
         """
         return pulumi.get(self, "resource_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        """
+        return pulumi.get(self, "routing_policy_label")
 
     @_builtins.property
     @pulumi.getter(name="segmentName")

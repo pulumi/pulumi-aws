@@ -385,7 +385,7 @@ class Cluster(pulumi.CustomResource):
             name="example",
             configuration={
                 "managed_storage_configuration": {
-                    "fargate_ephemeral_storage_kms_key_id": example.id,
+                    "fargate_ephemeral_storage_kms_key_id": example.arn,
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_key_policy]))
@@ -522,7 +522,7 @@ class Cluster(pulumi.CustomResource):
             name="example",
             configuration={
                 "managed_storage_configuration": {
-                    "fargate_ephemeral_storage_kms_key_id": example.id,
+                    "fargate_ephemeral_storage_kms_key_id": example.arn,
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_key_policy]))

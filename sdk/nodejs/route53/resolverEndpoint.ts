@@ -116,6 +116,10 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      */
     declare public readonly resolverEndpointType: pulumi.Output<string>;
     /**
+     * Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     */
+    declare public readonly rniEnhancedMetricsEnabled: pulumi.Output<boolean>;
+    /**
      * ID of one or more security groups that you want to use to control access to this VPC.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
@@ -127,6 +131,10 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     */
+    declare public readonly targetNameServerMetricsEnabled: pulumi.Output<boolean>;
 
     /**
      * Create a ResolverEndpoint resource with the given unique name, arguments, and options.
@@ -149,9 +157,11 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["protocols"] = state?.protocols;
             resourceInputs["region"] = state?.region;
             resourceInputs["resolverEndpointType"] = state?.resolverEndpointType;
+            resourceInputs["rniEnhancedMetricsEnabled"] = state?.rniEnhancedMetricsEnabled;
             resourceInputs["securityGroupIds"] = state?.securityGroupIds;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["targetNameServerMetricsEnabled"] = state?.targetNameServerMetricsEnabled;
         } else {
             const args = argsOrState as ResolverEndpointArgs | undefined;
             if (args?.direction === undefined && !opts.urn) {
@@ -169,8 +179,10 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["protocols"] = args?.protocols;
             resourceInputs["region"] = args?.region;
             resourceInputs["resolverEndpointType"] = args?.resolverEndpointType;
+            resourceInputs["rniEnhancedMetricsEnabled"] = args?.rniEnhancedMetricsEnabled;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetNameServerMetricsEnabled"] = args?.targetNameServerMetricsEnabled;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hostVpcId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -221,6 +233,10 @@ export interface ResolverEndpointState {
      */
     resolverEndpointType?: pulumi.Input<string>;
     /**
+     * Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     */
+    rniEnhancedMetricsEnabled?: pulumi.Input<boolean>;
+    /**
      * ID of one or more security groups that you want to use to control access to this VPC.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -232,6 +248,10 @@ export interface ResolverEndpointState {
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     */
+    targetNameServerMetricsEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -267,6 +287,10 @@ export interface ResolverEndpointArgs {
      */
     resolverEndpointType?: pulumi.Input<string>;
     /**
+     * Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     */
+    rniEnhancedMetricsEnabled?: pulumi.Input<boolean>;
+    /**
      * ID of one or more security groups that you want to use to control access to this VPC.
      */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
@@ -274,4 +298,8 @@ export interface ResolverEndpointArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+     */
+    targetNameServerMetricsEnabled?: pulumi.Input<boolean>;
 }

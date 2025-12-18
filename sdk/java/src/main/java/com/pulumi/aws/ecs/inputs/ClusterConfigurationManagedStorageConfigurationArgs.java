@@ -16,14 +16,14 @@ public final class ClusterConfigurationManagedStorageConfigurationArgs extends c
     public static final ClusterConfigurationManagedStorageConfigurationArgs Empty = new ClusterConfigurationManagedStorageConfigurationArgs();
 
     /**
-     * AWS Key Management Service key ID for the Fargate ephemeral storage.
+     * AWS Key Management Service key ARN for the Fargate ephemeral storage.
      * 
      */
     @Import(name="fargateEphemeralStorageKmsKeyId")
     private @Nullable Output<String> fargateEphemeralStorageKmsKeyId;
 
     /**
-     * @return AWS Key Management Service key ID for the Fargate ephemeral storage.
+     * @return AWS Key Management Service key ARN for the Fargate ephemeral storage.
      * 
      */
     public Optional<Output<String>> fargateEphemeralStorageKmsKeyId() {
@@ -31,14 +31,14 @@ public final class ClusterConfigurationManagedStorageConfigurationArgs extends c
     }
 
     /**
-     * AWS Key Management Service key ID to encrypt the managed storage.
+     * AWS Key Management Service key ARN to encrypt the managed storage.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return AWS Key Management Service key ID to encrypt the managed storage.
+     * @return AWS Key Management Service key ARN to encrypt the managed storage.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -71,7 +71,7 @@ public final class ClusterConfigurationManagedStorageConfigurationArgs extends c
         }
 
         /**
-         * @param fargateEphemeralStorageKmsKeyId AWS Key Management Service key ID for the Fargate ephemeral storage.
+         * @param fargateEphemeralStorageKmsKeyId AWS Key Management Service key ARN for the Fargate ephemeral storage.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClusterConfigurationManagedStorageConfigurationArgs extends c
         }
 
         /**
-         * @param fargateEphemeralStorageKmsKeyId AWS Key Management Service key ID for the Fargate ephemeral storage.
+         * @param fargateEphemeralStorageKmsKeyId AWS Key Management Service key ARN for the Fargate ephemeral storage.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ClusterConfigurationManagedStorageConfigurationArgs extends c
         }
 
         /**
-         * @param kmsKeyId AWS Key Management Service key ID to encrypt the managed storage.
+         * @param kmsKeyId AWS Key Management Service key ARN to encrypt the managed storage.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ClusterConfigurationManagedStorageConfigurationArgs extends c
         }
 
         /**
-         * @param kmsKeyId AWS Key Management Service key ID to encrypt the managed storage.
+         * @param kmsKeyId AWS Key Management Service key ARN to encrypt the managed storage.
          * 
          * @return builder
          * 

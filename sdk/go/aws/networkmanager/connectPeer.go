@@ -58,7 +58,7 @@ import (
 // ConnectAttachmentId: exampleConnectAttachment.ID(),
 // PeerAddress: pulumi.String("127.0.0.1"),
 // BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
-// PeerAsn: pulumi.Int(65000),
+// PeerAsn: pulumi.String("65000"),
 // },
 // InsideCidrBlocks: pulumi.StringArray{
 // pulumi.String("172.16.0.0/16"),
@@ -135,7 +135,7 @@ import (
 // ConnectAttachmentId: exampleConnectAttachment.ID(),
 // PeerAddress: pulumi.String("127.0.0.1"),
 // BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
-// PeerAsn: pulumi.Int(65500),
+// PeerAsn: pulumi.String("65500"),
 // },
 // InsideCidrBlocks: pulumi.StringArray{
 // pulumi.String("172.16.0.0/16"),
@@ -198,7 +198,7 @@ import (
 // ConnectAttachmentId: exampleConnectAttachment.ID(),
 // PeerAddress: pulumi.String("127.0.0.1"),
 // BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
-// PeerAsn: pulumi.Int(65000),
+// PeerAsn: pulumi.String("65000"),
 // },
 // SubnetArn: pulumi.Any(example2.Arn),
 // })
@@ -230,7 +230,7 @@ type ConnectPeer struct {
 	// ARN of the Connect peer.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Connect peer BGP options. See bgpOptions for more information.
-	BgpOptions ConnectPeerBgpOptionsPtrOutput `pulumi:"bgpOptions"`
+	BgpOptions ConnectPeerBgpOptionsOutput `pulumi:"bgpOptions"`
 	// Configuration of the Connect peer.
 	Configurations ConnectPeerConfigurationArrayOutput `pulumi:"configurations"`
 	// ID of the connection attachment.
@@ -502,8 +502,8 @@ func (o ConnectPeerOutput) Arn() pulumi.StringOutput {
 }
 
 // Connect peer BGP options. See bgpOptions for more information.
-func (o ConnectPeerOutput) BgpOptions() ConnectPeerBgpOptionsPtrOutput {
-	return o.ApplyT(func(v *ConnectPeer) ConnectPeerBgpOptionsPtrOutput { return v.BgpOptions }).(ConnectPeerBgpOptionsPtrOutput)
+func (o ConnectPeerOutput) BgpOptions() ConnectPeerBgpOptionsOutput {
+	return o.ApplyT(func(v *ConnectPeer) ConnectPeerBgpOptionsOutput { return v.BgpOptions }).(ConnectPeerBgpOptionsOutput)
 }
 
 // Configuration of the Connect peer.

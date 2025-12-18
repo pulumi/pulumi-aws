@@ -188,6 +188,20 @@ public class DxGatewayAttachment extends com.pulumi.resources.CustomResource {
         return this.ownerAccountId;
     }
     /**
+     * The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * 
+     */
+    @Export(name="routingPolicyLabel", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> routingPolicyLabel;
+
+    /**
+     * @return The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * 
+     */
+    public Output<Optional<String>> routingPolicyLabel() {
+        return Codegen.optional(this.routingPolicyLabel);
+    }
+    /**
      * Name of the segment attachment.
      * 
      */

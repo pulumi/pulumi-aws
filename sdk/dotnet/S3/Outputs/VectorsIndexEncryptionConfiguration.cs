@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class VectorsIndexEncryptionConfiguration
     {
+        /// <summary>
+        /// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `SseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+        /// </summary>
         public readonly string KmsKeyArn;
         /// <summary>
         /// Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.

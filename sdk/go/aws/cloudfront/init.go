@@ -55,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RealtimeLogConfig{}
 	case "aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy":
 		r = &ResponseHeadersPolicy{}
+	case "aws:cloudfront/trustStore:TrustStore":
+		r = &TrustStore{}
 	case "aws:cloudfront/vpcOrigin:VpcOrigin":
 		r = &VpcOrigin{}
 	default:
@@ -153,6 +155,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/responseHeadersPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/trustStore",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

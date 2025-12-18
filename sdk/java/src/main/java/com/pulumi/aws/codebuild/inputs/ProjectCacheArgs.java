@@ -17,6 +17,21 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProjectCacheArgs Empty = new ProjectCacheArgs();
 
     /**
+     * Namespace that determines the scope in which a cache is shared across multiple projects.
+     * 
+     */
+    @Import(name="cacheNamespace")
+    private @Nullable Output<String> cacheNamespace;
+
+    /**
+     * @return Namespace that determines the scope in which a cache is shared across multiple projects.
+     * 
+     */
+    public Optional<Output<String>> cacheNamespace() {
+        return Optional.ofNullable(this.cacheNamespace);
+    }
+
+    /**
      * Location where the AWS CodeBuild project stores cached resources. For
      * type `S3`, the value must be a valid S3 bucket name/prefix.
      * 
@@ -70,6 +85,7 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
     private ProjectCacheArgs() {}
 
     private ProjectCacheArgs(ProjectCacheArgs $) {
+        this.cacheNamespace = $.cacheNamespace;
         this.location = $.location;
         this.modes = $.modes;
         this.type = $.type;
@@ -91,6 +107,27 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ProjectCacheArgs defaults) {
             $ = new ProjectCacheArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cacheNamespace Namespace that determines the scope in which a cache is shared across multiple projects.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cacheNamespace(@Nullable Output<String> cacheNamespace) {
+            $.cacheNamespace = cacheNamespace;
+            return this;
+        }
+
+        /**
+         * @param cacheNamespace Namespace that determines the scope in which a cache is shared across multiple projects.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cacheNamespace(String cacheNamespace) {
+            return cacheNamespace(Output.of(cacheNamespace));
         }
 
         /**

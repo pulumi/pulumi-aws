@@ -693,11 +693,30 @@ class ProjectBuildBatchConfigRestrictions(dict):
 
 @pulumi.output_type
 class ProjectCache(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheNamespace":
+            suggest = "cache_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectCache. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectCache.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectCache.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 cache_namespace: Optional[_builtins.str] = None,
                  location: Optional[_builtins.str] = None,
                  modes: Optional[Sequence[_builtins.str]] = None,
                  type: Optional[_builtins.str] = None):
         """
+        :param _builtins.str cache_namespace: Namespace that determines the scope in which a cache is shared across multiple projects.
         :param _builtins.str location: Location where the AWS CodeBuild project stores cached resources. For
                type `S3`, the value must be a valid S3 bucket name/prefix.
         :param Sequence[_builtins.str] modes: Specifies settings that AWS CodeBuild uses to store and reuse build
@@ -705,12 +724,22 @@ class ProjectCache(dict):
         :param _builtins.str type: Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`,
                `LOCAL`, `S3`. Defaults to `NO_CACHE`.
         """
+        if cache_namespace is not None:
+            pulumi.set(__self__, "cache_namespace", cache_namespace)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if modes is not None:
             pulumi.set(__self__, "modes", modes)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="cacheNamespace")
+    def cache_namespace(self) -> Optional[_builtins.str]:
+        """
+        Namespace that determines the scope in which a cache is shared across multiple projects.
+        """
+        return pulumi.get(self, "cache_namespace")
 
     @_builtins.property
     @pulumi.getter

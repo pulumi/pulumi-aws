@@ -208,6 +208,7 @@ class _DomainState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  portal_url: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 root_domain_unit_id: Optional[pulumi.Input[_builtins.str]] = None,
                  service_role: Optional[pulumi.Input[_builtins.str]] = None,
                  single_sign_on: Optional[pulumi.Input['DomainSingleSignOnArgs']] = None,
                  skip_deletion_check: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -226,6 +227,7 @@ class _DomainState:
         :param pulumi.Input[_builtins.str] name: Name of the Domain.
         :param pulumi.Input[_builtins.str] portal_url: URL of the data portal for the Domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] root_domain_unit_id: ID of the root domain unit.
         :param pulumi.Input[_builtins.str] service_role: ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
         :param pulumi.Input['DomainSingleSignOnArgs'] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         :param pulumi.Input[_builtins.bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
@@ -247,6 +249,8 @@ class _DomainState:
             pulumi.set(__self__, "portal_url", portal_url)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if root_domain_unit_id is not None:
+            pulumi.set(__self__, "root_domain_unit_id", root_domain_unit_id)
         if service_role is not None:
             pulumi.set(__self__, "service_role", service_role)
         if single_sign_on is not None:
@@ -357,6 +361,18 @@ class _DomainState:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rootDomainUnitId")
+    def root_domain_unit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the root domain unit.
+        """
+        return pulumi.get(self, "root_domain_unit_id")
+
+    @root_domain_unit_id.setter
+    def root_domain_unit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "root_domain_unit_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceRole")
@@ -779,6 +795,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
             __props__.__dict__["portal_url"] = None
+            __props__.__dict__["root_domain_unit_id"] = None
             __props__.__dict__["tags_all"] = None
         super(Domain, __self__).__init__(
             'aws:datazone/domain:Domain',
@@ -798,6 +815,7 @@ class Domain(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             portal_url: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
+            root_domain_unit_id: Optional[pulumi.Input[_builtins.str]] = None,
             service_role: Optional[pulumi.Input[_builtins.str]] = None,
             single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
             skip_deletion_check: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -821,6 +839,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the Domain.
         :param pulumi.Input[_builtins.str] portal_url: URL of the data portal for the Domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] root_domain_unit_id: ID of the root domain unit.
         :param pulumi.Input[_builtins.str] service_role: ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
         :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         :param pulumi.Input[_builtins.bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
@@ -838,6 +857,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["portal_url"] = portal_url
         __props__.__dict__["region"] = region
+        __props__.__dict__["root_domain_unit_id"] = root_domain_unit_id
         __props__.__dict__["service_role"] = service_role
         __props__.__dict__["single_sign_on"] = single_sign_on
         __props__.__dict__["skip_deletion_check"] = skip_deletion_check
@@ -911,6 +931,14 @@ class Domain(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="rootDomainUnitId")
+    def root_domain_unit_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        ID of the root domain unit.
+        """
+        return pulumi.get(self, "root_domain_unit_id")
 
     @_builtins.property
     @pulumi.getter(name="serviceRole")

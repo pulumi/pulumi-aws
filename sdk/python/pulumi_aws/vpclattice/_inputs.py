@@ -63,6 +63,8 @@ __all__ = [
     'ServiceNetworkResourceAssociationTimeoutsArgsDict',
     'ServiceNetworkServiceAssociationDnsEntryArgs',
     'ServiceNetworkServiceAssociationDnsEntryArgsDict',
+    'ServiceNetworkVpcAssociationDnsOptionsArgs',
+    'ServiceNetworkVpcAssociationDnsOptionsArgsDict',
     'TargetGroupAttachmentTargetArgs',
     'TargetGroupAttachmentTargetArgsDict',
     'TargetGroupConfigArgs',
@@ -1299,6 +1301,58 @@ class ServiceNetworkServiceAssociationDnsEntryArgs:
     @hosted_zone_id.setter
     def hosted_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "hosted_zone_id", value)
+
+
+if not MYPY:
+    class ServiceNetworkVpcAssociationDnsOptionsArgsDict(TypedDict):
+        private_dns_preference: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `private_dns_enabled` is `true`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
+        """
+        private_dns_specified_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `private_dns_enabled` is `true` and `private_dns_preference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
+        """
+elif False:
+    ServiceNetworkVpcAssociationDnsOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceNetworkVpcAssociationDnsOptionsArgs:
+    def __init__(__self__, *,
+                 private_dns_preference: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_dns_specified_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] private_dns_preference: Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `private_dns_enabled` is `true`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_dns_specified_domains: Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `private_dns_enabled` is `true` and `private_dns_preference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
+        """
+        if private_dns_preference is not None:
+            pulumi.set(__self__, "private_dns_preference", private_dns_preference)
+        if private_dns_specified_domains is not None:
+            pulumi.set(__self__, "private_dns_specified_domains", private_dns_specified_domains)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsPreference")
+    def private_dns_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `private_dns_enabled` is `true`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
+        """
+        return pulumi.get(self, "private_dns_preference")
+
+    @private_dns_preference.setter
+    def private_dns_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "private_dns_preference", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsSpecifiedDomains")
+    def private_dns_specified_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `private_dns_enabled` is `true` and `private_dns_preference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
+        """
+        return pulumi.get(self, "private_dns_specified_domains")
+
+    @private_dns_specified_domains.setter
+    def private_dns_specified_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "private_dns_specified_domains", value)
 
 
 if not MYPY:

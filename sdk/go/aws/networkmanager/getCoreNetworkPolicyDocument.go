@@ -131,26 +131,33 @@ func GetCoreNetworkPolicyDocument(ctx *pulumi.Context, args *GetCoreNetworkPolic
 type GetCoreNetworkPolicyDocumentArgs struct {
 	// In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
 	AttachmentPolicies []GetCoreNetworkPolicyDocumentAttachmentPolicy `pulumi:"attachmentPolicies"`
+	// Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+	AttachmentRoutingPolicyRules []GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule `pulumi:"attachmentRoutingPolicyRules"`
 	// The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
 	CoreNetworkConfigurations []GetCoreNetworkPolicyDocumentCoreNetworkConfiguration `pulumi:"coreNetworkConfigurations"`
 	// Block argument that defines the service insertion actions you want to include. Detailed below.
 	NetworkFunctionGroups []GetCoreNetworkPolicyDocumentNetworkFunctionGroup `pulumi:"networkFunctionGroups"`
+	// Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+	RoutingPolicies []GetCoreNetworkPolicyDocumentRoutingPolicy `pulumi:"routingPolicies"`
 	// A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
 	SegmentActions []GetCoreNetworkPolicyDocumentSegmentAction `pulumi:"segmentActions"`
 	// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
 	Segments []GetCoreNetworkPolicyDocumentSegment `pulumi:"segments"`
-	Version  *string                               `pulumi:"version"`
+	// Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
+	Version *string `pulumi:"version"`
 }
 
 // A collection of values returned by getCoreNetworkPolicyDocument.
 type GetCoreNetworkPolicyDocumentResult struct {
-	AttachmentPolicies        []GetCoreNetworkPolicyDocumentAttachmentPolicy         `pulumi:"attachmentPolicies"`
-	CoreNetworkConfigurations []GetCoreNetworkPolicyDocumentCoreNetworkConfiguration `pulumi:"coreNetworkConfigurations"`
+	AttachmentPolicies           []GetCoreNetworkPolicyDocumentAttachmentPolicy            `pulumi:"attachmentPolicies"`
+	AttachmentRoutingPolicyRules []GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule `pulumi:"attachmentRoutingPolicyRules"`
+	CoreNetworkConfigurations    []GetCoreNetworkPolicyDocumentCoreNetworkConfiguration    `pulumi:"coreNetworkConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Standard JSON policy document rendered based on the arguments above.
 	Json                  string                                             `pulumi:"json"`
 	NetworkFunctionGroups []GetCoreNetworkPolicyDocumentNetworkFunctionGroup `pulumi:"networkFunctionGroups"`
+	RoutingPolicies       []GetCoreNetworkPolicyDocumentRoutingPolicy        `pulumi:"routingPolicies"`
 	SegmentActions        []GetCoreNetworkPolicyDocumentSegmentAction        `pulumi:"segmentActions"`
 	Segments              []GetCoreNetworkPolicyDocumentSegment              `pulumi:"segments"`
 	Version               *string                                            `pulumi:"version"`
@@ -169,15 +176,20 @@ func GetCoreNetworkPolicyDocumentOutput(ctx *pulumi.Context, args GetCoreNetwork
 type GetCoreNetworkPolicyDocumentOutputArgs struct {
 	// In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
 	AttachmentPolicies GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput `pulumi:"attachmentPolicies"`
+	// Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+	AttachmentRoutingPolicyRules GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayInput `pulumi:"attachmentRoutingPolicyRules"`
 	// The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
 	CoreNetworkConfigurations GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput `pulumi:"coreNetworkConfigurations"`
 	// Block argument that defines the service insertion actions you want to include. Detailed below.
 	NetworkFunctionGroups GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayInput `pulumi:"networkFunctionGroups"`
+	// Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+	RoutingPolicies GetCoreNetworkPolicyDocumentRoutingPolicyArrayInput `pulumi:"routingPolicies"`
 	// A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
 	SegmentActions GetCoreNetworkPolicyDocumentSegmentActionArrayInput `pulumi:"segmentActions"`
 	// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
 	Segments GetCoreNetworkPolicyDocumentSegmentArrayInput `pulumi:"segments"`
-	Version  pulumi.StringPtrInput                         `pulumi:"version"`
+	// Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GetCoreNetworkPolicyDocumentOutputArgs) ElementType() reflect.Type {
@@ -205,6 +217,12 @@ func (o GetCoreNetworkPolicyDocumentResultOutput) AttachmentPolicies() GetCoreNe
 	}).(GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput)
 }
 
+func (o GetCoreNetworkPolicyDocumentResultOutput) AttachmentRoutingPolicyRules() GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) []GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule {
+		return v.AttachmentRoutingPolicyRules
+	}).(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArrayOutput)
+}
+
 func (o GetCoreNetworkPolicyDocumentResultOutput) CoreNetworkConfigurations() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) []GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
 		return v.CoreNetworkConfigurations
@@ -225,6 +243,12 @@ func (o GetCoreNetworkPolicyDocumentResultOutput) NetworkFunctionGroups() GetCor
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) []GetCoreNetworkPolicyDocumentNetworkFunctionGroup {
 		return v.NetworkFunctionGroups
 	}).(GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput)
+}
+
+func (o GetCoreNetworkPolicyDocumentResultOutput) RoutingPolicies() GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) []GetCoreNetworkPolicyDocumentRoutingPolicy {
+		return v.RoutingPolicies
+	}).(GetCoreNetworkPolicyDocumentRoutingPolicyArrayOutput)
 }
 
 func (o GetCoreNetworkPolicyDocumentResultOutput) SegmentActions() GetCoreNetworkPolicyDocumentSegmentActionArrayOutput {

@@ -270,9 +270,17 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public readonly string ResolverEndpointType;
         /// <summary>
+        /// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint.
+        /// </summary>
+        public readonly bool RniEnhancedMetricsEnabled;
+        /// <summary>
         /// Current status of the Resolver Endpoint.
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints.
+        /// </summary>
+        public readonly bool TargetNameServerMetricsEnabled;
         /// <summary>
         /// ID of the Host VPC that the Resolver Endpoint resides in.
         /// </summary>
@@ -300,7 +308,11 @@ namespace Pulumi.Aws.Route53
 
             string resolverEndpointType,
 
+            bool rniEnhancedMetricsEnabled,
+
             string status,
+
+            bool targetNameServerMetricsEnabled,
 
             string vpcId)
         {
@@ -314,7 +326,9 @@ namespace Pulumi.Aws.Route53
             Region = region;
             ResolverEndpointId = resolverEndpointId;
             ResolverEndpointType = resolverEndpointType;
+            RniEnhancedMetricsEnabled = rniEnhancedMetricsEnabled;
             Status = status;
+            TargetNameServerMetricsEnabled = targetNameServerMetricsEnabled;
             VpcId = vpcId;
         }
     }

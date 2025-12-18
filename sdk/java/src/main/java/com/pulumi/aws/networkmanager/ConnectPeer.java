@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .connectAttachmentId(exampleConnectAttachment.id())
  *             .peerAddress("127.0.0.1")
  *             .bgpOptions(ConnectPeerBgpOptionsArgs.builder()
- *                 .peerAsn(65000)
+ *                 .peerAsn("65000")
  *                 .build())
  *             .insideCidrBlocks("172.16.0.0/16")
  *             .build());
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  *             .connectAttachmentId(exampleConnectAttachment.id())
  *             .peerAddress("127.0.0.1")
  *             .bgpOptions(ConnectPeerBgpOptionsArgs.builder()
- *                 .peerAsn(65500)
+ *                 .peerAsn("65500")
  *                 .build())
  *             .insideCidrBlocks("172.16.0.0/16")
  *             .build(), CustomResourceOptions.builder()
@@ -209,7 +209,7 @@ import javax.annotation.Nullable;
  *             .connectAttachmentId(exampleConnectAttachment.id())
  *             .peerAddress("127.0.0.1")
  *             .bgpOptions(ConnectPeerBgpOptionsArgs.builder()
- *                 .peerAsn(65000)
+ *                 .peerAsn("65000")
  *                 .build())
  *             .subnetArn(example2.arn())
  *             .build());
@@ -249,14 +249,14 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="bgpOptions", refs={ConnectPeerBgpOptions.class}, tree="[0]")
-    private Output</* @Nullable */ ConnectPeerBgpOptions> bgpOptions;
+    private Output<ConnectPeerBgpOptions> bgpOptions;
 
     /**
      * @return Connect peer BGP options. See bgpOptions for more information.
      * 
      */
-    public Output<Optional<ConnectPeerBgpOptions>> bgpOptions() {
-        return Codegen.optional(this.bgpOptions);
+    public Output<ConnectPeerBgpOptions> bgpOptions() {
+        return this.bgpOptions;
     }
     /**
      * Configuration of the Connect peer.

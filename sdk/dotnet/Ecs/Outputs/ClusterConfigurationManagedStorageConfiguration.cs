@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ClusterConfigurationManagedStorageConfiguration
     {
         /// <summary>
-        /// AWS Key Management Service key ID for the Fargate ephemeral storage.
+        /// AWS Key Management Service key ARN for the Fargate ephemeral storage.
         /// </summary>
         public readonly string? FargateEphemeralStorageKmsKeyId;
         /// <summary>
-        /// AWS Key Management Service key ID to encrypt the managed storage.
+        /// AWS Key Management Service key ARN to encrypt the managed storage.
         /// </summary>
         public readonly string? KmsKeyId;
 

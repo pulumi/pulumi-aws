@@ -69,6 +69,8 @@ type TransitGatewayRouteTableAttachment struct {
 	PeeringId pulumi.StringOutput `pulumi:"peeringId"`
 	// Attachment resource ARN.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
 	// Name of the segment attachment.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// State of the attachment.
@@ -137,6 +139,8 @@ type transitGatewayRouteTableAttachmentState struct {
 	PeeringId *string `pulumi:"peeringId"`
 	// Attachment resource ARN.
 	ResourceArn *string `pulumi:"resourceArn"`
+	// The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Name of the segment attachment.
 	SegmentName *string `pulumi:"segmentName"`
 	// State of the attachment.
@@ -170,6 +174,8 @@ type TransitGatewayRouteTableAttachmentState struct {
 	PeeringId pulumi.StringPtrInput
 	// Attachment resource ARN.
 	ResourceArn pulumi.StringPtrInput
+	// The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Name of the segment attachment.
 	SegmentName pulumi.StringPtrInput
 	// State of the attachment.
@@ -191,6 +197,8 @@ func (TransitGatewayRouteTableAttachmentState) ElementType() reflect.Type {
 type transitGatewayRouteTableAttachmentArgs struct {
 	// ID of the peer for the attachment.
 	PeeringId string `pulumi:"peeringId"`
+	// The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// ARN of the transit gateway route table for the attachment.
@@ -203,6 +211,8 @@ type transitGatewayRouteTableAttachmentArgs struct {
 type TransitGatewayRouteTableAttachmentArgs struct {
 	// ID of the peer for the attachment.
 	PeeringId pulumi.StringInput
+	// The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// ARN of the transit gateway route table for the attachment.
@@ -341,6 +351,11 @@ func (o TransitGatewayRouteTableAttachmentOutput) PeeringId() pulumi.StringOutpu
 // Attachment resource ARN.
 func (o TransitGatewayRouteTableAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+func (o TransitGatewayRouteTableAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
 // Name of the segment attachment.

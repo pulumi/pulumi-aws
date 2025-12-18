@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Ecs
     ///         {
     ///             ManagedStorageConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationManagedStorageConfigurationArgs
     ///             {
-    ///                 FargateEphemeralStorageKmsKeyId = example.Id,
+    ///                 FargateEphemeralStorageKmsKeyId = example.Arn,
     ///             },
     ///         },
     ///     }, new CustomResourceOptions

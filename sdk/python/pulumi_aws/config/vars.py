@@ -255,3 +255,10 @@ class _ExportableConfig(types.ModuleType):
         """
         return __config__.get_bool('useFipsEndpoint')
 
+    @_builtins.property
+    def user_agents(self) -> Optional[str]:
+        """
+        Product details to append to the User-Agent string sent in all AWS API calls.
+        """
+        return __config__.get('userAgents')
+

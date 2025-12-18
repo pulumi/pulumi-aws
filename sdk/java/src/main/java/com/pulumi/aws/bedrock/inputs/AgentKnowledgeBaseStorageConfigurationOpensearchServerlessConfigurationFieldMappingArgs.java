@@ -5,10 +5,9 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,45 +18,45 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
      * Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
-    @Import(name="metadataField")
-    private @Nullable Output<String> metadataField;
+    @Import(name="metadataField", required=true)
+    private Output<String> metadataField;
 
     /**
      * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
-    public Optional<Output<String>> metadataField() {
-        return Optional.ofNullable(this.metadataField);
+    public Output<String> metadataField() {
+        return this.metadataField;
     }
 
     /**
      * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
-    @Import(name="textField")
-    private @Nullable Output<String> textField;
+    @Import(name="textField", required=true)
+    private Output<String> textField;
 
     /**
      * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
-    public Optional<Output<String>> textField() {
-        return Optional.ofNullable(this.textField);
+    public Output<String> textField() {
+        return this.textField;
     }
 
     /**
      * Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
      * 
      */
-    @Import(name="vectorField")
-    private @Nullable Output<String> vectorField;
+    @Import(name="vectorField", required=true)
+    private Output<String> vectorField;
 
     /**
      * @return Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
      * 
      */
-    public Optional<Output<String>> vectorField() {
-        return Optional.ofNullable(this.vectorField);
+    public Output<String> vectorField() {
+        return this.vectorField;
     }
 
     private AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs() {}
@@ -92,7 +91,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
          * @return builder
          * 
          */
-        public Builder metadataField(@Nullable Output<String> metadataField) {
+        public Builder metadataField(Output<String> metadataField) {
             $.metadataField = metadataField;
             return this;
         }
@@ -113,7 +112,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
          * @return builder
          * 
          */
-        public Builder textField(@Nullable Output<String> textField) {
+        public Builder textField(Output<String> textField) {
             $.textField = textField;
             return this;
         }
@@ -134,7 +133,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
          * @return builder
          * 
          */
-        public Builder vectorField(@Nullable Output<String> vectorField) {
+        public Builder vectorField(Output<String> vectorField) {
             $.vectorField = vectorField;
             return this;
         }
@@ -150,6 +149,15 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
         }
 
         public AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs build() {
+            if ($.metadataField == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs", "metadataField");
+            }
+            if ($.textField == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs", "textField");
+            }
+            if ($.vectorField == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs", "vectorField");
+            }
             return $;
         }
     }

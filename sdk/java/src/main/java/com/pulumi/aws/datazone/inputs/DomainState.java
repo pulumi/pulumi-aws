@@ -144,6 +144,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ID of the root domain unit.
+     * 
+     */
+    @Import(name="rootDomainUnitId")
+    private @Nullable Output<String> rootDomainUnitId;
+
+    /**
+     * @return ID of the root domain unit.
+     * 
+     */
+    public Optional<Output<String>> rootDomainUnitId() {
+        return Optional.ofNullable(this.rootDomainUnitId);
+    }
+
+    /**
      * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      * 
      */
@@ -228,6 +243,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.portalUrl = $.portalUrl;
         this.region = $.region;
+        this.rootDomainUnitId = $.rootDomainUnitId;
         this.serviceRole = $.serviceRole;
         this.singleSignOn = $.singleSignOn;
         this.skipDeletionCheck = $.skipDeletionCheck;
@@ -424,6 +440,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param rootDomainUnitId ID of the root domain unit.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rootDomainUnitId(@Nullable Output<String> rootDomainUnitId) {
+            $.rootDomainUnitId = rootDomainUnitId;
+            return this;
+        }
+
+        /**
+         * @param rootDomainUnitId ID of the root domain unit.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rootDomainUnitId(String rootDomainUnitId) {
+            return rootDomainUnitId(Output.of(rootDomainUnitId));
         }
 
         /**

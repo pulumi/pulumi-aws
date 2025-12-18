@@ -3,10 +3,14 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfigurationRdsConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -17,7 +21,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseStorageConfiguration {
     /**
-     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
+     * @return The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+     * 
+     */
+    private @Nullable AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration mongoDbAtlasConfiguration;
+    /**
+     * @return The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+     * 
+     */
+    private @Nullable AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration neptuneAnalyticsConfiguration;
+    /**
+     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+     * 
+     */
+    private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration opensearchManagedClusterConfiguration;
+    /**
+     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration opensearchServerlessConfiguration;
@@ -37,14 +56,40 @@ public final class AgentKnowledgeBaseStorageConfiguration {
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration redisEnterpriseCloudConfiguration;
     /**
-     * @return Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
+     * @return The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+     * 
+     */
+    private @Nullable AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration s3VectorsConfiguration;
+    /**
+     * @return Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
      * 
      */
     private String type;
 
     private AgentKnowledgeBaseStorageConfiguration() {}
     /**
-     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
+     * @return The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+     * 
+     */
+    public Optional<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration> mongoDbAtlasConfiguration() {
+        return Optional.ofNullable(this.mongoDbAtlasConfiguration);
+    }
+    /**
+     * @return The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+     * 
+     */
+    public Optional<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration> neptuneAnalyticsConfiguration() {
+        return Optional.ofNullable(this.neptuneAnalyticsConfiguration);
+    }
+    /**
+     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+     * 
+     */
+    public Optional<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration> opensearchManagedClusterConfiguration() {
+        return Optional.ofNullable(this.opensearchManagedClusterConfiguration);
+    }
+    /**
+     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration> opensearchServerlessConfiguration() {
@@ -72,7 +117,14 @@ public final class AgentKnowledgeBaseStorageConfiguration {
         return Optional.ofNullable(this.redisEnterpriseCloudConfiguration);
     }
     /**
-     * @return Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
+     * @return The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+     * 
+     */
+    public Optional<AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration> s3VectorsConfiguration() {
+        return Optional.ofNullable(this.s3VectorsConfiguration);
+    }
+    /**
+     * @return Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
      * 
      */
     public String type() {
@@ -88,21 +140,47 @@ public final class AgentKnowledgeBaseStorageConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration mongoDbAtlasConfiguration;
+        private @Nullable AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration neptuneAnalyticsConfiguration;
+        private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration opensearchManagedClusterConfiguration;
         private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration opensearchServerlessConfiguration;
         private @Nullable AgentKnowledgeBaseStorageConfigurationPineconeConfiguration pineconeConfiguration;
         private @Nullable AgentKnowledgeBaseStorageConfigurationRdsConfiguration rdsConfiguration;
         private @Nullable AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration redisEnterpriseCloudConfiguration;
+        private @Nullable AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration s3VectorsConfiguration;
         private String type;
         public Builder() {}
         public Builder(AgentKnowledgeBaseStorageConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.mongoDbAtlasConfiguration = defaults.mongoDbAtlasConfiguration;
+    	      this.neptuneAnalyticsConfiguration = defaults.neptuneAnalyticsConfiguration;
+    	      this.opensearchManagedClusterConfiguration = defaults.opensearchManagedClusterConfiguration;
     	      this.opensearchServerlessConfiguration = defaults.opensearchServerlessConfiguration;
     	      this.pineconeConfiguration = defaults.pineconeConfiguration;
     	      this.rdsConfiguration = defaults.rdsConfiguration;
     	      this.redisEnterpriseCloudConfiguration = defaults.redisEnterpriseCloudConfiguration;
+    	      this.s3VectorsConfiguration = defaults.s3VectorsConfiguration;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder mongoDbAtlasConfiguration(@Nullable AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration mongoDbAtlasConfiguration) {
+
+            this.mongoDbAtlasConfiguration = mongoDbAtlasConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder neptuneAnalyticsConfiguration(@Nullable AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration neptuneAnalyticsConfiguration) {
+
+            this.neptuneAnalyticsConfiguration = neptuneAnalyticsConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder opensearchManagedClusterConfiguration(@Nullable AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration opensearchManagedClusterConfiguration) {
+
+            this.opensearchManagedClusterConfiguration = opensearchManagedClusterConfiguration;
+            return this;
+        }
         @CustomType.Setter
         public Builder opensearchServerlessConfiguration(@Nullable AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration opensearchServerlessConfiguration) {
 
@@ -128,6 +206,12 @@ public final class AgentKnowledgeBaseStorageConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder s3VectorsConfiguration(@Nullable AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration s3VectorsConfiguration) {
+
+            this.s3VectorsConfiguration = s3VectorsConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfiguration", "type");
@@ -137,10 +221,14 @@ public final class AgentKnowledgeBaseStorageConfiguration {
         }
         public AgentKnowledgeBaseStorageConfiguration build() {
             final var _resultValue = new AgentKnowledgeBaseStorageConfiguration();
+            _resultValue.mongoDbAtlasConfiguration = mongoDbAtlasConfiguration;
+            _resultValue.neptuneAnalyticsConfiguration = neptuneAnalyticsConfiguration;
+            _resultValue.opensearchManagedClusterConfiguration = opensearchManagedClusterConfiguration;
             _resultValue.opensearchServerlessConfiguration = opensearchServerlessConfiguration;
             _resultValue.pineconeConfiguration = pineconeConfiguration;
             _resultValue.rdsConfiguration = rdsConfiguration;
             _resultValue.redisEnterpriseCloudConfiguration = redisEnterpriseCloudConfiguration;
+            _resultValue.s3VectorsConfiguration = s3VectorsConfiguration;
             _resultValue.type = type;
             return _resultValue;
         }

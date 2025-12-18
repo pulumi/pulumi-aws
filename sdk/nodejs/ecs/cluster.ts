@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     configuration: {
  *         managedStorageConfiguration: {
- *             fargateEphemeralStorageKmsKeyId: example.id,
+ *             fargateEphemeralStorageKmsKeyId: example.arn,
  *         },
  *     },
  * }, {
