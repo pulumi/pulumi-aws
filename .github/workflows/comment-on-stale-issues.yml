@@ -12,7 +12,7 @@ jobs:
     name: Stale issue job
     steps:
     # Workaround until https://github.com/aws-actions/stale-issue-cleanup/issues/385 is fixed
-    - uses: pose/stale-issue-cleanup@db44981197ae9cdada9a9c779c052439f9d62eac
+    - uses: pose/stale-issue-cleanup@04621e0eafc22d7bb8812c417325f35cc0ed0fce
       with:
         issue-types: issues # only look at issues (ignore pull-requests)
 
