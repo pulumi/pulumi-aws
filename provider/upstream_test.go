@@ -16,6 +16,7 @@ package provider
 import (
 	"os"
 	"os/exec"
+	"path/filepath"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -25,23 +26,46 @@ import (
 func TestUpstreamLint(t *testing.T) {
 	t.Parallel()
 
-	// Clear Go build cache before linting to avoid disk space issues
-	cleanCmd := exec.Command("go", "clean", "-cache")
-	cleanCmd.Dir = "../upstream"
-	cleanCmd.Stdout = os.Stdout
-	cleanCmd.Stderr = os.Stderr
-	if err := cleanCmd.Run(); err != nil {
-		// Log but don't fail - cache cleanup is best effort
+	upstreamDir := "../upstream"
+
+	// Clear Go build cache and temp directories to free disk space.
+	// The issue is that /tmp fills up during compilation of the large upstream provider.
+	cleanCacheCmd := exec.Command("go", "clean", "-cache")
+	cleanCacheCmd.Dir = upstreamDir
+	cleanCacheCmd.Stdout = os.Stdout
+	cleanCacheCmd.Stderr = os.Stderr
+	if err := cleanCacheCmd.Run(); err != nil {
 		t.Logf("Warning: failed to clean Go cache: %v", err)
 	}
 
+	// Clean /tmp/go-build* directories which are the temporary build workspaces.
+	// These can accumulate and fill up /tmp during parallel compilation.
+	cleanTmpCmd := exec.Command("sh", "-c", "rm -rf /tmp/go-build* 2>/dev/null || true")
+	cleanTmpCmd.Stdout = os.Stdout
+	cleanTmpCmd.Stderr = os.Stderr
+	if err := cleanTmpCmd.Run(); err != nil {
+		t.Logf("Warning: failed to clean /tmp/go-build directories: %v", err)
+	}
+
+	// Set GOTMPDIR to use the workspace directory instead of /tmp.
+	// This avoids /tmp space issues by using the workspace which typically has more space.
+	workspaceTmpDir, err := filepath.Abs("../.gotmp")
+	if err != nil {
+		t.Fatalf("Failed to resolve workspace temp directory path: %v", err)
+	}
+	if err := os.MkdirAll(workspaceTmpDir, 0755); err != nil {
+		t.Fatalf("Failed to create workspace temp directory: %v", err)
+	}
+	defer os.RemoveAll(workspaceTmpDir)
+
 	cmd := exec.Command("make", "provider-lint")
-	cmd.Dir = "../upstream"
+	cmd.Dir = upstreamDir
+	cmd.Env = append(os.Environ(), "GOTMPDIR="+workspaceTmpDir)
 
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
-	err := cmd.Start()
+	err = cmd.Start()
 	require.NoError(t, err)
 
 	err = cmd.Wait()
