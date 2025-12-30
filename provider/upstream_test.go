@@ -25,6 +25,16 @@ import (
 func TestUpstreamLint(t *testing.T) {
 	t.Parallel()
 
+	// Clear Go build cache before linting to avoid disk space issues
+	cleanCmd := exec.Command("go", "clean", "-cache")
+	cleanCmd.Dir = "../upstream"
+	cleanCmd.Stdout = os.Stdout
+	cleanCmd.Stderr = os.Stderr
+	if err := cleanCmd.Run(); err != nil {
+		// Log but don't fail - cache cleanup is best effort
+		t.Logf("Warning: failed to clean Go cache: %v", err)
+	}
+
 	cmd := exec.Command("make", "provider-lint")
 	cmd.Dir = "../upstream"
 
