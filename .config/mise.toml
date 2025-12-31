@@ -2,7 +2,7 @@
 # You can create your own root-level mise.toml file to override/augment this. See https://mise.jdx.dev/configuration.html
 
 [env]
-_.source = "{{config_root}}/scripts/get-versions.sh"
+_.vfox-pulumi = { module_path = "provider" } # Sets GO_VERSION_MISE and PULUMI_VERSION_MISE
 PULUMI_HOME = "{{config_root}}/.pulumi"
 
 [tools]

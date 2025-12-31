@@ -33,12 +33,13 @@ jobs:
           persist-credentials: false
 
       - name: Setup mise
-        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3
+        uses: blampe/mise-action@blampe/plugins
         env:
           MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:
           version: 2025.11.6
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          plugin_install: https://github.com/pulumi/vfox-pulumi
           # only saving the cache in the prerequisites job
           cache_save: false
 
