@@ -65,13 +65,14 @@ jobs:
         repository: pulumi/examples
         path: p-examples
     - name: Setup mise
-      uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3
+      uses: blampe/mise-action@blampe/plugins
       env:
         MISE_ENV: test
         MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
       with:
         version: 2025.11.6
         github_token: ${{ steps.app-auth.outputs.token }}
+        plugin_install: https://github.com/pulumi/vfox-pulumi
         # also save this cache since we are using a different mise env.
         cache_save: true
     - name: Prepare local workspace
