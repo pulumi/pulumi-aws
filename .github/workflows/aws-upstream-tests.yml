@@ -39,7 +39,7 @@ concurrency:
 jobs:
   upstream_tests:
     name: upstream_tests
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     permissions:
       contents: read
       id-token: write # For ESC secrets.
