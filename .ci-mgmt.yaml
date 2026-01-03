@@ -32,3 +32,5 @@ releaseVerification:
     dotnet: examples/webserver-cs
     go: examples/webserver-go
 autoMergeProviderUpgrades: false
+runner:
+    prerequisites: pulumi-ubuntu-8core
