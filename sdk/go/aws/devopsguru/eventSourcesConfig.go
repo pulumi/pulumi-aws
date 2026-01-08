@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -67,9 +68,12 @@ type EventSourcesConfig struct {
 func NewEventSourcesConfig(ctx *pulumi.Context,
 	name string, args *EventSourcesConfigArgs, opts ...pulumi.ResourceOption) (*EventSourcesConfig, error) {
 	if args == nil {
-		args = &EventSourcesConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.EventSources == nil {
+		return nil, errors.New("invalid value for required argument 'EventSources'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSourcesConfig
 	err := ctx.RegisterResource("aws:devopsguru/eventSourcesConfig:EventSourcesConfig", name, args, &resource, opts...)

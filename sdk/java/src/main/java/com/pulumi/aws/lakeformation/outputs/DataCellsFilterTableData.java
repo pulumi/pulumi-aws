@@ -39,7 +39,7 @@ public final class DataCellsFilterTableData {
      * @return A PartiQL predicate. See Row Filter below for details.
      * 
      */
-    private @Nullable DataCellsFilterTableDataRowFilter rowFilter;
+    private DataCellsFilterTableDataRowFilter rowFilter;
     /**
      * @return The ID of the Data Catalog.
      * 
@@ -89,8 +89,8 @@ public final class DataCellsFilterTableData {
      * @return A PartiQL predicate. See Row Filter below for details.
      * 
      */
-    public Optional<DataCellsFilterTableDataRowFilter> rowFilter() {
-        return Optional.ofNullable(this.rowFilter);
+    public DataCellsFilterTableDataRowFilter rowFilter() {
+        return this.rowFilter;
     }
     /**
      * @return The ID of the Data Catalog.
@@ -127,7 +127,7 @@ public final class DataCellsFilterTableData {
         private @Nullable DataCellsFilterTableDataColumnWildcard columnWildcard;
         private String databaseName;
         private String name;
-        private @Nullable DataCellsFilterTableDataRowFilter rowFilter;
+        private DataCellsFilterTableDataRowFilter rowFilter;
         private String tableCatalogId;
         private String tableName;
         private @Nullable String versionId;
@@ -176,8 +176,10 @@ public final class DataCellsFilterTableData {
             return this;
         }
         @CustomType.Setter
-        public Builder rowFilter(@Nullable DataCellsFilterTableDataRowFilter rowFilter) {
-
+        public Builder rowFilter(DataCellsFilterTableDataRowFilter rowFilter) {
+            if (rowFilter == null) {
+              throw new MissingRequiredPropertyException("DataCellsFilterTableData", "rowFilter");
+            }
             this.rowFilter = rowFilter;
             return this;
         }

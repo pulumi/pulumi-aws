@@ -16,10 +16,10 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// Configuration block for the S3 location of the CA certificates bundle. See `CaCertificatesBundleS3Location` below.
         /// </summary>
-        public readonly Outputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location? CaCertificatesBundleS3Location;
+        public readonly Outputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location CaCertificatesBundleS3Location;
 
         [OutputConstructor]
-        private TrustStoreCaCertificatesBundleSource(Outputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location? caCertificatesBundleS3Location)
+        private TrustStoreCaCertificatesBundleSource(Outputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location caCertificatesBundleS3Location)
         {
             CaCertificatesBundleS3Location = caCertificatesBundleS3Location;
         }

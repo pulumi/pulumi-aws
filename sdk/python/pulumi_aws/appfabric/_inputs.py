@@ -424,7 +424,7 @@ class AppAuthorizationTimeoutsArgs:
 
 if not MYPY:
     class IngestionDestinationDestinationConfigurationArgsDict(TypedDict):
-        audit_log: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgsDict']]
+        audit_log: pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgsDict']
         """
         Contains information about an audit log processing configuration.
         """
@@ -434,29 +434,28 @@ elif False:
 @pulumi.input_type
 class IngestionDestinationDestinationConfigurationArgs:
     def __init__(__self__, *,
-                 audit_log: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgs']] = None):
+                 audit_log: pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgs']):
         """
         :param pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgs'] audit_log: Contains information about an audit log processing configuration.
         """
-        if audit_log is not None:
-            pulumi.set(__self__, "audit_log", audit_log)
+        pulumi.set(__self__, "audit_log", audit_log)
 
     @_builtins.property
     @pulumi.getter(name="auditLog")
-    def audit_log(self) -> Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgs']]:
+    def audit_log(self) -> pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgs']:
         """
         Contains information about an audit log processing configuration.
         """
         return pulumi.get(self, "audit_log")
 
     @audit_log.setter
-    def audit_log(self, value: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgs']]):
+    def audit_log(self, value: pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgs']):
         pulumi.set(self, "audit_log", value)
 
 
 if not MYPY:
     class IngestionDestinationDestinationConfigurationAuditLogArgsDict(TypedDict):
-        destination: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict']]
+        destination: pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict']
         """
         Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
         """
@@ -466,23 +465,22 @@ elif False:
 @pulumi.input_type
 class IngestionDestinationDestinationConfigurationAuditLogArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgs']] = None):
+                 destination: pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgs']):
         """
         :param pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgs'] destination: Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
         """
-        if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination", destination)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgs']]:
+    def destination(self) -> pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgs']:
         """
         Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgs']]):
+    def destination(self, value: pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgs']):
         pulumi.set(self, "destination", value)
 
 
@@ -606,7 +604,7 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArg
 
 if not MYPY:
     class IngestionDestinationProcessingConfigurationArgsDict(TypedDict):
-        audit_log: NotRequired[pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgsDict']]
+        audit_log: pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgsDict']
         """
         Contains information about an audit log processing configuration.
         """
@@ -616,23 +614,22 @@ elif False:
 @pulumi.input_type
 class IngestionDestinationProcessingConfigurationArgs:
     def __init__(__self__, *,
-                 audit_log: Optional[pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgs']] = None):
+                 audit_log: pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgs']):
         """
         :param pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgs'] audit_log: Contains information about an audit log processing configuration.
         """
-        if audit_log is not None:
-            pulumi.set(__self__, "audit_log", audit_log)
+        pulumi.set(__self__, "audit_log", audit_log)
 
     @_builtins.property
     @pulumi.getter(name="auditLog")
-    def audit_log(self) -> Optional[pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgs']]:
+    def audit_log(self) -> pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgs']:
         """
         Contains information about an audit log processing configuration.
         """
         return pulumi.get(self, "audit_log")
 
     @audit_log.setter
-    def audit_log(self, value: Optional[pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgs']]):
+    def audit_log(self, value: pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgs']):
         pulumi.set(self, "audit_log", value)
 
 

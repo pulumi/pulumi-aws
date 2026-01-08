@@ -209,6 +209,10 @@ if not MYPY:
         """
         The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
         """
+        token_selection: pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict']
+        """
+        The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+        """
         entity_id_prefix: NotRequired[pulumi.Input[_builtins.str]]
         """
         A descriptive string that you want to prefix to user entities from your OIDC identity provider.
@@ -217,10 +221,6 @@ if not MYPY:
         """
         The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
         """
-        token_selection: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict']]
-        """
-        The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
-        """
 elif False:
     IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -228,22 +228,21 @@ elif False:
 class IdentitySourceConfigurationOpenIdConnectConfigurationArgs:
     def __init__(__self__, *,
                  issuer: pulumi.Input[_builtins.str],
+                 token_selection: pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs'],
                  entity_id_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_configuration: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs']] = None,
-                 token_selection: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs']] = None):
+                 group_configuration: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] issuer: The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+        :param pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs'] token_selection: The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
         :param pulumi.Input[_builtins.str] entity_id_prefix: A descriptive string that you want to prefix to user entities from your OIDC identity provider.
         :param pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs'] group_configuration: The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
-        :param pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs'] token_selection: The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
         """
         pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "token_selection", token_selection)
         if entity_id_prefix is not None:
             pulumi.set(__self__, "entity_id_prefix", entity_id_prefix)
         if group_configuration is not None:
             pulumi.set(__self__, "group_configuration", group_configuration)
-        if token_selection is not None:
-            pulumi.set(__self__, "token_selection", token_selection)
 
     @_builtins.property
     @pulumi.getter
@@ -256,6 +255,18 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationArgs:
     @issuer.setter
     def issuer(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "issuer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenSelection")
+    def token_selection(self) -> pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs']:
+        """
+        The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+        """
+        return pulumi.get(self, "token_selection")
+
+    @token_selection.setter
+    def token_selection(self, value: pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs']):
+        pulumi.set(self, "token_selection", value)
 
     @_builtins.property
     @pulumi.getter(name="entityIdPrefix")
@@ -280,18 +291,6 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationArgs:
     @group_configuration.setter
     def group_configuration(self, value: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs']]):
         pulumi.set(self, "group_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tokenSelection")
-    def token_selection(self) -> Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs']]:
-        """
-        The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
-        """
-        return pulumi.get(self, "token_selection")
-
-    @token_selection.setter
-    def token_selection(self, value: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs']]):
-        pulumi.set(self, "token_selection", value)
 
 
 if not MYPY:

@@ -104,7 +104,7 @@ namespace Pulumi.Aws.CloudFront
         /// The following arguments are optional:
         /// </summary>
         [Output("vpcOriginEndpointConfig")]
-        public Output<Outputs.VpcOriginVpcOriginEndpointConfig?> VpcOriginEndpointConfig { get; private set; } = null!;
+        public Output<Outputs.VpcOriginVpcOriginEndpointConfig> VpcOriginEndpointConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.CloudFront
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public VpcOrigin(string name, VpcOriginArgs? args = null, CustomResourceOptions? options = null)
+        public VpcOrigin(string name, VpcOriginArgs args, CustomResourceOptions? options = null)
             : base("aws:cloudfront/vpcOrigin:VpcOrigin", name, args ?? new VpcOriginArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -172,8 +172,8 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vpcOriginEndpointConfig")]
-        public Input<Inputs.VpcOriginVpcOriginEndpointConfigArgs>? VpcOriginEndpointConfig { get; set; }
+        [Input("vpcOriginEndpointConfig", required: true)]
+        public Input<Inputs.VpcOriginVpcOriginEndpointConfigArgs> VpcOriginEndpointConfig { get; set; } = null!;
 
         public VpcOriginArgs()
         {

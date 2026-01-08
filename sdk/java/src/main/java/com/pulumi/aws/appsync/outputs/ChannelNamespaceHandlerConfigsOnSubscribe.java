@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelNamespaceHandlerConfigsOnSubscribe {
@@ -22,7 +20,7 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribe {
      * @return Integration data source configuration for the handler. See Integration below.
      * 
      */
-    private @Nullable ChannelNamespaceHandlerConfigsOnSubscribeIntegration integration;
+    private ChannelNamespaceHandlerConfigsOnSubscribeIntegration integration;
 
     private ChannelNamespaceHandlerConfigsOnSubscribe() {}
     /**
@@ -36,8 +34,8 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribe {
      * @return Integration data source configuration for the handler. See Integration below.
      * 
      */
-    public Optional<ChannelNamespaceHandlerConfigsOnSubscribeIntegration> integration() {
-        return Optional.ofNullable(this.integration);
+    public ChannelNamespaceHandlerConfigsOnSubscribeIntegration integration() {
+        return this.integration;
     }
 
     public static Builder builder() {
@@ -50,7 +48,7 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribe {
     @CustomType.Builder
     public static final class Builder {
         private String behavior;
-        private @Nullable ChannelNamespaceHandlerConfigsOnSubscribeIntegration integration;
+        private ChannelNamespaceHandlerConfigsOnSubscribeIntegration integration;
         public Builder() {}
         public Builder(ChannelNamespaceHandlerConfigsOnSubscribe defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,8 +65,10 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribe {
             return this;
         }
         @CustomType.Setter
-        public Builder integration(@Nullable ChannelNamespaceHandlerConfigsOnSubscribeIntegration integration) {
-
+        public Builder integration(ChannelNamespaceHandlerConfigsOnSubscribeIntegration integration) {
+            if (integration == null) {
+              throw new MissingRequiredPropertyException("ChannelNamespaceHandlerConfigsOnSubscribe", "integration");
+            }
             this.integration = integration;
             return this;
         }

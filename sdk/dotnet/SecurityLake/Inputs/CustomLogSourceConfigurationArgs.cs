@@ -15,14 +15,14 @@ namespace Pulumi.Aws.SecurityLake.Inputs
         /// <summary>
         /// The configuration for the Glue Crawler for the third-party custom source.
         /// </summary>
-        [Input("crawlerConfiguration")]
-        public Input<Inputs.CustomLogSourceConfigurationCrawlerConfigurationArgs>? CrawlerConfiguration { get; set; }
+        [Input("crawlerConfiguration", required: true)]
+        public Input<Inputs.CustomLogSourceConfigurationCrawlerConfigurationArgs> CrawlerConfiguration { get; set; } = null!;
 
         /// <summary>
         /// The identity of the log provider for the third-party custom source.
         /// </summary>
-        [Input("providerIdentity")]
-        public Input<Inputs.CustomLogSourceConfigurationProviderIdentityArgs>? ProviderIdentity { get; set; }
+        [Input("providerIdentity", required: true)]
+        public Input<Inputs.CustomLogSourceConfigurationProviderIdentityArgs> ProviderIdentity { get; set; } = null!;
 
         public CustomLogSourceConfigurationArgs()
         {

@@ -98,7 +98,7 @@ namespace Pulumi.Aws.S3
         /// Bucket location. See Location below for more details.
         /// </summary>
         [Output("location")]
-        public Output<Outputs.DirectoryBucketLocation?> Location { get; private set; } = null!;
+        public Output<Outputs.DirectoryBucketLocation> Location { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -191,8 +191,8 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Bucket location. See Location below for more details.
         /// </summary>
-        [Input("location")]
-        public Input<Inputs.DirectoryBucketLocationArgs>? Location { get; set; }
+        [Input("location", required: true)]
+        public Input<Inputs.DirectoryBucketLocationArgs> Location { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

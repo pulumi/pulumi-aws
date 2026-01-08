@@ -21,29 +21,40 @@ __all__ = ['CustomPermissionsArgs', 'CustomPermissions']
 @pulumi.input_type
 class CustomPermissionsArgs:
     def __init__(__self__, *,
+                 capabilities: pulumi.Input['CustomPermissionsCapabilitiesArgs'],
                  custom_permissions_name: pulumi.Input[_builtins.str],
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capabilities: Optional[pulumi.Input['CustomPermissionsCapabilitiesArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomPermissions resource.
+        :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: Actions to include in the custom permissions profile. See capabilities.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
                The following arguments are optional:
-        :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: Actions to include in the custom permissions profile. See capabilities.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "custom_permissions_name", custom_permissions_name)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
-        if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def capabilities(self) -> pulumi.Input['CustomPermissionsCapabilitiesArgs']:
+        """
+        Actions to include in the custom permissions profile. See capabilities.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: pulumi.Input['CustomPermissionsCapabilitiesArgs']):
+        pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="customPermissionsName")
@@ -67,18 +78,6 @@ class CustomPermissionsArgs:
     @aws_account_id.setter
     def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input['CustomPermissionsCapabilitiesArgs']]:
-        """
-        Actions to include in the custom permissions profile. See capabilities.
-        """
-        return pulumi.get(self, "capabilities")
-
-    @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input['CustomPermissionsCapabilitiesArgs']]):
-        pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter
@@ -326,6 +325,8 @@ class CustomPermissions(pulumi.CustomResource):
             __props__ = CustomPermissionsArgs.__new__(CustomPermissionsArgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
+            if capabilities is None and not opts.urn:
+                raise TypeError("Missing required property 'capabilities'")
             __props__.__dict__["capabilities"] = capabilities
             if custom_permissions_name is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_permissions_name'")
@@ -395,7 +396,7 @@ class CustomPermissions(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> pulumi.Output[Optional['outputs.CustomPermissionsCapabilities']]:
+    def capabilities(self) -> pulumi.Output['outputs.CustomPermissionsCapabilities']:
         """
         Actions to include in the custom permissions profile. See capabilities.
         """

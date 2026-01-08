@@ -51,11 +51,11 @@ MYPY = False
 
 if not MYPY:
     class QueryLoggingConfigurationDestinationArgsDict(TypedDict):
-        cloudwatch_logs: NotRequired[pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict']]
+        cloudwatch_logs: pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict']
         """
         Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
         """
-        filters: NotRequired[pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgsDict']]
+        filters: pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgsDict']
         """
         A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
         """
@@ -65,39 +65,37 @@ elif False:
 @pulumi.input_type
 class QueryLoggingConfigurationDestinationArgs:
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional[pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs']] = None,
-                 filters: Optional[pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs']] = None):
+                 cloudwatch_logs: pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs'],
+                 filters: pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs']):
         """
         :param pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs'] cloudwatch_logs: Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
         :param pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs'] filters: A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
         """
-        if cloudwatch_logs is not None:
-            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
-        if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+        pulumi.set(__self__, "filters", filters)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs']:
         """
         Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs']):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs']]:
+    def filters(self) -> pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs']:
         """
         A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs']]):
+    def filters(self, value: pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs']):
         pulumi.set(self, "filters", value)
 
 
@@ -424,7 +422,7 @@ class ScraperRoleConfigurationArgs:
 
 if not MYPY:
     class ScraperSourceArgsDict(TypedDict):
-        eks: NotRequired[pulumi.Input['ScraperSourceEksArgsDict']]
+        eks: pulumi.Input['ScraperSourceEksArgsDict']
         """
         Configuration block for an EKS cluster source. See `eks`.
         """
@@ -434,23 +432,22 @@ elif False:
 @pulumi.input_type
 class ScraperSourceArgs:
     def __init__(__self__, *,
-                 eks: Optional[pulumi.Input['ScraperSourceEksArgs']] = None):
+                 eks: pulumi.Input['ScraperSourceEksArgs']):
         """
         :param pulumi.Input['ScraperSourceEksArgs'] eks: Configuration block for an EKS cluster source. See `eks`.
         """
-        if eks is not None:
-            pulumi.set(__self__, "eks", eks)
+        pulumi.set(__self__, "eks", eks)
 
     @_builtins.property
     @pulumi.getter
-    def eks(self) -> Optional[pulumi.Input['ScraperSourceEksArgs']]:
+    def eks(self) -> pulumi.Input['ScraperSourceEksArgs']:
         """
         Configuration block for an EKS cluster source. See `eks`.
         """
         return pulumi.get(self, "eks")
 
     @eks.setter
-    def eks(self, value: Optional[pulumi.Input['ScraperSourceEksArgs']]):
+    def eks(self, value: pulumi.Input['ScraperSourceEksArgs']):
         pulumi.set(self, "eks", value)
 
 
@@ -595,7 +592,7 @@ if not MYPY:
         """
         Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
         """
-        limits: NotRequired[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict']]
+        limits: pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict']
         """
         Configuration block for the limits to apply to the specified label set. Detailed below.
         """
@@ -606,14 +603,13 @@ elif False:
 class WorkspaceConfigurationLimitsPerLabelSetArgs:
     def __init__(__self__, *,
                  label_set: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
-                 limits: Optional[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs']] = None):
+                 limits: pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs']):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] label_set: Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
         :param pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs'] limits: Configuration block for the limits to apply to the specified label set. Detailed below.
         """
         pulumi.set(__self__, "label_set", label_set)
-        if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+        pulumi.set(__self__, "limits", limits)
 
     @_builtins.property
     @pulumi.getter(name="labelSet")
@@ -629,14 +625,14 @@ class WorkspaceConfigurationLimitsPerLabelSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def limits(self) -> Optional[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs']]:
+    def limits(self) -> pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs']:
         """
         Configuration block for the limits to apply to the specified label set. Detailed below.
         """
         return pulumi.get(self, "limits")
 
     @limits.setter
-    def limits(self, value: Optional[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs']]):
+    def limits(self, value: pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs']):
         pulumi.set(self, "limits", value)
 
 

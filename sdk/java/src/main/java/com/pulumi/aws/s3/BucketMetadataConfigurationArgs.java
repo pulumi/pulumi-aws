@@ -46,8 +46,8 @@ public final class BucketMetadataConfigurationArgs extends com.pulumi.resources.
      * The following arguments are optional:
      * 
      */
-    @Import(name="metadataConfiguration")
-    private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationArgs> metadataConfiguration;
+    @Import(name="metadataConfiguration", required=true)
+    private Output<BucketMetadataConfigurationMetadataConfigurationArgs> metadataConfiguration;
 
     /**
      * @return Metadata configuration. See `metadataConfiguration` Block for details.
@@ -55,8 +55,8 @@ public final class BucketMetadataConfigurationArgs extends com.pulumi.resources.
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<BucketMetadataConfigurationMetadataConfigurationArgs>> metadataConfiguration() {
-        return Optional.ofNullable(this.metadataConfiguration);
+    public Output<BucketMetadataConfigurationMetadataConfigurationArgs> metadataConfiguration() {
+        return this.metadataConfiguration;
     }
 
     /**
@@ -147,7 +147,7 @@ public final class BucketMetadataConfigurationArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder metadataConfiguration(@Nullable Output<BucketMetadataConfigurationMetadataConfigurationArgs> metadataConfiguration) {
+        public Builder metadataConfiguration(Output<BucketMetadataConfigurationMetadataConfigurationArgs> metadataConfiguration) {
             $.metadataConfiguration = metadataConfiguration;
             return this;
         }
@@ -197,6 +197,9 @@ public final class BucketMetadataConfigurationArgs extends com.pulumi.resources.
         public BucketMetadataConfigurationArgs build() {
             if ($.bucket == null) {
                 throw new MissingRequiredPropertyException("BucketMetadataConfigurationArgs", "bucket");
+            }
+            if ($.metadataConfiguration == null) {
+                throw new MissingRequiredPropertyException("BucketMetadataConfigurationArgs", "metadataConfiguration");
             }
             return $;
         }

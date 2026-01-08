@@ -81,7 +81,7 @@ type TrustedTokenIssuer struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
-	TrustedTokenIssuerConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput `pulumi:"trustedTokenIssuerConfiguration"`
+	TrustedTokenIssuerConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput `pulumi:"trustedTokenIssuerConfiguration"`
 	// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
 	//
 	// The following arguments are optional:
@@ -97,6 +97,9 @@ func NewTrustedTokenIssuer(ctx *pulumi.Context,
 
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
+	}
+	if args.TrustedTokenIssuerConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'TrustedTokenIssuerConfiguration'")
 	}
 	if args.TrustedTokenIssuerType == nil {
 		return nil, errors.New("invalid value for required argument 'TrustedTokenIssuerType'")
@@ -185,7 +188,7 @@ type trustedTokenIssuerArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
-	TrustedTokenIssuerConfiguration *TrustedTokenIssuerTrustedTokenIssuerConfiguration `pulumi:"trustedTokenIssuerConfiguration"`
+	TrustedTokenIssuerConfiguration TrustedTokenIssuerTrustedTokenIssuerConfiguration `pulumi:"trustedTokenIssuerConfiguration"`
 	// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
 	//
 	// The following arguments are optional:
@@ -205,7 +208,7 @@ type TrustedTokenIssuerArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
-	TrustedTokenIssuerConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrInput
+	TrustedTokenIssuerConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationInput
 	// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
 	//
 	// The following arguments are optional:
@@ -335,10 +338,10 @@ func (o TrustedTokenIssuerOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
-func (o TrustedTokenIssuerOutput) TrustedTokenIssuerConfiguration() TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
-	return o.ApplyT(func(v *TrustedTokenIssuer) TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
+func (o TrustedTokenIssuerOutput) TrustedTokenIssuerConfiguration() TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput {
+	return o.ApplyT(func(v *TrustedTokenIssuer) TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput {
 		return v.TrustedTokenIssuerConfiguration
-	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput)
+	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput)
 }
 
 // Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`

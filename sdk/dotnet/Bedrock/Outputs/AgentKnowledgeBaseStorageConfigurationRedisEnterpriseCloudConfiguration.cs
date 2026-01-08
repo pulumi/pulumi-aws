@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
-        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping? FieldMapping;
+        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping FieldMapping;
         /// <summary>
         /// Name of the vector index.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             string endpoint,
 
-            Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping? fieldMapping,
+            Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping,
 
             string vectorIndexName)
         {

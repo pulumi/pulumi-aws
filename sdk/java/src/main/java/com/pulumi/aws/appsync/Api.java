@@ -243,14 +243,14 @@ public class Api extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="eventConfig", refs={ApiEventConfig.class}, tree="[0]")
-    private Output</* @Nullable */ ApiEventConfig> eventConfig;
+    private Output<ApiEventConfig> eventConfig;
 
     /**
      * @return Configuration for the Event API. See Event Config below.
      * 
      */
-    public Output<Optional<ApiEventConfig>> eventConfig() {
-        return Codegen.optional(this.eventConfig);
+    public Output<ApiEventConfig> eventConfig() {
+        return this.eventConfig;
     }
     /**
      * Name of the Event API.
@@ -359,7 +359,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Api(java.lang.String name, @Nullable ApiArgs args) {
+    public Api(java.lang.String name, ApiArgs args) {
         this(name, args, null);
     }
     /**
@@ -368,7 +368,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Api(java.lang.String name, @Nullable ApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Api(java.lang.String name, ApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appsync/api:Api", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -376,7 +376,7 @@ public class Api extends com.pulumi.resources.CustomResource {
         super("aws:appsync/api:Api", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ApiArgs makeArgs(@Nullable ApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ApiArgs makeArgs(ApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

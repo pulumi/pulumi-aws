@@ -42,7 +42,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
      * @return Contains the names of the fields to which to map information about the vector store.
      * 
      */
-    private @Nullable AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping fieldMapping;
+    private AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping fieldMapping;
     /**
      * @return The name of the vector index.
      * 
@@ -94,8 +94,8 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
      * @return Contains the names of the fields to which to map information about the vector store.
      * 
      */
-    public Optional<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping fieldMapping() {
+        return this.fieldMapping;
     }
     /**
      * @return The name of the vector index.
@@ -126,7 +126,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         private String databaseName;
         private String endpoint;
         private @Nullable String endpointServiceName;
-        private @Nullable AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping fieldMapping;
+        private AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping fieldMapping;
         private @Nullable String textIndexName;
         private String vectorIndexName;
         public Builder() {}
@@ -181,8 +181,10 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
             return this;
         }
         @CustomType.Setter
-        public Builder fieldMapping(@Nullable AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping fieldMapping) {
-
+        public Builder fieldMapping(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping fieldMapping) {
+            if (fieldMapping == null) {
+              throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration", "fieldMapping");
+            }
             this.fieldMapping = fieldMapping;
             return this;
         }

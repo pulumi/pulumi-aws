@@ -139,7 +139,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
     /**
      * The set of preferences for the various diagnostic collection options for the VM cluster.
      */
-    declare public readonly dataCollectionOptions: pulumi.Output<outputs.odb.CloudVmClusterDataCollectionOptions | undefined>;
+    declare public readonly dataCollectionOptions: pulumi.Output<outputs.odb.CloudVmClusterDataCollectionOptions>;
     /**
      * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      *
@@ -366,6 +366,9 @@ export class CloudVmCluster extends pulumi.CustomResource {
             const args = argsOrState as CloudVmClusterArgs | undefined;
             if (args?.cpuCoreCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cpuCoreCount'");
+            }
+            if (args?.dataCollectionOptions === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataCollectionOptions'");
             }
             if (args?.dataStorageSizeInTbs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataStorageSizeInTbs'");
@@ -660,7 +663,7 @@ export interface CloudVmClusterArgs {
     /**
      * The set of preferences for the various diagnostic collection options for the VM cluster.
      */
-    dataCollectionOptions?: pulumi.Input<inputs.odb.CloudVmClusterDataCollectionOptions>;
+    dataCollectionOptions: pulumi.Input<inputs.odb.CloudVmClusterDataCollectionOptions>;
     /**
      * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      *

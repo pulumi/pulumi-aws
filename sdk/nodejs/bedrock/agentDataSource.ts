@@ -73,7 +73,7 @@ export class AgentDataSource extends pulumi.CustomResource {
     /**
      * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
      */
-    declare public readonly dataSourceConfiguration: pulumi.Output<outputs.bedrock.AgentDataSourceDataSourceConfiguration | undefined>;
+    declare public readonly dataSourceConfiguration: pulumi.Output<outputs.bedrock.AgentDataSourceDataSourceConfiguration>;
     /**
      * Unique identifier of the data source.
      */
@@ -131,6 +131,9 @@ export class AgentDataSource extends pulumi.CustomResource {
             resourceInputs["vectorIngestionConfiguration"] = state?.vectorIngestionConfiguration;
         } else {
             const args = argsOrState as AgentDataSourceArgs | undefined;
+            if (args?.dataSourceConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataSourceConfiguration'");
+            }
             if (args?.knowledgeBaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseId'");
             }
@@ -206,7 +209,7 @@ export interface AgentDataSourceArgs {
     /**
      * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
      */
-    dataSourceConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfiguration>;
+    dataSourceConfiguration: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfiguration>;
     /**
      * Description of the data source.
      */

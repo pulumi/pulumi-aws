@@ -8,6 +8,7 @@ import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspec
 import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,15 +54,15 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
      * Scope block. Detailed below.
      * 
      */
-    @Import(name="scopes")
-    private @Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs>> scopes;
+    @Import(name="scopes", required=true)
+    private Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs>> scopes;
 
     /**
      * @return Scope block. Detailed below.
      * 
      */
-    public Optional<Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs>>> scopes() {
-        return Optional.ofNullable(this.scopes);
+    public Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs>> scopes() {
+        return this.scopes;
     }
 
     /**
@@ -154,7 +155,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
          * @return builder
          * 
          */
-        public Builder scopes(@Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs>> scopes) {
+        public Builder scopes(Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs>> scopes) {
             $.scopes = scopes;
             return this;
         }
@@ -211,6 +212,9 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
         }
 
         public TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs build() {
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs", "scopes");
+            }
             return $;
         }
     }

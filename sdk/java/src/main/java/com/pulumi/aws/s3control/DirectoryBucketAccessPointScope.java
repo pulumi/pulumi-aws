@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -142,14 +141,14 @@ public class DirectoryBucketAccessPointScope extends com.pulumi.resources.Custom
      * 
      */
     @Export(name="scope", refs={DirectoryBucketAccessPointScopeScope.class}, tree="[0]")
-    private Output</* @Nullable */ DirectoryBucketAccessPointScopeScope> scope;
+    private Output<DirectoryBucketAccessPointScopeScope> scope;
 
     /**
      * @return . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
      * 
      */
-    public Output<Optional<DirectoryBucketAccessPointScopeScope>> scope() {
-        return Codegen.optional(this.scope);
+    public Output<DirectoryBucketAccessPointScopeScope> scope() {
+        return this.scope;
     }
 
     /**

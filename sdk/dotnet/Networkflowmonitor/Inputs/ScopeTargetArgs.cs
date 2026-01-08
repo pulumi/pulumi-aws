@@ -21,8 +21,8 @@ namespace Pulumi.Aws.Networkflowmonitor.Inputs
         /// <summary>
         /// A target identifier is a pair of identifying information for a scope.
         /// </summary>
-        [Input("targetIdentifier")]
-        public Input<Inputs.ScopeTargetTargetIdentifierArgs>? TargetIdentifier { get; set; }
+        [Input("targetIdentifier", required: true)]
+        public Input<Inputs.ScopeTargetTargetIdentifierArgs> TargetIdentifier { get; set; } = null!;
 
         public ScopeTargetArgs()
         {

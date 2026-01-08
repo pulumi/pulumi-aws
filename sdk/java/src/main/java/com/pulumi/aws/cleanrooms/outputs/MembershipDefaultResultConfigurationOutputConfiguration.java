@@ -5,17 +5,16 @@ package com.pulumi.aws.cleanrooms.outputs;
 
 import com.pulumi.aws.cleanrooms.outputs.MembershipDefaultResultConfigurationOutputConfigurationS3;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class MembershipDefaultResultConfigurationOutputConfiguration {
-    private @Nullable MembershipDefaultResultConfigurationOutputConfigurationS3 s3;
+    private MembershipDefaultResultConfigurationOutputConfigurationS3 s3;
 
     private MembershipDefaultResultConfigurationOutputConfiguration() {}
-    public Optional<MembershipDefaultResultConfigurationOutputConfigurationS3> s3() {
-        return Optional.ofNullable(this.s3);
+    public MembershipDefaultResultConfigurationOutputConfigurationS3 s3() {
+        return this.s3;
     }
 
     public static Builder builder() {
@@ -27,7 +26,7 @@ public final class MembershipDefaultResultConfigurationOutputConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable MembershipDefaultResultConfigurationOutputConfigurationS3 s3;
+        private MembershipDefaultResultConfigurationOutputConfigurationS3 s3;
         public Builder() {}
         public Builder(MembershipDefaultResultConfigurationOutputConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -35,8 +34,10 @@ public final class MembershipDefaultResultConfigurationOutputConfiguration {
         }
 
         @CustomType.Setter
-        public Builder s3(@Nullable MembershipDefaultResultConfigurationOutputConfigurationS3 s3) {
-
+        public Builder s3(MembershipDefaultResultConfigurationOutputConfigurationS3 s3) {
+            if (s3 == null) {
+              throw new MissingRequiredPropertyException("MembershipDefaultResultConfigurationOutputConfiguration", "s3");
+            }
             this.s3 = s3;
             return this;
         }

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("levelConfigurations", required: true)]
+        [Input("levelConfigurations")]
         private InputList<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs>? _levelConfigurations;
 
         /// <summary>

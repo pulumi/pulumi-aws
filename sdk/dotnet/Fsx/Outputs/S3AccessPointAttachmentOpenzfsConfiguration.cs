@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// <summary>
         /// File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `FileSystemIdentity` Block for details.
         /// </summary>
-        public readonly Outputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity? FileSystemIdentity;
+        public readonly Outputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity FileSystemIdentity;
         /// <summary>
         /// ID of the FSx for OpenZFS volume to which the S3 access point is attached.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Fsx.Outputs
 
         [OutputConstructor]
         private S3AccessPointAttachmentOpenzfsConfiguration(
-            Outputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity? fileSystemIdentity,
+            Outputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity fileSystemIdentity,
 
             string volumeId)
         {

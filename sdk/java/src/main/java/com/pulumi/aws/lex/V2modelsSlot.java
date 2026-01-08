@@ -213,10 +213,10 @@ public class V2modelsSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     @Export(name="valueElicitationSetting", refs={V2modelsSlotValueElicitationSetting.class}, tree="[0]")
-    private Output</* @Nullable */ V2modelsSlotValueElicitationSetting> valueElicitationSetting;
+    private Output<V2modelsSlotValueElicitationSetting> valueElicitationSetting;
 
-    public Output<Optional<V2modelsSlotValueElicitationSetting>> valueElicitationSetting() {
-        return Codegen.optional(this.valueElicitationSetting);
+    public Output<V2modelsSlotValueElicitationSetting> valueElicitationSetting() {
+        return this.valueElicitationSetting;
     }
 
     /**

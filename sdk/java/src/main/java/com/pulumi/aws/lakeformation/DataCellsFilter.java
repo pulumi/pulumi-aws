@@ -95,14 +95,14 @@ public class DataCellsFilter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tableData", refs={DataCellsFilterTableData.class}, tree="[0]")
-    private Output</* @Nullable */ DataCellsFilterTableData> tableData;
+    private Output<DataCellsFilterTableData> tableData;
 
     /**
      * @return Information about the data cells filter. See Table Data below for details.
      * 
      */
-    public Output<Optional<DataCellsFilterTableData>> tableData() {
-        return Codegen.optional(this.tableData);
+    public Output<DataCellsFilterTableData> tableData() {
+        return this.tableData;
     }
     @Export(name="timeouts", refs={DataCellsFilterTimeouts.class}, tree="[0]")
     private Output</* @Nullable */ DataCellsFilterTimeouts> timeouts;
@@ -123,7 +123,7 @@ public class DataCellsFilter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataCellsFilter(java.lang.String name, @Nullable DataCellsFilterArgs args) {
+    public DataCellsFilter(java.lang.String name, DataCellsFilterArgs args) {
         this(name, args, null);
     }
     /**
@@ -132,7 +132,7 @@ public class DataCellsFilter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataCellsFilter(java.lang.String name, @Nullable DataCellsFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public DataCellsFilter(java.lang.String name, DataCellsFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lakeformation/dataCellsFilter:DataCellsFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -140,7 +140,7 @@ public class DataCellsFilter extends com.pulumi.resources.CustomResource {
         super("aws:lakeformation/dataCellsFilter:DataCellsFilter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static DataCellsFilterArgs makeArgs(@Nullable DataCellsFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static DataCellsFilterArgs makeArgs(DataCellsFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

@@ -265,7 +265,7 @@ public class ContactsRotation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="recurrence", refs={ContactsRotationRecurrence.class}, tree="[0]")
-    private Output</* @Nullable */ ContactsRotationRecurrence> recurrence;
+    private Output<ContactsRotationRecurrence> recurrence;
 
     /**
      * @return Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
@@ -273,8 +273,8 @@ public class ContactsRotation extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<ContactsRotationRecurrence>> recurrence() {
-        return Codegen.optional(this.recurrence);
+    public Output<ContactsRotationRecurrence> recurrence() {
+        return this.recurrence;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

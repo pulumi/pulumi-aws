@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelNamespaceHandlerConfigsOnPublish {
@@ -22,7 +20,7 @@ public final class ChannelNamespaceHandlerConfigsOnPublish {
      * @return Integration data source configuration for the handler. See Integration below.
      * 
      */
-    private @Nullable ChannelNamespaceHandlerConfigsOnPublishIntegration integration;
+    private ChannelNamespaceHandlerConfigsOnPublishIntegration integration;
 
     private ChannelNamespaceHandlerConfigsOnPublish() {}
     /**
@@ -36,8 +34,8 @@ public final class ChannelNamespaceHandlerConfigsOnPublish {
      * @return Integration data source configuration for the handler. See Integration below.
      * 
      */
-    public Optional<ChannelNamespaceHandlerConfigsOnPublishIntegration> integration() {
-        return Optional.ofNullable(this.integration);
+    public ChannelNamespaceHandlerConfigsOnPublishIntegration integration() {
+        return this.integration;
     }
 
     public static Builder builder() {
@@ -50,7 +48,7 @@ public final class ChannelNamespaceHandlerConfigsOnPublish {
     @CustomType.Builder
     public static final class Builder {
         private String behavior;
-        private @Nullable ChannelNamespaceHandlerConfigsOnPublishIntegration integration;
+        private ChannelNamespaceHandlerConfigsOnPublishIntegration integration;
         public Builder() {}
         public Builder(ChannelNamespaceHandlerConfigsOnPublish defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,8 +65,10 @@ public final class ChannelNamespaceHandlerConfigsOnPublish {
             return this;
         }
         @CustomType.Setter
-        public Builder integration(@Nullable ChannelNamespaceHandlerConfigsOnPublishIntegration integration) {
-
+        public Builder integration(ChannelNamespaceHandlerConfigsOnPublishIntegration integration) {
+            if (integration == null) {
+              throw new MissingRequiredPropertyException("ChannelNamespaceHandlerConfigsOnPublish", "integration");
+            }
             this.integration = integration;
             return this;
         }

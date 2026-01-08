@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("defaultValueLists")]
+        [Input("defaultValueLists", required: true)]
         private InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListGetArgs>? _defaultValueLists;
 
         /// <summary>

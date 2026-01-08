@@ -141,7 +141,7 @@ namespace Pulumi.Aws.ComputeOptimizer
         /// The scope of the recommendation preferences. See Scope below.
         /// </summary>
         [Output("scope")]
-        public Output<Outputs.RecommendationPreferencesScope?> Scope { get; private set; } = null!;
+        public Output<Outputs.RecommendationPreferencesScope> Scope { get; private set; } = null!;
 
         /// <summary>
         /// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
@@ -252,8 +252,8 @@ namespace Pulumi.Aws.ComputeOptimizer
         /// <summary>
         /// The scope of the recommendation preferences. See Scope below.
         /// </summary>
-        [Input("scope")]
-        public Input<Inputs.RecommendationPreferencesScopeArgs>? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Input<Inputs.RecommendationPreferencesScopeArgs> Scope { get; set; } = null!;
 
         [Input("utilizationPreferences")]
         private InputList<Inputs.RecommendationPreferencesUtilizationPreferenceArgs>? _utilizationPreferences;

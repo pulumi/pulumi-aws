@@ -253,7 +253,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsA
 
 if not MYPY:
     class TableBucketReplicationRuleArgsDict(TypedDict):
-        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgsDict']]]]
+        destinations: pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgsDict']]]
         """
         Replication destination. See Destination below for more details.
         """
@@ -263,23 +263,22 @@ elif False:
 @pulumi.input_type
 class TableBucketReplicationRuleArgs:
     def __init__(__self__, *,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgs']]]] = None):
+                 destinations: pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgs']]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgs']]] destinations: Replication destination. See Destination below for more details.
         """
-        if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "destinations", destinations)
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgs']]]]:
+    def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgs']]]:
         """
         Replication destination. See Destination below for more details.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgs']]]]):
+    def destinations(self, value: pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgs']]]):
         pulumi.set(self, "destinations", value)
 
 
@@ -692,7 +691,7 @@ class TableMetadataIcebergArgs:
 
 if not MYPY:
     class TableMetadataIcebergSchemaArgsDict(TypedDict):
-        fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgsDict']]]]
+        fields: pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgsDict']]]
         """
         List of schema fields for the Iceberg table. Each field defines a column in the table schema.
         See `field` below.
@@ -703,17 +702,16 @@ elif False:
 @pulumi.input_type
 class TableMetadataIcebergSchemaArgs:
     def __init__(__self__, *,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]]] = None):
+                 fields: pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]] fields: List of schema fields for the Iceberg table. Each field defines a column in the table schema.
                See `field` below.
         """
-        if fields is not None:
-            pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "fields", fields)
 
     @_builtins.property
     @pulumi.getter
-    def fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]]]:
+    def fields(self) -> pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]]:
         """
         List of schema fields for the Iceberg table. Each field defines a column in the table schema.
         See `field` below.
@@ -721,7 +719,7 @@ class TableMetadataIcebergSchemaArgs:
         return pulumi.get(self, "fields")
 
     @fields.setter
-    def fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]]]):
+    def fields(self, value: pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]]):
         pulumi.set(self, "fields", value)
 
 
@@ -797,7 +795,7 @@ class TableMetadataIcebergSchemaFieldArgs:
 
 if not MYPY:
     class TableReplicationRuleArgsDict(TypedDict):
-        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgsDict']]]]
+        destinations: pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgsDict']]]
         """
         Replication destination. See Destination below for more details.
         """
@@ -807,23 +805,22 @@ elif False:
 @pulumi.input_type
 class TableReplicationRuleArgs:
     def __init__(__self__, *,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgs']]]] = None):
+                 destinations: pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgs']]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgs']]] destinations: Replication destination. See Destination below for more details.
         """
-        if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "destinations", destinations)
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgs']]]]:
+    def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgs']]]:
         """
         Replication destination. See Destination below for more details.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgs']]]]):
+    def destinations(self, value: pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgs']]]):
         pulumi.set(self, "destinations", value)
 
 

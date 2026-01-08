@@ -7,6 +7,7 @@ import com.pulumi.aws.dataexchange.inputs.EventActionActionExportRevisionToS3Enc
 import com.pulumi.aws.dataexchange.inputs.EventActionActionExportRevisionToS3RevisionDestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -38,16 +39,16 @@ public final class EventActionActionExportRevisionToS3Args extends com.pulumi.re
      * Described in `revisionDestination` Configuration Block below.
      * 
      */
-    @Import(name="revisionDestination")
-    private @Nullable Output<EventActionActionExportRevisionToS3RevisionDestinationArgs> revisionDestination;
+    @Import(name="revisionDestination", required=true)
+    private Output<EventActionActionExportRevisionToS3RevisionDestinationArgs> revisionDestination;
 
     /**
      * @return Configures the S3 destination of the exported revision.
      * Described in `revisionDestination` Configuration Block below.
      * 
      */
-    public Optional<Output<EventActionActionExportRevisionToS3RevisionDestinationArgs>> revisionDestination() {
-        return Optional.ofNullable(this.revisionDestination);
+    public Output<EventActionActionExportRevisionToS3RevisionDestinationArgs> revisionDestination() {
+        return this.revisionDestination;
     }
 
     private EventActionActionExportRevisionToS3Args() {}
@@ -105,7 +106,7 @@ public final class EventActionActionExportRevisionToS3Args extends com.pulumi.re
          * @return builder
          * 
          */
-        public Builder revisionDestination(@Nullable Output<EventActionActionExportRevisionToS3RevisionDestinationArgs> revisionDestination) {
+        public Builder revisionDestination(Output<EventActionActionExportRevisionToS3RevisionDestinationArgs> revisionDestination) {
             $.revisionDestination = revisionDestination;
             return this;
         }
@@ -122,6 +123,9 @@ public final class EventActionActionExportRevisionToS3Args extends com.pulumi.re
         }
 
         public EventActionActionExportRevisionToS3Args build() {
+            if ($.revisionDestination == null) {
+                throw new MissingRequiredPropertyException("EventActionActionExportRevisionToS3Args", "revisionDestination");
+            }
             return $;
         }
     }

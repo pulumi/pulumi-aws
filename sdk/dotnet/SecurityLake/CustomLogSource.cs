@@ -78,7 +78,7 @@ namespace Pulumi.Aws.SecurityLake
         /// The configuration for the third-party custom source.
         /// </summary>
         [Output("configuration")]
-        public Output<Outputs.CustomLogSourceConfiguration?> Configuration { get; private set; } = null!;
+        public Output<Outputs.CustomLogSourceConfiguration> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
@@ -161,8 +161,8 @@ namespace Pulumi.Aws.SecurityLake
         /// <summary>
         /// The configuration for the third-party custom source.
         /// </summary>
-        [Input("configuration")]
-        public Input<Inputs.CustomLogSourceConfigurationArgs>? Configuration { get; set; }
+        [Input("configuration", required: true)]
+        public Input<Inputs.CustomLogSourceConfigurationArgs> Configuration { get; set; } = null!;
 
         [Input("eventClasses")]
         private InputList<string>? _eventClasses;

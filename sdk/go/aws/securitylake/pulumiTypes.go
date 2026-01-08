@@ -336,9 +336,9 @@ func (o CustomLogSourceAttributeArrayOutput) Index(i pulumi.IntInput) CustomLogS
 
 type CustomLogSourceConfiguration struct {
 	// The configuration for the Glue Crawler for the third-party custom source.
-	CrawlerConfiguration *CustomLogSourceConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
+	CrawlerConfiguration CustomLogSourceConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
 	// The identity of the log provider for the third-party custom source.
-	ProviderIdentity *CustomLogSourceConfigurationProviderIdentity `pulumi:"providerIdentity"`
+	ProviderIdentity CustomLogSourceConfigurationProviderIdentity `pulumi:"providerIdentity"`
 }
 
 // CustomLogSourceConfigurationInput is an input type that accepts CustomLogSourceConfigurationArgs and CustomLogSourceConfigurationOutput values.
@@ -354,9 +354,9 @@ type CustomLogSourceConfigurationInput interface {
 
 type CustomLogSourceConfigurationArgs struct {
 	// The configuration for the Glue Crawler for the third-party custom source.
-	CrawlerConfiguration CustomLogSourceConfigurationCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
+	CrawlerConfiguration CustomLogSourceConfigurationCrawlerConfigurationInput `pulumi:"crawlerConfiguration"`
 	// The identity of the log provider for the third-party custom source.
-	ProviderIdentity CustomLogSourceConfigurationProviderIdentityPtrInput `pulumi:"providerIdentity"`
+	ProviderIdentity CustomLogSourceConfigurationProviderIdentityInput `pulumi:"providerIdentity"`
 }
 
 func (CustomLogSourceConfigurationArgs) ElementType() reflect.Type {
@@ -437,17 +437,17 @@ func (o CustomLogSourceConfigurationOutput) ToCustomLogSourceConfigurationPtrOut
 }
 
 // The configuration for the Glue Crawler for the third-party custom source.
-func (o CustomLogSourceConfigurationOutput) CrawlerConfiguration() CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
-	return o.ApplyT(func(v CustomLogSourceConfiguration) *CustomLogSourceConfigurationCrawlerConfiguration {
+func (o CustomLogSourceConfigurationOutput) CrawlerConfiguration() CustomLogSourceConfigurationCrawlerConfigurationOutput {
+	return o.ApplyT(func(v CustomLogSourceConfiguration) CustomLogSourceConfigurationCrawlerConfiguration {
 		return v.CrawlerConfiguration
-	}).(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput)
+	}).(CustomLogSourceConfigurationCrawlerConfigurationOutput)
 }
 
 // The identity of the log provider for the third-party custom source.
-func (o CustomLogSourceConfigurationOutput) ProviderIdentity() CustomLogSourceConfigurationProviderIdentityPtrOutput {
-	return o.ApplyT(func(v CustomLogSourceConfiguration) *CustomLogSourceConfigurationProviderIdentity {
+func (o CustomLogSourceConfigurationOutput) ProviderIdentity() CustomLogSourceConfigurationProviderIdentityOutput {
+	return o.ApplyT(func(v CustomLogSourceConfiguration) CustomLogSourceConfigurationProviderIdentity {
 		return v.ProviderIdentity
-	}).(CustomLogSourceConfigurationProviderIdentityPtrOutput)
+	}).(CustomLogSourceConfigurationProviderIdentityOutput)
 }
 
 type CustomLogSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -480,7 +480,7 @@ func (o CustomLogSourceConfigurationPtrOutput) CrawlerConfiguration() CustomLogS
 		if v == nil {
 			return nil
 		}
-		return v.CrawlerConfiguration
+		return &v.CrawlerConfiguration
 	}).(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput)
 }
 
@@ -490,7 +490,7 @@ func (o CustomLogSourceConfigurationPtrOutput) ProviderIdentity() CustomLogSourc
 		if v == nil {
 			return nil
 		}
-		return v.ProviderIdentity
+		return &v.ProviderIdentity
 	}).(CustomLogSourceConfigurationProviderIdentityPtrOutput)
 }
 

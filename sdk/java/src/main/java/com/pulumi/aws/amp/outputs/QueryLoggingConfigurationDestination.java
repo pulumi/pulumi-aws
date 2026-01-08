@@ -6,9 +6,8 @@ package com.pulumi.aws.amp.outputs;
 import com.pulumi.aws.amp.outputs.QueryLoggingConfigurationDestinationCloudwatchLogs;
 import com.pulumi.aws.amp.outputs.QueryLoggingConfigurationDestinationFilters;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class QueryLoggingConfigurationDestination {
@@ -16,27 +15,27 @@ public final class QueryLoggingConfigurationDestination {
      * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
      * 
      */
-    private @Nullable QueryLoggingConfigurationDestinationCloudwatchLogs cloudwatchLogs;
+    private QueryLoggingConfigurationDestinationCloudwatchLogs cloudwatchLogs;
     /**
      * @return A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
      * 
      */
-    private @Nullable QueryLoggingConfigurationDestinationFilters filters;
+    private QueryLoggingConfigurationDestinationFilters filters;
 
     private QueryLoggingConfigurationDestination() {}
     /**
      * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
      * 
      */
-    public Optional<QueryLoggingConfigurationDestinationCloudwatchLogs> cloudwatchLogs() {
-        return Optional.ofNullable(this.cloudwatchLogs);
+    public QueryLoggingConfigurationDestinationCloudwatchLogs cloudwatchLogs() {
+        return this.cloudwatchLogs;
     }
     /**
      * @return A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
      * 
      */
-    public Optional<QueryLoggingConfigurationDestinationFilters> filters() {
-        return Optional.ofNullable(this.filters);
+    public QueryLoggingConfigurationDestinationFilters filters() {
+        return this.filters;
     }
 
     public static Builder builder() {
@@ -48,8 +47,8 @@ public final class QueryLoggingConfigurationDestination {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable QueryLoggingConfigurationDestinationCloudwatchLogs cloudwatchLogs;
-        private @Nullable QueryLoggingConfigurationDestinationFilters filters;
+        private QueryLoggingConfigurationDestinationCloudwatchLogs cloudwatchLogs;
+        private QueryLoggingConfigurationDestinationFilters filters;
         public Builder() {}
         public Builder(QueryLoggingConfigurationDestination defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,14 +57,18 @@ public final class QueryLoggingConfigurationDestination {
         }
 
         @CustomType.Setter
-        public Builder cloudwatchLogs(@Nullable QueryLoggingConfigurationDestinationCloudwatchLogs cloudwatchLogs) {
-
+        public Builder cloudwatchLogs(QueryLoggingConfigurationDestinationCloudwatchLogs cloudwatchLogs) {
+            if (cloudwatchLogs == null) {
+              throw new MissingRequiredPropertyException("QueryLoggingConfigurationDestination", "cloudwatchLogs");
+            }
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
-        public Builder filters(@Nullable QueryLoggingConfigurationDestinationFilters filters) {
-
+        public Builder filters(QueryLoggingConfigurationDestinationFilters filters) {
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("QueryLoggingConfigurationDestination", "filters");
+            }
             this.filters = filters;
             return this;
         }

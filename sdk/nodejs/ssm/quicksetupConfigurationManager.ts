@@ -97,7 +97,7 @@ export class QuicksetupConfigurationManager extends pulumi.CustomResource {
     /**
      * Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
      */
-    declare public readonly configurationDefinition: pulumi.Output<outputs.ssm.QuicksetupConfigurationManagerConfigurationDefinition | undefined>;
+    declare public readonly configurationDefinition: pulumi.Output<outputs.ssm.QuicksetupConfigurationManagerConfigurationDefinition>;
     /**
      * Description of the configuration manager.
      */
@@ -137,7 +137,7 @@ export class QuicksetupConfigurationManager extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: QuicksetupConfigurationManagerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: QuicksetupConfigurationManagerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: QuicksetupConfigurationManagerArgs | QuicksetupConfigurationManagerState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -154,6 +154,9 @@ export class QuicksetupConfigurationManager extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as QuicksetupConfigurationManagerArgs | undefined;
+            if (args?.configurationDefinition === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configurationDefinition'");
+            }
             resourceInputs["configurationDefinition"] = args?.configurationDefinition;
             resourceInputs["description"] = args?.description;
             resourceInputs["name"] = args?.name;
@@ -217,7 +220,7 @@ export interface QuicksetupConfigurationManagerArgs {
     /**
      * Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
      */
-    configurationDefinition?: pulumi.Input<inputs.ssm.QuicksetupConfigurationManagerConfigurationDefinition>;
+    configurationDefinition: pulumi.Input<inputs.ssm.QuicksetupConfigurationManagerConfigurationDefinition>;
     /**
      * Description of the configuration manager.
      */

@@ -147,14 +147,13 @@ class ScopeTarget(dict):
 
     def __init__(__self__, *,
                  region: _builtins.str,
-                 target_identifier: Optional['outputs.ScopeTargetTargetIdentifier'] = None):
+                 target_identifier: 'outputs.ScopeTargetTargetIdentifier'):
         """
         :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param 'ScopeTargetTargetIdentifierArgs' target_identifier: A target identifier is a pair of identifying information for a scope.
         """
         pulumi.set(__self__, "region", region)
-        if target_identifier is not None:
-            pulumi.set(__self__, "target_identifier", target_identifier)
+        pulumi.set(__self__, "target_identifier", target_identifier)
 
     @_builtins.property
     @pulumi.getter
@@ -166,7 +165,7 @@ class ScopeTarget(dict):
 
     @_builtins.property
     @pulumi.getter(name="targetIdentifier")
-    def target_identifier(self) -> Optional['outputs.ScopeTargetTargetIdentifier']:
+    def target_identifier(self) -> 'outputs.ScopeTargetTargetIdentifier':
         """
         A target identifier is a pair of identifying information for a scope.
         """
@@ -178,10 +177,10 @@ class ScopeTargetTargetIdentifier(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "targetType":
-            suggest = "target_type"
-        elif key == "targetId":
+        if key == "targetId":
             suggest = "target_id"
+        elif key == "targetType":
+            suggest = "target_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ScopeTargetTargetIdentifier. Access the value via the '{suggest}' property getter instead.")
@@ -195,15 +194,22 @@ class ScopeTargetTargetIdentifier(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 target_type: _builtins.str,
-                 target_id: Optional['outputs.ScopeTargetTargetIdentifierTargetId'] = None):
+                 target_id: 'outputs.ScopeTargetTargetIdentifierTargetId',
+                 target_type: _builtins.str):
         """
-        :param _builtins.str target_type: The type of a target. A target type is currently always `ACCOUNT`.
         :param 'ScopeTargetTargetIdentifierTargetIdArgs' target_id: The identifier for a target, which is currently always an account ID.
+        :param _builtins.str target_type: The type of a target. A target type is currently always `ACCOUNT`.
         """
+        pulumi.set(__self__, "target_id", target_id)
         pulumi.set(__self__, "target_type", target_type)
-        if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+
+    @_builtins.property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> 'outputs.ScopeTargetTargetIdentifierTargetId':
+        """
+        The identifier for a target, which is currently always an account ID.
+        """
+        return pulumi.get(self, "target_id")
 
     @_builtins.property
     @pulumi.getter(name="targetType")
@@ -212,14 +218,6 @@ class ScopeTargetTargetIdentifier(dict):
         The type of a target. A target type is currently always `ACCOUNT`.
         """
         return pulumi.get(self, "target_type")
-
-    @_builtins.property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> Optional['outputs.ScopeTargetTargetIdentifierTargetId']:
-        """
-        The identifier for a target, which is currently always an account ID.
-        """
-        return pulumi.get(self, "target_id")
 
 
 @pulumi.output_type

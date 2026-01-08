@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Vpc
         /// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
         /// </summary>
         [Output("bgpOptions")]
-        public Output<Outputs.RouteServerPeerBgpOptions?> BgpOptions { get; private set; } = null!;
+        public Output<Outputs.RouteServerPeerBgpOptions> BgpOptions { get; private set; } = null!;
 
         /// <summary>
         /// The IP address of the Elastic network interface for the route server endpoint.
@@ -255,8 +255,8 @@ namespace Pulumi.Aws.Vpc
         /// <summary>
         /// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
         /// </summary>
-        [Input("bgpOptions")]
-        public Input<Inputs.RouteServerPeerBgpOptionsArgs>? BgpOptions { get; set; }
+        [Input("bgpOptions", required: true)]
+        public Input<Inputs.RouteServerPeerBgpOptionsArgs> BgpOptions { get; set; } = null!;
 
         /// <summary>
         /// The IPv4 address of the peer device.

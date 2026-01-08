@@ -21,43 +21,44 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
+                 admin_contact: pulumi.Input['DomainAdminContactArgs'],
                  domain_name: pulumi.Input[_builtins.str],
-                 admin_contact: Optional[pulumi.Input['DomainAdminContactArgs']] = None,
+                 registrant_contact: pulumi.Input['DomainRegistrantContactArgs'],
+                 tech_contact: pulumi.Input['DomainTechContactArgs'],
                  admin_privacy: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_renew: Optional[pulumi.Input[_builtins.bool]] = None,
                  billing_contacts: Optional[pulumi.Input[Sequence[pulumi.Input['DomainBillingContactArgs']]]] = None,
                  billing_privacy: Optional[pulumi.Input[_builtins.bool]] = None,
                  duration_in_years: Optional[pulumi.Input[_builtins.int]] = None,
                  name_servers: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameServerArgs']]]] = None,
-                 registrant_contact: Optional[pulumi.Input['DomainRegistrantContactArgs']] = None,
                  registrant_privacy: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tech_contact: Optional[pulumi.Input['DomainTechContactArgs']] = None,
                  tech_privacy: Optional[pulumi.Input[_builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input['DomainTimeoutsArgs']] = None,
                  transfer_lock: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Domain resource.
-        :param pulumi.Input[_builtins.str] domain_name: The name of the domain.
         :param pulumi.Input['DomainAdminContactArgs'] admin_contact: Details about the domain administrative contact. See Contact Blocks for more details.
+        :param pulumi.Input[_builtins.str] domain_name: The name of the domain.
+        :param pulumi.Input['DomainRegistrantContactArgs'] registrant_contact: Details about the domain registrant. See Contact Blocks for more details.
+        :param pulumi.Input['DomainTechContactArgs'] tech_contact: Details about the domain technical contact. See Contact Blocks for more details.
         :param pulumi.Input[_builtins.bool] admin_privacy: Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[_builtins.bool] auto_renew: Whether the domain registration is set to renew automatically. Default: `true`.
         :param pulumi.Input[Sequence[pulumi.Input['DomainBillingContactArgs']]] billing_contacts: Details about the domain billing contact. See Contact Blocks for more details.
         :param pulumi.Input[_builtins.bool] billing_privacy: Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[_builtins.int] duration_in_years: The number of years that you want to register the domain for. Domains are registered for a minimum of one year. Increasing the duration renews the domain.
         :param pulumi.Input[Sequence[pulumi.Input['DomainNameServerArgs']]] name_servers: The list of nameservers for the domain. See `name_server` Blocks for more details.
-        :param pulumi.Input['DomainRegistrantContactArgs'] registrant_contact: Details about the domain registrant. See Contact Blocks for more details.
         :param pulumi.Input[_builtins.bool] registrant_privacy: Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['DomainTechContactArgs'] tech_contact: Details about the domain technical contact. See Contact Blocks for more details.
         :param pulumi.Input[_builtins.bool] tech_privacy: Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[_builtins.bool] transfer_lock: Whether the domain is locked for transfer. Default: `true`.
                
                > **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
         """
+        pulumi.set(__self__, "admin_contact", admin_contact)
         pulumi.set(__self__, "domain_name", domain_name)
-        if admin_contact is not None:
-            pulumi.set(__self__, "admin_contact", admin_contact)
+        pulumi.set(__self__, "registrant_contact", registrant_contact)
+        pulumi.set(__self__, "tech_contact", tech_contact)
         if admin_privacy is not None:
             pulumi.set(__self__, "admin_privacy", admin_privacy)
         if auto_renew is not None:
@@ -70,20 +71,28 @@ class DomainArgs:
             pulumi.set(__self__, "duration_in_years", duration_in_years)
         if name_servers is not None:
             pulumi.set(__self__, "name_servers", name_servers)
-        if registrant_contact is not None:
-            pulumi.set(__self__, "registrant_contact", registrant_contact)
         if registrant_privacy is not None:
             pulumi.set(__self__, "registrant_privacy", registrant_privacy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tech_contact is not None:
-            pulumi.set(__self__, "tech_contact", tech_contact)
         if tech_privacy is not None:
             pulumi.set(__self__, "tech_privacy", tech_privacy)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if transfer_lock is not None:
             pulumi.set(__self__, "transfer_lock", transfer_lock)
+
+    @_builtins.property
+    @pulumi.getter(name="adminContact")
+    def admin_contact(self) -> pulumi.Input['DomainAdminContactArgs']:
+        """
+        Details about the domain administrative contact. See Contact Blocks for more details.
+        """
+        return pulumi.get(self, "admin_contact")
+
+    @admin_contact.setter
+    def admin_contact(self, value: pulumi.Input['DomainAdminContactArgs']):
+        pulumi.set(self, "admin_contact", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
@@ -98,16 +107,28 @@ class DomainArgs:
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="adminContact")
-    def admin_contact(self) -> Optional[pulumi.Input['DomainAdminContactArgs']]:
+    @pulumi.getter(name="registrantContact")
+    def registrant_contact(self) -> pulumi.Input['DomainRegistrantContactArgs']:
         """
-        Details about the domain administrative contact. See Contact Blocks for more details.
+        Details about the domain registrant. See Contact Blocks for more details.
         """
-        return pulumi.get(self, "admin_contact")
+        return pulumi.get(self, "registrant_contact")
 
-    @admin_contact.setter
-    def admin_contact(self, value: Optional[pulumi.Input['DomainAdminContactArgs']]):
-        pulumi.set(self, "admin_contact", value)
+    @registrant_contact.setter
+    def registrant_contact(self, value: pulumi.Input['DomainRegistrantContactArgs']):
+        pulumi.set(self, "registrant_contact", value)
+
+    @_builtins.property
+    @pulumi.getter(name="techContact")
+    def tech_contact(self) -> pulumi.Input['DomainTechContactArgs']:
+        """
+        Details about the domain technical contact. See Contact Blocks for more details.
+        """
+        return pulumi.get(self, "tech_contact")
+
+    @tech_contact.setter
+    def tech_contact(self, value: pulumi.Input['DomainTechContactArgs']):
+        pulumi.set(self, "tech_contact", value)
 
     @_builtins.property
     @pulumi.getter(name="adminPrivacy")
@@ -182,18 +203,6 @@ class DomainArgs:
         pulumi.set(self, "name_servers", value)
 
     @_builtins.property
-    @pulumi.getter(name="registrantContact")
-    def registrant_contact(self) -> Optional[pulumi.Input['DomainRegistrantContactArgs']]:
-        """
-        Details about the domain registrant. See Contact Blocks for more details.
-        """
-        return pulumi.get(self, "registrant_contact")
-
-    @registrant_contact.setter
-    def registrant_contact(self, value: Optional[pulumi.Input['DomainRegistrantContactArgs']]):
-        pulumi.set(self, "registrant_contact", value)
-
-    @_builtins.property
     @pulumi.getter(name="registrantPrivacy")
     def registrant_privacy(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -216,18 +225,6 @@ class DomainArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="techContact")
-    def tech_contact(self) -> Optional[pulumi.Input['DomainTechContactArgs']]:
-        """
-        Details about the domain technical contact. See Contact Blocks for more details.
-        """
-        return pulumi.get(self, "tech_contact")
-
-    @tech_contact.setter
-    def tech_contact(self, value: Optional[pulumi.Input['DomainTechContactArgs']]):
-        pulumi.set(self, "tech_contact", value)
 
     @_builtins.property
     @pulumi.getter(name="techPrivacy")
@@ -905,6 +902,8 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainArgs.__new__(DomainArgs)
 
+            if admin_contact is None and not opts.urn:
+                raise TypeError("Missing required property 'admin_contact'")
             __props__.__dict__["admin_contact"] = admin_contact
             __props__.__dict__["admin_privacy"] = admin_privacy
             __props__.__dict__["auto_renew"] = auto_renew
@@ -915,9 +914,13 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["duration_in_years"] = duration_in_years
             __props__.__dict__["name_servers"] = name_servers
+            if registrant_contact is None and not opts.urn:
+                raise TypeError("Missing required property 'registrant_contact'")
             __props__.__dict__["registrant_contact"] = registrant_contact
             __props__.__dict__["registrant_privacy"] = registrant_privacy
             __props__.__dict__["tags"] = tags
+            if tech_contact is None and not opts.urn:
+                raise TypeError("Missing required property 'tech_contact'")
             __props__.__dict__["tech_contact"] = tech_contact
             __props__.__dict__["tech_privacy"] = tech_privacy
             __props__.__dict__["timeouts"] = timeouts
@@ -1054,7 +1057,7 @@ class Domain(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="adminContact")
-    def admin_contact(self) -> pulumi.Output[Optional['outputs.DomainAdminContact']]:
+    def admin_contact(self) -> pulumi.Output['outputs.DomainAdminContact']:
         """
         Details about the domain administrative contact. See Contact Blocks for more details.
         """
@@ -1142,7 +1145,7 @@ class Domain(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="registrantContact")
-    def registrant_contact(self) -> pulumi.Output[Optional['outputs.DomainRegistrantContact']]:
+    def registrant_contact(self) -> pulumi.Output['outputs.DomainRegistrantContact']:
         """
         Details about the domain registrant. See Contact Blocks for more details.
         """
@@ -1198,7 +1201,7 @@ class Domain(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="techContact")
-    def tech_contact(self) -> pulumi.Output[Optional['outputs.DomainTechContact']]:
+    def tech_contact(self) -> pulumi.Output['outputs.DomainTechContact']:
         """
         Details about the domain technical contact. See Contact Blocks for more details.
         """

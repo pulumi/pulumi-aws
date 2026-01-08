@@ -10,8 +10,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ContactsRotationRecurrenceShiftCoverageArgs extends com.pulumi.resources.ResourceArgs {
@@ -22,15 +20,15 @@ public final class ContactsRotationRecurrenceShiftCoverageArgs extends com.pulum
      * (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
      * 
      */
-    @Import(name="coverageTimes")
-    private @Nullable Output<List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs>> coverageTimes;
+    @Import(name="coverageTimes", required=true)
+    private Output<List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs>> coverageTimes;
 
     /**
      * @return (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
      * 
      */
-    public Optional<Output<List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs>>> coverageTimes() {
-        return Optional.ofNullable(this.coverageTimes);
+    public Output<List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs>> coverageTimes() {
+        return this.coverageTimes;
     }
 
     @Import(name="mapBlockKey", required=true)
@@ -71,7 +69,7 @@ public final class ContactsRotationRecurrenceShiftCoverageArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder coverageTimes(@Nullable Output<List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs>> coverageTimes) {
+        public Builder coverageTimes(Output<List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs>> coverageTimes) {
             $.coverageTimes = coverageTimes;
             return this;
         }
@@ -106,6 +104,9 @@ public final class ContactsRotationRecurrenceShiftCoverageArgs extends com.pulum
         }
 
         public ContactsRotationRecurrenceShiftCoverageArgs build() {
+            if ($.coverageTimes == null) {
+                throw new MissingRequiredPropertyException("ContactsRotationRecurrenceShiftCoverageArgs", "coverageTimes");
+            }
             if ($.mapBlockKey == null) {
                 throw new MissingRequiredPropertyException("ContactsRotationRecurrenceShiftCoverageArgs", "mapBlockKey");
             }

@@ -6,9 +6,8 @@ package com.pulumi.aws.amp.inputs;
 import com.pulumi.aws.amp.inputs.ScraperSourceEksArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
      * Configuration block for an EKS cluster source. See `eks`.
      * 
      */
-    @Import(name="eks")
-    private @Nullable Output<ScraperSourceEksArgs> eks;
+    @Import(name="eks", required=true)
+    private Output<ScraperSourceEksArgs> eks;
 
     /**
      * @return Configuration block for an EKS cluster source. See `eks`.
      * 
      */
-    public Optional<Output<ScraperSourceEksArgs>> eks() {
-        return Optional.ofNullable(this.eks);
+    public Output<ScraperSourceEksArgs> eks() {
+        return this.eks;
     }
 
     private ScraperSourceArgs() {}
@@ -60,7 +59,7 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder eks(@Nullable Output<ScraperSourceEksArgs> eks) {
+        public Builder eks(Output<ScraperSourceEksArgs> eks) {
             $.eks = eks;
             return this;
         }
@@ -76,6 +75,9 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScraperSourceArgs build() {
+            if ($.eks == null) {
+                throw new MissingRequiredPropertyException("ScraperSourceArgs", "eks");
+            }
             return $;
         }
     }

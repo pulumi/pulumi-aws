@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -56,7 +57,7 @@ type ProfilingGroup struct {
 	pulumi.CustomResourceState
 
 	// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-	AgentOrchestrationConfig ProfilingGroupAgentOrchestrationConfigPtrOutput `pulumi:"agentOrchestrationConfig"`
+	AgentOrchestrationConfig ProfilingGroupAgentOrchestrationConfigOutput `pulumi:"agentOrchestrationConfig"`
 	// ARN of the profiling group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Compute platform of the profiling group.
@@ -77,9 +78,12 @@ type ProfilingGroup struct {
 func NewProfilingGroup(ctx *pulumi.Context,
 	name string, args *ProfilingGroupArgs, opts ...pulumi.ResourceOption) (*ProfilingGroup, error) {
 	if args == nil {
-		args = &ProfilingGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AgentOrchestrationConfig == nil {
+		return nil, errors.New("invalid value for required argument 'AgentOrchestrationConfig'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProfilingGroup
 	err := ctx.RegisterResource("aws:codeguruprofiler/profilingGroup:ProfilingGroup", name, args, &resource, opts...)
@@ -146,7 +150,7 @@ func (ProfilingGroupState) ElementType() reflect.Type {
 
 type profilingGroupArgs struct {
 	// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-	AgentOrchestrationConfig *ProfilingGroupAgentOrchestrationConfig `pulumi:"agentOrchestrationConfig"`
+	AgentOrchestrationConfig ProfilingGroupAgentOrchestrationConfig `pulumi:"agentOrchestrationConfig"`
 	// Compute platform of the profiling group.
 	ComputePlatform *string `pulumi:"computePlatform"`
 	// Name of the profiling group.
@@ -162,7 +166,7 @@ type profilingGroupArgs struct {
 // The set of arguments for constructing a ProfilingGroup resource.
 type ProfilingGroupArgs struct {
 	// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-	AgentOrchestrationConfig ProfilingGroupAgentOrchestrationConfigPtrInput
+	AgentOrchestrationConfig ProfilingGroupAgentOrchestrationConfigInput
 	// Compute platform of the profiling group.
 	ComputePlatform pulumi.StringPtrInput
 	// Name of the profiling group.
@@ -263,10 +267,10 @@ func (o ProfilingGroupOutput) ToProfilingGroupOutputWithContext(ctx context.Cont
 }
 
 // Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-func (o ProfilingGroupOutput) AgentOrchestrationConfig() ProfilingGroupAgentOrchestrationConfigPtrOutput {
-	return o.ApplyT(func(v *ProfilingGroup) ProfilingGroupAgentOrchestrationConfigPtrOutput {
+func (o ProfilingGroupOutput) AgentOrchestrationConfig() ProfilingGroupAgentOrchestrationConfigOutput {
+	return o.ApplyT(func(v *ProfilingGroup) ProfilingGroupAgentOrchestrationConfigOutput {
 		return v.AgentOrchestrationConfig
-	}).(ProfilingGroupAgentOrchestrationConfigPtrOutput)
+	}).(ProfilingGroupAgentOrchestrationConfigOutput)
 }
 
 // ARN of the profiling group.

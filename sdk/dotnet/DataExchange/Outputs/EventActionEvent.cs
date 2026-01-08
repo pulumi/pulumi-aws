@@ -17,10 +17,10 @@ namespace Pulumi.Aws.DataExchange.Outputs
         /// Configuration for a Revision Published event.
         /// Described in `RevisionPublished` Configuration Block below.
         /// </summary>
-        public readonly Outputs.EventActionEventRevisionPublished? RevisionPublished;
+        public readonly Outputs.EventActionEventRevisionPublished RevisionPublished;
 
         [OutputConstructor]
-        private EventActionEvent(Outputs.EventActionEventRevisionPublished? revisionPublished)
+        private EventActionEvent(Outputs.EventActionEventRevisionPublished revisionPublished)
         {
             RevisionPublished = revisionPublished;
         }

@@ -140,7 +140,7 @@ export class WebApp extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly identityProviderDetails: pulumi.Output<outputs.transfer.WebAppIdentityProviderDetails | undefined>;
+    declare public readonly identityProviderDetails: pulumi.Output<outputs.transfer.WebAppIdentityProviderDetails>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -171,7 +171,7 @@ export class WebApp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: WebAppArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: WebAppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebAppArgs | WebAppState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -188,6 +188,9 @@ export class WebApp extends pulumi.CustomResource {
             resourceInputs["webAppUnits"] = state?.webAppUnits;
         } else {
             const args = argsOrState as WebAppArgs | undefined;
+            if (args?.identityProviderDetails === undefined && !opts.urn) {
+                throw new Error("Missing required property 'identityProviderDetails'");
+            }
             resourceInputs["accessEndpoint"] = args?.accessEndpoint;
             resourceInputs["identityProviderDetails"] = args?.identityProviderDetails;
             resourceInputs["region"] = args?.region;
@@ -258,7 +261,7 @@ export interface WebAppArgs {
      *
      * The following arguments are optional:
      */
-    identityProviderDetails?: pulumi.Input<inputs.transfer.WebAppIdentityProviderDetails>;
+    identityProviderDetails: pulumi.Input<inputs.transfer.WebAppIdentityProviderDetails>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

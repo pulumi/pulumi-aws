@@ -48,9 +48,9 @@ type V2modelsSlot struct {
 	SlotTypeId pulumi.StringOutput `pulumi:"slotTypeId"`
 	// Specifications for the constituent sub slots and the expression for the composite slot.
 	// See the `subSlotSetting` argument reference below.
-	SubSlotSettings         V2modelsSlotSubSlotSettingArrayOutput        `pulumi:"subSlotSettings"`
-	Timeouts                V2modelsSlotTimeoutsPtrOutput                `pulumi:"timeouts"`
-	ValueElicitationSetting V2modelsSlotValueElicitationSettingPtrOutput `pulumi:"valueElicitationSetting"`
+	SubSlotSettings         V2modelsSlotSubSlotSettingArrayOutput     `pulumi:"subSlotSettings"`
+	Timeouts                V2modelsSlotTimeoutsPtrOutput             `pulumi:"timeouts"`
+	ValueElicitationSetting V2modelsSlotValueElicitationSettingOutput `pulumi:"valueElicitationSetting"`
 }
 
 // NewV2modelsSlot registers a new resource with the given unique name, arguments, and options.
@@ -71,6 +71,9 @@ func NewV2modelsSlot(ctx *pulumi.Context,
 	}
 	if args.LocaleId == nil {
 		return nil, errors.New("invalid value for required argument 'LocaleId'")
+	}
+	if args.ValueElicitationSetting == nil {
+		return nil, errors.New("invalid value for required argument 'ValueElicitationSetting'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource V2modelsSlot
@@ -187,9 +190,9 @@ type v2modelsSlotArgs struct {
 	SlotTypeId *string `pulumi:"slotTypeId"`
 	// Specifications for the constituent sub slots and the expression for the composite slot.
 	// See the `subSlotSetting` argument reference below.
-	SubSlotSettings         []V2modelsSlotSubSlotSetting         `pulumi:"subSlotSettings"`
-	Timeouts                *V2modelsSlotTimeouts                `pulumi:"timeouts"`
-	ValueElicitationSetting *V2modelsSlotValueElicitationSetting `pulumi:"valueElicitationSetting"`
+	SubSlotSettings         []V2modelsSlotSubSlotSetting        `pulumi:"subSlotSettings"`
+	Timeouts                *V2modelsSlotTimeouts               `pulumi:"timeouts"`
+	ValueElicitationSetting V2modelsSlotValueElicitationSetting `pulumi:"valueElicitationSetting"`
 }
 
 // The set of arguments for constructing a V2modelsSlot resource.
@@ -220,7 +223,7 @@ type V2modelsSlotArgs struct {
 	// See the `subSlotSetting` argument reference below.
 	SubSlotSettings         V2modelsSlotSubSlotSettingArrayInput
 	Timeouts                V2modelsSlotTimeoutsPtrInput
-	ValueElicitationSetting V2modelsSlotValueElicitationSettingPtrInput
+	ValueElicitationSetting V2modelsSlotValueElicitationSettingInput
 }
 
 func (V2modelsSlotArgs) ElementType() reflect.Type {
@@ -377,8 +380,8 @@ func (o V2modelsSlotOutput) Timeouts() V2modelsSlotTimeoutsPtrOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotTimeoutsPtrOutput { return v.Timeouts }).(V2modelsSlotTimeoutsPtrOutput)
 }
 
-func (o V2modelsSlotOutput) ValueElicitationSetting() V2modelsSlotValueElicitationSettingPtrOutput {
-	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotValueElicitationSettingPtrOutput { return v.ValueElicitationSetting }).(V2modelsSlotValueElicitationSettingPtrOutput)
+func (o V2modelsSlotOutput) ValueElicitationSetting() V2modelsSlotValueElicitationSettingOutput {
+	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotValueElicitationSettingOutput { return v.ValueElicitationSetting }).(V2modelsSlotValueElicitationSettingOutput)
 }
 
 type V2modelsSlotArrayOutput struct{ *pulumi.OutputState }

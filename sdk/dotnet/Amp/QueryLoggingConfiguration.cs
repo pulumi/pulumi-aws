@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Amp
 
     public sealed class QueryLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("destinations")]
+        [Input("destinations", required: true)]
         private InputList<Inputs.QueryLoggingConfigurationDestinationArgs>? _destinations;
 
         /// <summary>

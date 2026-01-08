@@ -145,7 +145,7 @@ type RefreshSchedule struct {
 	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 	//
 	// The following arguments are optional:
-	Schedule RefreshScheduleSchedulePtrOutput `pulumi:"schedule"`
+	Schedule RefreshScheduleScheduleOutput `pulumi:"schedule"`
 	// The ID of the refresh schedule.
 	ScheduleId pulumi.StringOutput `pulumi:"scheduleId"`
 }
@@ -159,6 +159,9 @@ func NewRefreshSchedule(ctx *pulumi.Context,
 
 	if args.DataSetId == nil {
 		return nil, errors.New("invalid value for required argument 'DataSetId'")
+	}
+	if args.Schedule == nil {
+		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
 	if args.ScheduleId == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduleId'")
@@ -230,7 +233,7 @@ type refreshScheduleArgs struct {
 	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 	//
 	// The following arguments are optional:
-	Schedule *RefreshScheduleSchedule `pulumi:"schedule"`
+	Schedule RefreshScheduleSchedule `pulumi:"schedule"`
 	// The ID of the refresh schedule.
 	ScheduleId string `pulumi:"scheduleId"`
 }
@@ -245,7 +248,7 @@ type RefreshScheduleArgs struct {
 	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 	//
 	// The following arguments are optional:
-	Schedule RefreshScheduleSchedulePtrInput
+	Schedule RefreshScheduleScheduleInput
 	// The ID of the refresh schedule.
 	ScheduleId pulumi.StringInput
 }
@@ -359,8 +362,8 @@ func (o RefreshScheduleOutput) Region() pulumi.StringOutput {
 // The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 //
 // The following arguments are optional:
-func (o RefreshScheduleOutput) Schedule() RefreshScheduleSchedulePtrOutput {
-	return o.ApplyT(func(v *RefreshSchedule) RefreshScheduleSchedulePtrOutput { return v.Schedule }).(RefreshScheduleSchedulePtrOutput)
+func (o RefreshScheduleOutput) Schedule() RefreshScheduleScheduleOutput {
+	return o.ApplyT(func(v *RefreshSchedule) RefreshScheduleScheduleOutput { return v.Schedule }).(RefreshScheduleScheduleOutput)
 }
 
 // The ID of the refresh schedule.

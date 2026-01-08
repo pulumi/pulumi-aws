@@ -10,6 +10,7 @@ import com.pulumi.aws.lakeformation.inputs.ResourceLfTagTableWithColumnsArgs;
 import com.pulumi.aws.lakeformation.inputs.ResourceLfTagTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -56,8 +57,8 @@ public final class ResourceLfTagArgs extends com.pulumi.resources.ResourceArgs {
      * Exactly one of the following is required:
      * 
      */
-    @Import(name="lfTag")
-    private @Nullable Output<ResourceLfTagLfTagArgs> lfTag;
+    @Import(name="lfTag", required=true)
+    private Output<ResourceLfTagLfTagArgs> lfTag;
 
     /**
      * @return Set of LF-tags to attach to the resource. See LF Tag for more details.
@@ -65,8 +66,8 @@ public final class ResourceLfTagArgs extends com.pulumi.resources.ResourceArgs {
      * Exactly one of the following is required:
      * 
      */
-    public Optional<Output<ResourceLfTagLfTagArgs>> lfTag() {
-        return Optional.ofNullable(this.lfTag);
+    public Output<ResourceLfTagLfTagArgs> lfTag() {
+        return this.lfTag;
     }
 
     /**
@@ -205,7 +206,7 @@ public final class ResourceLfTagArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder lfTag(@Nullable Output<ResourceLfTagLfTagArgs> lfTag) {
+        public Builder lfTag(Output<ResourceLfTagLfTagArgs> lfTag) {
             $.lfTag = lfTag;
             return this;
         }
@@ -299,6 +300,9 @@ public final class ResourceLfTagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ResourceLfTagArgs build() {
+            if ($.lfTag == null) {
+                throw new MissingRequiredPropertyException("ResourceLfTagArgs", "lfTag");
+            }
             return $;
         }
     }

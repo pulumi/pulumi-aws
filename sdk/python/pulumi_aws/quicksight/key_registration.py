@@ -21,20 +21,31 @@ __all__ = ['KeyRegistrationArgs', 'KeyRegistration']
 @pulumi.input_type
 class KeyRegistrationArgs:
     def __init__(__self__, *,
+                 key_registrations: pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]],
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_registrations: Optional[pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeyRegistration resource.
         :param pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]] key_registrations: Registered keys. See key_registration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        pulumi.set(__self__, "key_registrations", key_registrations)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
-        if key_registrations is not None:
-            pulumi.set(__self__, "key_registrations", key_registrations)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="keyRegistrations")
+    def key_registrations(self) -> pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]:
+        """
+        Registered keys. See key_registration.
+        """
+        return pulumi.get(self, "key_registrations")
+
+    @key_registrations.setter
+    def key_registrations(self, value: pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]):
+        pulumi.set(self, "key_registrations", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
@@ -44,18 +55,6 @@ class KeyRegistrationArgs:
     @aws_account_id.setter
     def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyRegistrations")
-    def key_registrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]]:
-        """
-        Registered keys. See key_registration.
-        """
-        return pulumi.get(self, "key_registrations")
-
-    @key_registrations.setter
-    def key_registrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]]):
-        pulumi.set(self, "key_registrations", value)
 
     @_builtins.property
     @pulumi.getter
@@ -171,7 +170,7 @@ class KeyRegistration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[KeyRegistrationArgs] = None,
+                 args: KeyRegistrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registers customer managed keys in a Amazon QuickSight account.
@@ -231,6 +230,8 @@ class KeyRegistration(pulumi.CustomResource):
             __props__ = KeyRegistrationArgs.__new__(KeyRegistrationArgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
+            if key_registrations is None and not opts.urn:
+                raise TypeError("Missing required property 'key_registrations'")
             __props__.__dict__["key_registrations"] = key_registrations
             __props__.__dict__["region"] = region
         super(KeyRegistration, __self__).__init__(
@@ -272,7 +273,7 @@ class KeyRegistration(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="keyRegistrations")
-    def key_registrations(self) -> pulumi.Output[Optional[Sequence['outputs.KeyRegistrationKeyRegistration']]]:
+    def key_registrations(self) -> pulumi.Output[Sequence['outputs.KeyRegistrationKeyRegistration']]:
         """
         Registered keys. See key_registration.
         """

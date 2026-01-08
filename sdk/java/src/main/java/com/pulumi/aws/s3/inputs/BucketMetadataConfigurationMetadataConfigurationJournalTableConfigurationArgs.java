@@ -7,6 +7,7 @@ import com.pulumi.aws.s3.inputs.BucketMetadataConfigurationMetadataConfiguration
 import com.pulumi.aws.s3.inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -36,15 +37,15 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
      * Journal table record expiration settings. See `recordExpiration` Block for details.
      * 
      */
-    @Import(name="recordExpiration")
-    private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs> recordExpiration;
+    @Import(name="recordExpiration", required=true)
+    private Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs> recordExpiration;
 
     /**
      * @return Journal table record expiration settings. See `recordExpiration` Block for details.
      * 
      */
-    public Optional<Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs>> recordExpiration() {
-        return Optional.ofNullable(this.recordExpiration);
+    public Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs> recordExpiration() {
+        return this.recordExpiration;
     }
 
     /**
@@ -131,7 +132,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
          * @return builder
          * 
          */
-        public Builder recordExpiration(@Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs> recordExpiration) {
+        public Builder recordExpiration(Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs> recordExpiration) {
             $.recordExpiration = recordExpiration;
             return this;
         }
@@ -189,6 +190,9 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
         }
 
         public BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs build() {
+            if ($.recordExpiration == null) {
+                throw new MissingRequiredPropertyException("BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs", "recordExpiration");
+            }
             return $;
         }
     }

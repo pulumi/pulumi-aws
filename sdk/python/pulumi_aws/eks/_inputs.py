@@ -234,7 +234,7 @@ class CapabilityConfigurationArgs:
 
 if not MYPY:
     class CapabilityConfigurationArgoCdArgsDict(TypedDict):
-        aws_idc: NotRequired[pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgsDict']]
+        aws_idc: pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgsDict']
         """
         AWS IAM Identity Center configuration. See `aws_idc` below.
         """
@@ -260,7 +260,7 @@ elif False:
 @pulumi.input_type
 class CapabilityConfigurationArgoCdArgs:
     def __init__(__self__, *,
-                 aws_idc: Optional[pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgs']] = None,
+                 aws_idc: pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgs'],
                  namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  network_access: Optional[pulumi.Input['CapabilityConfigurationArgoCdNetworkAccessArgs']] = None,
                  rbac_role_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingArgs']]]] = None,
@@ -272,8 +272,7 @@ class CapabilityConfigurationArgoCdArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingArgs']]] rbac_role_mappings: RBAC role mappings. See `rbac_role_mapping` below.
         :param pulumi.Input[_builtins.str] server_url: URL of the Argo CD server.
         """
-        if aws_idc is not None:
-            pulumi.set(__self__, "aws_idc", aws_idc)
+        pulumi.set(__self__, "aws_idc", aws_idc)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
         if network_access is not None:
@@ -285,14 +284,14 @@ class CapabilityConfigurationArgoCdArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsIdc")
-    def aws_idc(self) -> Optional[pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgs']]:
+    def aws_idc(self) -> pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgs']:
         """
         AWS IAM Identity Center configuration. See `aws_idc` below.
         """
         return pulumi.get(self, "aws_idc")
 
     @aws_idc.setter
-    def aws_idc(self, value: Optional[pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgs']]):
+    def aws_idc(self, value: pulumi.Input['CapabilityConfigurationArgoCdAwsIdcArgs']):
         pulumi.set(self, "aws_idc", value)
 
     @_builtins.property
@@ -442,13 +441,13 @@ class CapabilityConfigurationArgoCdNetworkAccessArgs:
 
 if not MYPY:
     class CapabilityConfigurationArgoCdRbacRoleMappingArgsDict(TypedDict):
+        identities: pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgsDict']]]
+        """
+        List of identities. See `identity` below.
+        """
         role: pulumi.Input[_builtins.str]
         """
         ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
-        """
-        identities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgsDict']]]]
-        """
-        List of identities. See `identity` below.
         """
 elif False:
     CapabilityConfigurationArgoCdRbacRoleMappingArgsDict: TypeAlias = Mapping[str, Any]
@@ -456,15 +455,26 @@ elif False:
 @pulumi.input_type
 class CapabilityConfigurationArgoCdRbacRoleMappingArgs:
     def __init__(__self__, *,
-                 role: pulumi.Input[_builtins.str],
-                 identities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs']]]] = None):
+                 identities: pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs']]],
+                 role: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] role: ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
         :param pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs']]] identities: List of identities. See `identity` below.
+        :param pulumi.Input[_builtins.str] role: ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
         """
+        pulumi.set(__self__, "identities", identities)
         pulumi.set(__self__, "role", role)
-        if identities is not None:
-            pulumi.set(__self__, "identities", identities)
+
+    @_builtins.property
+    @pulumi.getter
+    def identities(self) -> pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs']]]:
+        """
+        List of identities. See `identity` below.
+        """
+        return pulumi.get(self, "identities")
+
+    @identities.setter
+    def identities(self, value: pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs']]]):
+        pulumi.set(self, "identities", value)
 
     @_builtins.property
     @pulumi.getter
@@ -477,18 +487,6 @@ class CapabilityConfigurationArgoCdRbacRoleMappingArgs:
     @role.setter
     def role(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs']]]]:
-        """
-        List of identities. See `identity` below.
-        """
-        return pulumi.get(self, "identities")
-
-    @identities.setter
-    def identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs']]]]):
-        pulumi.set(self, "identities", value)
 
 
 if not MYPY:

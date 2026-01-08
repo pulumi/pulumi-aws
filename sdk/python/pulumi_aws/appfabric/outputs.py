@@ -381,16 +381,15 @@ class IngestionDestinationDestinationConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 audit_log: Optional['outputs.IngestionDestinationDestinationConfigurationAuditLog'] = None):
+                 audit_log: 'outputs.IngestionDestinationDestinationConfigurationAuditLog'):
         """
         :param 'IngestionDestinationDestinationConfigurationAuditLogArgs' audit_log: Contains information about an audit log processing configuration.
         """
-        if audit_log is not None:
-            pulumi.set(__self__, "audit_log", audit_log)
+        pulumi.set(__self__, "audit_log", audit_log)
 
     @_builtins.property
     @pulumi.getter(name="auditLog")
-    def audit_log(self) -> Optional['outputs.IngestionDestinationDestinationConfigurationAuditLog']:
+    def audit_log(self) -> 'outputs.IngestionDestinationDestinationConfigurationAuditLog':
         """
         Contains information about an audit log processing configuration.
         """
@@ -400,16 +399,15 @@ class IngestionDestinationDestinationConfiguration(dict):
 @pulumi.output_type
 class IngestionDestinationDestinationConfigurationAuditLog(dict):
     def __init__(__self__, *,
-                 destination: Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestination'] = None):
+                 destination: 'outputs.IngestionDestinationDestinationConfigurationAuditLogDestination'):
         """
         :param 'IngestionDestinationDestinationConfigurationAuditLogDestinationArgs' destination: Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
         """
-        if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination", destination)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestination']:
+    def destination(self) -> 'outputs.IngestionDestinationDestinationConfigurationAuditLogDestination':
         """
         Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
         """
@@ -558,16 +556,15 @@ class IngestionDestinationProcessingConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 audit_log: Optional['outputs.IngestionDestinationProcessingConfigurationAuditLog'] = None):
+                 audit_log: 'outputs.IngestionDestinationProcessingConfigurationAuditLog'):
         """
         :param 'IngestionDestinationProcessingConfigurationAuditLogArgs' audit_log: Contains information about an audit log processing configuration.
         """
-        if audit_log is not None:
-            pulumi.set(__self__, "audit_log", audit_log)
+        pulumi.set(__self__, "audit_log", audit_log)
 
     @_builtins.property
     @pulumi.getter(name="auditLog")
-    def audit_log(self) -> Optional['outputs.IngestionDestinationProcessingConfigurationAuditLog']:
+    def audit_log(self) -> 'outputs.IngestionDestinationProcessingConfigurationAuditLog':
         """
         Contains information about an audit log processing configuration.
         """

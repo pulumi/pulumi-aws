@@ -6,9 +6,9 @@ package com.pulumi.aws.lex.outputs;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,7 +18,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
      * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
      * 
      */
-    private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage message;
+    private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage message;
     /**
      * @return Configuration blocks for message variations to send to the user.
      * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
@@ -33,8 +33,8 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
      * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
      * 
      */
-    public V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage message() {
-        return this.message;
+    public Optional<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage> message() {
+        return Optional.ofNullable(this.message);
     }
     /**
      * @return Configuration blocks for message variations to send to the user.
@@ -55,7 +55,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     }
     @CustomType.Builder
     public static final class Builder {
-        private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage message;
+        private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage message;
         private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation> variations;
         public Builder() {}
         public Builder(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup defaults) {
@@ -65,10 +65,8 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
         }
 
         @CustomType.Setter
-        public Builder message(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage message) {
-            if (message == null) {
-              throw new MissingRequiredPropertyException("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup", "message");
-            }
+        public Builder message(@Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage message) {
+
             this.message = message;
             return this;
         }

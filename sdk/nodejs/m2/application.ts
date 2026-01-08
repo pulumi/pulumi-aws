@@ -103,7 +103,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      */
-    declare public readonly definition: pulumi.Output<outputs.m2.ApplicationDefinition | undefined>;
+    declare public readonly definition: pulumi.Output<outputs.m2.ApplicationDefinition>;
     /**
      * Description of the application.
      */
@@ -168,6 +168,9 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
+            if (args?.definition === undefined && !opts.urn) {
+                throw new Error("Missing required property 'definition'");
+            }
             if (args?.engineType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
@@ -254,7 +257,7 @@ export interface ApplicationArgs {
     /**
      * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      */
-    definition?: pulumi.Input<inputs.m2.ApplicationDefinition>;
+    definition: pulumi.Input<inputs.m2.ApplicationDefinition>;
     /**
      * Description of the application.
      */

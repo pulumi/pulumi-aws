@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLifecyclePolicyDocumentResult {
@@ -23,7 +22,7 @@ public final class GetLifecyclePolicyDocumentResult {
      * 
      */
     private String json;
-    private @Nullable List<GetLifecyclePolicyDocumentRule> rules;
+    private List<GetLifecyclePolicyDocumentRule> rules;
 
     private GetLifecyclePolicyDocumentResult() {}
     /**
@@ -41,7 +40,7 @@ public final class GetLifecyclePolicyDocumentResult {
         return this.json;
     }
     public List<GetLifecyclePolicyDocumentRule> rules() {
-        return this.rules == null ? List.of() : this.rules;
+        return this.rules;
     }
 
     public static Builder builder() {
@@ -55,7 +54,7 @@ public final class GetLifecyclePolicyDocumentResult {
     public static final class Builder {
         private String id;
         private String json;
-        private @Nullable List<GetLifecyclePolicyDocumentRule> rules;
+        private List<GetLifecyclePolicyDocumentRule> rules;
         public Builder() {}
         public Builder(GetLifecyclePolicyDocumentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -81,8 +80,10 @@ public final class GetLifecyclePolicyDocumentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder rules(@Nullable List<GetLifecyclePolicyDocumentRule> rules) {
-
+        public Builder rules(List<GetLifecyclePolicyDocumentRule> rules) {
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("GetLifecyclePolicyDocumentResult", "rules");
+            }
             this.rules = rules;
             return this;
         }

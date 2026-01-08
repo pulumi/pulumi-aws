@@ -33,7 +33,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHook {
      * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
      * 
      */
-    private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification postCodeHookSpecification;
+    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification postCodeHookSpecification;
 
     private V2modelsIntentInitialResponseSettingCodeHook() {}
     /**
@@ -61,8 +61,8 @@ public final class V2modelsIntentInitialResponseSettingCodeHook {
      * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
      * 
      */
-    public V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification postCodeHookSpecification() {
-        return this.postCodeHookSpecification;
+    public Optional<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification> postCodeHookSpecification() {
+        return Optional.ofNullable(this.postCodeHookSpecification);
     }
 
     public static Builder builder() {
@@ -77,7 +77,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHook {
         private Boolean active;
         private Boolean enableCodeHookInvocation;
         private @Nullable String invocationLabel;
-        private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification postCodeHookSpecification;
+        private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification postCodeHookSpecification;
         public Builder() {}
         public Builder(V2modelsIntentInitialResponseSettingCodeHook defaults) {
     	      Objects.requireNonNull(defaults);
@@ -110,10 +110,8 @@ public final class V2modelsIntentInitialResponseSettingCodeHook {
             return this;
         }
         @CustomType.Setter
-        public Builder postCodeHookSpecification(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification postCodeHookSpecification) {
-            if (postCodeHookSpecification == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentInitialResponseSettingCodeHook", "postCodeHookSpecification");
-            }
+        public Builder postCodeHookSpecification(@Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification postCodeHookSpecification) {
+
             this.postCodeHookSpecification = postCodeHookSpecification;
             return this;
         }

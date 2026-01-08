@@ -5,9 +5,8 @@ package com.pulumi.aws.dataexchange.outputs;
 
 import com.pulumi.aws.dataexchange.outputs.EventActionEventRevisionPublished;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class EventActionEvent {
@@ -16,7 +15,7 @@ public final class EventActionEvent {
      * Described in `revisionPublished` Configuration Block below.
      * 
      */
-    private @Nullable EventActionEventRevisionPublished revisionPublished;
+    private EventActionEventRevisionPublished revisionPublished;
 
     private EventActionEvent() {}
     /**
@@ -24,8 +23,8 @@ public final class EventActionEvent {
      * Described in `revisionPublished` Configuration Block below.
      * 
      */
-    public Optional<EventActionEventRevisionPublished> revisionPublished() {
-        return Optional.ofNullable(this.revisionPublished);
+    public EventActionEventRevisionPublished revisionPublished() {
+        return this.revisionPublished;
     }
 
     public static Builder builder() {
@@ -37,7 +36,7 @@ public final class EventActionEvent {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable EventActionEventRevisionPublished revisionPublished;
+        private EventActionEventRevisionPublished revisionPublished;
         public Builder() {}
         public Builder(EventActionEvent defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,8 +44,10 @@ public final class EventActionEvent {
         }
 
         @CustomType.Setter
-        public Builder revisionPublished(@Nullable EventActionEventRevisionPublished revisionPublished) {
-
+        public Builder revisionPublished(EventActionEventRevisionPublished revisionPublished) {
+            if (revisionPublished == null) {
+              throw new MissingRequiredPropertyException("EventActionEvent", "revisionPublished");
+            }
             this.revisionPublished = revisionPublished;
             return this;
         }

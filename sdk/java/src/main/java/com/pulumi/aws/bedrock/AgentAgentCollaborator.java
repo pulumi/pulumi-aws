@@ -168,10 +168,10 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator")
 public class AgentAgentCollaborator extends com.pulumi.resources.CustomResource {
     @Export(name="agentDescriptor", refs={AgentAgentCollaboratorAgentDescriptor.class}, tree="[0]")
-    private Output</* @Nullable */ AgentAgentCollaboratorAgentDescriptor> agentDescriptor;
+    private Output<AgentAgentCollaboratorAgentDescriptor> agentDescriptor;
 
-    public Output<Optional<AgentAgentCollaboratorAgentDescriptor>> agentDescriptor() {
-        return Codegen.optional(this.agentDescriptor);
+    public Output<AgentAgentCollaboratorAgentDescriptor> agentDescriptor() {
+        return this.agentDescriptor;
     }
     /**
      * ID if the agent to associate the collaborator.

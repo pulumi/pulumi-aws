@@ -40,15 +40,15 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
      * Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
      * 
      */
-    @Import(name="destinations")
-    private @Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs>> destinations;
+    @Import(name="destinations", required=true)
+    private Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs>> destinations;
 
     /**
      * @return Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
      * 
      */
-    public Optional<Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs>>> destinations() {
-        return Optional.ofNullable(this.destinations);
+    public Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs>> destinations() {
+        return this.destinations;
     }
 
     /**
@@ -161,7 +161,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
          * @return builder
          * 
          */
-        public Builder destinations(@Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs>> destinations) {
+        public Builder destinations(Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs>> destinations) {
             $.destinations = destinations;
             return this;
         }
@@ -280,6 +280,9 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
         }
 
         public TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs build() {
+            if ($.destinations == null) {
+                throw new MissingRequiredPropertyException("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs", "destinations");
+            }
             if ($.protocols == null) {
                 throw new MissingRequiredPropertyException("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs", "protocols");
             }

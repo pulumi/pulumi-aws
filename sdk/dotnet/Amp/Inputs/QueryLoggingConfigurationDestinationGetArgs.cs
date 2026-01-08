@@ -15,14 +15,14 @@ namespace Pulumi.Aws.Amp.Inputs
         /// <summary>
         /// Configuration block for CloudWatch Logs destination. See `CloudwatchLogs`.
         /// </summary>
-        [Input("cloudwatchLogs")]
-        public Input<Inputs.QueryLoggingConfigurationDestinationCloudwatchLogsGetArgs>? CloudwatchLogs { get; set; }
+        [Input("cloudwatchLogs", required: true)]
+        public Input<Inputs.QueryLoggingConfigurationDestinationCloudwatchLogsGetArgs> CloudwatchLogs { get; set; } = null!;
 
         /// <summary>
         /// A list of filter configurations that specify which logs should be sent to the destination. See `Filters`.
         /// </summary>
-        [Input("filters")]
-        public Input<Inputs.QueryLoggingConfigurationDestinationFiltersGetArgs>? Filters { get; set; }
+        [Input("filters", required: true)]
+        public Input<Inputs.QueryLoggingConfigurationDestinationFiltersGetArgs> Filters { get; set; } = null!;
 
         public QueryLoggingConfigurationDestinationGetArgs()
         {

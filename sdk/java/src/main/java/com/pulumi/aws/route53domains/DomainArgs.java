@@ -30,15 +30,15 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
      * Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
-    @Import(name="adminContact")
-    private @Nullable Output<DomainAdminContactArgs> adminContact;
+    @Import(name="adminContact", required=true)
+    private Output<DomainAdminContactArgs> adminContact;
 
     /**
      * @return Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
-    public Optional<Output<DomainAdminContactArgs>> adminContact() {
-        return Optional.ofNullable(this.adminContact);
+    public Output<DomainAdminContactArgs> adminContact() {
+        return this.adminContact;
     }
 
     /**
@@ -150,15 +150,15 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
      * Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
-    @Import(name="registrantContact")
-    private @Nullable Output<DomainRegistrantContactArgs> registrantContact;
+    @Import(name="registrantContact", required=true)
+    private Output<DomainRegistrantContactArgs> registrantContact;
 
     /**
      * @return Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
-    public Optional<Output<DomainRegistrantContactArgs>> registrantContact() {
-        return Optional.ofNullable(this.registrantContact);
+    public Output<DomainRegistrantContactArgs> registrantContact() {
+        return this.registrantContact;
     }
 
     /**
@@ -195,15 +195,15 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
      * Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
-    @Import(name="techContact")
-    private @Nullable Output<DomainTechContactArgs> techContact;
+    @Import(name="techContact", required=true)
+    private Output<DomainTechContactArgs> techContact;
 
     /**
      * @return Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
-    public Optional<Output<DomainTechContactArgs>> techContact() {
-        return Optional.ofNullable(this.techContact);
+    public Output<DomainTechContactArgs> techContact() {
+        return this.techContact;
     }
 
     /**
@@ -291,7 +291,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder adminContact(@Nullable Output<DomainAdminContactArgs> adminContact) {
+        public Builder adminContact(Output<DomainAdminContactArgs> adminContact) {
             $.adminContact = adminContact;
             return this;
         }
@@ -479,7 +479,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder registrantContact(@Nullable Output<DomainRegistrantContactArgs> registrantContact) {
+        public Builder registrantContact(Output<DomainRegistrantContactArgs> registrantContact) {
             $.registrantContact = registrantContact;
             return this;
         }
@@ -542,7 +542,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder techContact(@Nullable Output<DomainTechContactArgs> techContact) {
+        public Builder techContact(Output<DomainTechContactArgs> techContact) {
             $.techContact = techContact;
             return this;
         }
@@ -613,8 +613,17 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DomainArgs build() {
+            if ($.adminContact == null) {
+                throw new MissingRequiredPropertyException("DomainArgs", "adminContact");
+            }
             if ($.domainName == null) {
                 throw new MissingRequiredPropertyException("DomainArgs", "domainName");
+            }
+            if ($.registrantContact == null) {
+                throw new MissingRequiredPropertyException("DomainArgs", "registrantContact");
+            }
+            if ($.techContact == null) {
+                throw new MissingRequiredPropertyException("DomainArgs", "techContact");
             }
             return $;
         }

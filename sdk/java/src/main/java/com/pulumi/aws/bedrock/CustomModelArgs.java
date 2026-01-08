@@ -116,15 +116,15 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
      * S3 location for the output data.
      * 
      */
-    @Import(name="outputDataConfig")
-    private @Nullable Output<CustomModelOutputDataConfigArgs> outputDataConfig;
+    @Import(name="outputDataConfig", required=true)
+    private Output<CustomModelOutputDataConfigArgs> outputDataConfig;
 
     /**
      * @return S3 location for the output data.
      * 
      */
-    public Optional<Output<CustomModelOutputDataConfigArgs>> outputDataConfig() {
-        return Optional.ofNullable(this.outputDataConfig);
+    public Output<CustomModelOutputDataConfigArgs> outputDataConfig() {
+        return this.outputDataConfig;
     }
 
     /**
@@ -183,15 +183,15 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
      * Information about the training dataset.
      * 
      */
-    @Import(name="trainingDataConfig")
-    private @Nullable Output<CustomModelTrainingDataConfigArgs> trainingDataConfig;
+    @Import(name="trainingDataConfig", required=true)
+    private Output<CustomModelTrainingDataConfigArgs> trainingDataConfig;
 
     /**
      * @return Information about the training dataset.
      * 
      */
-    public Optional<Output<CustomModelTrainingDataConfigArgs>> trainingDataConfig() {
-        return Optional.ofNullable(this.trainingDataConfig);
+    public Output<CustomModelTrainingDataConfigArgs> trainingDataConfig() {
+        return this.trainingDataConfig;
     }
 
     /**
@@ -393,7 +393,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder outputDataConfig(@Nullable Output<CustomModelOutputDataConfigArgs> outputDataConfig) {
+        public Builder outputDataConfig(Output<CustomModelOutputDataConfigArgs> outputDataConfig) {
             $.outputDataConfig = outputDataConfig;
             return this;
         }
@@ -486,7 +486,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder trainingDataConfig(@Nullable Output<CustomModelTrainingDataConfigArgs> trainingDataConfig) {
+        public Builder trainingDataConfig(Output<CustomModelTrainingDataConfigArgs> trainingDataConfig) {
             $.trainingDataConfig = trainingDataConfig;
             return this;
         }
@@ -556,8 +556,14 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
             if ($.jobName == null) {
                 throw new MissingRequiredPropertyException("CustomModelArgs", "jobName");
             }
+            if ($.outputDataConfig == null) {
+                throw new MissingRequiredPropertyException("CustomModelArgs", "outputDataConfig");
+            }
             if ($.roleArn == null) {
                 throw new MissingRequiredPropertyException("CustomModelArgs", "roleArn");
+            }
+            if ($.trainingDataConfig == null) {
+                throw new MissingRequiredPropertyException("CustomModelArgs", "trainingDataConfig");
             }
             return $;
         }

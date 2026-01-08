@@ -97,15 +97,15 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      * 
      */
-    @Import(name="trustedTokenIssuerConfiguration")
-    private @Nullable Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> trustedTokenIssuerConfiguration;
+    @Import(name="trustedTokenIssuerConfiguration", required=true)
+    private Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> trustedTokenIssuerConfiguration;
 
     /**
      * @return A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      * 
      */
-    public Optional<Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs>> trustedTokenIssuerConfiguration() {
-        return Optional.ofNullable(this.trustedTokenIssuerConfiguration);
+    public Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> trustedTokenIssuerConfiguration() {
+        return this.trustedTokenIssuerConfiguration;
     }
 
     /**
@@ -268,7 +268,7 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder trustedTokenIssuerConfiguration(@Nullable Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> trustedTokenIssuerConfiguration) {
+        public Builder trustedTokenIssuerConfiguration(Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> trustedTokenIssuerConfiguration) {
             $.trustedTokenIssuerConfiguration = trustedTokenIssuerConfiguration;
             return this;
         }
@@ -311,6 +311,9 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
         public TrustedTokenIssuerArgs build() {
             if ($.instanceArn == null) {
                 throw new MissingRequiredPropertyException("TrustedTokenIssuerArgs", "instanceArn");
+            }
+            if ($.trustedTokenIssuerConfiguration == null) {
+                throw new MissingRequiredPropertyException("TrustedTokenIssuerArgs", "trustedTokenIssuerConfiguration");
             }
             if ($.trustedTokenIssuerType == null) {
                 throw new MissingRequiredPropertyException("TrustedTokenIssuerArgs", "trustedTokenIssuerType");

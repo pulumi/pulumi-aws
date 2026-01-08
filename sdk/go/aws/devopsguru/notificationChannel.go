@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -96,16 +97,19 @@ type NotificationChannel struct {
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
 	// The following arguments are optional:
-	Sns NotificationChannelSnsPtrOutput `pulumi:"sns"`
+	Sns NotificationChannelSnsOutput `pulumi:"sns"`
 }
 
 // NewNotificationChannel registers a new resource with the given unique name, arguments, and options.
 func NewNotificationChannel(ctx *pulumi.Context,
 	name string, args *NotificationChannelArgs, opts ...pulumi.ResourceOption) (*NotificationChannel, error) {
 	if args == nil {
-		args = &NotificationChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Sns == nil {
+		return nil, errors.New("invalid value for required argument 'Sns'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotificationChannel
 	err := ctx.RegisterResource("aws:devopsguru/notificationChannel:NotificationChannel", name, args, &resource, opts...)
@@ -162,7 +166,7 @@ type notificationChannelArgs struct {
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
 	// The following arguments are optional:
-	Sns *NotificationChannelSns `pulumi:"sns"`
+	Sns NotificationChannelSns `pulumi:"sns"`
 }
 
 // The set of arguments for constructing a NotificationChannel resource.
@@ -174,7 +178,7 @@ type NotificationChannelArgs struct {
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
 	// The following arguments are optional:
-	Sns NotificationChannelSnsPtrInput
+	Sns NotificationChannelSnsInput
 }
 
 func (NotificationChannelArgs) ElementType() reflect.Type {
@@ -277,8 +281,8 @@ func (o NotificationChannelOutput) Region() pulumi.StringOutput {
 // SNS noficiation channel configurations. See the `sns` argument reference below.
 //
 // The following arguments are optional:
-func (o NotificationChannelOutput) Sns() NotificationChannelSnsPtrOutput {
-	return o.ApplyT(func(v *NotificationChannel) NotificationChannelSnsPtrOutput { return v.Sns }).(NotificationChannelSnsPtrOutput)
+func (o NotificationChannelOutput) Sns() NotificationChannelSnsOutput {
+	return o.ApplyT(func(v *NotificationChannel) NotificationChannelSnsOutput { return v.Sns }).(NotificationChannelSnsOutput)
 }
 
 type NotificationChannelArrayOutput struct{ *pulumi.OutputState }

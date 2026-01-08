@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ScopeTarget {
@@ -22,7 +20,7 @@ public final class ScopeTarget {
      * @return A target identifier is a pair of identifying information for a scope.
      * 
      */
-    private @Nullable ScopeTargetTargetIdentifier targetIdentifier;
+    private ScopeTargetTargetIdentifier targetIdentifier;
 
     private ScopeTarget() {}
     /**
@@ -36,8 +34,8 @@ public final class ScopeTarget {
      * @return A target identifier is a pair of identifying information for a scope.
      * 
      */
-    public Optional<ScopeTargetTargetIdentifier> targetIdentifier() {
-        return Optional.ofNullable(this.targetIdentifier);
+    public ScopeTargetTargetIdentifier targetIdentifier() {
+        return this.targetIdentifier;
     }
 
     public static Builder builder() {
@@ -50,7 +48,7 @@ public final class ScopeTarget {
     @CustomType.Builder
     public static final class Builder {
         private String region;
-        private @Nullable ScopeTargetTargetIdentifier targetIdentifier;
+        private ScopeTargetTargetIdentifier targetIdentifier;
         public Builder() {}
         public Builder(ScopeTarget defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,8 +65,10 @@ public final class ScopeTarget {
             return this;
         }
         @CustomType.Setter
-        public Builder targetIdentifier(@Nullable ScopeTargetTargetIdentifier targetIdentifier) {
-
+        public Builder targetIdentifier(ScopeTargetTargetIdentifier targetIdentifier) {
+            if (targetIdentifier == null) {
+              throw new MissingRequiredPropertyException("ScopeTarget", "targetIdentifier");
+            }
             this.targetIdentifier = targetIdentifier;
             return this;
         }

@@ -75,7 +75,7 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
     /**
      * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
      */
-    declare public readonly openzfsConfiguration: pulumi.Output<outputs.fsx.S3AccessPointAttachmentOpenzfsConfiguration | undefined>;
+    declare public readonly openzfsConfiguration: pulumi.Output<outputs.fsx.S3AccessPointAttachmentOpenzfsConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -123,6 +123,9 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
             resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as S3AccessPointAttachmentArgs | undefined;
+            if (args?.openzfsConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'openzfsConfiguration'");
+            }
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -188,7 +191,7 @@ export interface S3AccessPointAttachmentArgs {
     /**
      * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
      */
-    openzfsConfiguration?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentOpenzfsConfiguration>;
+    openzfsConfiguration: pulumi.Input<inputs.fsx.S3AccessPointAttachmentOpenzfsConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

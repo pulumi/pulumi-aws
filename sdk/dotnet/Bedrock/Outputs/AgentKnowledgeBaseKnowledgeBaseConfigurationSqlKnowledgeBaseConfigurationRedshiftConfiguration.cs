@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Configurations for an Amazon Redshift query engine. See `QueryEngineConfiguration` block for details.
         /// </summary>
-        public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration? QueryEngineConfiguration;
+        public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration QueryEngineConfiguration;
         /// <summary>
         /// Configurations for generating queries. See `QueryGenerationConfiguration` block for details.
         /// </summary>
@@ -24,15 +24,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Configurations for Amazon Redshift database storage. See `StorageConfiguration` block for details.
         /// </summary>
-        public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration? StorageConfiguration;
+        public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration StorageConfiguration;
 
         [OutputConstructor]
         private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration(
-            Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration? queryEngineConfiguration,
+            Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration queryEngineConfiguration,
 
             Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration? queryGenerationConfiguration,
 
-            Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration? storageConfiguration)
+            Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration storageConfiguration)
         {
             QueryEngineConfiguration = queryEngineConfiguration;
             QueryGenerationConfiguration = queryGenerationConfiguration;

@@ -33,7 +33,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfiguration {
      * @return The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
      * 
      */
-    private @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection tokenSelection;
+    private IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection tokenSelection;
 
     private IdentitySourceConfigurationOpenIdConnectConfiguration() {}
     /**
@@ -61,8 +61,8 @@ public final class IdentitySourceConfigurationOpenIdConnectConfiguration {
      * @return The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
      * 
      */
-    public Optional<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection> tokenSelection() {
-        return Optional.ofNullable(this.tokenSelection);
+    public IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection tokenSelection() {
+        return this.tokenSelection;
     }
 
     public static Builder builder() {
@@ -77,7 +77,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfiguration {
         private @Nullable String entityIdPrefix;
         private @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration groupConfiguration;
         private String issuer;
-        private @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection tokenSelection;
+        private IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection tokenSelection;
         public Builder() {}
         public Builder(IdentitySourceConfigurationOpenIdConnectConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -108,8 +108,10 @@ public final class IdentitySourceConfigurationOpenIdConnectConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder tokenSelection(@Nullable IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection tokenSelection) {
-
+        public Builder tokenSelection(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection tokenSelection) {
+            if (tokenSelection == null) {
+              throw new MissingRequiredPropertyException("IdentitySourceConfigurationOpenIdConnectConfiguration", "tokenSelection");
+            }
             this.tokenSelection = tokenSelection;
             return this;
         }

@@ -145,14 +145,14 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="definition", refs={ApplicationDefinition.class}, tree="[0]")
-    private Output</* @Nullable */ ApplicationDefinition> definition;
+    private Output<ApplicationDefinition> definition;
 
     /**
      * @return The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
-    public Output<Optional<ApplicationDefinition>> definition() {
-        return Codegen.optional(this.definition);
+    public Output<ApplicationDefinition> definition() {
+        return this.definition;
     }
     /**
      * Description of the application.

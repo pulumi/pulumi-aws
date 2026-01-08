@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class RecommendationPreferencesUtilizationPreferenceArgs extends com.pulumi.resources.ResourceArgs {
@@ -36,15 +34,15 @@ public final class RecommendationPreferencesUtilizationPreferenceArgs extends co
      * The parameters to set when customizing the resource utilization thresholds.
      * 
      */
-    @Import(name="metricParameters")
-    private @Nullable Output<RecommendationPreferencesUtilizationPreferenceMetricParametersArgs> metricParameters;
+    @Import(name="metricParameters", required=true)
+    private Output<RecommendationPreferencesUtilizationPreferenceMetricParametersArgs> metricParameters;
 
     /**
      * @return The parameters to set when customizing the resource utilization thresholds.
      * 
      */
-    public Optional<Output<RecommendationPreferencesUtilizationPreferenceMetricParametersArgs>> metricParameters() {
-        return Optional.ofNullable(this.metricParameters);
+    public Output<RecommendationPreferencesUtilizationPreferenceMetricParametersArgs> metricParameters() {
+        return this.metricParameters;
     }
 
     private RecommendationPreferencesUtilizationPreferenceArgs() {}
@@ -99,7 +97,7 @@ public final class RecommendationPreferencesUtilizationPreferenceArgs extends co
          * @return builder
          * 
          */
-        public Builder metricParameters(@Nullable Output<RecommendationPreferencesUtilizationPreferenceMetricParametersArgs> metricParameters) {
+        public Builder metricParameters(Output<RecommendationPreferencesUtilizationPreferenceMetricParametersArgs> metricParameters) {
             $.metricParameters = metricParameters;
             return this;
         }
@@ -117,6 +115,9 @@ public final class RecommendationPreferencesUtilizationPreferenceArgs extends co
         public RecommendationPreferencesUtilizationPreferenceArgs build() {
             if ($.metricName == null) {
                 throw new MissingRequiredPropertyException("RecommendationPreferencesUtilizationPreferenceArgs", "metricName");
+            }
+            if ($.metricParameters == null) {
+                throw new MissingRequiredPropertyException("RecommendationPreferencesUtilizationPreferenceArgs", "metricParameters");
             }
             return $;
         }

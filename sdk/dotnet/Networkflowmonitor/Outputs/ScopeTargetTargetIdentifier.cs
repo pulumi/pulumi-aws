@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Networkflowmonitor.Outputs
         /// <summary>
         /// The identifier for a target, which is currently always an account ID.
         /// </summary>
-        public readonly Outputs.ScopeTargetTargetIdentifierTargetId? TargetId;
+        public readonly Outputs.ScopeTargetTargetIdentifierTargetId TargetId;
         /// <summary>
         /// The type of a target. A target type is currently always `ACCOUNT`.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Networkflowmonitor.Outputs
 
         [OutputConstructor]
         private ScopeTargetTargetIdentifier(
-            Outputs.ScopeTargetTargetIdentifierTargetId? targetId,
+            Outputs.ScopeTargetTargetIdentifierTargetId targetId,
 
             string targetType)
         {

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
-        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping? FieldMapping;
+        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping FieldMapping;
         /// <summary>
         /// Name of the vector store.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             string domainEndpoint,
 
-            Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping? fieldMapping,
+            Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping fieldMapping,
 
             string vectorIndexName)
         {

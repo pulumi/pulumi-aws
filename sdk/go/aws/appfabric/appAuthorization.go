@@ -72,7 +72,7 @@ type AppAuthorization struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
 	// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-	Credential AppAuthorizationCredentialPtrOutput `pulumi:"credential"`
+	Credential AppAuthorizationCredentialOutput `pulumi:"credential"`
 	// The user persona of the app authorization.
 	Persona pulumi.StringOutput `pulumi:"persona"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -100,6 +100,12 @@ func NewAppAuthorization(ctx *pulumi.Context,
 	}
 	if args.AuthType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthType'")
+	}
+	if args.Credential == nil {
+		return nil, errors.New("invalid value for required argument 'Credential'")
+	}
+	if args.Tenants == nil {
+		return nil, errors.New("invalid value for required argument 'Tenants'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppAuthorization
@@ -190,7 +196,7 @@ type appAuthorizationArgs struct {
 	AuthType string `pulumi:"authType"`
 	// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
 	// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-	Credential *AppAuthorizationCredential `pulumi:"credential"`
+	Credential AppAuthorizationCredential `pulumi:"credential"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string           `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -209,7 +215,7 @@ type AppAuthorizationArgs struct {
 	AuthType pulumi.StringInput
 	// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
 	// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-	Credential AppAuthorizationCredentialPtrInput
+	Credential AppAuthorizationCredentialInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	Tags   pulumi.StringMapInput
@@ -336,8 +342,8 @@ func (o AppAuthorizationOutput) CreatedAt() pulumi.StringOutput {
 
 // Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
 // Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-func (o AppAuthorizationOutput) Credential() AppAuthorizationCredentialPtrOutput {
-	return o.ApplyT(func(v *AppAuthorization) AppAuthorizationCredentialPtrOutput { return v.Credential }).(AppAuthorizationCredentialPtrOutput)
+func (o AppAuthorizationOutput) Credential() AppAuthorizationCredentialOutput {
+	return o.ApplyT(func(v *AppAuthorization) AppAuthorizationCredentialOutput { return v.Credential }).(AppAuthorizationCredentialOutput)
 }
 
 // The user persona of the app authorization.

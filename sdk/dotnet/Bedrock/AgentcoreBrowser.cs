@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Output("networkConfiguration")]
-        public Output<Outputs.AgentcoreBrowserNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
+        public Output<Outputs.AgentcoreBrowserNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Recording configuration for browser sessions. See `Recording` below.
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Bedrock
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AgentcoreBrowser(string name, AgentcoreBrowserArgs? args = null, CustomResourceOptions? options = null)
+        public AgentcoreBrowser(string name, AgentcoreBrowserArgs args, CustomResourceOptions? options = null)
             : base("aws:bedrock/agentcoreBrowser:AgentcoreBrowser", name, args ?? new AgentcoreBrowserArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -287,8 +287,8 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("networkConfiguration")]
-        public Input<Inputs.AgentcoreBrowserNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
+        [Input("networkConfiguration", required: true)]
+        public Input<Inputs.AgentcoreBrowserNetworkConfigurationArgs> NetworkConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Recording configuration for browser sessions. See `Recording` below.

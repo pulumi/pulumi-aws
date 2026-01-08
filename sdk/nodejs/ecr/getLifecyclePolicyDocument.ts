@@ -36,8 +36,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export function getLifecyclePolicyDocument(args?: GetLifecyclePolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetLifecyclePolicyDocumentResult> {
-    args = args || {};
+export function getLifecyclePolicyDocument(args: GetLifecyclePolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetLifecyclePolicyDocumentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", {
         "rules": args.rules,
@@ -48,7 +47,7 @@ export function getLifecyclePolicyDocument(args?: GetLifecyclePolicyDocumentArgs
  * A collection of arguments for invoking getLifecyclePolicyDocument.
  */
 export interface GetLifecyclePolicyDocumentArgs {
-    rules?: inputs.ecr.GetLifecyclePolicyDocumentRule[];
+    rules: inputs.ecr.GetLifecyclePolicyDocumentRule[];
 }
 
 /**
@@ -63,7 +62,7 @@ export interface GetLifecyclePolicyDocumentResult {
      * The above arguments serialized as a standard JSON policy document.
      */
     readonly json: string;
-    readonly rules?: outputs.ecr.GetLifecyclePolicyDocumentRule[];
+    readonly rules: outputs.ecr.GetLifecyclePolicyDocumentRule[];
 }
 /**
  * Generates an ECR lifecycle policy document in JSON format. Can be used with resources such as the `aws.ecr.LifecyclePolicy` resource.
@@ -94,8 +93,7 @@ export interface GetLifecyclePolicyDocumentResult {
  * });
  * ```
  */
-export function getLifecyclePolicyDocumentOutput(args?: GetLifecyclePolicyDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLifecyclePolicyDocumentResult> {
-    args = args || {};
+export function getLifecyclePolicyDocumentOutput(args: GetLifecyclePolicyDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLifecyclePolicyDocumentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", {
         "rules": args.rules,
@@ -106,5 +104,5 @@ export function getLifecyclePolicyDocumentOutput(args?: GetLifecyclePolicyDocume
  * A collection of arguments for invoking getLifecyclePolicyDocument.
  */
 export interface GetLifecyclePolicyDocumentOutputArgs {
-    rules?: pulumi.Input<pulumi.Input<inputs.ecr.GetLifecyclePolicyDocumentRuleArgs>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.ecr.GetLifecyclePolicyDocumentRuleArgs>[]>;
 }

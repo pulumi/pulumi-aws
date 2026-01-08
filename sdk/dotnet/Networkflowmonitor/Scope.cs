@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Networkflowmonitor
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Scope(string name, ScopeArgs? args = null, CustomResourceOptions? options = null)
+        public Scope(string name, ScopeArgs args, CustomResourceOptions? options = null)
             : base("aws:networkflowmonitor/scope:Scope", name, args ?? new ScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Networkflowmonitor
             set => _tags = value;
         }
 
-        [Input("targets")]
+        [Input("targets", required: true)]
         private InputList<Inputs.ScopeTargetArgs>? _targets;
 
         /// <summary>

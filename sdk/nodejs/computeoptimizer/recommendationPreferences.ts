@@ -125,7 +125,7 @@ export class RecommendationPreferences extends pulumi.CustomResource {
     /**
      * The scope of the recommendation preferences. See Scope below.
      */
-    declare public readonly scope: pulumi.Output<outputs.computeoptimizer.RecommendationPreferencesScope | undefined>;
+    declare public readonly scope: pulumi.Output<outputs.computeoptimizer.RecommendationPreferencesScope>;
     /**
      * The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
      */
@@ -158,6 +158,9 @@ export class RecommendationPreferences extends pulumi.CustomResource {
             const args = argsOrState as RecommendationPreferencesArgs | undefined;
             if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
+            }
+            if (args?.scope === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scope'");
             }
             resourceInputs["enhancedInfrastructureMetrics"] = args?.enhancedInfrastructureMetrics;
             resourceInputs["externalMetricsPreference"] = args?.externalMetricsPreference;
@@ -260,7 +263,7 @@ export interface RecommendationPreferencesArgs {
     /**
      * The scope of the recommendation preferences. See Scope below.
      */
-    scope?: pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesScope>;
+    scope: pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesScope>;
     /**
      * The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
      */

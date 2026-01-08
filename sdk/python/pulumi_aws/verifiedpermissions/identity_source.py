@@ -21,24 +21,35 @@ __all__ = ['IdentitySourceArgs', 'IdentitySource']
 @pulumi.input_type
 class IdentitySourceArgs:
     def __init__(__self__, *,
+                 configuration: pulumi.Input['IdentitySourceConfigurationArgs'],
                  policy_store_id: pulumi.Input[_builtins.str],
-                 configuration: Optional[pulumi.Input['IdentitySourceConfigurationArgs']] = None,
                  principal_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentitySource resource.
-        :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
         :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
         :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "policy_store_id", policy_store_id)
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
         if principal_entity_type is not None:
             pulumi.set(__self__, "principal_entity_type", principal_entity_type)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input['IdentitySourceConfigurationArgs']:
+        """
+        Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input['IdentitySourceConfigurationArgs']):
+        pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
@@ -51,18 +62,6 @@ class IdentitySourceArgs:
     @policy_store_id.setter
     def policy_store_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "policy_store_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['IdentitySourceConfigurationArgs']]:
-        """
-        Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        """
-        return pulumi.get(self, "configuration")
-
-    @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['IdentitySourceConfigurationArgs']]):
-        pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="principalEntityType")
@@ -347,6 +346,8 @@ class IdentitySource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IdentitySourceArgs.__new__(IdentitySourceArgs)
 
+            if configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
             if policy_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_store_id'")
@@ -391,7 +392,7 @@ class IdentitySource(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Optional['outputs.IdentitySourceConfiguration']]:
+    def configuration(self) -> pulumi.Output['outputs.IdentitySourceConfiguration']:
         """
         Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         """

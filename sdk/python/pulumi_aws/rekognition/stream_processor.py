@@ -21,57 +21,78 @@ __all__ = ['StreamProcessorArgs', 'StreamProcessor']
 @pulumi.input_type
 class StreamProcessorArgs:
     def __init__(__self__, *,
+                 input: pulumi.Input['StreamProcessorInputArgs'],
+                 output: pulumi.Input['StreamProcessorOutputArgs'],
                  role_arn: pulumi.Input[_builtins.str],
+                 settings: pulumi.Input['StreamProcessorSettingsArgs'],
                  data_sharing_preference: Optional[pulumi.Input['StreamProcessorDataSharingPreferenceArgs']] = None,
-                 input: Optional[pulumi.Input['StreamProcessorInputArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_channel: Optional[pulumi.Input['StreamProcessorNotificationChannelArgs']] = None,
-                 output: Optional[pulumi.Input['StreamProcessorOutputArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  regions_of_interests: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]]] = None,
-                 settings: Optional[pulumi.Input['StreamProcessorSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['StreamProcessorTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a StreamProcessor resource.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
-        :param pulumi.Input['StreamProcessorDataSharingPreferenceArgs'] data_sharing_preference: See `data_sharing_preference`.
         :param pulumi.Input['StreamProcessorInputArgs'] input: Input video stream. See `input`.
-        :param pulumi.Input[_builtins.str] kms_key_id: Optional parameter for label detection stream processors.
-        :param pulumi.Input[_builtins.str] name: The name of the Stream Processor.
-        :param pulumi.Input['StreamProcessorNotificationChannelArgs'] notification_channel: The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         :param pulumi.Input['StreamProcessorOutputArgs'] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]] regions_of_interests: Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         :param pulumi.Input['StreamProcessorSettingsArgs'] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
                
                The following arguments are optional:
+        :param pulumi.Input['StreamProcessorDataSharingPreferenceArgs'] data_sharing_preference: See `data_sharing_preference`.
+        :param pulumi.Input[_builtins.str] kms_key_id: Optional parameter for label detection stream processors.
+        :param pulumi.Input[_builtins.str] name: The name of the Stream Processor.
+        :param pulumi.Input['StreamProcessorNotificationChannelArgs'] notification_channel: The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]] regions_of_interests: Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "input", input)
+        pulumi.set(__self__, "output", output)
         pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "settings", settings)
         if data_sharing_preference is not None:
             pulumi.set(__self__, "data_sharing_preference", data_sharing_preference)
-        if input is not None:
-            pulumi.set(__self__, "input", input)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notification_channel is not None:
             pulumi.set(__self__, "notification_channel", notification_channel)
-        if output is not None:
-            pulumi.set(__self__, "output", output)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if regions_of_interests is not None:
             pulumi.set(__self__, "regions_of_interests", regions_of_interests)
-        if settings is not None:
-            pulumi.set(__self__, "settings", settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter
+    def input(self) -> pulumi.Input['StreamProcessorInputArgs']:
+        """
+        Input video stream. See `input`.
+        """
+        return pulumi.get(self, "input")
+
+    @input.setter
+    def input(self, value: pulumi.Input['StreamProcessorInputArgs']):
+        pulumi.set(self, "input", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def output(self) -> pulumi.Input['StreamProcessorOutputArgs']:
+        """
+        Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+        """
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: pulumi.Input['StreamProcessorOutputArgs']):
+        pulumi.set(self, "output", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
@@ -86,6 +107,20 @@ class StreamProcessorArgs:
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
+    @pulumi.getter
+    def settings(self) -> pulumi.Input['StreamProcessorSettingsArgs']:
+        """
+        Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: pulumi.Input['StreamProcessorSettingsArgs']):
+        pulumi.set(self, "settings", value)
+
+    @_builtins.property
     @pulumi.getter(name="dataSharingPreference")
     def data_sharing_preference(self) -> Optional[pulumi.Input['StreamProcessorDataSharingPreferenceArgs']]:
         """
@@ -96,18 +131,6 @@ class StreamProcessorArgs:
     @data_sharing_preference.setter
     def data_sharing_preference(self, value: Optional[pulumi.Input['StreamProcessorDataSharingPreferenceArgs']]):
         pulumi.set(self, "data_sharing_preference", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['StreamProcessorInputArgs']]:
-        """
-        Input video stream. See `input`.
-        """
-        return pulumi.get(self, "input")
-
-    @input.setter
-    def input(self, value: Optional[pulumi.Input['StreamProcessorInputArgs']]):
-        pulumi.set(self, "input", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
@@ -147,18 +170,6 @@ class StreamProcessorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def output(self) -> Optional[pulumi.Input['StreamProcessorOutputArgs']]:
-        """
-        Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
-        """
-        return pulumi.get(self, "output")
-
-    @output.setter
-    def output(self, value: Optional[pulumi.Input['StreamProcessorOutputArgs']]):
-        pulumi.set(self, "output", value)
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -180,20 +191,6 @@ class StreamProcessorArgs:
     @regions_of_interests.setter
     def regions_of_interests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]]]):
         pulumi.set(self, "regions_of_interests", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['StreamProcessorSettingsArgs']]:
-        """
-        Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "settings")
-
-    @settings.setter
-    def settings(self, value: Optional[pulumi.Input['StreamProcessorSettingsArgs']]):
-        pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
@@ -921,16 +918,22 @@ class StreamProcessor(pulumi.CustomResource):
             __props__ = StreamProcessorArgs.__new__(StreamProcessorArgs)
 
             __props__.__dict__["data_sharing_preference"] = data_sharing_preference
+            if input is None and not opts.urn:
+                raise TypeError("Missing required property 'input'")
             __props__.__dict__["input"] = input
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_channel"] = notification_channel
+            if output is None and not opts.urn:
+                raise TypeError("Missing required property 'output'")
             __props__.__dict__["output"] = output
             __props__.__dict__["region"] = region
             __props__.__dict__["regions_of_interests"] = regions_of_interests
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            if settings is None and not opts.urn:
+                raise TypeError("Missing required property 'settings'")
             __props__.__dict__["settings"] = settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
@@ -1026,7 +1029,7 @@ class StreamProcessor(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> pulumi.Output[Optional['outputs.StreamProcessorInput']]:
+    def input(self) -> pulumi.Output['outputs.StreamProcessorInput']:
         """
         Input video stream. See `input`.
         """
@@ -1058,7 +1061,7 @@ class StreamProcessor(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def output(self) -> pulumi.Output[Optional['outputs.StreamProcessorOutput']]:
+    def output(self) -> pulumi.Output['outputs.StreamProcessorOutput']:
         """
         Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         """
@@ -1090,7 +1093,7 @@ class StreamProcessor(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> pulumi.Output[Optional['outputs.StreamProcessorSettings']]:
+    def settings(self) -> pulumi.Output['outputs.StreamProcessorSettings']:
         """
         Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
 

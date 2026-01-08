@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -21,15 +19,15 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
      * Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
      * 
      */
-    @Import(name="authConfiguration")
-    private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs> authConfiguration;
+    @Import(name="authConfiguration", required=true)
+    private Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs> authConfiguration;
 
     /**
      * @return Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
      * 
      */
-    public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs>> authConfiguration() {
-        return Optional.ofNullable(this.authConfiguration);
+    public Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs> authConfiguration() {
+        return this.authConfiguration;
     }
 
     /**
@@ -78,7 +76,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
          * @return builder
          * 
          */
-        public Builder authConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs> authConfiguration) {
+        public Builder authConfiguration(Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs> authConfiguration) {
             $.authConfiguration = authConfiguration;
             return this;
         }
@@ -115,6 +113,9 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         public AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs build() {
+            if ($.authConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs", "authConfiguration");
+            }
             if ($.workgroupArn == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs", "workgroupArn");
             }

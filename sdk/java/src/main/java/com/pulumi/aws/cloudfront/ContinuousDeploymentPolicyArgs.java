@@ -37,15 +37,15 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
      * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      * 
      */
-    @Import(name="stagingDistributionDnsNames")
-    private @Nullable Output<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> stagingDistributionDnsNames;
+    @Import(name="stagingDistributionDnsNames", required=true)
+    private Output<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> stagingDistributionDnsNames;
 
     /**
      * @return CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      * 
      */
-    public Optional<Output<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs>> stagingDistributionDnsNames() {
-        return Optional.ofNullable(this.stagingDistributionDnsNames);
+    public Output<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> stagingDistributionDnsNames() {
+        return this.stagingDistributionDnsNames;
     }
 
     /**
@@ -116,7 +116,7 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder stagingDistributionDnsNames(@Nullable Output<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> stagingDistributionDnsNames) {
+        public Builder stagingDistributionDnsNames(Output<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> stagingDistributionDnsNames) {
             $.stagingDistributionDnsNames = stagingDistributionDnsNames;
             return this;
         }
@@ -155,6 +155,9 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
         public ContinuousDeploymentPolicyArgs build() {
             if ($.enabled == null) {
                 throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyArgs", "enabled");
+            }
+            if ($.stagingDistributionDnsNames == null) {
+                throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyArgs", "stagingDistributionDnsNames");
             }
             return $;
         }

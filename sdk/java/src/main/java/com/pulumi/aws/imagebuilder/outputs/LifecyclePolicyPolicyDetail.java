@@ -7,6 +7,7 @@ import com.pulumi.aws.imagebuilder.outputs.LifecyclePolicyPolicyDetailAction;
 import com.pulumi.aws.imagebuilder.outputs.LifecyclePolicyPolicyDetailExclusionRules;
 import com.pulumi.aws.imagebuilder.outputs.LifecyclePolicyPolicyDetailFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,7 +18,7 @@ public final class LifecyclePolicyPolicyDetail {
      * @return Configuration details for the policy action.
      * 
      */
-    private @Nullable LifecyclePolicyPolicyDetailAction action;
+    private LifecyclePolicyPolicyDetailAction action;
     /**
      * @return Additional rules to specify resources that should be exempt from policy actions.
      * 
@@ -29,15 +30,15 @@ public final class LifecyclePolicyPolicyDetail {
      * The following arguments are optional:
      * 
      */
-    private @Nullable LifecyclePolicyPolicyDetailFilter filter;
+    private LifecyclePolicyPolicyDetailFilter filter;
 
     private LifecyclePolicyPolicyDetail() {}
     /**
      * @return Configuration details for the policy action.
      * 
      */
-    public Optional<LifecyclePolicyPolicyDetailAction> action() {
-        return Optional.ofNullable(this.action);
+    public LifecyclePolicyPolicyDetailAction action() {
+        return this.action;
     }
     /**
      * @return Additional rules to specify resources that should be exempt from policy actions.
@@ -52,8 +53,8 @@ public final class LifecyclePolicyPolicyDetail {
      * The following arguments are optional:
      * 
      */
-    public Optional<LifecyclePolicyPolicyDetailFilter> filter() {
-        return Optional.ofNullable(this.filter);
+    public LifecyclePolicyPolicyDetailFilter filter() {
+        return this.filter;
     }
 
     public static Builder builder() {
@@ -65,9 +66,9 @@ public final class LifecyclePolicyPolicyDetail {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable LifecyclePolicyPolicyDetailAction action;
+        private LifecyclePolicyPolicyDetailAction action;
         private @Nullable LifecyclePolicyPolicyDetailExclusionRules exclusionRules;
-        private @Nullable LifecyclePolicyPolicyDetailFilter filter;
+        private LifecyclePolicyPolicyDetailFilter filter;
         public Builder() {}
         public Builder(LifecyclePolicyPolicyDetail defaults) {
     	      Objects.requireNonNull(defaults);
@@ -77,8 +78,10 @@ public final class LifecyclePolicyPolicyDetail {
         }
 
         @CustomType.Setter
-        public Builder action(@Nullable LifecyclePolicyPolicyDetailAction action) {
-
+        public Builder action(LifecyclePolicyPolicyDetailAction action) {
+            if (action == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetail", "action");
+            }
             this.action = action;
             return this;
         }
@@ -89,8 +92,10 @@ public final class LifecyclePolicyPolicyDetail {
             return this;
         }
         @CustomType.Setter
-        public Builder filter(@Nullable LifecyclePolicyPolicyDetailFilter filter) {
-
+        public Builder filter(LifecyclePolicyPolicyDetailFilter filter) {
+            if (filter == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetail", "filter");
+            }
             this.filter = filter;
             return this;
         }

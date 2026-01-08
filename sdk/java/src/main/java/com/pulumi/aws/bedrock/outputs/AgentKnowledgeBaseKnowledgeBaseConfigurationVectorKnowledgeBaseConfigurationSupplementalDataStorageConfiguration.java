@@ -5,9 +5,9 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration {
@@ -15,7 +15,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      * @return A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
      * 
      */
-    private @Nullable List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> storageLocations;
+    private List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> storageLocations;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration() {}
     /**
@@ -23,7 +23,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      * 
      */
     public List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> storageLocations() {
-        return this.storageLocations == null ? List.of() : this.storageLocations;
+        return this.storageLocations;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> storageLocations;
+        private List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> storageLocations;
         public Builder() {}
         public Builder(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         @CustomType.Setter
-        public Builder storageLocations(@Nullable List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> storageLocations) {
-
+        public Builder storageLocations(List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> storageLocations) {
+            if (storageLocations == null) {
+              throw new MissingRequiredPropertyException("AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration", "storageLocations");
+            }
             this.storageLocations = storageLocations;
             return this;
         }

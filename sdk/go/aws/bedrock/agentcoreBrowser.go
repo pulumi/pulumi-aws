@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -181,7 +182,7 @@ type AgentcoreBrowser struct {
 	// Network configuration for the browser. See `networkConfiguration` below.
 	//
 	// The following arguments are optional:
-	NetworkConfiguration AgentcoreBrowserNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
+	NetworkConfiguration AgentcoreBrowserNetworkConfigurationOutput `pulumi:"networkConfiguration"`
 	// Recording configuration for browser sessions. See `recording` below.
 	Recording AgentcoreBrowserRecordingPtrOutput `pulumi:"recording"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -197,9 +198,12 @@ type AgentcoreBrowser struct {
 func NewAgentcoreBrowser(ctx *pulumi.Context,
 	name string, args *AgentcoreBrowserArgs, opts ...pulumi.ResourceOption) (*AgentcoreBrowser, error) {
 	if args == nil {
-		args = &AgentcoreBrowserArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.NetworkConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkConfiguration'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AgentcoreBrowser
 	err := ctx.RegisterResource("aws:bedrock/agentcoreBrowser:AgentcoreBrowser", name, args, &resource, opts...)
@@ -288,7 +292,7 @@ type agentcoreBrowserArgs struct {
 	// Network configuration for the browser. See `networkConfiguration` below.
 	//
 	// The following arguments are optional:
-	NetworkConfiguration *AgentcoreBrowserNetworkConfiguration `pulumi:"networkConfiguration"`
+	NetworkConfiguration AgentcoreBrowserNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Recording configuration for browser sessions. See `recording` below.
 	Recording *AgentcoreBrowserRecording `pulumi:"recording"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -309,7 +313,7 @@ type AgentcoreBrowserArgs struct {
 	// Network configuration for the browser. See `networkConfiguration` below.
 	//
 	// The following arguments are optional:
-	NetworkConfiguration AgentcoreBrowserNetworkConfigurationPtrInput
+	NetworkConfiguration AgentcoreBrowserNetworkConfigurationInput
 	// Recording configuration for browser sessions. See `recording` below.
 	Recording AgentcoreBrowserRecordingPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -434,8 +438,8 @@ func (o AgentcoreBrowserOutput) Name() pulumi.StringOutput {
 // Network configuration for the browser. See `networkConfiguration` below.
 //
 // The following arguments are optional:
-func (o AgentcoreBrowserOutput) NetworkConfiguration() AgentcoreBrowserNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v *AgentcoreBrowser) AgentcoreBrowserNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(AgentcoreBrowserNetworkConfigurationPtrOutput)
+func (o AgentcoreBrowserOutput) NetworkConfiguration() AgentcoreBrowserNetworkConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreBrowser) AgentcoreBrowserNetworkConfigurationOutput { return v.NetworkConfiguration }).(AgentcoreBrowserNetworkConfigurationOutput)
 }
 
 // Recording configuration for browser sessions. See `recording` below.

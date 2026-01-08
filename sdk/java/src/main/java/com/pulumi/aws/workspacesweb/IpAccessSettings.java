@@ -259,7 +259,7 @@ public class IpAccessSettings extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipRules", refs={List.class,IpAccessSettingsIpRule.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<IpAccessSettingsIpRule>> ipRules;
+    private Output<List<IpAccessSettingsIpRule>> ipRules;
 
     /**
      * @return The IP rules of the IP access settings. See IP Rule below.
@@ -267,8 +267,8 @@ public class IpAccessSettings extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<List<IpAccessSettingsIpRule>>> ipRules() {
-        return Codegen.optional(this.ipRules);
+    public Output<List<IpAccessSettingsIpRule>> ipRules() {
+        return this.ipRules;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

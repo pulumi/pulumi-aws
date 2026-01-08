@@ -100,7 +100,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public LfTagExpression(string name, LfTagExpressionArgs? args = null, CustomResourceOptions? options = null)
+        public LfTagExpression(string name, LfTagExpressionArgs args, CustomResourceOptions? options = null)
             : base("aws:lakeformation/lfTagExpression:LfTagExpression", name, args ?? new LfTagExpressionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.LakeFormation
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("expressions")]
+        [Input("expressions", required: true)]
         private InputList<Inputs.LfTagExpressionExpressionArgs>? _expressions;
 
         /// <summary>

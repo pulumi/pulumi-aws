@@ -331,14 +331,14 @@ public class AgentcoreGateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="interceptorConfigurations", refs={List.class,AgentcoreGatewayInterceptorConfiguration.class}, tree="[0,1]")
-    private Output<List<AgentcoreGatewayInterceptorConfiguration>> interceptorConfigurations;
+    private Output</* @Nullable */ List<AgentcoreGatewayInterceptorConfiguration>> interceptorConfigurations;
 
     /**
      * @return List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
      * 
      */
-    public Output<List<AgentcoreGatewayInterceptorConfiguration>> interceptorConfigurations() {
-        return this.interceptorConfigurations;
+    public Output<Optional<List<AgentcoreGatewayInterceptorConfiguration>>> interceptorConfigurations() {
+        return Codegen.optional(this.interceptorConfigurations);
     }
     /**
      * ARN of the KMS key used to encrypt the gateway data.

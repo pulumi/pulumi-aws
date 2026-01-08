@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -67,14 +68,14 @@ type EventAction struct {
 
 	// Describes the action to take.
 	// Described in `action` Configuration Block below.
-	Action EventActionActionPtrOutput `pulumi:"action"`
+	Action EventActionActionOutput `pulumi:"action"`
 	// Amazon Resource Name (ARN) of the event action.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date and time when the resource was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Describes the event that triggers the `action`.
 	// Described in `event` Configuration Block below.
-	Event EventActionEventPtrOutput `pulumi:"event"`
+	Event EventActionEventOutput `pulumi:"event"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Data and time when the resource was last updated.
@@ -85,9 +86,15 @@ type EventAction struct {
 func NewEventAction(ctx *pulumi.Context,
 	name string, args *EventActionArgs, opts ...pulumi.ResourceOption) (*EventAction, error) {
 	if args == nil {
-		args = &EventActionArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Action == nil {
+		return nil, errors.New("invalid value for required argument 'Action'")
+	}
+	if args.Event == nil {
+		return nil, errors.New("invalid value for required argument 'Event'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventAction
 	err := ctx.RegisterResource("aws:dataexchange/eventAction:EventAction", name, args, &resource, opts...)
@@ -151,10 +158,10 @@ func (EventActionState) ElementType() reflect.Type {
 type eventActionArgs struct {
 	// Describes the action to take.
 	// Described in `action` Configuration Block below.
-	Action *EventActionAction `pulumi:"action"`
+	Action EventActionAction `pulumi:"action"`
 	// Describes the event that triggers the `action`.
 	// Described in `event` Configuration Block below.
-	Event *EventActionEvent `pulumi:"event"`
+	Event EventActionEvent `pulumi:"event"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
@@ -163,10 +170,10 @@ type eventActionArgs struct {
 type EventActionArgs struct {
 	// Describes the action to take.
 	// Described in `action` Configuration Block below.
-	Action EventActionActionPtrInput
+	Action EventActionActionInput
 	// Describes the event that triggers the `action`.
 	// Described in `event` Configuration Block below.
-	Event EventActionEventPtrInput
+	Event EventActionEventInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
@@ -260,8 +267,8 @@ func (o EventActionOutput) ToEventActionOutputWithContext(ctx context.Context) E
 
 // Describes the action to take.
 // Described in `action` Configuration Block below.
-func (o EventActionOutput) Action() EventActionActionPtrOutput {
-	return o.ApplyT(func(v *EventAction) EventActionActionPtrOutput { return v.Action }).(EventActionActionPtrOutput)
+func (o EventActionOutput) Action() EventActionActionOutput {
+	return o.ApplyT(func(v *EventAction) EventActionActionOutput { return v.Action }).(EventActionActionOutput)
 }
 
 // Amazon Resource Name (ARN) of the event action.
@@ -276,8 +283,8 @@ func (o EventActionOutput) CreatedAt() pulumi.StringOutput {
 
 // Describes the event that triggers the `action`.
 // Described in `event` Configuration Block below.
-func (o EventActionOutput) Event() EventActionEventPtrOutput {
-	return o.ApplyT(func(v *EventAction) EventActionEventPtrOutput { return v.Event }).(EventActionEventPtrOutput)
+func (o EventActionOutput) Event() EventActionEventOutput {
+	return o.ApplyT(func(v *EventAction) EventActionEventOutput { return v.Event }).(EventActionEventOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

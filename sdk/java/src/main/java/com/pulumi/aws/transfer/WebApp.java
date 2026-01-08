@@ -192,7 +192,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identityProviderDetails", refs={WebAppIdentityProviderDetails.class}, tree="[0]")
-    private Output</* @Nullable */ WebAppIdentityProviderDetails> identityProviderDetails;
+    private Output<WebAppIdentityProviderDetails> identityProviderDetails;
 
     /**
      * @return Block for details of the identity provider to use with the web app. See Identity provider details below.
@@ -200,8 +200,8 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<WebAppIdentityProviderDetails>> identityProviderDetails() {
-        return Codegen.optional(this.identityProviderDetails);
+    public Output<WebAppIdentityProviderDetails> identityProviderDetails() {
+        return this.identityProviderDetails;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -294,7 +294,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WebApp(java.lang.String name, @Nullable WebAppArgs args) {
+    public WebApp(java.lang.String name, WebAppArgs args) {
         this(name, args, null);
     }
     /**
@@ -303,7 +303,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WebApp(java.lang.String name, @Nullable WebAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public WebApp(java.lang.String name, WebAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:transfer/webApp:WebApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -311,7 +311,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
         super("aws:transfer/webApp:WebApp", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static WebAppArgs makeArgs(@Nullable WebAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static WebAppArgs makeArgs(WebAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

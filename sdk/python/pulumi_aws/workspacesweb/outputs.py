@@ -38,14 +38,14 @@ class DataProtectionSettingsInlineRedactionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "globalConfidenceLevel":
+        if key == "inlineRedactionPatterns":
+            suggest = "inline_redaction_patterns"
+        elif key == "globalConfidenceLevel":
             suggest = "global_confidence_level"
         elif key == "globalEnforcedUrls":
             suggest = "global_enforced_urls"
         elif key == "globalExemptUrls":
             suggest = "global_exempt_urls"
-        elif key == "inlineRedactionPatterns":
-            suggest = "inline_redaction_patterns"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataProtectionSettingsInlineRedactionConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -59,24 +59,31 @@ class DataProtectionSettingsInlineRedactionConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 inline_redaction_patterns: Sequence['outputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern'],
                  global_confidence_level: Optional[_builtins.int] = None,
                  global_enforced_urls: Optional[Sequence[_builtins.str]] = None,
-                 global_exempt_urls: Optional[Sequence[_builtins.str]] = None,
-                 inline_redaction_patterns: Optional[Sequence['outputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern']] = None):
+                 global_exempt_urls: Optional[Sequence[_builtins.str]] = None):
         """
+        :param Sequence['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs'] inline_redaction_patterns: The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
         :param _builtins.int global_confidence_level: The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
         :param Sequence[_builtins.str] global_enforced_urls: The global enforced URL configuration for the inline redaction configuration.
         :param Sequence[_builtins.str] global_exempt_urls: The global exempt URL configuration for the inline redaction configuration.
-        :param Sequence['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs'] inline_redaction_patterns: The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
         """
+        pulumi.set(__self__, "inline_redaction_patterns", inline_redaction_patterns)
         if global_confidence_level is not None:
             pulumi.set(__self__, "global_confidence_level", global_confidence_level)
         if global_enforced_urls is not None:
             pulumi.set(__self__, "global_enforced_urls", global_enforced_urls)
         if global_exempt_urls is not None:
             pulumi.set(__self__, "global_exempt_urls", global_exempt_urls)
-        if inline_redaction_patterns is not None:
-            pulumi.set(__self__, "inline_redaction_patterns", inline_redaction_patterns)
+
+    @_builtins.property
+    @pulumi.getter(name="inlineRedactionPatterns")
+    def inline_redaction_patterns(self) -> Sequence['outputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern']:
+        """
+        The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
+        """
+        return pulumi.get(self, "inline_redaction_patterns")
 
     @_builtins.property
     @pulumi.getter(name="globalConfidenceLevel")
@@ -101,14 +108,6 @@ class DataProtectionSettingsInlineRedactionConfiguration(dict):
         The global exempt URL configuration for the inline redaction configuration.
         """
         return pulumi.get(self, "global_exempt_urls")
-
-    @_builtins.property
-    @pulumi.getter(name="inlineRedactionPatterns")
-    def inline_redaction_patterns(self) -> Optional[Sequence['outputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern']]:
-        """
-        The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
-        """
-        return pulumi.get(self, "inline_redaction_patterns")
 
 
 @pulumi.output_type

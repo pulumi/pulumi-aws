@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Schema definition for the tool. See `ToolSchema` below.
         /// </summary>
-        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema? ToolSchema;
+        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema ToolSchema;
 
         [OutputConstructor]
         private AgentcoreGatewayTargetTargetConfigurationMcpLambda(
             string lambdaArn,
 
-            Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema? toolSchema)
+            Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema toolSchema)
         {
             LambdaArn = lambdaArn;
             ToolSchema = toolSchema;

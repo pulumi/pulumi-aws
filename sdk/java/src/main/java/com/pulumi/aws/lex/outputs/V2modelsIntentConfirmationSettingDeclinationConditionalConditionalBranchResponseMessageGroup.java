@@ -6,9 +6,9 @@ package com.pulumi.aws.lex.outputs;
 import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage;
 import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariation;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,7 +17,7 @@ public final class V2modelsIntentConfirmationSettingDeclinationConditionalCondit
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    private V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage message;
+    private @Nullable V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage message;
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
@@ -29,8 +29,8 @@ public final class V2modelsIntentConfirmationSettingDeclinationConditionalCondit
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    public V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage message() {
-        return this.message;
+    public Optional<V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage> message() {
+        return Optional.ofNullable(this.message);
     }
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
@@ -49,7 +49,7 @@ public final class V2modelsIntentConfirmationSettingDeclinationConditionalCondit
     }
     @CustomType.Builder
     public static final class Builder {
-        private V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage message;
+        private @Nullable V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage message;
         private @Nullable List<V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariation> variations;
         public Builder() {}
         public Builder(V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroup defaults) {
@@ -59,10 +59,8 @@ public final class V2modelsIntentConfirmationSettingDeclinationConditionalCondit
         }
 
         @CustomType.Setter
-        public Builder message(V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage message) {
-            if (message == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroup", "message");
-            }
+        public Builder message(@Nullable V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage message) {
+
             this.message = message;
             return this;
         }

@@ -6,20 +6,21 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.aws.bedrock.inputs.AgentFlowDefinitionNodeConfigurationConditionConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentFlowDefinitionNodeConfigurationConditionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentFlowDefinitionNodeConfigurationConditionArgs Empty = new AgentFlowDefinitionNodeConfigurationConditionArgs();
 
-    @Import(name="conditions", required=true)
-    private Output<List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs>> conditions;
+    @Import(name="conditions")
+    private @Nullable Output<List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs>> conditions;
 
-    public Output<List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs>> conditions() {
-        return this.conditions;
+    public Optional<Output<List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs>>> conditions() {
+        return Optional.ofNullable(this.conditions);
     }
 
     private AgentFlowDefinitionNodeConfigurationConditionArgs() {}
@@ -46,7 +47,7 @@ public final class AgentFlowDefinitionNodeConfigurationConditionArgs extends com
             $ = new AgentFlowDefinitionNodeConfigurationConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder conditions(Output<List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs>> conditions) {
+        public Builder conditions(@Nullable Output<List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs>> conditions) {
             $.conditions = conditions;
             return this;
         }
@@ -60,9 +61,6 @@ public final class AgentFlowDefinitionNodeConfigurationConditionArgs extends com
         }
 
         public AgentFlowDefinitionNodeConfigurationConditionArgs build() {
-            if ($.conditions == null) {
-                throw new MissingRequiredPropertyException("AgentFlowDefinitionNodeConfigurationConditionArgs", "conditions");
-            }
             return $;
         }
     }

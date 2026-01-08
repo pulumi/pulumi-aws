@@ -202,20 +202,18 @@ class CustomLogSourceConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 crawler_configuration: Optional['outputs.CustomLogSourceConfigurationCrawlerConfiguration'] = None,
-                 provider_identity: Optional['outputs.CustomLogSourceConfigurationProviderIdentity'] = None):
+                 crawler_configuration: 'outputs.CustomLogSourceConfigurationCrawlerConfiguration',
+                 provider_identity: 'outputs.CustomLogSourceConfigurationProviderIdentity'):
         """
         :param 'CustomLogSourceConfigurationCrawlerConfigurationArgs' crawler_configuration: The configuration for the Glue Crawler for the third-party custom source.
         :param 'CustomLogSourceConfigurationProviderIdentityArgs' provider_identity: The identity of the log provider for the third-party custom source.
         """
-        if crawler_configuration is not None:
-            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
-        if provider_identity is not None:
-            pulumi.set(__self__, "provider_identity", provider_identity)
+        pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+        pulumi.set(__self__, "provider_identity", provider_identity)
 
     @_builtins.property
     @pulumi.getter(name="crawlerConfiguration")
-    def crawler_configuration(self) -> Optional['outputs.CustomLogSourceConfigurationCrawlerConfiguration']:
+    def crawler_configuration(self) -> 'outputs.CustomLogSourceConfigurationCrawlerConfiguration':
         """
         The configuration for the Glue Crawler for the third-party custom source.
         """
@@ -223,7 +221,7 @@ class CustomLogSourceConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="providerIdentity")
-    def provider_identity(self) -> Optional['outputs.CustomLogSourceConfigurationProviderIdentity']:
+    def provider_identity(self) -> 'outputs.CustomLogSourceConfigurationProviderIdentity':
         """
         The identity of the log provider for the third-party custom source.
         """

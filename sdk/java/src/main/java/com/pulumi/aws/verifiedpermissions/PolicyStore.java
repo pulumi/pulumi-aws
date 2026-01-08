@@ -167,14 +167,14 @@ public class PolicyStore extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="validationSettings", refs={PolicyStoreValidationSettings.class}, tree="[0]")
-    private Output</* @Nullable */ PolicyStoreValidationSettings> validationSettings;
+    private Output<PolicyStoreValidationSettings> validationSettings;
 
     /**
      * @return Validation settings for the policy store.
      * 
      */
-    public Output<Optional<PolicyStoreValidationSettings>> validationSettings() {
-        return Codegen.optional(this.validationSettings);
+    public Output<PolicyStoreValidationSettings> validationSettings() {
+        return this.validationSettings;
     }
 
     /**
@@ -189,7 +189,7 @@ public class PolicyStore extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PolicyStore(java.lang.String name, @Nullable PolicyStoreArgs args) {
+    public PolicyStore(java.lang.String name, PolicyStoreArgs args) {
         this(name, args, null);
     }
     /**
@@ -198,7 +198,7 @@ public class PolicyStore extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PolicyStore(java.lang.String name, @Nullable PolicyStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public PolicyStore(java.lang.String name, PolicyStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:verifiedpermissions/policyStore:PolicyStore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -206,7 +206,7 @@ public class PolicyStore extends com.pulumi.resources.CustomResource {
         super("aws:verifiedpermissions/policyStore:PolicyStore", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static PolicyStoreArgs makeArgs(@Nullable PolicyStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static PolicyStoreArgs makeArgs(PolicyStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

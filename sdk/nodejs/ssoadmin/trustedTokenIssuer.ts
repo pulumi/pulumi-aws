@@ -101,7 +101,7 @@ export class TrustedTokenIssuer extends pulumi.CustomResource {
     /**
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      */
-    declare public readonly trustedTokenIssuerConfiguration: pulumi.Output<outputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration | undefined>;
+    declare public readonly trustedTokenIssuerConfiguration: pulumi.Output<outputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration>;
     /**
      * Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
      *
@@ -135,6 +135,9 @@ export class TrustedTokenIssuer extends pulumi.CustomResource {
             const args = argsOrState as TrustedTokenIssuerArgs | undefined;
             if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
+            }
+            if (args?.trustedTokenIssuerConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'trustedTokenIssuerConfiguration'");
             }
             if (args?.trustedTokenIssuerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trustedTokenIssuerType'");
@@ -225,7 +228,7 @@ export interface TrustedTokenIssuerArgs {
     /**
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      */
-    trustedTokenIssuerConfiguration?: pulumi.Input<inputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration>;
+    trustedTokenIssuerConfiguration: pulumi.Input<inputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration>;
     /**
      * Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
      *

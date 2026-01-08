@@ -1102,7 +1102,7 @@ func (o AppAuthorizationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 
 type IngestionDestinationDestinationConfiguration struct {
 	// Contains information about an audit log processing configuration.
-	AuditLog *IngestionDestinationDestinationConfigurationAuditLog `pulumi:"auditLog"`
+	AuditLog IngestionDestinationDestinationConfigurationAuditLog `pulumi:"auditLog"`
 }
 
 // IngestionDestinationDestinationConfigurationInput is an input type that accepts IngestionDestinationDestinationConfigurationArgs and IngestionDestinationDestinationConfigurationOutput values.
@@ -1118,7 +1118,7 @@ type IngestionDestinationDestinationConfigurationInput interface {
 
 type IngestionDestinationDestinationConfigurationArgs struct {
 	// Contains information about an audit log processing configuration.
-	AuditLog IngestionDestinationDestinationConfigurationAuditLogPtrInput `pulumi:"auditLog"`
+	AuditLog IngestionDestinationDestinationConfigurationAuditLogInput `pulumi:"auditLog"`
 }
 
 func (IngestionDestinationDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -1199,10 +1199,10 @@ func (o IngestionDestinationDestinationConfigurationOutput) ToIngestionDestinati
 }
 
 // Contains information about an audit log processing configuration.
-func (o IngestionDestinationDestinationConfigurationOutput) AuditLog() IngestionDestinationDestinationConfigurationAuditLogPtrOutput {
-	return o.ApplyT(func(v IngestionDestinationDestinationConfiguration) *IngestionDestinationDestinationConfigurationAuditLog {
+func (o IngestionDestinationDestinationConfigurationOutput) AuditLog() IngestionDestinationDestinationConfigurationAuditLogOutput {
+	return o.ApplyT(func(v IngestionDestinationDestinationConfiguration) IngestionDestinationDestinationConfigurationAuditLog {
 		return v.AuditLog
-	}).(IngestionDestinationDestinationConfigurationAuditLogPtrOutput)
+	}).(IngestionDestinationDestinationConfigurationAuditLogOutput)
 }
 
 type IngestionDestinationDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1235,13 +1235,13 @@ func (o IngestionDestinationDestinationConfigurationPtrOutput) AuditLog() Ingest
 		if v == nil {
 			return nil
 		}
-		return v.AuditLog
+		return &v.AuditLog
 	}).(IngestionDestinationDestinationConfigurationAuditLogPtrOutput)
 }
 
 type IngestionDestinationDestinationConfigurationAuditLog struct {
 	// Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
-	Destination *IngestionDestinationDestinationConfigurationAuditLogDestination `pulumi:"destination"`
+	Destination IngestionDestinationDestinationConfigurationAuditLogDestination `pulumi:"destination"`
 }
 
 // IngestionDestinationDestinationConfigurationAuditLogInput is an input type that accepts IngestionDestinationDestinationConfigurationAuditLogArgs and IngestionDestinationDestinationConfigurationAuditLogOutput values.
@@ -1257,7 +1257,7 @@ type IngestionDestinationDestinationConfigurationAuditLogInput interface {
 
 type IngestionDestinationDestinationConfigurationAuditLogArgs struct {
 	// Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
-	Destination IngestionDestinationDestinationConfigurationAuditLogDestinationPtrInput `pulumi:"destination"`
+	Destination IngestionDestinationDestinationConfigurationAuditLogDestinationInput `pulumi:"destination"`
 }
 
 func (IngestionDestinationDestinationConfigurationAuditLogArgs) ElementType() reflect.Type {
@@ -1338,10 +1338,10 @@ func (o IngestionDestinationDestinationConfigurationAuditLogOutput) ToIngestionD
 }
 
 // Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
-func (o IngestionDestinationDestinationConfigurationAuditLogOutput) Destination() IngestionDestinationDestinationConfigurationAuditLogDestinationPtrOutput {
-	return o.ApplyT(func(v IngestionDestinationDestinationConfigurationAuditLog) *IngestionDestinationDestinationConfigurationAuditLogDestination {
+func (o IngestionDestinationDestinationConfigurationAuditLogOutput) Destination() IngestionDestinationDestinationConfigurationAuditLogDestinationOutput {
+	return o.ApplyT(func(v IngestionDestinationDestinationConfigurationAuditLog) IngestionDestinationDestinationConfigurationAuditLogDestination {
 		return v.Destination
-	}).(IngestionDestinationDestinationConfigurationAuditLogDestinationPtrOutput)
+	}).(IngestionDestinationDestinationConfigurationAuditLogDestinationOutput)
 }
 
 type IngestionDestinationDestinationConfigurationAuditLogPtrOutput struct{ *pulumi.OutputState }
@@ -1374,7 +1374,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogPtrOutput) Destinati
 		if v == nil {
 			return nil
 		}
-		return v.Destination
+		return &v.Destination
 	}).(IngestionDestinationDestinationConfigurationAuditLogDestinationPtrOutput)
 }
 
@@ -1831,7 +1831,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketP
 
 type IngestionDestinationProcessingConfiguration struct {
 	// Contains information about an audit log processing configuration.
-	AuditLog *IngestionDestinationProcessingConfigurationAuditLog `pulumi:"auditLog"`
+	AuditLog IngestionDestinationProcessingConfigurationAuditLog `pulumi:"auditLog"`
 }
 
 // IngestionDestinationProcessingConfigurationInput is an input type that accepts IngestionDestinationProcessingConfigurationArgs and IngestionDestinationProcessingConfigurationOutput values.
@@ -1847,7 +1847,7 @@ type IngestionDestinationProcessingConfigurationInput interface {
 
 type IngestionDestinationProcessingConfigurationArgs struct {
 	// Contains information about an audit log processing configuration.
-	AuditLog IngestionDestinationProcessingConfigurationAuditLogPtrInput `pulumi:"auditLog"`
+	AuditLog IngestionDestinationProcessingConfigurationAuditLogInput `pulumi:"auditLog"`
 }
 
 func (IngestionDestinationProcessingConfigurationArgs) ElementType() reflect.Type {
@@ -1928,10 +1928,10 @@ func (o IngestionDestinationProcessingConfigurationOutput) ToIngestionDestinatio
 }
 
 // Contains information about an audit log processing configuration.
-func (o IngestionDestinationProcessingConfigurationOutput) AuditLog() IngestionDestinationProcessingConfigurationAuditLogPtrOutput {
-	return o.ApplyT(func(v IngestionDestinationProcessingConfiguration) *IngestionDestinationProcessingConfigurationAuditLog {
+func (o IngestionDestinationProcessingConfigurationOutput) AuditLog() IngestionDestinationProcessingConfigurationAuditLogOutput {
+	return o.ApplyT(func(v IngestionDestinationProcessingConfiguration) IngestionDestinationProcessingConfigurationAuditLog {
 		return v.AuditLog
-	}).(IngestionDestinationProcessingConfigurationAuditLogPtrOutput)
+	}).(IngestionDestinationProcessingConfigurationAuditLogOutput)
 }
 
 type IngestionDestinationProcessingConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1964,7 +1964,7 @@ func (o IngestionDestinationProcessingConfigurationPtrOutput) AuditLog() Ingesti
 		if v == nil {
 			return nil
 		}
-		return v.AuditLog
+		return &v.AuditLog
 	}).(IngestionDestinationProcessingConfigurationAuditLogPtrOutput)
 }
 

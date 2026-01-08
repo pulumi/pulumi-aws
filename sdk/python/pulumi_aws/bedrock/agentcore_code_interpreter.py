@@ -21,38 +21,51 @@ __all__ = ['AgentcoreCodeInterpreterArgs', 'AgentcoreCodeInterpreter']
 @pulumi.input_type
 class AgentcoreCodeInterpreterArgs:
     def __init__(__self__, *,
+                 network_configuration: pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs'],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['AgentcoreCodeInterpreterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreCodeInterpreter resource.
-        :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-        :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
         :param pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs'] network_configuration: Network configuration for the code interpreter. See `network_configuration` below.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+        :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "network_configuration", network_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs']:
+        """
+        Network configuration for the code interpreter. See `network_configuration` below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs']):
+        pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -89,20 +102,6 @@ class AgentcoreCodeInterpreterArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs']]:
-        """
-        Network configuration for the code interpreter. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "network_configuration")
-
-    @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs']]):
-        pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -388,7 +387,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AgentcoreCodeInterpreterArgs] = None,
+                 args: AgentcoreCodeInterpreterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS Bedrock AgentCore Code Interpreter. Code Interpreter provides a secure environment for AI agents to execute Python code, enabling data analysis, calculations, and file processing capabilities.
@@ -477,6 +476,8 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["name"] = name
+            if network_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'network_configuration'")
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
@@ -581,7 +582,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreCodeInterpreterNetworkConfiguration']]:
+    def network_configuration(self) -> pulumi.Output['outputs.AgentcoreCodeInterpreterNetworkConfiguration']:
         """
         Network configuration for the code interpreter. See `network_configuration` below.
 

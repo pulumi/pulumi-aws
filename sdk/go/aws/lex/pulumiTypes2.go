@@ -1321,7 +1321,7 @@ func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAn
 type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup struct {
 	// Configuration block for the primary message that Amazon Lex should send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage `pulumi:"message"`
+	Message *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage `pulumi:"message"`
 	// Configuration blocks for message variations to send to the user.
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
@@ -1342,7 +1342,7 @@ type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndCo
 type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs struct {
 	// Configuration block for the primary message that Amazon Lex should send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageInput `pulumi:"message"`
+	Message V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput `pulumi:"message"`
 	// Configuration blocks for message variations to send to the user.
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
@@ -1402,10 +1402,10 @@ func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAn
 
 // Configuration block for the primary message that Amazon Lex should send to the user.
 // See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupOutput) Message() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput {
-	return o.ApplyT(func(v V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup) V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
+func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupOutput) Message() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return o.ApplyT(func(v V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup) *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
 		return v.Message
-	}).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput)
+	}).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput)
 }
 
 // Configuration blocks for message variations to send to the user.
@@ -1474,6 +1474,47 @@ func (i V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAn
 	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput)
 }
 
+func (i V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs) ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return i.ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (i V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs) ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput).ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx)
+}
+
+// V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput is an input type that accepts V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs, V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtr and V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput values.
+// You can construct a concrete instance of `V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput` via:
+//
+//	        V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput interface {
+	pulumi.Input
+
+	ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput
+	ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Context) V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput
+}
+
+type v2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrType V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs
+
+func V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtr(v *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs) V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput {
+	return (*v2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrType)(v)
+}
+
+func (*v2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage)(nil)).Elem()
+}
+
+func (i *v2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrType) ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return i.ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *v2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrType) ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput)
+}
+
 type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput struct{ *pulumi.OutputState }
 
 func (V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) ElementType() reflect.Type {
@@ -1486,6 +1527,16 @@ func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAn
 
 func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutputWithContext(ctx context.Context) V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput {
 	return o
+}
+
+func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return o.ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
+		return &v
+	}).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput)
 }
 
 func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) CustomPayload() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadPtrOutput {
@@ -1508,6 +1559,66 @@ func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAn
 
 func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) SsmlMessage() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessagePtrOutput {
 	return o.ApplyT(func(v V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage {
+		return v.SsmlMessage
+	}).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessagePtrOutput)
+}
+
+type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage)(nil)).Elem()
+}
+
+func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return o
+}
+
+func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) ToV2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return o
+}
+
+func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) Elem() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput {
+	return o.ApplyT(func(v *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
+		if v != nil {
+			return *v
+		}
+		var ret V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage
+		return ret
+	}).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput)
+}
+
+func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) CustomPayload() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPayload
+	}).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadPtrOutput)
+}
+
+func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) ImageResponseCard() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard {
+		if v == nil {
+			return nil
+		}
+		return v.ImageResponseCard
+	}).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardPtrOutput)
+}
+
+func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) PlainTextMessage() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessagePtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage {
+		if v == nil {
+			return nil
+		}
+		return v.PlainTextMessage
+	}).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessagePtrOutput)
+}
+
+func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) SsmlMessage() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessagePtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage {
+		if v == nil {
+			return nil
+		}
 		return v.SsmlMessage
 	}).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessagePtrOutput)
 }
@@ -4612,8 +4723,8 @@ type V2modelsSlotValueElicitationSetting struct {
 	DefaultValueSpecifications []V2modelsSlotValueElicitationSettingDefaultValueSpecification `pulumi:"defaultValueSpecifications"`
 	// Prompt that Amazon Lex uses to elicit the slot value from the user.
 	// See the `lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
-	PromptSpecification V2modelsSlotValueElicitationSettingPromptSpecification `pulumi:"promptSpecification"`
-	SampleUtterances    []V2modelsSlotValueElicitationSettingSampleUtterance   `pulumi:"sampleUtterances"`
+	PromptSpecification *V2modelsSlotValueElicitationSettingPromptSpecification `pulumi:"promptSpecification"`
+	SampleUtterances    []V2modelsSlotValueElicitationSettingSampleUtterance    `pulumi:"sampleUtterances"`
 	// Whether the slot is required or optional. Valid values are `Required` or `Optional`.
 	SlotConstraint string `pulumi:"slotConstraint"`
 	// Information about whether assisted slot resolution is turned on for the slot or not.
@@ -4641,8 +4752,8 @@ type V2modelsSlotValueElicitationSettingArgs struct {
 	DefaultValueSpecifications V2modelsSlotValueElicitationSettingDefaultValueSpecificationArrayInput `pulumi:"defaultValueSpecifications"`
 	// Prompt that Amazon Lex uses to elicit the slot value from the user.
 	// See the `lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
-	PromptSpecification V2modelsSlotValueElicitationSettingPromptSpecificationInput  `pulumi:"promptSpecification"`
-	SampleUtterances    V2modelsSlotValueElicitationSettingSampleUtteranceArrayInput `pulumi:"sampleUtterances"`
+	PromptSpecification V2modelsSlotValueElicitationSettingPromptSpecificationPtrInput `pulumi:"promptSpecification"`
+	SampleUtterances    V2modelsSlotValueElicitationSettingSampleUtteranceArrayInput   `pulumi:"sampleUtterances"`
 	// Whether the slot is required or optional. Valid values are `Required` or `Optional`.
 	SlotConstraint pulumi.StringInput `pulumi:"slotConstraint"`
 	// Information about whether assisted slot resolution is turned on for the slot or not.
@@ -4740,10 +4851,10 @@ func (o V2modelsSlotValueElicitationSettingOutput) DefaultValueSpecifications() 
 
 // Prompt that Amazon Lex uses to elicit the slot value from the user.
 // See the `lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
-func (o V2modelsSlotValueElicitationSettingOutput) PromptSpecification() V2modelsSlotValueElicitationSettingPromptSpecificationOutput {
-	return o.ApplyT(func(v V2modelsSlotValueElicitationSetting) V2modelsSlotValueElicitationSettingPromptSpecification {
+func (o V2modelsSlotValueElicitationSettingOutput) PromptSpecification() V2modelsSlotValueElicitationSettingPromptSpecificationPtrOutput {
+	return o.ApplyT(func(v V2modelsSlotValueElicitationSetting) *V2modelsSlotValueElicitationSettingPromptSpecification {
 		return v.PromptSpecification
-	}).(V2modelsSlotValueElicitationSettingPromptSpecificationOutput)
+	}).(V2modelsSlotValueElicitationSettingPromptSpecificationPtrOutput)
 }
 
 func (o V2modelsSlotValueElicitationSettingOutput) SampleUtterances() V2modelsSlotValueElicitationSettingSampleUtteranceArrayOutput {
@@ -4815,7 +4926,7 @@ func (o V2modelsSlotValueElicitationSettingPtrOutput) PromptSpecification() V2mo
 		if v == nil {
 			return nil
 		}
-		return &v.PromptSpecification
+		return v.PromptSpecification
 	}).(V2modelsSlotValueElicitationSettingPromptSpecificationPtrOutput)
 }
 
@@ -5266,7 +5377,7 @@ func (o V2modelsSlotValueElicitationSettingPromptSpecificationPtrOutput) PromptA
 type V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup struct {
 	// Configuration block for the primary message that Amazon Lex should send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage `pulumi:"message"`
+	Message *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage `pulumi:"message"`
 	// Configuration blocks for message variations to send to the user.
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
@@ -5287,7 +5398,7 @@ type V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupInput int
 type V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs struct {
 	// Configuration block for the primary message that Amazon Lex should send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageInput `pulumi:"message"`
+	Message V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrInput `pulumi:"message"`
 	// Configuration blocks for message variations to send to the user.
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
@@ -5347,10 +5458,10 @@ func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupOutput
 
 // Configuration block for the primary message that Amazon Lex should send to the user.
 // See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput {
-	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup) V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage {
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput {
+	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup) *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage {
 		return v.Message
-	}).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput)
+	}).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput)
 }
 
 // Configuration blocks for message variations to send to the user.
@@ -5419,6 +5530,47 @@ func (i V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessag
 	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput)
 }
 
+func (i V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs) ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput {
+	return i.ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (i V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs) ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput).ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutputWithContext(ctx)
+}
+
+// V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrInput is an input type that accepts V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs, V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtr and V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput values.
+// You can construct a concrete instance of `V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrInput` via:
+//
+//	        V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrInput interface {
+	pulumi.Input
+
+	ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput
+	ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutputWithContext(context.Context) V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput
+}
+
+type v2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrType V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs
+
+func V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtr(v *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs) V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrInput {
+	return (*v2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrType)(v)
+}
+
+func (*v2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage)(nil)).Elem()
+}
+
+func (i *v2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrType) ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput {
+	return i.ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *v2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrType) ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput)
+}
+
 type V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput struct{ *pulumi.OutputState }
 
 func (V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput) ElementType() reflect.Type {
@@ -5431,6 +5583,16 @@ func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessag
 
 func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput {
 	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput {
+	return o.ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage) *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage {
+		return &v
+	}).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput)
 }
 
 func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput) CustomPayload() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadPtrOutput {
@@ -5453,6 +5615,66 @@ func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessag
 
 func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput) SsmlMessage() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessagePtrOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage) *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage {
+		return v.SsmlMessage
+	}).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessagePtrOutput)
+}
+
+type V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage)(nil)).Elem()
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput) ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput {
+	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput) ToV2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput {
+	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput) Elem() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage) V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage {
+		if v != nil {
+			return *v
+		}
+		var ret V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage
+		return ret
+	}).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput) CustomPayload() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage) *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPayload
+	}).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadPtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput) ImageResponseCard() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage) *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard {
+		if v == nil {
+			return nil
+		}
+		return v.ImageResponseCard
+	}).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardPtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput) PlainTextMessage() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessagePtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage) *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage {
+		if v == nil {
+			return nil
+		}
+		return v.PlainTextMessage
+	}).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessagePtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput) SsmlMessage() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessagePtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage) *V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage {
+		if v == nil {
+			return nil
+		}
 		return v.SsmlMessage
 	}).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessagePtrOutput)
 }
@@ -6969,7 +7191,7 @@ func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariat
 
 type V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification struct {
 	AllowInterrupt                 *bool                                                                                                            `pulumi:"allowInterrupt"`
-	AllowedInputTypes              V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes               `pulumi:"allowedInputTypes"`
+	AllowedInputTypes              *V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes              `pulumi:"allowedInputTypes"`
 	AudioAndDtmfInputSpecification *V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification `pulumi:"audioAndDtmfInputSpecification"`
 	MapBlockKey                    string                                                                                                           `pulumi:"mapBlockKey"`
 	TextInputSpecification         *V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification         `pulumi:"textInputSpecification"`
@@ -6988,7 +7210,7 @@ type V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecifi
 
 type V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs struct {
 	AllowInterrupt                 pulumi.BoolPtrInput                                                                                                     `pulumi:"allowInterrupt"`
-	AllowedInputTypes              V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesInput                 `pulumi:"allowedInputTypes"`
+	AllowedInputTypes              V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrInput              `pulumi:"allowedInputTypes"`
 	AudioAndDtmfInputSpecification V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationPtrInput `pulumi:"audioAndDtmfInputSpecification"`
 	MapBlockKey                    pulumi.StringInput                                                                                                      `pulumi:"mapBlockKey"`
 	TextInputSpecification         V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationPtrInput         `pulumi:"textInputSpecification"`
@@ -7051,10 +7273,10 @@ func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpec
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationOutput) AllowedInputTypes() V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput {
-	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification) V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes {
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationOutput) AllowedInputTypes() V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput {
+	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification) *V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes {
 		return v.AllowedInputTypes
-	}).(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput)
+	}).(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput)
 }
 
 func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationOutput) AudioAndDtmfInputSpecification() V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationPtrOutput {
@@ -7128,6 +7350,47 @@ func (i V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpec
 	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput)
 }
 
+func (i V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs) ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput() V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput {
+	return i.ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutputWithContext(context.Background())
+}
+
+func (i V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs) ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput).ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutputWithContext(ctx)
+}
+
+// V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrInput is an input type that accepts V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs, V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtr and V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput values.
+// You can construct a concrete instance of `V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrInput` via:
+//
+//	        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrInput interface {
+	pulumi.Input
+
+	ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput() V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput
+	ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutputWithContext(context.Context) V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput
+}
+
+type v2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrType V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs
+
+func V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtr(v *V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs) V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrInput {
+	return (*v2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrType)(v)
+}
+
+func (*v2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes)(nil)).Elem()
+}
+
+func (i *v2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrType) ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput() V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput {
+	return i.ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutputWithContext(context.Background())
+}
+
+func (i *v2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrType) ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput)
+}
+
 type V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput struct{ *pulumi.OutputState }
 
 func (V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput) ElementType() reflect.Type {
@@ -7142,6 +7405,16 @@ func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpec
 	return o
 }
 
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput) ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput() V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput {
+	return o.ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutputWithContext(context.Background())
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput) ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes) *V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes {
+		return &v
+	}).(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput)
+}
+
 func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput) AllowAudioInput() pulumi.BoolOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes) bool {
 		return v.AllowAudioInput
@@ -7152,6 +7425,48 @@ func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpec
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes) bool {
 		return v.AllowDtmfInput
 	}).(pulumi.BoolOutput)
+}
+
+type V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes)(nil)).Elem()
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput) ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput() V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput {
+	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput) ToV2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput {
+	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput) Elem() V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes) V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes {
+		if v != nil {
+			return *v
+		}
+		var ret V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes
+		return ret
+	}).(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput) AllowAudioInput() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowAudioInput
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput) AllowDtmfInput() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowDtmfInput
+	}).(pulumi.BoolPtrOutput)
 }
 
 type V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification struct {
@@ -8265,7 +8580,7 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueR
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup struct {
 	// Configuration block for the primary message that Amazon Lex should send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage `pulumi:"message"`
+	Message *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage `pulumi:"message"`
 	// Configuration blocks for message variations to send to the user.
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
@@ -8286,7 +8601,7 @@ type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResp
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs struct {
 	// Configuration block for the primary message that Amazon Lex should send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageInput `pulumi:"message"`
+	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrInput `pulumi:"message"`
 	// Configuration blocks for message variations to send to the user.
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
@@ -8346,10 +8661,10 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueR
 
 // Configuration block for the primary message that Amazon Lex should send to the user.
 // See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput {
-	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage {
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput {
+	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage {
 		return v.Message
-	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput)
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput)
 }
 
 // Configuration blocks for message variations to send to the user.
@@ -8418,6 +8733,47 @@ func (i V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueR
 	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput)
 }
 
+func (i V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput {
+	return i.ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (i V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput).ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutputWithContext(ctx)
+}
+
+// V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrInput is an input type that accepts V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs, V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtr and V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput values.
+// You can construct a concrete instance of `V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrInput` via:
+//
+//	        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrInput interface {
+	pulumi.Input
+
+	ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput
+	ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutputWithContext(context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput
+}
+
+type v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrType V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs
+
+func V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtr(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrInput {
+	return (*v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrType)(v)
+}
+
+func (*v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage)(nil)).Elem()
+}
+
+func (i *v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrType) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput {
+	return i.ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrType) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput)
+}
+
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput struct{ *pulumi.OutputState }
 
 func (V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput) ElementType() reflect.Type {
@@ -8430,6 +8786,16 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueR
 
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput {
 	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput {
+	return o.ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage {
+		return &v
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput)
 }
 
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput) CustomPayload() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadPtrOutput {
@@ -8452,6 +8818,66 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueR
 
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput) SsmlMessage() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessagePtrOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage {
+		return v.SsmlMessage
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessagePtrOutput)
+}
+
+type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage)(nil)).Elem()
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput {
+	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput {
+	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput) Elem() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage {
+		if v != nil {
+			return *v
+		}
+		var ret V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage
+		return ret
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput) CustomPayload() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPayload
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadPtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput) ImageResponseCard() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard {
+		if v == nil {
+			return nil
+		}
+		return v.ImageResponseCard
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardPtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput) PlainTextMessage() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessagePtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage {
+		if v == nil {
+			return nil
+		}
+		return v.PlainTextMessage
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessagePtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput) SsmlMessage() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessagePtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage {
+		if v == nil {
+			return nil
+		}
 		return v.SsmlMessage
 	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessagePtrOutput)
 }
@@ -10098,7 +10524,7 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWait
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup struct {
 	// Configuration block for the primary message that Amazon Lex should send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage `pulumi:"message"`
+	Message *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage `pulumi:"message"`
 	// Configuration blocks for message variations to send to the user.
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
@@ -10119,7 +10545,7 @@ type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaiting
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs struct {
 	// Configuration block for the primary message that Amazon Lex should send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageInput `pulumi:"message"`
+	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrInput `pulumi:"message"`
 	// Configuration blocks for message variations to send to the user.
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
@@ -10179,10 +10605,10 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWait
 
 // Configuration block for the primary message that Amazon Lex should send to the user.
 // See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput {
-	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput {
+	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
 		return v.Message
-	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput)
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput)
 }
 
 // Configuration blocks for message variations to send to the user.
@@ -10251,6 +10677,47 @@ func (i V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWait
 	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput)
 }
 
+func (i V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput {
+	return i.ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (i V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput).ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx)
+}
+
+// V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrInput is an input type that accepts V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs, V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtr and V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput values.
+// You can construct a concrete instance of `V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrInput` via:
+//
+//	        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrInput interface {
+	pulumi.Input
+
+	ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput
+	ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput
+}
+
+type v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrType V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs
+
+func V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtr(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrInput {
+	return (*v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrType)(v)
+}
+
+func (*v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage)(nil)).Elem()
+}
+
+func (i *v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrType) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput {
+	return i.ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrType) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput)
+}
+
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput struct{ *pulumi.OutputState }
 
 func (V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput) ElementType() reflect.Type {
@@ -10263,6 +10730,16 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWait
 
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput {
 	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput {
+	return o.ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
+		return &v
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput)
 }
 
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput) CustomPayload() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadPtrOutput {
@@ -10285,6 +10762,66 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWait
 
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput) SsmlMessage() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessagePtrOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage {
+		return v.SsmlMessage
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessagePtrOutput)
+}
+
+type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage)(nil)).Elem()
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput {
+	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput {
+	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput) Elem() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
+		if v != nil {
+			return *v
+		}
+		var ret V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage
+		return ret
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput) CustomPayload() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPayload
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadPtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput) ImageResponseCard() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard {
+		if v == nil {
+			return nil
+		}
+		return v.ImageResponseCard
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardPtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput) PlainTextMessage() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessagePtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage {
+		if v == nil {
+			return nil
+		}
+		return v.PlainTextMessage
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessagePtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput) SsmlMessage() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessagePtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage {
+		if v == nil {
+			return nil
+		}
 		return v.SsmlMessage
 	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessagePtrOutput)
 }
@@ -11918,7 +12455,7 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingRe
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup struct {
 	// Configuration block for the primary message that Amazon Lex should send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage `pulumi:"message"`
+	Message *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage `pulumi:"message"`
 	// Configuration blocks for message variations to send to the user.
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
@@ -11939,7 +12476,7 @@ type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingRespo
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs struct {
 	// Configuration block for the primary message that Amazon Lex should send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageInput `pulumi:"message"`
+	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput `pulumi:"message"`
 	// Configuration blocks for message variations to send to the user.
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
 	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
@@ -11999,10 +12536,10 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingRe
 
 // Configuration block for the primary message that Amazon Lex should send to the user.
 // See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput {
-	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
 		return v.Message
-	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput)
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput)
 }
 
 // Configuration blocks for message variations to send to the user.
@@ -12071,6 +12608,47 @@ func (i V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingRe
 	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput)
 }
 
+func (i V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return i.ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (i V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput).ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx)
+}
+
+// V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput is an input type that accepts V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs, V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtr and V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput values.
+// You can construct a concrete instance of `V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput` via:
+//
+//	        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput interface {
+	pulumi.Input
+
+	ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput
+	ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput
+}
+
+type v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrType V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs
+
+func V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtr(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput {
+	return (*v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrType)(v)
+}
+
+func (*v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage)(nil)).Elem()
+}
+
+func (i *v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrType) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return i.ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *v2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrType) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput)
+}
+
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput struct{ *pulumi.OutputState }
 
 func (V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) ElementType() reflect.Type {
@@ -12083,6 +12661,16 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingRe
 
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput {
 	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return o.ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(context.Background())
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
+		return &v
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput)
 }
 
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) CustomPayload() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadPtrOutput {
@@ -12105,6 +12693,66 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingRe
 
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput) SsmlMessage() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessagePtrOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage {
+		return v.SsmlMessage
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessagePtrOutput)
+}
+
+type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage)(nil)).Elem()
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) ToV2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutputWithContext(ctx context.Context) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput {
+	return o
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) Elem() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
+		if v != nil {
+			return *v
+		}
+		var ret V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage
+		return ret
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) CustomPayload() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPayload
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadPtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) ImageResponseCard() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardPtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard {
+		if v == nil {
+			return nil
+		}
+		return v.ImageResponseCard
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardPtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) PlainTextMessage() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessagePtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage {
+		if v == nil {
+			return nil
+		}
+		return v.PlainTextMessage
+	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessagePtrOutput)
+}
+
+func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput) SsmlMessage() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessagePtrOutput {
+	return o.ApplyT(func(v *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage) *V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage {
+		if v == nil {
+			return nil
+		}
 		return v.SsmlMessage
 	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessagePtrOutput)
 }
@@ -13743,6 +14391,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupInput)(nil)).Elem(), V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArrayInput)(nil)).Elem(), V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageInput)(nil)).Elem(), V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput)(nil)).Elem(), V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadInput)(nil)).Elem(), V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadPtrInput)(nil)).Elem(), V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardInput)(nil)).Elem(), V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs{})
@@ -13802,6 +14451,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArrayInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadPtrInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs{})
@@ -13827,6 +14477,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArrayInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationPtrInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs{})
@@ -13846,6 +14497,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArrayInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadPtrInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs{})
@@ -13873,6 +14525,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArrayInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadPtrInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs{})
@@ -13900,6 +14553,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArrayInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadPtrInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardInput)(nil)).Elem(), V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs{})
@@ -13947,6 +14601,7 @@ func init() {
 	pulumi.RegisterOutputType(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArrayOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput{})
+	pulumi.RegisterOutputType(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadPtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardOutput{})
@@ -14006,6 +14661,7 @@ func init() {
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArrayOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput{})
+	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadPtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardOutput{})
@@ -14031,6 +14687,7 @@ func init() {
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesOutput{})
+	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesPtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationOutput{})
@@ -14050,6 +14707,7 @@ func init() {
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArrayOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput{})
+	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadPtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardOutput{})
@@ -14077,6 +14735,7 @@ func init() {
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArrayOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput{})
+	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadPtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardOutput{})
@@ -14104,6 +14763,7 @@ func init() {
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArrayOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput{})
+	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadPtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardOutput{})

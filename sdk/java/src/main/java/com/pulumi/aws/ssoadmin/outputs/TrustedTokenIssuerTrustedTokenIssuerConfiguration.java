@@ -5,9 +5,8 @@ package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.aws.ssoadmin.outputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class TrustedTokenIssuerTrustedTokenIssuerConfiguration {
@@ -15,15 +14,15 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfiguration {
      * @return A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
      * 
      */
-    private @Nullable TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration oidcJwtConfiguration;
+    private TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration oidcJwtConfiguration;
 
     private TrustedTokenIssuerTrustedTokenIssuerConfiguration() {}
     /**
      * @return A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
      * 
      */
-    public Optional<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration> oidcJwtConfiguration() {
-        return Optional.ofNullable(this.oidcJwtConfiguration);
+    public TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration oidcJwtConfiguration() {
+        return this.oidcJwtConfiguration;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration oidcJwtConfiguration;
+        private TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration oidcJwtConfiguration;
         public Builder() {}
         public Builder(TrustedTokenIssuerTrustedTokenIssuerConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfiguration {
         }
 
         @CustomType.Setter
-        public Builder oidcJwtConfiguration(@Nullable TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration oidcJwtConfiguration) {
-
+        public Builder oidcJwtConfiguration(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration oidcJwtConfiguration) {
+            if (oidcJwtConfiguration == null) {
+              throw new MissingRequiredPropertyException("TrustedTokenIssuerTrustedTokenIssuerConfiguration", "oidcJwtConfiguration");
+            }
             this.oidcJwtConfiguration = oidcJwtConfiguration;
             return this;
         }

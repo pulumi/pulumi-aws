@@ -9,6 +9,7 @@ import com.pulumi.aws.bedrock.inputs.AgentFlowDefinitionNodeConfigurationPromptS
 import com.pulumi.aws.bedrock.inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,15 +31,15 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
      * A list of messages in the chat for the prompt. See Message for more information.
      * 
      */
-    @Import(name="messages")
-    private @Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>> messages;
+    @Import(name="messages", required=true)
+    private Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>> messages;
 
     /**
      * @return A list of messages in the chat for the prompt. See Message for more information.
      * 
      */
-    public Optional<Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>>> messages() {
-        return Optional.ofNullable(this.messages);
+    public Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>> messages() {
+        return this.messages;
     }
 
     /**
@@ -117,7 +118,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
          * @return builder
          * 
          */
-        public Builder messages(@Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>> messages) {
+        public Builder messages(Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>> messages) {
             $.messages = messages;
             return this;
         }
@@ -195,6 +196,9 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         public AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs build() {
+            if ($.messages == null) {
+                throw new MissingRequiredPropertyException("AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs", "messages");
+            }
             return $;
         }
     }

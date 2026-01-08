@@ -6109,13 +6109,13 @@ func (o InfrastructureConfigurationPlacementPtrOutput) Tenancy() pulumi.StringPt
 
 type LifecyclePolicyPolicyDetail struct {
 	// Configuration details for the policy action.
-	Action *LifecyclePolicyPolicyDetailAction `pulumi:"action"`
+	Action LifecyclePolicyPolicyDetailAction `pulumi:"action"`
 	// Additional rules to specify resources that should be exempt from policy actions.
 	ExclusionRules *LifecyclePolicyPolicyDetailExclusionRules `pulumi:"exclusionRules"`
 	// Specifies the resources that the lifecycle policy applies to.
 	//
 	// The following arguments are optional:
-	Filter *LifecyclePolicyPolicyDetailFilter `pulumi:"filter"`
+	Filter LifecyclePolicyPolicyDetailFilter `pulumi:"filter"`
 }
 
 // LifecyclePolicyPolicyDetailInput is an input type that accepts LifecyclePolicyPolicyDetailArgs and LifecyclePolicyPolicyDetailOutput values.
@@ -6131,13 +6131,13 @@ type LifecyclePolicyPolicyDetailInput interface {
 
 type LifecyclePolicyPolicyDetailArgs struct {
 	// Configuration details for the policy action.
-	Action LifecyclePolicyPolicyDetailActionPtrInput `pulumi:"action"`
+	Action LifecyclePolicyPolicyDetailActionInput `pulumi:"action"`
 	// Additional rules to specify resources that should be exempt from policy actions.
 	ExclusionRules LifecyclePolicyPolicyDetailExclusionRulesPtrInput `pulumi:"exclusionRules"`
 	// Specifies the resources that the lifecycle policy applies to.
 	//
 	// The following arguments are optional:
-	Filter LifecyclePolicyPolicyDetailFilterPtrInput `pulumi:"filter"`
+	Filter LifecyclePolicyPolicyDetailFilterInput `pulumi:"filter"`
 }
 
 func (LifecyclePolicyPolicyDetailArgs) ElementType() reflect.Type {
@@ -6192,8 +6192,8 @@ func (o LifecyclePolicyPolicyDetailOutput) ToLifecyclePolicyPolicyDetailOutputWi
 }
 
 // Configuration details for the policy action.
-func (o LifecyclePolicyPolicyDetailOutput) Action() LifecyclePolicyPolicyDetailActionPtrOutput {
-	return o.ApplyT(func(v LifecyclePolicyPolicyDetail) *LifecyclePolicyPolicyDetailAction { return v.Action }).(LifecyclePolicyPolicyDetailActionPtrOutput)
+func (o LifecyclePolicyPolicyDetailOutput) Action() LifecyclePolicyPolicyDetailActionOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetail) LifecyclePolicyPolicyDetailAction { return v.Action }).(LifecyclePolicyPolicyDetailActionOutput)
 }
 
 // Additional rules to specify resources that should be exempt from policy actions.
@@ -6206,8 +6206,8 @@ func (o LifecyclePolicyPolicyDetailOutput) ExclusionRules() LifecyclePolicyPolic
 // Specifies the resources that the lifecycle policy applies to.
 //
 // The following arguments are optional:
-func (o LifecyclePolicyPolicyDetailOutput) Filter() LifecyclePolicyPolicyDetailFilterPtrOutput {
-	return o.ApplyT(func(v LifecyclePolicyPolicyDetail) *LifecyclePolicyPolicyDetailFilter { return v.Filter }).(LifecyclePolicyPolicyDetailFilterPtrOutput)
+func (o LifecyclePolicyPolicyDetailOutput) Filter() LifecyclePolicyPolicyDetailFilterOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetail) LifecyclePolicyPolicyDetailFilter { return v.Filter }).(LifecyclePolicyPolicyDetailFilterOutput)
 }
 
 type LifecyclePolicyPolicyDetailArrayOutput struct{ *pulumi.OutputState }
@@ -6271,47 +6271,6 @@ func (i LifecyclePolicyPolicyDetailActionArgs) ToLifecyclePolicyPolicyDetailActi
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailActionOutput)
 }
 
-func (i LifecyclePolicyPolicyDetailActionArgs) ToLifecyclePolicyPolicyDetailActionPtrOutput() LifecyclePolicyPolicyDetailActionPtrOutput {
-	return i.ToLifecyclePolicyPolicyDetailActionPtrOutputWithContext(context.Background())
-}
-
-func (i LifecyclePolicyPolicyDetailActionArgs) ToLifecyclePolicyPolicyDetailActionPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailActionOutput).ToLifecyclePolicyPolicyDetailActionPtrOutputWithContext(ctx)
-}
-
-// LifecyclePolicyPolicyDetailActionPtrInput is an input type that accepts LifecyclePolicyPolicyDetailActionArgs, LifecyclePolicyPolicyDetailActionPtr and LifecyclePolicyPolicyDetailActionPtrOutput values.
-// You can construct a concrete instance of `LifecyclePolicyPolicyDetailActionPtrInput` via:
-//
-//	        LifecyclePolicyPolicyDetailActionArgs{...}
-//
-//	or:
-//
-//	        nil
-type LifecyclePolicyPolicyDetailActionPtrInput interface {
-	pulumi.Input
-
-	ToLifecyclePolicyPolicyDetailActionPtrOutput() LifecyclePolicyPolicyDetailActionPtrOutput
-	ToLifecyclePolicyPolicyDetailActionPtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailActionPtrOutput
-}
-
-type lifecyclePolicyPolicyDetailActionPtrType LifecyclePolicyPolicyDetailActionArgs
-
-func LifecyclePolicyPolicyDetailActionPtr(v *LifecyclePolicyPolicyDetailActionArgs) LifecyclePolicyPolicyDetailActionPtrInput {
-	return (*lifecyclePolicyPolicyDetailActionPtrType)(v)
-}
-
-func (*lifecyclePolicyPolicyDetailActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LifecyclePolicyPolicyDetailAction)(nil)).Elem()
-}
-
-func (i *lifecyclePolicyPolicyDetailActionPtrType) ToLifecyclePolicyPolicyDetailActionPtrOutput() LifecyclePolicyPolicyDetailActionPtrOutput {
-	return i.ToLifecyclePolicyPolicyDetailActionPtrOutputWithContext(context.Background())
-}
-
-func (i *lifecyclePolicyPolicyDetailActionPtrType) ToLifecyclePolicyPolicyDetailActionPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailActionPtrOutput)
-}
-
 type LifecyclePolicyPolicyDetailActionOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailActionOutput) ElementType() reflect.Type {
@@ -6326,16 +6285,6 @@ func (o LifecyclePolicyPolicyDetailActionOutput) ToLifecyclePolicyPolicyDetailAc
 	return o
 }
 
-func (o LifecyclePolicyPolicyDetailActionOutput) ToLifecyclePolicyPolicyDetailActionPtrOutput() LifecyclePolicyPolicyDetailActionPtrOutput {
-	return o.ToLifecyclePolicyPolicyDetailActionPtrOutputWithContext(context.Background())
-}
-
-func (o LifecyclePolicyPolicyDetailActionOutput) ToLifecyclePolicyPolicyDetailActionPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailAction) *LifecyclePolicyPolicyDetailAction {
-		return &v
-	}).(LifecyclePolicyPolicyDetailActionPtrOutput)
-}
-
 // Specifies the resources that the lifecycle policy applies to. Detailed below.
 func (o LifecyclePolicyPolicyDetailActionOutput) IncludeResources() LifecyclePolicyPolicyDetailActionIncludeResourcesPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailAction) *LifecyclePolicyPolicyDetailActionIncludeResources {
@@ -6348,52 +6297,6 @@ func (o LifecyclePolicyPolicyDetailActionOutput) IncludeResources() LifecyclePol
 // The following arguments are optional:
 func (o LifecyclePolicyPolicyDetailActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailAction) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type LifecyclePolicyPolicyDetailActionPtrOutput struct{ *pulumi.OutputState }
-
-func (LifecyclePolicyPolicyDetailActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LifecyclePolicyPolicyDetailAction)(nil)).Elem()
-}
-
-func (o LifecyclePolicyPolicyDetailActionPtrOutput) ToLifecyclePolicyPolicyDetailActionPtrOutput() LifecyclePolicyPolicyDetailActionPtrOutput {
-	return o
-}
-
-func (o LifecyclePolicyPolicyDetailActionPtrOutput) ToLifecyclePolicyPolicyDetailActionPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailActionPtrOutput {
-	return o
-}
-
-func (o LifecyclePolicyPolicyDetailActionPtrOutput) Elem() LifecyclePolicyPolicyDetailActionOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailAction) LifecyclePolicyPolicyDetailAction {
-		if v != nil {
-			return *v
-		}
-		var ret LifecyclePolicyPolicyDetailAction
-		return ret
-	}).(LifecyclePolicyPolicyDetailActionOutput)
-}
-
-// Specifies the resources that the lifecycle policy applies to. Detailed below.
-func (o LifecyclePolicyPolicyDetailActionPtrOutput) IncludeResources() LifecyclePolicyPolicyDetailActionIncludeResourcesPtrOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailAction) *LifecyclePolicyPolicyDetailActionIncludeResources {
-		if v == nil {
-			return nil
-		}
-		return v.IncludeResources
-	}).(LifecyclePolicyPolicyDetailActionIncludeResourcesPtrOutput)
-}
-
-// Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
-//
-// The following arguments are optional:
-func (o LifecyclePolicyPolicyDetailActionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailAction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type LifecyclePolicyPolicyDetailActionIncludeResources struct {
@@ -7149,47 +7052,6 @@ func (i LifecyclePolicyPolicyDetailFilterArgs) ToLifecyclePolicyPolicyDetailFilt
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailFilterOutput)
 }
 
-func (i LifecyclePolicyPolicyDetailFilterArgs) ToLifecyclePolicyPolicyDetailFilterPtrOutput() LifecyclePolicyPolicyDetailFilterPtrOutput {
-	return i.ToLifecyclePolicyPolicyDetailFilterPtrOutputWithContext(context.Background())
-}
-
-func (i LifecyclePolicyPolicyDetailFilterArgs) ToLifecyclePolicyPolicyDetailFilterPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailFilterOutput).ToLifecyclePolicyPolicyDetailFilterPtrOutputWithContext(ctx)
-}
-
-// LifecyclePolicyPolicyDetailFilterPtrInput is an input type that accepts LifecyclePolicyPolicyDetailFilterArgs, LifecyclePolicyPolicyDetailFilterPtr and LifecyclePolicyPolicyDetailFilterPtrOutput values.
-// You can construct a concrete instance of `LifecyclePolicyPolicyDetailFilterPtrInput` via:
-//
-//	        LifecyclePolicyPolicyDetailFilterArgs{...}
-//
-//	or:
-//
-//	        nil
-type LifecyclePolicyPolicyDetailFilterPtrInput interface {
-	pulumi.Input
-
-	ToLifecyclePolicyPolicyDetailFilterPtrOutput() LifecyclePolicyPolicyDetailFilterPtrOutput
-	ToLifecyclePolicyPolicyDetailFilterPtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailFilterPtrOutput
-}
-
-type lifecyclePolicyPolicyDetailFilterPtrType LifecyclePolicyPolicyDetailFilterArgs
-
-func LifecyclePolicyPolicyDetailFilterPtr(v *LifecyclePolicyPolicyDetailFilterArgs) LifecyclePolicyPolicyDetailFilterPtrInput {
-	return (*lifecyclePolicyPolicyDetailFilterPtrType)(v)
-}
-
-func (*lifecyclePolicyPolicyDetailFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LifecyclePolicyPolicyDetailFilter)(nil)).Elem()
-}
-
-func (i *lifecyclePolicyPolicyDetailFilterPtrType) ToLifecyclePolicyPolicyDetailFilterPtrOutput() LifecyclePolicyPolicyDetailFilterPtrOutput {
-	return i.ToLifecyclePolicyPolicyDetailFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *lifecyclePolicyPolicyDetailFilterPtrType) ToLifecyclePolicyPolicyDetailFilterPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailFilterPtrOutput)
-}
-
 type LifecyclePolicyPolicyDetailFilterOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailFilterOutput) ElementType() reflect.Type {
@@ -7202,16 +7064,6 @@ func (o LifecyclePolicyPolicyDetailFilterOutput) ToLifecyclePolicyPolicyDetailFi
 
 func (o LifecyclePolicyPolicyDetailFilterOutput) ToLifecyclePolicyPolicyDetailFilterOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailFilterOutput {
 	return o
-}
-
-func (o LifecyclePolicyPolicyDetailFilterOutput) ToLifecyclePolicyPolicyDetailFilterPtrOutput() LifecyclePolicyPolicyDetailFilterPtrOutput {
-	return o.ToLifecyclePolicyPolicyDetailFilterPtrOutputWithContext(context.Background())
-}
-
-func (o LifecyclePolicyPolicyDetailFilterOutput) ToLifecyclePolicyPolicyDetailFilterPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailFilter) *LifecyclePolicyPolicyDetailFilter {
-		return &v
-	}).(LifecyclePolicyPolicyDetailFilterPtrOutput)
 }
 
 // For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
@@ -7234,72 +7086,6 @@ func (o LifecyclePolicyPolicyDetailFilterOutput) Unit() pulumi.StringPtrOutput {
 // The following arguments are optional:
 func (o LifecyclePolicyPolicyDetailFilterOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailFilter) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type LifecyclePolicyPolicyDetailFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (LifecyclePolicyPolicyDetailFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LifecyclePolicyPolicyDetailFilter)(nil)).Elem()
-}
-
-func (o LifecyclePolicyPolicyDetailFilterPtrOutput) ToLifecyclePolicyPolicyDetailFilterPtrOutput() LifecyclePolicyPolicyDetailFilterPtrOutput {
-	return o
-}
-
-func (o LifecyclePolicyPolicyDetailFilterPtrOutput) ToLifecyclePolicyPolicyDetailFilterPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailFilterPtrOutput {
-	return o
-}
-
-func (o LifecyclePolicyPolicyDetailFilterPtrOutput) Elem() LifecyclePolicyPolicyDetailFilterOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailFilter) LifecyclePolicyPolicyDetailFilter {
-		if v != nil {
-			return *v
-		}
-		var ret LifecyclePolicyPolicyDetailFilter
-		return ret
-	}).(LifecyclePolicyPolicyDetailFilterOutput)
-}
-
-// For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
-func (o LifecyclePolicyPolicyDetailFilterPtrOutput) RetainAtLeast() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailFilter) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RetainAtLeast
-	}).(pulumi.IntPtrOutput)
-}
-
-// Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
-func (o LifecyclePolicyPolicyDetailFilterPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-func (o LifecyclePolicyPolicyDetailFilterPtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
-//
-// The following arguments are optional:
-func (o LifecyclePolicyPolicyDetailFilterPtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailFilter) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
 }
 
 type LifecyclePolicyResourceSelection struct {
@@ -12422,7 +12208,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailInput)(nil)).Elem(), LifecyclePolicyPolicyDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailArrayInput)(nil)).Elem(), LifecyclePolicyPolicyDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailActionInput)(nil)).Elem(), LifecyclePolicyPolicyDetailActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailActionPtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailActionIncludeResourcesInput)(nil)).Elem(), LifecyclePolicyPolicyDetailActionIncludeResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailActionIncludeResourcesPtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailActionIncludeResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailExclusionRulesInput)(nil)).Elem(), LifecyclePolicyPolicyDetailExclusionRulesArgs{})
@@ -12432,7 +12217,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedInput)(nil)).Elem(), LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedPtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailFilterInput)(nil)).Elem(), LifecyclePolicyPolicyDetailFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailFilterPtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyResourceSelectionInput)(nil)).Elem(), LifecyclePolicyResourceSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyResourceSelectionPtrInput)(nil)).Elem(), LifecyclePolicyResourceSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyResourceSelectionRecipeInput)(nil)).Elem(), LifecyclePolicyResourceSelectionRecipeArgs{})
@@ -12602,7 +12386,6 @@ func init() {
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailArrayOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailActionOutput{})
-	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailActionPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailActionIncludeResourcesOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailActionIncludeResourcesPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailExclusionRulesOutput{})
@@ -12612,7 +12395,6 @@ func init() {
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailFilterOutput{})
-	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailFilterPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyResourceSelectionOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyResourceSelectionPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyResourceSelectionRecipeOutput{})

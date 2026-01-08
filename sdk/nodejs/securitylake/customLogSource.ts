@@ -81,7 +81,7 @@ export class CustomLogSource extends pulumi.CustomResource {
     /**
      * The configuration for the third-party custom source.
      */
-    declare public readonly configuration: pulumi.Output<outputs.securitylake.CustomLogSourceConfiguration | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.securitylake.CustomLogSourceConfiguration>;
     /**
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
      */
@@ -127,6 +127,9 @@ export class CustomLogSource extends pulumi.CustomResource {
             resourceInputs["sourceVersion"] = state?.sourceVersion;
         } else {
             const args = argsOrState as CustomLogSourceArgs | undefined;
+            if (args?.configuration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configuration'");
+            }
             if (args?.sourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceName'");
             }
@@ -186,7 +189,7 @@ export interface CustomLogSourceArgs {
     /**
      * The configuration for the third-party custom source.
      */
-    configuration?: pulumi.Input<inputs.securitylake.CustomLogSourceConfiguration>;
+    configuration: pulumi.Input<inputs.securitylake.CustomLogSourceConfiguration>;
     /**
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
      */

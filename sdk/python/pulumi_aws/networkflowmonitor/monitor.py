@@ -21,28 +21,27 @@ __all__ = ['MonitorArgs', 'Monitor']
 @pulumi.input_type
 class MonitorArgs:
     def __init__(__self__, *,
+                 local_resources: pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]],
                  monitor_name: pulumi.Input[_builtins.str],
                  scope_arn: pulumi.Input[_builtins.str],
-                 local_resources: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  remote_resources: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['MonitorTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Monitor resource.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] scope_arn: The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]] remote_resources: The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "local_resources", local_resources)
         pulumi.set(__self__, "monitor_name", monitor_name)
         pulumi.set(__self__, "scope_arn", scope_arn)
-        if local_resources is not None:
-            pulumi.set(__self__, "local_resources", local_resources)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if remote_resources is not None:
@@ -51,6 +50,18 @@ class MonitorArgs:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="localResources")
+    def local_resources(self) -> pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]:
+        """
+        The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
+        """
+        return pulumi.get(self, "local_resources")
+
+    @local_resources.setter
+    def local_resources(self, value: pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]):
+        pulumi.set(self, "local_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorName")
@@ -77,18 +88,6 @@ class MonitorArgs:
     @scope_arn.setter
     def scope_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "scope_arn", value)
-
-    @_builtins.property
-    @pulumi.getter(name="localResources")
-    def local_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]]:
-        """
-        The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-        """
-        return pulumi.get(self, "local_resources")
-
-    @local_resources.setter
-    def local_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]]):
-        pulumi.set(self, "local_resources", value)
 
     @_builtins.property
     @pulumi.getter
@@ -430,6 +429,8 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
+            if local_resources is None and not opts.urn:
+                raise TypeError("Missing required property 'local_resources'")
             __props__.__dict__["local_resources"] = local_resources
             if monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_name'")
@@ -497,7 +498,7 @@ class Monitor(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="localResources")
-    def local_resources(self) -> pulumi.Output[Optional[Sequence['outputs.MonitorLocalResource']]]:
+    def local_resources(self) -> pulumi.Output[Sequence['outputs.MonitorLocalResource']]:
         """
         The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
         """

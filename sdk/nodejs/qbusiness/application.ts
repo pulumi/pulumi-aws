@@ -69,7 +69,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
      */
-    declare public readonly attachmentsConfiguration: pulumi.Output<outputs.qbusiness.ApplicationAttachmentsConfiguration | undefined>;
+    declare public readonly attachmentsConfiguration: pulumi.Output<outputs.qbusiness.ApplicationAttachmentsConfiguration>;
     /**
      * Description of the Amazon Q application.
      */
@@ -134,6 +134,9 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
+            if (args?.attachmentsConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'attachmentsConfiguration'");
+            }
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -218,7 +221,7 @@ export interface ApplicationArgs {
     /**
      * Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
      */
-    attachmentsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAttachmentsConfiguration>;
+    attachmentsConfiguration: pulumi.Input<inputs.qbusiness.ApplicationAttachmentsConfiguration>;
     /**
      * Description of the Amazon Q application.
      */

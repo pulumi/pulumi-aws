@@ -5,9 +5,8 @@ package com.pulumi.aws.timestreamquery.outputs;
 
 import com.pulumi.aws.timestreamquery.outputs.ScheduledQueryTargetConfigurationTimestreamConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryTargetConfiguration {
@@ -15,15 +14,15 @@ public final class ScheduledQueryTargetConfiguration {
      * @return Configuration block for information needed to write data into the Timestream database and table. See below.
      * 
      */
-    private @Nullable ScheduledQueryTargetConfigurationTimestreamConfiguration timestreamConfiguration;
+    private ScheduledQueryTargetConfigurationTimestreamConfiguration timestreamConfiguration;
 
     private ScheduledQueryTargetConfiguration() {}
     /**
      * @return Configuration block for information needed to write data into the Timestream database and table. See below.
      * 
      */
-    public Optional<ScheduledQueryTargetConfigurationTimestreamConfiguration> timestreamConfiguration() {
-        return Optional.ofNullable(this.timestreamConfiguration);
+    public ScheduledQueryTargetConfigurationTimestreamConfiguration timestreamConfiguration() {
+        return this.timestreamConfiguration;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class ScheduledQueryTargetConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable ScheduledQueryTargetConfigurationTimestreamConfiguration timestreamConfiguration;
+        private ScheduledQueryTargetConfigurationTimestreamConfiguration timestreamConfiguration;
         public Builder() {}
         public Builder(ScheduledQueryTargetConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class ScheduledQueryTargetConfiguration {
         }
 
         @CustomType.Setter
-        public Builder timestreamConfiguration(@Nullable ScheduledQueryTargetConfigurationTimestreamConfiguration timestreamConfiguration) {
-
+        public Builder timestreamConfiguration(ScheduledQueryTargetConfigurationTimestreamConfiguration timestreamConfiguration) {
+            if (timestreamConfiguration == null) {
+              throw new MissingRequiredPropertyException("ScheduledQueryTargetConfiguration", "timestreamConfiguration");
+            }
             this.timestreamConfiguration = timestreamConfiguration;
             return this;
         }

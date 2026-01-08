@@ -29,20 +29,18 @@ __all__ = [
 @pulumi.output_type
 class CentralizationRuleForOrganizationRule(dict):
     def __init__(__self__, *,
-                 destination: Optional['outputs.CentralizationRuleForOrganizationRuleDestination'] = None,
-                 source: Optional['outputs.CentralizationRuleForOrganizationRuleSource'] = None):
+                 destination: 'outputs.CentralizationRuleForOrganizationRuleDestination',
+                 source: 'outputs.CentralizationRuleForOrganizationRuleSource'):
         """
         :param 'CentralizationRuleForOrganizationRuleDestinationArgs' destination: Configuration block for the destination where logs will be centralized. See `destination` below.
         :param 'CentralizationRuleForOrganizationRuleSourceArgs' source: Configuration block for the source of logs to be centralized. See `source` below.
         """
-        if destination is not None:
-            pulumi.set(__self__, "destination", destination)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional['outputs.CentralizationRuleForOrganizationRuleDestination']:
+    def destination(self) -> 'outputs.CentralizationRuleForOrganizationRuleDestination':
         """
         Configuration block for the destination where logs will be centralized. See `destination` below.
         """
@@ -50,7 +48,7 @@ class CentralizationRuleForOrganizationRule(dict):
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional['outputs.CentralizationRuleForOrganizationRuleSource']:
+    def source(self) -> 'outputs.CentralizationRuleForOrganizationRuleSource':
         """
         Configuration block for the source of logs to be centralized. See `source` below.
         """

@@ -6,6 +6,7 @@ package com.pulumi.aws.codeguruprofiler;
 import com.pulumi.aws.codeguruprofiler.inputs.ProfilingGroupAgentOrchestrationConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -21,15 +22,15 @@ public final class ProfilingGroupArgs extends com.pulumi.resources.ResourceArgs 
      * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      * 
      */
-    @Import(name="agentOrchestrationConfig")
-    private @Nullable Output<ProfilingGroupAgentOrchestrationConfigArgs> agentOrchestrationConfig;
+    @Import(name="agentOrchestrationConfig", required=true)
+    private Output<ProfilingGroupAgentOrchestrationConfigArgs> agentOrchestrationConfig;
 
     /**
      * @return Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      * 
      */
-    public Optional<Output<ProfilingGroupAgentOrchestrationConfigArgs>> agentOrchestrationConfig() {
-        return Optional.ofNullable(this.agentOrchestrationConfig);
+    public Output<ProfilingGroupAgentOrchestrationConfigArgs> agentOrchestrationConfig() {
+        return this.agentOrchestrationConfig;
     }
 
     /**
@@ -130,7 +131,7 @@ public final class ProfilingGroupArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder agentOrchestrationConfig(@Nullable Output<ProfilingGroupAgentOrchestrationConfigArgs> agentOrchestrationConfig) {
+        public Builder agentOrchestrationConfig(Output<ProfilingGroupAgentOrchestrationConfigArgs> agentOrchestrationConfig) {
             $.agentOrchestrationConfig = agentOrchestrationConfig;
             return this;
         }
@@ -234,6 +235,9 @@ public final class ProfilingGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ProfilingGroupArgs build() {
+            if ($.agentOrchestrationConfig == null) {
+                throw new MissingRequiredPropertyException("ProfilingGroupArgs", "agentOrchestrationConfig");
+            }
             return $;
         }
     }

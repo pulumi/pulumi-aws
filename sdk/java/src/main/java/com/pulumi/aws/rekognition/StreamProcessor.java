@@ -355,14 +355,14 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="input", refs={StreamProcessorInput.class}, tree="[0]")
-    private Output</* @Nullable */ StreamProcessorInput> input;
+    private Output<StreamProcessorInput> input;
 
     /**
      * @return Input video stream. See `input`.
      * 
      */
-    public Output<Optional<StreamProcessorInput>> input() {
-        return Codegen.optional(this.input);
+    public Output<StreamProcessorInput> input() {
+        return this.input;
     }
     /**
      * Optional parameter for label detection stream processors.
@@ -411,14 +411,14 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="output", refs={StreamProcessorOutput.class}, tree="[0]")
-    private Output</* @Nullable */ StreamProcessorOutput> output;
+    private Output<StreamProcessorOutput> output;
 
     /**
      * @return Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      * 
      */
-    public Output<Optional<StreamProcessorOutput>> output() {
-        return Codegen.optional(this.output);
+    public Output<StreamProcessorOutput> output() {
+        return this.output;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -469,7 +469,7 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="settings", refs={StreamProcessorSettings.class}, tree="[0]")
-    private Output</* @Nullable */ StreamProcessorSettings> settings;
+    private Output<StreamProcessorSettings> settings;
 
     /**
      * @return Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
@@ -477,8 +477,8 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<StreamProcessorSettings>> settings() {
-        return Codegen.optional(this.settings);
+    public Output<StreamProcessorSettings> settings() {
+        return this.settings;
     }
     /**
      * (**Deprecated**) ARN of the Stream Processor.

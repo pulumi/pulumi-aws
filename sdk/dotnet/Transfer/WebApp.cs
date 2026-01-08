@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Transfer
         /// The following arguments are optional:
         /// </summary>
         [Output("identityProviderDetails")]
-        public Output<Outputs.WebAppIdentityProviderDetails?> IdentityProviderDetails { get; private set; } = null!;
+        public Output<Outputs.WebAppIdentityProviderDetails> IdentityProviderDetails { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Transfer
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public WebApp(string name, WebAppArgs? args = null, CustomResourceOptions? options = null)
+        public WebApp(string name, WebAppArgs args, CustomResourceOptions? options = null)
             : base("aws:transfer/webApp:WebApp", name, args ?? new WebAppArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -287,8 +287,8 @@ namespace Pulumi.Aws.Transfer
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("identityProviderDetails")]
-        public Input<Inputs.WebAppIdentityProviderDetailsArgs>? IdentityProviderDetails { get; set; }
+        [Input("identityProviderDetails", required: true)]
+        public Input<Inputs.WebAppIdentityProviderDetailsArgs> IdentityProviderDetails { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

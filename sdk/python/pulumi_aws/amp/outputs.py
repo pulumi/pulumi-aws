@@ -53,20 +53,18 @@ class QueryLoggingConfigurationDestination(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional['outputs.QueryLoggingConfigurationDestinationCloudwatchLogs'] = None,
-                 filters: Optional['outputs.QueryLoggingConfigurationDestinationFilters'] = None):
+                 cloudwatch_logs: 'outputs.QueryLoggingConfigurationDestinationCloudwatchLogs',
+                 filters: 'outputs.QueryLoggingConfigurationDestinationFilters'):
         """
         :param 'QueryLoggingConfigurationDestinationCloudwatchLogsArgs' cloudwatch_logs: Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
         :param 'QueryLoggingConfigurationDestinationFiltersArgs' filters: A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
         """
-        if cloudwatch_logs is not None:
-            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
-        if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+        pulumi.set(__self__, "filters", filters)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional['outputs.QueryLoggingConfigurationDestinationCloudwatchLogs']:
+    def cloudwatch_logs(self) -> 'outputs.QueryLoggingConfigurationDestinationCloudwatchLogs':
         """
         Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
         """
@@ -74,7 +72,7 @@ class QueryLoggingConfigurationDestination(dict):
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional['outputs.QueryLoggingConfigurationDestinationFilters']:
+    def filters(self) -> 'outputs.QueryLoggingConfigurationDestinationFilters':
         """
         A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
         """
@@ -344,16 +342,15 @@ class ScraperRoleConfiguration(dict):
 @pulumi.output_type
 class ScraperSource(dict):
     def __init__(__self__, *,
-                 eks: Optional['outputs.ScraperSourceEks'] = None):
+                 eks: 'outputs.ScraperSourceEks'):
         """
         :param 'ScraperSourceEksArgs' eks: Configuration block for an EKS cluster source. See `eks`.
         """
-        if eks is not None:
-            pulumi.set(__self__, "eks", eks)
+        pulumi.set(__self__, "eks", eks)
 
     @_builtins.property
     @pulumi.getter
-    def eks(self) -> Optional['outputs.ScraperSourceEks']:
+    def eks(self) -> 'outputs.ScraperSourceEks':
         """
         Configuration block for an EKS cluster source. See `eks`.
         """
@@ -482,14 +479,13 @@ class WorkspaceConfigurationLimitsPerLabelSet(dict):
 
     def __init__(__self__, *,
                  label_set: Mapping[str, _builtins.str],
-                 limits: Optional['outputs.WorkspaceConfigurationLimitsPerLabelSetLimits'] = None):
+                 limits: 'outputs.WorkspaceConfigurationLimitsPerLabelSetLimits'):
         """
         :param Mapping[str, _builtins.str] label_set: Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
         :param 'WorkspaceConfigurationLimitsPerLabelSetLimitsArgs' limits: Configuration block for the limits to apply to the specified label set. Detailed below.
         """
         pulumi.set(__self__, "label_set", label_set)
-        if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+        pulumi.set(__self__, "limits", limits)
 
     @_builtins.property
     @pulumi.getter(name="labelSet")
@@ -501,7 +497,7 @@ class WorkspaceConfigurationLimitsPerLabelSet(dict):
 
     @_builtins.property
     @pulumi.getter
-    def limits(self) -> Optional['outputs.WorkspaceConfigurationLimitsPerLabelSetLimits']:
+    def limits(self) -> 'outputs.WorkspaceConfigurationLimitsPerLabelSetLimits':
         """
         Configuration block for the limits to apply to the specified label set. Detailed below.
         """

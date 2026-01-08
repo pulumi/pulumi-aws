@@ -22,6 +22,7 @@ __all__ = ['RecommendationPreferencesArgs', 'RecommendationPreferences']
 class RecommendationPreferencesArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[_builtins.str],
+                 scope: pulumi.Input['RecommendationPreferencesScopeArgs'],
                  enhanced_infrastructure_metrics: Optional[pulumi.Input[_builtins.str]] = None,
                  external_metrics_preference: Optional[pulumi.Input['RecommendationPreferencesExternalMetricsPreferenceArgs']] = None,
                  inferred_workload_types: Optional[pulumi.Input[_builtins.str]] = None,
@@ -29,11 +30,11 @@ class RecommendationPreferencesArgs:
                  preferred_resources: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  savings_estimation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input['RecommendationPreferencesScopeArgs']] = None,
                  utilization_preferences: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]] = None):
         """
         The set of arguments for constructing a RecommendationPreferences resource.
         :param pulumi.Input[_builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
+        :param pulumi.Input['RecommendationPreferencesScopeArgs'] scope: The scope of the recommendation preferences. See Scope below.
         :param pulumi.Input[_builtins.str] enhanced_infrastructure_metrics: The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
         :param pulumi.Input['RecommendationPreferencesExternalMetricsPreferenceArgs'] external_metrics_preference: The provider of the external metrics recommendation preference. See External Metrics Preference below.
         :param pulumi.Input[_builtins.str] inferred_workload_types: The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
@@ -41,10 +42,10 @@ class RecommendationPreferencesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
-        :param pulumi.Input['RecommendationPreferencesScopeArgs'] scope: The scope of the recommendation preferences. See Scope below.
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]] utilization_preferences: The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
         """
         pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "scope", scope)
         if enhanced_infrastructure_metrics is not None:
             pulumi.set(__self__, "enhanced_infrastructure_metrics", enhanced_infrastructure_metrics)
         if external_metrics_preference is not None:
@@ -59,8 +60,6 @@ class RecommendationPreferencesArgs:
             pulumi.set(__self__, "region", region)
         if savings_estimation_mode is not None:
             pulumi.set(__self__, "savings_estimation_mode", savings_estimation_mode)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
         if utilization_preferences is not None:
             pulumi.set(__self__, "utilization_preferences", utilization_preferences)
 
@@ -75,6 +74,18 @@ class RecommendationPreferencesArgs:
     @resource_type.setter
     def resource_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input['RecommendationPreferencesScopeArgs']:
+        """
+        The scope of the recommendation preferences. See Scope below.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input['RecommendationPreferencesScopeArgs']):
+        pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="enhancedInfrastructureMetrics")
@@ -159,18 +170,6 @@ class RecommendationPreferencesArgs:
     @savings_estimation_mode.setter
     def savings_estimation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "savings_estimation_mode", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['RecommendationPreferencesScopeArgs']]:
-        """
-        The scope of the recommendation preferences. See Scope below.
-        """
-        return pulumi.get(self, "scope")
-
-    @scope.setter
-    def scope(self, value: Optional[pulumi.Input['RecommendationPreferencesScopeArgs']]):
-        pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="utilizationPreferences")
@@ -539,6 +538,8 @@ class RecommendationPreferences(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["savings_estimation_mode"] = savings_estimation_mode
+            if scope is None and not opts.urn:
+                raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["utilization_preferences"] = utilization_preferences
         super(RecommendationPreferences, __self__).__init__(
@@ -661,7 +662,7 @@ class RecommendationPreferences(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[Optional['outputs.RecommendationPreferencesScope']]:
+    def scope(self) -> pulumi.Output['outputs.RecommendationPreferencesScope']:
         """
         The scope of the recommendation preferences. See Scope below.
         """

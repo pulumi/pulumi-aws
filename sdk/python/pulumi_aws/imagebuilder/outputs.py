@@ -2576,30 +2576,38 @@ class LifecyclePolicyPolicyDetail(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action: Optional['outputs.LifecyclePolicyPolicyDetailAction'] = None,
-                 exclusion_rules: Optional['outputs.LifecyclePolicyPolicyDetailExclusionRules'] = None,
-                 filter: Optional['outputs.LifecyclePolicyPolicyDetailFilter'] = None):
+                 action: 'outputs.LifecyclePolicyPolicyDetailAction',
+                 filter: 'outputs.LifecyclePolicyPolicyDetailFilter',
+                 exclusion_rules: Optional['outputs.LifecyclePolicyPolicyDetailExclusionRules'] = None):
         """
         :param 'LifecyclePolicyPolicyDetailActionArgs' action: Configuration details for the policy action.
-        :param 'LifecyclePolicyPolicyDetailExclusionRulesArgs' exclusion_rules: Additional rules to specify resources that should be exempt from policy actions.
         :param 'LifecyclePolicyPolicyDetailFilterArgs' filter: Specifies the resources that the lifecycle policy applies to.
                
                The following arguments are optional:
+        :param 'LifecyclePolicyPolicyDetailExclusionRulesArgs' exclusion_rules: Additional rules to specify resources that should be exempt from policy actions.
         """
-        if action is not None:
-            pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "filter", filter)
         if exclusion_rules is not None:
             pulumi.set(__self__, "exclusion_rules", exclusion_rules)
-        if filter is not None:
-            pulumi.set(__self__, "filter", filter)
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional['outputs.LifecyclePolicyPolicyDetailAction']:
+    def action(self) -> 'outputs.LifecyclePolicyPolicyDetailAction':
         """
         Configuration details for the policy action.
         """
         return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> 'outputs.LifecyclePolicyPolicyDetailFilter':
+        """
+        Specifies the resources that the lifecycle policy applies to.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "filter")
 
     @_builtins.property
     @pulumi.getter(name="exclusionRules")
@@ -2608,16 +2616,6 @@ class LifecyclePolicyPolicyDetail(dict):
         Additional rules to specify resources that should be exempt from policy actions.
         """
         return pulumi.get(self, "exclusion_rules")
-
-    @_builtins.property
-    @pulumi.getter
-    def filter(self) -> Optional['outputs.LifecyclePolicyPolicyDetailFilter']:
-        """
-        Specifies the resources that the lifecycle policy applies to.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "filter")
 
 
 @pulumi.output_type

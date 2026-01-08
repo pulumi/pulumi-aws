@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Configurations for authentication to a Redshift Serverless. See `AuthConfiguration` block for details.
         /// </summary>
-        public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration? AuthConfiguration;
+        public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration AuthConfiguration;
         /// <summary>
         /// ARN of the Amazon Redshift workgroup.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration(
-            Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration? authConfiguration,
+            Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration authConfiguration,
 
             string workgroupArn)
         {

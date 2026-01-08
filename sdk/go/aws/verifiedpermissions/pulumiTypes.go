@@ -497,7 +497,7 @@ type IdentitySourceConfigurationOpenIdConnectConfiguration struct {
 	// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
 	Issuer string `pulumi:"issuer"`
 	// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
-	TokenSelection *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection `pulumi:"tokenSelection"`
+	TokenSelection IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection `pulumi:"tokenSelection"`
 }
 
 // IdentitySourceConfigurationOpenIdConnectConfigurationInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationArgs and IdentitySourceConfigurationOpenIdConnectConfigurationOutput values.
@@ -519,7 +519,7 @@ type IdentitySourceConfigurationOpenIdConnectConfigurationArgs struct {
 	// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
 	Issuer pulumi.StringInput `pulumi:"issuer"`
 	// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
-	TokenSelection IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrInput `pulumi:"tokenSelection"`
+	TokenSelection IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionInput `pulumi:"tokenSelection"`
 }
 
 func (IdentitySourceConfigurationOpenIdConnectConfigurationArgs) ElementType() reflect.Type {
@@ -617,10 +617,10 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) Issuer() pu
 }
 
 // The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
-func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) TokenSelection() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
-	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfiguration) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) TokenSelection() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfiguration) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
 		return v.TokenSelection
-	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput)
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput)
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -683,7 +683,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) TokenSel
 		if v == nil {
 			return nil
 		}
-		return v.TokenSelection
+		return &v.TokenSelection
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput)
 }
 

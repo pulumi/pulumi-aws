@@ -52,17 +52,16 @@ class EventActionAction(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 export_revision_to_s3: Optional['outputs.EventActionActionExportRevisionToS3'] = None):
+                 export_revision_to_s3: 'outputs.EventActionActionExportRevisionToS3'):
         """
         :param 'EventActionActionExportRevisionToS3Args' export_revision_to_s3: Configuration for an Export Revision to S3 action.
                Described in `export_revision_to_s3` Configuration Block
         """
-        if export_revision_to_s3 is not None:
-            pulumi.set(__self__, "export_revision_to_s3", export_revision_to_s3)
+        pulumi.set(__self__, "export_revision_to_s3", export_revision_to_s3)
 
     @_builtins.property
     @pulumi.getter(name="exportRevisionToS3")
-    def export_revision_to_s3(self) -> Optional['outputs.EventActionActionExportRevisionToS3']:
+    def export_revision_to_s3(self) -> 'outputs.EventActionActionExportRevisionToS3':
         """
         Configuration for an Export Revision to S3 action.
         Described in `export_revision_to_s3` Configuration Block
@@ -90,18 +89,26 @@ class EventActionActionExportRevisionToS3(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption: Optional['outputs.EventActionActionExportRevisionToS3Encryption'] = None,
-                 revision_destination: Optional['outputs.EventActionActionExportRevisionToS3RevisionDestination'] = None):
+                 revision_destination: 'outputs.EventActionActionExportRevisionToS3RevisionDestination',
+                 encryption: Optional['outputs.EventActionActionExportRevisionToS3Encryption'] = None):
         """
-        :param 'EventActionActionExportRevisionToS3EncryptionArgs' encryption: Configures server-side encryption of the exported revision.
-               Described in `encryption` Configuration Block below.
         :param 'EventActionActionExportRevisionToS3RevisionDestinationArgs' revision_destination: Configures the S3 destination of the exported revision.
                Described in `revision_destination` Configuration Block below.
+        :param 'EventActionActionExportRevisionToS3EncryptionArgs' encryption: Configures server-side encryption of the exported revision.
+               Described in `encryption` Configuration Block below.
         """
+        pulumi.set(__self__, "revision_destination", revision_destination)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
-        if revision_destination is not None:
-            pulumi.set(__self__, "revision_destination", revision_destination)
+
+    @_builtins.property
+    @pulumi.getter(name="revisionDestination")
+    def revision_destination(self) -> 'outputs.EventActionActionExportRevisionToS3RevisionDestination':
+        """
+        Configures the S3 destination of the exported revision.
+        Described in `revision_destination` Configuration Block below.
+        """
+        return pulumi.get(self, "revision_destination")
 
     @_builtins.property
     @pulumi.getter
@@ -111,15 +118,6 @@ class EventActionActionExportRevisionToS3(dict):
         Described in `encryption` Configuration Block below.
         """
         return pulumi.get(self, "encryption")
-
-    @_builtins.property
-    @pulumi.getter(name="revisionDestination")
-    def revision_destination(self) -> Optional['outputs.EventActionActionExportRevisionToS3RevisionDestination']:
-        """
-        Configures the S3 destination of the exported revision.
-        Described in `revision_destination` Configuration Block below.
-        """
-        return pulumi.get(self, "revision_destination")
 
 
 @pulumi.output_type
@@ -241,17 +239,16 @@ class EventActionEvent(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 revision_published: Optional['outputs.EventActionEventRevisionPublished'] = None):
+                 revision_published: 'outputs.EventActionEventRevisionPublished'):
         """
         :param 'EventActionEventRevisionPublishedArgs' revision_published: Configuration for a Revision Published event.
                Described in `revision_published` Configuration Block below.
         """
-        if revision_published is not None:
-            pulumi.set(__self__, "revision_published", revision_published)
+        pulumi.set(__self__, "revision_published", revision_published)
 
     @_builtins.property
     @pulumi.getter(name="revisionPublished")
-    def revision_published(self) -> Optional['outputs.EventActionEventRevisionPublished']:
+    def revision_published(self) -> 'outputs.EventActionEventRevisionPublished':
         """
         Configuration for a Revision Published event.
         Described in `revision_published` Configuration Block below.

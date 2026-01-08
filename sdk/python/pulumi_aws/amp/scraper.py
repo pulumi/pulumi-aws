@@ -21,9 +21,9 @@ __all__ = ['ScraperArgs', 'Scraper']
 @pulumi.input_type
 class ScraperArgs:
     def __init__(__self__, *,
+                 destination: pulumi.Input['ScraperDestinationArgs'],
                  scrape_configuration: pulumi.Input[_builtins.str],
                  alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input['ScraperDestinationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  role_configuration: Optional[pulumi.Input['ScraperRoleConfigurationArgs']] = None,
                  source: Optional[pulumi.Input['ScraperSourceArgs']] = None,
@@ -31,20 +31,19 @@ class ScraperArgs:
                  timeouts: Optional[pulumi.Input['ScraperTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Scraper resource.
+        :param pulumi.Input['ScraperDestinationArgs'] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
         :param pulumi.Input[_builtins.str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         :param pulumi.Input[_builtins.str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-        :param pulumi.Input['ScraperDestinationArgs'] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ScraperRoleConfigurationArgs'] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
         :param pulumi.Input['ScraperSourceArgs'] source: Configuration block to specify where the managed scraper will collect metrics from. See `source`.
                
                The following arguments are optional:
         """
+        pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "scrape_configuration", scrape_configuration)
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
-        if destination is not None:
-            pulumi.set(__self__, "destination", destination)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if role_configuration is not None:
@@ -55,6 +54,18 @@ class ScraperArgs:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input['ScraperDestinationArgs']:
+        """
+        Configuration block for the managed scraper to send metrics to. See `destination`.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input['ScraperDestinationArgs']):
+        pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="scrapeConfiguration")
@@ -79,18 +90,6 @@ class ScraperArgs:
     @alias.setter
     def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "alias", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input['ScraperDestinationArgs']]:
-        """
-        Configuration block for the managed scraper to send metrics to. See `destination`.
-        """
-        return pulumi.get(self, "destination")
-
-    @destination.setter
-    def destination(self, value: Optional[pulumi.Input['ScraperDestinationArgs']]):
-        pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter
@@ -410,6 +409,8 @@ class Scraper(pulumi.CustomResource):
             __props__ = ScraperArgs.__new__(ScraperArgs)
 
             __props__.__dict__["alias"] = alias
+            if destination is None and not opts.urn:
+                raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
             __props__.__dict__["region"] = region
             __props__.__dict__["role_configuration"] = role_configuration
@@ -496,7 +497,7 @@ class Scraper(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> pulumi.Output[Optional['outputs.ScraperDestination']]:
+    def destination(self) -> pulumi.Output['outputs.ScraperDestination']:
         """
         Configuration block for the managed scraper to send metrics to. See `destination`.
         """

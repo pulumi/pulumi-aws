@@ -89,7 +89,7 @@ export class NotificationChannel extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly sns: pulumi.Output<outputs.devopsguru.NotificationChannelSns | undefined>;
+    declare public readonly sns: pulumi.Output<outputs.devopsguru.NotificationChannelSns>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -98,7 +98,7 @@ export class NotificationChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NotificationChannelArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: NotificationChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotificationChannelArgs | NotificationChannelState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -109,6 +109,9 @@ export class NotificationChannel extends pulumi.CustomResource {
             resourceInputs["sns"] = state?.sns;
         } else {
             const args = argsOrState as NotificationChannelArgs | undefined;
+            if (args?.sns === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sns'");
+            }
             resourceInputs["filters"] = args?.filters;
             resourceInputs["region"] = args?.region;
             resourceInputs["sns"] = args?.sns;
@@ -155,5 +158,5 @@ export interface NotificationChannelArgs {
      *
      * The following arguments are optional:
      */
-    sns?: pulumi.Input<inputs.devopsguru.NotificationChannelSns>;
+    sns: pulumi.Input<inputs.devopsguru.NotificationChannelSns>;
 }

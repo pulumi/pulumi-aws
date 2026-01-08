@@ -237,7 +237,7 @@ export class StreamProcessor extends pulumi.CustomResource {
     /**
      * Input video stream. See `input`.
      */
-    declare public readonly input: pulumi.Output<outputs.rekognition.StreamProcessorInput | undefined>;
+    declare public readonly input: pulumi.Output<outputs.rekognition.StreamProcessorInput>;
     /**
      * Optional parameter for label detection stream processors.
      */
@@ -253,7 +253,7 @@ export class StreamProcessor extends pulumi.CustomResource {
     /**
      * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      */
-    declare public readonly output: pulumi.Output<outputs.rekognition.StreamProcessorOutput | undefined>;
+    declare public readonly output: pulumi.Output<outputs.rekognition.StreamProcessorOutput>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -271,7 +271,7 @@ export class StreamProcessor extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly settings: pulumi.Output<outputs.rekognition.StreamProcessorSettings | undefined>;
+    declare public readonly settings: pulumi.Output<outputs.rekognition.StreamProcessorSettings>;
     /**
      * (**Deprecated**) ARN of the Stream Processor.
      * Use `arn` instead.
@@ -319,8 +319,17 @@ export class StreamProcessor extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as StreamProcessorArgs | undefined;
+            if (args?.input === undefined && !opts.urn) {
+                throw new Error("Missing required property 'input'");
+            }
+            if (args?.output === undefined && !opts.urn) {
+                throw new Error("Missing required property 'output'");
+            }
             if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
+            }
+            if (args?.settings === undefined && !opts.urn) {
+                throw new Error("Missing required property 'settings'");
             }
             resourceInputs["dataSharingPreference"] = args?.dataSharingPreference;
             resourceInputs["input"] = args?.input;
@@ -422,7 +431,7 @@ export interface StreamProcessorArgs {
     /**
      * Input video stream. See `input`.
      */
-    input?: pulumi.Input<inputs.rekognition.StreamProcessorInput>;
+    input: pulumi.Input<inputs.rekognition.StreamProcessorInput>;
     /**
      * Optional parameter for label detection stream processors.
      */
@@ -438,7 +447,7 @@ export interface StreamProcessorArgs {
     /**
      * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      */
-    output?: pulumi.Input<inputs.rekognition.StreamProcessorOutput>;
+    output: pulumi.Input<inputs.rekognition.StreamProcessorOutput>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -456,7 +465,7 @@ export interface StreamProcessorArgs {
      *
      * The following arguments are optional:
      */
-    settings?: pulumi.Input<inputs.rekognition.StreamProcessorSettings>;
+    settings: pulumi.Input<inputs.rekognition.StreamProcessorSettings>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

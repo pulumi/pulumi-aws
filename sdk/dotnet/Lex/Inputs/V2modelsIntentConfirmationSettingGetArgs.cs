@@ -87,8 +87,8 @@ namespace Pulumi.Aws.Lex.Inputs
         /// <summary>
         /// Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `PromptSpecification`.
         /// </summary>
-        [Input("promptSpecification", required: true)]
-        public Input<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationGetArgs> PromptSpecification { get; set; } = null!;
+        [Input("promptSpecification")]
+        public Input<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationGetArgs>? PromptSpecification { get; set; }
 
         public V2modelsIntentConfirmationSettingGetArgs()
         {

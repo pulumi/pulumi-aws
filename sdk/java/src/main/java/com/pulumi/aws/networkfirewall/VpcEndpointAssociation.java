@@ -123,14 +123,14 @@ public class VpcEndpointAssociation extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="subnetMapping", refs={VpcEndpointAssociationSubnetMapping.class}, tree="[0]")
-    private Output</* @Nullable */ VpcEndpointAssociationSubnetMapping> subnetMapping;
+    private Output<VpcEndpointAssociationSubnetMapping> subnetMapping;
 
     /**
      * @return The ID for a subnet that&#39;s used in an association with a firewall. See Subnet Mapping below for details.
      * 
      */
-    public Output<Optional<VpcEndpointAssociationSubnetMapping>> subnetMapping() {
-        return Codegen.optional(this.subnetMapping);
+    public Output<VpcEndpointAssociationSubnetMapping> subnetMapping() {
+        return this.subnetMapping;
     }
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

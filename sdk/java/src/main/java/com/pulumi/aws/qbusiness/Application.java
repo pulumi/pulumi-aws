@@ -90,14 +90,14 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="attachmentsConfiguration", refs={ApplicationAttachmentsConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ ApplicationAttachmentsConfiguration> attachmentsConfiguration;
+    private Output<ApplicationAttachmentsConfiguration> attachmentsConfiguration;
 
     /**
      * @return Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
      * 
      */
-    public Output<Optional<ApplicationAttachmentsConfiguration>> attachmentsConfiguration() {
-        return Codegen.optional(this.attachmentsConfiguration);
+    public Output<ApplicationAttachmentsConfiguration> attachmentsConfiguration() {
+        return this.attachmentsConfiguration;
     }
     /**
      * Description of the Amazon Q application.

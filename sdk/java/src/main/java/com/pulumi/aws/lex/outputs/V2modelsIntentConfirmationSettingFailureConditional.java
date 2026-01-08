@@ -10,6 +10,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -28,7 +29,7 @@ public final class V2modelsIntentConfirmationSettingFailureConditional {
      * @return Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
      * 
      */
-    private V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch defaultBranch;
+    private @Nullable V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch defaultBranch;
 
     private V2modelsIntentConfirmationSettingFailureConditional() {}
     /**
@@ -49,8 +50,8 @@ public final class V2modelsIntentConfirmationSettingFailureConditional {
      * @return Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
      * 
      */
-    public V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch defaultBranch() {
-        return this.defaultBranch;
+    public Optional<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch> defaultBranch() {
+        return Optional.ofNullable(this.defaultBranch);
     }
 
     public static Builder builder() {
@@ -64,7 +65,7 @@ public final class V2modelsIntentConfirmationSettingFailureConditional {
     public static final class Builder {
         private Boolean active;
         private @Nullable List<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch> conditionalBranches;
-        private V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch defaultBranch;
+        private @Nullable V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch defaultBranch;
         public Builder() {}
         public Builder(V2modelsIntentConfirmationSettingFailureConditional defaults) {
     	      Objects.requireNonNull(defaults);
@@ -91,10 +92,8 @@ public final class V2modelsIntentConfirmationSettingFailureConditional {
             return conditionalBranches(List.of(conditionalBranches));
         }
         @CustomType.Setter
-        public Builder defaultBranch(V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch defaultBranch) {
-            if (defaultBranch == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingFailureConditional", "defaultBranch");
-            }
+        public Builder defaultBranch(@Nullable V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch defaultBranch) {
+
             this.defaultBranch = defaultBranch;
             return this;
         }

@@ -165,14 +165,14 @@ public class RouteServerPeer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="bgpOptions", refs={RouteServerPeerBgpOptions.class}, tree="[0]")
-    private Output</* @Nullable */ RouteServerPeerBgpOptions> bgpOptions;
+    private Output<RouteServerPeerBgpOptions> bgpOptions;
 
     /**
      * @return The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      * 
      */
-    public Output<Optional<RouteServerPeerBgpOptions>> bgpOptions() {
-        return Codegen.optional(this.bgpOptions);
+    public Output<RouteServerPeerBgpOptions> bgpOptions() {
+        return this.bgpOptions;
     }
     /**
      * The IP address of the Elastic network interface for the route server endpoint.

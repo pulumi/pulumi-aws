@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `Condition`.
         /// </summary>
-        public readonly Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition Condition;
+        public readonly Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition? Condition;
         /// <summary>
         /// Name of the branch.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the next step in the conversation. See `NextStep`.
         /// </summary>
-        public readonly Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep NextStep;
+        public readonly Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep? NextStep;
         /// <summary>
         /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `Response`.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Lex.Outputs
 
         [OutputConstructor]
         private V2modelsIntentClosingSettingConditionalConditionalBranch(
-            Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition condition,
+            Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition? condition,
 
             string name,
 
-            Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep nextStep,
+            Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep? nextStep,
 
             Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponse? response)
         {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -128,7 +129,7 @@ type AgentcoreCodeInterpreter struct {
 	// Network configuration for the code interpreter. See `networkConfiguration` below.
 	//
 	// The following arguments are optional:
-	NetworkConfiguration AgentcoreCodeInterpreterNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
+	NetworkConfiguration AgentcoreCodeInterpreterNetworkConfigurationOutput `pulumi:"networkConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -142,9 +143,12 @@ type AgentcoreCodeInterpreter struct {
 func NewAgentcoreCodeInterpreter(ctx *pulumi.Context,
 	name string, args *AgentcoreCodeInterpreterArgs, opts ...pulumi.ResourceOption) (*AgentcoreCodeInterpreter, error) {
 	if args == nil {
-		args = &AgentcoreCodeInterpreterArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.NetworkConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkConfiguration'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AgentcoreCodeInterpreter
 	err := ctx.RegisterResource("aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter", name, args, &resource, opts...)
@@ -229,7 +233,7 @@ type agentcoreCodeInterpreterArgs struct {
 	// Network configuration for the code interpreter. See `networkConfiguration` below.
 	//
 	// The following arguments are optional:
-	NetworkConfiguration *AgentcoreCodeInterpreterNetworkConfiguration `pulumi:"networkConfiguration"`
+	NetworkConfiguration AgentcoreCodeInterpreterNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -248,7 +252,7 @@ type AgentcoreCodeInterpreterArgs struct {
 	// Network configuration for the code interpreter. See `networkConfiguration` below.
 	//
 	// The following arguments are optional:
-	NetworkConfiguration AgentcoreCodeInterpreterNetworkConfigurationPtrInput
+	NetworkConfiguration AgentcoreCodeInterpreterNetworkConfigurationInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -371,10 +375,10 @@ func (o AgentcoreCodeInterpreterOutput) Name() pulumi.StringOutput {
 // Network configuration for the code interpreter. See `networkConfiguration` below.
 //
 // The following arguments are optional:
-func (o AgentcoreCodeInterpreterOutput) NetworkConfiguration() AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v *AgentcoreCodeInterpreter) AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
+func (o AgentcoreCodeInterpreterOutput) NetworkConfiguration() AgentcoreCodeInterpreterNetworkConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreCodeInterpreter) AgentcoreCodeInterpreterNetworkConfigurationOutput {
 		return v.NetworkConfiguration
-	}).(AgentcoreCodeInterpreterNetworkConfigurationPtrOutput)
+	}).(AgentcoreCodeInterpreterNetworkConfigurationOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

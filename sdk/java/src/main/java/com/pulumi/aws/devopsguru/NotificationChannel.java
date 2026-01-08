@@ -144,7 +144,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sns", refs={NotificationChannelSns.class}, tree="[0]")
-    private Output</* @Nullable */ NotificationChannelSns> sns;
+    private Output<NotificationChannelSns> sns;
 
     /**
      * @return SNS noficiation channel configurations. See the `sns` argument reference below.
@@ -152,8 +152,8 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<NotificationChannelSns>> sns() {
-        return Codegen.optional(this.sns);
+    public Output<NotificationChannelSns> sns() {
+        return this.sns;
     }
 
     /**
@@ -168,7 +168,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NotificationChannel(java.lang.String name, @Nullable NotificationChannelArgs args) {
+    public NotificationChannel(java.lang.String name, NotificationChannelArgs args) {
         this(name, args, null);
     }
     /**
@@ -177,7 +177,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NotificationChannel(java.lang.String name, @Nullable NotificationChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public NotificationChannel(java.lang.String name, NotificationChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:devopsguru/notificationChannel:NotificationChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -185,7 +185,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
         super("aws:devopsguru/notificationChannel:NotificationChannel", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static NotificationChannelArgs makeArgs(@Nullable NotificationChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static NotificationChannelArgs makeArgs(NotificationChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

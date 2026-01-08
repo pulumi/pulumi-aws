@@ -21,8 +21,8 @@ namespace Pulumi.Aws.Lex.Inputs
         /// <summary>
         /// Configuration block for the allowed input types of the prompt attempt. See `AllowedInputTypes`.
         /// </summary>
-        [Input("allowedInputTypes", required: true)]
-        public Input<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesGetArgs> AllowedInputTypes { get; set; } = null!;
+        [Input("allowedInputTypes")]
+        public Input<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesGetArgs>? AllowedInputTypes { get; set; }
 
         /// <summary>
         /// Configuration block for settings on audio and DTMF input. See `AudioAndDtmfInputSpecification`.

@@ -122,7 +122,7 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
     /**
      * A configuration block that defines the table optimizer settings. See Configuration for additional details.
      */
-    declare public readonly configuration: pulumi.Output<outputs.glue.CatalogTableOptimizerConfiguration | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.glue.CatalogTableOptimizerConfiguration>;
     /**
      * The name of the database in the catalog in which the table resides.
      */
@@ -163,6 +163,9 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
             const args = argsOrState as CatalogTableOptimizerArgs | undefined;
             if (args?.catalogId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catalogId'");
+            }
+            if (args?.configuration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configuration'");
             }
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
@@ -226,7 +229,7 @@ export interface CatalogTableOptimizerArgs {
     /**
      * A configuration block that defines the table optimizer settings. See Configuration for additional details.
      */
-    configuration?: pulumi.Input<inputs.glue.CatalogTableOptimizerConfiguration>;
+    configuration: pulumi.Input<inputs.glue.CatalogTableOptimizerConfiguration>;
     /**
      * The name of the database in the catalog in which the table resides.
      */

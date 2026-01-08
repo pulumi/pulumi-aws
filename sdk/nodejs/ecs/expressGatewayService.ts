@@ -110,7 +110,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
      */
     declare public readonly memory: pulumi.Output<string>;
     declare public readonly networkConfigurations: pulumi.Output<outputs.ecs.ExpressGatewayServiceNetworkConfiguration[]>;
-    declare public readonly primaryContainer: pulumi.Output<outputs.ecs.ExpressGatewayServicePrimaryContainer | undefined>;
+    declare public readonly primaryContainer: pulumi.Output<outputs.ecs.ExpressGatewayServicePrimaryContainer>;
     /**
      * AWS region where the service will be created. If not specified, the region configured in the provider will be used.
      */
@@ -186,6 +186,9 @@ export class ExpressGatewayService extends pulumi.CustomResource {
             }
             if (args?.infrastructureRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureRoleArn'");
+            }
+            if (args?.primaryContainer === undefined && !opts.urn) {
+                throw new Error("Missing required property 'primaryContainer'");
             }
             resourceInputs["cluster"] = args?.cluster;
             resourceInputs["cpu"] = args?.cpu;
@@ -320,7 +323,7 @@ export interface ExpressGatewayServiceArgs {
      */
     memory?: pulumi.Input<string>;
     networkConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ExpressGatewayServiceNetworkConfiguration>[]>;
-    primaryContainer?: pulumi.Input<inputs.ecs.ExpressGatewayServicePrimaryContainer>;
+    primaryContainer: pulumi.Input<inputs.ecs.ExpressGatewayServicePrimaryContainer>;
     /**
      * AWS region where the service will be created. If not specified, the region configured in the provider will be used.
      */

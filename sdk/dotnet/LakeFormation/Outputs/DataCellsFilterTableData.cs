@@ -32,7 +32,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// <summary>
         /// A PartiQL predicate. See Row Filter below for details.
         /// </summary>
-        public readonly Outputs.DataCellsFilterTableDataRowFilter? RowFilter;
+        public readonly Outputs.DataCellsFilterTableDataRowFilter RowFilter;
         /// <summary>
         /// The ID of the Data Catalog.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
 
             string name,
 
-            Outputs.DataCellsFilterTableDataRowFilter? rowFilter,
+            Outputs.DataCellsFilterTableDataRowFilter rowFilter,
 
             string tableCatalogId,
 

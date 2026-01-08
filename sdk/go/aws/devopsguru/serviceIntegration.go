@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -100,11 +101,11 @@ type ServiceIntegration struct {
 	pulumi.CustomResourceState
 
 	// Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-	KmsServerSideEncryption ServiceIntegrationKmsServerSideEncryptionPtrOutput `pulumi:"kmsServerSideEncryption"`
+	KmsServerSideEncryption ServiceIntegrationKmsServerSideEncryptionOutput `pulumi:"kmsServerSideEncryption"`
 	// Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionPtrOutput `pulumi:"logsAnomalyDetection"`
+	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionOutput `pulumi:"logsAnomalyDetection"`
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-	OpsCenter ServiceIntegrationOpsCenterPtrOutput `pulumi:"opsCenter"`
+	OpsCenter ServiceIntegrationOpsCenterOutput `pulumi:"opsCenter"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
@@ -113,9 +114,18 @@ type ServiceIntegration struct {
 func NewServiceIntegration(ctx *pulumi.Context,
 	name string, args *ServiceIntegrationArgs, opts ...pulumi.ResourceOption) (*ServiceIntegration, error) {
 	if args == nil {
-		args = &ServiceIntegrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.KmsServerSideEncryption == nil {
+		return nil, errors.New("invalid value for required argument 'KmsServerSideEncryption'")
+	}
+	if args.LogsAnomalyDetection == nil {
+		return nil, errors.New("invalid value for required argument 'LogsAnomalyDetection'")
+	}
+	if args.OpsCenter == nil {
+		return nil, errors.New("invalid value for required argument 'OpsCenter'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceIntegration
 	err := ctx.RegisterResource("aws:devopsguru/serviceIntegration:ServiceIntegration", name, args, &resource, opts...)
@@ -166,11 +176,11 @@ func (ServiceIntegrationState) ElementType() reflect.Type {
 
 type serviceIntegrationArgs struct {
 	// Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-	KmsServerSideEncryption *ServiceIntegrationKmsServerSideEncryption `pulumi:"kmsServerSideEncryption"`
+	KmsServerSideEncryption ServiceIntegrationKmsServerSideEncryption `pulumi:"kmsServerSideEncryption"`
 	// Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-	LogsAnomalyDetection *ServiceIntegrationLogsAnomalyDetection `pulumi:"logsAnomalyDetection"`
+	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetection `pulumi:"logsAnomalyDetection"`
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-	OpsCenter *ServiceIntegrationOpsCenter `pulumi:"opsCenter"`
+	OpsCenter ServiceIntegrationOpsCenter `pulumi:"opsCenter"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
@@ -178,11 +188,11 @@ type serviceIntegrationArgs struct {
 // The set of arguments for constructing a ServiceIntegration resource.
 type ServiceIntegrationArgs struct {
 	// Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-	KmsServerSideEncryption ServiceIntegrationKmsServerSideEncryptionPtrInput
+	KmsServerSideEncryption ServiceIntegrationKmsServerSideEncryptionInput
 	// Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionPtrInput
+	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionInput
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-	OpsCenter ServiceIntegrationOpsCenterPtrInput
+	OpsCenter ServiceIntegrationOpsCenterInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
@@ -275,22 +285,22 @@ func (o ServiceIntegrationOutput) ToServiceIntegrationOutputWithContext(ctx cont
 }
 
 // Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-func (o ServiceIntegrationOutput) KmsServerSideEncryption() ServiceIntegrationKmsServerSideEncryptionPtrOutput {
-	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegrationKmsServerSideEncryptionPtrOutput {
+func (o ServiceIntegrationOutput) KmsServerSideEncryption() ServiceIntegrationKmsServerSideEncryptionOutput {
+	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegrationKmsServerSideEncryptionOutput {
 		return v.KmsServerSideEncryption
-	}).(ServiceIntegrationKmsServerSideEncryptionPtrOutput)
+	}).(ServiceIntegrationKmsServerSideEncryptionOutput)
 }
 
 // Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-func (o ServiceIntegrationOutput) LogsAnomalyDetection() ServiceIntegrationLogsAnomalyDetectionPtrOutput {
-	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegrationLogsAnomalyDetectionPtrOutput {
+func (o ServiceIntegrationOutput) LogsAnomalyDetection() ServiceIntegrationLogsAnomalyDetectionOutput {
+	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegrationLogsAnomalyDetectionOutput {
 		return v.LogsAnomalyDetection
-	}).(ServiceIntegrationLogsAnomalyDetectionPtrOutput)
+	}).(ServiceIntegrationLogsAnomalyDetectionOutput)
 }
 
 // Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-func (o ServiceIntegrationOutput) OpsCenter() ServiceIntegrationOpsCenterPtrOutput {
-	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegrationOpsCenterPtrOutput { return v.OpsCenter }).(ServiceIntegrationOpsCenterPtrOutput)
+func (o ServiceIntegrationOutput) OpsCenter() ServiceIntegrationOpsCenterOutput {
+	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegrationOpsCenterOutput { return v.OpsCenter }).(ServiceIntegrationOpsCenterOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

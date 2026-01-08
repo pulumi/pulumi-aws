@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  * const verificationCertRequest = new tls.CertRequest("verification", {
  *     keyAlgorithm: "RSA",
  *     privateKeyPem: verification.privateKeyPem,
- *     subject: [{
+ *     subject: {
  *         commonName: example.then(example => example.registrationCode),
- *     }],
+ *     },
  * });
  * ```
  */
@@ -72,9 +72,9 @@ export interface GetRegistrationCodeResult {
  * const verificationCertRequest = new tls.CertRequest("verification", {
  *     keyAlgorithm: "RSA",
  *     privateKeyPem: verification.privateKeyPem,
- *     subject: [{
+ *     subject: {
  *         commonName: example.then(example => example.registrationCode),
- *     }],
+ *     },
  * });
  * ```
  */

@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudfront.inputs.TrustStoreCaCertificatesBundleSourceArgs
 import com.pulumi.aws.cloudfront.inputs.TrustStoreTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -24,8 +25,8 @@ public final class TrustStoreArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    @Import(name="caCertificatesBundleSource")
-    private @Nullable Output<TrustStoreCaCertificatesBundleSourceArgs> caCertificatesBundleSource;
+    @Import(name="caCertificatesBundleSource", required=true)
+    private Output<TrustStoreCaCertificatesBundleSourceArgs> caCertificatesBundleSource;
 
     /**
      * @return Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
@@ -33,8 +34,8 @@ public final class TrustStoreArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<TrustStoreCaCertificatesBundleSourceArgs>> caCertificatesBundleSource() {
-        return Optional.ofNullable(this.caCertificatesBundleSource);
+    public Output<TrustStoreCaCertificatesBundleSourceArgs> caCertificatesBundleSource() {
+        return this.caCertificatesBundleSource;
     }
 
     /**
@@ -109,7 +110,7 @@ public final class TrustStoreArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder caCertificatesBundleSource(@Nullable Output<TrustStoreCaCertificatesBundleSourceArgs> caCertificatesBundleSource) {
+        public Builder caCertificatesBundleSource(Output<TrustStoreCaCertificatesBundleSourceArgs> caCertificatesBundleSource) {
             $.caCertificatesBundleSource = caCertificatesBundleSource;
             return this;
         }
@@ -178,6 +179,9 @@ public final class TrustStoreArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TrustStoreArgs build() {
+            if ($.caCertificatesBundleSource == null) {
+                throw new MissingRequiredPropertyException("TrustStoreArgs", "caCertificatesBundleSource");
+            }
             return $;
         }
     }

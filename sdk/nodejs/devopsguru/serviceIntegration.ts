@@ -91,15 +91,15 @@ export class ServiceIntegration extends pulumi.CustomResource {
     /**
      * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      */
-    declare public readonly kmsServerSideEncryption: pulumi.Output<outputs.devopsguru.ServiceIntegrationKmsServerSideEncryption | undefined>;
+    declare public readonly kmsServerSideEncryption: pulumi.Output<outputs.devopsguru.ServiceIntegrationKmsServerSideEncryption>;
     /**
      * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      */
-    declare public readonly logsAnomalyDetection: pulumi.Output<outputs.devopsguru.ServiceIntegrationLogsAnomalyDetection | undefined>;
+    declare public readonly logsAnomalyDetection: pulumi.Output<outputs.devopsguru.ServiceIntegrationLogsAnomalyDetection>;
     /**
      * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      */
-    declare public readonly opsCenter: pulumi.Output<outputs.devopsguru.ServiceIntegrationOpsCenter | undefined>;
+    declare public readonly opsCenter: pulumi.Output<outputs.devopsguru.ServiceIntegrationOpsCenter>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -112,7 +112,7 @@ export class ServiceIntegration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ServiceIntegrationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ServiceIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceIntegrationArgs | ServiceIntegrationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -124,6 +124,15 @@ export class ServiceIntegration extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ServiceIntegrationArgs | undefined;
+            if (args?.kmsServerSideEncryption === undefined && !opts.urn) {
+                throw new Error("Missing required property 'kmsServerSideEncryption'");
+            }
+            if (args?.logsAnomalyDetection === undefined && !opts.urn) {
+                throw new Error("Missing required property 'logsAnomalyDetection'");
+            }
+            if (args?.opsCenter === undefined && !opts.urn) {
+                throw new Error("Missing required property 'opsCenter'");
+            }
             resourceInputs["kmsServerSideEncryption"] = args?.kmsServerSideEncryption;
             resourceInputs["logsAnomalyDetection"] = args?.logsAnomalyDetection;
             resourceInputs["opsCenter"] = args?.opsCenter;
@@ -163,15 +172,15 @@ export interface ServiceIntegrationArgs {
     /**
      * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      */
-    kmsServerSideEncryption?: pulumi.Input<inputs.devopsguru.ServiceIntegrationKmsServerSideEncryption>;
+    kmsServerSideEncryption: pulumi.Input<inputs.devopsguru.ServiceIntegrationKmsServerSideEncryption>;
     /**
      * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      */
-    logsAnomalyDetection?: pulumi.Input<inputs.devopsguru.ServiceIntegrationLogsAnomalyDetection>;
+    logsAnomalyDetection: pulumi.Input<inputs.devopsguru.ServiceIntegrationLogsAnomalyDetection>;
     /**
      * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      */
-    opsCenter?: pulumi.Input<inputs.devopsguru.ServiceIntegrationOpsCenter>;
+    opsCenter: pulumi.Input<inputs.devopsguru.ServiceIntegrationOpsCenter>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration {
@@ -27,7 +25,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping fieldMapping;
+    private AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping fieldMapping;
     /**
      * @return Name of the vector store.
      * 
@@ -53,8 +51,8 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping fieldMapping() {
+        return this.fieldMapping;
     }
     /**
      * @return Name of the vector store.
@@ -75,7 +73,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
     public static final class Builder {
         private String domainArn;
         private String domainEndpoint;
-        private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping fieldMapping;
+        private AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping fieldMapping;
         private String vectorIndexName;
         public Builder() {}
         public Builder(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration defaults) {
@@ -103,8 +101,10 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
             return this;
         }
         @CustomType.Setter
-        public Builder fieldMapping(@Nullable AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping fieldMapping) {
-
+        public Builder fieldMapping(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping fieldMapping) {
+            if (fieldMapping == null) {
+              throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration", "fieldMapping");
+            }
             this.fieldMapping = fieldMapping;
             return this;
         }

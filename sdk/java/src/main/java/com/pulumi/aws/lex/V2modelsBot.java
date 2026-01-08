@@ -109,14 +109,14 @@ public class V2modelsBot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dataPrivacies", refs={List.class,V2modelsBotDataPrivacy.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<V2modelsBotDataPrivacy>> dataPrivacies;
+    private Output<List<V2modelsBotDataPrivacy>> dataPrivacies;
 
     /**
      * @return Provides information on additional privacy protections Amazon Lex should use with the bot&#39;s data. See `dataPrivacy`
      * 
      */
-    public Output<Optional<List<V2modelsBotDataPrivacy>>> dataPrivacies() {
-        return Codegen.optional(this.dataPrivacies);
+    public Output<List<V2modelsBotDataPrivacy>> dataPrivacies() {
+        return this.dataPrivacies;
     }
     /**
      * Description of the bot. It appears in lists to help you identify a particular bot.

@@ -202,7 +202,7 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
     /**
      * The maintenance window of the Autonomous VM cluster.
      */
-    declare public readonly maintenanceWindow: pulumi.Output<outputs.odb.CloudAutonomousVmClusterMaintenanceWindow | undefined>;
+    declare public readonly maintenanceWindow: pulumi.Output<outputs.odb.CloudAutonomousVmClusterMaintenanceWindow>;
     /**
      * The minimum value to which you can scale down the maximum number of Autonomous CDBs.
      */
@@ -380,6 +380,9 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
             }
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
+            }
+            if (args?.maintenanceWindow === undefined && !opts.urn) {
+                throw new Error("Missing required property 'maintenanceWindow'");
             }
             if (args?.memoryPerOracleComputeUnitInGbs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memoryPerOracleComputeUnitInGbs'");
@@ -650,7 +653,7 @@ export interface CloudAutonomousVmClusterArgs {
     /**
      * The maintenance window of the Autonomous VM cluster.
      */
-    maintenanceWindow?: pulumi.Input<inputs.odb.CloudAutonomousVmClusterMaintenanceWindow>;
+    maintenanceWindow: pulumi.Input<inputs.odb.CloudAutonomousVmClusterMaintenanceWindow>;
     memoryPerOracleComputeUnitInGbs: pulumi.Input<number>;
     odbNetworkId: pulumi.Input<string>;
     /**

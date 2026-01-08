@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Lambda
         /// The following arguments are optional:
         /// </summary>
         [Output("permissionsConfig")]
-        public Output<Outputs.CapacityProviderPermissionsConfig?> PermissionsConfig { get; private set; } = null!;
+        public Output<Outputs.CapacityProviderPermissionsConfig> PermissionsConfig { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Lambda
         /// Configuration block for VPC settings. See VPC Config below.
         /// </summary>
         [Output("vpcConfig")]
-        public Output<Outputs.CapacityProviderVpcConfig?> VpcConfig { get; private set; } = null!;
+        public Output<Outputs.CapacityProviderVpcConfig> VpcConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Lambda
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public CapacityProvider(string name, CapacityProviderArgs? args = null, CustomResourceOptions? options = null)
+        public CapacityProvider(string name, CapacityProviderArgs args, CustomResourceOptions? options = null)
             : base("aws:lambda/capacityProvider:CapacityProvider", name, args ?? new CapacityProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -194,8 +194,8 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("permissionsConfig")]
-        public Input<Inputs.CapacityProviderPermissionsConfigArgs>? PermissionsConfig { get; set; }
+        [Input("permissionsConfig", required: true)]
+        public Input<Inputs.CapacityProviderPermissionsConfigArgs> PermissionsConfig { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -221,8 +221,8 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Configuration block for VPC settings. See VPC Config below.
         /// </summary>
-        [Input("vpcConfig")]
-        public Input<Inputs.CapacityProviderVpcConfigArgs>? VpcConfig { get; set; }
+        [Input("vpcConfig", required: true)]
+        public Input<Inputs.CapacityProviderVpcConfigArgs> VpcConfig { get; set; } = null!;
 
         public CapacityProviderArgs()
         {

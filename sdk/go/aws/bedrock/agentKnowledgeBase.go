@@ -330,7 +330,7 @@ type AgentKnowledgeBase struct {
 	Description    pulumi.StringPtrOutput   `pulumi:"description"`
 	FailureReasons pulumi.StringArrayOutput `pulumi:"failureReasons"`
 	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
-	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput `pulumi:"knowledgeBaseConfiguration"`
+	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationOutput `pulumi:"knowledgeBaseConfiguration"`
 	// Name of the knowledge base.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -357,6 +357,9 @@ func NewAgentKnowledgeBase(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.KnowledgeBaseConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'KnowledgeBaseConfiguration'")
+	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
@@ -448,7 +451,7 @@ type agentKnowledgeBaseArgs struct {
 	// Description of the knowledge base.
 	Description *string `pulumi:"description"`
 	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
-	KnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfiguration `pulumi:"knowledgeBaseConfiguration"`
+	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfiguration `pulumi:"knowledgeBaseConfiguration"`
 	// Name of the knowledge base.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -469,7 +472,7 @@ type AgentKnowledgeBaseArgs struct {
 	// Description of the knowledge base.
 	Description pulumi.StringPtrInput
 	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
-	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput
+	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationInput
 	// Name of the knowledge base.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -592,10 +595,10 @@ func (o AgentKnowledgeBaseOutput) FailureReasons() pulumi.StringArrayOutput {
 }
 
 // Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
-func (o AgentKnowledgeBaseOutput) KnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput {
-	return o.ApplyT(func(v *AgentKnowledgeBase) AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput {
+func (o AgentKnowledgeBaseOutput) KnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBase) AgentKnowledgeBaseKnowledgeBaseConfigurationOutput {
 		return v.KnowledgeBaseConfiguration
-	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput)
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationOutput)
 }
 
 // Name of the knowledge base.

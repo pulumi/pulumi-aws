@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `Condition`.
         /// </summary>
-        public readonly Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition Condition;
+        public readonly Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition? Condition;
         /// <summary>
         /// Name of the branch.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the next step in the conversation. See `NextStep`.
         /// </summary>
-        public readonly Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep NextStep;
+        public readonly Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep? NextStep;
         /// <summary>
         /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `Response`.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Lex.Outputs
 
         [OutputConstructor]
         private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranch(
-            Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition condition,
+            Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition? condition,
 
             string name,
 
-            Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep nextStep,
+            Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep? nextStep,
 
             Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponse? response)
         {

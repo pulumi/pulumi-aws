@@ -5,9 +5,9 @@ package com.pulumi.aws.s3tables.outputs;
 
 import com.pulumi.aws.s3tables.outputs.TableReplicationRuleDestination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class TableReplicationRule {
@@ -15,7 +15,7 @@ public final class TableReplicationRule {
      * @return Replication destination. See Destination below for more details.
      * 
      */
-    private @Nullable List<TableReplicationRuleDestination> destinations;
+    private List<TableReplicationRuleDestination> destinations;
 
     private TableReplicationRule() {}
     /**
@@ -23,7 +23,7 @@ public final class TableReplicationRule {
      * 
      */
     public List<TableReplicationRuleDestination> destinations() {
-        return this.destinations == null ? List.of() : this.destinations;
+        return this.destinations;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class TableReplicationRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<TableReplicationRuleDestination> destinations;
+        private List<TableReplicationRuleDestination> destinations;
         public Builder() {}
         public Builder(TableReplicationRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class TableReplicationRule {
         }
 
         @CustomType.Setter
-        public Builder destinations(@Nullable List<TableReplicationRuleDestination> destinations) {
-
+        public Builder destinations(List<TableReplicationRuleDestination> destinations) {
+            if (destinations == null) {
+              throw new MissingRequiredPropertyException("TableReplicationRule", "destinations");
+            }
             this.destinations = destinations;
             return this;
         }

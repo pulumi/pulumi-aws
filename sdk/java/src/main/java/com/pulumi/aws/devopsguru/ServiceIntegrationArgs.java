@@ -8,6 +8,7 @@ import com.pulumi.aws.devopsguru.inputs.ServiceIntegrationLogsAnomalyDetectionAr
 import com.pulumi.aws.devopsguru.inputs.ServiceIntegrationOpsCenterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,45 +23,45 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
      * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      * 
      */
-    @Import(name="kmsServerSideEncryption")
-    private @Nullable Output<ServiceIntegrationKmsServerSideEncryptionArgs> kmsServerSideEncryption;
+    @Import(name="kmsServerSideEncryption", required=true)
+    private Output<ServiceIntegrationKmsServerSideEncryptionArgs> kmsServerSideEncryption;
 
     /**
      * @return Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      * 
      */
-    public Optional<Output<ServiceIntegrationKmsServerSideEncryptionArgs>> kmsServerSideEncryption() {
-        return Optional.ofNullable(this.kmsServerSideEncryption);
+    public Output<ServiceIntegrationKmsServerSideEncryptionArgs> kmsServerSideEncryption() {
+        return this.kmsServerSideEncryption;
     }
 
     /**
      * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      * 
      */
-    @Import(name="logsAnomalyDetection")
-    private @Nullable Output<ServiceIntegrationLogsAnomalyDetectionArgs> logsAnomalyDetection;
+    @Import(name="logsAnomalyDetection", required=true)
+    private Output<ServiceIntegrationLogsAnomalyDetectionArgs> logsAnomalyDetection;
 
     /**
      * @return Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      * 
      */
-    public Optional<Output<ServiceIntegrationLogsAnomalyDetectionArgs>> logsAnomalyDetection() {
-        return Optional.ofNullable(this.logsAnomalyDetection);
+    public Output<ServiceIntegrationLogsAnomalyDetectionArgs> logsAnomalyDetection() {
+        return this.logsAnomalyDetection;
     }
 
     /**
      * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      * 
      */
-    @Import(name="opsCenter")
-    private @Nullable Output<ServiceIntegrationOpsCenterArgs> opsCenter;
+    @Import(name="opsCenter", required=true)
+    private Output<ServiceIntegrationOpsCenterArgs> opsCenter;
 
     /**
      * @return Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      * 
      */
-    public Optional<Output<ServiceIntegrationOpsCenterArgs>> opsCenter() {
-        return Optional.ofNullable(this.opsCenter);
+    public Output<ServiceIntegrationOpsCenterArgs> opsCenter() {
+        return this.opsCenter;
     }
 
     /**
@@ -111,7 +112,7 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder kmsServerSideEncryption(@Nullable Output<ServiceIntegrationKmsServerSideEncryptionArgs> kmsServerSideEncryption) {
+        public Builder kmsServerSideEncryption(Output<ServiceIntegrationKmsServerSideEncryptionArgs> kmsServerSideEncryption) {
             $.kmsServerSideEncryption = kmsServerSideEncryption;
             return this;
         }
@@ -132,7 +133,7 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder logsAnomalyDetection(@Nullable Output<ServiceIntegrationLogsAnomalyDetectionArgs> logsAnomalyDetection) {
+        public Builder logsAnomalyDetection(Output<ServiceIntegrationLogsAnomalyDetectionArgs> logsAnomalyDetection) {
             $.logsAnomalyDetection = logsAnomalyDetection;
             return this;
         }
@@ -153,7 +154,7 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder opsCenter(@Nullable Output<ServiceIntegrationOpsCenterArgs> opsCenter) {
+        public Builder opsCenter(Output<ServiceIntegrationOpsCenterArgs> opsCenter) {
             $.opsCenter = opsCenter;
             return this;
         }
@@ -190,6 +191,15 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
         }
 
         public ServiceIntegrationArgs build() {
+            if ($.kmsServerSideEncryption == null) {
+                throw new MissingRequiredPropertyException("ServiceIntegrationArgs", "kmsServerSideEncryption");
+            }
+            if ($.logsAnomalyDetection == null) {
+                throw new MissingRequiredPropertyException("ServiceIntegrationArgs", "logsAnomalyDetection");
+            }
+            if ($.opsCenter == null) {
+                throw new MissingRequiredPropertyException("ServiceIntegrationArgs", "opsCenter");
+            }
             return $;
         }
     }

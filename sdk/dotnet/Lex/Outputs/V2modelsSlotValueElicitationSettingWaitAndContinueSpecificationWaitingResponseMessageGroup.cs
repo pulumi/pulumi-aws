@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// Configuration block for the primary message that Amazon Lex should send to the user.
         /// See the `aws.lex.V2modelsIntent` resource for details on the `Message` argument reference - they are identical.
         /// </summary>
-        public readonly Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage Message;
+        public readonly Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage? Message;
         /// <summary>
         /// Configuration blocks for message variations to send to the user.
         /// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Lex.Outputs
 
         [OutputConstructor]
         private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup(
-            Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage message,
+            Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage? message,
 
             ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation> variations)
         {

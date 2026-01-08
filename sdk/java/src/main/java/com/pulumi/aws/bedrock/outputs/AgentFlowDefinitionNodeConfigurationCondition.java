@@ -5,17 +5,17 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentFlowDefinitionNodeConfigurationConditionCondition;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationCondition {
-    private List<AgentFlowDefinitionNodeConfigurationConditionCondition> conditions;
+    private @Nullable List<AgentFlowDefinitionNodeConfigurationConditionCondition> conditions;
 
     private AgentFlowDefinitionNodeConfigurationCondition() {}
     public List<AgentFlowDefinitionNodeConfigurationConditionCondition> conditions() {
-        return this.conditions;
+        return this.conditions == null ? List.of() : this.conditions;
     }
 
     public static Builder builder() {
@@ -27,7 +27,7 @@ public final class AgentFlowDefinitionNodeConfigurationCondition {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<AgentFlowDefinitionNodeConfigurationConditionCondition> conditions;
+        private @Nullable List<AgentFlowDefinitionNodeConfigurationConditionCondition> conditions;
         public Builder() {}
         public Builder(AgentFlowDefinitionNodeConfigurationCondition defaults) {
     	      Objects.requireNonNull(defaults);
@@ -35,10 +35,8 @@ public final class AgentFlowDefinitionNodeConfigurationCondition {
         }
 
         @CustomType.Setter
-        public Builder conditions(List<AgentFlowDefinitionNodeConfigurationConditionCondition> conditions) {
-            if (conditions == null) {
-              throw new MissingRequiredPropertyException("AgentFlowDefinitionNodeConfigurationCondition", "conditions");
-            }
+        public Builder conditions(@Nullable List<AgentFlowDefinitionNodeConfigurationConditionCondition> conditions) {
+
             this.conditions = conditions;
             return this;
         }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -70,9 +71,12 @@ type KeyRegistration struct {
 func NewKeyRegistration(ctx *pulumi.Context,
 	name string, args *KeyRegistrationArgs, opts ...pulumi.ResourceOption) (*KeyRegistration, error) {
 	if args == nil {
-		args = &KeyRegistrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.KeyRegistrations == nil {
+		return nil, errors.New("invalid value for required argument 'KeyRegistrations'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KeyRegistration
 	err := ctx.RegisterResource("aws:quicksight/keyRegistration:KeyRegistration", name, args, &resource, opts...)

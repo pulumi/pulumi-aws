@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Lex.Inputs
         [Input("allowInterrupt")]
         public Input<bool>? AllowInterrupt { get; set; }
 
-        [Input("allowedInputTypes", required: true)]
-        public Input<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesGetArgs> AllowedInputTypes { get; set; } = null!;
+        [Input("allowedInputTypes")]
+        public Input<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesGetArgs>? AllowedInputTypes { get; set; }
 
         [Input("audioAndDtmfInputSpecification")]
         public Input<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationGetArgs>? AudioAndDtmfInputSpecification { get; set; }

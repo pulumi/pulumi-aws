@@ -414,7 +414,7 @@ func (o CapabilityConfigurationPtrOutput) ArgoCd() CapabilityConfigurationArgoCd
 
 type CapabilityConfigurationArgoCd struct {
 	// AWS IAM Identity Center configuration. See `awsIdc` below.
-	AwsIdc *CapabilityConfigurationArgoCdAwsIdc `pulumi:"awsIdc"`
+	AwsIdc CapabilityConfigurationArgoCdAwsIdc `pulumi:"awsIdc"`
 	// Kubernetes namespace for ArgoCD.
 	Namespace *string `pulumi:"namespace"`
 	// Network access configuration. See `networkAccess` below.
@@ -438,7 +438,7 @@ type CapabilityConfigurationArgoCdInput interface {
 
 type CapabilityConfigurationArgoCdArgs struct {
 	// AWS IAM Identity Center configuration. See `awsIdc` below.
-	AwsIdc CapabilityConfigurationArgoCdAwsIdcPtrInput `pulumi:"awsIdc"`
+	AwsIdc CapabilityConfigurationArgoCdAwsIdcInput `pulumi:"awsIdc"`
 	// Kubernetes namespace for ArgoCD.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// Network access configuration. See `networkAccess` below.
@@ -527,8 +527,8 @@ func (o CapabilityConfigurationArgoCdOutput) ToCapabilityConfigurationArgoCdPtrO
 }
 
 // AWS IAM Identity Center configuration. See `awsIdc` below.
-func (o CapabilityConfigurationArgoCdOutput) AwsIdc() CapabilityConfigurationArgoCdAwsIdcPtrOutput {
-	return o.ApplyT(func(v CapabilityConfigurationArgoCd) *CapabilityConfigurationArgoCdAwsIdc { return v.AwsIdc }).(CapabilityConfigurationArgoCdAwsIdcPtrOutput)
+func (o CapabilityConfigurationArgoCdOutput) AwsIdc() CapabilityConfigurationArgoCdAwsIdcOutput {
+	return o.ApplyT(func(v CapabilityConfigurationArgoCd) CapabilityConfigurationArgoCdAwsIdc { return v.AwsIdc }).(CapabilityConfigurationArgoCdAwsIdcOutput)
 }
 
 // Kubernetes namespace for ArgoCD.
@@ -585,7 +585,7 @@ func (o CapabilityConfigurationArgoCdPtrOutput) AwsIdc() CapabilityConfiguration
 		if v == nil {
 			return nil
 		}
-		return v.AwsIdc
+		return &v.AwsIdc
 	}).(CapabilityConfigurationArgoCdAwsIdcPtrOutput)
 }
 

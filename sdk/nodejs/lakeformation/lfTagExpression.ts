@@ -80,7 +80,7 @@ export class LfTagExpression extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly expressions: pulumi.Output<outputs.lakeformation.LfTagExpressionExpression[] | undefined>;
+    declare public readonly expressions: pulumi.Output<outputs.lakeformation.LfTagExpressionExpression[]>;
     /**
      * Name of the LF-Tag Expression.
      */
@@ -97,7 +97,7 @@ export class LfTagExpression extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: LfTagExpressionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: LfTagExpressionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LfTagExpressionArgs | LfTagExpressionState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -110,6 +110,9 @@ export class LfTagExpression extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as LfTagExpressionArgs | undefined;
+            if (args?.expressions === undefined && !opts.urn) {
+                throw new Error("Missing required property 'expressions'");
+            }
             resourceInputs["catalogId"] = args?.catalogId;
             resourceInputs["description"] = args?.description;
             resourceInputs["expressions"] = args?.expressions;
@@ -166,7 +169,7 @@ export interface LfTagExpressionArgs {
      *
      * The following arguments are optional:
      */
-    expressions?: pulumi.Input<pulumi.Input<inputs.lakeformation.LfTagExpressionExpression>[]>;
+    expressions: pulumi.Input<pulumi.Input<inputs.lakeformation.LfTagExpressionExpression>[]>;
     /**
      * Name of the LF-Tag Expression.
      */

@@ -16,10 +16,10 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Server certificate configurations that are associated with the TLS configuration. Detailed below.
         /// </summary>
-        public readonly Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration? ServerCertificateConfiguration;
+        public readonly Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration ServerCertificateConfiguration;
 
         [OutputConstructor]
-        private TlsInspectionConfigurationTlsInspectionConfiguration(Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration? serverCertificateConfiguration)
+        private TlsInspectionConfigurationTlsInspectionConfiguration(Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration serverCertificateConfiguration)
         {
             ServerCertificateConfiguration = serverCertificateConfiguration;
         }

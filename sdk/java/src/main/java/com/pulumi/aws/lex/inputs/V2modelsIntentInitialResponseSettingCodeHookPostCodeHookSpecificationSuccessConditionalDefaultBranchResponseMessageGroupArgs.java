@@ -7,7 +7,6 @@ import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPos
 import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,15 +21,15 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    @Import(name="message", required=true)
-    private Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs> message;
+    @Import(name="message")
+    private @Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs> message;
 
     /**
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    public Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs> message() {
-        return this.message;
+    public Optional<Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs>> message() {
+        return Optional.ofNullable(this.message);
     }
 
     /**
@@ -79,7 +78,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder message(Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs> message) {
+        public Builder message(@Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs> message) {
             $.message = message;
             return this;
         }
@@ -126,9 +125,6 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
         }
 
         public V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgs build() {
-            if ($.message == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgs", "message");
-            }
             return $;
         }
     }

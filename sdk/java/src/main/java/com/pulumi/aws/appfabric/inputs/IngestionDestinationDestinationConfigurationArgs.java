@@ -6,9 +6,8 @@ package com.pulumi.aws.appfabric.inputs;
 import com.pulumi.aws.appfabric.inputs.IngestionDestinationDestinationConfigurationAuditLogArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class IngestionDestinationDestinationConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class IngestionDestinationDestinationConfigurationArgs extends com.
      * Contains information about an audit log processing configuration.
      * 
      */
-    @Import(name="auditLog")
-    private @Nullable Output<IngestionDestinationDestinationConfigurationAuditLogArgs> auditLog;
+    @Import(name="auditLog", required=true)
+    private Output<IngestionDestinationDestinationConfigurationAuditLogArgs> auditLog;
 
     /**
      * @return Contains information about an audit log processing configuration.
      * 
      */
-    public Optional<Output<IngestionDestinationDestinationConfigurationAuditLogArgs>> auditLog() {
-        return Optional.ofNullable(this.auditLog);
+    public Output<IngestionDestinationDestinationConfigurationAuditLogArgs> auditLog() {
+        return this.auditLog;
     }
 
     private IngestionDestinationDestinationConfigurationArgs() {}
@@ -60,7 +59,7 @@ public final class IngestionDestinationDestinationConfigurationArgs extends com.
          * @return builder
          * 
          */
-        public Builder auditLog(@Nullable Output<IngestionDestinationDestinationConfigurationAuditLogArgs> auditLog) {
+        public Builder auditLog(Output<IngestionDestinationDestinationConfigurationAuditLogArgs> auditLog) {
             $.auditLog = auditLog;
             return this;
         }
@@ -76,6 +75,9 @@ public final class IngestionDestinationDestinationConfigurationArgs extends com.
         }
 
         public IngestionDestinationDestinationConfigurationArgs build() {
+            if ($.auditLog == null) {
+                throw new MissingRequiredPropertyException("IngestionDestinationDestinationConfigurationArgs", "auditLog");
+            }
             return $;
         }
     }

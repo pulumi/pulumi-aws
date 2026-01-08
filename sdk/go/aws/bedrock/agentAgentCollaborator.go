@@ -180,7 +180,7 @@ import (
 type AgentAgentCollaborator struct {
 	pulumi.CustomResourceState
 
-	AgentDescriptor AgentAgentCollaboratorAgentDescriptorPtrOutput `pulumi:"agentDescriptor"`
+	AgentDescriptor AgentAgentCollaboratorAgentDescriptorOutput `pulumi:"agentDescriptor"`
 	// ID if the agent to associate the collaborator.
 	AgentId      pulumi.StringOutput `pulumi:"agentId"`
 	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
@@ -208,6 +208,9 @@ func NewAgentAgentCollaborator(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AgentDescriptor == nil {
+		return nil, errors.New("invalid value for required argument 'AgentDescriptor'")
+	}
 	if args.AgentId == nil {
 		return nil, errors.New("invalid value for required argument 'AgentId'")
 	}
@@ -288,7 +291,7 @@ func (AgentAgentCollaboratorState) ElementType() reflect.Type {
 }
 
 type agentAgentCollaboratorArgs struct {
-	AgentDescriptor *AgentAgentCollaboratorAgentDescriptor `pulumi:"agentDescriptor"`
+	AgentDescriptor AgentAgentCollaboratorAgentDescriptor `pulumi:"agentDescriptor"`
 	// ID if the agent to associate the collaborator.
 	AgentId      string  `pulumi:"agentId"`
 	AgentVersion *string `pulumi:"agentVersion"`
@@ -309,7 +312,7 @@ type agentAgentCollaboratorArgs struct {
 
 // The set of arguments for constructing a AgentAgentCollaborator resource.
 type AgentAgentCollaboratorArgs struct {
-	AgentDescriptor AgentAgentCollaboratorAgentDescriptorPtrInput
+	AgentDescriptor AgentAgentCollaboratorAgentDescriptorInput
 	// ID if the agent to associate the collaborator.
 	AgentId      pulumi.StringInput
 	AgentVersion pulumi.StringPtrInput
@@ -415,10 +418,8 @@ func (o AgentAgentCollaboratorOutput) ToAgentAgentCollaboratorOutputWithContext(
 	return o
 }
 
-func (o AgentAgentCollaboratorOutput) AgentDescriptor() AgentAgentCollaboratorAgentDescriptorPtrOutput {
-	return o.ApplyT(func(v *AgentAgentCollaborator) AgentAgentCollaboratorAgentDescriptorPtrOutput {
-		return v.AgentDescriptor
-	}).(AgentAgentCollaboratorAgentDescriptorPtrOutput)
+func (o AgentAgentCollaboratorOutput) AgentDescriptor() AgentAgentCollaboratorAgentDescriptorOutput {
+	return o.ApplyT(func(v *AgentAgentCollaborator) AgentAgentCollaboratorAgentDescriptorOutput { return v.AgentDescriptor }).(AgentAgentCollaboratorAgentDescriptorOutput)
 }
 
 // ID if the agent to associate the collaborator.

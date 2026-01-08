@@ -57,7 +57,7 @@ type CloudExadataInfrastructure struct {
 	// The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
 	LastMaintenanceRunId pulumi.StringOutput `pulumi:"lastMaintenanceRunId"`
 	// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
-	MaintenanceWindow CloudExadataInfrastructureMaintenanceWindowPtrOutput `pulumi:"maintenanceWindow"`
+	MaintenanceWindow CloudExadataInfrastructureMaintenanceWindowOutput `pulumi:"maintenanceWindow"`
 	// The total number of CPU cores available on the Exadata infrastructure.
 	MaxCpuCount pulumi.IntOutput `pulumi:"maxCpuCount"`
 	// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
@@ -115,6 +115,9 @@ func NewCloudExadataInfrastructure(ctx *pulumi.Context,
 	}
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.MaintenanceWindow == nil {
+		return nil, errors.New("invalid value for required argument 'MaintenanceWindow'")
 	}
 	if args.Shape == nil {
 		return nil, errors.New("invalid value for required argument 'Shape'")
@@ -311,7 +314,7 @@ type cloudExadataInfrastructureArgs struct {
 	DatabaseServerType *string `pulumi:"databaseServerType"`
 	DisplayName        string  `pulumi:"displayName"`
 	// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
-	MaintenanceWindow *CloudExadataInfrastructureMaintenanceWindow `pulumi:"maintenanceWindow"`
+	MaintenanceWindow CloudExadataInfrastructureMaintenanceWindow `pulumi:"maintenanceWindow"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	Shape  string  `pulumi:"shape"`
@@ -335,7 +338,7 @@ type CloudExadataInfrastructureArgs struct {
 	DatabaseServerType pulumi.StringPtrInput
 	DisplayName        pulumi.StringInput
 	// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
-	MaintenanceWindow CloudExadataInfrastructureMaintenanceWindowPtrInput
+	MaintenanceWindow CloudExadataInfrastructureMaintenanceWindowInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	Shape  pulumi.StringInput
@@ -519,10 +522,10 @@ func (o CloudExadataInfrastructureOutput) LastMaintenanceRunId() pulumi.StringOu
 }
 
 // The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
-func (o CloudExadataInfrastructureOutput) MaintenanceWindow() CloudExadataInfrastructureMaintenanceWindowPtrOutput {
-	return o.ApplyT(func(v *CloudExadataInfrastructure) CloudExadataInfrastructureMaintenanceWindowPtrOutput {
+func (o CloudExadataInfrastructureOutput) MaintenanceWindow() CloudExadataInfrastructureMaintenanceWindowOutput {
+	return o.ApplyT(func(v *CloudExadataInfrastructure) CloudExadataInfrastructureMaintenanceWindowOutput {
 		return v.MaintenanceWindow
-	}).(CloudExadataInfrastructureMaintenanceWindowPtrOutput)
+	}).(CloudExadataInfrastructureMaintenanceWindowOutput)
 }
 
 // The total number of CPU cores available on the Exadata infrastructure.

@@ -21,20 +21,31 @@ __all__ = ['SchemaArgs', 'Schema']
 @pulumi.input_type
 class SchemaArgs:
     def __init__(__self__, *,
+                 definition: pulumi.Input['SchemaDefinitionArgs'],
                  policy_store_id: pulumi.Input[_builtins.str],
-                 definition: Optional[pulumi.Input['SchemaDefinitionArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schema resource.
-        :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
         :param pulumi.Input['SchemaDefinitionArgs'] definition: The definition of the schema.
+        :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "policy_store_id", policy_store_id)
-        if definition is not None:
-            pulumi.set(__self__, "definition", definition)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input['SchemaDefinitionArgs']:
+        """
+        The definition of the schema.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input['SchemaDefinitionArgs']):
+        pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
@@ -47,18 +58,6 @@ class SchemaArgs:
     @policy_store_id.setter
     def policy_store_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "policy_store_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['SchemaDefinitionArgs']]:
-        """
-        The definition of the schema.
-        """
-        return pulumi.get(self, "definition")
-
-    @definition.setter
-    def definition(self, value: Optional[pulumi.Input['SchemaDefinitionArgs']]):
-        pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter
@@ -250,6 +249,8 @@ class Schema(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SchemaArgs.__new__(SchemaArgs)
 
+            if definition is None and not opts.urn:
+                raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
             if policy_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_store_id'")
@@ -294,7 +295,7 @@ class Schema(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> pulumi.Output[Optional['outputs.SchemaDefinition']]:
+    def definition(self) -> pulumi.Output['outputs.SchemaDefinition']:
         """
         The definition of the schema.
         """

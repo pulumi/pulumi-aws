@@ -5,9 +5,8 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class TrustStoreCaCertificatesBundleSource {
@@ -15,15 +14,15 @@ public final class TrustStoreCaCertificatesBundleSource {
      * @return Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
      * 
      */
-    private @Nullable TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location caCertificatesBundleS3Location;
+    private TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location caCertificatesBundleS3Location;
 
     private TrustStoreCaCertificatesBundleSource() {}
     /**
      * @return Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
      * 
      */
-    public Optional<TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location> caCertificatesBundleS3Location() {
-        return Optional.ofNullable(this.caCertificatesBundleS3Location);
+    public TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location caCertificatesBundleS3Location() {
+        return this.caCertificatesBundleS3Location;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class TrustStoreCaCertificatesBundleSource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location caCertificatesBundleS3Location;
+        private TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location caCertificatesBundleS3Location;
         public Builder() {}
         public Builder(TrustStoreCaCertificatesBundleSource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class TrustStoreCaCertificatesBundleSource {
         }
 
         @CustomType.Setter
-        public Builder caCertificatesBundleS3Location(@Nullable TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location caCertificatesBundleS3Location) {
-
+        public Builder caCertificatesBundleS3Location(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location caCertificatesBundleS3Location) {
+            if (caCertificatesBundleS3Location == null) {
+              throw new MissingRequiredPropertyException("TrustStoreCaCertificatesBundleSource", "caCertificatesBundleS3Location");
+            }
             this.caCertificatesBundleS3Location = caCertificatesBundleS3Location;
             return this;
         }

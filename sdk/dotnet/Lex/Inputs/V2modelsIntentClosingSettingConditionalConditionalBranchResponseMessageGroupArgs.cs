@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Lex.Inputs
         /// <summary>
         /// Configuration block for the primary message that Amazon Lex should send to the user. See `Message`.
         /// </summary>
-        [Input("message", required: true)]
-        public Input<Inputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageArgs> Message { get; set; } = null!;
+        [Input("message")]
+        public Input<Inputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageArgs>? Message { get; set; }
 
         [Input("variations")]
         private InputList<Inputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationArgs>? _variations;

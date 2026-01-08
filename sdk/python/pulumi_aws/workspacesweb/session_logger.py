@@ -21,39 +21,63 @@ __all__ = ['SessionLoggerArgs', 'SessionLogger']
 @pulumi.input_type
 class SessionLoggerArgs:
     def __init__(__self__, *,
+                 event_filter: pulumi.Input['SessionLoggerEventFilterArgs'],
+                 log_configuration: pulumi.Input['SessionLoggerLogConfigurationArgs'],
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_filter: Optional[pulumi.Input['SessionLoggerEventFilterArgs']] = None,
-                 log_configuration: Optional[pulumi.Input['SessionLoggerLogConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SessionLogger resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Map of additional encryption context key-value pairs.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key used to encrypt sensitive information.
-        :param pulumi.Input[_builtins.str] display_name: Human-readable display name for the session logger resource. Forces replacement if changed.
         :param pulumi.Input['SessionLoggerEventFilterArgs'] event_filter: Event filter that determines which events are logged. See Event Filter below.
         :param pulumi.Input['SessionLoggerLogConfigurationArgs'] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Map of additional encryption context key-value pairs.
+        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key used to encrypt sensitive information.
+        :param pulumi.Input[_builtins.str] display_name: Human-readable display name for the session logger resource. Forces replacement if changed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "event_filter", event_filter)
+        pulumi.set(__self__, "log_configuration", log_configuration)
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if event_filter is not None:
-            pulumi.set(__self__, "event_filter", event_filter)
-        if log_configuration is not None:
-            pulumi.set(__self__, "log_configuration", log_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="eventFilter")
+    def event_filter(self) -> pulumi.Input['SessionLoggerEventFilterArgs']:
+        """
+        Event filter that determines which events are logged. See Event Filter below.
+        """
+        return pulumi.get(self, "event_filter")
+
+    @event_filter.setter
+    def event_filter(self, value: pulumi.Input['SessionLoggerEventFilterArgs']):
+        pulumi.set(self, "event_filter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> pulumi.Input['SessionLoggerLogConfigurationArgs']:
+        """
+        Configuration block for specifying where logs are delivered. See Log Configuration below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: pulumi.Input['SessionLoggerLogConfigurationArgs']):
+        pulumi.set(self, "log_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
@@ -90,32 +114,6 @@ class SessionLoggerArgs:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="eventFilter")
-    def event_filter(self) -> Optional[pulumi.Input['SessionLoggerEventFilterArgs']]:
-        """
-        Event filter that determines which events are logged. See Event Filter below.
-        """
-        return pulumi.get(self, "event_filter")
-
-    @event_filter.setter
-    def event_filter(self, value: Optional[pulumi.Input['SessionLoggerEventFilterArgs']]):
-        pulumi.set(self, "event_filter", value)
-
-    @_builtins.property
-    @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> Optional[pulumi.Input['SessionLoggerLogConfigurationArgs']]:
-        """
-        Configuration block for specifying where logs are delivered. See Log Configuration below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "log_configuration")
-
-    @log_configuration.setter
-    def log_configuration(self, value: Optional[pulumi.Input['SessionLoggerLogConfigurationArgs']]):
-        pulumi.set(self, "log_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -475,7 +473,7 @@ class SessionLogger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[SessionLoggerArgs] = None,
+                 args: SessionLoggerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS WorkSpaces Web Session Logger.
@@ -642,7 +640,11 @@ class SessionLogger(pulumi.CustomResource):
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["display_name"] = display_name
+            if event_filter is None and not opts.urn:
+                raise TypeError("Missing required property 'event_filter'")
             __props__.__dict__["event_filter"] = event_filter
+            if log_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'log_configuration'")
             __props__.__dict__["log_configuration"] = log_configuration
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
@@ -739,7 +741,7 @@ class SessionLogger(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="eventFilter")
-    def event_filter(self) -> pulumi.Output[Optional['outputs.SessionLoggerEventFilter']]:
+    def event_filter(self) -> pulumi.Output['outputs.SessionLoggerEventFilter']:
         """
         Event filter that determines which events are logged. See Event Filter below.
         """
@@ -747,7 +749,7 @@ class SessionLogger(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> pulumi.Output[Optional['outputs.SessionLoggerLogConfiguration']]:
+    def log_configuration(self) -> pulumi.Output['outputs.SessionLoggerLogConfiguration']:
         """
         Configuration block for specifying where logs are delivered. See Log Configuration below.
 

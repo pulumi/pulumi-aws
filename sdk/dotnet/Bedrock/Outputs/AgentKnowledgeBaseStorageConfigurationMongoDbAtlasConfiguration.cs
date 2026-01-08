@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Contains the names of the fields to which to map information about the vector store.
         /// </summary>
-        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping? FieldMapping;
+        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping FieldMapping;
         /// <summary>
         /// The name of the vector index.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             string? endpointServiceName,
 
-            Outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping? fieldMapping,
+            Outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping fieldMapping,
 
             string? textIndexName,
 

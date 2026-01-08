@@ -6,6 +6,7 @@ package com.pulumi.aws.cleanrooms.inputs;
 import com.pulumi.aws.cleanrooms.inputs.MembershipDefaultResultConfigurationOutputConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,11 +17,11 @@ public final class MembershipDefaultResultConfigurationArgs extends com.pulumi.r
 
     public static final MembershipDefaultResultConfigurationArgs Empty = new MembershipDefaultResultConfigurationArgs();
 
-    @Import(name="outputConfiguration")
-    private @Nullable Output<MembershipDefaultResultConfigurationOutputConfigurationArgs> outputConfiguration;
+    @Import(name="outputConfiguration", required=true)
+    private Output<MembershipDefaultResultConfigurationOutputConfigurationArgs> outputConfiguration;
 
-    public Optional<Output<MembershipDefaultResultConfigurationOutputConfigurationArgs>> outputConfiguration() {
-        return Optional.ofNullable(this.outputConfiguration);
+    public Output<MembershipDefaultResultConfigurationOutputConfigurationArgs> outputConfiguration() {
+        return this.outputConfiguration;
     }
 
     /**
@@ -69,7 +70,7 @@ public final class MembershipDefaultResultConfigurationArgs extends com.pulumi.r
             $ = new MembershipDefaultResultConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder outputConfiguration(@Nullable Output<MembershipDefaultResultConfigurationOutputConfigurationArgs> outputConfiguration) {
+        public Builder outputConfiguration(Output<MembershipDefaultResultConfigurationOutputConfigurationArgs> outputConfiguration) {
             $.outputConfiguration = outputConfiguration;
             return this;
         }
@@ -106,6 +107,9 @@ public final class MembershipDefaultResultConfigurationArgs extends com.pulumi.r
         }
 
         public MembershipDefaultResultConfigurationArgs build() {
+            if ($.outputConfiguration == null) {
+                throw new MissingRequiredPropertyException("MembershipDefaultResultConfigurationArgs", "outputConfiguration");
+            }
             return $;
         }
     }

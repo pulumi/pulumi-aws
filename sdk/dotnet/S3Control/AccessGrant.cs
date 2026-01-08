@@ -104,7 +104,7 @@ namespace Pulumi.Aws.S3Control
         /// See Grantee below for more details.
         /// </summary>
         [Output("grantee")]
-        public Output<Outputs.AccessGrantGrantee?> Grantee { get; private set; } = null!;
+        public Output<Outputs.AccessGrantGrantee> Grantee { get; private set; } = null!;
 
         /// <summary>
         /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
@@ -200,8 +200,8 @@ namespace Pulumi.Aws.S3Control
         /// <summary>
         /// See Grantee below for more details.
         /// </summary>
-        [Input("grantee")]
-        public Input<Inputs.AccessGrantGranteeArgs>? Grantee { get; set; }
+        [Input("grantee", required: true)]
+        public Input<Inputs.AccessGrantGranteeArgs> Grantee { get; set; } = null!;
 
         /// <summary>
         /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.

@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Networkflowmonitor.Outputs
         /// <summary>
         /// A target identifier is a pair of identifying information for a scope.
         /// </summary>
-        public readonly Outputs.ScopeTargetTargetIdentifier? TargetIdentifier;
+        public readonly Outputs.ScopeTargetTargetIdentifier TargetIdentifier;
 
         [OutputConstructor]
         private ScopeTarget(
             string region,
 
-            Outputs.ScopeTargetTargetIdentifier? targetIdentifier)
+            Outputs.ScopeTargetTargetIdentifier targetIdentifier)
         {
             Region = region;
             TargetIdentifier = targetIdentifier;

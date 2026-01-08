@@ -6802,7 +6802,7 @@ func (o TlsInspectionConfigurationTimeoutsPtrOutput) Update() pulumi.StringPtrOu
 
 type TlsInspectionConfigurationTlsInspectionConfiguration struct {
 	// Server certificate configurations that are associated with the TLS configuration. Detailed below.
-	ServerCertificateConfiguration *TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration `pulumi:"serverCertificateConfiguration"`
+	ServerCertificateConfiguration TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration `pulumi:"serverCertificateConfiguration"`
 }
 
 // TlsInspectionConfigurationTlsInspectionConfigurationInput is an input type that accepts TlsInspectionConfigurationTlsInspectionConfigurationArgs and TlsInspectionConfigurationTlsInspectionConfigurationOutput values.
@@ -6818,7 +6818,7 @@ type TlsInspectionConfigurationTlsInspectionConfigurationInput interface {
 
 type TlsInspectionConfigurationTlsInspectionConfigurationArgs struct {
 	// Server certificate configurations that are associated with the TLS configuration. Detailed below.
-	ServerCertificateConfiguration TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationPtrInput `pulumi:"serverCertificateConfiguration"`
+	ServerCertificateConfiguration TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationInput `pulumi:"serverCertificateConfiguration"`
 }
 
 func (TlsInspectionConfigurationTlsInspectionConfigurationArgs) ElementType() reflect.Type {
@@ -6899,10 +6899,10 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ToTlsInspect
 }
 
 // Server certificate configurations that are associated with the TLS configuration. Detailed below.
-func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ServerCertificateConfiguration() TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationPtrOutput {
-	return o.ApplyT(func(v TlsInspectionConfigurationTlsInspectionConfiguration) *TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration {
+func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ServerCertificateConfiguration() TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationTlsInspectionConfiguration) TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration {
 		return v.ServerCertificateConfiguration
-	}).(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationPtrOutput)
+	}).(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationOutput)
 }
 
 type TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -6935,7 +6935,7 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) ServerCer
 		if v == nil {
 			return nil
 		}
-		return v.ServerCertificateConfiguration
+		return &v.ServerCertificateConfiguration
 	}).(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationPtrOutput)
 }
 

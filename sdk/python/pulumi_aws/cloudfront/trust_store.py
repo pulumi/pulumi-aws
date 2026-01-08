@@ -21,7 +21,7 @@ __all__ = ['TrustStoreArgs', 'TrustStore']
 @pulumi.input_type
 class TrustStoreArgs:
     def __init__(__self__, *,
-                 ca_certificates_bundle_source: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']] = None,
+                 ca_certificates_bundle_source: pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs'],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['TrustStoreTimeoutsArgs']] = None):
@@ -33,8 +33,7 @@ class TrustStoreArgs:
         :param pulumi.Input[_builtins.str] name: Name of the trust store. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        if ca_certificates_bundle_source is not None:
-            pulumi.set(__self__, "ca_certificates_bundle_source", ca_certificates_bundle_source)
+        pulumi.set(__self__, "ca_certificates_bundle_source", ca_certificates_bundle_source)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -44,7 +43,7 @@ class TrustStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleSource")
-    def ca_certificates_bundle_source(self) -> Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']]:
+    def ca_certificates_bundle_source(self) -> pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']:
         """
         Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
 
@@ -53,7 +52,7 @@ class TrustStoreArgs:
         return pulumi.get(self, "ca_certificates_bundle_source")
 
     @ca_certificates_bundle_source.setter
-    def ca_certificates_bundle_source(self, value: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']]):
+    def ca_certificates_bundle_source(self, value: pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']):
         pulumi.set(self, "ca_certificates_bundle_source", value)
 
     @_builtins.property
@@ -297,7 +296,7 @@ class TrustStore(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TrustStoreArgs] = None,
+                 args: TrustStoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS CloudFront Trust Store.
@@ -375,6 +374,8 @@ class TrustStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TrustStoreArgs.__new__(TrustStoreArgs)
 
+            if ca_certificates_bundle_source is None and not opts.urn:
+                raise TypeError("Missing required property 'ca_certificates_bundle_source'")
             __props__.__dict__["ca_certificates_bundle_source"] = ca_certificates_bundle_source
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
@@ -442,7 +443,7 @@ class TrustStore(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleSource")
-    def ca_certificates_bundle_source(self) -> pulumi.Output[Optional['outputs.TrustStoreCaCertificatesBundleSource']]:
+    def ca_certificates_bundle_source(self) -> pulumi.Output['outputs.TrustStoreCaCertificatesBundleSource']:
         """
         Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
 

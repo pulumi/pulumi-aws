@@ -1936,7 +1936,7 @@ type GetLifecyclePolicyDocumentRule struct {
 	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
 	Priority int `pulumi:"priority"`
 	// Collects parameters describing the selection criteria for the ECR lifecycle policy:
-	Selection *GetLifecyclePolicyDocumentRuleSelection `pulumi:"selection"`
+	Selection GetLifecyclePolicyDocumentRuleSelection `pulumi:"selection"`
 }
 
 // GetLifecyclePolicyDocumentRuleInput is an input type that accepts GetLifecyclePolicyDocumentRuleArgs and GetLifecyclePolicyDocumentRuleOutput values.
@@ -1958,7 +1958,7 @@ type GetLifecyclePolicyDocumentRuleArgs struct {
 	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Collects parameters describing the selection criteria for the ECR lifecycle policy:
-	Selection GetLifecyclePolicyDocumentRuleSelectionPtrInput `pulumi:"selection"`
+	Selection GetLifecyclePolicyDocumentRuleSelectionInput `pulumi:"selection"`
 }
 
 func (GetLifecyclePolicyDocumentRuleArgs) ElementType() reflect.Type {
@@ -2028,8 +2028,8 @@ func (o GetLifecyclePolicyDocumentRuleOutput) Priority() pulumi.IntOutput {
 }
 
 // Collects parameters describing the selection criteria for the ECR lifecycle policy:
-func (o GetLifecyclePolicyDocumentRuleOutput) Selection() GetLifecyclePolicyDocumentRuleSelectionPtrOutput {
-	return o.ApplyT(func(v GetLifecyclePolicyDocumentRule) *GetLifecyclePolicyDocumentRuleSelection { return v.Selection }).(GetLifecyclePolicyDocumentRuleSelectionPtrOutput)
+func (o GetLifecyclePolicyDocumentRuleOutput) Selection() GetLifecyclePolicyDocumentRuleSelectionOutput {
+	return o.ApplyT(func(v GetLifecyclePolicyDocumentRule) GetLifecyclePolicyDocumentRuleSelection { return v.Selection }).(GetLifecyclePolicyDocumentRuleSelectionOutput)
 }
 
 type GetLifecyclePolicyDocumentRuleArrayOutput struct{ *pulumi.OutputState }
@@ -2242,47 +2242,6 @@ func (i GetLifecyclePolicyDocumentRuleSelectionArgs) ToGetLifecyclePolicyDocumen
 	return pulumi.ToOutputWithContext(ctx, i).(GetLifecyclePolicyDocumentRuleSelectionOutput)
 }
 
-func (i GetLifecyclePolicyDocumentRuleSelectionArgs) ToGetLifecyclePolicyDocumentRuleSelectionPtrOutput() GetLifecyclePolicyDocumentRuleSelectionPtrOutput {
-	return i.ToGetLifecyclePolicyDocumentRuleSelectionPtrOutputWithContext(context.Background())
-}
-
-func (i GetLifecyclePolicyDocumentRuleSelectionArgs) ToGetLifecyclePolicyDocumentRuleSelectionPtrOutputWithContext(ctx context.Context) GetLifecyclePolicyDocumentRuleSelectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLifecyclePolicyDocumentRuleSelectionOutput).ToGetLifecyclePolicyDocumentRuleSelectionPtrOutputWithContext(ctx)
-}
-
-// GetLifecyclePolicyDocumentRuleSelectionPtrInput is an input type that accepts GetLifecyclePolicyDocumentRuleSelectionArgs, GetLifecyclePolicyDocumentRuleSelectionPtr and GetLifecyclePolicyDocumentRuleSelectionPtrOutput values.
-// You can construct a concrete instance of `GetLifecyclePolicyDocumentRuleSelectionPtrInput` via:
-//
-//	        GetLifecyclePolicyDocumentRuleSelectionArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetLifecyclePolicyDocumentRuleSelectionPtrInput interface {
-	pulumi.Input
-
-	ToGetLifecyclePolicyDocumentRuleSelectionPtrOutput() GetLifecyclePolicyDocumentRuleSelectionPtrOutput
-	ToGetLifecyclePolicyDocumentRuleSelectionPtrOutputWithContext(context.Context) GetLifecyclePolicyDocumentRuleSelectionPtrOutput
-}
-
-type getLifecyclePolicyDocumentRuleSelectionPtrType GetLifecyclePolicyDocumentRuleSelectionArgs
-
-func GetLifecyclePolicyDocumentRuleSelectionPtr(v *GetLifecyclePolicyDocumentRuleSelectionArgs) GetLifecyclePolicyDocumentRuleSelectionPtrInput {
-	return (*getLifecyclePolicyDocumentRuleSelectionPtrType)(v)
-}
-
-func (*getLifecyclePolicyDocumentRuleSelectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetLifecyclePolicyDocumentRuleSelection)(nil)).Elem()
-}
-
-func (i *getLifecyclePolicyDocumentRuleSelectionPtrType) ToGetLifecyclePolicyDocumentRuleSelectionPtrOutput() GetLifecyclePolicyDocumentRuleSelectionPtrOutput {
-	return i.ToGetLifecyclePolicyDocumentRuleSelectionPtrOutputWithContext(context.Background())
-}
-
-func (i *getLifecyclePolicyDocumentRuleSelectionPtrType) ToGetLifecyclePolicyDocumentRuleSelectionPtrOutputWithContext(ctx context.Context) GetLifecyclePolicyDocumentRuleSelectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLifecyclePolicyDocumentRuleSelectionPtrOutput)
-}
-
 type GetLifecyclePolicyDocumentRuleSelectionOutput struct{ *pulumi.OutputState }
 
 func (GetLifecyclePolicyDocumentRuleSelectionOutput) ElementType() reflect.Type {
@@ -2295,16 +2254,6 @@ func (o GetLifecyclePolicyDocumentRuleSelectionOutput) ToGetLifecyclePolicyDocum
 
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) ToGetLifecyclePolicyDocumentRuleSelectionOutputWithContext(ctx context.Context) GetLifecyclePolicyDocumentRuleSelectionOutput {
 	return o
-}
-
-func (o GetLifecyclePolicyDocumentRuleSelectionOutput) ToGetLifecyclePolicyDocumentRuleSelectionPtrOutput() GetLifecyclePolicyDocumentRuleSelectionPtrOutput {
-	return o.ToGetLifecyclePolicyDocumentRuleSelectionPtrOutputWithContext(context.Background())
-}
-
-func (o GetLifecyclePolicyDocumentRuleSelectionOutput) ToGetLifecyclePolicyDocumentRuleSelectionPtrOutputWithContext(ctx context.Context) GetLifecyclePolicyDocumentRuleSelectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLifecyclePolicyDocumentRuleSelection) *GetLifecyclePolicyDocumentRuleSelection {
-		return &v
-	}).(GetLifecyclePolicyDocumentRuleSelectionPtrOutput)
 }
 
 // Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
@@ -2335,90 +2284,6 @@ func (o GetLifecyclePolicyDocumentRuleSelectionOutput) TagPrefixLists() pulumi.S
 // Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) TagStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) string { return v.TagStatus }).(pulumi.StringOutput)
-}
-
-type GetLifecyclePolicyDocumentRuleSelectionPtrOutput struct{ *pulumi.OutputState }
-
-func (GetLifecyclePolicyDocumentRuleSelectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetLifecyclePolicyDocumentRuleSelection)(nil)).Elem()
-}
-
-func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) ToGetLifecyclePolicyDocumentRuleSelectionPtrOutput() GetLifecyclePolicyDocumentRuleSelectionPtrOutput {
-	return o
-}
-
-func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) ToGetLifecyclePolicyDocumentRuleSelectionPtrOutputWithContext(ctx context.Context) GetLifecyclePolicyDocumentRuleSelectionPtrOutput {
-	return o
-}
-
-func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) Elem() GetLifecyclePolicyDocumentRuleSelectionOutput {
-	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) GetLifecyclePolicyDocumentRuleSelection {
-		if v != nil {
-			return *v
-		}
-		var ret GetLifecyclePolicyDocumentRuleSelection
-		return ret
-	}).(GetLifecyclePolicyDocumentRuleSelectionOutput)
-}
-
-// Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
-func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.CountNumber
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
-func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CountType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
-func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CountUnit
-	}).(pulumi.StringPtrOutput)
-}
-
-// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
-func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPatternLists() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TagPatternLists
-	}).(pulumi.StringArrayOutput)
-}
-
-// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPrefixLists() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TagPrefixLists
-	}).(pulumi.StringArrayOutput)
-}
-
-// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
-func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TagStatus
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetRepositoryCreationTemplateEncryptionConfiguration struct {
@@ -2980,7 +2845,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleActionInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleActionPtrInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleSelectionInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleSelectionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleSelectionPtrInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryCreationTemplateEncryptionConfigurationInput)(nil)).Elem(), GetRepositoryCreationTemplateEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryCreationTemplateEncryptionConfigurationArrayInput)(nil)).Elem(), GetRepositoryCreationTemplateEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterInput)(nil)).Elem(), GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs{})
@@ -3028,7 +2892,6 @@ func init() {
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleActionOutput{})
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleActionPtrOutput{})
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleSelectionOutput{})
-	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleSelectionPtrOutput{})
 	pulumi.RegisterOutputType(GetRepositoryCreationTemplateEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterOutput{})

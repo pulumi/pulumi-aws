@@ -77,7 +77,7 @@ export class EventAction extends pulumi.CustomResource {
      * Describes the action to take.
      * Described in `action` Configuration Block below.
      */
-    declare public readonly action: pulumi.Output<outputs.dataexchange.EventActionAction | undefined>;
+    declare public readonly action: pulumi.Output<outputs.dataexchange.EventActionAction>;
     /**
      * Amazon Resource Name (ARN) of the event action.
      */
@@ -90,7 +90,7 @@ export class EventAction extends pulumi.CustomResource {
      * Describes the event that triggers the `action`.
      * Described in `event` Configuration Block below.
      */
-    declare public readonly event: pulumi.Output<outputs.dataexchange.EventActionEvent | undefined>;
+    declare public readonly event: pulumi.Output<outputs.dataexchange.EventActionEvent>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -107,7 +107,7 @@ export class EventAction extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: EventActionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: EventActionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventActionArgs | EventActionState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -121,6 +121,12 @@ export class EventAction extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = state?.updatedAt;
         } else {
             const args = argsOrState as EventActionArgs | undefined;
+            if (args?.action === undefined && !opts.urn) {
+                throw new Error("Missing required property 'action'");
+            }
+            if (args?.event === undefined && !opts.urn) {
+                throw new Error("Missing required property 'event'");
+            }
             resourceInputs["action"] = args?.action;
             resourceInputs["event"] = args?.event;
             resourceInputs["region"] = args?.region;
@@ -173,12 +179,12 @@ export interface EventActionArgs {
      * Describes the action to take.
      * Described in `action` Configuration Block below.
      */
-    action?: pulumi.Input<inputs.dataexchange.EventActionAction>;
+    action: pulumi.Input<inputs.dataexchange.EventActionAction>;
     /**
      * Describes the event that triggers the `action`.
      * Described in `event` Configuration Block below.
      */
-    event?: pulumi.Input<inputs.dataexchange.EventActionEvent>;
+    event: pulumi.Input<inputs.dataexchange.EventActionEvent>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -22,40 +22,38 @@ __all__ = ['LifecyclePolicyArgs', 'LifecyclePolicy']
 class LifecyclePolicyArgs:
     def __init__(__self__, *,
                  execution_role: pulumi.Input[_builtins.str],
+                 policy_details: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]],
+                 resource_selection: pulumi.Input['LifecyclePolicyResourceSelectionArgs'],
                  resource_type: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_details: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_selection: Optional[pulumi.Input['LifecyclePolicyResourceSelectionArgs']] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
         :param pulumi.Input[_builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-        :param pulumi.Input[_builtins.str] resource_type: The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-        :param pulumi.Input[_builtins.str] description: description for the lifecycle policy.
-        :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]] policy_details: Configuration block with policy details. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LifecyclePolicyResourceSelectionArgs'] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] resource_type: The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
+        :param pulumi.Input[_builtins.str] description: description for the lifecycle policy.
+        :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy to create.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: The status of the lifecycle policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "execution_role", execution_role)
+        pulumi.set(__self__, "policy_details", policy_details)
+        pulumi.set(__self__, "resource_selection", resource_selection)
         pulumi.set(__self__, "resource_type", resource_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if policy_details is not None:
-            pulumi.set(__self__, "policy_details", policy_details)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if resource_selection is not None:
-            pulumi.set(__self__, "resource_selection", resource_selection)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -72,6 +70,32 @@ class LifecyclePolicyArgs:
     @execution_role.setter
     def execution_role(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "execution_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="policyDetails")
+    def policy_details(self) -> pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]]:
+        """
+        Configuration block with policy details. Detailed below.
+        """
+        return pulumi.get(self, "policy_details")
+
+    @policy_details.setter
+    def policy_details(self, value: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]]):
+        pulumi.set(self, "policy_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceSelection")
+    def resource_selection(self) -> pulumi.Input['LifecyclePolicyResourceSelectionArgs']:
+        """
+        Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "resource_selection")
+
+    @resource_selection.setter
+    def resource_selection(self, value: pulumi.Input['LifecyclePolicyResourceSelectionArgs']):
+        pulumi.set(self, "resource_selection", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
@@ -110,18 +134,6 @@ class LifecyclePolicyArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
-    @pulumi.getter(name="policyDetails")
-    def policy_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]]]:
-        """
-        Configuration block with policy details. Detailed below.
-        """
-        return pulumi.get(self, "policy_details")
-
-    @policy_details.setter
-    def policy_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]]]):
-        pulumi.set(self, "policy_details", value)
-
-    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -132,20 +144,6 @@ class LifecyclePolicyArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceSelection")
-    def resource_selection(self) -> Optional[pulumi.Input['LifecyclePolicyResourceSelectionArgs']]:
-        """
-        Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "resource_selection")
-
-    @resource_selection.setter
-    def resource_selection(self, value: Optional[pulumi.Input['LifecyclePolicyResourceSelectionArgs']]):
-        pulumi.set(self, "resource_selection", value)
 
     @_builtins.property
     @pulumi.getter
@@ -562,8 +560,12 @@ class LifecyclePolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'execution_role'")
             __props__.__dict__["execution_role"] = execution_role
             __props__.__dict__["name"] = name
+            if policy_details is None and not opts.urn:
+                raise TypeError("Missing required property 'policy_details'")
             __props__.__dict__["policy_details"] = policy_details
             __props__.__dict__["region"] = region
+            if resource_selection is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_selection'")
             __props__.__dict__["resource_selection"] = resource_selection
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
@@ -665,7 +667,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="policyDetails")
-    def policy_details(self) -> pulumi.Output[Optional[Sequence['outputs.LifecyclePolicyPolicyDetail']]]:
+    def policy_details(self) -> pulumi.Output[Sequence['outputs.LifecyclePolicyPolicyDetail']]:
         """
         Configuration block with policy details. Detailed below.
         """
@@ -681,7 +683,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="resourceSelection")
-    def resource_selection(self) -> pulumi.Output[Optional['outputs.LifecyclePolicyResourceSelection']]:
+    def resource_selection(self) -> pulumi.Output['outputs.LifecyclePolicyResourceSelection']:
         """
         Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 

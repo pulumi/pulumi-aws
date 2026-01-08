@@ -87,7 +87,7 @@ type ExpressGatewayService struct {
 	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
 	Memory                pulumi.StringOutput                                  `pulumi:"memory"`
 	NetworkConfigurations ExpressGatewayServiceNetworkConfigurationArrayOutput `pulumi:"networkConfigurations"`
-	PrimaryContainer      ExpressGatewayServicePrimaryContainerPtrOutput       `pulumi:"primaryContainer"`
+	PrimaryContainer      ExpressGatewayServicePrimaryContainerOutput          `pulumi:"primaryContainer"`
 	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
 	Region         pulumi.StringOutput                           `pulumi:"region"`
 	ScalingTargets ExpressGatewayServiceScalingTargetArrayOutput `pulumi:"scalingTargets"`
@@ -120,6 +120,9 @@ func NewExpressGatewayService(ctx *pulumi.Context,
 	}
 	if args.InfrastructureRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'InfrastructureRoleArn'")
+	}
+	if args.PrimaryContainer == nil {
+		return nil, errors.New("invalid value for required argument 'PrimaryContainer'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExpressGatewayService
@@ -245,7 +248,7 @@ type expressGatewayServiceArgs struct {
 	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
 	Memory                *string                                     `pulumi:"memory"`
 	NetworkConfigurations []ExpressGatewayServiceNetworkConfiguration `pulumi:"networkConfigurations"`
-	PrimaryContainer      *ExpressGatewayServicePrimaryContainer      `pulumi:"primaryContainer"`
+	PrimaryContainer      ExpressGatewayServicePrimaryContainer       `pulumi:"primaryContainer"`
 	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
 	Region         *string                              `pulumi:"region"`
 	ScalingTargets []ExpressGatewayServiceScalingTarget `pulumi:"scalingTargets"`
@@ -277,7 +280,7 @@ type ExpressGatewayServiceArgs struct {
 	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
 	Memory                pulumi.StringPtrInput
 	NetworkConfigurations ExpressGatewayServiceNetworkConfigurationArrayInput
-	PrimaryContainer      ExpressGatewayServicePrimaryContainerPtrInput
+	PrimaryContainer      ExpressGatewayServicePrimaryContainerInput
 	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
 	Region         pulumi.StringPtrInput
 	ScalingTargets ExpressGatewayServiceScalingTargetArrayInput
@@ -427,10 +430,8 @@ func (o ExpressGatewayServiceOutput) NetworkConfigurations() ExpressGatewayServi
 	}).(ExpressGatewayServiceNetworkConfigurationArrayOutput)
 }
 
-func (o ExpressGatewayServiceOutput) PrimaryContainer() ExpressGatewayServicePrimaryContainerPtrOutput {
-	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServicePrimaryContainerPtrOutput {
-		return v.PrimaryContainer
-	}).(ExpressGatewayServicePrimaryContainerPtrOutput)
+func (o ExpressGatewayServiceOutput) PrimaryContainer() ExpressGatewayServicePrimaryContainerOutput {
+	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServicePrimaryContainerOutput { return v.PrimaryContainer }).(ExpressGatewayServicePrimaryContainerOutput)
 }
 
 // AWS region where the service will be created. If not specified, the region configured in the provider will be used.

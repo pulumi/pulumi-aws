@@ -67,7 +67,7 @@ type RestoreTestingPlan struct {
 	// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionPtrOutput `pulumi:"recoveryPointSelection"`
+	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionOutput `pulumi:"recoveryPointSelection"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The schedule expression for the restore testing plan.
@@ -88,6 +88,9 @@ func NewRestoreTestingPlan(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.RecoveryPointSelection == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryPointSelection'")
+	}
 	if args.ScheduleExpression == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduleExpression'")
 	}
@@ -161,7 +164,7 @@ type restoreTestingPlanArgs struct {
 	// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
 	Name *string `pulumi:"name"`
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-	RecoveryPointSelection *RestoreTestingPlanRecoveryPointSelection `pulumi:"recoveryPointSelection"`
+	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelection `pulumi:"recoveryPointSelection"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The schedule expression for the restore testing plan.
@@ -178,7 +181,7 @@ type RestoreTestingPlanArgs struct {
 	// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
 	Name pulumi.StringPtrInput
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionPtrInput
+	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The schedule expression for the restore testing plan.
@@ -288,10 +291,10 @@ func (o RestoreTestingPlanOutput) Name() pulumi.StringOutput {
 }
 
 // Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-func (o RestoreTestingPlanOutput) RecoveryPointSelection() RestoreTestingPlanRecoveryPointSelectionPtrOutput {
-	return o.ApplyT(func(v *RestoreTestingPlan) RestoreTestingPlanRecoveryPointSelectionPtrOutput {
+func (o RestoreTestingPlanOutput) RecoveryPointSelection() RestoreTestingPlanRecoveryPointSelectionOutput {
+	return o.ApplyT(func(v *RestoreTestingPlan) RestoreTestingPlanRecoveryPointSelectionOutput {
 		return v.RecoveryPointSelection
-	}).(RestoreTestingPlanRecoveryPointSelectionPtrOutput)
+	}).(RestoreTestingPlanRecoveryPointSelectionOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

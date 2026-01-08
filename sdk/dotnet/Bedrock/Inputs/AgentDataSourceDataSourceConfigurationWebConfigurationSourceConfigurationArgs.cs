@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// The URL configuration of your web data source. See `UrlConfiguration` block for details.
         /// </summary>
-        [Input("urlConfiguration")]
-        public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs>? UrlConfiguration { get; set; }
+        [Input("urlConfiguration", required: true)]
+        public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs> UrlConfiguration { get; set; } = null!;
 
         public AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs()
         {

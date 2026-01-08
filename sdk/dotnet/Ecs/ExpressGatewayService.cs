@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Ecs
         public Output<ImmutableArray<Outputs.ExpressGatewayServiceNetworkConfiguration>> NetworkConfigurations { get; private set; } = null!;
 
         [Output("primaryContainer")]
-        public Output<Outputs.ExpressGatewayServicePrimaryContainer?> PrimaryContainer { get; private set; } = null!;
+        public Output<Outputs.ExpressGatewayServicePrimaryContainer> PrimaryContainer { get; private set; } = null!;
 
         /// <summary>
         /// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
@@ -262,8 +262,8 @@ namespace Pulumi.Aws.Ecs
             set => _networkConfigurations = value;
         }
 
-        [Input("primaryContainer")]
-        public Input<Inputs.ExpressGatewayServicePrimaryContainerArgs>? PrimaryContainer { get; set; }
+        [Input("primaryContainer", required: true)]
+        public Input<Inputs.ExpressGatewayServicePrimaryContainerArgs> PrimaryContainer { get; set; } = null!;
 
         /// <summary>
         /// AWS region where the service will be created. If not specified, the region configured in the provider will be used.

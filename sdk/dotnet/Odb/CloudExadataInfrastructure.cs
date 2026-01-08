@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Odb
         /// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
         /// </summary>
         [Output("maintenanceWindow")]
-        public Output<Outputs.CloudExadataInfrastructureMaintenanceWindow?> MaintenanceWindow { get; private set; } = null!;
+        public Output<Outputs.CloudExadataInfrastructureMaintenanceWindow> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// The total number of CPU cores available on the Exadata infrastructure.
@@ -328,8 +328,8 @@ namespace Pulumi.Aws.Odb
         /// <summary>
         /// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
         /// </summary>
-        [Input("maintenanceWindow")]
-        public Input<Inputs.CloudExadataInfrastructureMaintenanceWindowArgs>? MaintenanceWindow { get; set; }
+        [Input("maintenanceWindow", required: true)]
+        public Input<Inputs.CloudExadataInfrastructureMaintenanceWindowArgs> MaintenanceWindow { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -7,7 +7,6 @@ import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingConfirmationRe
 import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,15 +21,15 @@ public final class V2modelsIntentConfirmationSettingConfirmationResponseMessageG
      * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    @Import(name="message", required=true)
-    private Output<V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageArgs> message;
+    @Import(name="message")
+    private @Nullable Output<V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageArgs> message;
 
     /**
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    public Output<V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageArgs> message() {
-        return this.message;
+    public Optional<Output<V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageArgs>> message() {
+        return Optional.ofNullable(this.message);
     }
 
     /**
@@ -79,7 +78,7 @@ public final class V2modelsIntentConfirmationSettingConfirmationResponseMessageG
          * @return builder
          * 
          */
-        public Builder message(Output<V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageArgs> message) {
+        public Builder message(@Nullable Output<V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageArgs> message) {
             $.message = message;
             return this;
         }
@@ -126,9 +125,6 @@ public final class V2modelsIntentConfirmationSettingConfirmationResponseMessageG
         }
 
         public V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupArgs build() {
-            if ($.message == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupArgs", "message");
-            }
             return $;
         }
     }

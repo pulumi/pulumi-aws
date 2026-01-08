@@ -199,13 +199,13 @@ export class SessionLogger extends pulumi.CustomResource {
     /**
      * Event filter that determines which events are logged. See Event Filter below.
      */
-    declare public readonly eventFilter: pulumi.Output<outputs.workspacesweb.SessionLoggerEventFilter | undefined>;
+    declare public readonly eventFilter: pulumi.Output<outputs.workspacesweb.SessionLoggerEventFilter>;
     /**
      * Configuration block for specifying where logs are delivered. See Log Configuration below.
      *
      * The following arguments are optional:
      */
-    declare public readonly logConfiguration: pulumi.Output<outputs.workspacesweb.SessionLoggerLogConfiguration | undefined>;
+    declare public readonly logConfiguration: pulumi.Output<outputs.workspacesweb.SessionLoggerLogConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -230,7 +230,7 @@ export class SessionLogger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SessionLoggerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: SessionLoggerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SessionLoggerArgs | SessionLoggerState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -248,6 +248,12 @@ export class SessionLogger extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as SessionLoggerArgs | undefined;
+            if (args?.eventFilter === undefined && !opts.urn) {
+                throw new Error("Missing required property 'eventFilter'");
+            }
+            if (args?.logConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'logConfiguration'");
+            }
             resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
             resourceInputs["customerManagedKey"] = args?.customerManagedKey;
             resourceInputs["displayName"] = args?.displayName;
@@ -331,13 +337,13 @@ export interface SessionLoggerArgs {
     /**
      * Event filter that determines which events are logged. See Event Filter below.
      */
-    eventFilter?: pulumi.Input<inputs.workspacesweb.SessionLoggerEventFilter>;
+    eventFilter: pulumi.Input<inputs.workspacesweb.SessionLoggerEventFilter>;
     /**
      * Configuration block for specifying where logs are delivered. See Log Configuration below.
      *
      * The following arguments are optional:
      */
-    logConfiguration?: pulumi.Input<inputs.workspacesweb.SessionLoggerLogConfiguration>;
+    logConfiguration: pulumi.Input<inputs.workspacesweb.SessionLoggerLogConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

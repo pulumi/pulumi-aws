@@ -69,7 +69,7 @@ namespace Pulumi.Aws.SecurityLake
         /// Specify the configuration using which you want to create the subscriber notification..
         /// </summary>
         [Output("configuration")]
-        public Output<Outputs.SubscriberNotificationConfiguration?> Configuration { get; private set; } = null!;
+        public Output<Outputs.SubscriberNotificationConfiguration> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// (**Deprecated**) The subscriber endpoint to which exception messages are posted.
@@ -144,8 +144,8 @@ namespace Pulumi.Aws.SecurityLake
         /// <summary>
         /// Specify the configuration using which you want to create the subscriber notification..
         /// </summary>
-        [Input("configuration")]
-        public Input<Inputs.SubscriberNotificationConfigurationArgs>? Configuration { get; set; }
+        [Input("configuration", required: true)]
+        public Input<Inputs.SubscriberNotificationConfigurationArgs> Configuration { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -39,15 +39,15 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
      * Contains information about the destination of ingested data.
      * 
      */
-    @Import(name="destinationConfiguration")
-    private @Nullable Output<IngestionDestinationDestinationConfigurationArgs> destinationConfiguration;
+    @Import(name="destinationConfiguration", required=true)
+    private Output<IngestionDestinationDestinationConfigurationArgs> destinationConfiguration;
 
     /**
      * @return Contains information about the destination of ingested data.
      * 
      */
-    public Optional<Output<IngestionDestinationDestinationConfigurationArgs>> destinationConfiguration() {
-        return Optional.ofNullable(this.destinationConfiguration);
+    public Output<IngestionDestinationDestinationConfigurationArgs> destinationConfiguration() {
+        return this.destinationConfiguration;
     }
 
     /**
@@ -69,15 +69,15 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
      * Contains information about how ingested data is processed.
      * 
      */
-    @Import(name="processingConfiguration")
-    private @Nullable Output<IngestionDestinationProcessingConfigurationArgs> processingConfiguration;
+    @Import(name="processingConfiguration", required=true)
+    private Output<IngestionDestinationProcessingConfigurationArgs> processingConfiguration;
 
     /**
      * @return Contains information about how ingested data is processed.
      * 
      */
-    public Optional<Output<IngestionDestinationProcessingConfigurationArgs>> processingConfiguration() {
-        return Optional.ofNullable(this.processingConfiguration);
+    public Output<IngestionDestinationProcessingConfigurationArgs> processingConfiguration() {
+        return this.processingConfiguration;
     }
 
     /**
@@ -174,7 +174,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder destinationConfiguration(@Nullable Output<IngestionDestinationDestinationConfigurationArgs> destinationConfiguration) {
+        public Builder destinationConfiguration(Output<IngestionDestinationDestinationConfigurationArgs> destinationConfiguration) {
             $.destinationConfiguration = destinationConfiguration;
             return this;
         }
@@ -216,7 +216,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder processingConfiguration(@Nullable Output<IngestionDestinationProcessingConfigurationArgs> processingConfiguration) {
+        public Builder processingConfiguration(Output<IngestionDestinationProcessingConfigurationArgs> processingConfiguration) {
             $.processingConfiguration = processingConfiguration;
             return this;
         }
@@ -286,8 +286,14 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
             if ($.appBundleArn == null) {
                 throw new MissingRequiredPropertyException("IngestionDestinationArgs", "appBundleArn");
             }
+            if ($.destinationConfiguration == null) {
+                throw new MissingRequiredPropertyException("IngestionDestinationArgs", "destinationConfiguration");
+            }
             if ($.ingestionArn == null) {
                 throw new MissingRequiredPropertyException("IngestionDestinationArgs", "ingestionArn");
+            }
+            if ($.processingConfiguration == null) {
+                throw new MissingRequiredPropertyException("IngestionDestinationArgs", "processingConfiguration");
             }
             return $;
         }

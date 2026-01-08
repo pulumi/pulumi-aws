@@ -155,15 +155,15 @@ public class AppAuthorization extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="credential", refs={AppAuthorizationCredential.class}, tree="[0]")
-    private Output</* @Nullable */ AppAuthorizationCredential> credential;
+    private Output<AppAuthorizationCredential> credential;
 
     /**
      * @return Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
      * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
      * 
      */
-    public Output<Optional<AppAuthorizationCredential>> credential() {
-        return Codegen.optional(this.credential);
+    public Output<AppAuthorizationCredential> credential() {
+        return this.credential;
     }
     /**
      * The user persona of the app authorization.
@@ -210,14 +210,14 @@ public class AppAuthorization extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tenants", refs={List.class,AppAuthorizationTenant.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<AppAuthorizationTenant>> tenants;
+    private Output<List<AppAuthorizationTenant>> tenants;
 
     /**
      * @return Contains information about an application tenant, such as the application display name and identifier.
      * 
      */
-    public Output<Optional<List<AppAuthorizationTenant>>> tenants() {
-        return Codegen.optional(this.tenants);
+    public Output<List<AppAuthorizationTenant>> tenants() {
+        return this.tenants;
     }
     @Export(name="timeouts", refs={AppAuthorizationTimeouts.class}, tree="[0]")
     private Output</* @Nullable */ AppAuthorizationTimeouts> timeouts;

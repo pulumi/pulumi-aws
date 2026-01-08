@@ -40,15 +40,15 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      * 
      */
-    @Import(name="destination")
-    private @Nullable Output<ScraperDestinationArgs> destination;
+    @Import(name="destination", required=true)
+    private Output<ScraperDestinationArgs> destination;
 
     /**
      * @return Configuration block for the managed scraper to send metrics to. See `destination`.
      * 
      */
-    public Optional<Output<ScraperDestinationArgs>> destination() {
-        return Optional.ofNullable(this.destination);
+    public Output<ScraperDestinationArgs> destination() {
+        return this.destination;
     }
 
     /**
@@ -187,7 +187,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder destination(@Nullable Output<ScraperDestinationArgs> destination) {
+        public Builder destination(Output<ScraperDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
@@ -309,6 +309,9 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScraperArgs build() {
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("ScraperArgs", "destination");
+            }
             if ($.scrapeConfiguration == null) {
                 throw new MissingRequiredPropertyException("ScraperArgs", "scrapeConfiguration");
             }

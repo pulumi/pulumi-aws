@@ -96,7 +96,7 @@ export class Scope extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly targets: pulumi.Output<outputs.networkflowmonitor.ScopeTarget[] | undefined>;
+    declare public readonly targets: pulumi.Output<outputs.networkflowmonitor.ScopeTarget[]>;
     declare public readonly timeouts: pulumi.Output<outputs.networkflowmonitor.ScopeTimeouts | undefined>;
 
     /**
@@ -106,7 +106,7 @@ export class Scope extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ScopeArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ScopeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScopeArgs | ScopeState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -121,6 +121,9 @@ export class Scope extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as ScopeArgs | undefined;
+            if (args?.targets === undefined && !opts.urn) {
+                throw new Error("Missing required property 'targets'");
+            }
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["targets"] = args?.targets;
@@ -184,6 +187,6 @@ export interface ScopeArgs {
      *
      * The following arguments are optional:
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.ScopeTarget>[]>;
+    targets: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.ScopeTarget>[]>;
     timeouts?: pulumi.Input<inputs.networkflowmonitor.ScopeTimeouts>;
 }

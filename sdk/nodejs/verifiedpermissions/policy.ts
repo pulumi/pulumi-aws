@@ -71,7 +71,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The definition of the policy. See Definition below.
      */
-    declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition | undefined>;
+    declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition>;
     /**
      * The Policy ID of the policy.
      */
@@ -105,6 +105,9 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
+            if (args?.definition === undefined && !opts.urn) {
+                throw new Error("Missing required property 'definition'");
+            }
             if (args?.policyStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStoreId'");
             }
@@ -152,7 +155,7 @@ export interface PolicyArgs {
     /**
      * The definition of the policy. See Definition below.
      */
-    definition?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition>;
+    definition: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition>;
     /**
      * The Policy Store ID of the policy store.
      */

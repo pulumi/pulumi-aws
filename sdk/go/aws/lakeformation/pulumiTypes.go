@@ -23,7 +23,7 @@ type DataCellsFilterTableData struct {
 	// The name of the data cells filter.
 	Name string `pulumi:"name"`
 	// A PartiQL predicate. See Row Filter below for details.
-	RowFilter *DataCellsFilterTableDataRowFilter `pulumi:"rowFilter"`
+	RowFilter DataCellsFilterTableDataRowFilter `pulumi:"rowFilter"`
 	// The ID of the Data Catalog.
 	TableCatalogId string `pulumi:"tableCatalogId"`
 	// The name of the table.
@@ -53,7 +53,7 @@ type DataCellsFilterTableDataArgs struct {
 	// The name of the data cells filter.
 	Name pulumi.StringInput `pulumi:"name"`
 	// A PartiQL predicate. See Row Filter below for details.
-	RowFilter DataCellsFilterTableDataRowFilterPtrInput `pulumi:"rowFilter"`
+	RowFilter DataCellsFilterTableDataRowFilterInput `pulumi:"rowFilter"`
 	// The ID of the Data Catalog.
 	TableCatalogId pulumi.StringInput `pulumi:"tableCatalogId"`
 	// The name of the table.
@@ -160,8 +160,8 @@ func (o DataCellsFilterTableDataOutput) Name() pulumi.StringOutput {
 }
 
 // A PartiQL predicate. See Row Filter below for details.
-func (o DataCellsFilterTableDataOutput) RowFilter() DataCellsFilterTableDataRowFilterPtrOutput {
-	return o.ApplyT(func(v DataCellsFilterTableData) *DataCellsFilterTableDataRowFilter { return v.RowFilter }).(DataCellsFilterTableDataRowFilterPtrOutput)
+func (o DataCellsFilterTableDataOutput) RowFilter() DataCellsFilterTableDataRowFilterOutput {
+	return o.ApplyT(func(v DataCellsFilterTableData) DataCellsFilterTableDataRowFilter { return v.RowFilter }).(DataCellsFilterTableDataRowFilterOutput)
 }
 
 // The ID of the Data Catalog.
@@ -249,7 +249,7 @@ func (o DataCellsFilterTableDataPtrOutput) RowFilter() DataCellsFilterTableDataR
 		if v == nil {
 			return nil
 		}
-		return v.RowFilter
+		return &v.RowFilter
 	}).(DataCellsFilterTableDataRowFilterPtrOutput)
 }
 

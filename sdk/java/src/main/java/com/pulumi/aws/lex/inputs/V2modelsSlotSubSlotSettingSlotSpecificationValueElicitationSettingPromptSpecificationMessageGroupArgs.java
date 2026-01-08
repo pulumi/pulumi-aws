@@ -7,7 +7,6 @@ import com.pulumi.aws.lex.inputs.V2modelsSlotSubSlotSettingSlotSpecificationValu
 import com.pulumi.aws.lex.inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -23,16 +22,16 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
      * 
      */
-    @Import(name="message", required=true)
-    private Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs> message;
+    @Import(name="message")
+    private @Nullable Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs> message;
 
     /**
      * @return Configuration block for the primary message that Amazon Lex should send to the user.
      * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
      * 
      */
-    public Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs> message() {
-        return this.message;
+    public Optional<Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs>> message() {
+        return Optional.ofNullable(this.message);
     }
 
     /**
@@ -86,7 +85,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
          * @return builder
          * 
          */
-        public Builder message(Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs> message) {
+        public Builder message(@Nullable Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs> message) {
             $.message = message;
             return this;
         }
@@ -140,9 +139,6 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
         }
 
         public V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs build() {
-            if ($.message == null) {
-                throw new MissingRequiredPropertyException("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs", "message");
-            }
             return $;
         }
     }

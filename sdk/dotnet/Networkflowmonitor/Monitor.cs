@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Networkflowmonitor
 
     public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
-        [Input("localResources")]
+        [Input("localResources", required: true)]
         private InputList<Inputs.MonitorLocalResourceArgs>? _localResources;
 
         /// <summary>

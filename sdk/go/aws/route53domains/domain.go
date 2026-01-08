@@ -99,7 +99,7 @@ type Domain struct {
 	// Phone number for reporting abuse.
 	AbuseContactPhone pulumi.StringOutput `pulumi:"abuseContactPhone"`
 	// Details about the domain administrative contact. See Contact Blocks for more details.
-	AdminContact DomainAdminContactPtrOutput `pulumi:"adminContact"`
+	AdminContact DomainAdminContactOutput `pulumi:"adminContact"`
 	// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
 	AdminPrivacy pulumi.BoolOutput `pulumi:"adminPrivacy"`
 	// Whether the domain registration is set to renew automatically. Default: `true`.
@@ -121,7 +121,7 @@ type Domain struct {
 	// The list of nameservers for the domain. See `nameServer` Blocks for more details.
 	NameServers DomainNameServerArrayOutput `pulumi:"nameServers"`
 	// Details about the domain registrant. See Contact Blocks for more details.
-	RegistrantContact DomainRegistrantContactPtrOutput `pulumi:"registrantContact"`
+	RegistrantContact DomainRegistrantContactOutput `pulumi:"registrantContact"`
 	// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
 	RegistrantPrivacy pulumi.BoolOutput `pulumi:"registrantPrivacy"`
 	// Name of the registrar of the domain as identified in the registry.
@@ -135,7 +135,7 @@ type Domain struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Details about the domain technical contact. See Contact Blocks for more details.
-	TechContact DomainTechContactPtrOutput `pulumi:"techContact"`
+	TechContact DomainTechContactOutput `pulumi:"techContact"`
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
 	TechPrivacy pulumi.BoolOutput       `pulumi:"techPrivacy"`
 	Timeouts    DomainTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -156,8 +156,17 @@ func NewDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AdminContact == nil {
+		return nil, errors.New("invalid value for required argument 'AdminContact'")
+	}
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
+	}
+	if args.RegistrantContact == nil {
+		return nil, errors.New("invalid value for required argument 'RegistrantContact'")
+	}
+	if args.TechContact == nil {
+		return nil, errors.New("invalid value for required argument 'TechContact'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
@@ -299,7 +308,7 @@ func (DomainState) ElementType() reflect.Type {
 
 type domainArgs struct {
 	// Details about the domain administrative contact. See Contact Blocks for more details.
-	AdminContact *DomainAdminContact `pulumi:"adminContact"`
+	AdminContact DomainAdminContact `pulumi:"adminContact"`
 	// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
 	AdminPrivacy *bool `pulumi:"adminPrivacy"`
 	// Whether the domain registration is set to renew automatically. Default: `true`.
@@ -315,13 +324,13 @@ type domainArgs struct {
 	// The list of nameservers for the domain. See `nameServer` Blocks for more details.
 	NameServers []DomainNameServer `pulumi:"nameServers"`
 	// Details about the domain registrant. See Contact Blocks for more details.
-	RegistrantContact *DomainRegistrantContact `pulumi:"registrantContact"`
+	RegistrantContact DomainRegistrantContact `pulumi:"registrantContact"`
 	// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
 	RegistrantPrivacy *bool `pulumi:"registrantPrivacy"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Details about the domain technical contact. See Contact Blocks for more details.
-	TechContact *DomainTechContact `pulumi:"techContact"`
+	TechContact DomainTechContact `pulumi:"techContact"`
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
 	TechPrivacy *bool           `pulumi:"techPrivacy"`
 	Timeouts    *DomainTimeouts `pulumi:"timeouts"`
@@ -334,7 +343,7 @@ type domainArgs struct {
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// Details about the domain administrative contact. See Contact Blocks for more details.
-	AdminContact DomainAdminContactPtrInput
+	AdminContact DomainAdminContactInput
 	// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
 	AdminPrivacy pulumi.BoolPtrInput
 	// Whether the domain registration is set to renew automatically. Default: `true`.
@@ -350,13 +359,13 @@ type DomainArgs struct {
 	// The list of nameservers for the domain. See `nameServer` Blocks for more details.
 	NameServers DomainNameServerArrayInput
 	// Details about the domain registrant. See Contact Blocks for more details.
-	RegistrantContact DomainRegistrantContactPtrInput
+	RegistrantContact DomainRegistrantContactInput
 	// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
 	RegistrantPrivacy pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Details about the domain technical contact. See Contact Blocks for more details.
-	TechContact DomainTechContactPtrInput
+	TechContact DomainTechContactInput
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
 	TechPrivacy pulumi.BoolPtrInput
 	Timeouts    DomainTimeoutsPtrInput
@@ -464,8 +473,8 @@ func (o DomainOutput) AbuseContactPhone() pulumi.StringOutput {
 }
 
 // Details about the domain administrative contact. See Contact Blocks for more details.
-func (o DomainOutput) AdminContact() DomainAdminContactPtrOutput {
-	return o.ApplyT(func(v *Domain) DomainAdminContactPtrOutput { return v.AdminContact }).(DomainAdminContactPtrOutput)
+func (o DomainOutput) AdminContact() DomainAdminContactOutput {
+	return o.ApplyT(func(v *Domain) DomainAdminContactOutput { return v.AdminContact }).(DomainAdminContactOutput)
 }
 
 // Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
@@ -519,8 +528,8 @@ func (o DomainOutput) NameServers() DomainNameServerArrayOutput {
 }
 
 // Details about the domain registrant. See Contact Blocks for more details.
-func (o DomainOutput) RegistrantContact() DomainRegistrantContactPtrOutput {
-	return o.ApplyT(func(v *Domain) DomainRegistrantContactPtrOutput { return v.RegistrantContact }).(DomainRegistrantContactPtrOutput)
+func (o DomainOutput) RegistrantContact() DomainRegistrantContactOutput {
+	return o.ApplyT(func(v *Domain) DomainRegistrantContactOutput { return v.RegistrantContact }).(DomainRegistrantContactOutput)
 }
 
 // Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
@@ -554,8 +563,8 @@ func (o DomainOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Details about the domain technical contact. See Contact Blocks for more details.
-func (o DomainOutput) TechContact() DomainTechContactPtrOutput {
-	return o.ApplyT(func(v *Domain) DomainTechContactPtrOutput { return v.TechContact }).(DomainTechContactPtrOutput)
+func (o DomainOutput) TechContact() DomainTechContactOutput {
+	return o.ApplyT(func(v *Domain) DomainTechContactOutput { return v.TechContact }).(DomainTechContactOutput)
 }
 
 // Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.

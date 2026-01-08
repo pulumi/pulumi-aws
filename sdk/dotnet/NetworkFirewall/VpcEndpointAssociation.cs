@@ -76,7 +76,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
         /// </summary>
         [Output("subnetMapping")]
-        public Output<Outputs.VpcEndpointAssociationSubnetMapping?> SubnetMapping { get; private set; } = null!;
+        public Output<Outputs.VpcEndpointAssociationSubnetMapping> SubnetMapping { get; private set; } = null!;
 
         /// <summary>
         /// Map of resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -184,8 +184,8 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
         /// </summary>
-        [Input("subnetMapping")]
-        public Input<Inputs.VpcEndpointAssociationSubnetMappingArgs>? SubnetMapping { get; set; }
+        [Input("subnetMapping", required: true)]
+        public Input<Inputs.VpcEndpointAssociationSubnetMappingArgs> SubnetMapping { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

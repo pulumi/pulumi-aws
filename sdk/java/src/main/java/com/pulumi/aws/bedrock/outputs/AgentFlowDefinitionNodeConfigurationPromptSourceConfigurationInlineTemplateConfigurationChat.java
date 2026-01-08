@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.outputs.AgentFlowDefinitionNodeConfigurationPrompt
 import com.pulumi.aws.bedrock.outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem;
 import com.pulumi.aws.bedrock.outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,7 +21,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
      * @return A list of messages in the chat for the prompt. See Message for more information.
      * 
      */
-    private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> messages;
+    private List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> messages;
     /**
      * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
      * 
@@ -41,7 +42,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
      * 
      */
     public List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> messages() {
-        return this.messages == null ? List.of() : this.messages;
+        return this.messages;
     }
     /**
      * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
@@ -68,7 +69,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable> inputVariables;
-        private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> messages;
+        private List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> messages;
         private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem> systems;
         private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration toolConfiguration;
         public Builder() {}
@@ -90,8 +91,10 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             return inputVariables(List.of(inputVariables));
         }
         @CustomType.Setter
-        public Builder messages(@Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> messages) {
-
+        public Builder messages(List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> messages) {
+            if (messages == null) {
+              throw new MissingRequiredPropertyException("AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat", "messages");
+            }
             this.messages = messages;
             return this;
         }

@@ -2511,16 +2511,15 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration(
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 url_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration'] = None):
+                 url_configuration: 'outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration'):
         """
         :param 'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs' url_configuration: The URL configuration of your web data source. See `url_configuration` block for details.
         """
-        if url_configuration is not None:
-            pulumi.set(__self__, "url_configuration", url_configuration)
+        pulumi.set(__self__, "url_configuration", url_configuration)
 
     @_builtins.property
     @pulumi.getter(name="urlConfiguration")
-    def url_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration']:
+    def url_configuration(self) -> 'outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration':
         """
         The URL configuration of your web data source. See `url_configuration` block for details.
         """
@@ -2843,10 +2842,10 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "levelConfigurations":
-            suggest = "level_configurations"
-        elif key == "overlapTokens":
+        if key == "overlapTokens":
             suggest = "overlap_tokens"
+        elif key == "levelConfigurations":
+            suggest = "level_configurations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -2860,22 +2859,15 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 level_configurations: Sequence['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration'],
-                 overlap_tokens: _builtins.int):
+                 overlap_tokens: _builtins.int,
+                 level_configurations: Optional[Sequence['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration']] = None):
         """
-        :param Sequence['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs'] level_configurations: Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
         :param _builtins.int overlap_tokens: The number of tokens to repeat across chunks in the same layer.
+        :param Sequence['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs'] level_configurations: Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
         """
-        pulumi.set(__self__, "level_configurations", level_configurations)
         pulumi.set(__self__, "overlap_tokens", overlap_tokens)
-
-    @_builtins.property
-    @pulumi.getter(name="levelConfigurations")
-    def level_configurations(self) -> Sequence['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration']:
-        """
-        Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
-        """
-        return pulumi.get(self, "level_configurations")
+        if level_configurations is not None:
+            pulumi.set(__self__, "level_configurations", level_configurations)
 
     @_builtins.property
     @pulumi.getter(name="overlapTokens")
@@ -2884,6 +2876,14 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
         The number of tokens to repeat across chunks in the same layer.
         """
         return pulumi.get(self, "overlap_tokens")
+
+    @_builtins.property
+    @pulumi.getter(name="levelConfigurations")
+    def level_configurations(self) -> Optional[Sequence['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration']]:
+        """
+        Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+        """
+        return pulumi.get(self, "level_configurations")
 
 
 @pulumi.output_type
@@ -3803,12 +3803,13 @@ class AgentFlowDefinitionNodeConfigurationCollector(dict):
 @pulumi.output_type
 class AgentFlowDefinitionNodeConfigurationCondition(dict):
     def __init__(__self__, *,
-                 conditions: Sequence['outputs.AgentFlowDefinitionNodeConfigurationConditionCondition']):
-        pulumi.set(__self__, "conditions", conditions)
+                 conditions: Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationConditionCondition']] = None):
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Sequence['outputs.AgentFlowDefinitionNodeConfigurationConditionCondition']:
+    def conditions(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationConditionCondition']]:
         return pulumi.get(self, "conditions")
 
 
@@ -4536,8 +4537,8 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 messages: Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage'],
                  input_variables: Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable']] = None,
-                 messages: Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage']] = None,
                  systems: Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem']] = None,
                  tool_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration'] = None):
         """
@@ -4545,27 +4546,26 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
         :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs'] systems: A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
         :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs' tool_configuration: Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
         """
+        pulumi.set(__self__, "messages", messages)
         if input_variables is not None:
             pulumi.set(__self__, "input_variables", input_variables)
-        if messages is not None:
-            pulumi.set(__self__, "messages", messages)
         if systems is not None:
             pulumi.set(__self__, "systems", systems)
         if tool_configuration is not None:
             pulumi.set(__self__, "tool_configuration", tool_configuration)
 
     @_builtins.property
-    @pulumi.getter(name="inputVariables")
-    def input_variables(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable']]:
-        return pulumi.get(self, "input_variables")
-
-    @_builtins.property
     @pulumi.getter
-    def messages(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage']]:
+    def messages(self) -> Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage']:
         """
         A list of messages in the chat for the prompt. See Message for more information.
         """
         return pulumi.get(self, "messages")
+
+    @_builtins.property
+    @pulumi.getter(name="inputVariables")
+    def input_variables(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable']]:
+        return pulumi.get(self, "input_variables")
 
     @_builtins.property
     @pulumi.getter
@@ -5559,10 +5559,10 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
         suggest = None
         if key == "queryEngineConfiguration":
             suggest = "query_engine_configuration"
-        elif key == "queryGenerationConfiguration":
-            suggest = "query_generation_configuration"
         elif key == "storageConfiguration":
             suggest = "storage_configuration"
+        elif key == "queryGenerationConfiguration":
+            suggest = "query_generation_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -5576,28 +5576,34 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 query_engine_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration'] = None,
-                 query_generation_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration'] = None,
-                 storage_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration'] = None):
+                 query_engine_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration',
+                 storage_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration',
+                 query_generation_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration'] = None):
         """
         :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs' query_engine_configuration: Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs' query_generation_configuration: Configurations for generating queries. See `query_generation_configuration` block for details.
         :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs' storage_configuration: Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs' query_generation_configuration: Configurations for generating queries. See `query_generation_configuration` block for details.
         """
-        if query_engine_configuration is not None:
-            pulumi.set(__self__, "query_engine_configuration", query_engine_configuration)
+        pulumi.set(__self__, "query_engine_configuration", query_engine_configuration)
+        pulumi.set(__self__, "storage_configuration", storage_configuration)
         if query_generation_configuration is not None:
             pulumi.set(__self__, "query_generation_configuration", query_generation_configuration)
-        if storage_configuration is not None:
-            pulumi.set(__self__, "storage_configuration", storage_configuration)
 
     @_builtins.property
     @pulumi.getter(name="queryEngineConfiguration")
-    def query_engine_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration']:
+    def query_engine_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration':
         """
         Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
         """
         return pulumi.get(self, "query_engine_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration':
+        """
+        Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
+        """
+        return pulumi.get(self, "storage_configuration")
 
     @_builtins.property
     @pulumi.getter(name="queryGenerationConfiguration")
@@ -5606,14 +5612,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
         Configurations for generating queries. See `query_generation_configuration` block for details.
         """
         return pulumi.get(self, "query_generation_configuration")
-
-    @_builtins.property
-    @pulumi.getter(name="storageConfiguration")
-    def storage_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration']:
-        """
-        Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
-        """
-        return pulumi.get(self, "storage_configuration")
 
 
 @pulumi.output_type
@@ -5682,10 +5680,10 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clusterIdentifier":
-            suggest = "cluster_identifier"
-        elif key == "authConfiguration":
+        if key == "authConfiguration":
             suggest = "auth_configuration"
+        elif key == "clusterIdentifier":
+            suggest = "cluster_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -5699,15 +5697,22 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cluster_identifier: _builtins.str,
-                 auth_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration'] = None):
+                 auth_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration',
+                 cluster_identifier: _builtins.str):
         """
-        :param _builtins.str cluster_identifier: ID of the Amazon Redshift cluster.
         :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs' auth_configuration: Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
+        :param _builtins.str cluster_identifier: ID of the Amazon Redshift cluster.
         """
+        pulumi.set(__self__, "auth_configuration", auth_configuration)
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
-        if auth_configuration is not None:
-            pulumi.set(__self__, "auth_configuration", auth_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="authConfiguration")
+    def auth_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration':
+        """
+        Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
+        """
+        return pulumi.get(self, "auth_configuration")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
@@ -5716,14 +5721,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
         ID of the Amazon Redshift cluster.
         """
         return pulumi.get(self, "cluster_identifier")
-
-    @_builtins.property
-    @pulumi.getter(name="authConfiguration")
-    def auth_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration']:
-        """
-        Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
-        """
-        return pulumi.get(self, "auth_configuration")
 
 
 @pulumi.output_type
@@ -5792,10 +5789,10 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "workgroupArn":
-            suggest = "workgroup_arn"
-        elif key == "authConfiguration":
+        if key == "authConfiguration":
             suggest = "auth_configuration"
+        elif key == "workgroupArn":
+            suggest = "workgroup_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -5809,15 +5806,22 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 workgroup_arn: _builtins.str,
-                 auth_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration'] = None):
+                 auth_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration',
+                 workgroup_arn: _builtins.str):
         """
-        :param _builtins.str workgroup_arn: ARN of the Amazon Redshift workgroup.
         :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs' auth_configuration: Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
+        :param _builtins.str workgroup_arn: ARN of the Amazon Redshift workgroup.
         """
+        pulumi.set(__self__, "auth_configuration", auth_configuration)
         pulumi.set(__self__, "workgroup_arn", workgroup_arn)
-        if auth_configuration is not None:
-            pulumi.set(__self__, "auth_configuration", auth_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="authConfiguration")
+    def auth_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration':
+        """
+        Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
+        """
+        return pulumi.get(self, "auth_configuration")
 
     @_builtins.property
     @pulumi.getter(name="workgroupArn")
@@ -5826,14 +5830,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
         ARN of the Amazon Redshift workgroup.
         """
         return pulumi.get(self, "workgroup_arn")
-
-    @_builtins.property
-    @pulumi.getter(name="authConfiguration")
-    def auth_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration']:
-        """
-        Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
-        """
-        return pulumi.get(self, "auth_configuration")
 
 
 @pulumi.output_type
@@ -6422,16 +6418,15 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 storage_locations: Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation']] = None):
+                 storage_locations: Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation']):
         """
         :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs'] storage_locations: A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
         """
-        if storage_locations is not None:
-            pulumi.set(__self__, "storage_locations", storage_locations)
+        pulumi.set(__self__, "storage_locations", storage_locations)
 
     @_builtins.property
     @pulumi.getter(name="storageLocations")
-    def storage_locations(self) -> Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation']]:
+    def storage_locations(self) -> Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation']:
         """
         A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
         """
@@ -6659,12 +6654,12 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
             suggest = "credentials_secret_arn"
         elif key == "databaseName":
             suggest = "database_name"
+        elif key == "fieldMapping":
+            suggest = "field_mapping"
         elif key == "vectorIndexName":
             suggest = "vector_index_name"
         elif key == "endpointServiceName":
             suggest = "endpoint_service_name"
-        elif key == "fieldMapping":
-            suggest = "field_mapping"
         elif key == "textIndexName":
             suggest = "text_index_name"
 
@@ -6684,29 +6679,28 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
                  credentials_secret_arn: _builtins.str,
                  database_name: _builtins.str,
                  endpoint: _builtins.str,
+                 field_mapping: 'outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping',
                  vector_index_name: _builtins.str,
                  endpoint_service_name: Optional[_builtins.str] = None,
-                 field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping'] = None,
                  text_index_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str collection_name: The name of the collection in the MongoDB Atlas database.
         :param _builtins.str credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
         :param _builtins.str database_name: The name of the database in the MongoDB Atlas database.
         :param _builtins.str endpoint: The endpoint URL of the MongoDB Atlas database.
+        :param 'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs' field_mapping: Contains the names of the fields to which to map information about the vector store.
         :param _builtins.str vector_index_name: The name of the vector index.
         :param _builtins.str endpoint_service_name: The name of the service that hosts the MongoDB Atlas database.
-        :param 'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs' field_mapping: Contains the names of the fields to which to map information about the vector store.
         :param _builtins.str text_index_name: The name of the vector index.
         """
         pulumi.set(__self__, "collection_name", collection_name)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "vector_index_name", vector_index_name)
         if endpoint_service_name is not None:
             pulumi.set(__self__, "endpoint_service_name", endpoint_service_name)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
         if text_index_name is not None:
             pulumi.set(__self__, "text_index_name", text_index_name)
 
@@ -6743,6 +6737,14 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping':
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> _builtins.str:
         """
@@ -6757,14 +6759,6 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
         The name of the service that hosts the MongoDB Atlas database.
         """
         return pulumi.get(self, "endpoint_service_name")
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping']:
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
-        return pulumi.get(self, "field_mapping")
 
     @_builtins.property
     @pulumi.getter(name="textIndexName")
@@ -6841,10 +6835,10 @@ class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "graphArn":
-            suggest = "graph_arn"
-        elif key == "fieldMapping":
+        if key == "fieldMapping":
             suggest = "field_mapping"
+        elif key == "graphArn":
+            suggest = "graph_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -6858,15 +6852,22 @@ class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 graph_arn: _builtins.str,
-                 field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping'] = None):
+                 field_mapping: 'outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping',
+                 graph_arn: _builtins.str):
         """
-        :param _builtins.str graph_arn: ARN of the Neptune Analytics vector store.
         :param 'AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param _builtins.str graph_arn: ARN of the Neptune Analytics vector store.
         """
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "graph_arn", graph_arn)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping':
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
 
     @_builtins.property
     @pulumi.getter(name="graphArn")
@@ -6875,14 +6876,6 @@ class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration(dict):
         ARN of the Neptune Analytics vector store.
         """
         return pulumi.get(self, "graph_arn")
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping']:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
-        return pulumi.get(self, "field_mapping")
 
 
 @pulumi.output_type
@@ -6942,10 +6935,10 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
             suggest = "domain_arn"
         elif key == "domainEndpoint":
             suggest = "domain_endpoint"
-        elif key == "vectorIndexName":
-            suggest = "vector_index_name"
         elif key == "fieldMapping":
             suggest = "field_mapping"
+        elif key == "vectorIndexName":
+            suggest = "vector_index_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -6961,19 +6954,18 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
     def __init__(__self__, *,
                  domain_arn: _builtins.str,
                  domain_endpoint: _builtins.str,
-                 vector_index_name: _builtins.str,
-                 field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping'] = None):
+                 field_mapping: 'outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping',
+                 vector_index_name: _builtins.str):
         """
         :param _builtins.str domain_arn: ARN of the OpenSearch domain.
         :param _builtins.str domain_endpoint: Endpoint URL of the OpenSearch domain.
-        :param _builtins.str vector_index_name: Name of the vector store.
         :param 'AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param _builtins.str vector_index_name: Name of the vector store.
         """
         pulumi.set(__self__, "domain_arn", domain_arn)
         pulumi.set(__self__, "domain_endpoint", domain_endpoint)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "vector_index_name", vector_index_name)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
 
     @_builtins.property
     @pulumi.getter(name="domainArn")
@@ -6992,20 +6984,20 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
         return pulumi.get(self, "domain_endpoint")
 
     @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping':
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> _builtins.str:
         """
         Name of the vector store.
         """
         return pulumi.get(self, "vector_index_name")
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping']:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
-        return pulumi.get(self, "field_mapping")
 
 
 @pulumi.output_type
@@ -7076,10 +7068,10 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration(di
         suggest = None
         if key == "collectionArn":
             suggest = "collection_arn"
-        elif key == "vectorIndexName":
-            suggest = "vector_index_name"
         elif key == "fieldMapping":
             suggest = "field_mapping"
+        elif key == "vectorIndexName":
+            suggest = "vector_index_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -7094,17 +7086,16 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration(di
 
     def __init__(__self__, *,
                  collection_arn: _builtins.str,
-                 vector_index_name: _builtins.str,
-                 field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping'] = None):
+                 field_mapping: 'outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping',
+                 vector_index_name: _builtins.str):
         """
         :param _builtins.str collection_arn: ARN of the OpenSearch Service vector store.
-        :param _builtins.str vector_index_name: Name of the vector store.
         :param 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param _builtins.str vector_index_name: Name of the vector store.
         """
         pulumi.set(__self__, "collection_arn", collection_arn)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "vector_index_name", vector_index_name)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
 
     @_builtins.property
     @pulumi.getter(name="collectionArn")
@@ -7115,20 +7106,20 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration(di
         return pulumi.get(self, "collection_arn")
 
     @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping':
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> _builtins.str:
         """
         Name of the vector store.
         """
         return pulumi.get(self, "vector_index_name")
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping']:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
-        return pulumi.get(self, "field_mapping")
 
 
 @pulumi.output_type
@@ -7218,7 +7209,7 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration(dict):
     def __init__(__self__, *,
                  connection_string: _builtins.str,
                  credentials_secret_arn: _builtins.str,
-                 field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping'] = None,
+                 field_mapping: 'outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping',
                  namespace: Optional[_builtins.str] = None):
         """
         :param _builtins.str connection_string: Endpoint URL for your index management page.
@@ -7228,8 +7219,7 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration(dict):
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
 
@@ -7251,7 +7241,7 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping']:
+    def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping':
         """
         The names of the fields to which to map information about the vector store. This block supports the following arguments:
         """
@@ -7323,12 +7313,12 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfiguration(dict):
             suggest = "credentials_secret_arn"
         elif key == "databaseName":
             suggest = "database_name"
+        elif key == "fieldMapping":
+            suggest = "field_mapping"
         elif key == "resourceArn":
             suggest = "resource_arn"
         elif key == "tableName":
             suggest = "table_name"
-        elif key == "fieldMapping":
-            suggest = "field_mapping"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseStorageConfigurationRdsConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -7344,22 +7334,21 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfiguration(dict):
     def __init__(__self__, *,
                  credentials_secret_arn: _builtins.str,
                  database_name: _builtins.str,
+                 field_mapping: 'outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping',
                  resource_arn: _builtins.str,
-                 table_name: _builtins.str,
-                 field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping'] = None):
+                 table_name: _builtins.str):
         """
         :param _builtins.str credentials_secret_arn: ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
         :param _builtins.str database_name: Name of your Amazon RDS database.
+        :param 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs' field_mapping: Names of the fields to which to map information about the vector store. This block supports the following arguments:
         :param _builtins.str resource_arn: ARN of the vector store.
         :param _builtins.str table_name: Name of the table in the database.
-        :param 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs' field_mapping: Names of the fields to which to map information about the vector store. This block supports the following arguments:
         """
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "table_name", table_name)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
 
     @_builtins.property
     @pulumi.getter(name="credentialsSecretArn")
@@ -7378,6 +7367,14 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfiguration(dict):
         return pulumi.get(self, "database_name")
 
     @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping':
+        """
+        Names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> _builtins.str:
         """
@@ -7392,14 +7389,6 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfiguration(dict):
         Name of the table in the database.
         """
         return pulumi.get(self, "table_name")
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping']:
-        """
-        Names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
-        return pulumi.get(self, "field_mapping")
 
 
 @pulumi.output_type
@@ -7497,10 +7486,10 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration(di
         suggest = None
         if key == "credentialsSecretArn":
             suggest = "credentials_secret_arn"
-        elif key == "vectorIndexName":
-            suggest = "vector_index_name"
         elif key == "fieldMapping":
             suggest = "field_mapping"
+        elif key == "vectorIndexName":
+            suggest = "vector_index_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -7516,19 +7505,18 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration(di
     def __init__(__self__, *,
                  credentials_secret_arn: _builtins.str,
                  endpoint: _builtins.str,
-                 vector_index_name: _builtins.str,
-                 field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping'] = None):
+                 field_mapping: 'outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping',
+                 vector_index_name: _builtins.str):
         """
         :param _builtins.str credentials_secret_arn: ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
         :param _builtins.str endpoint: Endpoint URL of the Redis Enterprise Cloud database.
-        :param _builtins.str vector_index_name: Name of the vector index.
         :param 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param _builtins.str vector_index_name: Name of the vector index.
         """
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "vector_index_name", vector_index_name)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
 
     @_builtins.property
     @pulumi.getter(name="credentialsSecretArn")
@@ -7547,20 +7535,20 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration(di
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping':
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> _builtins.str:
         """
         Name of the vector index.
         """
         return pulumi.get(self, "vector_index_name")
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping']:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
-        return pulumi.get(self, "field_mapping")
 
 
 @pulumi.output_type
@@ -8093,8 +8081,8 @@ class AgentPromptVariantTemplateConfigurationChat(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 messages: Sequence['outputs.AgentPromptVariantTemplateConfigurationChatMessage'],
                  input_variables: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatInputVariable']] = None,
-                 messages: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatMessage']] = None,
                  systems: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatSystem']] = None,
                  tool_configuration: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfiguration'] = None):
         """
@@ -8102,27 +8090,26 @@ class AgentPromptVariantTemplateConfigurationChat(dict):
         :param Sequence['AgentPromptVariantTemplateConfigurationChatSystemArgs'] systems: A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
         :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs' tool_configuration: Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
         """
+        pulumi.set(__self__, "messages", messages)
         if input_variables is not None:
             pulumi.set(__self__, "input_variables", input_variables)
-        if messages is not None:
-            pulumi.set(__self__, "messages", messages)
         if systems is not None:
             pulumi.set(__self__, "systems", systems)
         if tool_configuration is not None:
             pulumi.set(__self__, "tool_configuration", tool_configuration)
 
     @_builtins.property
-    @pulumi.getter(name="inputVariables")
-    def input_variables(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatInputVariable']]:
-        return pulumi.get(self, "input_variables")
-
-    @_builtins.property
     @pulumi.getter
-    def messages(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatMessage']]:
+    def messages(self) -> Sequence['outputs.AgentPromptVariantTemplateConfigurationChatMessage']:
         """
         A list of messages in the chat for the prompt. See Message for more information.
         """
         return pulumi.get(self, "messages")
+
+    @_builtins.property
+    @pulumi.getter(name="inputVariables")
+    def input_variables(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatInputVariable']]:
+        return pulumi.get(self, "input_variables")
 
     @_builtins.property
     @pulumi.getter
@@ -10343,14 +10330,13 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambda(dict):
 
     def __init__(__self__, *,
                  lambda_arn: _builtins.str,
-                 tool_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema'] = None):
+                 tool_schema: 'outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema'):
         """
         :param _builtins.str lambda_arn: ARN of the Lambda function to invoke.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs' tool_schema: Schema definition for the tool. See `tool_schema` below.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
-        if tool_schema is not None:
-            pulumi.set(__self__, "tool_schema", tool_schema)
+        pulumi.set(__self__, "tool_schema", tool_schema)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
@@ -10362,7 +10348,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambda(dict):
 
     @_builtins.property
     @pulumi.getter(name="toolSchema")
-    def tool_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema']:
+    def tool_schema(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema':
         """
         Schema definition for the tool. See `tool_schema` below.
         """
@@ -10440,19 +10426,18 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload(
 
     def __init__(__self__, *,
                  description: _builtins.str,
+                 input_schema: 'outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema',
                  name: _builtins.str,
-                 input_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema'] = None,
                  output_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema'] = None):
         """
         :param _builtins.str description: Description of what the tool does.
-        :param _builtins.str name: Name of the tool.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs' input_schema: Schema for the tool's input. See `schema_definition` below.
+        :param _builtins.str name: Name of the tool.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs' output_schema: Schema for the tool's output. See `schema_definition` below.
         """
         pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "input_schema", input_schema)
         pulumi.set(__self__, "name", name)
-        if input_schema is not None:
-            pulumi.set(__self__, "input_schema", input_schema)
         if output_schema is not None:
             pulumi.set(__self__, "output_schema", output_schema)
 
@@ -10465,20 +10450,20 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload(
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema':
+        """
+        Schema for the tool's input. See `schema_definition` below.
+        """
+        return pulumi.get(self, "input_schema")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
         Name of the tool.
         """
         return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="inputSchema")
-    def input_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema']:
-        """
-        Schema for the tool's input. See `schema_definition` below.
-        """
-        return pulumi.get(self, "input_schema")
 
     @_builtins.property
     @pulumi.getter(name="outputSchema")
@@ -14058,16 +14043,15 @@ class CustomModelTrainingMetric(dict):
 @pulumi.output_type
 class CustomModelValidationDataConfig(dict):
     def __init__(__self__, *,
-                 validators: Optional[Sequence['outputs.CustomModelValidationDataConfigValidator']] = None):
+                 validators: Sequence['outputs.CustomModelValidationDataConfigValidator']):
         """
         :param Sequence['CustomModelValidationDataConfigValidatorArgs'] validators: Information about the validators.
         """
-        if validators is not None:
-            pulumi.set(__self__, "validators", validators)
+        pulumi.set(__self__, "validators", validators)
 
     @_builtins.property
     @pulumi.getter
-    def validators(self) -> Optional[Sequence['outputs.CustomModelValidationDataConfigValidator']]:
+    def validators(self) -> Sequence['outputs.CustomModelValidationDataConfigValidator']:
         """
         Information about the validators.
         """

@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Quicksight
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public KeyRegistration(string name, KeyRegistrationArgs? args = null, CustomResourceOptions? options = null)
+        public KeyRegistration(string name, KeyRegistrationArgs args, CustomResourceOptions? options = null)
             : base("aws:quicksight/keyRegistration:KeyRegistration", name, args ?? new KeyRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        [Input("keyRegistrations")]
+        [Input("keyRegistrations", required: true)]
         private InputList<Inputs.KeyRegistrationKeyRegistrationArgs>? _keyRegistrations;
 
         /// <summary>

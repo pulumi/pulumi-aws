@@ -4488,17 +4488,17 @@ class BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs:
 
 if not MYPY:
     class BucketMetadataConfigurationMetadataConfigurationArgsDict(TypedDict):
-        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationDestinationArgsDict']]]]
-        """
-        Destination information for the S3 Metadata configuration.
-        """
-        inventory_table_configuration: NotRequired[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgsDict']]
+        inventory_table_configuration: pulumi.Input['BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgsDict']
         """
         Inventory table configuration. See `inventory_table_configuration` Block for details.
         """
-        journal_table_configuration: NotRequired[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgsDict']]
+        journal_table_configuration: pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgsDict']
         """
         Journal table configuration. See `journal_table_configuration` Block for details.
+        """
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationDestinationArgsDict']]]]
+        """
+        Destination information for the S3 Metadata configuration.
         """
 elif False:
     BucketMetadataConfigurationMetadataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -4506,20 +4506,42 @@ elif False:
 @pulumi.input_type
 class BucketMetadataConfigurationMetadataConfigurationArgs:
     def __init__(__self__, *,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationDestinationArgs']]]] = None,
-                 inventory_table_configuration: Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs']] = None,
-                 journal_table_configuration: Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs']] = None):
+                 inventory_table_configuration: pulumi.Input['BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs'],
+                 journal_table_configuration: pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs'],
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationDestinationArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationDestinationArgs']]] destinations: Destination information for the S3 Metadata configuration.
         :param pulumi.Input['BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs'] inventory_table_configuration: Inventory table configuration. See `inventory_table_configuration` Block for details.
         :param pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs'] journal_table_configuration: Journal table configuration. See `journal_table_configuration` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationDestinationArgs']]] destinations: Destination information for the S3 Metadata configuration.
         """
+        pulumi.set(__self__, "inventory_table_configuration", inventory_table_configuration)
+        pulumi.set(__self__, "journal_table_configuration", journal_table_configuration)
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
-        if inventory_table_configuration is not None:
-            pulumi.set(__self__, "inventory_table_configuration", inventory_table_configuration)
-        if journal_table_configuration is not None:
-            pulumi.set(__self__, "journal_table_configuration", journal_table_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="inventoryTableConfiguration")
+    def inventory_table_configuration(self) -> pulumi.Input['BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs']:
+        """
+        Inventory table configuration. See `inventory_table_configuration` Block for details.
+        """
+        return pulumi.get(self, "inventory_table_configuration")
+
+    @inventory_table_configuration.setter
+    def inventory_table_configuration(self, value: pulumi.Input['BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs']):
+        pulumi.set(self, "inventory_table_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="journalTableConfiguration")
+    def journal_table_configuration(self) -> pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs']:
+        """
+        Journal table configuration. See `journal_table_configuration` Block for details.
+        """
+        return pulumi.get(self, "journal_table_configuration")
+
+    @journal_table_configuration.setter
+    def journal_table_configuration(self, value: pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs']):
+        pulumi.set(self, "journal_table_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -4532,30 +4554,6 @@ class BucketMetadataConfigurationMetadataConfigurationArgs:
     @destinations.setter
     def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationDestinationArgs']]]]):
         pulumi.set(self, "destinations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inventoryTableConfiguration")
-    def inventory_table_configuration(self) -> Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs']]:
-        """
-        Inventory table configuration. See `inventory_table_configuration` Block for details.
-        """
-        return pulumi.get(self, "inventory_table_configuration")
-
-    @inventory_table_configuration.setter
-    def inventory_table_configuration(self, value: Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs']]):
-        pulumi.set(self, "inventory_table_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="journalTableConfiguration")
-    def journal_table_configuration(self) -> Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs']]:
-        """
-        Journal table configuration. See `journal_table_configuration` Block for details.
-        """
-        return pulumi.get(self, "journal_table_configuration")
-
-    @journal_table_configuration.setter
-    def journal_table_configuration(self, value: Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs']]):
-        pulumi.set(self, "journal_table_configuration", value)
 
 
 if not MYPY:
@@ -4771,13 +4769,13 @@ class BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguratio
 
 if not MYPY:
     class BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgsDict(TypedDict):
+        record_expiration: pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgsDict']
+        """
+        Journal table record expiration settings. See `record_expiration` Block for details.
+        """
         encryption_configuration: NotRequired[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgsDict']]
         """
         Encryption configuration for the journal table. See `encryption_configuration` Block for details.
-        """
-        record_expiration: NotRequired[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgsDict']]
-        """
-        Journal table record expiration settings. See `record_expiration` Block for details.
         """
         table_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -4793,24 +4791,35 @@ elif False:
 @pulumi.input_type
 class BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs:
     def __init__(__self__, *,
+                 record_expiration: pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs'],
                  encryption_configuration: Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs']] = None,
-                 record_expiration: Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs']] = None,
                  table_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs'] encryption_configuration: Encryption configuration for the journal table. See `encryption_configuration` Block for details.
         :param pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs'] record_expiration: Journal table record expiration settings. See `record_expiration` Block for details.
+        :param pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs'] encryption_configuration: Encryption configuration for the journal table. See `encryption_configuration` Block for details.
         :param pulumi.Input[_builtins.str] table_arn: Journal table ARN.
         :param pulumi.Input[_builtins.str] table_name: Journal table name.
         """
+        pulumi.set(__self__, "record_expiration", record_expiration)
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
-        if record_expiration is not None:
-            pulumi.set(__self__, "record_expiration", record_expiration)
         if table_arn is not None:
             pulumi.set(__self__, "table_arn", table_arn)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpiration")
+    def record_expiration(self) -> pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs']:
+        """
+        Journal table record expiration settings. See `record_expiration` Block for details.
+        """
+        return pulumi.get(self, "record_expiration")
+
+    @record_expiration.setter
+    def record_expiration(self, value: pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs']):
+        pulumi.set(self, "record_expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
@@ -4823,18 +4832,6 @@ class BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationA
     @encryption_configuration.setter
     def encryption_configuration(self, value: Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="recordExpiration")
-    def record_expiration(self) -> Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs']]:
-        """
-        Journal table record expiration settings. See `record_expiration` Block for details.
-        """
-        return pulumi.get(self, "record_expiration")
-
-    @record_expiration.setter
-    def record_expiration(self, value: Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs']]):
-        pulumi.set(self, "record_expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="tableArn")

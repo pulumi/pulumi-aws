@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Shield
 
     public sealed class ProactiveEngagementArgs : global::Pulumi.ResourceArgs
     {
-        [Input("emergencyContacts")]
+        [Input("emergencyContacts", required: true)]
         private InputList<Inputs.ProactiveEngagementEmergencyContactArgs>? _emergencyContacts;
 
         /// <summary>

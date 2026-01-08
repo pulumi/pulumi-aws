@@ -388,7 +388,7 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
 
 if not MYPY:
     class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict(TypedDict):
-        oidc_jwt_configuration: NotRequired[pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgsDict']]
+        oidc_jwt_configuration: pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgsDict']
         """
         A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
         """
@@ -398,23 +398,22 @@ elif False:
 @pulumi.input_type
 class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs:
     def __init__(__self__, *,
-                 oidc_jwt_configuration: Optional[pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs']] = None):
+                 oidc_jwt_configuration: pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs']):
         """
         :param pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs'] oidc_jwt_configuration: A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
         """
-        if oidc_jwt_configuration is not None:
-            pulumi.set(__self__, "oidc_jwt_configuration", oidc_jwt_configuration)
+        pulumi.set(__self__, "oidc_jwt_configuration", oidc_jwt_configuration)
 
     @_builtins.property
     @pulumi.getter(name="oidcJwtConfiguration")
-    def oidc_jwt_configuration(self) -> Optional[pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs']]:
+    def oidc_jwt_configuration(self) -> pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs']:
         """
         A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
         """
         return pulumi.get(self, "oidc_jwt_configuration")
 
     @oidc_jwt_configuration.setter
-    def oidc_jwt_configuration(self, value: Optional[pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs']]):
+    def oidc_jwt_configuration(self, value: pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs']):
         pulumi.set(self, "oidc_jwt_configuration", value)
 
 

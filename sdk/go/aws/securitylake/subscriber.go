@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -136,7 +137,7 @@ type Subscriber struct {
 	// The subscriber endpoint to which exception messages are posted.
 	SubscriberEndpoint pulumi.StringOutput `pulumi:"subscriberEndpoint"`
 	// The AWS identity used to access your data. See `subscriberIdentity` Block below.
-	SubscriberIdentity SubscriberSubscriberIdentityPtrOutput `pulumi:"subscriberIdentity"`
+	SubscriberIdentity SubscriberSubscriberIdentityOutput `pulumi:"subscriberIdentity"`
 	// The name of your Security Lake subscriber account.
 	SubscriberName pulumi.StringPtrOutput `pulumi:"subscriberName"`
 	// The subscriber status of the Amazon Security Lake subscriber account.
@@ -152,9 +153,15 @@ type Subscriber struct {
 func NewSubscriber(ctx *pulumi.Context,
 	name string, args *SubscriberArgs, opts ...pulumi.ResourceOption) (*Subscriber, error) {
 	if args == nil {
-		args = &SubscriberArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Sources == nil {
+		return nil, errors.New("invalid value for required argument 'Sources'")
+	}
+	if args.SubscriberIdentity == nil {
+		return nil, errors.New("invalid value for required argument 'SubscriberIdentity'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Subscriber
 	err := ctx.RegisterResource("aws:securitylake/subscriber:Subscriber", name, args, &resource, opts...)
@@ -259,7 +266,7 @@ type subscriberArgs struct {
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription *string `pulumi:"subscriberDescription"`
 	// The AWS identity used to access your data. See `subscriberIdentity` Block below.
-	SubscriberIdentity *SubscriberSubscriberIdentity `pulumi:"subscriberIdentity"`
+	SubscriberIdentity SubscriberSubscriberIdentity `pulumi:"subscriberIdentity"`
 	// The name of your Security Lake subscriber account.
 	SubscriberName *string `pulumi:"subscriberName"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -278,7 +285,7 @@ type SubscriberArgs struct {
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription pulumi.StringPtrInput
 	// The AWS identity used to access your data. See `subscriberIdentity` Block below.
-	SubscriberIdentity SubscriberSubscriberIdentityPtrInput
+	SubscriberIdentity SubscriberSubscriberIdentityInput
 	// The name of your Security Lake subscriber account.
 	SubscriberName pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -424,8 +431,8 @@ func (o SubscriberOutput) SubscriberEndpoint() pulumi.StringOutput {
 }
 
 // The AWS identity used to access your data. See `subscriberIdentity` Block below.
-func (o SubscriberOutput) SubscriberIdentity() SubscriberSubscriberIdentityPtrOutput {
-	return o.ApplyT(func(v *Subscriber) SubscriberSubscriberIdentityPtrOutput { return v.SubscriberIdentity }).(SubscriberSubscriberIdentityPtrOutput)
+func (o SubscriberOutput) SubscriberIdentity() SubscriberSubscriberIdentityOutput {
+	return o.ApplyT(func(v *Subscriber) SubscriberSubscriberIdentityOutput { return v.SubscriberIdentity }).(SubscriberSubscriberIdentityOutput)
 }
 
 // The name of your Security Lake subscriber account.

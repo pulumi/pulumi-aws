@@ -22,27 +22,28 @@ __all__ = ['AssessmentArgs', 'Assessment']
 class AssessmentArgs:
     def __init__(__self__, *,
                  framework_id: pulumi.Input[_builtins.str],
+                 roles: pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]],
                  assessment_reports_destination: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]] = None,
                  scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
         :param pulumi.Input[_builtins.str] framework_id: Unique identifier of the framework the assessment will be created from.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: List of roles for the assessment. See `roles` below.
         :param pulumi.Input['AssessmentAssessmentReportsDestinationArgs'] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
         :param pulumi.Input[_builtins.str] description: Description of the assessment.
         :param pulumi.Input[_builtins.str] name: Name of the assessment.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: List of roles for the assessment. See `roles` below.
         :param pulumi.Input['AssessmentScopeArgs'] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "framework_id", framework_id)
+        pulumi.set(__self__, "roles", roles)
         if assessment_reports_destination is not None:
             pulumi.set(__self__, "assessment_reports_destination", assessment_reports_destination)
         if description is not None:
@@ -51,8 +52,6 @@ class AssessmentArgs:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if tags is not None:
@@ -69,6 +68,18 @@ class AssessmentArgs:
     @framework_id.setter
     def framework_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "framework_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def roles(self) -> pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]:
+        """
+        List of roles for the assessment. See `roles` below.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]):
+        pulumi.set(self, "roles", value)
 
     @_builtins.property
     @pulumi.getter(name="assessmentReportsDestination")
@@ -117,18 +128,6 @@ class AssessmentArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]]:
-        """
-        List of roles for the assessment. See `roles` below.
-        """
-        return pulumi.get(self, "roles")
-
-    @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]]):
-        pulumi.set(self, "roles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -510,6 +509,8 @@ class Assessment(pulumi.CustomResource):
             __props__.__dict__["framework_id"] = framework_id
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
+            if roles is None and not opts.urn:
+                raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
@@ -628,7 +629,7 @@ class Assessment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> pulumi.Output[Optional[Sequence['outputs.AssessmentRole']]]:
+    def roles(self) -> pulumi.Output[Sequence['outputs.AssessmentRole']]:
         """
         List of roles for the assessment. See `roles` below.
         """

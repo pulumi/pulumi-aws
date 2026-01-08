@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `DefaultBranch`.
         /// </summary>
-        public readonly Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch DefaultBranch;
+        public readonly Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch? DefaultBranch;
 
         [OutputConstructor]
         private V2modelsIntentInitialResponseSettingConditional(
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Lex.Outputs
 
             ImmutableArray<Outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranch> conditionalBranches,
 
-            Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch defaultBranch)
+            Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch? defaultBranch)
         {
             Active = active;
             ConditionalBranches = conditionalBranches;

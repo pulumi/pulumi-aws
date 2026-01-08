@@ -21,15 +21,15 @@ public final class IdentitySourceArgs extends com.pulumi.resources.ResourceArgs 
      * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      * 
      */
-    @Import(name="configuration")
-    private @Nullable Output<IdentitySourceConfigurationArgs> configuration;
+    @Import(name="configuration", required=true)
+    private Output<IdentitySourceConfigurationArgs> configuration;
 
     /**
      * @return Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      * 
      */
-    public Optional<Output<IdentitySourceConfigurationArgs>> configuration() {
-        return Optional.ofNullable(this.configuration);
+    public Output<IdentitySourceConfigurationArgs> configuration() {
+        return this.configuration;
     }
 
     /**
@@ -110,7 +110,7 @@ public final class IdentitySourceArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder configuration(@Nullable Output<IdentitySourceConfigurationArgs> configuration) {
+        public Builder configuration(Output<IdentitySourceConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
@@ -189,6 +189,9 @@ public final class IdentitySourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public IdentitySourceArgs build() {
+            if ($.configuration == null) {
+                throw new MissingRequiredPropertyException("IdentitySourceArgs", "configuration");
+            }
             if ($.policyStoreId == null) {
                 throw new MissingRequiredPropertyException("IdentitySourceArgs", "policyStoreId");
             }

@@ -74,6 +74,8 @@ class DataCellsFilterTableData(dict):
         suggest = None
         if key == "databaseName":
             suggest = "database_name"
+        elif key == "rowFilter":
+            suggest = "row_filter"
         elif key == "tableCatalogId":
             suggest = "table_catalog_id"
         elif key == "tableName":
@@ -82,8 +84,6 @@ class DataCellsFilterTableData(dict):
             suggest = "column_names"
         elif key == "columnWildcard":
             suggest = "column_wildcard"
-        elif key == "rowFilter":
-            suggest = "row_filter"
         elif key == "versionId":
             suggest = "version_id"
 
@@ -101,32 +101,31 @@ class DataCellsFilterTableData(dict):
     def __init__(__self__, *,
                  database_name: _builtins.str,
                  name: _builtins.str,
+                 row_filter: 'outputs.DataCellsFilterTableDataRowFilter',
                  table_catalog_id: _builtins.str,
                  table_name: _builtins.str,
                  column_names: Optional[Sequence[_builtins.str]] = None,
                  column_wildcard: Optional['outputs.DataCellsFilterTableDataColumnWildcard'] = None,
-                 row_filter: Optional['outputs.DataCellsFilterTableDataRowFilter'] = None,
                  version_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str database_name: The name of the database.
         :param _builtins.str name: The name of the data cells filter.
+        :param 'DataCellsFilterTableDataRowFilterArgs' row_filter: A PartiQL predicate. See Row Filter below for details.
         :param _builtins.str table_catalog_id: The ID of the Data Catalog.
         :param _builtins.str table_name: The name of the table.
         :param Sequence[_builtins.str] column_names: A list of column names and/or nested column attributes.
         :param 'DataCellsFilterTableDataColumnWildcardArgs' column_wildcard: A wildcard with exclusions. See Column Wildcard below for details.
-        :param 'DataCellsFilterTableDataRowFilterArgs' row_filter: A PartiQL predicate. See Row Filter below for details.
         :param _builtins.str version_id: ID of the data cells filter version.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "row_filter", row_filter)
         pulumi.set(__self__, "table_catalog_id", table_catalog_id)
         pulumi.set(__self__, "table_name", table_name)
         if column_names is not None:
             pulumi.set(__self__, "column_names", column_names)
         if column_wildcard is not None:
             pulumi.set(__self__, "column_wildcard", column_wildcard)
-        if row_filter is not None:
-            pulumi.set(__self__, "row_filter", row_filter)
         if version_id is not None:
             pulumi.set(__self__, "version_id", version_id)
 
@@ -145,6 +144,14 @@ class DataCellsFilterTableData(dict):
         The name of the data cells filter.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="rowFilter")
+    def row_filter(self) -> 'outputs.DataCellsFilterTableDataRowFilter':
+        """
+        A PartiQL predicate. See Row Filter below for details.
+        """
+        return pulumi.get(self, "row_filter")
 
     @_builtins.property
     @pulumi.getter(name="tableCatalogId")
@@ -177,14 +184,6 @@ class DataCellsFilterTableData(dict):
         A wildcard with exclusions. See Column Wildcard below for details.
         """
         return pulumi.get(self, "column_wildcard")
-
-    @_builtins.property
-    @pulumi.getter(name="rowFilter")
-    def row_filter(self) -> Optional['outputs.DataCellsFilterTableDataRowFilter']:
-        """
-        A PartiQL predicate. See Row Filter below for details.
-        """
-        return pulumi.get(self, "row_filter")
 
     @_builtins.property
     @pulumi.getter(name="versionId")

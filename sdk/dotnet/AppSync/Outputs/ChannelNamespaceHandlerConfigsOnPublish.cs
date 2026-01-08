@@ -20,13 +20,13 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// <summary>
         /// Integration data source configuration for the handler. See Integration below.
         /// </summary>
-        public readonly Outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration? Integration;
+        public readonly Outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration Integration;
 
         [OutputConstructor]
         private ChannelNamespaceHandlerConfigsOnPublish(
             string behavior,
 
-            Outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration? integration)
+            Outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration integration)
         {
             Behavior = behavior;
             Integration = integration;

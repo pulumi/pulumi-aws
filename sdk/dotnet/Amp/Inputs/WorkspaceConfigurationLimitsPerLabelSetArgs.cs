@@ -27,8 +27,8 @@ namespace Pulumi.Aws.Amp.Inputs
         /// <summary>
         /// Configuration block for the limits to apply to the specified label set. Detailed below.
         /// </summary>
-        [Input("limits")]
-        public Input<Inputs.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs>? Limits { get; set; }
+        [Input("limits", required: true)]
+        public Input<Inputs.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs> Limits { get; set; } = null!;
 
         public WorkspaceConfigurationLimitsPerLabelSetArgs()
         {

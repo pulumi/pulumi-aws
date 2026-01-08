@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification {
     private @Nullable Boolean allowInterrupt;
-    private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes;
+    private @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes;
     private @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification audioAndDtmfInputSpecification;
     private String mapBlockKey;
     private @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification textInputSpecification;
@@ -26,8 +26,8 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
     public Optional<Boolean> allowInterrupt() {
         return Optional.ofNullable(this.allowInterrupt);
     }
-    public V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes() {
-        return this.allowedInputTypes;
+    public Optional<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes> allowedInputTypes() {
+        return Optional.ofNullable(this.allowedInputTypes);
     }
     public Optional<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification> audioAndDtmfInputSpecification() {
         return Optional.ofNullable(this.audioAndDtmfInputSpecification);
@@ -49,7 +49,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowInterrupt;
-        private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes;
+        private @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes;
         private @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification audioAndDtmfInputSpecification;
         private String mapBlockKey;
         private @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification textInputSpecification;
@@ -70,10 +70,8 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
             return this;
         }
         @CustomType.Setter
-        public Builder allowedInputTypes(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes) {
-            if (allowedInputTypes == null) {
-              throw new MissingRequiredPropertyException("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification", "allowedInputTypes");
-            }
+        public Builder allowedInputTypes(@Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes) {
+
             this.allowedInputTypes = allowedInputTypes;
             return this;
         }

@@ -5,9 +5,9 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSettingDefaultValueSpecification {
@@ -17,7 +17,7 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecification 
      * See the `defaultValueList` argument reference below.
      * 
      */
-    private @Nullable List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists;
+    private List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists;
 
     private V2modelsSlotValueElicitationSettingDefaultValueSpecification() {}
     /**
@@ -27,7 +27,7 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecification 
      * 
      */
     public List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists() {
-        return this.defaultValueLists == null ? List.of() : this.defaultValueLists;
+        return this.defaultValueLists;
     }
 
     public static Builder builder() {
@@ -39,7 +39,7 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecification 
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists;
+        private List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists;
         public Builder() {}
         public Builder(V2modelsSlotValueElicitationSettingDefaultValueSpecification defaults) {
     	      Objects.requireNonNull(defaults);
@@ -47,8 +47,10 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecification 
         }
 
         @CustomType.Setter
-        public Builder defaultValueLists(@Nullable List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists) {
-
+        public Builder defaultValueLists(List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists) {
+            if (defaultValueLists == null) {
+              throw new MissingRequiredPropertyException("V2modelsSlotValueElicitationSettingDefaultValueSpecification", "defaultValueLists");
+            }
             this.defaultValueLists = defaultValueLists;
             return this;
         }

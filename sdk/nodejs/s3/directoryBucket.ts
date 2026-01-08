@@ -96,7 +96,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
     /**
      * Bucket location. See Location below for more details.
      */
-    declare public readonly location: pulumi.Output<outputs.s3.DirectoryBucketLocation | undefined>;
+    declare public readonly location: pulumi.Output<outputs.s3.DirectoryBucketLocation>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -140,6 +140,9 @@ export class DirectoryBucket extends pulumi.CustomResource {
             const args = argsOrState as DirectoryBucketArgs | undefined;
             if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
+            }
+            if (args?.location === undefined && !opts.urn) {
+                throw new Error("Missing required property 'location'");
             }
             resourceInputs["bucket"] = args?.bucket;
             resourceInputs["dataRedundancy"] = args?.dataRedundancy;
@@ -217,7 +220,7 @@ export interface DirectoryBucketArgs {
     /**
      * Bucket location. See Location below for more details.
      */
-    location?: pulumi.Input<inputs.s3.DirectoryBucketLocation>;
+    location: pulumi.Input<inputs.s3.DirectoryBucketLocation>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

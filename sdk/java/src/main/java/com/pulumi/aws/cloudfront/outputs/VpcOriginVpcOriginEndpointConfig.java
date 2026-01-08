@@ -9,8 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class VpcOriginVpcOriginEndpointConfig {
@@ -43,7 +41,7 @@ public final class VpcOriginVpcOriginEndpointConfig {
      * @return A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
      * 
      */
-    private @Nullable VpcOriginVpcOriginEndpointConfigOriginSslProtocols originSslProtocols;
+    private VpcOriginVpcOriginEndpointConfigOriginSslProtocols originSslProtocols;
 
     private VpcOriginVpcOriginEndpointConfig() {}
     /**
@@ -85,8 +83,8 @@ public final class VpcOriginVpcOriginEndpointConfig {
      * @return A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
      * 
      */
-    public Optional<VpcOriginVpcOriginEndpointConfigOriginSslProtocols> originSslProtocols() {
-        return Optional.ofNullable(this.originSslProtocols);
+    public VpcOriginVpcOriginEndpointConfigOriginSslProtocols originSslProtocols() {
+        return this.originSslProtocols;
     }
 
     public static Builder builder() {
@@ -103,7 +101,7 @@ public final class VpcOriginVpcOriginEndpointConfig {
         private Integer httpsPort;
         private String name;
         private String originProtocolPolicy;
-        private @Nullable VpcOriginVpcOriginEndpointConfigOriginSslProtocols originSslProtocols;
+        private VpcOriginVpcOriginEndpointConfigOriginSslProtocols originSslProtocols;
         public Builder() {}
         public Builder(VpcOriginVpcOriginEndpointConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -156,8 +154,10 @@ public final class VpcOriginVpcOriginEndpointConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder originSslProtocols(@Nullable VpcOriginVpcOriginEndpointConfigOriginSslProtocols originSslProtocols) {
-
+        public Builder originSslProtocols(VpcOriginVpcOriginEndpointConfigOriginSslProtocols originSslProtocols) {
+            if (originSslProtocols == null) {
+              throw new MissingRequiredPropertyException("VpcOriginVpcOriginEndpointConfig", "originSslProtocols");
+            }
             this.originSslProtocols = originSslProtocols;
             return this;
         }

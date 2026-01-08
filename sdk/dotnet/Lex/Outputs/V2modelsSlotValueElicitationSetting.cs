@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// Prompt that Amazon Lex uses to elicit the slot value from the user.
         /// See the `aws.lex.V2modelsIntent` resource for details on the `PromptSpecification` argument reference - they are identical.
         /// </summary>
-        public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecification PromptSpecification;
+        public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecification? PromptSpecification;
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingSampleUtterance> SampleUtterances;
         /// <summary>
         /// Whether the slot is required or optional. Valid values are `Required` or `Optional`.
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Lex.Outputs
         private V2modelsSlotValueElicitationSetting(
             ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecification> defaultValueSpecifications,
 
-            Outputs.V2modelsSlotValueElicitationSettingPromptSpecification promptSpecification,
+            Outputs.V2modelsSlotValueElicitationSettingPromptSpecification? promptSpecification,
 
             ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingSampleUtterance> sampleUtterances,
 

@@ -6,6 +6,7 @@ package com.pulumi.aws.appsync;
 import com.pulumi.aws.appsync.inputs.ApiEventConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -21,15 +22,15 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
      * Configuration for the Event API. See Event Config below.
      * 
      */
-    @Import(name="eventConfig")
-    private @Nullable Output<ApiEventConfigArgs> eventConfig;
+    @Import(name="eventConfig", required=true)
+    private Output<ApiEventConfigArgs> eventConfig;
 
     /**
      * @return Configuration for the Event API. See Event Config below.
      * 
      */
-    public Optional<Output<ApiEventConfigArgs>> eventConfig() {
-        return Optional.ofNullable(this.eventConfig);
+    public Output<ApiEventConfigArgs> eventConfig() {
+        return this.eventConfig;
     }
 
     /**
@@ -130,7 +131,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder eventConfig(@Nullable Output<ApiEventConfigArgs> eventConfig) {
+        public Builder eventConfig(Output<ApiEventConfigArgs> eventConfig) {
             $.eventConfig = eventConfig;
             return this;
         }
@@ -234,6 +235,9 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApiArgs build() {
+            if ($.eventConfig == null) {
+                throw new MissingRequiredPropertyException("ApiArgs", "eventConfig");
+            }
             return $;
         }
     }

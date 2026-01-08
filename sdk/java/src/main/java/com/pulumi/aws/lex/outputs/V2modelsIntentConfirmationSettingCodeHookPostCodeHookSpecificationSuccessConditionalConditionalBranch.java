@@ -19,7 +19,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition condition;
+    private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition condition;
     /**
      * @return Name of the branch.
      * 
@@ -29,7 +29,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep nextStep;
+    private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep nextStep;
     /**
      * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
      * 
@@ -41,8 +41,8 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition condition() {
-        return this.condition;
+    public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition> condition() {
+        return Optional.ofNullable(this.condition);
     }
     /**
      * @return Name of the branch.
@@ -55,8 +55,8 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep nextStep() {
-        return this.nextStep;
+    public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep> nextStep() {
+        return Optional.ofNullable(this.nextStep);
     }
     /**
      * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
@@ -75,9 +75,9 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
     }
     @CustomType.Builder
     public static final class Builder {
-        private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition condition;
+        private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition condition;
         private String name;
-        private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep nextStep;
+        private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep nextStep;
         private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponse response;
         public Builder() {}
         public Builder(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch defaults) {
@@ -89,10 +89,8 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
         }
 
         @CustomType.Setter
-        public Builder condition(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition condition) {
-            if (condition == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch", "condition");
-            }
+        public Builder condition(@Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition condition) {
+
             this.condition = condition;
             return this;
         }
@@ -105,10 +103,8 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
             return this;
         }
         @CustomType.Setter
-        public Builder nextStep(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep nextStep) {
-            if (nextStep == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch", "nextStep");
-            }
+        public Builder nextStep(@Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep nextStep) {
+
             this.nextStep = nextStep;
             return this;
         }

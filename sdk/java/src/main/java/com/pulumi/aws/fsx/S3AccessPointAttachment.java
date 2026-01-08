@@ -97,14 +97,14 @@ public class S3AccessPointAttachment extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="openzfsConfiguration", refs={S3AccessPointAttachmentOpenzfsConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ S3AccessPointAttachmentOpenzfsConfiguration> openzfsConfiguration;
+    private Output<S3AccessPointAttachmentOpenzfsConfiguration> openzfsConfiguration;
 
     /**
      * @return Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
      * 
      */
-    public Output<Optional<S3AccessPointAttachmentOpenzfsConfiguration>> openzfsConfiguration() {
-        return Codegen.optional(this.openzfsConfiguration);
+    public Output<S3AccessPointAttachmentOpenzfsConfiguration> openzfsConfiguration() {
+        return this.openzfsConfiguration;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

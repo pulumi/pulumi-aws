@@ -25,7 +25,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfiguration {
      * @return Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
      * 
      */
-    private @Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping> dimensionMappings;
+    private List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping> dimensionMappings;
     /**
      * @return Name of the measure column.
      * 
@@ -65,7 +65,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfiguration {
      * 
      */
     public List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping> dimensionMappings() {
-        return this.dimensionMappings == null ? List.of() : this.dimensionMappings;
+        return this.dimensionMappings;
     }
     /**
      * @return Name of the measure column.
@@ -113,7 +113,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private String databaseName;
-        private @Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping> dimensionMappings;
+        private List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping> dimensionMappings;
         private @Nullable String measureNameColumn;
         private @Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping> mixedMeasureMappings;
         private @Nullable ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings multiMeasureMappings;
@@ -140,8 +140,10 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder dimensionMappings(@Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping> dimensionMappings) {
-
+        public Builder dimensionMappings(List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping> dimensionMappings) {
+            if (dimensionMappings == null) {
+              throw new MissingRequiredPropertyException("ScheduledQueryTargetConfigurationTimestreamConfiguration", "dimensionMappings");
+            }
             this.dimensionMappings = dimensionMappings;
             return this;
         }

@@ -130,6 +130,105 @@ import (
 //
 // ```
 //
+// ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-tls/sdk/v5/go/tls"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCluster, err := eks.NewCluster(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			example := exampleCluster.Identities.ApplyT(func(identities []eks.ClusterIdentity) (tls.GetCertificateResult, error) {
+//				return tls.GetCertificateResult(interface{}(tls.GetCertificate(ctx, &tls.GetCertificateArgs{
+//					Url: pulumi.StringRef(pulumi.StringRef(identities[0].Oidcs[0].Issuer)),
+//				}, nil))), nil
+//			}).(tls.GetCertificateResultOutput)
+//			exampleOpenIdConnectProvider, err := iam.NewOpenIdConnectProvider(ctx, "example", &iam.OpenIdConnectProviderArgs{
+//				ClientIdLists: pulumi.StringArray{
+//					pulumi.String("sts.amazonaws.com"),
+//				},
+//				ThumbprintLists: pulumi.StringArray{
+//					pulumi.String(example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
+//						return &example.Certificates[0].Sha1Fingerprint, nil
+//					}).(pulumi.StringPtrOutput)),
+//				},
+//				Url: pulumi.String(exampleCluster.Identities.ApplyT(func(identities []eks.ClusterIdentity) (*string, error) {
+//					return &identities[0].Oidcs[0].Issuer, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssumeRolePolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sts:AssumeRoleWithWebIdentity"),
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test: pulumi.String("StringEquals"),
+//								Variable: std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
+//									Text:    exampleOpenIdConnectProvider.Url,
+//									Search:  pulumi.String("https://"),
+//									Replace: pulumi.String(""),
+//								}, nil).ApplyT(func(invoke std.ReplaceResult) (string, error) {
+//									return fmt.Sprintf("%v:sub", invoke.Result), nil
+//								}).(pulumi.StringOutput),
+//								Values: pulumi.StringArray{
+//									pulumi.String("system:serviceaccount:kube-system:aws-node"),
+//								},
+//							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Identifiers: pulumi.StringArray{
+//									exampleOpenIdConnectProvider.Arn,
+//								},
+//								Type: pulumi.String("Federated"),
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(exampleAssumeRolePolicy.ApplyT(func(exampleAssumeRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &exampleAssumeRolePolicy.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//				Name: pulumi.String("example-vpc-cni-role"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"),
+//				Role:      exampleRole.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:

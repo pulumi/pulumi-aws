@@ -65,11 +65,11 @@ type IngestionDestination struct {
 	// ARN of the Ingestion Destination.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Contains information about the destination of ingested data.
-	DestinationConfiguration IngestionDestinationDestinationConfigurationPtrOutput `pulumi:"destinationConfiguration"`
+	DestinationConfiguration IngestionDestinationDestinationConfigurationOutput `pulumi:"destinationConfiguration"`
 	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
 	IngestionArn pulumi.StringOutput `pulumi:"ingestionArn"`
 	// Contains information about how ingested data is processed.
-	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrOutput `pulumi:"processingConfiguration"`
+	ProcessingConfiguration IngestionDestinationProcessingConfigurationOutput `pulumi:"processingConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -89,8 +89,14 @@ func NewIngestionDestination(ctx *pulumi.Context,
 	if args.AppBundleArn == nil {
 		return nil, errors.New("invalid value for required argument 'AppBundleArn'")
 	}
+	if args.DestinationConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationConfiguration'")
+	}
 	if args.IngestionArn == nil {
 		return nil, errors.New("invalid value for required argument 'IngestionArn'")
+	}
+	if args.ProcessingConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'ProcessingConfiguration'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IngestionDestination
@@ -162,11 +168,11 @@ type ingestionDestinationArgs struct {
 	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
 	AppBundleArn string `pulumi:"appBundleArn"`
 	// Contains information about the destination of ingested data.
-	DestinationConfiguration *IngestionDestinationDestinationConfiguration `pulumi:"destinationConfiguration"`
+	DestinationConfiguration IngestionDestinationDestinationConfiguration `pulumi:"destinationConfiguration"`
 	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
 	IngestionArn string `pulumi:"ingestionArn"`
 	// Contains information about how ingested data is processed.
-	ProcessingConfiguration *IngestionDestinationProcessingConfiguration `pulumi:"processingConfiguration"`
+	ProcessingConfiguration IngestionDestinationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -179,11 +185,11 @@ type IngestionDestinationArgs struct {
 	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
 	AppBundleArn pulumi.StringInput
 	// Contains information about the destination of ingested data.
-	DestinationConfiguration IngestionDestinationDestinationConfigurationPtrInput
+	DestinationConfiguration IngestionDestinationDestinationConfigurationInput
 	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
 	IngestionArn pulumi.StringInput
 	// Contains information about how ingested data is processed.
-	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrInput
+	ProcessingConfiguration IngestionDestinationProcessingConfigurationInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -289,10 +295,10 @@ func (o IngestionDestinationOutput) Arn() pulumi.StringOutput {
 }
 
 // Contains information about the destination of ingested data.
-func (o IngestionDestinationOutput) DestinationConfiguration() IngestionDestinationDestinationConfigurationPtrOutput {
-	return o.ApplyT(func(v *IngestionDestination) IngestionDestinationDestinationConfigurationPtrOutput {
+func (o IngestionDestinationOutput) DestinationConfiguration() IngestionDestinationDestinationConfigurationOutput {
+	return o.ApplyT(func(v *IngestionDestination) IngestionDestinationDestinationConfigurationOutput {
 		return v.DestinationConfiguration
-	}).(IngestionDestinationDestinationConfigurationPtrOutput)
+	}).(IngestionDestinationDestinationConfigurationOutput)
 }
 
 // The Amazon Resource Name (ARN) of the ingestion to use for the request.
@@ -301,10 +307,10 @@ func (o IngestionDestinationOutput) IngestionArn() pulumi.StringOutput {
 }
 
 // Contains information about how ingested data is processed.
-func (o IngestionDestinationOutput) ProcessingConfiguration() IngestionDestinationProcessingConfigurationPtrOutput {
-	return o.ApplyT(func(v *IngestionDestination) IngestionDestinationProcessingConfigurationPtrOutput {
+func (o IngestionDestinationOutput) ProcessingConfiguration() IngestionDestinationProcessingConfigurationOutput {
+	return o.ApplyT(func(v *IngestionDestination) IngestionDestinationProcessingConfigurationOutput {
 		return v.ProcessingConfiguration
-	}).(IngestionDestinationProcessingConfigurationPtrOutput)
+	}).(IngestionDestinationProcessingConfigurationOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

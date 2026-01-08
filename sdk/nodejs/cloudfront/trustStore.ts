@@ -94,7 +94,7 @@ export class TrustStore extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly caCertificatesBundleSource: pulumi.Output<outputs.cloudfront.TrustStoreCaCertificatesBundleSource | undefined>;
+    declare public readonly caCertificatesBundleSource: pulumi.Output<outputs.cloudfront.TrustStoreCaCertificatesBundleSource>;
     /**
      * ETag of the trust store.
      */
@@ -124,7 +124,7 @@ export class TrustStore extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TrustStoreArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: TrustStoreArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TrustStoreArgs | TrustStoreState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -140,6 +140,9 @@ export class TrustStore extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as TrustStoreArgs | undefined;
+            if (args?.caCertificatesBundleSource === undefined && !opts.urn) {
+                throw new Error("Missing required property 'caCertificatesBundleSource'");
+            }
             resourceInputs["caCertificatesBundleSource"] = args?.caCertificatesBundleSource;
             resourceInputs["name"] = args?.name;
             resourceInputs["tags"] = args?.tags;
@@ -200,7 +203,7 @@ export interface TrustStoreArgs {
      *
      * The following arguments are optional:
      */
-    caCertificatesBundleSource?: pulumi.Input<inputs.cloudfront.TrustStoreCaCertificatesBundleSource>;
+    caCertificatesBundleSource: pulumi.Input<inputs.cloudfront.TrustStoreCaCertificatesBundleSource>;
     /**
      * Name of the trust store. Changing this forces a new resource to be created.
      */

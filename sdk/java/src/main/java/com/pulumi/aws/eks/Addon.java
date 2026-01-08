@@ -153,6 +153,88 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Example IAM Role for EKS Addon &#34;vpc-cni&#34; with AWS managed policy
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.eks.Cluster;
+ * import com.pulumi.tls.TlsFunctions;
+ * import com.pulumi.tls.inputs.GetCertificateArgs;
+ * import com.pulumi.aws.iam.OpenIdConnectProvider;
+ * import com.pulumi.aws.iam.OpenIdConnectProviderArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.ReplaceArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCluster = new Cluster("exampleCluster");
+ * 
+ *         final var example = exampleCluster.identities().applyValue(_identities -> TlsFunctions.getCertificate(GetCertificateArgs.builder()
+ *             .url(_identities[0].oidcs()[0].issuer())
+ *             .build()));
+ * 
+ *         var exampleOpenIdConnectProvider = new OpenIdConnectProvider("exampleOpenIdConnectProvider", OpenIdConnectProviderArgs.builder()
+ *             .clientIdLists("sts.amazonaws.com")
+ *             .thumbprintLists(example.applyValue(_example -> _example.certificates()[0].sha1Fingerprint()))
+ *             .url(exampleCluster.identities().applyValue(_identities -> _identities[0].oidcs()[0].issuer()))
+ *             .build());
+ * 
+ *         final var exampleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions("sts:AssumeRoleWithWebIdentity")
+ *                 .effect("Allow")
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test("StringEquals")
+ *                     .variable(StdFunctions.replace(ReplaceArgs.builder()
+ *                         .text(exampleOpenIdConnectProvider.url())
+ *                         .search("https://")
+ *                         .replace("")
+ *                         .build()).applyValue(_invoke -> String.format("%s:sub", _invoke.result())))
+ *                     .values("system:serviceaccount:kube-system:aws-node")
+ *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .identifiers(exampleOpenIdConnectProvider.arn())
+ *                     .type("Federated")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
+ *             .assumeRolePolicy(exampleAssumeRolePolicy.applyValue(_exampleAssumeRolePolicy -> _exampleAssumeRolePolicy.json()))
+ *             .name("example-vpc-cni-role")
+ *             .build());
+ * 
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy")
+ *             .role(exampleRole.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:

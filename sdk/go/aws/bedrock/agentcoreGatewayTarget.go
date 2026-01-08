@@ -429,7 +429,7 @@ type AgentcoreGatewayTarget struct {
 	// Configuration for the target endpoint. See `targetConfiguration` below.
 	//
 	// The following arguments are optional:
-	TargetConfiguration AgentcoreGatewayTargetTargetConfigurationPtrOutput `pulumi:"targetConfiguration"`
+	TargetConfiguration AgentcoreGatewayTargetTargetConfigurationOutput `pulumi:"targetConfiguration"`
 	// Unique identifier of the gateway target.
 	TargetId pulumi.StringOutput                     `pulumi:"targetId"`
 	Timeouts AgentcoreGatewayTargetTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -444,6 +444,9 @@ func NewAgentcoreGatewayTarget(ctx *pulumi.Context,
 
 	if args.GatewayIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayIdentifier'")
+	}
+	if args.TargetConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'TargetConfiguration'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AgentcoreGatewayTarget
@@ -525,8 +528,8 @@ type agentcoreGatewayTargetArgs struct {
 	// Configuration for the target endpoint. See `targetConfiguration` below.
 	//
 	// The following arguments are optional:
-	TargetConfiguration *AgentcoreGatewayTargetTargetConfiguration `pulumi:"targetConfiguration"`
-	Timeouts            *AgentcoreGatewayTargetTimeouts            `pulumi:"timeouts"`
+	TargetConfiguration AgentcoreGatewayTargetTargetConfiguration `pulumi:"targetConfiguration"`
+	Timeouts            *AgentcoreGatewayTargetTimeouts           `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentcoreGatewayTarget resource.
@@ -544,7 +547,7 @@ type AgentcoreGatewayTargetArgs struct {
 	// Configuration for the target endpoint. See `targetConfiguration` below.
 	//
 	// The following arguments are optional:
-	TargetConfiguration AgentcoreGatewayTargetTargetConfigurationPtrInput
+	TargetConfiguration AgentcoreGatewayTargetTargetConfigurationInput
 	Timeouts            AgentcoreGatewayTargetTimeoutsPtrInput
 }
 
@@ -665,10 +668,10 @@ func (o AgentcoreGatewayTargetOutput) Region() pulumi.StringOutput {
 // Configuration for the target endpoint. See `targetConfiguration` below.
 //
 // The following arguments are optional:
-func (o AgentcoreGatewayTargetOutput) TargetConfiguration() AgentcoreGatewayTargetTargetConfigurationPtrOutput {
-	return o.ApplyT(func(v *AgentcoreGatewayTarget) AgentcoreGatewayTargetTargetConfigurationPtrOutput {
+func (o AgentcoreGatewayTargetOutput) TargetConfiguration() AgentcoreGatewayTargetTargetConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTarget) AgentcoreGatewayTargetTargetConfigurationOutput {
 		return v.TargetConfiguration
-	}).(AgentcoreGatewayTargetTargetConfigurationPtrOutput)
+	}).(AgentcoreGatewayTargetTargetConfigurationOutput)
 }
 
 // Unique identifier of the gateway target.

@@ -97,7 +97,7 @@ namespace Pulumi.Aws.S3Control
         /// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `Scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         /// </summary>
         [Output("scope")]
-        public Output<Outputs.DirectoryBucketAccessPointScopeScope?> Scope { get; private set; } = null!;
+        public Output<Outputs.DirectoryBucketAccessPointScopeScope> Scope { get; private set; } = null!;
 
 
         /// <summary>
@@ -166,8 +166,8 @@ namespace Pulumi.Aws.S3Control
         /// <summary>
         /// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `Scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         /// </summary>
-        [Input("scope")]
-        public Input<Inputs.DirectoryBucketAccessPointScopeScopeArgs>? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Input<Inputs.DirectoryBucketAccessPointScopeScopeArgs> Scope { get; set; } = null!;
 
         public DirectoryBucketAccessPointScopeArgs()
         {

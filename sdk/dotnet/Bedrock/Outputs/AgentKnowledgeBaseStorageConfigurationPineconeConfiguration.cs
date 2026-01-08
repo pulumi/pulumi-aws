@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
-        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping? FieldMapping;
+        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping FieldMapping;
         /// <summary>
         /// Namespace to be used to write new data to your database.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             string credentialsSecretArn,
 
-            Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping? fieldMapping,
+            Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping,
 
             string? @namespace)
         {

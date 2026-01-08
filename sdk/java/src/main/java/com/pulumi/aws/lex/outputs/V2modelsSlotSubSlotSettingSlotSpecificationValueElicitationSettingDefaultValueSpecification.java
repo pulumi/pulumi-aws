@@ -5,9 +5,9 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification {
@@ -17,7 +17,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See the `defaultValueList` argument reference below.
      * 
      */
-    private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists;
+    private List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists;
 
     private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification() {}
     /**
@@ -27,7 +27,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * 
      */
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists() {
-        return this.defaultValueLists == null ? List.of() : this.defaultValueLists;
+        return this.defaultValueLists;
     }
 
     public static Builder builder() {
@@ -39,7 +39,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists;
+        private List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists;
         public Builder() {}
         public Builder(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification defaults) {
     	      Objects.requireNonNull(defaults);
@@ -47,8 +47,10 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
         }
 
         @CustomType.Setter
-        public Builder defaultValueLists(@Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists) {
-
+        public Builder defaultValueLists(List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists) {
+            if (defaultValueLists == null) {
+              throw new MissingRequiredPropertyException("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification", "defaultValueLists");
+            }
             this.defaultValueLists = defaultValueLists;
             return this;
         }

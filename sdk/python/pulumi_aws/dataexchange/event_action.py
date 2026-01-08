@@ -21,8 +21,8 @@ __all__ = ['EventActionArgs', 'EventAction']
 @pulumi.input_type
 class EventActionArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['EventActionActionArgs']] = None,
-                 event: Optional[pulumi.Input['EventActionEventArgs']] = None,
+                 action: pulumi.Input['EventActionActionArgs'],
+                 event: pulumi.Input['EventActionEventArgs'],
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventAction resource.
@@ -32,16 +32,14 @@ class EventActionArgs:
                Described in `event` Configuration Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-        if event is not None:
-            pulumi.set(__self__, "event", event)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "event", event)
         if region is not None:
             pulumi.set(__self__, "region", region)
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['EventActionActionArgs']]:
+    def action(self) -> pulumi.Input['EventActionActionArgs']:
         """
         Describes the action to take.
         Described in `action` Configuration Block below.
@@ -49,12 +47,12 @@ class EventActionArgs:
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['EventActionActionArgs']]):
+    def action(self, value: pulumi.Input['EventActionActionArgs']):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def event(self) -> Optional[pulumi.Input['EventActionEventArgs']]:
+    def event(self) -> pulumi.Input['EventActionEventArgs']:
         """
         Describes the event that triggers the `action`.
         Described in `event` Configuration Block below.
@@ -62,7 +60,7 @@ class EventActionArgs:
         return pulumi.get(self, "event")
 
     @event.setter
-    def event(self, value: Optional[pulumi.Input['EventActionEventArgs']]):
+    def event(self, value: pulumi.Input['EventActionEventArgs']):
         pulumi.set(self, "event", value)
 
     @_builtins.property
@@ -245,7 +243,7 @@ class EventAction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[EventActionArgs] = None,
+                 args: EventActionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Data Exchange Event Action.
@@ -311,7 +309,11 @@ class EventAction(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventActionArgs.__new__(EventActionArgs)
 
+            if action is None and not opts.urn:
+                raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
+            if event is None and not opts.urn:
+                raise TypeError("Missing required property 'event'")
             __props__.__dict__["event"] = event
             __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
@@ -363,7 +365,7 @@ class EventAction(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> pulumi.Output[Optional['outputs.EventActionAction']]:
+    def action(self) -> pulumi.Output['outputs.EventActionAction']:
         """
         Describes the action to take.
         Described in `action` Configuration Block below.
@@ -388,7 +390,7 @@ class EventAction(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def event(self) -> pulumi.Output[Optional['outputs.EventActionEvent']]:
+    def event(self) -> pulumi.Output['outputs.EventActionEvent']:
         """
         Describes the event that triggers the `action`.
         Described in `event` Configuration Block below.

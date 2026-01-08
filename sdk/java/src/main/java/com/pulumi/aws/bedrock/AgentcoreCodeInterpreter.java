@@ -207,7 +207,7 @@ public class AgentcoreCodeInterpreter extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="networkConfiguration", refs={AgentcoreCodeInterpreterNetworkConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ AgentcoreCodeInterpreterNetworkConfiguration> networkConfiguration;
+    private Output<AgentcoreCodeInterpreterNetworkConfiguration> networkConfiguration;
 
     /**
      * @return Network configuration for the code interpreter. See `networkConfiguration` below.
@@ -215,8 +215,8 @@ public class AgentcoreCodeInterpreter extends com.pulumi.resources.CustomResourc
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<AgentcoreCodeInterpreterNetworkConfiguration>> networkConfiguration() {
-        return Codegen.optional(this.networkConfiguration);
+    public Output<AgentcoreCodeInterpreterNetworkConfiguration> networkConfiguration() {
+        return this.networkConfiguration;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -279,7 +279,7 @@ public class AgentcoreCodeInterpreter extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AgentcoreCodeInterpreter(java.lang.String name, @Nullable AgentcoreCodeInterpreterArgs args) {
+    public AgentcoreCodeInterpreter(java.lang.String name, AgentcoreCodeInterpreterArgs args) {
         this(name, args, null);
     }
     /**
@@ -288,7 +288,7 @@ public class AgentcoreCodeInterpreter extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AgentcoreCodeInterpreter(java.lang.String name, @Nullable AgentcoreCodeInterpreterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public AgentcoreCodeInterpreter(java.lang.String name, AgentcoreCodeInterpreterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -296,7 +296,7 @@ public class AgentcoreCodeInterpreter extends com.pulumi.resources.CustomResourc
         super("aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static AgentcoreCodeInterpreterArgs makeArgs(@Nullable AgentcoreCodeInterpreterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static AgentcoreCodeInterpreterArgs makeArgs(AgentcoreCodeInterpreterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

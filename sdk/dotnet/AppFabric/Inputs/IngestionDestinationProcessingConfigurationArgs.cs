@@ -15,8 +15,8 @@ namespace Pulumi.Aws.AppFabric.Inputs
         /// <summary>
         /// Contains information about an audit log processing configuration.
         /// </summary>
-        [Input("auditLog")]
-        public Input<Inputs.IngestionDestinationProcessingConfigurationAuditLogArgs>? AuditLog { get; set; }
+        [Input("auditLog", required: true)]
+        public Input<Inputs.IngestionDestinationProcessingConfigurationAuditLogArgs> AuditLog { get; set; } = null!;
 
         public IngestionDestinationProcessingConfigurationArgs()
         {

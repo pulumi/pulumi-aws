@@ -66,15 +66,15 @@ public final class DirectoryBucketAccessPointScopeArgs extends com.pulumi.resour
      * . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
      * 
      */
-    @Import(name="scope")
-    private @Nullable Output<DirectoryBucketAccessPointScopeScopeArgs> scope;
+    @Import(name="scope", required=true)
+    private Output<DirectoryBucketAccessPointScopeScopeArgs> scope;
 
     /**
      * @return . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
      * 
      */
-    public Optional<Output<DirectoryBucketAccessPointScopeScopeArgs>> scope() {
-        return Optional.ofNullable(this.scope);
+    public Output<DirectoryBucketAccessPointScopeScopeArgs> scope() {
+        return this.scope;
     }
 
     private DirectoryBucketAccessPointScopeArgs() {}
@@ -173,7 +173,7 @@ public final class DirectoryBucketAccessPointScopeArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder scope(@Nullable Output<DirectoryBucketAccessPointScopeScopeArgs> scope) {
+        public Builder scope(Output<DirectoryBucketAccessPointScopeScopeArgs> scope) {
             $.scope = scope;
             return this;
         }
@@ -191,6 +191,9 @@ public final class DirectoryBucketAccessPointScopeArgs extends com.pulumi.resour
         public DirectoryBucketAccessPointScopeArgs build() {
             if ($.accountId == null) {
                 throw new MissingRequiredPropertyException("DirectoryBucketAccessPointScopeArgs", "accountId");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("DirectoryBucketAccessPointScopeArgs", "scope");
             }
             return $;
         }

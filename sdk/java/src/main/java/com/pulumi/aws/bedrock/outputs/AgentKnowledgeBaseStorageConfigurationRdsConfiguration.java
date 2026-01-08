@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
@@ -27,7 +25,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
      * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    private @Nullable AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping;
+    private AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping;
     /**
      * @return ARN of the vector store.
      * 
@@ -58,8 +56,8 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
      * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping() {
+        return this.fieldMapping;
     }
     /**
      * @return ARN of the vector store.
@@ -87,7 +85,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
     public static final class Builder {
         private String credentialsSecretArn;
         private String databaseName;
-        private @Nullable AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping;
+        private AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping;
         private String resourceArn;
         private String tableName;
         public Builder() {}
@@ -117,8 +115,10 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder fieldMapping(@Nullable AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping) {
-
+        public Builder fieldMapping(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping) {
+            if (fieldMapping == null) {
+              throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationRdsConfiguration", "fieldMapping");
+            }
             this.fieldMapping = fieldMapping;
             return this;
         }

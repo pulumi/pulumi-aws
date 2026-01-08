@@ -6,10 +6,9 @@ package com.pulumi.aws.lex.inputs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs extends com.pulumi.resources.ResourceArgs {
@@ -22,8 +21,8 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationA
      * See the `defaultValueList` argument reference below.
      * 
      */
-    @Import(name="defaultValueLists")
-    private @Nullable Output<List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists;
+    @Import(name="defaultValueLists", required=true)
+    private Output<List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists;
 
     /**
      * @return List of default values.
@@ -31,8 +30,8 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationA
      * See the `defaultValueList` argument reference below.
      * 
      */
-    public Optional<Output<List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>>> defaultValueLists() {
-        return Optional.ofNullable(this.defaultValueLists);
+    public Output<List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists() {
+        return this.defaultValueLists;
     }
 
     private V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs() {}
@@ -67,7 +66,7 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationA
          * @return builder
          * 
          */
-        public Builder defaultValueLists(@Nullable Output<List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists) {
+        public Builder defaultValueLists(Output<List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists) {
             $.defaultValueLists = defaultValueLists;
             return this;
         }
@@ -97,6 +96,9 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationA
         }
 
         public V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs build() {
+            if ($.defaultValueLists == null) {
+                throw new MissingRequiredPropertyException("V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs", "defaultValueLists");
+            }
             return $;
         }
     }

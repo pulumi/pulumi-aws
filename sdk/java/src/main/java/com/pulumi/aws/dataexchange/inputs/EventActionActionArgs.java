@@ -6,9 +6,8 @@ package com.pulumi.aws.dataexchange.inputs;
 import com.pulumi.aws.dataexchange.inputs.EventActionActionExportRevisionToS3Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class EventActionActionArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,16 +19,16 @@ public final class EventActionActionArgs extends com.pulumi.resources.ResourceAr
      * Described in `exportRevisionToS3` Configuration Block
      * 
      */
-    @Import(name="exportRevisionToS3")
-    private @Nullable Output<EventActionActionExportRevisionToS3Args> exportRevisionToS3;
+    @Import(name="exportRevisionToS3", required=true)
+    private Output<EventActionActionExportRevisionToS3Args> exportRevisionToS3;
 
     /**
      * @return Configuration for an Export Revision to S3 action.
      * Described in `exportRevisionToS3` Configuration Block
      * 
      */
-    public Optional<Output<EventActionActionExportRevisionToS3Args>> exportRevisionToS3() {
-        return Optional.ofNullable(this.exportRevisionToS3);
+    public Output<EventActionActionExportRevisionToS3Args> exportRevisionToS3() {
+        return this.exportRevisionToS3;
     }
 
     private EventActionActionArgs() {}
@@ -63,7 +62,7 @@ public final class EventActionActionArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder exportRevisionToS3(@Nullable Output<EventActionActionExportRevisionToS3Args> exportRevisionToS3) {
+        public Builder exportRevisionToS3(Output<EventActionActionExportRevisionToS3Args> exportRevisionToS3) {
             $.exportRevisionToS3 = exportRevisionToS3;
             return this;
         }
@@ -80,6 +79,9 @@ public final class EventActionActionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public EventActionActionArgs build() {
+            if ($.exportRevisionToS3 == null) {
+                throw new MissingRequiredPropertyException("EventActionActionArgs", "exportRevisionToS3");
+            }
             return $;
         }
     }

@@ -6,9 +6,8 @@ package com.pulumi.aws.timestreamquery.inputs;
 import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ScheduledQueryTargetConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class ScheduledQueryTargetConfigurationArgs extends com.pulumi.reso
      * Configuration block for information needed to write data into the Timestream database and table. See below.
      * 
      */
-    @Import(name="timestreamConfiguration")
-    private @Nullable Output<ScheduledQueryTargetConfigurationTimestreamConfigurationArgs> timestreamConfiguration;
+    @Import(name="timestreamConfiguration", required=true)
+    private Output<ScheduledQueryTargetConfigurationTimestreamConfigurationArgs> timestreamConfiguration;
 
     /**
      * @return Configuration block for information needed to write data into the Timestream database and table. See below.
      * 
      */
-    public Optional<Output<ScheduledQueryTargetConfigurationTimestreamConfigurationArgs>> timestreamConfiguration() {
-        return Optional.ofNullable(this.timestreamConfiguration);
+    public Output<ScheduledQueryTargetConfigurationTimestreamConfigurationArgs> timestreamConfiguration() {
+        return this.timestreamConfiguration;
     }
 
     private ScheduledQueryTargetConfigurationArgs() {}
@@ -60,7 +59,7 @@ public final class ScheduledQueryTargetConfigurationArgs extends com.pulumi.reso
          * @return builder
          * 
          */
-        public Builder timestreamConfiguration(@Nullable Output<ScheduledQueryTargetConfigurationTimestreamConfigurationArgs> timestreamConfiguration) {
+        public Builder timestreamConfiguration(Output<ScheduledQueryTargetConfigurationTimestreamConfigurationArgs> timestreamConfiguration) {
             $.timestreamConfiguration = timestreamConfiguration;
             return this;
         }
@@ -76,6 +75,9 @@ public final class ScheduledQueryTargetConfigurationArgs extends com.pulumi.reso
         }
 
         public ScheduledQueryTargetConfigurationArgs build() {
+            if ($.timestreamConfiguration == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryTargetConfigurationArgs", "timestreamConfiguration");
+            }
             return $;
         }
     }

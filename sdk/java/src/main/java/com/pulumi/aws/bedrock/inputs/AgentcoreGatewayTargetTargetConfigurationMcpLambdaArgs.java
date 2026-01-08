@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs extends com.pulumi.resources.ResourceArgs {
@@ -36,15 +34,15 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs extend
      * Schema definition for the tool. See `toolSchema` below.
      * 
      */
-    @Import(name="toolSchema")
-    private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs> toolSchema;
+    @Import(name="toolSchema", required=true)
+    private Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs> toolSchema;
 
     /**
      * @return Schema definition for the tool. See `toolSchema` below.
      * 
      */
-    public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs>> toolSchema() {
-        return Optional.ofNullable(this.toolSchema);
+    public Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs> toolSchema() {
+        return this.toolSchema;
     }
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs() {}
@@ -99,7 +97,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs extend
          * @return builder
          * 
          */
-        public Builder toolSchema(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs> toolSchema) {
+        public Builder toolSchema(Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs> toolSchema) {
             $.toolSchema = toolSchema;
             return this;
         }
@@ -117,6 +115,9 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs extend
         public AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs build() {
             if ($.lambdaArn == null) {
                 throw new MissingRequiredPropertyException("AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs", "lambdaArn");
+            }
+            if ($.toolSchema == null) {
+                throw new MissingRequiredPropertyException("AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs", "toolSchema");
             }
             return $;
         }

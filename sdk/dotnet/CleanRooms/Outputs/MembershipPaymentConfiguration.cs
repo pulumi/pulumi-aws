@@ -13,10 +13,10 @@ namespace Pulumi.Aws.CleanRooms.Outputs
     [OutputType]
     public sealed class MembershipPaymentConfiguration
     {
-        public readonly Outputs.MembershipPaymentConfigurationQueryCompute? QueryCompute;
+        public readonly Outputs.MembershipPaymentConfigurationQueryCompute QueryCompute;
 
         [OutputConstructor]
-        private MembershipPaymentConfiguration(Outputs.MembershipPaymentConfigurationQueryCompute? queryCompute)
+        private MembershipPaymentConfiguration(Outputs.MembershipPaymentConfigurationQueryCompute queryCompute)
         {
             QueryCompute = queryCompute;
         }

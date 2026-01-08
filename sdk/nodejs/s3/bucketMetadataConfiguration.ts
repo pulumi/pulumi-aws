@@ -89,7 +89,7 @@ export class BucketMetadataConfiguration extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly metadataConfiguration: pulumi.Output<outputs.s3.BucketMetadataConfigurationMetadataConfiguration | undefined>;
+    declare public readonly metadataConfiguration: pulumi.Output<outputs.s3.BucketMetadataConfigurationMetadataConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -118,6 +118,9 @@ export class BucketMetadataConfiguration extends pulumi.CustomResource {
             const args = argsOrState as BucketMetadataConfigurationArgs | undefined;
             if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
+            }
+            if (args?.metadataConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'metadataConfiguration'");
             }
             resourceInputs["bucket"] = args?.bucket;
             resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
@@ -166,7 +169,7 @@ export interface BucketMetadataConfigurationArgs {
      *
      * The following arguments are optional:
      */
-    metadataConfiguration?: pulumi.Input<inputs.s3.BucketMetadataConfigurationMetadataConfiguration>;
+    metadataConfiguration: pulumi.Input<inputs.s3.BucketMetadataConfigurationMetadataConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -65,17 +66,20 @@ type DataCellsFilter struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Information about the data cells filter. See Table Data below for details.
-	TableData DataCellsFilterTableDataPtrOutput `pulumi:"tableData"`
-	Timeouts  DataCellsFilterTimeoutsPtrOutput  `pulumi:"timeouts"`
+	TableData DataCellsFilterTableDataOutput   `pulumi:"tableData"`
+	Timeouts  DataCellsFilterTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewDataCellsFilter registers a new resource with the given unique name, arguments, and options.
 func NewDataCellsFilter(ctx *pulumi.Context,
 	name string, args *DataCellsFilterArgs, opts ...pulumi.ResourceOption) (*DataCellsFilter, error) {
 	if args == nil {
-		args = &DataCellsFilterArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.TableData == nil {
+		return nil, errors.New("invalid value for required argument 'TableData'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataCellsFilter
 	err := ctx.RegisterResource("aws:lakeformation/dataCellsFilter:DataCellsFilter", name, args, &resource, opts...)
@@ -122,8 +126,8 @@ type dataCellsFilterArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Information about the data cells filter. See Table Data below for details.
-	TableData *DataCellsFilterTableData `pulumi:"tableData"`
-	Timeouts  *DataCellsFilterTimeouts  `pulumi:"timeouts"`
+	TableData DataCellsFilterTableData `pulumi:"tableData"`
+	Timeouts  *DataCellsFilterTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a DataCellsFilter resource.
@@ -131,7 +135,7 @@ type DataCellsFilterArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Information about the data cells filter. See Table Data below for details.
-	TableData DataCellsFilterTableDataPtrInput
+	TableData DataCellsFilterTableDataInput
 	Timeouts  DataCellsFilterTimeoutsPtrInput
 }
 
@@ -228,8 +232,8 @@ func (o DataCellsFilterOutput) Region() pulumi.StringOutput {
 }
 
 // Information about the data cells filter. See Table Data below for details.
-func (o DataCellsFilterOutput) TableData() DataCellsFilterTableDataPtrOutput {
-	return o.ApplyT(func(v *DataCellsFilter) DataCellsFilterTableDataPtrOutput { return v.TableData }).(DataCellsFilterTableDataPtrOutput)
+func (o DataCellsFilterOutput) TableData() DataCellsFilterTableDataOutput {
+	return o.ApplyT(func(v *DataCellsFilter) DataCellsFilterTableDataOutput { return v.TableData }).(DataCellsFilterTableDataOutput)
 }
 
 func (o DataCellsFilterOutput) Timeouts() DataCellsFilterTimeoutsPtrOutput {

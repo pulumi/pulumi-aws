@@ -10,6 +10,7 @@ import com.pulumi.aws.lambda.inputs.CapacityProviderTimeoutsArgs;
 import com.pulumi.aws.lambda.inputs.CapacityProviderVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -72,8 +73,8 @@ public final class CapacityProviderArgs extends com.pulumi.resources.ResourceArg
      * The following arguments are optional:
      * 
      */
-    @Import(name="permissionsConfig")
-    private @Nullable Output<CapacityProviderPermissionsConfigArgs> permissionsConfig;
+    @Import(name="permissionsConfig", required=true)
+    private Output<CapacityProviderPermissionsConfigArgs> permissionsConfig;
 
     /**
      * @return Configuration block for permissions settings. See Permissions Config below.
@@ -81,8 +82,8 @@ public final class CapacityProviderArgs extends com.pulumi.resources.ResourceArg
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<CapacityProviderPermissionsConfigArgs>> permissionsConfig() {
-        return Optional.ofNullable(this.permissionsConfig);
+    public Output<CapacityProviderPermissionsConfigArgs> permissionsConfig() {
+        return this.permissionsConfig;
     }
 
     /**
@@ -126,15 +127,15 @@ public final class CapacityProviderArgs extends com.pulumi.resources.ResourceArg
      * Configuration block for VPC settings. See VPC Config below.
      * 
      */
-    @Import(name="vpcConfig")
-    private @Nullable Output<CapacityProviderVpcConfigArgs> vpcConfig;
+    @Import(name="vpcConfig", required=true)
+    private Output<CapacityProviderVpcConfigArgs> vpcConfig;
 
     /**
      * @return Configuration block for VPC settings. See VPC Config below.
      * 
      */
-    public Optional<Output<CapacityProviderVpcConfigArgs>> vpcConfig() {
-        return Optional.ofNullable(this.vpcConfig);
+    public Output<CapacityProviderVpcConfigArgs> vpcConfig() {
+        return this.vpcConfig;
     }
 
     private CapacityProviderArgs() {}
@@ -251,7 +252,7 @@ public final class CapacityProviderArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder permissionsConfig(@Nullable Output<CapacityProviderPermissionsConfigArgs> permissionsConfig) {
+        public Builder permissionsConfig(Output<CapacityProviderPermissionsConfigArgs> permissionsConfig) {
             $.permissionsConfig = permissionsConfig;
             return this;
         }
@@ -325,7 +326,7 @@ public final class CapacityProviderArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder vpcConfig(@Nullable Output<CapacityProviderVpcConfigArgs> vpcConfig) {
+        public Builder vpcConfig(Output<CapacityProviderVpcConfigArgs> vpcConfig) {
             $.vpcConfig = vpcConfig;
             return this;
         }
@@ -341,6 +342,12 @@ public final class CapacityProviderArgs extends com.pulumi.resources.ResourceArg
         }
 
         public CapacityProviderArgs build() {
+            if ($.permissionsConfig == null) {
+                throw new MissingRequiredPropertyException("CapacityProviderArgs", "permissionsConfig");
+            }
+            if ($.vpcConfig == null) {
+                throw new MissingRequiredPropertyException("CapacityProviderArgs", "vpcConfig");
+            }
             return $;
         }
     }

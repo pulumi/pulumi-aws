@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
@@ -16,7 +17,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * @return Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
      * 
      */
-    private List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations;
+    private @Nullable List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations;
     /**
      * @return The number of tokens to repeat across chunks in the same layer.
      * 
@@ -29,7 +30,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * 
      */
     public List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations() {
-        return this.levelConfigurations;
+        return this.levelConfigurations == null ? List.of() : this.levelConfigurations;
     }
     /**
      * @return The number of tokens to repeat across chunks in the same layer.
@@ -48,7 +49,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations;
+        private @Nullable List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations;
         private Integer overlapTokens;
         public Builder() {}
         public Builder(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration defaults) {
@@ -58,10 +59,8 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         @CustomType.Setter
-        public Builder levelConfigurations(List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations) {
-            if (levelConfigurations == null) {
-              throw new MissingRequiredPropertyException("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration", "levelConfigurations");
-            }
+        public Builder levelConfigurations(@Nullable List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations) {
+
             this.levelConfigurations = levelConfigurations;
             return this;
         }

@@ -45,8 +45,8 @@ namespace Pulumi.Aws.CloudFront.Inputs
         /// <summary>
         /// A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
         /// </summary>
-        [Input("originSslProtocols")]
-        public Input<Inputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocolsGetArgs>? OriginSslProtocols { get; set; }
+        [Input("originSslProtocols", required: true)]
+        public Input<Inputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocolsGetArgs> OriginSslProtocols { get; set; } = null!;
 
         public VpcOriginVpcOriginEndpointConfigGetArgs()
         {

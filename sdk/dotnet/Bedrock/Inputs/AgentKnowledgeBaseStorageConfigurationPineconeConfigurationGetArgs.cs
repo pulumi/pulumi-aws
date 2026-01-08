@@ -27,8 +27,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
-        [Input("fieldMapping")]
-        public Input<Inputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingGetArgs>? FieldMapping { get; set; }
+        [Input("fieldMapping", required: true)]
+        public Input<Inputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingGetArgs> FieldMapping { get; set; } = null!;
 
         /// <summary>
         /// Namespace to be used to write new data to your database.

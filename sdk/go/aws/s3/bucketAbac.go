@@ -74,7 +74,7 @@ type BucketAbac struct {
 	// ABAC status configuration. See `abacStatus` Block for details.
 	//
 	// The following arguments are optional:
-	AbacStatus BucketAbacAbacStatusPtrOutput `pulumi:"abacStatus"`
+	AbacStatus BucketAbacAbacStatusOutput `pulumi:"abacStatus"`
 	// General purpose bucket that you want to create the metadata configuration for.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
@@ -90,6 +90,9 @@ func NewBucketAbac(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AbacStatus == nil {
+		return nil, errors.New("invalid value for required argument 'AbacStatus'")
+	}
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
@@ -149,7 +152,7 @@ type bucketAbacArgs struct {
 	// ABAC status configuration. See `abacStatus` Block for details.
 	//
 	// The following arguments are optional:
-	AbacStatus *BucketAbacAbacStatus `pulumi:"abacStatus"`
+	AbacStatus BucketAbacAbacStatus `pulumi:"abacStatus"`
 	// General purpose bucket that you want to create the metadata configuration for.
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
@@ -163,7 +166,7 @@ type BucketAbacArgs struct {
 	// ABAC status configuration. See `abacStatus` Block for details.
 	//
 	// The following arguments are optional:
-	AbacStatus BucketAbacAbacStatusPtrInput
+	AbacStatus BucketAbacAbacStatusInput
 	// General purpose bucket that you want to create the metadata configuration for.
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
@@ -262,8 +265,8 @@ func (o BucketAbacOutput) ToBucketAbacOutputWithContext(ctx context.Context) Buc
 // ABAC status configuration. See `abacStatus` Block for details.
 //
 // The following arguments are optional:
-func (o BucketAbacOutput) AbacStatus() BucketAbacAbacStatusPtrOutput {
-	return o.ApplyT(func(v *BucketAbac) BucketAbacAbacStatusPtrOutput { return v.AbacStatus }).(BucketAbacAbacStatusPtrOutput)
+func (o BucketAbacOutput) AbacStatus() BucketAbacAbacStatusOutput {
+	return o.ApplyT(func(v *BucketAbac) BucketAbacAbacStatusOutput { return v.AbacStatus }).(BucketAbacAbacStatusOutput)
 }
 
 // General purpose bucket that you want to create the metadata configuration for.

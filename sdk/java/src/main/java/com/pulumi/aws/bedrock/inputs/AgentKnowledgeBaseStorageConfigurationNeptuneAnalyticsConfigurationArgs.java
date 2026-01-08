@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -21,15 +19,15 @@ public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigu
      * The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    @Import(name="fieldMapping")
-    private @Nullable Output<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs> fieldMapping;
+    @Import(name="fieldMapping", required=true)
+    private Output<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs> fieldMapping;
 
     /**
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<Output<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs>> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public Output<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs> fieldMapping() {
+        return this.fieldMapping;
     }
 
     /**
@@ -78,7 +76,7 @@ public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigu
          * @return builder
          * 
          */
-        public Builder fieldMapping(@Nullable Output<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs> fieldMapping) {
+        public Builder fieldMapping(Output<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs> fieldMapping) {
             $.fieldMapping = fieldMapping;
             return this;
         }
@@ -115,6 +113,9 @@ public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigu
         }
 
         public AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs build() {
+            if ($.fieldMapping == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs", "fieldMapping");
+            }
             if ($.graphArn == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs", "graphArn");
             }

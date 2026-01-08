@@ -65,14 +65,14 @@ public class Scraper extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="destination", refs={ScraperDestination.class}, tree="[0]")
-    private Output</* @Nullable */ ScraperDestination> destination;
+    private Output<ScraperDestination> destination;
 
     /**
      * @return Configuration block for the managed scraper to send metrics to. See `destination`.
      * 
      */
-    public Output<Optional<ScraperDestination>> destination() {
-        return Codegen.optional(this.destination);
+    public Output<ScraperDestination> destination() {
+        return this.destination;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

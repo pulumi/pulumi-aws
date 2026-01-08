@@ -6,9 +6,8 @@ package com.pulumi.aws.observabilityadmin.outputs;
 import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleDestination;
 import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class CentralizationRuleForOrganizationRule {
@@ -16,27 +15,27 @@ public final class CentralizationRuleForOrganizationRule {
      * @return Configuration block for the destination where logs will be centralized. See `destination` below.
      * 
      */
-    private @Nullable CentralizationRuleForOrganizationRuleDestination destination;
+    private CentralizationRuleForOrganizationRuleDestination destination;
     /**
      * @return Configuration block for the source of logs to be centralized. See `source` below.
      * 
      */
-    private @Nullable CentralizationRuleForOrganizationRuleSource source;
+    private CentralizationRuleForOrganizationRuleSource source;
 
     private CentralizationRuleForOrganizationRule() {}
     /**
      * @return Configuration block for the destination where logs will be centralized. See `destination` below.
      * 
      */
-    public Optional<CentralizationRuleForOrganizationRuleDestination> destination() {
-        return Optional.ofNullable(this.destination);
+    public CentralizationRuleForOrganizationRuleDestination destination() {
+        return this.destination;
     }
     /**
      * @return Configuration block for the source of logs to be centralized. See `source` below.
      * 
      */
-    public Optional<CentralizationRuleForOrganizationRuleSource> source() {
-        return Optional.ofNullable(this.source);
+    public CentralizationRuleForOrganizationRuleSource source() {
+        return this.source;
     }
 
     public static Builder builder() {
@@ -48,8 +47,8 @@ public final class CentralizationRuleForOrganizationRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable CentralizationRuleForOrganizationRuleDestination destination;
-        private @Nullable CentralizationRuleForOrganizationRuleSource source;
+        private CentralizationRuleForOrganizationRuleDestination destination;
+        private CentralizationRuleForOrganizationRuleSource source;
         public Builder() {}
         public Builder(CentralizationRuleForOrganizationRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,14 +57,18 @@ public final class CentralizationRuleForOrganizationRule {
         }
 
         @CustomType.Setter
-        public Builder destination(@Nullable CentralizationRuleForOrganizationRuleDestination destination) {
-
+        public Builder destination(CentralizationRuleForOrganizationRuleDestination destination) {
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("CentralizationRuleForOrganizationRule", "destination");
+            }
             this.destination = destination;
             return this;
         }
         @CustomType.Setter
-        public Builder source(@Nullable CentralizationRuleForOrganizationRuleSource source) {
-
+        public Builder source(CentralizationRuleForOrganizationRuleSource source) {
+            if (source == null) {
+              throw new MissingRequiredPropertyException("CentralizationRuleForOrganizationRule", "source");
+            }
             this.source = source;
             return this;
         }

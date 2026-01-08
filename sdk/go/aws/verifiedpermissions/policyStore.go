@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -64,16 +65,19 @@ type PolicyStore struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Validation settings for the policy store.
-	ValidationSettings PolicyStoreValidationSettingsPtrOutput `pulumi:"validationSettings"`
+	ValidationSettings PolicyStoreValidationSettingsOutput `pulumi:"validationSettings"`
 }
 
 // NewPolicyStore registers a new resource with the given unique name, arguments, and options.
 func NewPolicyStore(ctx *pulumi.Context,
 	name string, args *PolicyStoreArgs, opts ...pulumi.ResourceOption) (*PolicyStore, error) {
 	if args == nil {
-		args = &PolicyStoreArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ValidationSettings == nil {
+		return nil, errors.New("invalid value for required argument 'ValidationSettings'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyStore
 	err := ctx.RegisterResource("aws:verifiedpermissions/policyStore:PolicyStore", name, args, &resource, opts...)
@@ -148,7 +152,7 @@ type policyStoreArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Validation settings for the policy store.
-	ValidationSettings *PolicyStoreValidationSettings `pulumi:"validationSettings"`
+	ValidationSettings PolicyStoreValidationSettings `pulumi:"validationSettings"`
 }
 
 // The set of arguments for constructing a PolicyStore resource.
@@ -162,7 +166,7 @@ type PolicyStoreArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Validation settings for the policy store.
-	ValidationSettings PolicyStoreValidationSettingsPtrInput
+	ValidationSettings PolicyStoreValidationSettingsInput
 }
 
 func (PolicyStoreArgs) ElementType() reflect.Type {
@@ -288,8 +292,8 @@ func (o PolicyStoreOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Validation settings for the policy store.
-func (o PolicyStoreOutput) ValidationSettings() PolicyStoreValidationSettingsPtrOutput {
-	return o.ApplyT(func(v *PolicyStore) PolicyStoreValidationSettingsPtrOutput { return v.ValidationSettings }).(PolicyStoreValidationSettingsPtrOutput)
+func (o PolicyStoreOutput) ValidationSettings() PolicyStoreValidationSettingsOutput {
+	return o.ApplyT(func(v *PolicyStore) PolicyStoreValidationSettingsOutput { return v.ValidationSettings }).(PolicyStoreValidationSettingsOutput)
 }
 
 type PolicyStoreArrayOutput struct{ *pulumi.OutputState }

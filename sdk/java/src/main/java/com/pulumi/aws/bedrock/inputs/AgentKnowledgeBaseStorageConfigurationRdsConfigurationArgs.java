@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -51,15 +49,15 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
      * Names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    @Import(name="fieldMapping")
-    private @Nullable Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs> fieldMapping;
+    @Import(name="fieldMapping", required=true)
+    private Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs> fieldMapping;
 
     /**
      * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs>> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs> fieldMapping() {
+        return this.fieldMapping;
     }
 
     /**
@@ -168,7 +166,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
          * @return builder
          * 
          */
-        public Builder fieldMapping(@Nullable Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs> fieldMapping) {
+        public Builder fieldMapping(Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs> fieldMapping) {
             $.fieldMapping = fieldMapping;
             return this;
         }
@@ -231,6 +229,9 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
             }
             if ($.databaseName == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs", "databaseName");
+            }
+            if ($.fieldMapping == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs", "fieldMapping");
             }
             if ($.resourceArn == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs", "resourceArn");

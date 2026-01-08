@@ -18,8 +18,8 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/providertest v0.6.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.119.0
-	github.com/pulumi/pulumi/pkg/v3 v3.213.0
-	github.com/pulumi/pulumi/sdk/v3 v3.213.0
+	github.com/pulumi/pulumi/pkg/v3 v3.214.0
+	github.com/pulumi/pulumi/sdk/v3 v3.214.0
 	github.com/stretchr/testify v1.11.1
 )
 
@@ -507,3 +507,5 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
 )
+
+replace github.com/pulumi/pulumi-terraform-bridge/v3 => ../../pulumi-terraform-bridge

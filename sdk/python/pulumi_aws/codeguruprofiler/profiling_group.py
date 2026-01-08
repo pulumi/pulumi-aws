@@ -21,7 +21,7 @@ __all__ = ['ProfilingGroupArgs', 'ProfilingGroup']
 @pulumi.input_type
 class ProfilingGroupArgs:
     def __init__(__self__, *,
-                 agent_orchestration_config: Optional[pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs']] = None,
+                 agent_orchestration_config: pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs'],
                  compute_platform: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -36,8 +36,7 @@ class ProfilingGroupArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        if agent_orchestration_config is not None:
-            pulumi.set(__self__, "agent_orchestration_config", agent_orchestration_config)
+        pulumi.set(__self__, "agent_orchestration_config", agent_orchestration_config)
         if compute_platform is not None:
             pulumi.set(__self__, "compute_platform", compute_platform)
         if name is not None:
@@ -49,14 +48,14 @@ class ProfilingGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentOrchestrationConfig")
-    def agent_orchestration_config(self) -> Optional[pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs']]:
+    def agent_orchestration_config(self) -> pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs']:
         """
         Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
         """
         return pulumi.get(self, "agent_orchestration_config")
 
     @agent_orchestration_config.setter
-    def agent_orchestration_config(self, value: Optional[pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs']]):
+    def agent_orchestration_config(self, value: pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs']):
         pulumi.set(self, "agent_orchestration_config", value)
 
     @_builtins.property
@@ -287,7 +286,7 @@ class ProfilingGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ProfilingGroupArgs] = None,
+                 args: ProfilingGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS CodeGuru Profiler Profiling Group.
@@ -345,6 +344,8 @@ class ProfilingGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProfilingGroupArgs.__new__(ProfilingGroupArgs)
 
+            if agent_orchestration_config is None and not opts.urn:
+                raise TypeError("Missing required property 'agent_orchestration_config'")
             __props__.__dict__["agent_orchestration_config"] = agent_orchestration_config
             __props__.__dict__["compute_platform"] = compute_platform
             __props__.__dict__["name"] = name
@@ -401,7 +402,7 @@ class ProfilingGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="agentOrchestrationConfig")
-    def agent_orchestration_config(self) -> pulumi.Output[Optional['outputs.ProfilingGroupAgentOrchestrationConfig']]:
+    def agent_orchestration_config(self) -> pulumi.Output['outputs.ProfilingGroupAgentOrchestrationConfig']:
         """
         Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
         """

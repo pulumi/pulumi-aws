@@ -68,15 +68,15 @@ public final class VpcEndpointAssociationArgs extends com.pulumi.resources.Resou
      * The ID for a subnet that&#39;s used in an association with a firewall. See Subnet Mapping below for details.
      * 
      */
-    @Import(name="subnetMapping")
-    private @Nullable Output<VpcEndpointAssociationSubnetMappingArgs> subnetMapping;
+    @Import(name="subnetMapping", required=true)
+    private Output<VpcEndpointAssociationSubnetMappingArgs> subnetMapping;
 
     /**
      * @return The ID for a subnet that&#39;s used in an association with a firewall. See Subnet Mapping below for details.
      * 
      */
-    public Optional<Output<VpcEndpointAssociationSubnetMappingArgs>> subnetMapping() {
-        return Optional.ofNullable(this.subnetMapping);
+    public Output<VpcEndpointAssociationSubnetMappingArgs> subnetMapping() {
+        return this.subnetMapping;
     }
 
     /**
@@ -215,7 +215,7 @@ public final class VpcEndpointAssociationArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder subnetMapping(@Nullable Output<VpcEndpointAssociationSubnetMappingArgs> subnetMapping) {
+        public Builder subnetMapping(Output<VpcEndpointAssociationSubnetMappingArgs> subnetMapping) {
             $.subnetMapping = subnetMapping;
             return this;
         }
@@ -284,6 +284,9 @@ public final class VpcEndpointAssociationArgs extends com.pulumi.resources.Resou
         public VpcEndpointAssociationArgs build() {
             if ($.firewallArn == null) {
                 throw new MissingRequiredPropertyException("VpcEndpointAssociationArgs", "firewallArn");
+            }
+            if ($.subnetMapping == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointAssociationArgs", "subnetMapping");
             }
             if ($.vpcId == null) {
                 throw new MissingRequiredPropertyException("VpcEndpointAssociationArgs", "vpcId");

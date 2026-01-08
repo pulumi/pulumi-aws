@@ -12,8 +12,8 @@ namespace Pulumi.Aws.CleanRooms.Inputs
 
     public sealed class MembershipDefaultResultConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("outputConfiguration")]
-        public Input<Inputs.MembershipDefaultResultConfigurationOutputConfigurationArgs>? OutputConfiguration { get; set; }
+        [Input("outputConfiguration", required: true)]
+        public Input<Inputs.MembershipDefaultResultConfigurationOutputConfigurationArgs> OutputConfiguration { get; set; } = null!;
 
         /// <summary>
         /// The ARN of the IAM role which will be used to create the membership.

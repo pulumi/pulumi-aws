@@ -136,7 +136,7 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentAgentCollaborator.__pulumiType;
     }
 
-    declare public readonly agentDescriptor: pulumi.Output<outputs.bedrock.AgentAgentCollaboratorAgentDescriptor | undefined>;
+    declare public readonly agentDescriptor: pulumi.Output<outputs.bedrock.AgentAgentCollaboratorAgentDescriptor>;
     /**
      * ID if the agent to associate the collaborator.
      */
@@ -195,6 +195,9 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as AgentAgentCollaboratorArgs | undefined;
+            if (args?.agentDescriptor === undefined && !opts.urn) {
+                throw new Error("Missing required property 'agentDescriptor'");
+            }
             if (args?.agentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentId'");
             }
@@ -263,7 +266,7 @@ export interface AgentAgentCollaboratorState {
  * The set of arguments for constructing a AgentAgentCollaborator resource.
  */
 export interface AgentAgentCollaboratorArgs {
-    agentDescriptor?: pulumi.Input<inputs.bedrock.AgentAgentCollaboratorAgentDescriptor>;
+    agentDescriptor: pulumi.Input<inputs.bedrock.AgentAgentCollaboratorAgentDescriptor>;
     /**
      * ID if the agent to associate the collaborator.
      */

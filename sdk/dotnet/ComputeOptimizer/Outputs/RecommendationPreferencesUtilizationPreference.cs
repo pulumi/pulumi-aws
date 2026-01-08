@@ -20,13 +20,13 @@ namespace Pulumi.Aws.ComputeOptimizer.Outputs
         /// <summary>
         /// The parameters to set when customizing the resource utilization thresholds.
         /// </summary>
-        public readonly Outputs.RecommendationPreferencesUtilizationPreferenceMetricParameters? MetricParameters;
+        public readonly Outputs.RecommendationPreferencesUtilizationPreferenceMetricParameters MetricParameters;
 
         [OutputConstructor]
         private RecommendationPreferencesUtilizationPreference(
             string metricName,
 
-            Outputs.RecommendationPreferencesUtilizationPreferenceMetricParameters? metricParameters)
+            Outputs.RecommendationPreferencesUtilizationPreferenceMetricParameters metricParameters)
         {
             MetricName = metricName;
             MetricParameters = metricParameters;

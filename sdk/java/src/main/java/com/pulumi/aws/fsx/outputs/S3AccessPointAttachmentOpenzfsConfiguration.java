@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class S3AccessPointAttachmentOpenzfsConfiguration {
@@ -17,7 +15,7 @@ public final class S3AccessPointAttachmentOpenzfsConfiguration {
      * @return File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `fileSystemIdentity` Block for details.
      * 
      */
-    private @Nullable S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity fileSystemIdentity;
+    private S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity fileSystemIdentity;
     /**
      * @return ID of the FSx for OpenZFS volume to which the S3 access point is attached.
      * 
@@ -29,8 +27,8 @@ public final class S3AccessPointAttachmentOpenzfsConfiguration {
      * @return File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `fileSystemIdentity` Block for details.
      * 
      */
-    public Optional<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity> fileSystemIdentity() {
-        return Optional.ofNullable(this.fileSystemIdentity);
+    public S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity fileSystemIdentity() {
+        return this.fileSystemIdentity;
     }
     /**
      * @return ID of the FSx for OpenZFS volume to which the S3 access point is attached.
@@ -49,7 +47,7 @@ public final class S3AccessPointAttachmentOpenzfsConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity fileSystemIdentity;
+        private S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity fileSystemIdentity;
         private String volumeId;
         public Builder() {}
         public Builder(S3AccessPointAttachmentOpenzfsConfiguration defaults) {
@@ -59,8 +57,10 @@ public final class S3AccessPointAttachmentOpenzfsConfiguration {
         }
 
         @CustomType.Setter
-        public Builder fileSystemIdentity(@Nullable S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity fileSystemIdentity) {
-
+        public Builder fileSystemIdentity(S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity fileSystemIdentity) {
+            if (fileSystemIdentity == null) {
+              throw new MissingRequiredPropertyException("S3AccessPointAttachmentOpenzfsConfiguration", "fileSystemIdentity");
+            }
             this.fileSystemIdentity = fileSystemIdentity;
             return this;
         }

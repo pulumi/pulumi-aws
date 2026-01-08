@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Eks.Inputs
         /// <summary>
         /// AWS IAM Identity Center configuration. See `AwsIdc` below.
         /// </summary>
-        [Input("awsIdc")]
-        public Input<Inputs.CapabilityConfigurationArgoCdAwsIdcArgs>? AwsIdc { get; set; }
+        [Input("awsIdc", required: true)]
+        public Input<Inputs.CapabilityConfigurationArgoCdAwsIdcArgs> AwsIdc { get; set; } = null!;
 
         /// <summary>
         /// Kubernetes namespace for ArgoCD.

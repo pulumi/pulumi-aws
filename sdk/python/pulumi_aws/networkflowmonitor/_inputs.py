@@ -211,7 +211,7 @@ if not MYPY:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
-        target_identifier: NotRequired[pulumi.Input['ScopeTargetTargetIdentifierArgsDict']]
+        target_identifier: pulumi.Input['ScopeTargetTargetIdentifierArgsDict']
         """
         A target identifier is a pair of identifying information for a scope.
         """
@@ -222,14 +222,13 @@ elif False:
 class ScopeTargetArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
-                 target_identifier: Optional[pulumi.Input['ScopeTargetTargetIdentifierArgs']] = None):
+                 target_identifier: pulumi.Input['ScopeTargetTargetIdentifierArgs']):
         """
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ScopeTargetTargetIdentifierArgs'] target_identifier: A target identifier is a pair of identifying information for a scope.
         """
         pulumi.set(__self__, "region", region)
-        if target_identifier is not None:
-            pulumi.set(__self__, "target_identifier", target_identifier)
+        pulumi.set(__self__, "target_identifier", target_identifier)
 
     @_builtins.property
     @pulumi.getter
@@ -245,26 +244,26 @@ class ScopeTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetIdentifier")
-    def target_identifier(self) -> Optional[pulumi.Input['ScopeTargetTargetIdentifierArgs']]:
+    def target_identifier(self) -> pulumi.Input['ScopeTargetTargetIdentifierArgs']:
         """
         A target identifier is a pair of identifying information for a scope.
         """
         return pulumi.get(self, "target_identifier")
 
     @target_identifier.setter
-    def target_identifier(self, value: Optional[pulumi.Input['ScopeTargetTargetIdentifierArgs']]):
+    def target_identifier(self, value: pulumi.Input['ScopeTargetTargetIdentifierArgs']):
         pulumi.set(self, "target_identifier", value)
 
 
 if not MYPY:
     class ScopeTargetTargetIdentifierArgsDict(TypedDict):
+        target_id: pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgsDict']
+        """
+        The identifier for a target, which is currently always an account ID.
+        """
         target_type: pulumi.Input[_builtins.str]
         """
         The type of a target. A target type is currently always `ACCOUNT`.
-        """
-        target_id: NotRequired[pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgsDict']]
-        """
-        The identifier for a target, which is currently always an account ID.
         """
 elif False:
     ScopeTargetTargetIdentifierArgsDict: TypeAlias = Mapping[str, Any]
@@ -272,15 +271,26 @@ elif False:
 @pulumi.input_type
 class ScopeTargetTargetIdentifierArgs:
     def __init__(__self__, *,
-                 target_type: pulumi.Input[_builtins.str],
-                 target_id: Optional[pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgs']] = None):
+                 target_id: pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgs'],
+                 target_type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] target_type: The type of a target. A target type is currently always `ACCOUNT`.
         :param pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgs'] target_id: The identifier for a target, which is currently always an account ID.
+        :param pulumi.Input[_builtins.str] target_type: The type of a target. A target type is currently always `ACCOUNT`.
         """
+        pulumi.set(__self__, "target_id", target_id)
         pulumi.set(__self__, "target_type", target_type)
-        if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+
+    @_builtins.property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgs']:
+        """
+        The identifier for a target, which is currently always an account ID.
+        """
+        return pulumi.get(self, "target_id")
+
+    @target_id.setter
+    def target_id(self, value: pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgs']):
+        pulumi.set(self, "target_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetType")
@@ -293,18 +303,6 @@ class ScopeTargetTargetIdentifierArgs:
     @target_type.setter
     def target_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "target_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> Optional[pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgs']]:
-        """
-        The identifier for a target, which is currently always an account ID.
-        """
-        return pulumi.get(self, "target_id")
-
-    @target_id.setter
-    def target_id(self, value: Optional[pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgs']]):
-        pulumi.set(self, "target_id", value)
 
 
 if not MYPY:

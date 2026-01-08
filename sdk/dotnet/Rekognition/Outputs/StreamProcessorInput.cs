@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Rekognition.Outputs
         /// <summary>
         /// Kinesis input stream. See `KinesisVideoStream`.
         /// </summary>
-        public readonly Outputs.StreamProcessorInputKinesisVideoStream? KinesisVideoStream;
+        public readonly Outputs.StreamProcessorInputKinesisVideoStream KinesisVideoStream;
 
         [OutputConstructor]
-        private StreamProcessorInput(Outputs.StreamProcessorInputKinesisVideoStream? kinesisVideoStream)
+        private StreamProcessorInput(Outputs.StreamProcessorInputKinesisVideoStream kinesisVideoStream)
         {
             KinesisVideoStream = kinesisVideoStream;
         }

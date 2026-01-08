@@ -1509,7 +1509,7 @@ type ChannelNamespaceHandlerConfigsOnPublish struct {
 	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 	Behavior string `pulumi:"behavior"`
 	// Integration data source configuration for the handler. See Integration below.
-	Integration *ChannelNamespaceHandlerConfigsOnPublishIntegration `pulumi:"integration"`
+	Integration ChannelNamespaceHandlerConfigsOnPublishIntegration `pulumi:"integration"`
 }
 
 // ChannelNamespaceHandlerConfigsOnPublishInput is an input type that accepts ChannelNamespaceHandlerConfigsOnPublishArgs and ChannelNamespaceHandlerConfigsOnPublishOutput values.
@@ -1527,7 +1527,7 @@ type ChannelNamespaceHandlerConfigsOnPublishArgs struct {
 	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
 	// Integration data source configuration for the handler. See Integration below.
-	Integration ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrInput `pulumi:"integration"`
+	Integration ChannelNamespaceHandlerConfigsOnPublishIntegrationInput `pulumi:"integration"`
 }
 
 func (ChannelNamespaceHandlerConfigsOnPublishArgs) ElementType() reflect.Type {
@@ -1613,10 +1613,10 @@ func (o ChannelNamespaceHandlerConfigsOnPublishOutput) Behavior() pulumi.StringO
 }
 
 // Integration data source configuration for the handler. See Integration below.
-func (o ChannelNamespaceHandlerConfigsOnPublishOutput) Integration() ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
-	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublish) *ChannelNamespaceHandlerConfigsOnPublishIntegration {
+func (o ChannelNamespaceHandlerConfigsOnPublishOutput) Integration() ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublish) ChannelNamespaceHandlerConfigsOnPublishIntegration {
 		return v.Integration
-	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput)
+	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput)
 }
 
 type ChannelNamespaceHandlerConfigsOnPublishPtrOutput struct{ *pulumi.OutputState }
@@ -1659,7 +1659,7 @@ func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Integration() ChannelN
 		if v == nil {
 			return nil
 		}
-		return v.Integration
+		return &v.Integration
 	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput)
 }
 
@@ -1962,7 +1962,7 @@ type ChannelNamespaceHandlerConfigsOnSubscribe struct {
 	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 	Behavior string `pulumi:"behavior"`
 	// Integration data source configuration for the handler. See Integration below.
-	Integration *ChannelNamespaceHandlerConfigsOnSubscribeIntegration `pulumi:"integration"`
+	Integration ChannelNamespaceHandlerConfigsOnSubscribeIntegration `pulumi:"integration"`
 }
 
 // ChannelNamespaceHandlerConfigsOnSubscribeInput is an input type that accepts ChannelNamespaceHandlerConfigsOnSubscribeArgs and ChannelNamespaceHandlerConfigsOnSubscribeOutput values.
@@ -1980,7 +1980,7 @@ type ChannelNamespaceHandlerConfigsOnSubscribeArgs struct {
 	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
 	// Integration data source configuration for the handler. See Integration below.
-	Integration ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrInput `pulumi:"integration"`
+	Integration ChannelNamespaceHandlerConfigsOnSubscribeIntegrationInput `pulumi:"integration"`
 }
 
 func (ChannelNamespaceHandlerConfigsOnSubscribeArgs) ElementType() reflect.Type {
@@ -2066,10 +2066,10 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) Behavior() pulumi.Strin
 }
 
 // Integration data source configuration for the handler. See Integration below.
-func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) Integration() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
-	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribe) *ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
+func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) Integration() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribe) ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
 		return v.Integration
-	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput)
+	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput)
 }
 
 type ChannelNamespaceHandlerConfigsOnSubscribePtrOutput struct{ *pulumi.OutputState }
@@ -2112,7 +2112,7 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Integration() Channe
 		if v == nil {
 			return nil
 		}
-		return v.Integration
+		return &v.Integration
 	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput)
 }
 

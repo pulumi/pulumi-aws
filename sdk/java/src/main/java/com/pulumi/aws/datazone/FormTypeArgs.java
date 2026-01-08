@@ -52,15 +52,15 @@ public final class FormTypeArgs extends com.pulumi.resources.ResourceArgs {
      * Object of the model of the form type that contains the following attributes.
      * 
      */
-    @Import(name="model")
-    private @Nullable Output<FormTypeModelArgs> model;
+    @Import(name="model", required=true)
+    private Output<FormTypeModelArgs> model;
 
     /**
      * @return Object of the model of the form type that contains the following attributes.
      * 
      */
-    public Optional<Output<FormTypeModelArgs>> model() {
-        return Optional.ofNullable(this.model);
+    public Output<FormTypeModelArgs> model() {
+        return this.model;
     }
 
     /**
@@ -201,7 +201,7 @@ public final class FormTypeArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder model(@Nullable Output<FormTypeModelArgs> model) {
+        public Builder model(Output<FormTypeModelArgs> model) {
             $.model = model;
             return this;
         }
@@ -300,6 +300,9 @@ public final class FormTypeArgs extends com.pulumi.resources.ResourceArgs {
         public FormTypeArgs build() {
             if ($.domainIdentifier == null) {
                 throw new MissingRequiredPropertyException("FormTypeArgs", "domainIdentifier");
+            }
+            if ($.model == null) {
+                throw new MissingRequiredPropertyException("FormTypeArgs", "model");
             }
             if ($.owningProjectIdentifier == null) {
                 throw new MissingRequiredPropertyException("FormTypeArgs", "owningProjectIdentifier");

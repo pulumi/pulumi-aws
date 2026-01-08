@@ -73,7 +73,7 @@ export class DataCellsFilter extends pulumi.CustomResource {
     /**
      * Information about the data cells filter. See Table Data below for details.
      */
-    declare public readonly tableData: pulumi.Output<outputs.lakeformation.DataCellsFilterTableData | undefined>;
+    declare public readonly tableData: pulumi.Output<outputs.lakeformation.DataCellsFilterTableData>;
     declare public readonly timeouts: pulumi.Output<outputs.lakeformation.DataCellsFilterTimeouts | undefined>;
 
     /**
@@ -83,7 +83,7 @@ export class DataCellsFilter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DataCellsFilterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: DataCellsFilterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataCellsFilterArgs | DataCellsFilterState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -94,6 +94,9 @@ export class DataCellsFilter extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as DataCellsFilterArgs | undefined;
+            if (args?.tableData === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tableData'");
+            }
             resourceInputs["region"] = args?.region;
             resourceInputs["tableData"] = args?.tableData;
             resourceInputs["timeouts"] = args?.timeouts;
@@ -129,6 +132,6 @@ export interface DataCellsFilterArgs {
     /**
      * Information about the data cells filter. See Table Data below for details.
      */
-    tableData?: pulumi.Input<inputs.lakeformation.DataCellsFilterTableData>;
+    tableData: pulumi.Input<inputs.lakeformation.DataCellsFilterTableData>;
     timeouts?: pulumi.Input<inputs.lakeformation.DataCellsFilterTimeouts>;
 }

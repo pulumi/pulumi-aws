@@ -76,7 +76,7 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
     /**
      * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      */
-    declare public readonly recoveryPointSelection: pulumi.Output<outputs.backup.RestoreTestingPlanRecoveryPointSelection | undefined>;
+    declare public readonly recoveryPointSelection: pulumi.Output<outputs.backup.RestoreTestingPlanRecoveryPointSelection>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -123,6 +123,9 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as RestoreTestingPlanArgs | undefined;
+            if (args?.recoveryPointSelection === undefined && !opts.urn) {
+                throw new Error("Missing required property 'recoveryPointSelection'");
+            }
             if (args?.scheduleExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleExpression'");
             }
@@ -191,7 +194,7 @@ export interface RestoreTestingPlanArgs {
     /**
      * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      */
-    recoveryPointSelection?: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection>;
+    recoveryPointSelection: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.DevOpsGuru.Inputs
 
     public sealed class EventSourcesConfigEventSourceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("amazonCodeGuruProfilers")]
+        [Input("amazonCodeGuruProfilers", required: true)]
         private InputList<Inputs.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>? _amazonCodeGuruProfilers;
 
         /// <summary>

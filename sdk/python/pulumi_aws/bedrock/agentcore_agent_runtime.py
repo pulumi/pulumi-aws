@@ -21,14 +21,14 @@ __all__ = ['AgentcoreAgentRuntimeArgs', 'AgentcoreAgentRuntime']
 @pulumi.input_type
 class AgentcoreAgentRuntimeArgs:
     def __init__(__self__, *,
+                 agent_runtime_artifact: pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs'],
                  agent_runtime_name: pulumi.Input[_builtins.str],
+                 network_configuration: pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 agent_runtime_artifact: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs']] = None,
                  authorizer_configuration: Optional[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  lifecycle_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]]] = None,
-                 network_configuration: Optional[pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs']] = None,
                  protocol_configuration: Optional[pulumi.Input['AgentcoreAgentRuntimeProtocolConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  request_header_configuration: Optional[pulumi.Input['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs']] = None,
@@ -36,25 +36,25 @@ class AgentcoreAgentRuntimeArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreAgentRuntimeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreAgentRuntime resource.
-        :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
         :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
+        :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
+        :param pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs'] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
         :param pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the agent runtime.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables to pass to the container.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
-        :param pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs'] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
-               
-               The following arguments are optional:
         :param pulumi.Input['AgentcoreAgentRuntimeProtocolConfigurationArgs'] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs'] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "agent_runtime_artifact", agent_runtime_artifact)
         pulumi.set(__self__, "agent_runtime_name", agent_runtime_name)
+        pulumi.set(__self__, "network_configuration", network_configuration)
         pulumi.set(__self__, "role_arn", role_arn)
-        if agent_runtime_artifact is not None:
-            pulumi.set(__self__, "agent_runtime_artifact", agent_runtime_artifact)
         if authorizer_configuration is not None:
             pulumi.set(__self__, "authorizer_configuration", authorizer_configuration)
         if description is not None:
@@ -63,8 +63,6 @@ class AgentcoreAgentRuntimeArgs:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if lifecycle_configurations is not None:
             pulumi.set(__self__, "lifecycle_configurations", lifecycle_configurations)
-        if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
         if protocol_configuration is not None:
             pulumi.set(__self__, "protocol_configuration", protocol_configuration)
         if region is not None:
@@ -75,6 +73,18 @@ class AgentcoreAgentRuntimeArgs:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="agentRuntimeArtifact")
+    def agent_runtime_artifact(self) -> pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs']:
+        """
+        Container artifact configuration. See `agent_runtime_artifact` below.
+        """
+        return pulumi.get(self, "agent_runtime_artifact")
+
+    @agent_runtime_artifact.setter
+    def agent_runtime_artifact(self, value: pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs']):
+        pulumi.set(self, "agent_runtime_artifact", value)
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeName")
@@ -89,6 +99,20 @@ class AgentcoreAgentRuntimeArgs:
         pulumi.set(self, "agent_runtime_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs']:
+        """
+        Network configuration for the agent runtime. See `network_configuration` below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs']):
+        pulumi.set(self, "network_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
@@ -99,18 +123,6 @@ class AgentcoreAgentRuntimeArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role_arn", value)
-
-    @_builtins.property
-    @pulumi.getter(name="agentRuntimeArtifact")
-    def agent_runtime_artifact(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs']]:
-        """
-        Container artifact configuration. See `agent_runtime_artifact` below.
-        """
-        return pulumi.get(self, "agent_runtime_artifact")
-
-    @agent_runtime_artifact.setter
-    def agent_runtime_artifact(self, value: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs']]):
-        pulumi.set(self, "agent_runtime_artifact", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
@@ -159,20 +171,6 @@ class AgentcoreAgentRuntimeArgs:
     @lifecycle_configurations.setter
     def lifecycle_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]]]):
         pulumi.set(self, "lifecycle_configurations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs']]:
-        """
-        Network configuration for the agent runtime. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "network_configuration")
-
-    @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs']]):
-        pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
@@ -862,6 +860,8 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgentcoreAgentRuntimeArgs.__new__(AgentcoreAgentRuntimeArgs)
 
+            if agent_runtime_artifact is None and not opts.urn:
+                raise TypeError("Missing required property 'agent_runtime_artifact'")
             __props__.__dict__["agent_runtime_artifact"] = agent_runtime_artifact
             if agent_runtime_name is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_runtime_name'")
@@ -870,6 +870,8 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["lifecycle_configurations"] = lifecycle_configurations
+            if network_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'network_configuration'")
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["protocol_configuration"] = protocol_configuration
             __props__.__dict__["region"] = region
@@ -973,7 +975,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeArtifact")
-    def agent_runtime_artifact(self) -> pulumi.Output[Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact']]:
+    def agent_runtime_artifact(self) -> pulumi.Output['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact']:
         """
         Container artifact configuration. See `agent_runtime_artifact` below.
         """
@@ -1037,7 +1039,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreAgentRuntimeNetworkConfiguration']]:
+    def network_configuration(self) -> pulumi.Output['outputs.AgentcoreAgentRuntimeNetworkConfiguration']:
         """
         Network configuration for the agent runtime. See `network_configuration` below.
 

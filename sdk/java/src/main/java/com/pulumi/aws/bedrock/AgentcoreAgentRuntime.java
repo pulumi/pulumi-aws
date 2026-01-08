@@ -268,14 +268,14 @@ public class AgentcoreAgentRuntime extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="agentRuntimeArtifact", refs={AgentcoreAgentRuntimeAgentRuntimeArtifact.class}, tree="[0]")
-    private Output</* @Nullable */ AgentcoreAgentRuntimeAgentRuntimeArtifact> agentRuntimeArtifact;
+    private Output<AgentcoreAgentRuntimeAgentRuntimeArtifact> agentRuntimeArtifact;
 
     /**
      * @return Container artifact configuration. See `agentRuntimeArtifact` below.
      * 
      */
-    public Output<Optional<AgentcoreAgentRuntimeAgentRuntimeArtifact>> agentRuntimeArtifact() {
-        return Codegen.optional(this.agentRuntimeArtifact);
+    public Output<AgentcoreAgentRuntimeAgentRuntimeArtifact> agentRuntimeArtifact() {
+        return this.agentRuntimeArtifact;
     }
     /**
      * Unique identifier of the Agent Runtime.
@@ -382,7 +382,7 @@ public class AgentcoreAgentRuntime extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkConfiguration", refs={AgentcoreAgentRuntimeNetworkConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ AgentcoreAgentRuntimeNetworkConfiguration> networkConfiguration;
+    private Output<AgentcoreAgentRuntimeNetworkConfiguration> networkConfiguration;
 
     /**
      * @return Network configuration for the agent runtime. See `networkConfiguration` below.
@@ -390,8 +390,8 @@ public class AgentcoreAgentRuntime extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<AgentcoreAgentRuntimeNetworkConfiguration>> networkConfiguration() {
-        return Codegen.optional(this.networkConfiguration);
+    public Output<AgentcoreAgentRuntimeNetworkConfiguration> networkConfiguration() {
+        return this.networkConfiguration;
     }
     /**
      * Protocol configuration for the agent runtime. See `protocolConfiguration` below.

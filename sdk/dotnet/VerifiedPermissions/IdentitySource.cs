@@ -132,7 +132,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         /// </summary>
         [Output("configuration")]
-        public Output<Outputs.IdentitySourceConfiguration?> Configuration { get; private set; } = null!;
+        public Output<Outputs.IdentitySourceConfiguration> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the ID of the policy store in which you want to store this identity source.
@@ -201,8 +201,8 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// <summary>
         /// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         /// </summary>
-        [Input("configuration")]
-        public Input<Inputs.IdentitySourceConfigurationArgs>? Configuration { get; set; }
+        [Input("configuration", required: true)]
+        public Input<Inputs.IdentitySourceConfigurationArgs> Configuration { get; set; } = null!;
 
         /// <summary>
         /// Specifies the ID of the policy store in which you want to store this identity source.

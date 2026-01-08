@@ -88,7 +88,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// Validation settings for the policy store.
         /// </summary>
         [Output("validationSettings")]
-        public Output<Outputs.PolicyStoreValidationSettings?> ValidationSettings { get; private set; } = null!;
+        public Output<Outputs.PolicyStoreValidationSettings> ValidationSettings { get; private set; } = null!;
 
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PolicyStore(string name, PolicyStoreArgs? args = null, CustomResourceOptions? options = null)
+        public PolicyStore(string name, PolicyStoreArgs args, CustomResourceOptions? options = null)
             : base("aws:verifiedpermissions/policyStore:PolicyStore", name, args ?? new PolicyStoreArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -169,8 +169,8 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// <summary>
         /// Validation settings for the policy store.
         /// </summary>
-        [Input("validationSettings")]
-        public Input<Inputs.PolicyStoreValidationSettingsArgs>? ValidationSettings { get; set; }
+        [Input("validationSettings", required: true)]
+        public Input<Inputs.PolicyStoreValidationSettingsArgs> ValidationSettings { get; set; } = null!;
 
         public PolicyStoreArgs()
         {

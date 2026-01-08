@@ -226,14 +226,14 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="outputDataConfig", refs={CustomModelOutputDataConfig.class}, tree="[0]")
-    private Output</* @Nullable */ CustomModelOutputDataConfig> outputDataConfig;
+    private Output<CustomModelOutputDataConfig> outputDataConfig;
 
     /**
      * @return S3 location for the output data.
      * 
      */
-    public Output<Optional<CustomModelOutputDataConfig>> outputDataConfig() {
-        return Codegen.optional(this.outputDataConfig);
+    public Output<CustomModelOutputDataConfig> outputDataConfig() {
+        return this.outputDataConfig;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -302,14 +302,14 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="trainingDataConfig", refs={CustomModelTrainingDataConfig.class}, tree="[0]")
-    private Output</* @Nullable */ CustomModelTrainingDataConfig> trainingDataConfig;
+    private Output<CustomModelTrainingDataConfig> trainingDataConfig;
 
     /**
      * @return Information about the training dataset.
      * 
      */
-    public Output<Optional<CustomModelTrainingDataConfig>> trainingDataConfig() {
-        return Codegen.optional(this.trainingDataConfig);
+    public Output<CustomModelTrainingDataConfig> trainingDataConfig() {
+        return this.trainingDataConfig;
     }
     /**
      * Metrics associated with the customization job.

@@ -96,7 +96,7 @@ export class V2modelsSlot extends pulumi.CustomResource {
      */
     declare public readonly subSlotSettings: pulumi.Output<outputs.lex.V2modelsSlotSubSlotSetting[] | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.lex.V2modelsSlotTimeouts | undefined>;
-    declare public readonly valueElicitationSetting: pulumi.Output<outputs.lex.V2modelsSlotValueElicitationSetting | undefined>;
+    declare public readonly valueElicitationSetting: pulumi.Output<outputs.lex.V2modelsSlotValueElicitationSetting>;
 
     /**
      * Create a V2modelsSlot resource with the given unique name, arguments, and options.
@@ -138,6 +138,9 @@ export class V2modelsSlot extends pulumi.CustomResource {
             }
             if (args?.localeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localeId'");
+            }
+            if (args?.valueElicitationSetting === undefined && !opts.urn) {
+                throw new Error("Missing required property 'valueElicitationSetting'");
             }
             resourceInputs["botId"] = args?.botId;
             resourceInputs["botVersion"] = args?.botVersion;
@@ -270,5 +273,5 @@ export interface V2modelsSlotArgs {
      */
     subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts>;
-    valueElicitationSetting?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSetting>;
+    valueElicitationSetting: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSetting>;
 }

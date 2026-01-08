@@ -56,7 +56,7 @@ export class Scraper extends pulumi.CustomResource {
     /**
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      */
-    declare public readonly destination: pulumi.Output<outputs.amp.ScraperDestination | undefined>;
+    declare public readonly destination: pulumi.Output<outputs.amp.ScraperDestination>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -109,6 +109,9 @@ export class Scraper extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as ScraperArgs | undefined;
+            if (args?.destination === undefined && !opts.urn) {
+                throw new Error("Missing required property 'destination'");
+            }
             if (args?.scrapeConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scrapeConfiguration'");
             }
@@ -183,7 +186,7 @@ export interface ScraperArgs {
     /**
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      */
-    destination?: pulumi.Input<inputs.amp.ScraperDestination>;
+    destination: pulumi.Input<inputs.amp.ScraperDestination>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

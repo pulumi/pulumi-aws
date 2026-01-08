@@ -25,7 +25,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
      * @return Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
      * 
      */
-    private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination> destinations;
+    private List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination> destinations;
     /**
      * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
      * 
@@ -55,7 +55,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
      * 
      */
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination> destinations() {
-        return this.destinations == null ? List.of() : this.destinations;
+        return this.destinations;
     }
     /**
      * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
@@ -89,7 +89,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort> destinationPorts;
-        private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination> destinations;
+        private List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination> destinations;
         private List<Integer> protocols;
         private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort> sourcePorts;
         private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource> sources;
@@ -113,8 +113,10 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
             return destinationPorts(List.of(destinationPorts));
         }
         @CustomType.Setter
-        public Builder destinations(@Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination> destinations) {
-
+        public Builder destinations(List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination> destinations) {
+            if (destinations == null) {
+              throw new MissingRequiredPropertyException("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope", "destinations");
+            }
             this.destinations = destinations;
             return this;
         }

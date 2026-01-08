@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Ecr
         /// });
         /// ```
         /// </summary>
-        public static Task<GetLifecyclePolicyDocumentResult> InvokeAsync(GetLifecyclePolicyDocumentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLifecyclePolicyDocumentResult> InvokeAsync(GetLifecyclePolicyDocumentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLifecyclePolicyDocumentResult>("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args ?? new GetLifecyclePolicyDocumentArgs(), options.WithDefaults());
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Ecr
         /// });
         /// ```
         /// </summary>
-        public static Output<GetLifecyclePolicyDocumentResult> Invoke(GetLifecyclePolicyDocumentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLifecyclePolicyDocumentResult> Invoke(GetLifecyclePolicyDocumentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLifecyclePolicyDocumentResult>("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args ?? new GetLifecyclePolicyDocumentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetLifecyclePolicyDocumentArgs : global::Pulumi.InvokeArgs
     {
-        [Input("rules")]
+        [Input("rules", required: true)]
         private List<Inputs.GetLifecyclePolicyDocumentRuleArgs>? _rules;
         public List<Inputs.GetLifecyclePolicyDocumentRuleArgs> Rules
         {
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetLifecyclePolicyDocumentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("rules")]
+        [Input("rules", required: true)]
         private InputList<Inputs.GetLifecyclePolicyDocumentRuleInputArgs>? _rules;
         public InputList<Inputs.GetLifecyclePolicyDocumentRuleInputArgs> Rules
         {

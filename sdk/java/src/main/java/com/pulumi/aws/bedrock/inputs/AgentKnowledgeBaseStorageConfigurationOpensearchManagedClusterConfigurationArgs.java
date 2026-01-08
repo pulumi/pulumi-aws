@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -51,15 +49,15 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
      * The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    @Import(name="fieldMapping")
-    private @Nullable Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs> fieldMapping;
+    @Import(name="fieldMapping", required=true)
+    private Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs> fieldMapping;
 
     /**
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs>> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs> fieldMapping() {
+        return this.fieldMapping;
     }
 
     /**
@@ -152,7 +150,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
          * @return builder
          * 
          */
-        public Builder fieldMapping(@Nullable Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs> fieldMapping) {
+        public Builder fieldMapping(Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs> fieldMapping) {
             $.fieldMapping = fieldMapping;
             return this;
         }
@@ -194,6 +192,9 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
             }
             if ($.domainEndpoint == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs", "domainEndpoint");
+            }
+            if ($.fieldMapping == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs", "fieldMapping");
             }
             if ($.vectorIndexName == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs", "vectorIndexName");

@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudfront.inputs.VpcOriginTimeoutsArgs;
 import com.pulumi.aws.cloudfront.inputs.VpcOriginVpcOriginEndpointConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -46,8 +47,8 @@ public final class VpcOriginArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    @Import(name="vpcOriginEndpointConfig")
-    private @Nullable Output<VpcOriginVpcOriginEndpointConfigArgs> vpcOriginEndpointConfig;
+    @Import(name="vpcOriginEndpointConfig", required=true)
+    private Output<VpcOriginVpcOriginEndpointConfigArgs> vpcOriginEndpointConfig;
 
     /**
      * @return The VPC origin endpoint configuration.
@@ -55,8 +56,8 @@ public final class VpcOriginArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<VpcOriginVpcOriginEndpointConfigArgs>> vpcOriginEndpointConfig() {
-        return Optional.ofNullable(this.vpcOriginEndpointConfig);
+    public Output<VpcOriginVpcOriginEndpointConfigArgs> vpcOriginEndpointConfig() {
+        return this.vpcOriginEndpointConfig;
     }
 
     private VpcOriginArgs() {}
@@ -123,7 +124,7 @@ public final class VpcOriginArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder vpcOriginEndpointConfig(@Nullable Output<VpcOriginVpcOriginEndpointConfigArgs> vpcOriginEndpointConfig) {
+        public Builder vpcOriginEndpointConfig(Output<VpcOriginVpcOriginEndpointConfigArgs> vpcOriginEndpointConfig) {
             $.vpcOriginEndpointConfig = vpcOriginEndpointConfig;
             return this;
         }
@@ -141,6 +142,9 @@ public final class VpcOriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VpcOriginArgs build() {
+            if ($.vpcOriginEndpointConfig == null) {
+                throw new MissingRequiredPropertyException("VpcOriginArgs", "vpcOriginEndpointConfig");
+            }
             return $;
         }
     }

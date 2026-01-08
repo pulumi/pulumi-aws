@@ -12,7 +12,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
 
     public sealed class TableMetadataIcebergSchemaGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("fields")]
+        [Input("fields", required: true)]
         private InputList<Inputs.TableMetadataIcebergSchemaFieldGetArgs>? _fields;
 
         /// <summary>

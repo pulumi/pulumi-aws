@@ -5,9 +5,8 @@ package com.pulumi.aws.appfabric.outputs;
 
 import com.pulumi.aws.appfabric.outputs.IngestionDestinationDestinationConfigurationAuditLogDestination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class IngestionDestinationDestinationConfigurationAuditLog {
@@ -15,15 +14,15 @@ public final class IngestionDestinationDestinationConfigurationAuditLog {
      * @return Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
      * 
      */
-    private @Nullable IngestionDestinationDestinationConfigurationAuditLogDestination destination;
+    private IngestionDestinationDestinationConfigurationAuditLogDestination destination;
 
     private IngestionDestinationDestinationConfigurationAuditLog() {}
     /**
      * @return Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
      * 
      */
-    public Optional<IngestionDestinationDestinationConfigurationAuditLogDestination> destination() {
-        return Optional.ofNullable(this.destination);
+    public IngestionDestinationDestinationConfigurationAuditLogDestination destination() {
+        return this.destination;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class IngestionDestinationDestinationConfigurationAuditLog {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable IngestionDestinationDestinationConfigurationAuditLogDestination destination;
+        private IngestionDestinationDestinationConfigurationAuditLogDestination destination;
         public Builder() {}
         public Builder(IngestionDestinationDestinationConfigurationAuditLog defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class IngestionDestinationDestinationConfigurationAuditLog {
         }
 
         @CustomType.Setter
-        public Builder destination(@Nullable IngestionDestinationDestinationConfigurationAuditLogDestination destination) {
-
+        public Builder destination(IngestionDestinationDestinationConfigurationAuditLogDestination destination) {
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("IngestionDestinationDestinationConfigurationAuditLog", "destination");
+            }
             this.destination = destination;
             return this;
         }

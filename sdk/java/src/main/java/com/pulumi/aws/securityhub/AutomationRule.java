@@ -106,14 +106,14 @@ public class AutomationRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="actions", refs={List.class,AutomationRuleAction.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<AutomationRuleAction>> actions;
+    private Output<List<AutomationRuleAction>> actions;
 
     /**
      * @return A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
      * 
      */
-    public Output<Optional<List<AutomationRuleAction>>> actions() {
-        return Codegen.optional(this.actions);
+    public Output<List<AutomationRuleAction>> actions() {
+        return this.actions;
     }
     /**
      * The ARN of the Security Hub automation rule.
@@ -134,14 +134,14 @@ public class AutomationRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="criteria", refs={AutomationRuleCriteria.class}, tree="[0]")
-    private Output</* @Nullable */ AutomationRuleCriteria> criteria;
+    private Output<AutomationRuleCriteria> criteria;
 
     /**
      * @return A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
      * 
      */
-    public Output<Optional<AutomationRuleCriteria>> criteria() {
-        return Codegen.optional(this.criteria);
+    public Output<AutomationRuleCriteria> criteria() {
+        return this.criteria;
     }
     /**
      * The description of the rule.

@@ -21,7 +21,7 @@ __all__ = ['QuicksetupConfigurationManagerArgs', 'QuicksetupConfigurationManager
 @pulumi.input_type
 class QuicksetupConfigurationManagerArgs:
     def __init__(__self__, *,
-                 configuration_definition: Optional[pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs']] = None,
+                 configuration_definition: pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs'],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -37,8 +37,7 @@ class QuicksetupConfigurationManagerArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        if configuration_definition is not None:
-            pulumi.set(__self__, "configuration_definition", configuration_definition)
+        pulumi.set(__self__, "configuration_definition", configuration_definition)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -52,14 +51,14 @@ class QuicksetupConfigurationManagerArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationDefinition")
-    def configuration_definition(self) -> Optional[pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs']]:
+    def configuration_definition(self) -> pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs']:
         """
         Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
         """
         return pulumi.get(self, "configuration_definition")
 
     @configuration_definition.setter
-    def configuration_definition(self, value: Optional[pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs']]):
+    def configuration_definition(self, value: pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs']):
         pulumi.set(self, "configuration_definition", value)
 
     @_builtins.property
@@ -358,7 +357,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[QuicksetupConfigurationManagerArgs] = None,
+                 args: QuicksetupConfigurationManagerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS SSM Quick Setup Configuration Manager.
@@ -447,6 +446,8 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = QuicksetupConfigurationManagerArgs.__new__(QuicksetupConfigurationManagerArgs)
 
+            if configuration_definition is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration_definition'")
             __props__.__dict__["configuration_definition"] = configuration_definition
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -510,7 +511,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="configurationDefinition")
-    def configuration_definition(self) -> pulumi.Output[Optional['outputs.QuicksetupConfigurationManagerConfigurationDefinition']]:
+    def configuration_definition(self) -> pulumi.Output['outputs.QuicksetupConfigurationManagerConfigurationDefinition']:
         """
         Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
         """

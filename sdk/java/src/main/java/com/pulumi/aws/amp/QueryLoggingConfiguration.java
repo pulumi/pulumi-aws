@@ -84,14 +84,14 @@ public class QueryLoggingConfiguration extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="destinations", refs={List.class,QueryLoggingConfigurationDestination.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<QueryLoggingConfigurationDestination>> destinations;
+    private Output<List<QueryLoggingConfigurationDestination>> destinations;
 
     /**
      * @return Configuration block for the logging destinations. See `destinations`.
      * 
      */
-    public Output<Optional<List<QueryLoggingConfigurationDestination>>> destinations() {
-        return Codegen.optional(this.destinations);
+    public Output<List<QueryLoggingConfigurationDestination>> destinations() {
+        return this.destinations;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

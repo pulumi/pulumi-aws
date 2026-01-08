@@ -57,7 +57,7 @@ class GetLifecyclePolicyDocumentResult:
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.GetLifecyclePolicyDocumentRuleResult']]:
+    def rules(self) -> Sequence['outputs.GetLifecyclePolicyDocumentRuleResult']:
         return pulumi.get(self, "rules")
 
 
@@ -109,7 +109,7 @@ def get_lifecycle_policy_document(rules: Optional[Sequence[Union['GetLifecyclePo
         id=pulumi.get(__ret__, 'id'),
         json=pulumi.get(__ret__, 'json'),
         rules=pulumi.get(__ret__, 'rules'))
-def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Optional[Sequence[Union['GetLifecyclePolicyDocumentRuleArgs', 'GetLifecyclePolicyDocumentRuleArgsDict']]]]] = None,
+def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Sequence[Union['GetLifecyclePolicyDocumentRuleArgs', 'GetLifecyclePolicyDocumentRuleArgsDict']]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLifecyclePolicyDocumentResult]:
     """
     Generates an ECR lifecycle policy document in JSON format. Can be used with resources such as the `ecr.LifecyclePolicy` resource.

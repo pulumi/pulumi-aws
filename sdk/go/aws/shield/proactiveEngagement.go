@@ -128,6 +128,9 @@ func NewProactiveEngagement(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.EmergencyContacts == nil {
+		return nil, errors.New("invalid value for required argument 'EmergencyContacts'")
+	}
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
 	}

@@ -95,7 +95,7 @@ namespace Pulumi.Aws.M2
         /// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
         /// </summary>
         [Output("definition")]
-        public Output<Outputs.ApplicationDefinition?> Definition { get; private set; } = null!;
+        public Output<Outputs.ApplicationDefinition> Definition { get; private set; } = null!;
 
         /// <summary>
         /// Description of the application.
@@ -199,8 +199,8 @@ namespace Pulumi.Aws.M2
         /// <summary>
         /// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
         /// </summary>
-        [Input("definition")]
-        public Input<Inputs.ApplicationDefinitionArgs>? Definition { get; set; }
+        [Input("definition", required: true)]
+        public Input<Inputs.ApplicationDefinitionArgs> Definition { get; set; } = null!;
 
         /// <summary>
         /// Description of the application.

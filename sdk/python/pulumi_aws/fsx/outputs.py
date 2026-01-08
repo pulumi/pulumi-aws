@@ -2126,10 +2126,10 @@ class S3AccessPointAttachmentOpenzfsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "volumeId":
-            suggest = "volume_id"
-        elif key == "fileSystemIdentity":
+        if key == "fileSystemIdentity":
             suggest = "file_system_identity"
+        elif key == "volumeId":
+            suggest = "volume_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in S3AccessPointAttachmentOpenzfsConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -2143,15 +2143,22 @@ class S3AccessPointAttachmentOpenzfsConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 volume_id: _builtins.str,
-                 file_system_identity: Optional['outputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity'] = None):
+                 file_system_identity: 'outputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity',
+                 volume_id: _builtins.str):
         """
-        :param _builtins.str volume_id: ID of the FSx for OpenZFS volume to which the S3 access point is attached.
         :param 'S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs' file_system_identity: File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `file_system_identity` Block for details.
+        :param _builtins.str volume_id: ID of the FSx for OpenZFS volume to which the S3 access point is attached.
         """
+        pulumi.set(__self__, "file_system_identity", file_system_identity)
         pulumi.set(__self__, "volume_id", volume_id)
-        if file_system_identity is not None:
-            pulumi.set(__self__, "file_system_identity", file_system_identity)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemIdentity")
+    def file_system_identity(self) -> 'outputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity':
+        """
+        File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `file_system_identity` Block for details.
+        """
+        return pulumi.get(self, "file_system_identity")
 
     @_builtins.property
     @pulumi.getter(name="volumeId")
@@ -2160,14 +2167,6 @@ class S3AccessPointAttachmentOpenzfsConfiguration(dict):
         ID of the FSx for OpenZFS volume to which the S3 access point is attached.
         """
         return pulumi.get(self, "volume_id")
-
-    @_builtins.property
-    @pulumi.getter(name="fileSystemIdentity")
-    def file_system_identity(self) -> Optional['outputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity']:
-        """
-        File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `file_system_identity` Block for details.
-        """
-        return pulumi.get(self, "file_system_identity")
 
 
 @pulumi.output_type

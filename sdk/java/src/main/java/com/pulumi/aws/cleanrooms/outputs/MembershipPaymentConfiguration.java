@@ -5,17 +5,16 @@ package com.pulumi.aws.cleanrooms.outputs;
 
 import com.pulumi.aws.cleanrooms.outputs.MembershipPaymentConfigurationQueryCompute;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class MembershipPaymentConfiguration {
-    private @Nullable MembershipPaymentConfigurationQueryCompute queryCompute;
+    private MembershipPaymentConfigurationQueryCompute queryCompute;
 
     private MembershipPaymentConfiguration() {}
-    public Optional<MembershipPaymentConfigurationQueryCompute> queryCompute() {
-        return Optional.ofNullable(this.queryCompute);
+    public MembershipPaymentConfigurationQueryCompute queryCompute() {
+        return this.queryCompute;
     }
 
     public static Builder builder() {
@@ -27,7 +26,7 @@ public final class MembershipPaymentConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable MembershipPaymentConfigurationQueryCompute queryCompute;
+        private MembershipPaymentConfigurationQueryCompute queryCompute;
         public Builder() {}
         public Builder(MembershipPaymentConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -35,8 +34,10 @@ public final class MembershipPaymentConfiguration {
         }
 
         @CustomType.Setter
-        public Builder queryCompute(@Nullable MembershipPaymentConfigurationQueryCompute queryCompute) {
-
+        public Builder queryCompute(MembershipPaymentConfigurationQueryCompute queryCompute) {
+            if (queryCompute == null) {
+              throw new MissingRequiredPropertyException("MembershipPaymentConfiguration", "queryCompute");
+            }
             this.queryCompute = queryCompute;
             return this;
         }

@@ -19,7 +19,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
      * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    private V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition condition;
+    private @Nullable V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition condition;
     /**
      * @return Name of the branch.
      * 
@@ -29,7 +29,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
      * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    private V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep nextStep;
+    private @Nullable V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep nextStep;
     /**
      * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
      * 
@@ -41,8 +41,8 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
      * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    public V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition condition() {
-        return this.condition;
+    public Optional<V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition> condition() {
+        return Optional.ofNullable(this.condition);
     }
     /**
      * @return Name of the branch.
@@ -55,8 +55,8 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
      * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    public V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep nextStep() {
-        return this.nextStep;
+    public Optional<V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep> nextStep() {
+        return Optional.ofNullable(this.nextStep);
     }
     /**
      * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
@@ -75,9 +75,9 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
     }
     @CustomType.Builder
     public static final class Builder {
-        private V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition condition;
+        private @Nullable V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition condition;
         private String name;
-        private V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep nextStep;
+        private @Nullable V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep nextStep;
         private @Nullable V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponse response;
         public Builder() {}
         public Builder(V2modelsIntentInitialResponseSettingConditionalConditionalBranch defaults) {
@@ -89,10 +89,8 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
         }
 
         @CustomType.Setter
-        public Builder condition(V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition condition) {
-            if (condition == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentInitialResponseSettingConditionalConditionalBranch", "condition");
-            }
+        public Builder condition(@Nullable V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition condition) {
+
             this.condition = condition;
             return this;
         }
@@ -105,10 +103,8 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
             return this;
         }
         @CustomType.Setter
-        public Builder nextStep(V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep nextStep) {
-            if (nextStep == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentInitialResponseSettingConditionalConditionalBranch", "nextStep");
-            }
+        public Builder nextStep(@Nullable V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep nextStep) {
+
             this.nextStep = nextStep;
             return this;
         }

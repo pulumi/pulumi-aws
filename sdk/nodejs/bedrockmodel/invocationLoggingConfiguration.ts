@@ -107,7 +107,7 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
     /**
      * The logging configuration values to set. See `loggingConfig` Block for details.
      */
-    declare public readonly loggingConfig: pulumi.Output<outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig | undefined>;
+    declare public readonly loggingConfig: pulumi.Output<outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -120,7 +120,7 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: InvocationLoggingConfigurationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: InvocationLoggingConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InvocationLoggingConfigurationArgs | InvocationLoggingConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -130,6 +130,9 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as InvocationLoggingConfigurationArgs | undefined;
+            if (args?.loggingConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'loggingConfig'");
+            }
             resourceInputs["loggingConfig"] = args?.loggingConfig;
             resourceInputs["region"] = args?.region;
         }
@@ -159,7 +162,7 @@ export interface InvocationLoggingConfigurationArgs {
     /**
      * The logging configuration values to set. See `loggingConfig` Block for details.
      */
-    loggingConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
+    loggingConfig: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

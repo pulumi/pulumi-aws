@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrockmodel;
 import com.pulumi.aws.bedrockmodel.inputs.InvocationLoggingConfigurationLoggingConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,15 +21,15 @@ public final class InvocationLoggingConfigurationArgs extends com.pulumi.resourc
      * The logging configuration values to set. See `loggingConfig` Block for details.
      * 
      */
-    @Import(name="loggingConfig")
-    private @Nullable Output<InvocationLoggingConfigurationLoggingConfigArgs> loggingConfig;
+    @Import(name="loggingConfig", required=true)
+    private Output<InvocationLoggingConfigurationLoggingConfigArgs> loggingConfig;
 
     /**
      * @return The logging configuration values to set. See `loggingConfig` Block for details.
      * 
      */
-    public Optional<Output<InvocationLoggingConfigurationLoggingConfigArgs>> loggingConfig() {
-        return Optional.ofNullable(this.loggingConfig);
+    public Output<InvocationLoggingConfigurationLoggingConfigArgs> loggingConfig() {
+        return this.loggingConfig;
     }
 
     /**
@@ -77,7 +78,7 @@ public final class InvocationLoggingConfigurationArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder loggingConfig(@Nullable Output<InvocationLoggingConfigurationLoggingConfigArgs> loggingConfig) {
+        public Builder loggingConfig(Output<InvocationLoggingConfigurationLoggingConfigArgs> loggingConfig) {
             $.loggingConfig = loggingConfig;
             return this;
         }
@@ -114,6 +115,9 @@ public final class InvocationLoggingConfigurationArgs extends com.pulumi.resourc
         }
 
         public InvocationLoggingConfigurationArgs build() {
+            if ($.loggingConfig == null) {
+                throw new MissingRequiredPropertyException("InvocationLoggingConfigurationArgs", "loggingConfig");
+            }
             return $;
         }
     }

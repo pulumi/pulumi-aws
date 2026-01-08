@@ -114,6 +114,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.tls.PrivateKeyArgs;
  * import com.pulumi.tls.SelfSignedCert;
  * import com.pulumi.tls.SelfSignedCertArgs;
+ * import com.pulumi.tls.inputs.SelfSignedCertSubjectArgs;
  * import com.pulumi.aws.acm.Certificate;
  * import com.pulumi.aws.acm.CertificateArgs;
  * import java.util.List;

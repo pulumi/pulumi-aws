@@ -22,12 +22,12 @@ __all__ = ['AgentcoreGatewayArgs', 'AgentcoreGateway']
 class AgentcoreGatewayArgs:
     def __init__(__self__, *,
                  authorizer_type: pulumi.Input[_builtins.str],
-                 interceptor_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]],
                  protocol_type: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  authorizer_configuration: Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  exception_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol_configuration: Optional[pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs']] = None,
@@ -37,7 +37,6 @@ class AgentcoreGatewayArgs:
         """
         The set of arguments for constructing a AgentcoreGateway resource.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the gateway assumes to access AWS services.
                
@@ -45,6 +44,7 @@ class AgentcoreGatewayArgs:
         :param pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs'] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
         :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
         :param pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs'] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
@@ -52,7 +52,6 @@ class AgentcoreGatewayArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "authorizer_type", authorizer_type)
-        pulumi.set(__self__, "interceptor_configurations", interceptor_configurations)
         pulumi.set(__self__, "protocol_type", protocol_type)
         pulumi.set(__self__, "role_arn", role_arn)
         if authorizer_configuration is not None:
@@ -61,6 +60,8 @@ class AgentcoreGatewayArgs:
             pulumi.set(__self__, "description", description)
         if exception_level is not None:
             pulumi.set(__self__, "exception_level", exception_level)
+        if interceptor_configurations is not None:
+            pulumi.set(__self__, "interceptor_configurations", interceptor_configurations)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
@@ -85,18 +86,6 @@ class AgentcoreGatewayArgs:
     @authorizer_type.setter
     def authorizer_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "authorizer_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="interceptorConfigurations")
-    def interceptor_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]:
-        """
-        List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
-        """
-        return pulumi.get(self, "interceptor_configurations")
-
-    @interceptor_configurations.setter
-    def interceptor_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]):
-        pulumi.set(self, "interceptor_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolType")
@@ -159,6 +148,18 @@ class AgentcoreGatewayArgs:
     @exception_level.setter
     def exception_level(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "exception_level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="interceptorConfigurations")
+    def interceptor_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]:
+        """
+        List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
+        """
+        return pulumi.get(self, "interceptor_configurations")
+
+    @interceptor_configurations.setter
+    def interceptor_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]):
+        pulumi.set(self, "interceptor_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
@@ -844,8 +845,6 @@ class AgentcoreGateway(pulumi.CustomResource):
             __props__.__dict__["authorizer_type"] = authorizer_type
             __props__.__dict__["description"] = description
             __props__.__dict__["exception_level"] = exception_level
-            if interceptor_configurations is None and not opts.urn:
-                raise TypeError("Missing required property 'interceptor_configurations'")
             __props__.__dict__["interceptor_configurations"] = interceptor_configurations
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
@@ -1001,7 +1000,7 @@ class AgentcoreGateway(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="interceptorConfigurations")
-    def interceptor_configurations(self) -> pulumi.Output[Sequence['outputs.AgentcoreGatewayInterceptorConfiguration']]:
+    def interceptor_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreGatewayInterceptorConfiguration']]]:
         """
         List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         """

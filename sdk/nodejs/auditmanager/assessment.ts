@@ -103,7 +103,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * List of roles for the assessment. See `roles` below.
      */
-    declare public readonly roles: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
+    declare public readonly roles: pulumi.Output<outputs.auditmanager.AssessmentRole[]>;
     /**
      * Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
      */
@@ -153,6 +153,9 @@ export class Assessment extends pulumi.CustomResource {
             const args = argsOrState as AssessmentArgs | undefined;
             if (args?.frameworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frameworkId'");
+            }
+            if (args?.roles === undefined && !opts.urn) {
+                throw new Error("Missing required property 'roles'");
             }
             resourceInputs["assessmentReportsDestination"] = args?.assessmentReportsDestination;
             resourceInputs["description"] = args?.description;
@@ -252,7 +255,7 @@ export interface AssessmentArgs {
     /**
      * List of roles for the assessment. See `roles` below.
      */
-    roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRole>[]>;
+    roles: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRole>[]>;
     /**
      * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
      *

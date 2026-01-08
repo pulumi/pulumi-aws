@@ -21,20 +21,31 @@ __all__ = ['PolicyArgs', 'Policy']
 @pulumi.input_type
 class PolicyArgs:
     def __init__(__self__, *,
+                 definition: pulumi.Input['PolicyDefinitionArgs'],
                  policy_store_id: pulumi.Input[_builtins.str],
-                 definition: Optional[pulumi.Input['PolicyDefinitionArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[_builtins.str] policy_store_id: The Policy Store ID of the policy store.
         :param pulumi.Input['PolicyDefinitionArgs'] definition: The definition of the policy. See Definition below.
+        :param pulumi.Input[_builtins.str] policy_store_id: The Policy Store ID of the policy store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "policy_store_id", policy_store_id)
-        if definition is not None:
-            pulumi.set(__self__, "definition", definition)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input['PolicyDefinitionArgs']:
+        """
+        The definition of the policy. See Definition below.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input['PolicyDefinitionArgs']):
+        pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
@@ -47,18 +58,6 @@ class PolicyArgs:
     @policy_store_id.setter
     def policy_store_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "policy_store_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['PolicyDefinitionArgs']]:
-        """
-        The definition of the policy. See Definition below.
-        """
-        return pulumi.get(self, "definition")
-
-    @definition.setter
-    def definition(self, value: Optional[pulumi.Input['PolicyDefinitionArgs']]):
-        pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter
@@ -266,6 +265,8 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyArgs.__new__(PolicyArgs)
 
+            if definition is None and not opts.urn:
+                raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
             if policy_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_store_id'")
@@ -322,7 +323,7 @@ class Policy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> pulumi.Output[Optional['outputs.PolicyDefinition']]:
+    def definition(self) -> pulumi.Output['outputs.PolicyDefinition']:
         """
         The definition of the policy. See Definition below.
         """

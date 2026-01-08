@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class RecommendationPreferencesUtilizationPreference {
@@ -22,7 +20,7 @@ public final class RecommendationPreferencesUtilizationPreference {
      * @return The parameters to set when customizing the resource utilization thresholds.
      * 
      */
-    private @Nullable RecommendationPreferencesUtilizationPreferenceMetricParameters metricParameters;
+    private RecommendationPreferencesUtilizationPreferenceMetricParameters metricParameters;
 
     private RecommendationPreferencesUtilizationPreference() {}
     /**
@@ -36,8 +34,8 @@ public final class RecommendationPreferencesUtilizationPreference {
      * @return The parameters to set when customizing the resource utilization thresholds.
      * 
      */
-    public Optional<RecommendationPreferencesUtilizationPreferenceMetricParameters> metricParameters() {
-        return Optional.ofNullable(this.metricParameters);
+    public RecommendationPreferencesUtilizationPreferenceMetricParameters metricParameters() {
+        return this.metricParameters;
     }
 
     public static Builder builder() {
@@ -50,7 +48,7 @@ public final class RecommendationPreferencesUtilizationPreference {
     @CustomType.Builder
     public static final class Builder {
         private String metricName;
-        private @Nullable RecommendationPreferencesUtilizationPreferenceMetricParameters metricParameters;
+        private RecommendationPreferencesUtilizationPreferenceMetricParameters metricParameters;
         public Builder() {}
         public Builder(RecommendationPreferencesUtilizationPreference defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,8 +65,10 @@ public final class RecommendationPreferencesUtilizationPreference {
             return this;
         }
         @CustomType.Setter
-        public Builder metricParameters(@Nullable RecommendationPreferencesUtilizationPreferenceMetricParameters metricParameters) {
-
+        public Builder metricParameters(RecommendationPreferencesUtilizationPreferenceMetricParameters metricParameters) {
+            if (metricParameters == null) {
+              throw new MissingRequiredPropertyException("RecommendationPreferencesUtilizationPreference", "metricParameters");
+            }
             this.metricParameters = metricParameters;
             return this;
         }

@@ -123,7 +123,7 @@ type CloudVmCluster struct {
 	// The timestamp when the VM cluster was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The set of preferences for the various diagnostic collection options for the VM cluster.
-	DataCollectionOptions CloudVmClusterDataCollectionOptionsPtrOutput `pulumi:"dataCollectionOptions"`
+	DataCollectionOptions CloudVmClusterDataCollectionOptionsOutput `pulumi:"dataCollectionOptions"`
 	// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
 	//
 	// The following arguments are optional:
@@ -217,6 +217,9 @@ func NewCloudVmCluster(ctx *pulumi.Context,
 
 	if args.CpuCoreCount == nil {
 		return nil, errors.New("invalid value for required argument 'CpuCoreCount'")
+	}
+	if args.DataCollectionOptions == nil {
+		return nil, errors.New("invalid value for required argument 'DataCollectionOptions'")
 	}
 	if args.DataStorageSizeInTbs == nil {
 		return nil, errors.New("invalid value for required argument 'DataStorageSizeInTbs'")
@@ -474,7 +477,7 @@ type cloudVmClusterArgs struct {
 	// The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
 	CpuCoreCount int `pulumi:"cpuCoreCount"`
 	// The set of preferences for the various diagnostic collection options for the VM cluster.
-	DataCollectionOptions *CloudVmClusterDataCollectionOptions `pulumi:"dataCollectionOptions"`
+	DataCollectionOptions CloudVmClusterDataCollectionOptions `pulumi:"dataCollectionOptions"`
 	// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
 	//
 	// The following arguments are optional:
@@ -525,7 +528,7 @@ type CloudVmClusterArgs struct {
 	// The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
 	CpuCoreCount pulumi.IntInput
 	// The set of preferences for the various diagnostic collection options for the VM cluster.
-	DataCollectionOptions CloudVmClusterDataCollectionOptionsPtrInput
+	DataCollectionOptions CloudVmClusterDataCollectionOptionsInput
 	// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
 	//
 	// The following arguments are optional:
@@ -688,8 +691,8 @@ func (o CloudVmClusterOutput) CreatedAt() pulumi.StringOutput {
 }
 
 // The set of preferences for the various diagnostic collection options for the VM cluster.
-func (o CloudVmClusterOutput) DataCollectionOptions() CloudVmClusterDataCollectionOptionsPtrOutput {
-	return o.ApplyT(func(v *CloudVmCluster) CloudVmClusterDataCollectionOptionsPtrOutput { return v.DataCollectionOptions }).(CloudVmClusterDataCollectionOptionsPtrOutput)
+func (o CloudVmClusterOutput) DataCollectionOptions() CloudVmClusterDataCollectionOptionsOutput {
+	return o.ApplyT(func(v *CloudVmCluster) CloudVmClusterDataCollectionOptionsOutput { return v.DataCollectionOptions }).(CloudVmClusterDataCollectionOptionsOutput)
 }
 
 // The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.

@@ -53,15 +53,15 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalArgs exten
      * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
      * 
      */
-    @Import(name="defaultBranch", required=true)
-    private Output<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs> defaultBranch;
+    @Import(name="defaultBranch")
+    private @Nullable Output<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs> defaultBranch;
 
     /**
      * @return Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
      * 
      */
-    public Output<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs> defaultBranch() {
-        return this.defaultBranch;
+    public Optional<Output<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs>> defaultBranch() {
+        return Optional.ofNullable(this.defaultBranch);
     }
 
     private V2modelsIntentConfirmationSettingFailureConditionalArgs() {}
@@ -148,7 +148,7 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalArgs exten
          * @return builder
          * 
          */
-        public Builder defaultBranch(Output<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs> defaultBranch) {
+        public Builder defaultBranch(@Nullable Output<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs> defaultBranch) {
             $.defaultBranch = defaultBranch;
             return this;
         }
@@ -166,9 +166,6 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalArgs exten
         public V2modelsIntentConfirmationSettingFailureConditionalArgs build() {
             if ($.active == null) {
                 throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingFailureConditionalArgs", "active");
-            }
-            if ($.defaultBranch == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingFailureConditionalArgs", "defaultBranch");
             }
             return $;
         }

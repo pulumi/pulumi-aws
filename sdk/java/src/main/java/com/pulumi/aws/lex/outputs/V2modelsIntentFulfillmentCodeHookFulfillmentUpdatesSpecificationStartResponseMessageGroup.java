@@ -6,9 +6,9 @@ package com.pulumi.aws.lex.outputs;
 import com.pulumi.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage;
 import com.pulumi.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariation;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,7 +17,7 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    private V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage message;
+    private @Nullable V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage message;
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
@@ -29,8 +29,8 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    public V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage message() {
-        return this.message;
+    public Optional<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage> message() {
+        return Optional.ofNullable(this.message);
     }
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
@@ -49,7 +49,7 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
     }
     @CustomType.Builder
     public static final class Builder {
-        private V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage message;
+        private @Nullable V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage message;
         private @Nullable List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariation> variations;
         public Builder() {}
         public Builder(V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup defaults) {
@@ -59,10 +59,8 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
         }
 
         @CustomType.Setter
-        public Builder message(V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage message) {
-            if (message == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup", "message");
-            }
+        public Builder message(@Nullable V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage message) {
+
             this.message = message;
             return this;
         }

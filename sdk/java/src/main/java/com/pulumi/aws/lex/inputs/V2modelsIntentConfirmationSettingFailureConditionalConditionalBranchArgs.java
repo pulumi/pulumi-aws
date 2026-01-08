@@ -23,15 +23,15 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalConditiona
      * Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    @Import(name="condition", required=true)
-    private Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchConditionArgs> condition;
+    @Import(name="condition")
+    private @Nullable Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchConditionArgs> condition;
 
     /**
      * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    public Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchConditionArgs> condition() {
-        return this.condition;
+    public Optional<Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchConditionArgs>> condition() {
+        return Optional.ofNullable(this.condition);
     }
 
     /**
@@ -53,15 +53,15 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalConditiona
      * Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    @Import(name="nextStep", required=true)
-    private Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepArgs> nextStep;
+    @Import(name="nextStep")
+    private @Nullable Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepArgs> nextStep;
 
     /**
      * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    public Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepArgs> nextStep() {
-        return this.nextStep;
+    public Optional<Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepArgs>> nextStep() {
+        return Optional.ofNullable(this.nextStep);
     }
 
     /**
@@ -112,7 +112,7 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalConditiona
          * @return builder
          * 
          */
-        public Builder condition(Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchConditionArgs> condition) {
+        public Builder condition(@Nullable Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchConditionArgs> condition) {
             $.condition = condition;
             return this;
         }
@@ -154,7 +154,7 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalConditiona
          * @return builder
          * 
          */
-        public Builder nextStep(Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepArgs> nextStep) {
+        public Builder nextStep(@Nullable Output<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepArgs> nextStep) {
             $.nextStep = nextStep;
             return this;
         }
@@ -191,14 +191,8 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalConditiona
         }
 
         public V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchArgs build() {
-            if ($.condition == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchArgs", "condition");
-            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchArgs", "name");
-            }
-            if ($.nextStep == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchArgs", "nextStep");
             }
             return $;
         }

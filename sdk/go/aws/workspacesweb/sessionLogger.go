@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -270,11 +271,11 @@ type SessionLogger struct {
 	// Human-readable display name for the session logger resource. Forces replacement if changed.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Event filter that determines which events are logged. See Event Filter below.
-	EventFilter SessionLoggerEventFilterPtrOutput `pulumi:"eventFilter"`
+	EventFilter SessionLoggerEventFilterOutput `pulumi:"eventFilter"`
 	// Configuration block for specifying where logs are delivered. See Log Configuration below.
 	//
 	// The following arguments are optional:
-	LogConfiguration SessionLoggerLogConfigurationPtrOutput `pulumi:"logConfiguration"`
+	LogConfiguration SessionLoggerLogConfigurationOutput `pulumi:"logConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the session logger.
@@ -289,9 +290,15 @@ type SessionLogger struct {
 func NewSessionLogger(ctx *pulumi.Context,
 	name string, args *SessionLoggerArgs, opts ...pulumi.ResourceOption) (*SessionLogger, error) {
 	if args == nil {
-		args = &SessionLoggerArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.EventFilter == nil {
+		return nil, errors.New("invalid value for required argument 'EventFilter'")
+	}
+	if args.LogConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'LogConfiguration'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SessionLogger
 	err := ctx.RegisterResource("aws:workspacesweb/sessionLogger:SessionLogger", name, args, &resource, opts...)
@@ -376,11 +383,11 @@ type sessionLoggerArgs struct {
 	// Human-readable display name for the session logger resource. Forces replacement if changed.
 	DisplayName *string `pulumi:"displayName"`
 	// Event filter that determines which events are logged. See Event Filter below.
-	EventFilter *SessionLoggerEventFilter `pulumi:"eventFilter"`
+	EventFilter SessionLoggerEventFilter `pulumi:"eventFilter"`
 	// Configuration block for specifying where logs are delivered. See Log Configuration below.
 	//
 	// The following arguments are optional:
-	LogConfiguration *SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
+	LogConfiguration SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -396,11 +403,11 @@ type SessionLoggerArgs struct {
 	// Human-readable display name for the session logger resource. Forces replacement if changed.
 	DisplayName pulumi.StringPtrInput
 	// Event filter that determines which events are logged. See Event Filter below.
-	EventFilter SessionLoggerEventFilterPtrInput
+	EventFilter SessionLoggerEventFilterInput
 	// Configuration block for specifying where logs are delivered. See Log Configuration below.
 	//
 	// The following arguments are optional:
-	LogConfiguration SessionLoggerLogConfigurationPtrInput
+	LogConfiguration SessionLoggerLogConfigurationInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -515,15 +522,15 @@ func (o SessionLoggerOutput) DisplayName() pulumi.StringPtrOutput {
 }
 
 // Event filter that determines which events are logged. See Event Filter below.
-func (o SessionLoggerOutput) EventFilter() SessionLoggerEventFilterPtrOutput {
-	return o.ApplyT(func(v *SessionLogger) SessionLoggerEventFilterPtrOutput { return v.EventFilter }).(SessionLoggerEventFilterPtrOutput)
+func (o SessionLoggerOutput) EventFilter() SessionLoggerEventFilterOutput {
+	return o.ApplyT(func(v *SessionLogger) SessionLoggerEventFilterOutput { return v.EventFilter }).(SessionLoggerEventFilterOutput)
 }
 
 // Configuration block for specifying where logs are delivered. See Log Configuration below.
 //
 // The following arguments are optional:
-func (o SessionLoggerOutput) LogConfiguration() SessionLoggerLogConfigurationPtrOutput {
-	return o.ApplyT(func(v *SessionLogger) SessionLoggerLogConfigurationPtrOutput { return v.LogConfiguration }).(SessionLoggerLogConfigurationPtrOutput)
+func (o SessionLoggerOutput) LogConfiguration() SessionLoggerLogConfigurationOutput {
+	return o.ApplyT(func(v *SessionLogger) SessionLoggerLogConfigurationOutput { return v.LogConfiguration }).(SessionLoggerLogConfigurationOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

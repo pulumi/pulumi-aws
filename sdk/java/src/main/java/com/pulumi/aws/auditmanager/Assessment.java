@@ -178,14 +178,14 @@ public class Assessment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="roles", refs={List.class,AssessmentRole.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<AssessmentRole>> roles;
+    private Output<List<AssessmentRole>> roles;
 
     /**
      * @return List of roles for the assessment. See `roles` below.
      * 
      */
-    public Output<Optional<List<AssessmentRole>>> roles() {
-        return Codegen.optional(this.roles);
+    public Output<List<AssessmentRole>> roles() {
+        return this.roles;
     }
     /**
      * Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.

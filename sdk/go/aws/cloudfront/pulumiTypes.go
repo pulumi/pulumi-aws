@@ -12089,7 +12089,7 @@ func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) SamplingRate() 
 
 type TrustStoreCaCertificatesBundleSource struct {
 	// Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-	CaCertificatesBundleS3Location *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location `pulumi:"caCertificatesBundleS3Location"`
+	CaCertificatesBundleS3Location TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location `pulumi:"caCertificatesBundleS3Location"`
 }
 
 // TrustStoreCaCertificatesBundleSourceInput is an input type that accepts TrustStoreCaCertificatesBundleSourceArgs and TrustStoreCaCertificatesBundleSourceOutput values.
@@ -12105,7 +12105,7 @@ type TrustStoreCaCertificatesBundleSourceInput interface {
 
 type TrustStoreCaCertificatesBundleSourceArgs struct {
 	// Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-	CaCertificatesBundleS3Location TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrInput `pulumi:"caCertificatesBundleS3Location"`
+	CaCertificatesBundleS3Location TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationInput `pulumi:"caCertificatesBundleS3Location"`
 }
 
 func (TrustStoreCaCertificatesBundleSourceArgs) ElementType() reflect.Type {
@@ -12186,10 +12186,10 @@ func (o TrustStoreCaCertificatesBundleSourceOutput) ToTrustStoreCaCertificatesBu
 }
 
 // Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-func (o TrustStoreCaCertificatesBundleSourceOutput) CaCertificatesBundleS3Location() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
-	return o.ApplyT(func(v TrustStoreCaCertificatesBundleSource) *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location {
+func (o TrustStoreCaCertificatesBundleSourceOutput) CaCertificatesBundleS3Location() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleSource) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location {
 		return v.CaCertificatesBundleS3Location
-	}).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput)
+	}).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput)
 }
 
 type TrustStoreCaCertificatesBundleSourcePtrOutput struct{ *pulumi.OutputState }
@@ -12222,7 +12222,7 @@ func (o TrustStoreCaCertificatesBundleSourcePtrOutput) CaCertificatesBundleS3Loc
 		if v == nil {
 			return nil
 		}
-		return v.CaCertificatesBundleS3Location
+		return &v.CaCertificatesBundleS3Location
 	}).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput)
 }
 
@@ -12782,7 +12782,7 @@ type VpcOriginVpcOriginEndpointConfig struct {
 	// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
 	OriginProtocolPolicy string `pulumi:"originProtocolPolicy"`
 	// A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
-	OriginSslProtocols *VpcOriginVpcOriginEndpointConfigOriginSslProtocols `pulumi:"originSslProtocols"`
+	OriginSslProtocols VpcOriginVpcOriginEndpointConfigOriginSslProtocols `pulumi:"originSslProtocols"`
 }
 
 // VpcOriginVpcOriginEndpointConfigInput is an input type that accepts VpcOriginVpcOriginEndpointConfigArgs and VpcOriginVpcOriginEndpointConfigOutput values.
@@ -12808,7 +12808,7 @@ type VpcOriginVpcOriginEndpointConfigArgs struct {
 	// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
 	OriginProtocolPolicy pulumi.StringInput `pulumi:"originProtocolPolicy"`
 	// A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
-	OriginSslProtocols VpcOriginVpcOriginEndpointConfigOriginSslProtocolsPtrInput `pulumi:"originSslProtocols"`
+	OriginSslProtocols VpcOriginVpcOriginEndpointConfigOriginSslProtocolsInput `pulumi:"originSslProtocols"`
 }
 
 func (VpcOriginVpcOriginEndpointConfigArgs) ElementType() reflect.Type {
@@ -12914,10 +12914,10 @@ func (o VpcOriginVpcOriginEndpointConfigOutput) OriginProtocolPolicy() pulumi.St
 }
 
 // A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
-func (o VpcOriginVpcOriginEndpointConfigOutput) OriginSslProtocols() VpcOriginVpcOriginEndpointConfigOriginSslProtocolsPtrOutput {
-	return o.ApplyT(func(v VpcOriginVpcOriginEndpointConfig) *VpcOriginVpcOriginEndpointConfigOriginSslProtocols {
+func (o VpcOriginVpcOriginEndpointConfigOutput) OriginSslProtocols() VpcOriginVpcOriginEndpointConfigOriginSslProtocolsOutput {
+	return o.ApplyT(func(v VpcOriginVpcOriginEndpointConfig) VpcOriginVpcOriginEndpointConfigOriginSslProtocols {
 		return v.OriginSslProtocols
-	}).(VpcOriginVpcOriginEndpointConfigOriginSslProtocolsPtrOutput)
+	}).(VpcOriginVpcOriginEndpointConfigOriginSslProtocolsOutput)
 }
 
 type VpcOriginVpcOriginEndpointConfigPtrOutput struct{ *pulumi.OutputState }
@@ -13000,7 +13000,7 @@ func (o VpcOriginVpcOriginEndpointConfigPtrOutput) OriginSslProtocols() VpcOrigi
 		if v == nil {
 			return nil
 		}
-		return v.OriginSslProtocols
+		return &v.OriginSslProtocols
 	}).(VpcOriginVpcOriginEndpointConfigOriginSslProtocolsPtrOutput)
 }
 

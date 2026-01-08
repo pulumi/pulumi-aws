@@ -21,25 +21,36 @@ __all__ = ['QueryLoggingConfigurationArgs', 'QueryLoggingConfiguration']
 @pulumi.input_type
 class QueryLoggingConfigurationArgs:
     def __init__(__self__, *,
+                 destinations: pulumi.Input[Sequence[pulumi.Input['QueryLoggingConfigurationDestinationArgs']]],
                  workspace_id: pulumi.Input[_builtins.str],
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['QueryLoggingConfigurationDestinationArgs']]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['QueryLoggingConfigurationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a QueryLoggingConfiguration resource.
+        :param pulumi.Input[Sequence[pulumi.Input['QueryLoggingConfigurationDestinationArgs']]] destinations: Configuration block for the logging destinations. See `destinations`.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the AMP workspace for which to configure query logging.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['QueryLoggingConfigurationDestinationArgs']]] destinations: Configuration block for the logging destinations. See `destinations`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "workspace_id", workspace_id)
-        if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['QueryLoggingConfigurationDestinationArgs']]]:
+        """
+        Configuration block for the logging destinations. See `destinations`.
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Sequence[pulumi.Input['QueryLoggingConfigurationDestinationArgs']]]):
+        pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
@@ -54,18 +65,6 @@ class QueryLoggingConfigurationArgs:
     @workspace_id.setter
     def workspace_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QueryLoggingConfigurationDestinationArgs']]]]:
-        """
-        Configuration block for the logging destinations. See `destinations`.
-        """
-        return pulumi.get(self, "destinations")
-
-    @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QueryLoggingConfigurationDestinationArgs']]]]):
-        pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter
@@ -260,6 +259,8 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = QueryLoggingConfigurationArgs.__new__(QueryLoggingConfigurationArgs)
 
+            if destinations is None and not opts.urn:
+                raise TypeError("Missing required property 'destinations'")
             __props__.__dict__["destinations"] = destinations
             __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
@@ -305,7 +306,7 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> pulumi.Output[Optional[Sequence['outputs.QueryLoggingConfigurationDestination']]]:
+    def destinations(self) -> pulumi.Output[Sequence['outputs.QueryLoggingConfigurationDestination']]:
         """
         Configuration block for the logging destinations. See `destinations`.
         """

@@ -7,6 +7,7 @@ import com.pulumi.aws.devopsguru.inputs.NotificationChannelFiltersArgs;
 import com.pulumi.aws.devopsguru.inputs.NotificationChannelSnsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -53,8 +54,8 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
      * The following arguments are optional:
      * 
      */
-    @Import(name="sns")
-    private @Nullable Output<NotificationChannelSnsArgs> sns;
+    @Import(name="sns", required=true)
+    private Output<NotificationChannelSnsArgs> sns;
 
     /**
      * @return SNS noficiation channel configurations. See the `sns` argument reference below.
@@ -62,8 +63,8 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<NotificationChannelSnsArgs>> sns() {
-        return Optional.ofNullable(this.sns);
+    public Output<NotificationChannelSnsArgs> sns() {
+        return this.sns;
     }
 
     private NotificationChannelArgs() {}
@@ -142,7 +143,7 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder sns(@Nullable Output<NotificationChannelSnsArgs> sns) {
+        public Builder sns(Output<NotificationChannelSnsArgs> sns) {
             $.sns = sns;
             return this;
         }
@@ -160,6 +161,9 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
         }
 
         public NotificationChannelArgs build() {
+            if ($.sns == null) {
+                throw new MissingRequiredPropertyException("NotificationChannelArgs", "sns");
+            }
             return $;
         }
     }

@@ -166,7 +166,7 @@ type CloudAutonomousVmCluster struct {
 	IsMtlsEnabledVmCluster pulumi.BoolOutput   `pulumi:"isMtlsEnabledVmCluster"`
 	LicenseModel           pulumi.StringOutput `pulumi:"licenseModel"`
 	// The maintenance window of the Autonomous VM cluster.
-	MaintenanceWindow CloudAutonomousVmClusterMaintenanceWindowPtrOutput `pulumi:"maintenanceWindow"`
+	MaintenanceWindow CloudAutonomousVmClusterMaintenanceWindowOutput `pulumi:"maintenanceWindow"`
 	// The minimum value to which you can scale down the maximum number of Autonomous CDBs.
 	MaxAcdsLowestScaledValue        pulumi.IntOutput `pulumi:"maxAcdsLowestScaledValue"`
 	MemoryPerOracleComputeUnitInGbs pulumi.IntOutput `pulumi:"memoryPerOracleComputeUnitInGbs"`
@@ -241,6 +241,9 @@ func NewCloudAutonomousVmCluster(ctx *pulumi.Context,
 	}
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.MaintenanceWindow == nil {
+		return nil, errors.New("invalid value for required argument 'MaintenanceWindow'")
 	}
 	if args.MemoryPerOracleComputeUnitInGbs == nil {
 		return nil, errors.New("invalid value for required argument 'MemoryPerOracleComputeUnitInGbs'")
@@ -483,9 +486,9 @@ type cloudAutonomousVmClusterArgs struct {
 	IsMtlsEnabledVmCluster *bool   `pulumi:"isMtlsEnabledVmCluster"`
 	LicenseModel           *string `pulumi:"licenseModel"`
 	// The maintenance window of the Autonomous VM cluster.
-	MaintenanceWindow               *CloudAutonomousVmClusterMaintenanceWindow `pulumi:"maintenanceWindow"`
-	MemoryPerOracleComputeUnitInGbs int                                        `pulumi:"memoryPerOracleComputeUnitInGbs"`
-	OdbNetworkId                    string                                     `pulumi:"odbNetworkId"`
+	MaintenanceWindow               CloudAutonomousVmClusterMaintenanceWindow `pulumi:"maintenanceWindow"`
+	MemoryPerOracleComputeUnitInGbs int                                       `pulumi:"memoryPerOracleComputeUnitInGbs"`
+	OdbNetworkId                    string                                    `pulumi:"odbNetworkId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region                 *string `pulumi:"region"`
 	ScanListenerPortNonTls int     `pulumi:"scanListenerPortNonTls"`
@@ -510,7 +513,7 @@ type CloudAutonomousVmClusterArgs struct {
 	IsMtlsEnabledVmCluster pulumi.BoolPtrInput
 	LicenseModel           pulumi.StringPtrInput
 	// The maintenance window of the Autonomous VM cluster.
-	MaintenanceWindow               CloudAutonomousVmClusterMaintenanceWindowPtrInput
+	MaintenanceWindow               CloudAutonomousVmClusterMaintenanceWindowInput
 	MemoryPerOracleComputeUnitInGbs pulumi.IntInput
 	OdbNetworkId                    pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -718,10 +721,10 @@ func (o CloudAutonomousVmClusterOutput) LicenseModel() pulumi.StringOutput {
 }
 
 // The maintenance window of the Autonomous VM cluster.
-func (o CloudAutonomousVmClusterOutput) MaintenanceWindow() CloudAutonomousVmClusterMaintenanceWindowPtrOutput {
-	return o.ApplyT(func(v *CloudAutonomousVmCluster) CloudAutonomousVmClusterMaintenanceWindowPtrOutput {
+func (o CloudAutonomousVmClusterOutput) MaintenanceWindow() CloudAutonomousVmClusterMaintenanceWindowOutput {
+	return o.ApplyT(func(v *CloudAutonomousVmCluster) CloudAutonomousVmClusterMaintenanceWindowOutput {
 		return v.MaintenanceWindow
-	}).(CloudAutonomousVmClusterMaintenanceWindowPtrOutput)
+	}).(CloudAutonomousVmClusterMaintenanceWindowOutput)
 }
 
 // The minimum value to which you can scale down the maximum number of Autonomous CDBs.

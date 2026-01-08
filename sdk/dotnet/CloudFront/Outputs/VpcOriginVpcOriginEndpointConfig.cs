@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
         /// </summary>
-        public readonly Outputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocols? OriginSslProtocols;
+        public readonly Outputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocols OriginSslProtocols;
 
         [OutputConstructor]
         private VpcOriginVpcOriginEndpointConfig(
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             string originProtocolPolicy,
 
-            Outputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocols? originSslProtocols)
+            Outputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocols originSslProtocols)
         {
             Arn = arn;
             HttpPort = httpPort;

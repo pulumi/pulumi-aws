@@ -228,14 +228,14 @@ public class FormType extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="model", refs={FormTypeModel.class}, tree="[0]")
-    private Output</* @Nullable */ FormTypeModel> model;
+    private Output<FormTypeModel> model;
 
     /**
      * @return Object of the model of the form type that contains the following attributes.
      * 
      */
-    public Output<Optional<FormTypeModel>> model() {
-        return Codegen.optional(this.model);
+    public Output<FormTypeModel> model() {
+        return this.model;
     }
     /**
      * Name of the form type. Must be the name of the structure in smithy document.

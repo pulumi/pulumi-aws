@@ -37,11 +37,11 @@ MYPY = False
 
 if not MYPY:
     class CentralizationRuleForOrganizationRuleArgsDict(TypedDict):
-        destination: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgsDict']]
+        destination: pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgsDict']
         """
         Configuration block for the destination where logs will be centralized. See `destination` below.
         """
-        source: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgsDict']]
+        source: pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgsDict']
         """
         Configuration block for the source of logs to be centralized. See `source` below.
         """
@@ -51,39 +51,37 @@ elif False:
 @pulumi.input_type
 class CentralizationRuleForOrganizationRuleArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs']] = None,
-                 source: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs']] = None):
+                 destination: pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs'],
+                 source: pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs']):
         """
         :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs'] destination: Configuration block for the destination where logs will be centralized. See `destination` below.
         :param pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs'] source: Configuration block for the source of logs to be centralized. See `source` below.
         """
-        if destination is not None:
-            pulumi.set(__self__, "destination", destination)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs']]:
+    def destination(self) -> pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs']:
         """
         Configuration block for the destination where logs will be centralized. See `destination` below.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs']]):
+    def destination(self, value: pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs']):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs']]:
+    def source(self) -> pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs']:
         """
         Configuration block for the source of logs to be centralized. See `source` below.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs']]):
+    def source(self, value: pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs']):
         pulumi.set(self, "source", value)
 
 

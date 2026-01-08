@@ -38,15 +38,15 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
      * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
      * 
      */
-    @Import(name="openzfsConfiguration")
-    private @Nullable Output<S3AccessPointAttachmentOpenzfsConfigurationArgs> openzfsConfiguration;
+    @Import(name="openzfsConfiguration", required=true)
+    private Output<S3AccessPointAttachmentOpenzfsConfigurationArgs> openzfsConfiguration;
 
     /**
      * @return Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
      * 
      */
-    public Optional<Output<S3AccessPointAttachmentOpenzfsConfigurationArgs>> openzfsConfiguration() {
-        return Optional.ofNullable(this.openzfsConfiguration);
+    public Output<S3AccessPointAttachmentOpenzfsConfigurationArgs> openzfsConfiguration() {
+        return this.openzfsConfiguration;
     }
 
     /**
@@ -161,7 +161,7 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder openzfsConfiguration(@Nullable Output<S3AccessPointAttachmentOpenzfsConfigurationArgs> openzfsConfiguration) {
+        public Builder openzfsConfiguration(Output<S3AccessPointAttachmentOpenzfsConfigurationArgs> openzfsConfiguration) {
             $.openzfsConfiguration = openzfsConfiguration;
             return this;
         }
@@ -253,6 +253,9 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         public S3AccessPointAttachmentArgs build() {
+            if ($.openzfsConfiguration == null) {
+                throw new MissingRequiredPropertyException("S3AccessPointAttachmentArgs", "openzfsConfiguration");
+            }
             if ($.type == null) {
                 throw new MissingRequiredPropertyException("S3AccessPointAttachmentArgs", "type");
             }

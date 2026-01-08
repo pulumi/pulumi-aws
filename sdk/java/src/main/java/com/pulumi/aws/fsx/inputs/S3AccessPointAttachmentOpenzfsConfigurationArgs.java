@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class S3AccessPointAttachmentOpenzfsConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -21,15 +19,15 @@ public final class S3AccessPointAttachmentOpenzfsConfigurationArgs extends com.p
      * File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `fileSystemIdentity` Block for details.
      * 
      */
-    @Import(name="fileSystemIdentity")
-    private @Nullable Output<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs> fileSystemIdentity;
+    @Import(name="fileSystemIdentity", required=true)
+    private Output<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs> fileSystemIdentity;
 
     /**
      * @return File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `fileSystemIdentity` Block for details.
      * 
      */
-    public Optional<Output<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs>> fileSystemIdentity() {
-        return Optional.ofNullable(this.fileSystemIdentity);
+    public Output<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs> fileSystemIdentity() {
+        return this.fileSystemIdentity;
     }
 
     /**
@@ -78,7 +76,7 @@ public final class S3AccessPointAttachmentOpenzfsConfigurationArgs extends com.p
          * @return builder
          * 
          */
-        public Builder fileSystemIdentity(@Nullable Output<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs> fileSystemIdentity) {
+        public Builder fileSystemIdentity(Output<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs> fileSystemIdentity) {
             $.fileSystemIdentity = fileSystemIdentity;
             return this;
         }
@@ -115,6 +113,9 @@ public final class S3AccessPointAttachmentOpenzfsConfigurationArgs extends com.p
         }
 
         public S3AccessPointAttachmentOpenzfsConfigurationArgs build() {
+            if ($.fileSystemIdentity == null) {
+                throw new MissingRequiredPropertyException("S3AccessPointAttachmentOpenzfsConfigurationArgs", "fileSystemIdentity");
+            }
             if ($.volumeId == null) {
                 throw new MissingRequiredPropertyException("S3AccessPointAttachmentOpenzfsConfigurationArgs", "volumeId");
             }

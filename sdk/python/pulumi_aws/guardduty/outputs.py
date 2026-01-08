@@ -494,16 +494,15 @@ class MalwareProtectionPlanProtectedResource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 s3_bucket: Optional['outputs.MalwareProtectionPlanProtectedResourceS3Bucket'] = None):
+                 s3_bucket: 'outputs.MalwareProtectionPlanProtectedResourceS3Bucket'):
         """
         :param 'MalwareProtectionPlanProtectedResourceS3BucketArgs' s3_bucket: Information about the protected S3 bucket resource. See `s3_bucket` below.
         """
-        if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional['outputs.MalwareProtectionPlanProtectedResourceS3Bucket']:
+    def s3_bucket(self) -> 'outputs.MalwareProtectionPlanProtectedResourceS3Bucket':
         """
         Information about the protected S3 bucket resource. See `s3_bucket` below.
         """

@@ -6,9 +6,9 @@ package com.pulumi.aws.lex.outputs;
 import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage;
 import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariation;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,7 +17,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    private V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage message;
+    private @Nullable V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage message;
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
@@ -29,8 +29,8 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    public V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage message() {
-        return this.message;
+    public Optional<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage> message() {
+        return Optional.ofNullable(this.message);
     }
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
@@ -49,7 +49,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
     }
     @CustomType.Builder
     public static final class Builder {
-        private V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage message;
+        private @Nullable V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage message;
         private @Nullable List<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariation> variations;
         public Builder() {}
         public Builder(V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroup defaults) {
@@ -59,10 +59,8 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
         }
 
         @CustomType.Setter
-        public Builder message(V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage message) {
-            if (message == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroup", "message");
-            }
+        public Builder message(@Nullable V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage message) {
+
             this.message = message;
             return this;
         }

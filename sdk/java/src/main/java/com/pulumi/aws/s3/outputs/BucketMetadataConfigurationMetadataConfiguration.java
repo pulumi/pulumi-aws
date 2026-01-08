@@ -7,9 +7,9 @@ import com.pulumi.aws.s3.outputs.BucketMetadataConfigurationMetadataConfiguratio
 import com.pulumi.aws.s3.outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration;
 import com.pulumi.aws.s3.outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -23,12 +23,12 @@ public final class BucketMetadataConfigurationMetadataConfiguration {
      * @return Inventory table configuration. See `inventoryTableConfiguration` Block for details.
      * 
      */
-    private @Nullable BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration inventoryTableConfiguration;
+    private BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration inventoryTableConfiguration;
     /**
      * @return Journal table configuration. See `journalTableConfiguration` Block for details.
      * 
      */
-    private @Nullable BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration journalTableConfiguration;
+    private BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration journalTableConfiguration;
 
     private BucketMetadataConfigurationMetadataConfiguration() {}
     /**
@@ -42,15 +42,15 @@ public final class BucketMetadataConfigurationMetadataConfiguration {
      * @return Inventory table configuration. See `inventoryTableConfiguration` Block for details.
      * 
      */
-    public Optional<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration> inventoryTableConfiguration() {
-        return Optional.ofNullable(this.inventoryTableConfiguration);
+    public BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration inventoryTableConfiguration() {
+        return this.inventoryTableConfiguration;
     }
     /**
      * @return Journal table configuration. See `journalTableConfiguration` Block for details.
      * 
      */
-    public Optional<BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration> journalTableConfiguration() {
-        return Optional.ofNullable(this.journalTableConfiguration);
+    public BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration journalTableConfiguration() {
+        return this.journalTableConfiguration;
     }
 
     public static Builder builder() {
@@ -63,8 +63,8 @@ public final class BucketMetadataConfigurationMetadataConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<BucketMetadataConfigurationMetadataConfigurationDestination> destinations;
-        private @Nullable BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration inventoryTableConfiguration;
-        private @Nullable BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration journalTableConfiguration;
+        private BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration inventoryTableConfiguration;
+        private BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration journalTableConfiguration;
         public Builder() {}
         public Builder(BucketMetadataConfigurationMetadataConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,14 +83,18 @@ public final class BucketMetadataConfigurationMetadataConfiguration {
             return destinations(List.of(destinations));
         }
         @CustomType.Setter
-        public Builder inventoryTableConfiguration(@Nullable BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration inventoryTableConfiguration) {
-
+        public Builder inventoryTableConfiguration(BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration inventoryTableConfiguration) {
+            if (inventoryTableConfiguration == null) {
+              throw new MissingRequiredPropertyException("BucketMetadataConfigurationMetadataConfiguration", "inventoryTableConfiguration");
+            }
             this.inventoryTableConfiguration = inventoryTableConfiguration;
             return this;
         }
         @CustomType.Setter
-        public Builder journalTableConfiguration(@Nullable BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration journalTableConfiguration) {
-
+        public Builder journalTableConfiguration(BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration journalTableConfiguration) {
+            if (journalTableConfiguration == null) {
+              throw new MissingRequiredPropertyException("BucketMetadataConfigurationMetadataConfiguration", "journalTableConfiguration");
+            }
             this.journalTableConfiguration = journalTableConfiguration;
             return this;
         }

@@ -21,8 +21,8 @@ namespace Pulumi.Aws.ComputeOptimizer.Inputs
         /// <summary>
         /// The parameters to set when customizing the resource utilization thresholds.
         /// </summary>
-        [Input("metricParameters")]
-        public Input<Inputs.RecommendationPreferencesUtilizationPreferenceMetricParametersArgs>? MetricParameters { get; set; }
+        [Input("metricParameters", required: true)]
+        public Input<Inputs.RecommendationPreferencesUtilizationPreferenceMetricParametersArgs> MetricParameters { get; set; } = null!;
 
         public RecommendationPreferencesUtilizationPreferenceArgs()
         {

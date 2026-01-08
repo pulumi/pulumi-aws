@@ -22,27 +22,25 @@ __all__ = ['IngestionDestinationArgs', 'IngestionDestination']
 class IngestionDestinationArgs:
     def __init__(__self__, *,
                  app_bundle_arn: pulumi.Input[_builtins.str],
+                 destination_configuration: pulumi.Input['IngestionDestinationDestinationConfigurationArgs'],
                  ingestion_arn: pulumi.Input[_builtins.str],
-                 destination_configuration: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationArgs']] = None,
-                 processing_configuration: Optional[pulumi.Input['IngestionDestinationProcessingConfigurationArgs']] = None,
+                 processing_configuration: pulumi.Input['IngestionDestinationProcessingConfigurationArgs'],
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['IngestionDestinationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a IngestionDestination resource.
         :param pulumi.Input[_builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        :param pulumi.Input[_builtins.str] ingestion_arn: The Amazon Resource Name (ARN) of the ingestion to use for the request.
         :param pulumi.Input['IngestionDestinationDestinationConfigurationArgs'] destination_configuration: Contains information about the destination of ingested data.
+        :param pulumi.Input[_builtins.str] ingestion_arn: The Amazon Resource Name (ARN) of the ingestion to use for the request.
         :param pulumi.Input['IngestionDestinationProcessingConfigurationArgs'] processing_configuration: Contains information about how ingested data is processed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "app_bundle_arn", app_bundle_arn)
+        pulumi.set(__self__, "destination_configuration", destination_configuration)
         pulumi.set(__self__, "ingestion_arn", ingestion_arn)
-        if destination_configuration is not None:
-            pulumi.set(__self__, "destination_configuration", destination_configuration)
-        if processing_configuration is not None:
-            pulumi.set(__self__, "processing_configuration", processing_configuration)
+        pulumi.set(__self__, "processing_configuration", processing_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -63,6 +61,18 @@ class IngestionDestinationArgs:
         pulumi.set(self, "app_bundle_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="destinationConfiguration")
+    def destination_configuration(self) -> pulumi.Input['IngestionDestinationDestinationConfigurationArgs']:
+        """
+        Contains information about the destination of ingested data.
+        """
+        return pulumi.get(self, "destination_configuration")
+
+    @destination_configuration.setter
+    def destination_configuration(self, value: pulumi.Input['IngestionDestinationDestinationConfigurationArgs']):
+        pulumi.set(self, "destination_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="ingestionArn")
     def ingestion_arn(self) -> pulumi.Input[_builtins.str]:
         """
@@ -75,27 +85,15 @@ class IngestionDestinationArgs:
         pulumi.set(self, "ingestion_arn", value)
 
     @_builtins.property
-    @pulumi.getter(name="destinationConfiguration")
-    def destination_configuration(self) -> Optional[pulumi.Input['IngestionDestinationDestinationConfigurationArgs']]:
-        """
-        Contains information about the destination of ingested data.
-        """
-        return pulumi.get(self, "destination_configuration")
-
-    @destination_configuration.setter
-    def destination_configuration(self, value: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationArgs']]):
-        pulumi.set(self, "destination_configuration", value)
-
-    @_builtins.property
     @pulumi.getter(name="processingConfiguration")
-    def processing_configuration(self) -> Optional[pulumi.Input['IngestionDestinationProcessingConfigurationArgs']]:
+    def processing_configuration(self) -> pulumi.Input['IngestionDestinationProcessingConfigurationArgs']:
         """
         Contains information about how ingested data is processed.
         """
         return pulumi.get(self, "processing_configuration")
 
     @processing_configuration.setter
-    def processing_configuration(self, value: Optional[pulumi.Input['IngestionDestinationProcessingConfigurationArgs']]):
+    def processing_configuration(self, value: pulumi.Input['IngestionDestinationProcessingConfigurationArgs']):
         pulumi.set(self, "processing_configuration", value)
 
     @_builtins.property
@@ -405,10 +403,14 @@ class IngestionDestination(pulumi.CustomResource):
             if app_bundle_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'app_bundle_arn'")
             __props__.__dict__["app_bundle_arn"] = app_bundle_arn
+            if destination_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'destination_configuration'")
             __props__.__dict__["destination_configuration"] = destination_configuration
             if ingestion_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'ingestion_arn'")
             __props__.__dict__["ingestion_arn"] = ingestion_arn
+            if processing_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'processing_configuration'")
             __props__.__dict__["processing_configuration"] = processing_configuration
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
@@ -483,7 +485,7 @@ class IngestionDestination(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="destinationConfiguration")
-    def destination_configuration(self) -> pulumi.Output[Optional['outputs.IngestionDestinationDestinationConfiguration']]:
+    def destination_configuration(self) -> pulumi.Output['outputs.IngestionDestinationDestinationConfiguration']:
         """
         Contains information about the destination of ingested data.
         """
@@ -499,7 +501,7 @@ class IngestionDestination(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="processingConfiguration")
-    def processing_configuration(self) -> pulumi.Output[Optional['outputs.IngestionDestinationProcessingConfiguration']]:
+    def processing_configuration(self) -> pulumi.Output['outputs.IngestionDestinationProcessingConfiguration']:
         """
         Contains information about how ingested data is processed.
         """

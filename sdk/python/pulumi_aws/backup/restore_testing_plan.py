@@ -21,27 +21,26 @@ __all__ = ['RestoreTestingPlanArgs', 'RestoreTestingPlan']
 @pulumi.input_type
 class RestoreTestingPlanArgs:
     def __init__(__self__, *,
+                 recovery_point_selection: pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs'],
                  schedule_expression: pulumi.Input[_builtins.str],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_point_selection: Optional[pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[_builtins.str]] = None,
                  start_window_hours: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RestoreTestingPlan resource.
+        :param pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs'] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         :param pulumi.Input[_builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[_builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        :param pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs'] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
         :param pulumi.Input[_builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
         """
+        pulumi.set(__self__, "recovery_point_selection", recovery_point_selection)
         pulumi.set(__self__, "schedule_expression", schedule_expression)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if recovery_point_selection is not None:
-            pulumi.set(__self__, "recovery_point_selection", recovery_point_selection)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if schedule_expression_timezone is not None:
@@ -50,6 +49,18 @@ class RestoreTestingPlanArgs:
             pulumi.set(__self__, "start_window_hours", start_window_hours)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="recoveryPointSelection")
+    def recovery_point_selection(self) -> pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs']:
+        """
+        Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+        """
+        return pulumi.get(self, "recovery_point_selection")
+
+    @recovery_point_selection.setter
+    def recovery_point_selection(self, value: pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs']):
+        pulumi.set(self, "recovery_point_selection", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
@@ -74,18 +85,6 @@ class RestoreTestingPlanArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="recoveryPointSelection")
-    def recovery_point_selection(self) -> Optional[pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs']]:
-        """
-        Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        """
-        return pulumi.get(self, "recovery_point_selection")
-
-    @recovery_point_selection.setter
-    def recovery_point_selection(self, value: Optional[pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs']]):
-        pulumi.set(self, "recovery_point_selection", value)
 
     @_builtins.property
     @pulumi.getter
@@ -400,6 +399,8 @@ class RestoreTestingPlan(pulumi.CustomResource):
             __props__ = RestoreTestingPlanArgs.__new__(RestoreTestingPlanArgs)
 
             __props__.__dict__["name"] = name
+            if recovery_point_selection is None and not opts.urn:
+                raise TypeError("Missing required property 'recovery_point_selection'")
             __props__.__dict__["recovery_point_selection"] = recovery_point_selection
             __props__.__dict__["region"] = region
             if schedule_expression is None and not opts.urn:
@@ -478,7 +479,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="recoveryPointSelection")
-    def recovery_point_selection(self) -> pulumi.Output[Optional['outputs.RestoreTestingPlanRecoveryPointSelection']]:
+    def recovery_point_selection(self) -> pulumi.Output['outputs.RestoreTestingPlanRecoveryPointSelection']:
         """
         Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         """

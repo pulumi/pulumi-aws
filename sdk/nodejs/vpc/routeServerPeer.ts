@@ -117,7 +117,7 @@ export class RouteServerPeer extends pulumi.CustomResource {
     /**
      * The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      */
-    declare public readonly bgpOptions: pulumi.Output<outputs.vpc.RouteServerPeerBgpOptions | undefined>;
+    declare public readonly bgpOptions: pulumi.Output<outputs.vpc.RouteServerPeerBgpOptions>;
     /**
      * The IP address of the Elastic network interface for the route server endpoint.
      */
@@ -195,6 +195,9 @@ export class RouteServerPeer extends pulumi.CustomResource {
             resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as RouteServerPeerArgs | undefined;
+            if (args?.bgpOptions === undefined && !opts.urn) {
+                throw new Error("Missing required property 'bgpOptions'");
+            }
             if (args?.peerAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAddress'");
             }
@@ -289,7 +292,7 @@ export interface RouteServerPeerArgs {
     /**
      * The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      */
-    bgpOptions?: pulumi.Input<inputs.vpc.RouteServerPeerBgpOptions>;
+    bgpOptions: pulumi.Input<inputs.vpc.RouteServerPeerBgpOptions>;
     /**
      * The IPv4 address of the peer device.
      */

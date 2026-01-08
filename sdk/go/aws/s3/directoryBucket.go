@@ -94,7 +94,7 @@ type DirectoryBucket struct {
 	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy pulumi.BoolOutput `pulumi:"forceDestroy"`
 	// Bucket location. See Location below for more details.
-	Location DirectoryBucketLocationPtrOutput `pulumi:"location"`
+	Location DirectoryBucketLocationOutput `pulumi:"location"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -114,6 +114,9 @@ func NewDirectoryBucket(ctx *pulumi.Context,
 
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DirectoryBucket
@@ -191,7 +194,7 @@ type directoryBucketArgs struct {
 	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Bucket location. See Location below for more details.
-	Location *DirectoryBucketLocation `pulumi:"location"`
+	Location DirectoryBucketLocation `pulumi:"location"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -209,7 +212,7 @@ type DirectoryBucketArgs struct {
 	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy pulumi.BoolPtrInput
 	// Bucket location. See Location below for more details.
-	Location DirectoryBucketLocationPtrInput
+	Location DirectoryBucketLocationInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -326,8 +329,8 @@ func (o DirectoryBucketOutput) ForceDestroy() pulumi.BoolOutput {
 }
 
 // Bucket location. See Location below for more details.
-func (o DirectoryBucketOutput) Location() DirectoryBucketLocationPtrOutput {
-	return o.ApplyT(func(v *DirectoryBucket) DirectoryBucketLocationPtrOutput { return v.Location }).(DirectoryBucketLocationPtrOutput)
+func (o DirectoryBucketOutput) Location() DirectoryBucketLocationOutput {
+	return o.ApplyT(func(v *DirectoryBucket) DirectoryBucketLocationOutput { return v.Location }).(DirectoryBucketLocationOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -106,6 +106,9 @@ func NewMonitor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.LocalResources == nil {
+		return nil, errors.New("invalid value for required argument 'LocalResources'")
+	}
 	if args.MonitorName == nil {
 		return nil, errors.New("invalid value for required argument 'MonitorName'")
 	}

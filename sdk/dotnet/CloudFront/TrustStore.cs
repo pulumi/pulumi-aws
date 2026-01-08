@@ -92,7 +92,7 @@ namespace Pulumi.Aws.CloudFront
         /// The following arguments are optional:
         /// </summary>
         [Output("caCertificatesBundleSource")]
-        public Output<Outputs.TrustStoreCaCertificatesBundleSource?> CaCertificatesBundleSource { get; private set; } = null!;
+        public Output<Outputs.TrustStoreCaCertificatesBundleSource> CaCertificatesBundleSource { get; private set; } = null!;
 
         /// <summary>
         /// ETag of the trust store.
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.CloudFront
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TrustStore(string name, TrustStoreArgs? args = null, CustomResourceOptions? options = null)
+        public TrustStore(string name, TrustStoreArgs args, CustomResourceOptions? options = null)
             : base("aws:cloudfront/trustStore:TrustStore", name, args ?? new TrustStoreArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -178,8 +178,8 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("caCertificatesBundleSource")]
-        public Input<Inputs.TrustStoreCaCertificatesBundleSourceArgs>? CaCertificatesBundleSource { get; set; }
+        [Input("caCertificatesBundleSource", required: true)]
+        public Input<Inputs.TrustStoreCaCertificatesBundleSourceArgs> CaCertificatesBundleSource { get; set; } = null!;
 
         /// <summary>
         /// Name of the trust store. Changing this forces a new resource to be created.

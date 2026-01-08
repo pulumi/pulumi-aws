@@ -118,7 +118,7 @@ export class AgentcoreCodeInterpreter extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly networkConfiguration: pulumi.Output<outputs.bedrock.AgentcoreCodeInterpreterNetworkConfiguration | undefined>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.bedrock.AgentcoreCodeInterpreterNetworkConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -140,7 +140,7 @@ export class AgentcoreCodeInterpreter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AgentcoreCodeInterpreterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AgentcoreCodeInterpreterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AgentcoreCodeInterpreterArgs | AgentcoreCodeInterpreterState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -158,6 +158,9 @@ export class AgentcoreCodeInterpreter extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as AgentcoreCodeInterpreterArgs | undefined;
+            if (args?.networkConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkConfiguration'");
+            }
             resourceInputs["description"] = args?.description;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["name"] = args?.name;
@@ -240,7 +243,7 @@ export interface AgentcoreCodeInterpreterArgs {
      *
      * The following arguments are optional:
      */
-    networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterNetworkConfiguration>;
+    networkConfiguration: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterNetworkConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

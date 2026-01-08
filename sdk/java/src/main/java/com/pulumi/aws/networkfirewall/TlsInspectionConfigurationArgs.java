@@ -8,6 +8,7 @@ import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTimeoutsA
 import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -100,8 +101,8 @@ public final class TlsInspectionConfigurationArgs extends com.pulumi.resources.R
      * The following arguments are optional:
      * 
      */
-    @Import(name="tlsInspectionConfiguration")
-    private @Nullable Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs> tlsInspectionConfiguration;
+    @Import(name="tlsInspectionConfiguration", required=true)
+    private Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs> tlsInspectionConfiguration;
 
     /**
      * @return TLS inspection configuration block. Detailed below.
@@ -109,8 +110,8 @@ public final class TlsInspectionConfigurationArgs extends com.pulumi.resources.R
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs>> tlsInspectionConfiguration() {
-        return Optional.ofNullable(this.tlsInspectionConfiguration);
+    public Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs> tlsInspectionConfiguration() {
+        return this.tlsInspectionConfiguration;
     }
 
     private TlsInspectionConfigurationArgs() {}
@@ -263,7 +264,7 @@ public final class TlsInspectionConfigurationArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder tlsInspectionConfiguration(@Nullable Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs> tlsInspectionConfiguration) {
+        public Builder tlsInspectionConfiguration(Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs> tlsInspectionConfiguration) {
             $.tlsInspectionConfiguration = tlsInspectionConfiguration;
             return this;
         }
@@ -281,6 +282,9 @@ public final class TlsInspectionConfigurationArgs extends com.pulumi.resources.R
         }
 
         public TlsInspectionConfigurationArgs build() {
+            if ($.tlsInspectionConfiguration == null) {
+                throw new MissingRequiredPropertyException("TlsInspectionConfigurationArgs", "tlsInspectionConfiguration");
+            }
             return $;
         }
     }

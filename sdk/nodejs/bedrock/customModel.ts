@@ -116,7 +116,7 @@ export class CustomModel extends pulumi.CustomResource {
     /**
      * S3 location for the output data.
      */
-    declare public readonly outputDataConfig: pulumi.Output<outputs.bedrock.CustomModelOutputDataConfig | undefined>;
+    declare public readonly outputDataConfig: pulumi.Output<outputs.bedrock.CustomModelOutputDataConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -137,7 +137,7 @@ export class CustomModel extends pulumi.CustomResource {
     /**
      * Information about the training dataset.
      */
-    declare public readonly trainingDataConfig: pulumi.Output<outputs.bedrock.CustomModelTrainingDataConfig | undefined>;
+    declare public readonly trainingDataConfig: pulumi.Output<outputs.bedrock.CustomModelTrainingDataConfig>;
     /**
      * Metrics associated with the customization job.
      */
@@ -202,8 +202,14 @@ export class CustomModel extends pulumi.CustomResource {
             if (args?.jobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobName'");
             }
+            if (args?.outputDataConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'outputDataConfig'");
+            }
             if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
+            }
+            if (args?.trainingDataConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'trainingDataConfig'");
             }
             resourceInputs["baseModelIdentifier"] = args?.baseModelIdentifier;
             resourceInputs["customModelKmsKeyId"] = args?.customModelKmsKeyId;
@@ -345,7 +351,7 @@ export interface CustomModelArgs {
     /**
      * S3 location for the output data.
      */
-    outputDataConfig?: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig>;
+    outputDataConfig: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -362,7 +368,7 @@ export interface CustomModelArgs {
     /**
      * Information about the training dataset.
      */
-    trainingDataConfig?: pulumi.Input<inputs.bedrock.CustomModelTrainingDataConfig>;
+    trainingDataConfig: pulumi.Input<inputs.bedrock.CustomModelTrainingDataConfig>;
     /**
      * Information about the validation dataset.
      */

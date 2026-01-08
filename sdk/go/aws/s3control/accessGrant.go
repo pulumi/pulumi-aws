@@ -87,7 +87,7 @@ type AccessGrant struct {
 	// The access grant's scope.
 	GrantScope pulumi.StringOutput `pulumi:"grantScope"`
 	// See Grantee below for more details.
-	Grantee AccessGrantGranteePtrOutput `pulumi:"grantee"`
+	Grantee AccessGrantGranteeOutput `pulumi:"grantee"`
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission pulumi.StringOutput `pulumi:"permission"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -109,6 +109,9 @@ func NewAccessGrant(ctx *pulumi.Context,
 
 	if args.AccessGrantsLocationId == nil {
 		return nil, errors.New("invalid value for required argument 'AccessGrantsLocationId'")
+	}
+	if args.Grantee == nil {
+		return nil, errors.New("invalid value for required argument 'Grantee'")
 	}
 	if args.Permission == nil {
 		return nil, errors.New("invalid value for required argument 'Permission'")
@@ -198,7 +201,7 @@ type accessGrantArgs struct {
 	AccessGrantsLocationId string  `pulumi:"accessGrantsLocationId"`
 	AccountId              *string `pulumi:"accountId"`
 	// See Grantee below for more details.
-	Grantee *AccessGrantGrantee `pulumi:"grantee"`
+	Grantee AccessGrantGrantee `pulumi:"grantee"`
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission string `pulumi:"permission"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -217,7 +220,7 @@ type AccessGrantArgs struct {
 	AccessGrantsLocationId pulumi.StringInput
 	AccountId              pulumi.StringPtrInput
 	// See Grantee below for more details.
-	Grantee AccessGrantGranteePtrInput
+	Grantee AccessGrantGranteeInput
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -347,8 +350,8 @@ func (o AccessGrantOutput) GrantScope() pulumi.StringOutput {
 }
 
 // See Grantee below for more details.
-func (o AccessGrantOutput) Grantee() AccessGrantGranteePtrOutput {
-	return o.ApplyT(func(v *AccessGrant) AccessGrantGranteePtrOutput { return v.Grantee }).(AccessGrantGranteePtrOutput)
+func (o AccessGrantOutput) Grantee() AccessGrantGranteeOutput {
+	return o.ApplyT(func(v *AccessGrant) AccessGrantGranteeOutput { return v.Grantee }).(AccessGrantGranteeOutput)
 }
 
 // The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.

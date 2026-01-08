@@ -178,7 +178,7 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
     /**
      * Container artifact configuration. See `agentRuntimeArtifact` below.
      */
-    declare public readonly agentRuntimeArtifact: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifact | undefined>;
+    declare public readonly agentRuntimeArtifact: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifact>;
     /**
      * Unique identifier of the Agent Runtime.
      */
@@ -212,7 +212,7 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly networkConfiguration: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration | undefined>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration>;
     /**
      * Protocol configuration for the agent runtime. See `protocolConfiguration` below.
      */
@@ -276,8 +276,14 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
             resourceInputs["workloadIdentityDetails"] = state?.workloadIdentityDetails;
         } else {
             const args = argsOrState as AgentcoreAgentRuntimeArgs | undefined;
+            if (args?.agentRuntimeArtifact === undefined && !opts.urn) {
+                throw new Error("Missing required property 'agentRuntimeArtifact'");
+            }
             if (args?.agentRuntimeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentRuntimeName'");
+            }
+            if (args?.networkConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkConfiguration'");
             }
             if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
@@ -390,7 +396,7 @@ export interface AgentcoreAgentRuntimeArgs {
     /**
      * Container artifact configuration. See `agentRuntimeArtifact` below.
      */
-    agentRuntimeArtifact?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifact>;
+    agentRuntimeArtifact: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifact>;
     /**
      * Name of the agent runtime.
      */
@@ -416,7 +422,7 @@ export interface AgentcoreAgentRuntimeArgs {
      *
      * The following arguments are optional:
      */
-    networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration>;
+    networkConfiguration: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration>;
     /**
      * Protocol configuration for the agent runtime. See `protocolConfiguration` below.
      */

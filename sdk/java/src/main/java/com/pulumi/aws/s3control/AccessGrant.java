@@ -170,14 +170,14 @@ public class AccessGrant extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="grantee", refs={AccessGrantGrantee.class}, tree="[0]")
-    private Output</* @Nullable */ AccessGrantGrantee> grantee;
+    private Output<AccessGrantGrantee> grantee;
 
     /**
      * @return See Grantee below for more details.
      * 
      */
-    public Output<Optional<AccessGrantGrantee>> grantee() {
-        return Codegen.optional(this.grantee);
+    public Output<AccessGrantGrantee> grantee() {
+        return this.grantee;
     }
     /**
      * The access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.

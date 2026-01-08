@@ -5,9 +5,8 @@ package com.pulumi.aws.amp.outputs;
 
 import com.pulumi.aws.amp.outputs.ScraperSourceEks;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ScraperSource {
@@ -15,15 +14,15 @@ public final class ScraperSource {
      * @return Configuration block for an EKS cluster source. See `eks`.
      * 
      */
-    private @Nullable ScraperSourceEks eks;
+    private ScraperSourceEks eks;
 
     private ScraperSource() {}
     /**
      * @return Configuration block for an EKS cluster source. See `eks`.
      * 
      */
-    public Optional<ScraperSourceEks> eks() {
-        return Optional.ofNullable(this.eks);
+    public ScraperSourceEks eks() {
+        return this.eks;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class ScraperSource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable ScraperSourceEks eks;
+        private ScraperSourceEks eks;
         public Builder() {}
         public Builder(ScraperSource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class ScraperSource {
         }
 
         @CustomType.Setter
-        public Builder eks(@Nullable ScraperSourceEks eks) {
-
+        public Builder eks(ScraperSourceEks eks) {
+            if (eks == null) {
+              throw new MissingRequiredPropertyException("ScraperSource", "eks");
+            }
             this.eks = eks;
             return this;
         }

@@ -495,25 +495,36 @@ class ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs:
 
 if not MYPY:
     class ContactsRotationRecurrenceShiftCoverageArgsDict(TypedDict):
-        map_block_key: pulumi.Input[_builtins.str]
-        coverage_times: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgsDict']]]]
+        coverage_times: pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgsDict']]]
         """
         (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
         """
+        map_block_key: pulumi.Input[_builtins.str]
 elif False:
     ContactsRotationRecurrenceShiftCoverageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContactsRotationRecurrenceShiftCoverageArgs:
     def __init__(__self__, *,
-                 map_block_key: pulumi.Input[_builtins.str],
-                 coverage_times: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]]] = None):
+                 coverage_times: pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]],
+                 map_block_key: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]] coverage_times: (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
         """
+        pulumi.set(__self__, "coverage_times", coverage_times)
         pulumi.set(__self__, "map_block_key", map_block_key)
-        if coverage_times is not None:
-            pulumi.set(__self__, "coverage_times", coverage_times)
+
+    @_builtins.property
+    @pulumi.getter(name="coverageTimes")
+    def coverage_times(self) -> pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]]:
+        """
+        (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
+        """
+        return pulumi.get(self, "coverage_times")
+
+    @coverage_times.setter
+    def coverage_times(self, value: pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]]):
+        pulumi.set(self, "coverage_times", value)
 
     @_builtins.property
     @pulumi.getter(name="mapBlockKey")
@@ -523,18 +534,6 @@ class ContactsRotationRecurrenceShiftCoverageArgs:
     @map_block_key.setter
     def map_block_key(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "map_block_key", value)
-
-    @_builtins.property
-    @pulumi.getter(name="coverageTimes")
-    def coverage_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]]]:
-        """
-        (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-        """
-        return pulumi.get(self, "coverage_times")
-
-    @coverage_times.setter
-    def coverage_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]]]):
-        pulumi.set(self, "coverage_times", value)
 
 
 if not MYPY:

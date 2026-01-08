@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Route53Domains
         /// Details about the domain administrative contact. See Contact Blocks for more details.
         /// </summary>
         [Output("adminContact")]
-        public Output<Outputs.DomainAdminContact?> AdminContact { get; private set; } = null!;
+        public Output<Outputs.DomainAdminContact> AdminContact { get; private set; } = null!;
 
         /// <summary>
         /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `True`.
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Route53Domains
         /// Details about the domain registrant. See Contact Blocks for more details.
         /// </summary>
         [Output("registrantContact")]
-        public Output<Outputs.DomainRegistrantContact?> RegistrantContact { get; private set; } = null!;
+        public Output<Outputs.DomainRegistrantContact> RegistrantContact { get; private set; } = null!;
 
         /// <summary>
         /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `True`.
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Route53Domains
         /// Details about the domain technical contact. See Contact Blocks for more details.
         /// </summary>
         [Output("techContact")]
-        public Output<Outputs.DomainTechContact?> TechContact { get; private set; } = null!;
+        public Output<Outputs.DomainTechContact> TechContact { get; private set; } = null!;
 
         /// <summary>
         /// Whether domain technical contact information is concealed from WHOIS queries. Default: `True`.
@@ -293,8 +293,8 @@ namespace Pulumi.Aws.Route53Domains
         /// <summary>
         /// Details about the domain administrative contact. See Contact Blocks for more details.
         /// </summary>
-        [Input("adminContact")]
-        public Input<Inputs.DomainAdminContactArgs>? AdminContact { get; set; }
+        [Input("adminContact", required: true)]
+        public Input<Inputs.DomainAdminContactArgs> AdminContact { get; set; } = null!;
 
         /// <summary>
         /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `True`.
@@ -353,8 +353,8 @@ namespace Pulumi.Aws.Route53Domains
         /// <summary>
         /// Details about the domain registrant. See Contact Blocks for more details.
         /// </summary>
-        [Input("registrantContact")]
-        public Input<Inputs.DomainRegistrantContactArgs>? RegistrantContact { get; set; }
+        [Input("registrantContact", required: true)]
+        public Input<Inputs.DomainRegistrantContactArgs> RegistrantContact { get; set; } = null!;
 
         /// <summary>
         /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `True`.
@@ -377,8 +377,8 @@ namespace Pulumi.Aws.Route53Domains
         /// <summary>
         /// Details about the domain technical contact. See Contact Blocks for more details.
         /// </summary>
-        [Input("techContact")]
-        public Input<Inputs.DomainTechContactArgs>? TechContact { get; set; }
+        [Input("techContact", required: true)]
+        public Input<Inputs.DomainTechContactArgs> TechContact { get; set; } = null!;
 
         /// <summary>
         /// Whether domain technical contact information is concealed from WHOIS queries. Default: `True`.

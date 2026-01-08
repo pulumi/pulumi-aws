@@ -33,8 +33,8 @@ namespace Pulumi.Aws.Lex.Inputs
         /// <summary>
         /// Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `DefaultBranch`.
         /// </summary>
-        [Input("defaultBranch", required: true)]
-        public Input<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs> DefaultBranch { get; set; } = null!;
+        [Input("defaultBranch")]
+        public Input<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs>? DefaultBranch { get; set; }
 
         public V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs()
         {

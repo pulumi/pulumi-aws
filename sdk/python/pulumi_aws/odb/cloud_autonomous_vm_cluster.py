@@ -26,6 +26,7 @@ class CloudAutonomousVmClusterArgs:
                  cpu_core_count_per_node: pulumi.Input[_builtins.int],
                  db_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  display_name: pulumi.Input[_builtins.str],
+                 maintenance_window: pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs'],
                  memory_per_oracle_compute_unit_in_gbs: pulumi.Input[_builtins.int],
                  odb_network_id: pulumi.Input[_builtins.str],
                  scan_listener_port_non_tls: pulumi.Input[_builtins.int],
@@ -34,7 +35,6 @@ class CloudAutonomousVmClusterArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  is_mtls_enabled_vm_cluster: Optional[pulumi.Input[_builtins.bool]] = None,
                  license_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None,
@@ -42,8 +42,8 @@ class CloudAutonomousVmClusterArgs:
         """
         The set of arguments for constructing a CloudAutonomousVmCluster resource.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: The number of CPU cores enabled per node in the Autonomous VM cluster.
-        :param pulumi.Input[_builtins.str] description: The description of the Autonomous VM cluster.
         :param pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs'] maintenance_window: The maintenance window of the Autonomous VM cluster.
+        :param pulumi.Input[_builtins.str] description: The description of the Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -52,6 +52,7 @@ class CloudAutonomousVmClusterArgs:
         pulumi.set(__self__, "cpu_core_count_per_node", cpu_core_count_per_node)
         pulumi.set(__self__, "db_servers", db_servers)
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "maintenance_window", maintenance_window)
         pulumi.set(__self__, "memory_per_oracle_compute_unit_in_gbs", memory_per_oracle_compute_unit_in_gbs)
         pulumi.set(__self__, "odb_network_id", odb_network_id)
         pulumi.set(__self__, "scan_listener_port_non_tls", scan_listener_port_non_tls)
@@ -63,8 +64,6 @@ class CloudAutonomousVmClusterArgs:
             pulumi.set(__self__, "is_mtls_enabled_vm_cluster", is_mtls_enabled_vm_cluster)
         if license_model is not None:
             pulumi.set(__self__, "license_model", license_model)
-        if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -121,6 +120,18 @@ class CloudAutonomousVmClusterArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs']:
+        """
+        The maintenance window of the Autonomous VM cluster.
+        """
+        return pulumi.get(self, "maintenance_window")
+
+    @maintenance_window.setter
+    def maintenance_window(self, value: pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs']):
+        pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryPerOracleComputeUnitInGbs")
@@ -196,18 +207,6 @@ class CloudAutonomousVmClusterArgs:
     @license_model.setter
     def license_model(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "license_model", value)
-
-    @_builtins.property
-    @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs']]:
-        """
-        The maintenance window of the Autonomous VM cluster.
-        """
-        return pulumi.get(self, "maintenance_window")
-
-    @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs']]):
-        pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1323,6 +1322,8 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["is_mtls_enabled_vm_cluster"] = is_mtls_enabled_vm_cluster
             __props__.__dict__["license_model"] = license_model
+            if maintenance_window is None and not opts.urn:
+                raise TypeError("Missing required property 'maintenance_window'")
             __props__.__dict__["maintenance_window"] = maintenance_window
             if memory_per_oracle_compute_unit_in_gbs is None and not opts.urn:
                 raise TypeError("Missing required property 'memory_per_oracle_compute_unit_in_gbs'")
@@ -1704,7 +1705,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> pulumi.Output[Optional['outputs.CloudAutonomousVmClusterMaintenanceWindow']]:
+    def maintenance_window(self) -> pulumi.Output['outputs.CloudAutonomousVmClusterMaintenanceWindow']:
         """
         The maintenance window of the Autonomous VM cluster.
         """

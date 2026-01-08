@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
@@ -27,7 +25,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    private @Nullable AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping;
+    private AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping;
     /**
      * @return Name of the vector index.
      * 
@@ -53,8 +51,8 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping() {
+        return this.fieldMapping;
     }
     /**
      * @return Name of the vector index.
@@ -75,7 +73,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
     public static final class Builder {
         private String credentialsSecretArn;
         private String endpoint;
-        private @Nullable AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping;
+        private AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping;
         private String vectorIndexName;
         public Builder() {}
         public Builder(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration defaults) {
@@ -103,8 +101,10 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
             return this;
         }
         @CustomType.Setter
-        public Builder fieldMapping(@Nullable AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping) {
-
+        public Builder fieldMapping(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping) {
+            if (fieldMapping == null) {
+              throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration", "fieldMapping");
+            }
             this.fieldMapping = fieldMapping;
             return this;
         }

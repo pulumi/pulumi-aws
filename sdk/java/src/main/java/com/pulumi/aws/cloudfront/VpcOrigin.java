@@ -160,7 +160,7 @@ public class VpcOrigin extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcOriginEndpointConfig", refs={VpcOriginVpcOriginEndpointConfig.class}, tree="[0]")
-    private Output</* @Nullable */ VpcOriginVpcOriginEndpointConfig> vpcOriginEndpointConfig;
+    private Output<VpcOriginVpcOriginEndpointConfig> vpcOriginEndpointConfig;
 
     /**
      * @return The VPC origin endpoint configuration.
@@ -168,8 +168,8 @@ public class VpcOrigin extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<VpcOriginVpcOriginEndpointConfig>> vpcOriginEndpointConfig() {
-        return Codegen.optional(this.vpcOriginEndpointConfig);
+    public Output<VpcOriginVpcOriginEndpointConfig> vpcOriginEndpointConfig() {
+        return this.vpcOriginEndpointConfig;
     }
 
     /**
@@ -184,7 +184,7 @@ public class VpcOrigin extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcOrigin(java.lang.String name, @Nullable VpcOriginArgs args) {
+    public VpcOrigin(java.lang.String name, VpcOriginArgs args) {
         this(name, args, null);
     }
     /**
@@ -193,7 +193,7 @@ public class VpcOrigin extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcOrigin(java.lang.String name, @Nullable VpcOriginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public VpcOrigin(java.lang.String name, VpcOriginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudfront/vpcOrigin:VpcOrigin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -201,7 +201,7 @@ public class VpcOrigin extends com.pulumi.resources.CustomResource {
         super("aws:cloudfront/vpcOrigin:VpcOrigin", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static VpcOriginArgs makeArgs(@Nullable VpcOriginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static VpcOriginArgs makeArgs(VpcOriginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

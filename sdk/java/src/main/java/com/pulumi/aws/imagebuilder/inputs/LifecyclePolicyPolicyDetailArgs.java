@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.inputs.LifecyclePolicyPolicyDetailExclusionRu
 import com.pulumi.aws.imagebuilder.inputs.LifecyclePolicyPolicyDetailFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,15 +22,15 @@ public final class LifecyclePolicyPolicyDetailArgs extends com.pulumi.resources.
      * Configuration details for the policy action.
      * 
      */
-    @Import(name="action")
-    private @Nullable Output<LifecyclePolicyPolicyDetailActionArgs> action;
+    @Import(name="action", required=true)
+    private Output<LifecyclePolicyPolicyDetailActionArgs> action;
 
     /**
      * @return Configuration details for the policy action.
      * 
      */
-    public Optional<Output<LifecyclePolicyPolicyDetailActionArgs>> action() {
-        return Optional.ofNullable(this.action);
+    public Output<LifecyclePolicyPolicyDetailActionArgs> action() {
+        return this.action;
     }
 
     /**
@@ -53,8 +54,8 @@ public final class LifecyclePolicyPolicyDetailArgs extends com.pulumi.resources.
      * The following arguments are optional:
      * 
      */
-    @Import(name="filter")
-    private @Nullable Output<LifecyclePolicyPolicyDetailFilterArgs> filter;
+    @Import(name="filter", required=true)
+    private Output<LifecyclePolicyPolicyDetailFilterArgs> filter;
 
     /**
      * @return Specifies the resources that the lifecycle policy applies to.
@@ -62,8 +63,8 @@ public final class LifecyclePolicyPolicyDetailArgs extends com.pulumi.resources.
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<LifecyclePolicyPolicyDetailFilterArgs>> filter() {
-        return Optional.ofNullable(this.filter);
+    public Output<LifecyclePolicyPolicyDetailFilterArgs> filter() {
+        return this.filter;
     }
 
     private LifecyclePolicyPolicyDetailArgs() {}
@@ -98,7 +99,7 @@ public final class LifecyclePolicyPolicyDetailArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder action(@Nullable Output<LifecyclePolicyPolicyDetailActionArgs> action) {
+        public Builder action(Output<LifecyclePolicyPolicyDetailActionArgs> action) {
             $.action = action;
             return this;
         }
@@ -142,7 +143,7 @@ public final class LifecyclePolicyPolicyDetailArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder filter(@Nullable Output<LifecyclePolicyPolicyDetailFilterArgs> filter) {
+        public Builder filter(Output<LifecyclePolicyPolicyDetailFilterArgs> filter) {
             $.filter = filter;
             return this;
         }
@@ -160,6 +161,12 @@ public final class LifecyclePolicyPolicyDetailArgs extends com.pulumi.resources.
         }
 
         public LifecyclePolicyPolicyDetailArgs build() {
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailArgs", "action");
+            }
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailArgs", "filter");
+            }
             return $;
         }
     }

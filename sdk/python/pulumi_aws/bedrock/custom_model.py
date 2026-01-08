@@ -25,14 +25,14 @@ class CustomModelArgs:
                  custom_model_name: pulumi.Input[_builtins.str],
                  hyperparameters: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  job_name: pulumi.Input[_builtins.str],
+                 output_data_config: pulumi.Input['CustomModelOutputDataConfigArgs'],
                  role_arn: pulumi.Input[_builtins.str],
+                 training_data_config: pulumi.Input['CustomModelTrainingDataConfigArgs'],
                  custom_model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  customization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_data_config: Optional[pulumi.Input['CustomModelOutputDataConfigArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['CustomModelTimeoutsArgs']] = None,
-                 training_data_config: Optional[pulumi.Input['CustomModelTrainingDataConfigArgs']] = None,
                  validation_data_config: Optional[pulumi.Input['CustomModelValidationDataConfigArgs']] = None,
                  vpc_config: Optional[pulumi.Input['CustomModelVpcConfigArgs']] = None):
         """
@@ -41,13 +41,13 @@ class CustomModelArgs:
         :param pulumi.Input[_builtins.str] custom_model_name: Name for the custom model.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] hyperparameters: [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
         :param pulumi.Input[_builtins.str] job_name: A name for the customization job.
+        :param pulumi.Input['CustomModelOutputDataConfigArgs'] output_data_config: S3 location for the output data.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        :param pulumi.Input['CustomModelTrainingDataConfigArgs'] training_data_config: Information about the training dataset.
         :param pulumi.Input[_builtins.str] custom_model_kms_key_id: The custom model is encrypted at rest using this key. Specify the key ARN.
         :param pulumi.Input[_builtins.str] customization_type: The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
-        :param pulumi.Input['CustomModelOutputDataConfigArgs'] output_data_config: S3 location for the output data.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['CustomModelTrainingDataConfigArgs'] training_data_config: Information about the training dataset.
         :param pulumi.Input['CustomModelValidationDataConfigArgs'] validation_data_config: Information about the validation dataset.
         :param pulumi.Input['CustomModelVpcConfigArgs'] vpc_config: Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
         """
@@ -55,21 +55,19 @@ class CustomModelArgs:
         pulumi.set(__self__, "custom_model_name", custom_model_name)
         pulumi.set(__self__, "hyperparameters", hyperparameters)
         pulumi.set(__self__, "job_name", job_name)
+        pulumi.set(__self__, "output_data_config", output_data_config)
         pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "training_data_config", training_data_config)
         if custom_model_kms_key_id is not None:
             pulumi.set(__self__, "custom_model_kms_key_id", custom_model_kms_key_id)
         if customization_type is not None:
             pulumi.set(__self__, "customization_type", customization_type)
-        if output_data_config is not None:
-            pulumi.set(__self__, "output_data_config", output_data_config)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
-        if training_data_config is not None:
-            pulumi.set(__self__, "training_data_config", training_data_config)
         if validation_data_config is not None:
             pulumi.set(__self__, "validation_data_config", validation_data_config)
         if vpc_config is not None:
@@ -124,6 +122,18 @@ class CustomModelArgs:
         pulumi.set(self, "job_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="outputDataConfig")
+    def output_data_config(self) -> pulumi.Input['CustomModelOutputDataConfigArgs']:
+        """
+        S3 location for the output data.
+        """
+        return pulumi.get(self, "output_data_config")
+
+    @output_data_config.setter
+    def output_data_config(self, value: pulumi.Input['CustomModelOutputDataConfigArgs']):
+        pulumi.set(self, "output_data_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
@@ -134,6 +144,18 @@ class CustomModelArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingDataConfig")
+    def training_data_config(self) -> pulumi.Input['CustomModelTrainingDataConfigArgs']:
+        """
+        Information about the training dataset.
+        """
+        return pulumi.get(self, "training_data_config")
+
+    @training_data_config.setter
+    def training_data_config(self, value: pulumi.Input['CustomModelTrainingDataConfigArgs']):
+        pulumi.set(self, "training_data_config", value)
 
     @_builtins.property
     @pulumi.getter(name="customModelKmsKeyId")
@@ -158,18 +180,6 @@ class CustomModelArgs:
     @customization_type.setter
     def customization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "customization_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="outputDataConfig")
-    def output_data_config(self) -> Optional[pulumi.Input['CustomModelOutputDataConfigArgs']]:
-        """
-        S3 location for the output data.
-        """
-        return pulumi.get(self, "output_data_config")
-
-    @output_data_config.setter
-    def output_data_config(self, value: Optional[pulumi.Input['CustomModelOutputDataConfigArgs']]):
-        pulumi.set(self, "output_data_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -203,18 +213,6 @@ class CustomModelArgs:
     @timeouts.setter
     def timeouts(self, value: Optional[pulumi.Input['CustomModelTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
-
-    @_builtins.property
-    @pulumi.getter(name="trainingDataConfig")
-    def training_data_config(self) -> Optional[pulumi.Input['CustomModelTrainingDataConfigArgs']]:
-        """
-        Information about the training dataset.
-        """
-        return pulumi.get(self, "training_data_config")
-
-    @training_data_config.setter
-    def training_data_config(self, value: Optional[pulumi.Input['CustomModelTrainingDataConfigArgs']]):
-        pulumi.set(self, "training_data_config", value)
 
     @_builtins.property
     @pulumi.getter(name="validationDataConfig")
@@ -738,6 +736,8 @@ class CustomModel(pulumi.CustomResource):
             if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")
             __props__.__dict__["job_name"] = job_name
+            if output_data_config is None and not opts.urn:
+                raise TypeError("Missing required property 'output_data_config'")
             __props__.__dict__["output_data_config"] = output_data_config
             __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
@@ -745,6 +745,8 @@ class CustomModel(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
+            if training_data_config is None and not opts.urn:
+                raise TypeError("Missing required property 'training_data_config'")
             __props__.__dict__["training_data_config"] = training_data_config
             __props__.__dict__["validation_data_config"] = validation_data_config
             __props__.__dict__["vpc_config"] = vpc_config
@@ -911,7 +913,7 @@ class CustomModel(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="outputDataConfig")
-    def output_data_config(self) -> pulumi.Output[Optional['outputs.CustomModelOutputDataConfig']]:
+    def output_data_config(self) -> pulumi.Output['outputs.CustomModelOutputDataConfig']:
         """
         S3 location for the output data.
         """
@@ -956,7 +958,7 @@ class CustomModel(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="trainingDataConfig")
-    def training_data_config(self) -> pulumi.Output[Optional['outputs.CustomModelTrainingDataConfig']]:
+    def training_data_config(self) -> pulumi.Output['outputs.CustomModelTrainingDataConfig']:
         """
         Information about the training dataset.
         """

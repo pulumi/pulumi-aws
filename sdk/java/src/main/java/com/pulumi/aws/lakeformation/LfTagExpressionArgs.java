@@ -6,6 +6,7 @@ package com.pulumi.aws.lakeformation;
 import com.pulumi.aws.lakeformation.inputs.LfTagExpressionExpressionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,8 +54,8 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
      * The following arguments are optional:
      * 
      */
-    @Import(name="expressions")
-    private @Nullable Output<List<LfTagExpressionExpressionArgs>> expressions;
+    @Import(name="expressions", required=true)
+    private Output<List<LfTagExpressionExpressionArgs>> expressions;
 
     /**
      * @return A list of LF-Tag conditions (key-value pairs). See expression for more details.
@@ -62,8 +63,8 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<List<LfTagExpressionExpressionArgs>>> expressions() {
-        return Optional.ofNullable(this.expressions);
+    public Output<List<LfTagExpressionExpressionArgs>> expressions() {
+        return this.expressions;
     }
 
     /**
@@ -174,7 +175,7 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder expressions(@Nullable Output<List<LfTagExpressionExpressionArgs>> expressions) {
+        public Builder expressions(Output<List<LfTagExpressionExpressionArgs>> expressions) {
             $.expressions = expressions;
             return this;
         }
@@ -246,6 +247,9 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public LfTagExpressionArgs build() {
+            if ($.expressions == null) {
+                throw new MissingRequiredPropertyException("LfTagExpressionArgs", "expressions");
+            }
             return $;
         }
     }

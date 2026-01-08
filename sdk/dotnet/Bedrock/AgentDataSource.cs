@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Bedrock
         /// Details about how the data source is stored. See `DataSourceConfiguration` block for details.
         /// </summary>
         [Output("dataSourceConfiguration")]
-        public Output<Outputs.AgentDataSourceDataSourceConfiguration?> DataSourceConfiguration { get; private set; } = null!;
+        public Output<Outputs.AgentDataSourceDataSourceConfiguration> DataSourceConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier of the data source.
@@ -166,8 +166,8 @@ namespace Pulumi.Aws.Bedrock
         /// <summary>
         /// Details about how the data source is stored. See `DataSourceConfiguration` block for details.
         /// </summary>
-        [Input("dataSourceConfiguration")]
-        public Input<Inputs.AgentDataSourceDataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }
+        [Input("dataSourceConfiguration", required: true)]
+        public Input<Inputs.AgentDataSourceDataSourceConfigurationArgs> DataSourceConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Description of the data source.

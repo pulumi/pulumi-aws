@@ -75,10 +75,10 @@ import * as utilities from "../utilities";
  * const exampleSelfSignedCert = new tls.SelfSignedCert("example", {
  *     keyAlgorithm: "RSA",
  *     privateKeyPem: example.privateKeyPem,
- *     subject: [{
+ *     subject: {
  *         commonName: "example.com",
  *         organization: "ACME Examples, Inc",
- *     }],
+ *     },
  *     validityPeriodHours: 12,
  *     allowedUses: [
  *         "key_encipherment",

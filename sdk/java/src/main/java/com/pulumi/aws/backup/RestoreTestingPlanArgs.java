@@ -38,15 +38,15 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
      * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      * 
      */
-    @Import(name="recoveryPointSelection")
-    private @Nullable Output<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection;
+    @Import(name="recoveryPointSelection", required=true)
+    private Output<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection;
 
     /**
      * @return Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      * 
      */
-    public Optional<Output<RestoreTestingPlanRecoveryPointSelectionArgs>> recoveryPointSelection() {
-        return Optional.ofNullable(this.recoveryPointSelection);
+    public Output<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection() {
+        return this.recoveryPointSelection;
     }
 
     /**
@@ -173,7 +173,7 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder recoveryPointSelection(@Nullable Output<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection) {
+        public Builder recoveryPointSelection(Output<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection) {
             $.recoveryPointSelection = recoveryPointSelection;
             return this;
         }
@@ -282,6 +282,9 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
         }
 
         public RestoreTestingPlanArgs build() {
+            if ($.recoveryPointSelection == null) {
+                throw new MissingRequiredPropertyException("RestoreTestingPlanArgs", "recoveryPointSelection");
+            }
             if ($.scheduleExpression == null) {
                 throw new MissingRequiredPropertyException("RestoreTestingPlanArgs", "scheduleExpression");
             }

@@ -53,15 +53,15 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
      * 
      */
-    @Import(name="defaultBranch", required=true)
-    private Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs> defaultBranch;
+    @Import(name="defaultBranch")
+    private @Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs> defaultBranch;
 
     /**
      * @return Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
      * 
      */
-    public Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs> defaultBranch() {
-        return this.defaultBranch;
+    public Optional<Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs>> defaultBranch() {
+        return Optional.ofNullable(this.defaultBranch);
     }
 
     private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs() {}
@@ -148,7 +148,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
          * @return builder
          * 
          */
-        public Builder defaultBranch(Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs> defaultBranch) {
+        public Builder defaultBranch(@Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs> defaultBranch) {
             $.defaultBranch = defaultBranch;
             return this;
         }
@@ -166,9 +166,6 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
         public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs build() {
             if ($.active == null) {
                 throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs", "active");
-            }
-            if ($.defaultBranch == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs", "defaultBranch");
             }
             return $;
         }

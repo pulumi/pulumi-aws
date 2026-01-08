@@ -22,29 +22,28 @@ __all__ = ['DirectoryBucketArgs', 'DirectoryBucket']
 class DirectoryBucketArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
+                 location: pulumi.Input['DirectoryBucketLocationArgs'],
                  data_redundancy: Optional[pulumi.Input[_builtins.str]] = None,
                  force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input['DirectoryBucketLocationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DirectoryBucket resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
+        :param pulumi.Input['DirectoryBucketLocationArgs'] location: Bucket location. See Location below for more details.
         :param pulumi.Input[_builtins.str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input['DirectoryBucketLocationArgs'] location: Bucket location. See Location below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Bucket type. Valid values: `Directory`.
         """
         pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "location", location)
         if data_redundancy is not None:
             pulumi.set(__self__, "data_redundancy", data_redundancy)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -63,6 +62,18 @@ class DirectoryBucketArgs:
     @bucket.setter
     def bucket(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input['DirectoryBucketLocationArgs']:
+        """
+        Bucket location. See Location below for more details.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input['DirectoryBucketLocationArgs']):
+        pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="dataRedundancy")
@@ -87,18 +98,6 @@ class DirectoryBucketArgs:
     @force_destroy.setter
     def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input['DirectoryBucketLocationArgs']]:
-        """
-        Bucket location. See Location below for more details.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input['DirectoryBucketLocationArgs']]):
-        pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
@@ -435,6 +434,8 @@ class DirectoryBucket(pulumi.CustomResource):
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["data_redundancy"] = data_redundancy
             __props__.__dict__["force_destroy"] = force_destroy
+            if location is None and not opts.urn:
+                raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
@@ -526,7 +527,7 @@ class DirectoryBucket(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional['outputs.DirectoryBucketLocation']]:
+    def location(self) -> pulumi.Output['outputs.DirectoryBucketLocation']:
         """
         Bucket location. See Location below for more details.
         """

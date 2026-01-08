@@ -148,7 +148,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * Configuration for the Event API. See Event Config below.
      */
-    declare public readonly eventConfig: pulumi.Output<outputs.appsync.ApiEventConfig | undefined>;
+    declare public readonly eventConfig: pulumi.Output<outputs.appsync.ApiEventConfig>;
     /**
      * Name of the Event API.
      *
@@ -184,7 +184,7 @@ export class Api extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApiArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ApiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiArgs | ApiState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -203,6 +203,9 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["xrayEnabled"] = state?.xrayEnabled;
         } else {
             const args = argsOrState as ApiArgs | undefined;
+            if (args?.eventConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'eventConfig'");
+            }
             resourceInputs["eventConfig"] = args?.eventConfig;
             resourceInputs["name"] = args?.name;
             resourceInputs["ownerContact"] = args?.ownerContact;
@@ -276,7 +279,7 @@ export interface ApiArgs {
     /**
      * Configuration for the Event API. See Event Config below.
      */
-    eventConfig?: pulumi.Input<inputs.appsync.ApiEventConfig>;
+    eventConfig: pulumi.Input<inputs.appsync.ApiEventConfig>;
     /**
      * Name of the Event API.
      *

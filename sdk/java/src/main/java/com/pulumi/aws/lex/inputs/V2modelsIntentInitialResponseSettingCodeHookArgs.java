@@ -67,15 +67,15 @@ public final class V2modelsIntentInitialResponseSettingCodeHookArgs extends com.
      * Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
      * 
      */
-    @Import(name="postCodeHookSpecification", required=true)
-    private Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs> postCodeHookSpecification;
+    @Import(name="postCodeHookSpecification")
+    private @Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs> postCodeHookSpecification;
 
     /**
      * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
      * 
      */
-    public Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs> postCodeHookSpecification() {
-        return this.postCodeHookSpecification;
+    public Optional<Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs>> postCodeHookSpecification() {
+        return Optional.ofNullable(this.postCodeHookSpecification);
     }
 
     private V2modelsIntentInitialResponseSettingCodeHookArgs() {}
@@ -174,7 +174,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookArgs extends com.
          * @return builder
          * 
          */
-        public Builder postCodeHookSpecification(Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs> postCodeHookSpecification) {
+        public Builder postCodeHookSpecification(@Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs> postCodeHookSpecification) {
             $.postCodeHookSpecification = postCodeHookSpecification;
             return this;
         }
@@ -195,9 +195,6 @@ public final class V2modelsIntentInitialResponseSettingCodeHookArgs extends com.
             }
             if ($.enableCodeHookInvocation == null) {
                 throw new MissingRequiredPropertyException("V2modelsIntentInitialResponseSettingCodeHookArgs", "enableCodeHookInvocation");
-            }
-            if ($.postCodeHookSpecification == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentInitialResponseSettingCodeHookArgs", "postCodeHookSpecification");
             }
             return $;
         }

@@ -36,15 +36,15 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
      * A configuration block that defines the table optimizer settings. See Configuration for additional details.
      * 
      */
-    @Import(name="configuration")
-    private @Nullable Output<CatalogTableOptimizerConfigurationArgs> configuration;
+    @Import(name="configuration", required=true)
+    private Output<CatalogTableOptimizerConfigurationArgs> configuration;
 
     /**
      * @return A configuration block that defines the table optimizer settings. See Configuration for additional details.
      * 
      */
-    public Optional<Output<CatalogTableOptimizerConfigurationArgs>> configuration() {
-        return Optional.ofNullable(this.configuration);
+    public Output<CatalogTableOptimizerConfigurationArgs> configuration() {
+        return this.configuration;
     }
 
     /**
@@ -163,7 +163,7 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder configuration(@Nullable Output<CatalogTableOptimizerConfigurationArgs> configuration) {
+        public Builder configuration(Output<CatalogTableOptimizerConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
@@ -265,6 +265,9 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
         public CatalogTableOptimizerArgs build() {
             if ($.catalogId == null) {
                 throw new MissingRequiredPropertyException("CatalogTableOptimizerArgs", "catalogId");
+            }
+            if ($.configuration == null) {
+                throw new MissingRequiredPropertyException("CatalogTableOptimizerArgs", "configuration");
             }
             if ($.databaseName == null) {
                 throw new MissingRequiredPropertyException("CatalogTableOptimizerArgs", "databaseName");

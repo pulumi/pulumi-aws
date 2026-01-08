@@ -289,6 +289,9 @@ func NewLogDeliveryConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.LogConfigurations == nil {
+		return nil, errors.New("invalid value for required argument 'LogConfigurations'")
+	}
 	if args.UserPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}

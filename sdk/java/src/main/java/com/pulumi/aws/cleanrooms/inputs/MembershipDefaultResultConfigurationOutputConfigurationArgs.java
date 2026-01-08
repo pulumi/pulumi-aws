@@ -6,20 +6,19 @@ package com.pulumi.aws.cleanrooms.inputs;
 import com.pulumi.aws.cleanrooms.inputs.MembershipDefaultResultConfigurationOutputConfigurationS3Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class MembershipDefaultResultConfigurationOutputConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MembershipDefaultResultConfigurationOutputConfigurationArgs Empty = new MembershipDefaultResultConfigurationOutputConfigurationArgs();
 
-    @Import(name="s3")
-    private @Nullable Output<MembershipDefaultResultConfigurationOutputConfigurationS3Args> s3;
+    @Import(name="s3", required=true)
+    private Output<MembershipDefaultResultConfigurationOutputConfigurationS3Args> s3;
 
-    public Optional<Output<MembershipDefaultResultConfigurationOutputConfigurationS3Args>> s3() {
-        return Optional.ofNullable(this.s3);
+    public Output<MembershipDefaultResultConfigurationOutputConfigurationS3Args> s3() {
+        return this.s3;
     }
 
     private MembershipDefaultResultConfigurationOutputConfigurationArgs() {}
@@ -46,7 +45,7 @@ public final class MembershipDefaultResultConfigurationOutputConfigurationArgs e
             $ = new MembershipDefaultResultConfigurationOutputConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder s3(@Nullable Output<MembershipDefaultResultConfigurationOutputConfigurationS3Args> s3) {
+        public Builder s3(Output<MembershipDefaultResultConfigurationOutputConfigurationS3Args> s3) {
             $.s3 = s3;
             return this;
         }
@@ -56,6 +55,9 @@ public final class MembershipDefaultResultConfigurationOutputConfigurationArgs e
         }
 
         public MembershipDefaultResultConfigurationOutputConfigurationArgs build() {
+            if ($.s3 == null) {
+                throw new MissingRequiredPropertyException("MembershipDefaultResultConfigurationOutputConfigurationArgs", "s3");
+            }
             return $;
         }
     }

@@ -124,11 +124,11 @@ public final class ExpressGatewayServiceArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.networkConfigurations);
     }
 
-    @Import(name="primaryContainer")
-    private @Nullable Output<ExpressGatewayServicePrimaryContainerArgs> primaryContainer;
+    @Import(name="primaryContainer", required=true)
+    private Output<ExpressGatewayServicePrimaryContainerArgs> primaryContainer;
 
-    public Optional<Output<ExpressGatewayServicePrimaryContainerArgs>> primaryContainer() {
-        return Optional.ofNullable(this.primaryContainer);
+    public Output<ExpressGatewayServicePrimaryContainerArgs> primaryContainer() {
+        return this.primaryContainer;
     }
 
     /**
@@ -401,7 +401,7 @@ public final class ExpressGatewayServiceArgs extends com.pulumi.resources.Resour
             return networkConfigurations(List.of(networkConfigurations));
         }
 
-        public Builder primaryContainer(@Nullable Output<ExpressGatewayServicePrimaryContainerArgs> primaryContainer) {
+        public Builder primaryContainer(Output<ExpressGatewayServicePrimaryContainerArgs> primaryContainer) {
             $.primaryContainer = primaryContainer;
             return this;
         }
@@ -543,6 +543,9 @@ public final class ExpressGatewayServiceArgs extends com.pulumi.resources.Resour
             }
             if ($.infrastructureRoleArn == null) {
                 throw new MissingRequiredPropertyException("ExpressGatewayServiceArgs", "infrastructureRoleArn");
+            }
+            if ($.primaryContainer == null) {
+                throw new MissingRequiredPropertyException("ExpressGatewayServiceArgs", "primaryContainer");
             }
             return $;
         }

@@ -5918,7 +5918,7 @@ func (o OpenZfsVolumeUserAndGroupQuotaArrayOutput) Index(i pulumi.IntInput) Open
 
 type S3AccessPointAttachmentOpenzfsConfiguration struct {
 	// File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `fileSystemIdentity` Block for details.
-	FileSystemIdentity *S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity `pulumi:"fileSystemIdentity"`
+	FileSystemIdentity S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity `pulumi:"fileSystemIdentity"`
 	// ID of the FSx for OpenZFS volume to which the S3 access point is attached.
 	VolumeId string `pulumi:"volumeId"`
 }
@@ -5936,7 +5936,7 @@ type S3AccessPointAttachmentOpenzfsConfigurationInput interface {
 
 type S3AccessPointAttachmentOpenzfsConfigurationArgs struct {
 	// File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `fileSystemIdentity` Block for details.
-	FileSystemIdentity S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPtrInput `pulumi:"fileSystemIdentity"`
+	FileSystemIdentity S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityInput `pulumi:"fileSystemIdentity"`
 	// ID of the FSx for OpenZFS volume to which the S3 access point is attached.
 	VolumeId pulumi.StringInput `pulumi:"volumeId"`
 }
@@ -6019,10 +6019,10 @@ func (o S3AccessPointAttachmentOpenzfsConfigurationOutput) ToS3AccessPointAttach
 }
 
 // File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `fileSystemIdentity` Block for details.
-func (o S3AccessPointAttachmentOpenzfsConfigurationOutput) FileSystemIdentity() S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPtrOutput {
-	return o.ApplyT(func(v S3AccessPointAttachmentOpenzfsConfiguration) *S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity {
+func (o S3AccessPointAttachmentOpenzfsConfigurationOutput) FileSystemIdentity() S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentOpenzfsConfiguration) S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity {
 		return v.FileSystemIdentity
-	}).(S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPtrOutput)
+	}).(S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityOutput)
 }
 
 // ID of the FSx for OpenZFS volume to which the S3 access point is attached.
@@ -6060,7 +6060,7 @@ func (o S3AccessPointAttachmentOpenzfsConfigurationPtrOutput) FileSystemIdentity
 		if v == nil {
 			return nil
 		}
-		return v.FileSystemIdentity
+		return &v.FileSystemIdentity
 	}).(S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPtrOutput)
 }
 

@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Lex.Inputs
         /// Prompt that Amazon Lex uses to elicit the slot value from the user.
         /// See the `aws.lex.V2modelsIntent` resource for details on the `PromptSpecification` argument reference - they are identical.
         /// </summary>
-        [Input("promptSpecification", required: true)]
-        public Input<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationGetArgs> PromptSpecification { get; set; } = null!;
+        [Input("promptSpecification")]
+        public Input<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationGetArgs>? PromptSpecification { get; set; }
 
         [Input("sampleUtterances")]
         private InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceGetArgs>? _sampleUtterances;

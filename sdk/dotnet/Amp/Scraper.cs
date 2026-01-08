@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Amp
         /// Configuration block for the managed scraper to send metrics to. See `Destination`.
         /// </summary>
         [Output("destination")]
-        public Output<Outputs.ScraperDestination?> Destination { get; private set; } = null!;
+        public Output<Outputs.ScraperDestination> Destination { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -136,8 +136,8 @@ namespace Pulumi.Aws.Amp
         /// <summary>
         /// Configuration block for the managed scraper to send metrics to. See `Destination`.
         /// </summary>
-        [Input("destination")]
-        public Input<Inputs.ScraperDestinationArgs>? Destination { get; set; }
+        [Input("destination", required: true)]
+        public Input<Inputs.ScraperDestinationArgs> Destination { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

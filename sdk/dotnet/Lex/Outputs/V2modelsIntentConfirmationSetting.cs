@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `PromptSpecification`.
         /// </summary>
-        public readonly Outputs.V2modelsIntentConfirmationSettingPromptSpecification PromptSpecification;
+        public readonly Outputs.V2modelsIntentConfirmationSettingPromptSpecification? PromptSpecification;
 
         [OutputConstructor]
         private V2modelsIntentConfirmationSetting(
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Lex.Outputs
 
             Outputs.V2modelsIntentConfirmationSettingFailureResponse? failureResponse,
 
-            Outputs.V2modelsIntentConfirmationSettingPromptSpecification promptSpecification)
+            Outputs.V2modelsIntentConfirmationSettingPromptSpecification? promptSpecification)
         {
             Active = active;
             CodeHook = codeHook;

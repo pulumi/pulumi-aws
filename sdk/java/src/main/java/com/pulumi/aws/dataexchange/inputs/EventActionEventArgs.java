@@ -6,9 +6,8 @@ package com.pulumi.aws.dataexchange.inputs;
 import com.pulumi.aws.dataexchange.inputs.EventActionEventRevisionPublishedArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class EventActionEventArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,16 +19,16 @@ public final class EventActionEventArgs extends com.pulumi.resources.ResourceArg
      * Described in `revisionPublished` Configuration Block below.
      * 
      */
-    @Import(name="revisionPublished")
-    private @Nullable Output<EventActionEventRevisionPublishedArgs> revisionPublished;
+    @Import(name="revisionPublished", required=true)
+    private Output<EventActionEventRevisionPublishedArgs> revisionPublished;
 
     /**
      * @return Configuration for a Revision Published event.
      * Described in `revisionPublished` Configuration Block below.
      * 
      */
-    public Optional<Output<EventActionEventRevisionPublishedArgs>> revisionPublished() {
-        return Optional.ofNullable(this.revisionPublished);
+    public Output<EventActionEventRevisionPublishedArgs> revisionPublished() {
+        return this.revisionPublished;
     }
 
     private EventActionEventArgs() {}
@@ -63,7 +62,7 @@ public final class EventActionEventArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder revisionPublished(@Nullable Output<EventActionEventRevisionPublishedArgs> revisionPublished) {
+        public Builder revisionPublished(Output<EventActionEventRevisionPublishedArgs> revisionPublished) {
             $.revisionPublished = revisionPublished;
             return this;
         }
@@ -80,6 +79,9 @@ public final class EventActionEventArgs extends com.pulumi.resources.ResourceArg
         }
 
         public EventActionEventArgs build() {
+            if ($.revisionPublished == null) {
+                throw new MissingRequiredPropertyException("EventActionEventArgs", "revisionPublished");
+            }
             return $;
         }
     }

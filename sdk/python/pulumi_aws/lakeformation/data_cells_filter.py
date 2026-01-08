@@ -21,20 +21,31 @@ __all__ = ['DataCellsFilterArgs', 'DataCellsFilter']
 @pulumi.input_type
 class DataCellsFilterArgs:
     def __init__(__self__, *,
+                 table_data: pulumi.Input['DataCellsFilterTableDataArgs'],
                  region: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_data: Optional[pulumi.Input['DataCellsFilterTableDataArgs']] = None,
                  timeouts: Optional[pulumi.Input['DataCellsFilterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DataCellsFilter resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DataCellsFilterTableDataArgs'] table_data: Information about the data cells filter. See Table Data below for details.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        pulumi.set(__self__, "table_data", table_data)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if table_data is not None:
-            pulumi.set(__self__, "table_data", table_data)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="tableData")
+    def table_data(self) -> pulumi.Input['DataCellsFilterTableDataArgs']:
+        """
+        Information about the data cells filter. See Table Data below for details.
+        """
+        return pulumi.get(self, "table_data")
+
+    @table_data.setter
+    def table_data(self, value: pulumi.Input['DataCellsFilterTableDataArgs']):
+        pulumi.set(self, "table_data", value)
 
     @_builtins.property
     @pulumi.getter
@@ -47,18 +58,6 @@ class DataCellsFilterArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tableData")
-    def table_data(self) -> Optional[pulumi.Input['DataCellsFilterTableDataArgs']]:
-        """
-        Information about the data cells filter. See Table Data below for details.
-        """
-        return pulumi.get(self, "table_data")
-
-    @table_data.setter
-    def table_data(self, value: Optional[pulumi.Input['DataCellsFilterTableDataArgs']]):
-        pulumi.set(self, "table_data", value)
 
     @_builtins.property
     @pulumi.getter
@@ -172,7 +171,7 @@ class DataCellsFilter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DataCellsFilterArgs] = None,
+                 args: DataCellsFilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Lake Formation Data Cells Filter.
@@ -233,6 +232,8 @@ class DataCellsFilter(pulumi.CustomResource):
             __props__ = DataCellsFilterArgs.__new__(DataCellsFilterArgs)
 
             __props__.__dict__["region"] = region
+            if table_data is None and not opts.urn:
+                raise TypeError("Missing required property 'table_data'")
             __props__.__dict__["table_data"] = table_data
             __props__.__dict__["timeouts"] = timeouts
         super(DataCellsFilter, __self__).__init__(
@@ -277,7 +278,7 @@ class DataCellsFilter(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="tableData")
-    def table_data(self) -> pulumi.Output[Optional['outputs.DataCellsFilterTableData']]:
+    def table_data(self) -> pulumi.Output['outputs.DataCellsFilterTableData']:
         """
         Information about the data cells filter. See Table Data below for details.
         """

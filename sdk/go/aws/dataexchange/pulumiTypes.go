@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type EventActionAction struct {
 	// Configuration for an Export Revision to S3 action.
 	// Described in `exportRevisionToS3` Configuration Block
-	ExportRevisionToS3 *EventActionActionExportRevisionToS3 `pulumi:"exportRevisionToS3"`
+	ExportRevisionToS3 EventActionActionExportRevisionToS3 `pulumi:"exportRevisionToS3"`
 }
 
 // EventActionActionInput is an input type that accepts EventActionActionArgs and EventActionActionOutput values.
@@ -33,7 +33,7 @@ type EventActionActionInput interface {
 type EventActionActionArgs struct {
 	// Configuration for an Export Revision to S3 action.
 	// Described in `exportRevisionToS3` Configuration Block
-	ExportRevisionToS3 EventActionActionExportRevisionToS3PtrInput `pulumi:"exportRevisionToS3"`
+	ExportRevisionToS3 EventActionActionExportRevisionToS3Input `pulumi:"exportRevisionToS3"`
 }
 
 func (EventActionActionArgs) ElementType() reflect.Type {
@@ -115,8 +115,8 @@ func (o EventActionActionOutput) ToEventActionActionPtrOutputWithContext(ctx con
 
 // Configuration for an Export Revision to S3 action.
 // Described in `exportRevisionToS3` Configuration Block
-func (o EventActionActionOutput) ExportRevisionToS3() EventActionActionExportRevisionToS3PtrOutput {
-	return o.ApplyT(func(v EventActionAction) *EventActionActionExportRevisionToS3 { return v.ExportRevisionToS3 }).(EventActionActionExportRevisionToS3PtrOutput)
+func (o EventActionActionOutput) ExportRevisionToS3() EventActionActionExportRevisionToS3Output {
+	return o.ApplyT(func(v EventActionAction) EventActionActionExportRevisionToS3 { return v.ExportRevisionToS3 }).(EventActionActionExportRevisionToS3Output)
 }
 
 type EventActionActionPtrOutput struct{ *pulumi.OutputState }
@@ -150,7 +150,7 @@ func (o EventActionActionPtrOutput) ExportRevisionToS3() EventActionActionExport
 		if v == nil {
 			return nil
 		}
-		return v.ExportRevisionToS3
+		return &v.ExportRevisionToS3
 	}).(EventActionActionExportRevisionToS3PtrOutput)
 }
 
@@ -160,7 +160,7 @@ type EventActionActionExportRevisionToS3 struct {
 	Encryption *EventActionActionExportRevisionToS3Encryption `pulumi:"encryption"`
 	// Configures the S3 destination of the exported revision.
 	// Described in `revisionDestination` Configuration Block below.
-	RevisionDestination *EventActionActionExportRevisionToS3RevisionDestination `pulumi:"revisionDestination"`
+	RevisionDestination EventActionActionExportRevisionToS3RevisionDestination `pulumi:"revisionDestination"`
 }
 
 // EventActionActionExportRevisionToS3Input is an input type that accepts EventActionActionExportRevisionToS3Args and EventActionActionExportRevisionToS3Output values.
@@ -180,7 +180,7 @@ type EventActionActionExportRevisionToS3Args struct {
 	Encryption EventActionActionExportRevisionToS3EncryptionPtrInput `pulumi:"encryption"`
 	// Configures the S3 destination of the exported revision.
 	// Described in `revisionDestination` Configuration Block below.
-	RevisionDestination EventActionActionExportRevisionToS3RevisionDestinationPtrInput `pulumi:"revisionDestination"`
+	RevisionDestination EventActionActionExportRevisionToS3RevisionDestinationInput `pulumi:"revisionDestination"`
 }
 
 func (EventActionActionExportRevisionToS3Args) ElementType() reflect.Type {
@@ -270,10 +270,10 @@ func (o EventActionActionExportRevisionToS3Output) Encryption() EventActionActio
 
 // Configures the S3 destination of the exported revision.
 // Described in `revisionDestination` Configuration Block below.
-func (o EventActionActionExportRevisionToS3Output) RevisionDestination() EventActionActionExportRevisionToS3RevisionDestinationPtrOutput {
-	return o.ApplyT(func(v EventActionActionExportRevisionToS3) *EventActionActionExportRevisionToS3RevisionDestination {
+func (o EventActionActionExportRevisionToS3Output) RevisionDestination() EventActionActionExportRevisionToS3RevisionDestinationOutput {
+	return o.ApplyT(func(v EventActionActionExportRevisionToS3) EventActionActionExportRevisionToS3RevisionDestination {
 		return v.RevisionDestination
-	}).(EventActionActionExportRevisionToS3RevisionDestinationPtrOutput)
+	}).(EventActionActionExportRevisionToS3RevisionDestinationOutput)
 }
 
 type EventActionActionExportRevisionToS3PtrOutput struct{ *pulumi.OutputState }
@@ -318,7 +318,7 @@ func (o EventActionActionExportRevisionToS3PtrOutput) RevisionDestination() Even
 		if v == nil {
 			return nil
 		}
-		return v.RevisionDestination
+		return &v.RevisionDestination
 	}).(EventActionActionExportRevisionToS3RevisionDestinationPtrOutput)
 }
 
@@ -645,7 +645,7 @@ func (o EventActionActionExportRevisionToS3RevisionDestinationPtrOutput) KeyPatt
 type EventActionEvent struct {
 	// Configuration for a Revision Published event.
 	// Described in `revisionPublished` Configuration Block below.
-	RevisionPublished *EventActionEventRevisionPublished `pulumi:"revisionPublished"`
+	RevisionPublished EventActionEventRevisionPublished `pulumi:"revisionPublished"`
 }
 
 // EventActionEventInput is an input type that accepts EventActionEventArgs and EventActionEventOutput values.
@@ -662,7 +662,7 @@ type EventActionEventInput interface {
 type EventActionEventArgs struct {
 	// Configuration for a Revision Published event.
 	// Described in `revisionPublished` Configuration Block below.
-	RevisionPublished EventActionEventRevisionPublishedPtrInput `pulumi:"revisionPublished"`
+	RevisionPublished EventActionEventRevisionPublishedInput `pulumi:"revisionPublished"`
 }
 
 func (EventActionEventArgs) ElementType() reflect.Type {
@@ -744,8 +744,8 @@ func (o EventActionEventOutput) ToEventActionEventPtrOutputWithContext(ctx conte
 
 // Configuration for a Revision Published event.
 // Described in `revisionPublished` Configuration Block below.
-func (o EventActionEventOutput) RevisionPublished() EventActionEventRevisionPublishedPtrOutput {
-	return o.ApplyT(func(v EventActionEvent) *EventActionEventRevisionPublished { return v.RevisionPublished }).(EventActionEventRevisionPublishedPtrOutput)
+func (o EventActionEventOutput) RevisionPublished() EventActionEventRevisionPublishedOutput {
+	return o.ApplyT(func(v EventActionEvent) EventActionEventRevisionPublished { return v.RevisionPublished }).(EventActionEventRevisionPublishedOutput)
 }
 
 type EventActionEventPtrOutput struct{ *pulumi.OutputState }
@@ -779,7 +779,7 @@ func (o EventActionEventPtrOutput) RevisionPublished() EventActionEventRevisionP
 		if v == nil {
 			return nil
 		}
-		return v.RevisionPublished
+		return &v.RevisionPublished
 	}).(EventActionEventRevisionPublishedPtrOutput)
 }
 

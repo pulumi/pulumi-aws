@@ -22,9 +22,9 @@ __all__ = ['FormTypeArgs', 'FormType']
 class FormTypeArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[_builtins.str],
+                 model: pulumi.Input['FormTypeModelArgs'],
                  owning_project_identifier: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input['FormTypeModelArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
@@ -32,18 +32,17 @@ class FormTypeArgs:
         """
         The set of arguments for constructing a FormType resource.
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain.
+        :param pulumi.Input['FormTypeModelArgs'] model: Object of the model of the form type that contains the following attributes.
         :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         :param pulumi.Input[_builtins.str] description: Description of form type. Must have a length of between 1 and 2048 characters.
-        :param pulumi.Input['FormTypeModelArgs'] model: Object of the model of the form type that contains the following attributes.
         :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
+        pulumi.set(__self__, "model", model)
         pulumi.set(__self__, "owning_project_identifier", owning_project_identifier)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if model is not None:
-            pulumi.set(__self__, "model", model)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -64,6 +63,18 @@ class FormTypeArgs:
     @domain_identifier.setter
     def domain_identifier(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "domain_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def model(self) -> pulumi.Input['FormTypeModelArgs']:
+        """
+        Object of the model of the form type that contains the following attributes.
+        """
+        return pulumi.get(self, "model")
+
+    @model.setter
+    def model(self, value: pulumi.Input['FormTypeModelArgs']):
+        pulumi.set(self, "model", value)
 
     @_builtins.property
     @pulumi.getter(name="owningProjectIdentifier")
@@ -88,18 +99,6 @@ class FormTypeArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def model(self) -> Optional[pulumi.Input['FormTypeModelArgs']]:
-        """
-        Object of the model of the form type that contains the following attributes.
-        """
-        return pulumi.get(self, "model")
-
-    @model.setter
-    def model(self, value: Optional[pulumi.Input['FormTypeModelArgs']]):
-        pulumi.set(self, "model", value)
 
     @_builtins.property
     @pulumi.getter
@@ -620,6 +619,8 @@ class FormType(pulumi.CustomResource):
             if domain_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_identifier'")
             __props__.__dict__["domain_identifier"] = domain_identifier
+            if model is None and not opts.urn:
+                raise TypeError("Missing required property 'model'")
             __props__.__dict__["model"] = model
             __props__.__dict__["name"] = name
             if owning_project_identifier is None and not opts.urn:
@@ -736,7 +737,7 @@ class FormType(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def model(self) -> pulumi.Output[Optional['outputs.FormTypeModel']]:
+    def model(self) -> pulumi.Output['outputs.FormTypeModel']:
         """
         Object of the model of the form type that contains the following attributes.
         """

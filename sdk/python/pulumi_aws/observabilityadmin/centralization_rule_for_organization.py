@@ -21,29 +21,42 @@ __all__ = ['CentralizationRuleForOrganizationArgs', 'CentralizationRuleForOrgani
 @pulumi.input_type
 class CentralizationRuleForOrganizationArgs:
     def __init__(__self__, *,
+                 rule: pulumi.Input['CentralizationRuleForOrganizationRuleArgs'],
                  rule_name: pulumi.Input[_builtins.str],
                  region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['CentralizationRuleForOrganizationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CentralizationRuleForOrganization resource.
-        :param pulumi.Input[_builtins.str] rule_name: Name of the centralization rule. Must be unique within the organization.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CentralizationRuleForOrganizationRuleArgs'] rule: Configuration block for the centralization rule. See `rule` below.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] rule_name: Name of the centralization rule. Must be unique within the organization.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "rule", rule)
         pulumi.set(__self__, "rule_name", rule_name)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if rule is not None:
-            pulumi.set(__self__, "rule", rule)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter
+    def rule(self) -> pulumi.Input['CentralizationRuleForOrganizationRuleArgs']:
+        """
+        Configuration block for the centralization rule. See `rule` below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "rule")
+
+    @rule.setter
+    def rule(self, value: pulumi.Input['CentralizationRuleForOrganizationRuleArgs']):
+        pulumi.set(self, "rule", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
@@ -68,20 +81,6 @@ class CentralizationRuleForOrganizationArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def rule(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleArgs']]:
-        """
-        Configuration block for the centralization rule. See `rule` below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "rule")
-
-    @rule.setter
-    def rule(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleArgs']]):
-        pulumi.set(self, "rule", value)
 
     @_builtins.property
     @pulumi.getter
@@ -526,6 +525,8 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
             __props__ = CentralizationRuleForOrganizationArgs.__new__(CentralizationRuleForOrganizationArgs)
 
             __props__.__dict__["region"] = region
+            if rule is None and not opts.urn:
+                raise TypeError("Missing required property 'rule'")
             __props__.__dict__["rule"] = rule
             if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
@@ -590,7 +591,7 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def rule(self) -> pulumi.Output[Optional['outputs.CentralizationRuleForOrganizationRule']]:
+    def rule(self) -> pulumi.Output['outputs.CentralizationRuleForOrganizationRule']:
         """
         Configuration block for the centralization rule. See `rule` below.
 

@@ -12,8 +12,8 @@ namespace Pulumi.Aws.CleanRooms.Inputs
 
     public sealed class MembershipPaymentConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("queryCompute")]
-        public Input<Inputs.MembershipPaymentConfigurationQueryComputeArgs>? QueryCompute { get; set; }
+        [Input("queryCompute", required: true)]
+        public Input<Inputs.MembershipPaymentConfigurationQueryComputeArgs> QueryCompute { get; set; } = null!;
 
         public MembershipPaymentConfigurationArgs()
         {

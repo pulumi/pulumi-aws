@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// <summary>
         /// AWS IAM Identity Center configuration. See `AwsIdc` below.
         /// </summary>
-        public readonly Outputs.CapabilityConfigurationArgoCdAwsIdc? AwsIdc;
+        public readonly Outputs.CapabilityConfigurationArgoCdAwsIdc AwsIdc;
         /// <summary>
         /// Kubernetes namespace for ArgoCD.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Eks.Outputs
 
         [OutputConstructor]
         private CapabilityConfigurationArgoCd(
-            Outputs.CapabilityConfigurationArgoCdAwsIdc? awsIdc,
+            Outputs.CapabilityConfigurationArgoCdAwsIdc awsIdc,
 
             string? @namespace,
 

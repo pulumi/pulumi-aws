@@ -19,11 +19,11 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
 
     public static final AgentAgentCollaboratorArgs Empty = new AgentAgentCollaboratorArgs();
 
-    @Import(name="agentDescriptor")
-    private @Nullable Output<AgentAgentCollaboratorAgentDescriptorArgs> agentDescriptor;
+    @Import(name="agentDescriptor", required=true)
+    private Output<AgentAgentCollaboratorAgentDescriptorArgs> agentDescriptor;
 
-    public Optional<Output<AgentAgentCollaboratorAgentDescriptorArgs>> agentDescriptor() {
-        return Optional.ofNullable(this.agentDescriptor);
+    public Output<AgentAgentCollaboratorAgentDescriptorArgs> agentDescriptor() {
+        return this.agentDescriptor;
     }
 
     /**
@@ -166,7 +166,7 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
             $ = new AgentAgentCollaboratorArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder agentDescriptor(@Nullable Output<AgentAgentCollaboratorAgentDescriptorArgs> agentDescriptor) {
+        public Builder agentDescriptor(Output<AgentAgentCollaboratorAgentDescriptorArgs> agentDescriptor) {
             $.agentDescriptor = agentDescriptor;
             return this;
         }
@@ -324,6 +324,9 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
         }
 
         public AgentAgentCollaboratorArgs build() {
+            if ($.agentDescriptor == null) {
+                throw new MissingRequiredPropertyException("AgentAgentCollaboratorArgs", "agentDescriptor");
+            }
             if ($.agentId == null) {
                 throw new MissingRequiredPropertyException("AgentAgentCollaboratorArgs", "agentId");
             }

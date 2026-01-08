@@ -66,14 +66,14 @@ public class CustomPermissions extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="capabilities", refs={CustomPermissionsCapabilities.class}, tree="[0]")
-    private Output</* @Nullable */ CustomPermissionsCapabilities> capabilities;
+    private Output<CustomPermissionsCapabilities> capabilities;
 
     /**
      * @return Actions to include in the custom permissions profile. See capabilities.
      * 
      */
-    public Output<Optional<CustomPermissionsCapabilities>> capabilities() {
-        return Codegen.optional(this.capabilities);
+    public Output<CustomPermissionsCapabilities> capabilities() {
+        return this.capabilities;
     }
     /**
      * Custom permissions profile name.

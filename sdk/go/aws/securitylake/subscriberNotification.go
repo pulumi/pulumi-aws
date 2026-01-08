@@ -80,7 +80,7 @@ type SubscriberNotification struct {
 	pulumi.CustomResourceState
 
 	// Specify the configuration using which you want to create the subscriber notification..
-	Configuration SubscriberNotificationConfigurationPtrOutput `pulumi:"configuration"`
+	Configuration SubscriberNotificationConfigurationOutput `pulumi:"configuration"`
 	// (**Deprecated**) The subscriber endpoint to which exception messages are posted.
 	//
 	// Deprecated: Use subscriberEndpoint instead
@@ -100,6 +100,9 @@ func NewSubscriberNotification(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Configuration == nil {
+		return nil, errors.New("invalid value for required argument 'Configuration'")
+	}
 	if args.SubscriberId == nil {
 		return nil, errors.New("invalid value for required argument 'SubscriberId'")
 	}
@@ -161,7 +164,7 @@ func (SubscriberNotificationState) ElementType() reflect.Type {
 
 type subscriberNotificationArgs struct {
 	// Specify the configuration using which you want to create the subscriber notification..
-	Configuration *SubscriberNotificationConfiguration `pulumi:"configuration"`
+	Configuration SubscriberNotificationConfiguration `pulumi:"configuration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The subscriber ID for the notification subscription.
@@ -171,7 +174,7 @@ type subscriberNotificationArgs struct {
 // The set of arguments for constructing a SubscriberNotification resource.
 type SubscriberNotificationArgs struct {
 	// Specify the configuration using which you want to create the subscriber notification..
-	Configuration SubscriberNotificationConfigurationPtrInput
+	Configuration SubscriberNotificationConfigurationInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The subscriber ID for the notification subscription.
@@ -266,8 +269,8 @@ func (o SubscriberNotificationOutput) ToSubscriberNotificationOutputWithContext(
 }
 
 // Specify the configuration using which you want to create the subscriber notification..
-func (o SubscriberNotificationOutput) Configuration() SubscriberNotificationConfigurationPtrOutput {
-	return o.ApplyT(func(v *SubscriberNotification) SubscriberNotificationConfigurationPtrOutput { return v.Configuration }).(SubscriberNotificationConfigurationPtrOutput)
+func (o SubscriberNotificationOutput) Configuration() SubscriberNotificationConfigurationOutput {
+	return o.ApplyT(func(v *SubscriberNotification) SubscriberNotificationConfigurationOutput { return v.Configuration }).(SubscriberNotificationConfigurationOutput)
 }
 
 // (**Deprecated**) The subscriber endpoint to which exception messages are posted.

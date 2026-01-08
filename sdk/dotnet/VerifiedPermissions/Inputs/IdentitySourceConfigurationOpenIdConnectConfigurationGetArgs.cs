@@ -33,8 +33,8 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
         /// <summary>
         /// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
         /// </summary>
-        [Input("tokenSelection")]
-        public Input<Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionGetArgs>? TokenSelection { get; set; }
+        [Input("tokenSelection", required: true)]
+        public Input<Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionGetArgs> TokenSelection { get; set; } = null!;
 
         public IdentitySourceConfigurationOpenIdConnectConfigurationGetArgs()
         {

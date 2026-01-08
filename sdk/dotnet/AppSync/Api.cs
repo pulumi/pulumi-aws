@@ -211,7 +211,7 @@ namespace Pulumi.Aws.AppSync
         /// Configuration for the Event API. See Event Config below.
         /// </summary>
         [Output("eventConfig")]
-        public Output<Outputs.ApiEventConfig?> EventConfig { get; private set; } = null!;
+        public Output<Outputs.ApiEventConfig> EventConfig { get; private set; } = null!;
 
         /// <summary>
         /// Name of the Event API.
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.AppSync
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Api(string name, ApiArgs? args = null, CustomResourceOptions? options = null)
+        public Api(string name, ApiArgs args, CustomResourceOptions? options = null)
             : base("aws:appsync/api:Api", name, args ?? new ApiArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -303,8 +303,8 @@ namespace Pulumi.Aws.AppSync
         /// <summary>
         /// Configuration for the Event API. See Event Config below.
         /// </summary>
-        [Input("eventConfig")]
-        public Input<Inputs.ApiEventConfigArgs>? EventConfig { get; set; }
+        [Input("eventConfig", required: true)]
+        public Input<Inputs.ApiEventConfigArgs> EventConfig { get; set; } = null!;
 
         /// <summary>
         /// Name of the Event API.

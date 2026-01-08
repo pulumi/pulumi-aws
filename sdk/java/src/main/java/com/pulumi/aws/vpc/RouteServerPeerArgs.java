@@ -23,15 +23,15 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
      * The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      * 
      */
-    @Import(name="bgpOptions")
-    private @Nullable Output<RouteServerPeerBgpOptionsArgs> bgpOptions;
+    @Import(name="bgpOptions", required=true)
+    private Output<RouteServerPeerBgpOptionsArgs> bgpOptions;
 
     /**
      * @return The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      * 
      */
-    public Optional<Output<RouteServerPeerBgpOptionsArgs>> bgpOptions() {
-        return Optional.ofNullable(this.bgpOptions);
+    public Output<RouteServerPeerBgpOptionsArgs> bgpOptions() {
+        return this.bgpOptions;
     }
 
     /**
@@ -140,7 +140,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder bgpOptions(@Nullable Output<RouteServerPeerBgpOptionsArgs> bgpOptions) {
+        public Builder bgpOptions(Output<RouteServerPeerBgpOptionsArgs> bgpOptions) {
             $.bgpOptions = bgpOptions;
             return this;
         }
@@ -253,6 +253,9 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public RouteServerPeerArgs build() {
+            if ($.bgpOptions == null) {
+                throw new MissingRequiredPropertyException("RouteServerPeerArgs", "bgpOptions");
+            }
             if ($.peerAddress == null) {
                 throw new MissingRequiredPropertyException("RouteServerPeerArgs", "peerAddress");
             }

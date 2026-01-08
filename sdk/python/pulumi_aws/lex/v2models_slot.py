@@ -25,6 +25,7 @@ class V2modelsSlotArgs:
                  bot_version: pulumi.Input[_builtins.str],
                  intent_id: pulumi.Input[_builtins.str],
                  locale_id: pulumi.Input[_builtins.str],
+                 value_elicitation_setting: pulumi.Input['V2modelsSlotValueElicitationSettingArgs'],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -32,8 +33,7 @@ class V2modelsSlotArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  slot_type_id: Optional[pulumi.Input[_builtins.str]] = None,
                  sub_slot_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]] = None,
-                 timeouts: Optional[pulumi.Input['V2modelsSlotTimeoutsArgs']] = None,
-                 value_elicitation_setting: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingArgs']] = None):
+                 timeouts: Optional[pulumi.Input['V2modelsSlotTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsSlot resource.
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with the slot.
@@ -55,6 +55,7 @@ class V2modelsSlotArgs:
         pulumi.set(__self__, "bot_version", bot_version)
         pulumi.set(__self__, "intent_id", intent_id)
         pulumi.set(__self__, "locale_id", locale_id)
+        pulumi.set(__self__, "value_elicitation_setting", value_elicitation_setting)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if multiple_values_settings is not None:
@@ -71,8 +72,6 @@ class V2modelsSlotArgs:
             pulumi.set(__self__, "sub_slot_settings", sub_slot_settings)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
-        if value_elicitation_setting is not None:
-            pulumi.set(__self__, "value_elicitation_setting", value_elicitation_setting)
 
     @_builtins.property
     @pulumi.getter(name="botId")
@@ -121,6 +120,15 @@ class V2modelsSlotArgs:
     @locale_id.setter
     def locale_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "locale_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueElicitationSetting")
+    def value_elicitation_setting(self) -> pulumi.Input['V2modelsSlotValueElicitationSettingArgs']:
+        return pulumi.get(self, "value_elicitation_setting")
+
+    @value_elicitation_setting.setter
+    def value_elicitation_setting(self, value: pulumi.Input['V2modelsSlotValueElicitationSettingArgs']):
+        pulumi.set(self, "value_elicitation_setting", value)
 
     @_builtins.property
     @pulumi.getter
@@ -217,15 +225,6 @@ class V2modelsSlotArgs:
     @timeouts.setter
     def timeouts(self, value: Optional[pulumi.Input['V2modelsSlotTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueElicitationSetting")
-    def value_elicitation_setting(self) -> Optional[pulumi.Input['V2modelsSlotValueElicitationSettingArgs']]:
-        return pulumi.get(self, "value_elicitation_setting")
-
-    @value_elicitation_setting.setter
-    def value_elicitation_setting(self, value: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingArgs']]):
-        pulumi.set(self, "value_elicitation_setting", value)
 
 
 @pulumi.input_type
@@ -576,6 +575,8 @@ class V2modelsSlot(pulumi.CustomResource):
             __props__.__dict__["slot_type_id"] = slot_type_id
             __props__.__dict__["sub_slot_settings"] = sub_slot_settings
             __props__.__dict__["timeouts"] = timeouts
+            if value_elicitation_setting is None and not opts.urn:
+                raise TypeError("Missing required property 'value_elicitation_setting'")
             __props__.__dict__["value_elicitation_setting"] = value_elicitation_setting
             __props__.__dict__["slot_id"] = None
         super(V2modelsSlot, __self__).__init__(
@@ -751,6 +752,6 @@ class V2modelsSlot(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="valueElicitationSetting")
-    def value_elicitation_setting(self) -> pulumi.Output[Optional['outputs.V2modelsSlotValueElicitationSetting']]:
+    def value_elicitation_setting(self) -> pulumi.Output['outputs.V2modelsSlotValueElicitationSetting']:
         return pulumi.get(self, "value_elicitation_setting")
 

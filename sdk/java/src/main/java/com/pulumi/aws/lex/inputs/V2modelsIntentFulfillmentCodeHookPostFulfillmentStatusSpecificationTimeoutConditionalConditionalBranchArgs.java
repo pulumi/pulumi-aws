@@ -23,15 +23,15 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
      * Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    @Import(name="condition", required=true)
-    private Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchConditionArgs> condition;
+    @Import(name="condition")
+    private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchConditionArgs> condition;
 
     /**
      * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    public Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchConditionArgs> condition() {
-        return this.condition;
+    public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchConditionArgs>> condition() {
+        return Optional.ofNullable(this.condition);
     }
 
     /**
@@ -53,15 +53,15 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
      * Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    @Import(name="nextStep", required=true)
-    private Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepArgs> nextStep;
+    @Import(name="nextStep")
+    private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepArgs> nextStep;
 
     /**
      * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    public Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepArgs> nextStep() {
-        return this.nextStep;
+    public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepArgs>> nextStep() {
+        return Optional.ofNullable(this.nextStep);
     }
 
     /**
@@ -112,7 +112,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
          * @return builder
          * 
          */
-        public Builder condition(Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchConditionArgs> condition) {
+        public Builder condition(@Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchConditionArgs> condition) {
             $.condition = condition;
             return this;
         }
@@ -154,7 +154,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
          * @return builder
          * 
          */
-        public Builder nextStep(Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepArgs> nextStep) {
+        public Builder nextStep(@Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepArgs> nextStep) {
             $.nextStep = nextStep;
             return this;
         }
@@ -191,14 +191,8 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         public V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchArgs build() {
-            if ($.condition == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchArgs", "condition");
-            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchArgs", "name");
-            }
-            if ($.nextStep == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchArgs", "nextStep");
             }
             return $;
         }

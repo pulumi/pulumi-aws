@@ -39,15 +39,15 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
      * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      * 
      */
-    @Import(name="knowledgeBaseConfiguration")
-    private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration;
+    @Import(name="knowledgeBaseConfiguration", required=true)
+    private Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration;
 
     /**
      * @return Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      * 
      */
-    public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs>> knowledgeBaseConfiguration() {
-        return Optional.ofNullable(this.knowledgeBaseConfiguration);
+    public Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration() {
+        return this.knowledgeBaseConfiguration;
     }
 
     /**
@@ -194,7 +194,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder knowledgeBaseConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration) {
+        public Builder knowledgeBaseConfiguration(Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration) {
             $.knowledgeBaseConfiguration = knowledgeBaseConfiguration;
             return this;
         }
@@ -328,6 +328,9 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         public AgentKnowledgeBaseArgs build() {
+            if ($.knowledgeBaseConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseArgs", "knowledgeBaseConfiguration");
+            }
             if ($.roleArn == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseArgs", "roleArn");
             }

@@ -21,34 +21,33 @@ __all__ = ['AgentcoreBrowserArgs', 'AgentcoreBrowser']
 @pulumi.input_type
 class AgentcoreBrowserArgs:
     def __init__(__self__, *,
+                 network_configuration: pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs'],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs']] = None,
                  recording: Optional[pulumi.Input['AgentcoreBrowserRecordingArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['AgentcoreBrowserTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreBrowser resource.
-        :param pulumi.Input[_builtins.str] description: Description of the browser.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
-        :param pulumi.Input[_builtins.str] name: Name of the browser.
         :param pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs'] network_configuration: Network configuration for the browser. See `network_configuration` below.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] description: Description of the browser.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
+        :param pulumi.Input[_builtins.str] name: Name of the browser.
         :param pulumi.Input['AgentcoreBrowserRecordingArgs'] recording: Recording configuration for browser sessions. See `recording` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "network_configuration", network_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
         if recording is not None:
             pulumi.set(__self__, "recording", recording)
         if region is not None:
@@ -57,6 +56,20 @@ class AgentcoreBrowserArgs:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs']:
+        """
+        Network configuration for the browser. See `network_configuration` below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs']):
+        pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -93,20 +106,6 @@ class AgentcoreBrowserArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs']]:
-        """
-        Network configuration for the browser. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "network_configuration")
-
-    @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs']]):
-        pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -451,7 +450,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AgentcoreBrowserArgs] = None,
+                 args: AgentcoreBrowserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS Bedrock AgentCore Browser. Browser provides AI agents with web browsing capabilities, allowing them to navigate websites, extract information, and interact with web content in a controlled environment.
@@ -570,6 +569,8 @@ class AgentcoreBrowser(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["name"] = name
+            if network_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'network_configuration'")
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["recording"] = recording
             __props__.__dict__["region"] = region
@@ -678,7 +679,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreBrowserNetworkConfiguration']]:
+    def network_configuration(self) -> pulumi.Output['outputs.AgentcoreBrowserNetworkConfiguration']:
         """
         Network configuration for the browser. See `network_configuration` below.
 

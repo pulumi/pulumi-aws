@@ -83,15 +83,15 @@ public final class DataCellsFilterTableDataArgs extends com.pulumi.resources.Res
      * A PartiQL predicate. See Row Filter below for details.
      * 
      */
-    @Import(name="rowFilter")
-    private @Nullable Output<DataCellsFilterTableDataRowFilterArgs> rowFilter;
+    @Import(name="rowFilter", required=true)
+    private Output<DataCellsFilterTableDataRowFilterArgs> rowFilter;
 
     /**
      * @return A PartiQL predicate. See Row Filter below for details.
      * 
      */
-    public Optional<Output<DataCellsFilterTableDataRowFilterArgs>> rowFilter() {
-        return Optional.ofNullable(this.rowFilter);
+    public Output<DataCellsFilterTableDataRowFilterArgs> rowFilter() {
+        return this.rowFilter;
     }
 
     /**
@@ -270,7 +270,7 @@ public final class DataCellsFilterTableDataArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder rowFilter(@Nullable Output<DataCellsFilterTableDataRowFilterArgs> rowFilter) {
+        public Builder rowFilter(Output<DataCellsFilterTableDataRowFilterArgs> rowFilter) {
             $.rowFilter = rowFilter;
             return this;
         }
@@ -354,6 +354,9 @@ public final class DataCellsFilterTableDataArgs extends com.pulumi.resources.Res
             }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("DataCellsFilterTableDataArgs", "name");
+            }
+            if ($.rowFilter == null) {
+                throw new MissingRequiredPropertyException("DataCellsFilterTableDataArgs", "rowFilter");
             }
             if ($.tableCatalogId == null) {
                 throw new MissingRequiredPropertyException("DataCellsFilterTableDataArgs", "tableCatalogId");

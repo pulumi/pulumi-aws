@@ -102,7 +102,7 @@ export class VpcOrigin extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly vpcOriginEndpointConfig: pulumi.Output<outputs.cloudfront.VpcOriginVpcOriginEndpointConfig | undefined>;
+    declare public readonly vpcOriginEndpointConfig: pulumi.Output<outputs.cloudfront.VpcOriginVpcOriginEndpointConfig>;
 
     /**
      * Create a VpcOrigin resource with the given unique name, arguments, and options.
@@ -111,7 +111,7 @@ export class VpcOrigin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VpcOriginArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: VpcOriginArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcOriginArgs | VpcOriginState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -125,6 +125,9 @@ export class VpcOrigin extends pulumi.CustomResource {
             resourceInputs["vpcOriginEndpointConfig"] = state?.vpcOriginEndpointConfig;
         } else {
             const args = argsOrState as VpcOriginArgs | undefined;
+            if (args?.vpcOriginEndpointConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'vpcOriginEndpointConfig'");
+            }
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["vpcOriginEndpointConfig"] = args?.vpcOriginEndpointConfig;
@@ -180,5 +183,5 @@ export interface VpcOriginArgs {
      *
      * The following arguments are optional:
      */
-    vpcOriginEndpointConfig?: pulumi.Input<inputs.cloudfront.VpcOriginVpcOriginEndpointConfig>;
+    vpcOriginEndpointConfig: pulumi.Input<inputs.cloudfront.VpcOriginVpcOriginEndpointConfig>;
 }

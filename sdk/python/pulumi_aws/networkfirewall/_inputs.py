@@ -3261,7 +3261,7 @@ class TlsInspectionConfigurationTimeoutsArgs:
 
 if not MYPY:
     class TlsInspectionConfigurationTlsInspectionConfigurationArgsDict(TypedDict):
-        server_certificate_configuration: NotRequired[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgsDict']]
+        server_certificate_configuration: pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgsDict']
         """
         Server certificate configurations that are associated with the TLS configuration. Detailed below.
         """
@@ -3271,28 +3271,31 @@ elif False:
 @pulumi.input_type
 class TlsInspectionConfigurationTlsInspectionConfigurationArgs:
     def __init__(__self__, *,
-                 server_certificate_configuration: Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs']] = None):
+                 server_certificate_configuration: pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs']):
         """
         :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs'] server_certificate_configuration: Server certificate configurations that are associated with the TLS configuration. Detailed below.
         """
-        if server_certificate_configuration is not None:
-            pulumi.set(__self__, "server_certificate_configuration", server_certificate_configuration)
+        pulumi.set(__self__, "server_certificate_configuration", server_certificate_configuration)
 
     @_builtins.property
     @pulumi.getter(name="serverCertificateConfiguration")
-    def server_certificate_configuration(self) -> Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs']]:
+    def server_certificate_configuration(self) -> pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs']:
         """
         Server certificate configurations that are associated with the TLS configuration. Detailed below.
         """
         return pulumi.get(self, "server_certificate_configuration")
 
     @server_certificate_configuration.setter
-    def server_certificate_configuration(self, value: Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs']]):
+    def server_certificate_configuration(self, value: pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs']):
         pulumi.set(self, "server_certificate_configuration", value)
 
 
 if not MYPY:
     class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgsDict(TypedDict):
+        scopes: pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgsDict']]]
+        """
+        Scope block. Detailed below.
+        """
         certificate_authority_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
         ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
@@ -3300,10 +3303,6 @@ if not MYPY:
         check_certificate_revocation_status: NotRequired[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgsDict']]
         """
         Check Certificate Revocation Status block. Detailed below.
-        """
-        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgsDict']]]]
-        """
-        Scope block. Detailed below.
         """
         server_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgsDict']]]]
         """
@@ -3315,24 +3314,35 @@ elif False:
 @pulumi.input_type
 class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs:
     def __init__(__self__, *,
+                 scopes: pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs']]],
                  certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  check_certificate_revocation_status: Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs']] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs']]]] = None,
                  server_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs']]]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs']]] scopes: Scope block. Detailed below.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
         :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs'] check_certificate_revocation_status: Check Certificate Revocation Status block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs']]] scopes: Scope block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs']]] server_certificates: Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
         """
+        pulumi.set(__self__, "scopes", scopes)
         if certificate_authority_arn is not None:
             pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         if check_certificate_revocation_status is not None:
             pulumi.set(__self__, "check_certificate_revocation_status", check_certificate_revocation_status)
-        if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
         if server_certificates is not None:
             pulumi.set(__self__, "server_certificates", server_certificates)
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs']]]:
+        """
+        Scope block. Detailed below.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs']]]):
+        pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
@@ -3357,18 +3367,6 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     @check_certificate_revocation_status.setter
     def check_certificate_revocation_status(self, value: Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs']]):
         pulumi.set(self, "check_certificate_revocation_status", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs']]]]:
-        """
-        Scope block. Detailed below.
-        """
-        return pulumi.get(self, "scopes")
-
-    @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs']]]]):
-        pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="serverCertificates")
@@ -3421,6 +3419,10 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
 
 if not MYPY:
     class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgsDict(TypedDict):
+        destinations: pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgsDict']]]
+        """
+        Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
+        """
         protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
         """
         Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
@@ -3428,10 +3430,6 @@ if not MYPY:
         destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgsDict']]]]
         """
         Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
-        """
-        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgsDict']]]]
-        """
-        Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
         """
         source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgsDict']]]]
         """
@@ -3447,27 +3445,38 @@ elif False:
 @pulumi.input_type
 class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs:
     def __init__(__self__, *,
+                 destinations: pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs']]],
                  protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]],
                  destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs']]]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs']]]] = None,
                  source_ports: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs']]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs']]]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs']]] destinations: Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] protocols: Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs']]] destination_ports: Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs']]] destinations: Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs']]] source_ports: Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs']]] sources: Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
         """
+        pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "protocols", protocols)
         if destination_ports is not None:
             pulumi.set(__self__, "destination_ports", destination_ports)
-        if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
         if source_ports is not None:
             pulumi.set(__self__, "source_ports", source_ports)
         if sources is not None:
             pulumi.set(__self__, "sources", sources)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs']]]:
+        """
+        Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs']]]):
+        pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter
@@ -3492,18 +3501,6 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     @destination_ports.setter
     def destination_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs']]]]):
         pulumi.set(self, "destination_ports", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs']]]]:
-        """
-        Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-        """
-        return pulumi.get(self, "destinations")
-
-    @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs']]]]):
-        pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePorts")

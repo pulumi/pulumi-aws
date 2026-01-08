@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class LogDeliveryConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("logConfigurations")]
+        [Input("logConfigurations", required: true)]
         private InputList<Inputs.LogDeliveryConfigurationLogConfigurationArgs>? _logConfigurations;
 
         /// <summary>

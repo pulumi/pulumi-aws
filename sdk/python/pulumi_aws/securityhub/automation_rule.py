@@ -21,33 +21,31 @@ __all__ = ['AutomationRuleArgs', 'AutomationRule']
 @pulumi.input_type
 class AutomationRuleArgs:
     def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]],
+                 criteria: pulumi.Input['AutomationRuleCriteriaArgs'],
                  description: pulumi.Input[_builtins.str],
                  rule_name: pulumi.Input[_builtins.str],
                  rule_order: pulumi.Input[_builtins.int],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]]] = None,
-                 criteria: Optional[pulumi.Input['AutomationRuleCriteriaArgs']] = None,
                  is_terminal: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  rule_status: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
+        :param pulumi.Input['AutomationRuleCriteriaArgs'] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         :param pulumi.Input[_builtins.str] description: The description of the rule.
         :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[_builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        :param pulumi.Input['AutomationRuleCriteriaArgs'] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rule_status: Whether the rule is active after it is created.
         """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "rule_order", rule_order)
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
         if is_terminal is not None:
             pulumi.set(__self__, "is_terminal", is_terminal)
         if region is not None:
@@ -56,6 +54,30 @@ class AutomationRuleArgs:
             pulumi.set(__self__, "rule_status", rule_status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]]:
+        """
+        A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input['AutomationRuleCriteriaArgs']:
+        """
+        A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input['AutomationRuleCriteriaArgs']):
+        pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter
@@ -92,30 +114,6 @@ class AutomationRuleArgs:
     @rule_order.setter
     def rule_order(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "rule_order", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]]]:
-        """
-        A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        """
-        return pulumi.get(self, "actions")
-
-    @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]]]):
-        pulumi.set(self, "actions", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input['AutomationRuleCriteriaArgs']]:
-        """
-        A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        """
-        return pulumi.get(self, "criteria")
-
-    @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input['AutomationRuleCriteriaArgs']]):
-        pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="isTerminal")
@@ -509,7 +507,11 @@ class AutomationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AutomationRuleArgs.__new__(AutomationRuleArgs)
 
+            if actions is None and not opts.urn:
+                raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
+            if criteria is None and not opts.urn:
+                raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
@@ -583,7 +585,7 @@ class AutomationRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Optional[Sequence['outputs.AutomationRuleAction']]]:
+    def actions(self) -> pulumi.Output[Sequence['outputs.AutomationRuleAction']]:
         """
         A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
         """
@@ -599,7 +601,7 @@ class AutomationRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> pulumi.Output[Optional['outputs.AutomationRuleCriteria']]:
+    def criteria(self) -> pulumi.Output['outputs.AutomationRuleCriteria']:
         """
         A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         """

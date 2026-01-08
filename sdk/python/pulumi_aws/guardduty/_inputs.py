@@ -637,7 +637,7 @@ class MalwareProtectionPlanActionTaggingArgs:
 
 if not MYPY:
     class MalwareProtectionPlanProtectedResourceArgsDict(TypedDict):
-        s3_bucket: NotRequired[pulumi.Input['MalwareProtectionPlanProtectedResourceS3BucketArgsDict']]
+        s3_bucket: pulumi.Input['MalwareProtectionPlanProtectedResourceS3BucketArgsDict']
         """
         Information about the protected S3 bucket resource. See `s3_bucket` below.
         """
@@ -647,23 +647,22 @@ elif False:
 @pulumi.input_type
 class MalwareProtectionPlanProtectedResourceArgs:
     def __init__(__self__, *,
-                 s3_bucket: Optional[pulumi.Input['MalwareProtectionPlanProtectedResourceS3BucketArgs']] = None):
+                 s3_bucket: pulumi.Input['MalwareProtectionPlanProtectedResourceS3BucketArgs']):
         """
         :param pulumi.Input['MalwareProtectionPlanProtectedResourceS3BucketArgs'] s3_bucket: Information about the protected S3 bucket resource. See `s3_bucket` below.
         """
-        if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[pulumi.Input['MalwareProtectionPlanProtectedResourceS3BucketArgs']]:
+    def s3_bucket(self) -> pulumi.Input['MalwareProtectionPlanProtectedResourceS3BucketArgs']:
         """
         Information about the protected S3 bucket resource. See `s3_bucket` below.
         """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
-    def s3_bucket(self, value: Optional[pulumi.Input['MalwareProtectionPlanProtectedResourceS3BucketArgs']]):
+    def s3_bucket(self, value: pulumi.Input['MalwareProtectionPlanProtectedResourceS3BucketArgs']):
         pulumi.set(self, "s3_bucket", value)
 
 

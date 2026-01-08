@@ -102,6 +102,96 @@ namespace Pulumi.Aws.Eks
     /// });
     /// ```
     /// 
+    /// ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// using Tls = Pulumi.Tls;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleCluster = new Aws.Eks.Cluster("example");
+    /// 
+    ///     var example = Tls.GetCertificate.Invoke(new()
+    ///     {
+    ///         Url = exampleCluster.Identities[0].Oidcs[0]?.Issuer,
+    ///     });
+    /// 
+    ///     var exampleOpenIdConnectProvider = new Aws.Iam.OpenIdConnectProvider("example", new()
+    ///     {
+    ///         ClientIdLists = new[]
+    ///         {
+    ///             "sts.amazonaws.com",
+    ///         },
+    ///         ThumbprintLists = new[]
+    ///         {
+    ///             example.Apply(getCertificateResult =&gt; getCertificateResult.Certificates[0]?.Sha1Fingerprint),
+    ///         },
+    ///         Url = exampleCluster.Identities.Apply(identities =&gt; identities[0].Oidcs[0]?.Issuer),
+    ///     });
+    /// 
+    ///     var exampleAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRoleWithWebIdentity",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = $"{Std.Replace.Invoke(new()
+    ///                         {
+    ///                             Text = exampleOpenIdConnectProvider.Url,
+    ///                             Search = "https://",
+    ///                             Replace = "",
+    ///                         }).Result}:sub",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "system:serviceaccount:kube-system:aws-node",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             exampleOpenIdConnectProvider.Arn,
+    ///                         },
+    ///                         Type = "Federated",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example-vpc-cni-role",
+    ///     });
+    /// 
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+    ///         Role = exampleRole.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:

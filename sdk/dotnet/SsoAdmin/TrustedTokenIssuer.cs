@@ -103,7 +103,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `TrustedTokenIssuerType`. Documented below.
         /// </summary>
         [Output("trustedTokenIssuerConfiguration")]
-        public Output<Outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration?> TrustedTokenIssuerConfiguration { get; private set; } = null!;
+        public Output<Outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration> TrustedTokenIssuerConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
@@ -198,8 +198,8 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `TrustedTokenIssuerType`. Documented below.
         /// </summary>
-        [Input("trustedTokenIssuerConfiguration")]
-        public Input<Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs>? TrustedTokenIssuerConfiguration { get; set; }
+        [Input("trustedTokenIssuerConfiguration", required: true)]
+        public Input<Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> TrustedTokenIssuerConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`

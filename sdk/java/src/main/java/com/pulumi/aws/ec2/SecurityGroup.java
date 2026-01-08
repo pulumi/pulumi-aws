@@ -339,7 +339,7 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
- *             .triggers(Map.of("rerunUponChangeOf", StdFunctions.join(JoinArgs.builder()
+ *             .triggers(Map.of("rerun_upon_change_of", StdFunctions.join(JoinArgs.builder()
  *                 .separator(",")
  *                 .input(exampleAwsVpcEndpoint.securityGroupIds())
  *                 .build()).result()))

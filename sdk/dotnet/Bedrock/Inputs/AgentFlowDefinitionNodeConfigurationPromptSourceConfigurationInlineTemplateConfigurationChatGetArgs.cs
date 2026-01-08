@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _inputVariables = value;
         }
 
-        [Input("messages")]
+        [Input("messages", required: true)]
         private InputList<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageGetArgs>? _messages;
 
         /// <summary>

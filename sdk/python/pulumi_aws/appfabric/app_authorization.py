@@ -24,10 +24,10 @@ class AppAuthorizationArgs:
                  app: pulumi.Input[_builtins.str],
                  app_bundle_arn: pulumi.Input[_builtins.str],
                  auth_type: pulumi.Input[_builtins.str],
-                 credential: Optional[pulumi.Input['AppAuthorizationCredentialArgs']] = None,
+                 credential: pulumi.Input['AppAuthorizationCredentialArgs'],
+                 tenants: pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]],
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenants: Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['AppAuthorizationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AppAuthorization resource.
@@ -36,20 +36,18 @@ class AppAuthorizationArgs:
         :param pulumi.Input[_builtins.str] auth_type: The authorization type for the app authorization valid values are oauth2 and apiKey.
         :param pulumi.Input['AppAuthorizationCredentialArgs'] credential: Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
                Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]] tenants: Contains information about an application tenant, such as the application display name and identifier.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "app", app)
         pulumi.set(__self__, "app_bundle_arn", app_bundle_arn)
         pulumi.set(__self__, "auth_type", auth_type)
-        if credential is not None:
-            pulumi.set(__self__, "credential", credential)
+        pulumi.set(__self__, "credential", credential)
+        pulumi.set(__self__, "tenants", tenants)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tenants is not None:
-            pulumi.set(__self__, "tenants", tenants)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -91,7 +89,7 @@ class AppAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credential(self) -> Optional[pulumi.Input['AppAuthorizationCredentialArgs']]:
+    def credential(self) -> pulumi.Input['AppAuthorizationCredentialArgs']:
         """
         Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
         Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
@@ -99,8 +97,20 @@ class AppAuthorizationArgs:
         return pulumi.get(self, "credential")
 
     @credential.setter
-    def credential(self, value: Optional[pulumi.Input['AppAuthorizationCredentialArgs']]):
+    def credential(self, value: pulumi.Input['AppAuthorizationCredentialArgs']):
         pulumi.set(self, "credential", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tenants(self) -> pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]]:
+        """
+        Contains information about an application tenant, such as the application display name and identifier.
+        """
+        return pulumi.get(self, "tenants")
+
+    @tenants.setter
+    def tenants(self, value: pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]]):
+        pulumi.set(self, "tenants", value)
 
     @_builtins.property
     @pulumi.getter
@@ -122,18 +132,6 @@ class AppAuthorizationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def tenants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]]]:
-        """
-        Contains information about an application tenant, such as the application display name and identifier.
-        """
-        return pulumi.get(self, "tenants")
-
-    @tenants.setter
-    def tenants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]]]):
-        pulumi.set(self, "tenants", value)
 
     @_builtins.property
     @pulumi.getter
@@ -483,9 +481,13 @@ class AppAuthorization(pulumi.CustomResource):
             if auth_type is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_type'")
             __props__.__dict__["auth_type"] = auth_type
+            if credential is None and not opts.urn:
+                raise TypeError("Missing required property 'credential'")
             __props__.__dict__["credential"] = credential
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
+            if tenants is None and not opts.urn:
+                raise TypeError("Missing required property 'tenants'")
             __props__.__dict__["tenants"] = tenants
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -603,7 +605,7 @@ class AppAuthorization(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def credential(self) -> pulumi.Output[Optional['outputs.AppAuthorizationCredential']]:
+    def credential(self) -> pulumi.Output['outputs.AppAuthorizationCredential']:
         """
         Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
         Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
@@ -638,7 +640,7 @@ class AppAuthorization(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def tenants(self) -> pulumi.Output[Optional[Sequence['outputs.AppAuthorizationTenant']]]:
+    def tenants(self) -> pulumi.Output[Sequence['outputs.AppAuthorizationTenant']]:
         """
         Contains information about an application tenant, such as the application display name and identifier.
         """

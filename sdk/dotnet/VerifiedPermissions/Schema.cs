@@ -59,7 +59,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// The definition of the schema.
         /// </summary>
         [Output("definition")]
-        public Output<Outputs.SchemaDefinition?> Definition { get; private set; } = null!;
+        public Output<Outputs.SchemaDefinition> Definition { get; private set; } = null!;
 
         /// <summary>
         /// (Optional) Identifies the namespaces of the entities referenced by this schema.
@@ -128,8 +128,8 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// <summary>
         /// The definition of the schema.
         /// </summary>
-        [Input("definition")]
-        public Input<Inputs.SchemaDefinitionArgs>? Definition { get; set; }
+        [Input("definition", required: true)]
+        public Input<Inputs.SchemaDefinitionArgs> Definition { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Policy Store.

@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Odb
         /// The maintenance window of the Autonomous VM cluster.
         /// </summary>
         [Output("maintenanceWindow")]
-        public Output<Outputs.CloudAutonomousVmClusterMaintenanceWindow?> MaintenanceWindow { get; private set; } = null!;
+        public Output<Outputs.CloudAutonomousVmClusterMaintenanceWindow> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// The minimum value to which you can scale down the maximum number of Autonomous CDBs.
@@ -489,8 +489,8 @@ namespace Pulumi.Aws.Odb
         /// <summary>
         /// The maintenance window of the Autonomous VM cluster.
         /// </summary>
-        [Input("maintenanceWindow")]
-        public Input<Inputs.CloudAutonomousVmClusterMaintenanceWindowArgs>? MaintenanceWindow { get; set; }
+        [Input("maintenanceWindow", required: true)]
+        public Input<Inputs.CloudAutonomousVmClusterMaintenanceWindowArgs> MaintenanceWindow { get; set; } = null!;
 
         [Input("memoryPerOracleComputeUnitInGbs", required: true)]
         public Input<int> MemoryPerOracleComputeUnitInGbs { get; set; } = null!;

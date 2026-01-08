@@ -6,9 +6,8 @@ package com.pulumi.aws.networkfirewall.inputs;
 import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class TlsInspectionConfigurationTlsInspectionConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationArgs exte
      * Server certificate configurations that are associated with the TLS configuration. Detailed below.
      * 
      */
-    @Import(name="serverCertificateConfiguration")
-    private @Nullable Output<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs> serverCertificateConfiguration;
+    @Import(name="serverCertificateConfiguration", required=true)
+    private Output<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs> serverCertificateConfiguration;
 
     /**
      * @return Server certificate configurations that are associated with the TLS configuration. Detailed below.
      * 
      */
-    public Optional<Output<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs>> serverCertificateConfiguration() {
-        return Optional.ofNullable(this.serverCertificateConfiguration);
+    public Output<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs> serverCertificateConfiguration() {
+        return this.serverCertificateConfiguration;
     }
 
     private TlsInspectionConfigurationTlsInspectionConfigurationArgs() {}
@@ -60,7 +59,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationArgs exte
          * @return builder
          * 
          */
-        public Builder serverCertificateConfiguration(@Nullable Output<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs> serverCertificateConfiguration) {
+        public Builder serverCertificateConfiguration(Output<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs> serverCertificateConfiguration) {
             $.serverCertificateConfiguration = serverCertificateConfiguration;
             return this;
         }
@@ -76,6 +75,9 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationArgs exte
         }
 
         public TlsInspectionConfigurationTlsInspectionConfigurationArgs build() {
+            if ($.serverCertificateConfiguration == null) {
+                throw new MissingRequiredPropertyException("TlsInspectionConfigurationTlsInspectionConfigurationArgs", "serverCertificateConfiguration");
+            }
             return $;
         }
     }

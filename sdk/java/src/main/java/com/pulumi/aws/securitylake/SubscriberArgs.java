@@ -8,6 +8,7 @@ import com.pulumi.aws.securitylake.inputs.SubscriberSubscriberIdentityArgs;
 import com.pulumi.aws.securitylake.inputs.SubscriberTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -54,15 +55,15 @@ public final class SubscriberArgs extends com.pulumi.resources.ResourceArgs {
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    @Import(name="sources")
-    private @Nullable Output<List<SubscriberSourceArgs>> sources;
+    @Import(name="sources", required=true)
+    private Output<List<SubscriberSourceArgs>> sources;
 
     /**
      * @return The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    public Optional<Output<List<SubscriberSourceArgs>>> sources() {
-        return Optional.ofNullable(this.sources);
+    public Output<List<SubscriberSourceArgs>> sources() {
+        return this.sources;
     }
 
     /**
@@ -84,15 +85,15 @@ public final class SubscriberArgs extends com.pulumi.resources.ResourceArgs {
      * The AWS identity used to access your data. See `subscriberIdentity` Block below.
      * 
      */
-    @Import(name="subscriberIdentity")
-    private @Nullable Output<SubscriberSubscriberIdentityArgs> subscriberIdentity;
+    @Import(name="subscriberIdentity", required=true)
+    private Output<SubscriberSubscriberIdentityArgs> subscriberIdentity;
 
     /**
      * @return The AWS identity used to access your data. See `subscriberIdentity` Block below.
      * 
      */
-    public Optional<Output<SubscriberSubscriberIdentityArgs>> subscriberIdentity() {
-        return Optional.ofNullable(this.subscriberIdentity);
+    public Output<SubscriberSubscriberIdentityArgs> subscriberIdentity() {
+        return this.subscriberIdentity;
     }
 
     /**
@@ -211,7 +212,7 @@ public final class SubscriberArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder sources(@Nullable Output<List<SubscriberSourceArgs>> sources) {
+        public Builder sources(Output<List<SubscriberSourceArgs>> sources) {
             $.sources = sources;
             return this;
         }
@@ -263,7 +264,7 @@ public final class SubscriberArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder subscriberIdentity(@Nullable Output<SubscriberSubscriberIdentityArgs> subscriberIdentity) {
+        public Builder subscriberIdentity(Output<SubscriberSubscriberIdentityArgs> subscriberIdentity) {
             $.subscriberIdentity = subscriberIdentity;
             return this;
         }
@@ -330,6 +331,12 @@ public final class SubscriberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SubscriberArgs build() {
+            if ($.sources == null) {
+                throw new MissingRequiredPropertyException("SubscriberArgs", "sources");
+            }
+            if ($.subscriberIdentity == null) {
+                throw new MissingRequiredPropertyException("SubscriberArgs", "subscriberIdentity");
+            }
             return $;
         }
     }

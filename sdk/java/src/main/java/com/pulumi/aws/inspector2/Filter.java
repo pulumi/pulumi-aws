@@ -123,7 +123,7 @@ public class Filter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="filterCriterias", refs={List.class,FilterFilterCriteria.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<FilterFilterCriteria>> filterCriterias;
+    private Output<List<FilterFilterCriteria>> filterCriterias;
 
     /**
      * @return Details on the filter criteria. Documented below.
@@ -131,8 +131,8 @@ public class Filter extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<List<FilterFilterCriteria>>> filterCriterias() {
-        return Codegen.optional(this.filterCriterias);
+    public Output<List<FilterFilterCriteria>> filterCriterias() {
+        return this.filterCriterias;
     }
     /**
      * Name of the filter.

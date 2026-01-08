@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class CapabilityConfigurationArgoCdRbacRoleMappingGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("identities")]
+        [Input("identities", required: true)]
         private InputList<Inputs.CapabilityConfigurationArgoCdRbacRoleMappingIdentityGetArgs>? _identities;
 
         /// <summary>

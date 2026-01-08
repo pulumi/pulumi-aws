@@ -27,11 +27,11 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
         return Optional.ofNullable(this.allowInterrupt);
     }
 
-    @Import(name="allowedInputTypes", required=true)
-    private Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes;
+    @Import(name="allowedInputTypes")
+    private @Nullable Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes;
 
-    public Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes() {
-        return this.allowedInputTypes;
+    public Optional<Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs>> allowedInputTypes() {
+        return Optional.ofNullable(this.allowedInputTypes);
     }
 
     @Import(name="audioAndDtmfInputSpecification")
@@ -92,7 +92,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
             return allowInterrupt(Output.of(allowInterrupt));
         }
 
-        public Builder allowedInputTypes(Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes) {
+        public Builder allowedInputTypes(@Nullable Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes) {
             $.allowedInputTypes = allowedInputTypes;
             return this;
         }
@@ -129,9 +129,6 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
         }
 
         public V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs build() {
-            if ($.allowedInputTypes == null) {
-                throw new MissingRequiredPropertyException("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs", "allowedInputTypes");
-            }
             if ($.mapBlockKey == null) {
                 throw new MissingRequiredPropertyException("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs", "mapBlockKey");
             }

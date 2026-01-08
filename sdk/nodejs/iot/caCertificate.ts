@@ -20,10 +20,10 @@ import * as utilities from "../utilities";
  * const caPrivateKey = new tls.PrivateKey("ca", {algorithm: "RSA"});
  * const ca = new tls.SelfSignedCert("ca", {
  *     privateKeyPem: caPrivateKey.privateKeyPem,
- *     subject: [{
+ *     subject: {
  *         commonName: "example.com",
  *         organization: "ACME Examples, Inc",
- *     }],
+ *     },
  *     validityPeriodHours: 12,
  *     allowedUses: [
  *         "key_encipherment",
@@ -36,9 +36,9 @@ import * as utilities from "../utilities";
  * const example = aws.iot.getRegistrationCode({});
  * const verification = new tls.CertRequest("verification", {
  *     privateKeyPem: verificationPrivateKey.privateKeyPem,
- *     subject: [{
+ *     subject: {
  *         commonName: example.then(example => example.registrationCode),
- *     }],
+ *     },
  * });
  * const verificationLocallySignedCert = new tls.LocallySignedCert("verification", {
  *     certRequestPem: verification.certRequestPem,

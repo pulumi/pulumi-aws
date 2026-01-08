@@ -98,7 +98,7 @@ export class AccessGrant extends pulumi.CustomResource {
     /**
      * See Grantee below for more details.
      */
-    declare public readonly grantee: pulumi.Output<outputs.s3control.AccessGrantGrantee | undefined>;
+    declare public readonly grantee: pulumi.Output<outputs.s3control.AccessGrantGrantee>;
     /**
      * The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      */
@@ -149,6 +149,9 @@ export class AccessGrant extends pulumi.CustomResource {
             const args = argsOrState as AccessGrantArgs | undefined;
             if (args?.accessGrantsLocationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessGrantsLocationId'");
+            }
+            if (args?.grantee === undefined && !opts.urn) {
+                throw new Error("Missing required property 'grantee'");
             }
             if (args?.permission === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permission'");
@@ -238,7 +241,7 @@ export interface AccessGrantArgs {
     /**
      * See Grantee below for more details.
      */
-    grantee?: pulumi.Input<inputs.s3control.AccessGrantGrantee>;
+    grantee: pulumi.Input<inputs.s3control.AccessGrantGrantee>;
     /**
      * The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      */

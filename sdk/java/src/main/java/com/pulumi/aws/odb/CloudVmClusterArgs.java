@@ -87,15 +87,15 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
      * The set of preferences for the various diagnostic collection options for the VM cluster.
      * 
      */
-    @Import(name="dataCollectionOptions")
-    private @Nullable Output<CloudVmClusterDataCollectionOptionsArgs> dataCollectionOptions;
+    @Import(name="dataCollectionOptions", required=true)
+    private Output<CloudVmClusterDataCollectionOptionsArgs> dataCollectionOptions;
 
     /**
      * @return The set of preferences for the various diagnostic collection options for the VM cluster.
      * 
      */
-    public Optional<Output<CloudVmClusterDataCollectionOptionsArgs>> dataCollectionOptions() {
-        return Optional.ofNullable(this.dataCollectionOptions);
+    public Output<CloudVmClusterDataCollectionOptionsArgs> dataCollectionOptions() {
+        return this.dataCollectionOptions;
     }
 
     /**
@@ -500,7 +500,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder dataCollectionOptions(@Nullable Output<CloudVmClusterDataCollectionOptionsArgs> dataCollectionOptions) {
+        public Builder dataCollectionOptions(Output<CloudVmClusterDataCollectionOptionsArgs> dataCollectionOptions) {
             $.dataCollectionOptions = dataCollectionOptions;
             return this;
         }
@@ -908,6 +908,9 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         public CloudVmClusterArgs build() {
             if ($.cpuCoreCount == null) {
                 throw new MissingRequiredPropertyException("CloudVmClusterArgs", "cpuCoreCount");
+            }
+            if ($.dataCollectionOptions == null) {
+                throw new MissingRequiredPropertyException("CloudVmClusterArgs", "dataCollectionOptions");
             }
             if ($.dataStorageSizeInTbs == null) {
                 throw new MissingRequiredPropertyException("CloudVmClusterArgs", "dataStorageSizeInTbs");

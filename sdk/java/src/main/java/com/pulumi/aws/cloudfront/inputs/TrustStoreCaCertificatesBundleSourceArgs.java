@@ -6,9 +6,8 @@ package com.pulumi.aws.cloudfront.inputs;
 import com.pulumi.aws.cloudfront.inputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class TrustStoreCaCertificatesBundleSourceArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class TrustStoreCaCertificatesBundleSourceArgs extends com.pulumi.r
      * Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
      * 
      */
-    @Import(name="caCertificatesBundleS3Location")
-    private @Nullable Output<TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs> caCertificatesBundleS3Location;
+    @Import(name="caCertificatesBundleS3Location", required=true)
+    private Output<TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs> caCertificatesBundleS3Location;
 
     /**
      * @return Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
      * 
      */
-    public Optional<Output<TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs>> caCertificatesBundleS3Location() {
-        return Optional.ofNullable(this.caCertificatesBundleS3Location);
+    public Output<TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs> caCertificatesBundleS3Location() {
+        return this.caCertificatesBundleS3Location;
     }
 
     private TrustStoreCaCertificatesBundleSourceArgs() {}
@@ -60,7 +59,7 @@ public final class TrustStoreCaCertificatesBundleSourceArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder caCertificatesBundleS3Location(@Nullable Output<TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs> caCertificatesBundleS3Location) {
+        public Builder caCertificatesBundleS3Location(Output<TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs> caCertificatesBundleS3Location) {
             $.caCertificatesBundleS3Location = caCertificatesBundleS3Location;
             return this;
         }
@@ -76,6 +75,9 @@ public final class TrustStoreCaCertificatesBundleSourceArgs extends com.pulumi.r
         }
 
         public TrustStoreCaCertificatesBundleSourceArgs build() {
+            if ($.caCertificatesBundleS3Location == null) {
+                throw new MissingRequiredPropertyException("TrustStoreCaCertificatesBundleSourceArgs", "caCertificatesBundleS3Location");
+            }
             return $;
         }
     }

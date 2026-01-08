@@ -15,8 +15,8 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         /// <summary>
         /// Configuration details for the policy action.
         /// </summary>
-        [Input("action")]
-        public Input<Inputs.LifecyclePolicyPolicyDetailActionGetArgs>? Action { get; set; }
+        [Input("action", required: true)]
+        public Input<Inputs.LifecyclePolicyPolicyDetailActionGetArgs> Action { get; set; } = null!;
 
         /// <summary>
         /// Additional rules to specify resources that should be exempt from policy actions.
@@ -29,8 +29,8 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("filter")]
-        public Input<Inputs.LifecyclePolicyPolicyDetailFilterGetArgs>? Filter { get; set; }
+        [Input("filter", required: true)]
+        public Input<Inputs.LifecyclePolicyPolicyDetailFilterGetArgs> Filter { get; set; } = null!;
 
         public LifecyclePolicyPolicyDetailGetArgs()
         {

@@ -67,15 +67,15 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
      * The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
      * 
      */
-    @Import(name="tokenSelection")
-    private @Nullable Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs> tokenSelection;
+    @Import(name="tokenSelection", required=true)
+    private Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs> tokenSelection;
 
     /**
      * @return The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
      * 
      */
-    public Optional<Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs>> tokenSelection() {
-        return Optional.ofNullable(this.tokenSelection);
+    public Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs> tokenSelection() {
+        return this.tokenSelection;
     }
 
     private IdentitySourceConfigurationOpenIdConnectConfigurationArgs() {}
@@ -174,7 +174,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
          * @return builder
          * 
          */
-        public Builder tokenSelection(@Nullable Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs> tokenSelection) {
+        public Builder tokenSelection(Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs> tokenSelection) {
             $.tokenSelection = tokenSelection;
             return this;
         }
@@ -192,6 +192,9 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
         public IdentitySourceConfigurationOpenIdConnectConfigurationArgs build() {
             if ($.issuer == null) {
                 throw new MissingRequiredPropertyException("IdentitySourceConfigurationOpenIdConnectConfigurationArgs", "issuer");
+            }
+            if ($.tokenSelection == null) {
+                throw new MissingRequiredPropertyException("IdentitySourceConfigurationOpenIdConnectConfigurationArgs", "tokenSelection");
             }
             return $;
         }

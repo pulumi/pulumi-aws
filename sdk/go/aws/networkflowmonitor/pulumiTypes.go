@@ -404,7 +404,7 @@ type ScopeTarget struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 	// A target identifier is a pair of identifying information for a scope.
-	TargetIdentifier *ScopeTargetTargetIdentifier `pulumi:"targetIdentifier"`
+	TargetIdentifier ScopeTargetTargetIdentifier `pulumi:"targetIdentifier"`
 }
 
 // ScopeTargetInput is an input type that accepts ScopeTargetArgs and ScopeTargetOutput values.
@@ -422,7 +422,7 @@ type ScopeTargetArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 	// A target identifier is a pair of identifying information for a scope.
-	TargetIdentifier ScopeTargetTargetIdentifierPtrInput `pulumi:"targetIdentifier"`
+	TargetIdentifier ScopeTargetTargetIdentifierInput `pulumi:"targetIdentifier"`
 }
 
 func (ScopeTargetArgs) ElementType() reflect.Type {
@@ -482,8 +482,8 @@ func (o ScopeTargetOutput) Region() pulumi.StringOutput {
 }
 
 // A target identifier is a pair of identifying information for a scope.
-func (o ScopeTargetOutput) TargetIdentifier() ScopeTargetTargetIdentifierPtrOutput {
-	return o.ApplyT(func(v ScopeTarget) *ScopeTargetTargetIdentifier { return v.TargetIdentifier }).(ScopeTargetTargetIdentifierPtrOutput)
+func (o ScopeTargetOutput) TargetIdentifier() ScopeTargetTargetIdentifierOutput {
+	return o.ApplyT(func(v ScopeTarget) ScopeTargetTargetIdentifier { return v.TargetIdentifier }).(ScopeTargetTargetIdentifierOutput)
 }
 
 type ScopeTargetArrayOutput struct{ *pulumi.OutputState }
@@ -508,7 +508,7 @@ func (o ScopeTargetArrayOutput) Index(i pulumi.IntInput) ScopeTargetOutput {
 
 type ScopeTargetTargetIdentifier struct {
 	// The identifier for a target, which is currently always an account ID.
-	TargetId *ScopeTargetTargetIdentifierTargetId `pulumi:"targetId"`
+	TargetId ScopeTargetTargetIdentifierTargetId `pulumi:"targetId"`
 	// The type of a target. A target type is currently always `ACCOUNT`.
 	TargetType string `pulumi:"targetType"`
 }
@@ -526,7 +526,7 @@ type ScopeTargetTargetIdentifierInput interface {
 
 type ScopeTargetTargetIdentifierArgs struct {
 	// The identifier for a target, which is currently always an account ID.
-	TargetId ScopeTargetTargetIdentifierTargetIdPtrInput `pulumi:"targetId"`
+	TargetId ScopeTargetTargetIdentifierTargetIdInput `pulumi:"targetId"`
 	// The type of a target. A target type is currently always `ACCOUNT`.
 	TargetType pulumi.StringInput `pulumi:"targetType"`
 }
@@ -543,47 +543,6 @@ func (i ScopeTargetTargetIdentifierArgs) ToScopeTargetTargetIdentifierOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeTargetTargetIdentifierOutput)
 }
 
-func (i ScopeTargetTargetIdentifierArgs) ToScopeTargetTargetIdentifierPtrOutput() ScopeTargetTargetIdentifierPtrOutput {
-	return i.ToScopeTargetTargetIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i ScopeTargetTargetIdentifierArgs) ToScopeTargetTargetIdentifierPtrOutputWithContext(ctx context.Context) ScopeTargetTargetIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScopeTargetTargetIdentifierOutput).ToScopeTargetTargetIdentifierPtrOutputWithContext(ctx)
-}
-
-// ScopeTargetTargetIdentifierPtrInput is an input type that accepts ScopeTargetTargetIdentifierArgs, ScopeTargetTargetIdentifierPtr and ScopeTargetTargetIdentifierPtrOutput values.
-// You can construct a concrete instance of `ScopeTargetTargetIdentifierPtrInput` via:
-//
-//	        ScopeTargetTargetIdentifierArgs{...}
-//
-//	or:
-//
-//	        nil
-type ScopeTargetTargetIdentifierPtrInput interface {
-	pulumi.Input
-
-	ToScopeTargetTargetIdentifierPtrOutput() ScopeTargetTargetIdentifierPtrOutput
-	ToScopeTargetTargetIdentifierPtrOutputWithContext(context.Context) ScopeTargetTargetIdentifierPtrOutput
-}
-
-type scopeTargetTargetIdentifierPtrType ScopeTargetTargetIdentifierArgs
-
-func ScopeTargetTargetIdentifierPtr(v *ScopeTargetTargetIdentifierArgs) ScopeTargetTargetIdentifierPtrInput {
-	return (*scopeTargetTargetIdentifierPtrType)(v)
-}
-
-func (*scopeTargetTargetIdentifierPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScopeTargetTargetIdentifier)(nil)).Elem()
-}
-
-func (i *scopeTargetTargetIdentifierPtrType) ToScopeTargetTargetIdentifierPtrOutput() ScopeTargetTargetIdentifierPtrOutput {
-	return i.ToScopeTargetTargetIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i *scopeTargetTargetIdentifierPtrType) ToScopeTargetTargetIdentifierPtrOutputWithContext(ctx context.Context) ScopeTargetTargetIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScopeTargetTargetIdentifierPtrOutput)
-}
-
 type ScopeTargetTargetIdentifierOutput struct{ *pulumi.OutputState }
 
 func (ScopeTargetTargetIdentifierOutput) ElementType() reflect.Type {
@@ -598,68 +557,14 @@ func (o ScopeTargetTargetIdentifierOutput) ToScopeTargetTargetIdentifierOutputWi
 	return o
 }
 
-func (o ScopeTargetTargetIdentifierOutput) ToScopeTargetTargetIdentifierPtrOutput() ScopeTargetTargetIdentifierPtrOutput {
-	return o.ToScopeTargetTargetIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (o ScopeTargetTargetIdentifierOutput) ToScopeTargetTargetIdentifierPtrOutputWithContext(ctx context.Context) ScopeTargetTargetIdentifierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeTargetTargetIdentifier) *ScopeTargetTargetIdentifier {
-		return &v
-	}).(ScopeTargetTargetIdentifierPtrOutput)
-}
-
 // The identifier for a target, which is currently always an account ID.
-func (o ScopeTargetTargetIdentifierOutput) TargetId() ScopeTargetTargetIdentifierTargetIdPtrOutput {
-	return o.ApplyT(func(v ScopeTargetTargetIdentifier) *ScopeTargetTargetIdentifierTargetId { return v.TargetId }).(ScopeTargetTargetIdentifierTargetIdPtrOutput)
+func (o ScopeTargetTargetIdentifierOutput) TargetId() ScopeTargetTargetIdentifierTargetIdOutput {
+	return o.ApplyT(func(v ScopeTargetTargetIdentifier) ScopeTargetTargetIdentifierTargetId { return v.TargetId }).(ScopeTargetTargetIdentifierTargetIdOutput)
 }
 
 // The type of a target. A target type is currently always `ACCOUNT`.
 func (o ScopeTargetTargetIdentifierOutput) TargetType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScopeTargetTargetIdentifier) string { return v.TargetType }).(pulumi.StringOutput)
-}
-
-type ScopeTargetTargetIdentifierPtrOutput struct{ *pulumi.OutputState }
-
-func (ScopeTargetTargetIdentifierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScopeTargetTargetIdentifier)(nil)).Elem()
-}
-
-func (o ScopeTargetTargetIdentifierPtrOutput) ToScopeTargetTargetIdentifierPtrOutput() ScopeTargetTargetIdentifierPtrOutput {
-	return o
-}
-
-func (o ScopeTargetTargetIdentifierPtrOutput) ToScopeTargetTargetIdentifierPtrOutputWithContext(ctx context.Context) ScopeTargetTargetIdentifierPtrOutput {
-	return o
-}
-
-func (o ScopeTargetTargetIdentifierPtrOutput) Elem() ScopeTargetTargetIdentifierOutput {
-	return o.ApplyT(func(v *ScopeTargetTargetIdentifier) ScopeTargetTargetIdentifier {
-		if v != nil {
-			return *v
-		}
-		var ret ScopeTargetTargetIdentifier
-		return ret
-	}).(ScopeTargetTargetIdentifierOutput)
-}
-
-// The identifier for a target, which is currently always an account ID.
-func (o ScopeTargetTargetIdentifierPtrOutput) TargetId() ScopeTargetTargetIdentifierTargetIdPtrOutput {
-	return o.ApplyT(func(v *ScopeTargetTargetIdentifier) *ScopeTargetTargetIdentifierTargetId {
-		if v == nil {
-			return nil
-		}
-		return v.TargetId
-	}).(ScopeTargetTargetIdentifierTargetIdPtrOutput)
-}
-
-// The type of a target. A target type is currently always `ACCOUNT`.
-func (o ScopeTargetTargetIdentifierPtrOutput) TargetType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScopeTargetTargetIdentifier) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetType
-	}).(pulumi.StringPtrOutput)
 }
 
 type ScopeTargetTargetIdentifierTargetId struct {
@@ -695,47 +600,6 @@ func (i ScopeTargetTargetIdentifierTargetIdArgs) ToScopeTargetTargetIdentifierTa
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeTargetTargetIdentifierTargetIdOutput)
 }
 
-func (i ScopeTargetTargetIdentifierTargetIdArgs) ToScopeTargetTargetIdentifierTargetIdPtrOutput() ScopeTargetTargetIdentifierTargetIdPtrOutput {
-	return i.ToScopeTargetTargetIdentifierTargetIdPtrOutputWithContext(context.Background())
-}
-
-func (i ScopeTargetTargetIdentifierTargetIdArgs) ToScopeTargetTargetIdentifierTargetIdPtrOutputWithContext(ctx context.Context) ScopeTargetTargetIdentifierTargetIdPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScopeTargetTargetIdentifierTargetIdOutput).ToScopeTargetTargetIdentifierTargetIdPtrOutputWithContext(ctx)
-}
-
-// ScopeTargetTargetIdentifierTargetIdPtrInput is an input type that accepts ScopeTargetTargetIdentifierTargetIdArgs, ScopeTargetTargetIdentifierTargetIdPtr and ScopeTargetTargetIdentifierTargetIdPtrOutput values.
-// You can construct a concrete instance of `ScopeTargetTargetIdentifierTargetIdPtrInput` via:
-//
-//	        ScopeTargetTargetIdentifierTargetIdArgs{...}
-//
-//	or:
-//
-//	        nil
-type ScopeTargetTargetIdentifierTargetIdPtrInput interface {
-	pulumi.Input
-
-	ToScopeTargetTargetIdentifierTargetIdPtrOutput() ScopeTargetTargetIdentifierTargetIdPtrOutput
-	ToScopeTargetTargetIdentifierTargetIdPtrOutputWithContext(context.Context) ScopeTargetTargetIdentifierTargetIdPtrOutput
-}
-
-type scopeTargetTargetIdentifierTargetIdPtrType ScopeTargetTargetIdentifierTargetIdArgs
-
-func ScopeTargetTargetIdentifierTargetIdPtr(v *ScopeTargetTargetIdentifierTargetIdArgs) ScopeTargetTargetIdentifierTargetIdPtrInput {
-	return (*scopeTargetTargetIdentifierTargetIdPtrType)(v)
-}
-
-func (*scopeTargetTargetIdentifierTargetIdPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScopeTargetTargetIdentifierTargetId)(nil)).Elem()
-}
-
-func (i *scopeTargetTargetIdentifierTargetIdPtrType) ToScopeTargetTargetIdentifierTargetIdPtrOutput() ScopeTargetTargetIdentifierTargetIdPtrOutput {
-	return i.ToScopeTargetTargetIdentifierTargetIdPtrOutputWithContext(context.Background())
-}
-
-func (i *scopeTargetTargetIdentifierTargetIdPtrType) ToScopeTargetTargetIdentifierTargetIdPtrOutputWithContext(ctx context.Context) ScopeTargetTargetIdentifierTargetIdPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScopeTargetTargetIdentifierTargetIdPtrOutput)
-}
-
 type ScopeTargetTargetIdentifierTargetIdOutput struct{ *pulumi.OutputState }
 
 func (ScopeTargetTargetIdentifierTargetIdOutput) ElementType() reflect.Type {
@@ -750,53 +614,9 @@ func (o ScopeTargetTargetIdentifierTargetIdOutput) ToScopeTargetTargetIdentifier
 	return o
 }
 
-func (o ScopeTargetTargetIdentifierTargetIdOutput) ToScopeTargetTargetIdentifierTargetIdPtrOutput() ScopeTargetTargetIdentifierTargetIdPtrOutput {
-	return o.ToScopeTargetTargetIdentifierTargetIdPtrOutputWithContext(context.Background())
-}
-
-func (o ScopeTargetTargetIdentifierTargetIdOutput) ToScopeTargetTargetIdentifierTargetIdPtrOutputWithContext(ctx context.Context) ScopeTargetTargetIdentifierTargetIdPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeTargetTargetIdentifierTargetId) *ScopeTargetTargetIdentifierTargetId {
-		return &v
-	}).(ScopeTargetTargetIdentifierTargetIdPtrOutput)
-}
-
 // AWS account ID.
 func (o ScopeTargetTargetIdentifierTargetIdOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ScopeTargetTargetIdentifierTargetId) string { return v.AccountId }).(pulumi.StringOutput)
-}
-
-type ScopeTargetTargetIdentifierTargetIdPtrOutput struct{ *pulumi.OutputState }
-
-func (ScopeTargetTargetIdentifierTargetIdPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScopeTargetTargetIdentifierTargetId)(nil)).Elem()
-}
-
-func (o ScopeTargetTargetIdentifierTargetIdPtrOutput) ToScopeTargetTargetIdentifierTargetIdPtrOutput() ScopeTargetTargetIdentifierTargetIdPtrOutput {
-	return o
-}
-
-func (o ScopeTargetTargetIdentifierTargetIdPtrOutput) ToScopeTargetTargetIdentifierTargetIdPtrOutputWithContext(ctx context.Context) ScopeTargetTargetIdentifierTargetIdPtrOutput {
-	return o
-}
-
-func (o ScopeTargetTargetIdentifierTargetIdPtrOutput) Elem() ScopeTargetTargetIdentifierTargetIdOutput {
-	return o.ApplyT(func(v *ScopeTargetTargetIdentifierTargetId) ScopeTargetTargetIdentifierTargetId {
-		if v != nil {
-			return *v
-		}
-		var ret ScopeTargetTargetIdentifierTargetId
-		return ret
-	}).(ScopeTargetTargetIdentifierTargetIdOutput)
-}
-
-// AWS account ID.
-func (o ScopeTargetTargetIdentifierTargetIdPtrOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScopeTargetTargetIdentifierTargetId) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AccountId
-	}).(pulumi.StringPtrOutput)
 }
 
 type ScopeTimeouts struct {
@@ -984,9 +804,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetInput)(nil)).Elem(), ScopeTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetArrayInput)(nil)).Elem(), ScopeTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetTargetIdentifierInput)(nil)).Elem(), ScopeTargetTargetIdentifierArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetTargetIdentifierPtrInput)(nil)).Elem(), ScopeTargetTargetIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetTargetIdentifierTargetIdInput)(nil)).Elem(), ScopeTargetTargetIdentifierTargetIdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetTargetIdentifierTargetIdPtrInput)(nil)).Elem(), ScopeTargetTargetIdentifierTargetIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTimeoutsInput)(nil)).Elem(), ScopeTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTimeoutsPtrInput)(nil)).Elem(), ScopeTimeoutsArgs{})
 	pulumi.RegisterOutputType(MonitorLocalResourceOutput{})
@@ -998,9 +816,7 @@ func init() {
 	pulumi.RegisterOutputType(ScopeTargetOutput{})
 	pulumi.RegisterOutputType(ScopeTargetArrayOutput{})
 	pulumi.RegisterOutputType(ScopeTargetTargetIdentifierOutput{})
-	pulumi.RegisterOutputType(ScopeTargetTargetIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(ScopeTargetTargetIdentifierTargetIdOutput{})
-	pulumi.RegisterOutputType(ScopeTargetTargetIdentifierTargetIdPtrOutput{})
 	pulumi.RegisterOutputType(ScopeTimeoutsOutput{})
 	pulumi.RegisterOutputType(ScopeTimeoutsPtrOutput{})
 }

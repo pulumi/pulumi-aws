@@ -39,7 +39,7 @@ type CustomPermissions struct {
 	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Actions to include in the custom permissions profile. See capabilities.
-	Capabilities CustomPermissionsCapabilitiesPtrOutput `pulumi:"capabilities"`
+	Capabilities CustomPermissionsCapabilitiesOutput `pulumi:"capabilities"`
 	// Custom permissions profile name.
 	//
 	// The following arguments are optional:
@@ -59,6 +59,9 @@ func NewCustomPermissions(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Capabilities == nil {
+		return nil, errors.New("invalid value for required argument 'Capabilities'")
+	}
 	if args.CustomPermissionsName == nil {
 		return nil, errors.New("invalid value for required argument 'CustomPermissionsName'")
 	}
@@ -127,7 +130,7 @@ func (CustomPermissionsState) ElementType() reflect.Type {
 type customPermissionsArgs struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Actions to include in the custom permissions profile. See capabilities.
-	Capabilities *CustomPermissionsCapabilities `pulumi:"capabilities"`
+	Capabilities CustomPermissionsCapabilities `pulumi:"capabilities"`
 	// Custom permissions profile name.
 	//
 	// The following arguments are optional:
@@ -142,7 +145,7 @@ type customPermissionsArgs struct {
 type CustomPermissionsArgs struct {
 	AwsAccountId pulumi.StringPtrInput
 	// Actions to include in the custom permissions profile. See capabilities.
-	Capabilities CustomPermissionsCapabilitiesPtrInput
+	Capabilities CustomPermissionsCapabilitiesInput
 	// Custom permissions profile name.
 	//
 	// The following arguments are optional:
@@ -250,8 +253,8 @@ func (o CustomPermissionsOutput) AwsAccountId() pulumi.StringOutput {
 }
 
 // Actions to include in the custom permissions profile. See capabilities.
-func (o CustomPermissionsOutput) Capabilities() CustomPermissionsCapabilitiesPtrOutput {
-	return o.ApplyT(func(v *CustomPermissions) CustomPermissionsCapabilitiesPtrOutput { return v.Capabilities }).(CustomPermissionsCapabilitiesPtrOutput)
+func (o CustomPermissionsOutput) Capabilities() CustomPermissionsCapabilitiesOutput {
+	return o.ApplyT(func(v *CustomPermissions) CustomPermissionsCapabilitiesOutput { return v.Capabilities }).(CustomPermissionsCapabilitiesOutput)
 }
 
 // Custom permissions profile name.

@@ -29,15 +29,15 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
      * Container artifact configuration. See `agentRuntimeArtifact` below.
      * 
      */
-    @Import(name="agentRuntimeArtifact")
-    private @Nullable Output<AgentcoreAgentRuntimeAgentRuntimeArtifactArgs> agentRuntimeArtifact;
+    @Import(name="agentRuntimeArtifact", required=true)
+    private Output<AgentcoreAgentRuntimeAgentRuntimeArtifactArgs> agentRuntimeArtifact;
 
     /**
      * @return Container artifact configuration. See `agentRuntimeArtifact` below.
      * 
      */
-    public Optional<Output<AgentcoreAgentRuntimeAgentRuntimeArtifactArgs>> agentRuntimeArtifact() {
-        return Optional.ofNullable(this.agentRuntimeArtifact);
+    public Output<AgentcoreAgentRuntimeAgentRuntimeArtifactArgs> agentRuntimeArtifact() {
+        return this.agentRuntimeArtifact;
     }
 
     /**
@@ -121,8 +121,8 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
      * The following arguments are optional:
      * 
      */
-    @Import(name="networkConfiguration")
-    private @Nullable Output<AgentcoreAgentRuntimeNetworkConfigurationArgs> networkConfiguration;
+    @Import(name="networkConfiguration", required=true)
+    private Output<AgentcoreAgentRuntimeNetworkConfigurationArgs> networkConfiguration;
 
     /**
      * @return Network configuration for the agent runtime. See `networkConfiguration` below.
@@ -130,8 +130,8 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<AgentcoreAgentRuntimeNetworkConfigurationArgs>> networkConfiguration() {
-        return Optional.ofNullable(this.networkConfiguration);
+    public Output<AgentcoreAgentRuntimeNetworkConfigurationArgs> networkConfiguration() {
+        return this.networkConfiguration;
     }
 
     /**
@@ -258,7 +258,7 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder agentRuntimeArtifact(@Nullable Output<AgentcoreAgentRuntimeAgentRuntimeArtifactArgs> agentRuntimeArtifact) {
+        public Builder agentRuntimeArtifact(Output<AgentcoreAgentRuntimeAgentRuntimeArtifactArgs> agentRuntimeArtifact) {
             $.agentRuntimeArtifact = agentRuntimeArtifact;
             return this;
         }
@@ -396,7 +396,7 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder networkConfiguration(@Nullable Output<AgentcoreAgentRuntimeNetworkConfigurationArgs> networkConfiguration) {
+        public Builder networkConfiguration(Output<AgentcoreAgentRuntimeNetworkConfigurationArgs> networkConfiguration) {
             $.networkConfiguration = networkConfiguration;
             return this;
         }
@@ -528,8 +528,14 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
         }
 
         public AgentcoreAgentRuntimeArgs build() {
+            if ($.agentRuntimeArtifact == null) {
+                throw new MissingRequiredPropertyException("AgentcoreAgentRuntimeArgs", "agentRuntimeArtifact");
+            }
             if ($.agentRuntimeName == null) {
                 throw new MissingRequiredPropertyException("AgentcoreAgentRuntimeArgs", "agentRuntimeName");
+            }
+            if ($.networkConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentcoreAgentRuntimeArgs", "networkConfiguration");
             }
             if ($.roleArn == null) {
                 throw new MissingRequiredPropertyException("AgentcoreAgentRuntimeArgs", "roleArn");

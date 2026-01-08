@@ -7,6 +7,7 @@ import com.pulumi.aws.bedrock.inputs.AgentcoreCodeInterpreterNetworkConfiguratio
 import com.pulumi.aws.bedrock.inputs.AgentcoreCodeInterpreterTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -69,8 +70,8 @@ public final class AgentcoreCodeInterpreterArgs extends com.pulumi.resources.Res
      * The following arguments are optional:
      * 
      */
-    @Import(name="networkConfiguration")
-    private @Nullable Output<AgentcoreCodeInterpreterNetworkConfigurationArgs> networkConfiguration;
+    @Import(name="networkConfiguration", required=true)
+    private Output<AgentcoreCodeInterpreterNetworkConfigurationArgs> networkConfiguration;
 
     /**
      * @return Network configuration for the code interpreter. See `networkConfiguration` below.
@@ -78,8 +79,8 @@ public final class AgentcoreCodeInterpreterArgs extends com.pulumi.resources.Res
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<AgentcoreCodeInterpreterNetworkConfigurationArgs>> networkConfiguration() {
-        return Optional.ofNullable(this.networkConfiguration);
+    public Output<AgentcoreCodeInterpreterNetworkConfigurationArgs> networkConfiguration() {
+        return this.networkConfiguration;
     }
 
     /**
@@ -220,7 +221,7 @@ public final class AgentcoreCodeInterpreterArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder networkConfiguration(@Nullable Output<AgentcoreCodeInterpreterNetworkConfigurationArgs> networkConfiguration) {
+        public Builder networkConfiguration(Output<AgentcoreCodeInterpreterNetworkConfigurationArgs> networkConfiguration) {
             $.networkConfiguration = networkConfiguration;
             return this;
         }
@@ -289,6 +290,9 @@ public final class AgentcoreCodeInterpreterArgs extends com.pulumi.resources.Res
         }
 
         public AgentcoreCodeInterpreterArgs build() {
+            if ($.networkConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentcoreCodeInterpreterArgs", "networkConfiguration");
+            }
             return $;
         }
     }

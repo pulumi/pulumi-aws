@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Ssm
         /// Definition of the Quick Setup configuration that the configuration manager deploys. See `ConfigurationDefinition` below.
         /// </summary>
         [Output("configurationDefinition")]
-        public Output<Outputs.QuicksetupConfigurationManagerConfigurationDefinition?> ConfigurationDefinition { get; private set; } = null!;
+        public Output<Outputs.QuicksetupConfigurationManagerConfigurationDefinition> ConfigurationDefinition { get; private set; } = null!;
 
         /// <summary>
         /// Description of the configuration manager.
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public QuicksetupConfigurationManager(string name, QuicksetupConfigurationManagerArgs? args = null, CustomResourceOptions? options = null)
+        public QuicksetupConfigurationManager(string name, QuicksetupConfigurationManagerArgs args, CustomResourceOptions? options = null)
             : base("aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager", name, args ?? new QuicksetupConfigurationManagerArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -201,8 +201,8 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// Definition of the Quick Setup configuration that the configuration manager deploys. See `ConfigurationDefinition` below.
         /// </summary>
-        [Input("configurationDefinition")]
-        public Input<Inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs>? ConfigurationDefinition { get; set; }
+        [Input("configurationDefinition", required: true)]
+        public Input<Inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs> ConfigurationDefinition { get; set; } = null!;
 
         /// <summary>
         /// Description of the configuration manager.

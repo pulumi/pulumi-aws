@@ -892,6 +892,10 @@ if not MYPY:
         """
         Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of "any" must have the highest value for `priority` and be evaluated last.
         """
+        selection: 'GetLifecyclePolicyDocumentRuleSelectionArgsDict'
+        """
+        Collects parameters describing the selection criteria for the ECR lifecycle policy:
+        """
         action: NotRequired['GetLifecyclePolicyDocumentRuleActionArgsDict']
         """
         Specifies the action type.
@@ -900,10 +904,6 @@ if not MYPY:
         """
         Describes the purpose of a rule within a lifecycle policy.
         """
-        selection: NotRequired['GetLifecyclePolicyDocumentRuleSelectionArgsDict']
-        """
-        Collects parameters describing the selection criteria for the ECR lifecycle policy:
-        """
 elif False:
     GetLifecyclePolicyDocumentRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -911,22 +911,21 @@ elif False:
 class GetLifecyclePolicyDocumentRuleArgs:
     def __init__(__self__, *,
                  priority: _builtins.int,
+                 selection: 'GetLifecyclePolicyDocumentRuleSelectionArgs',
                  action: Optional['GetLifecyclePolicyDocumentRuleActionArgs'] = None,
-                 description: Optional[_builtins.str] = None,
-                 selection: Optional['GetLifecyclePolicyDocumentRuleSelectionArgs'] = None):
+                 description: Optional[_builtins.str] = None):
         """
         :param _builtins.int priority: Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of "any" must have the highest value for `priority` and be evaluated last.
+        :param 'GetLifecyclePolicyDocumentRuleSelectionArgs' selection: Collects parameters describing the selection criteria for the ECR lifecycle policy:
         :param 'GetLifecyclePolicyDocumentRuleActionArgs' action: Specifies the action type.
         :param _builtins.str description: Describes the purpose of a rule within a lifecycle policy.
-        :param 'GetLifecyclePolicyDocumentRuleSelectionArgs' selection: Collects parameters describing the selection criteria for the ECR lifecycle policy:
         """
         pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "selection", selection)
         if action is not None:
             pulumi.set(__self__, "action", action)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if selection is not None:
-            pulumi.set(__self__, "selection", selection)
 
     @_builtins.property
     @pulumi.getter
@@ -939,6 +938,18 @@ class GetLifecyclePolicyDocumentRuleArgs:
     @priority.setter
     def priority(self, value: _builtins.int):
         pulumi.set(self, "priority", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def selection(self) -> 'GetLifecyclePolicyDocumentRuleSelectionArgs':
+        """
+        Collects parameters describing the selection criteria for the ECR lifecycle policy:
+        """
+        return pulumi.get(self, "selection")
+
+    @selection.setter
+    def selection(self, value: 'GetLifecyclePolicyDocumentRuleSelectionArgs'):
+        pulumi.set(self, "selection", value)
 
     @_builtins.property
     @pulumi.getter
@@ -963,18 +974,6 @@ class GetLifecyclePolicyDocumentRuleArgs:
     @description.setter
     def description(self, value: Optional[_builtins.str]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def selection(self) -> Optional['GetLifecyclePolicyDocumentRuleSelectionArgs']:
-        """
-        Collects parameters describing the selection criteria for the ECR lifecycle policy:
-        """
-        return pulumi.get(self, "selection")
-
-    @selection.setter
-    def selection(self, value: Optional['GetLifecyclePolicyDocumentRuleSelectionArgs']):
-        pulumi.set(self, "selection", value)
 
 
 if not MYPY:

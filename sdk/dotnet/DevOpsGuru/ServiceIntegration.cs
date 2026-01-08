@@ -90,19 +90,19 @@ namespace Pulumi.Aws.DevOpsGuru
         /// Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `KmsServerSideEncryption` below.
         /// </summary>
         [Output("kmsServerSideEncryption")]
-        public Output<Outputs.ServiceIntegrationKmsServerSideEncryption?> KmsServerSideEncryption { get; private set; } = null!;
+        public Output<Outputs.ServiceIntegrationKmsServerSideEncryption> KmsServerSideEncryption { get; private set; } = null!;
 
         /// <summary>
         /// Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `LogsAnomalyDetection` below.
         /// </summary>
         [Output("logsAnomalyDetection")]
-        public Output<Outputs.ServiceIntegrationLogsAnomalyDetection?> LogsAnomalyDetection { get; private set; } = null!;
+        public Output<Outputs.ServiceIntegrationLogsAnomalyDetection> LogsAnomalyDetection { get; private set; } = null!;
 
         /// <summary>
         /// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `OpsCenter` below.
         /// </summary>
         [Output("opsCenter")]
-        public Output<Outputs.ServiceIntegrationOpsCenter?> OpsCenter { get; private set; } = null!;
+        public Output<Outputs.ServiceIntegrationOpsCenter> OpsCenter { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.DevOpsGuru
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ServiceIntegration(string name, ServiceIntegrationArgs? args = null, CustomResourceOptions? options = null)
+        public ServiceIntegration(string name, ServiceIntegrationArgs args, CustomResourceOptions? options = null)
             : base("aws:devopsguru/serviceIntegration:ServiceIntegration", name, args ?? new ServiceIntegrationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -159,20 +159,20 @@ namespace Pulumi.Aws.DevOpsGuru
         /// <summary>
         /// Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `KmsServerSideEncryption` below.
         /// </summary>
-        [Input("kmsServerSideEncryption")]
-        public Input<Inputs.ServiceIntegrationKmsServerSideEncryptionArgs>? KmsServerSideEncryption { get; set; }
+        [Input("kmsServerSideEncryption", required: true)]
+        public Input<Inputs.ServiceIntegrationKmsServerSideEncryptionArgs> KmsServerSideEncryption { get; set; } = null!;
 
         /// <summary>
         /// Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `LogsAnomalyDetection` below.
         /// </summary>
-        [Input("logsAnomalyDetection")]
-        public Input<Inputs.ServiceIntegrationLogsAnomalyDetectionArgs>? LogsAnomalyDetection { get; set; }
+        [Input("logsAnomalyDetection", required: true)]
+        public Input<Inputs.ServiceIntegrationLogsAnomalyDetectionArgs> LogsAnomalyDetection { get; set; } = null!;
 
         /// <summary>
         /// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `OpsCenter` below.
         /// </summary>
-        [Input("opsCenter")]
-        public Input<Inputs.ServiceIntegrationOpsCenterArgs>? OpsCenter { get; set; }
+        [Input("opsCenter", required: true)]
+        public Input<Inputs.ServiceIntegrationOpsCenterArgs> OpsCenter { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

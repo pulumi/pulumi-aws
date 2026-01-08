@@ -5,6 +5,7 @@ package com.pulumi.aws.workspacesweb.outputs;
 
 import com.pulumi.aws.workspacesweb.outputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -33,7 +34,7 @@ public final class DataProtectionSettingsInlineRedactionConfiguration {
      * @return The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
      * 
      */
-    private @Nullable List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern> inlineRedactionPatterns;
+    private List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern> inlineRedactionPatterns;
 
     private DataProtectionSettingsInlineRedactionConfiguration() {}
     /**
@@ -62,7 +63,7 @@ public final class DataProtectionSettingsInlineRedactionConfiguration {
      * 
      */
     public List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern> inlineRedactionPatterns() {
-        return this.inlineRedactionPatterns == null ? List.of() : this.inlineRedactionPatterns;
+        return this.inlineRedactionPatterns;
     }
 
     public static Builder builder() {
@@ -77,7 +78,7 @@ public final class DataProtectionSettingsInlineRedactionConfiguration {
         private @Nullable Integer globalConfidenceLevel;
         private @Nullable List<String> globalEnforcedUrls;
         private @Nullable List<String> globalExemptUrls;
-        private @Nullable List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern> inlineRedactionPatterns;
+        private List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern> inlineRedactionPatterns;
         public Builder() {}
         public Builder(DataProtectionSettingsInlineRedactionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -112,8 +113,10 @@ public final class DataProtectionSettingsInlineRedactionConfiguration {
             return globalExemptUrls(List.of(globalExemptUrls));
         }
         @CustomType.Setter
-        public Builder inlineRedactionPatterns(@Nullable List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern> inlineRedactionPatterns) {
-
+        public Builder inlineRedactionPatterns(List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern> inlineRedactionPatterns) {
+            if (inlineRedactionPatterns == null) {
+              throw new MissingRequiredPropertyException("DataProtectionSettingsInlineRedactionConfiguration", "inlineRedactionPatterns");
+            }
             this.inlineRedactionPatterns = inlineRedactionPatterns;
             return this;
         }

@@ -68,15 +68,15 @@ public final class GetLifecyclePolicyDocumentRuleArgs extends com.pulumi.resourc
      * Collects parameters describing the selection criteria for the ECR lifecycle policy:
      * 
      */
-    @Import(name="selection")
-    private @Nullable Output<GetLifecyclePolicyDocumentRuleSelectionArgs> selection;
+    @Import(name="selection", required=true)
+    private Output<GetLifecyclePolicyDocumentRuleSelectionArgs> selection;
 
     /**
      * @return Collects parameters describing the selection criteria for the ECR lifecycle policy:
      * 
      */
-    public Optional<Output<GetLifecyclePolicyDocumentRuleSelectionArgs>> selection() {
-        return Optional.ofNullable(this.selection);
+    public Output<GetLifecyclePolicyDocumentRuleSelectionArgs> selection() {
+        return this.selection;
     }
 
     private GetLifecyclePolicyDocumentRuleArgs() {}
@@ -175,7 +175,7 @@ public final class GetLifecyclePolicyDocumentRuleArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder selection(@Nullable Output<GetLifecyclePolicyDocumentRuleSelectionArgs> selection) {
+        public Builder selection(Output<GetLifecyclePolicyDocumentRuleSelectionArgs> selection) {
             $.selection = selection;
             return this;
         }
@@ -193,6 +193,9 @@ public final class GetLifecyclePolicyDocumentRuleArgs extends com.pulumi.resourc
         public GetLifecyclePolicyDocumentRuleArgs build() {
             if ($.priority == null) {
                 throw new MissingRequiredPropertyException("GetLifecyclePolicyDocumentRuleArgs", "priority");
+            }
+            if ($.selection == null) {
+                throw new MissingRequiredPropertyException("GetLifecyclePolicyDocumentRuleArgs", "selection");
             }
             return $;
         }

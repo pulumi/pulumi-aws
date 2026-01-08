@@ -60,15 +60,15 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
      * See Grantee below for more details.
      * 
      */
-    @Import(name="grantee")
-    private @Nullable Output<AccessGrantGranteeArgs> grantee;
+    @Import(name="grantee", required=true)
+    private Output<AccessGrantGranteeArgs> grantee;
 
     /**
      * @return See Grantee below for more details.
      * 
      */
-    public Optional<Output<AccessGrantGranteeArgs>> grantee() {
-        return Optional.ofNullable(this.grantee);
+    public Output<AccessGrantGranteeArgs> grantee() {
+        return this.grantee;
     }
 
     /**
@@ -219,7 +219,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder grantee(@Nullable Output<AccessGrantGranteeArgs> grantee) {
+        public Builder grantee(Output<AccessGrantGranteeArgs> grantee) {
             $.grantee = grantee;
             return this;
         }
@@ -321,6 +321,9 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         public AccessGrantArgs build() {
             if ($.accessGrantsLocationId == null) {
                 throw new MissingRequiredPropertyException("AccessGrantArgs", "accessGrantsLocationId");
+            }
+            if ($.grantee == null) {
+                throw new MissingRequiredPropertyException("AccessGrantArgs", "grantee");
             }
             if ($.permission == null) {
                 throw new MissingRequiredPropertyException("AccessGrantArgs", "permission");

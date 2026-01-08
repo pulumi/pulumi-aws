@@ -17,7 +17,6 @@ import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingFailureRespons
 import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingPromptSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -212,15 +211,15 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
      * Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `promptSpecification`.
      * 
      */
-    @Import(name="promptSpecification", required=true)
-    private Output<V2modelsIntentConfirmationSettingPromptSpecificationArgs> promptSpecification;
+    @Import(name="promptSpecification")
+    private @Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationArgs> promptSpecification;
 
     /**
      * @return Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `promptSpecification`.
      * 
      */
-    public Output<V2modelsIntentConfirmationSettingPromptSpecificationArgs> promptSpecification() {
-        return this.promptSpecification;
+    public Optional<Output<V2modelsIntentConfirmationSettingPromptSpecificationArgs>> promptSpecification() {
+        return Optional.ofNullable(this.promptSpecification);
     }
 
     private V2modelsIntentConfirmationSettingArgs() {}
@@ -517,7 +516,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
          * @return builder
          * 
          */
-        public Builder promptSpecification(Output<V2modelsIntentConfirmationSettingPromptSpecificationArgs> promptSpecification) {
+        public Builder promptSpecification(@Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationArgs> promptSpecification) {
             $.promptSpecification = promptSpecification;
             return this;
         }
@@ -533,9 +532,6 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         public V2modelsIntentConfirmationSettingArgs build() {
-            if ($.promptSpecification == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingArgs", "promptSpecification");
-            }
             return $;
         }
     }

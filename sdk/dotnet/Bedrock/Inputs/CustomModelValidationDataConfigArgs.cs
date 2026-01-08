@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class CustomModelValidationDataConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("validators")]
+        [Input("validators", required: true)]
         private InputList<Inputs.CustomModelValidationDataConfigValidatorArgs>? _validators;
 
         /// <summary>

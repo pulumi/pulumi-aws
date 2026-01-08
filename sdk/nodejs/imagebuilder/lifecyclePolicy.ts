@@ -121,7 +121,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * Configuration block with policy details. Detailed below.
      */
-    declare public readonly policyDetails: pulumi.Output<outputs.imagebuilder.LifecyclePolicyPolicyDetail[] | undefined>;
+    declare public readonly policyDetails: pulumi.Output<outputs.imagebuilder.LifecyclePolicyPolicyDetail[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -131,7 +131,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly resourceSelection: pulumi.Output<outputs.imagebuilder.LifecyclePolicyResourceSelection | undefined>;
+    declare public readonly resourceSelection: pulumi.Output<outputs.imagebuilder.LifecyclePolicyResourceSelection>;
     /**
      * The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
      */
@@ -177,6 +177,12 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             const args = argsOrState as LifecyclePolicyArgs | undefined;
             if (args?.executionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRole'");
+            }
+            if (args?.policyDetails === undefined && !opts.urn) {
+                throw new Error("Missing required property 'policyDetails'");
+            }
+            if (args?.resourceSelection === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourceSelection'");
             }
             if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
@@ -269,7 +275,7 @@ export interface LifecyclePolicyArgs {
     /**
      * Configuration block with policy details. Detailed below.
      */
-    policyDetails?: pulumi.Input<pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetail>[]>;
+    policyDetails: pulumi.Input<pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetail>[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -279,7 +285,7 @@ export interface LifecyclePolicyArgs {
      *
      * The following arguments are optional:
      */
-    resourceSelection?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyResourceSelection>;
+    resourceSelection: pulumi.Input<inputs.imagebuilder.LifecyclePolicyResourceSelection>;
     /**
      * The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
      */

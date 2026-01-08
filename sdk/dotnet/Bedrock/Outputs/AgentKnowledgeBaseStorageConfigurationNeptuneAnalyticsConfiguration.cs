@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
-        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping? FieldMapping;
+        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping FieldMapping;
         /// <summary>
         /// ARN of the Neptune Analytics vector store.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration(
-            Outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping? fieldMapping,
+            Outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping fieldMapping,
 
             string graphArn)
         {

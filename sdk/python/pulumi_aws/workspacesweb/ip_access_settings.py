@@ -22,33 +22,32 @@ __all__ = ['IpAccessSettingsArgs', 'IpAccessSettings']
 class IpAccessSettingsArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
+                 ip_rules: pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]],
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IpAccessSettings resource.
         :param pulumi.Input[_builtins.str] display_name: The display name of the IP access settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the IP access settings.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] description: The description of the IP access settings.
         :param pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]] ip_rules: The IP rules of the IP access settings. See IP Rule below.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the IP access settings.
+        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
+        :param pulumi.Input[_builtins.str] description: The description of the IP access settings.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "ip_rules", ip_rules)
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -65,6 +64,20 @@ class IpAccessSettingsArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]]:
+        """
+        The IP rules of the IP access settings. See IP Rule below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]]):
+        pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
@@ -101,20 +114,6 @@ class IpAccessSettingsArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]]]:
-        """
-        The IP rules of the IP access settings. See IP Rule below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "ip_rules")
-
-    @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]]]):
-        pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter
@@ -538,6 +537,8 @@ class IpAccessSettings(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            if ip_rules is None and not opts.urn:
+                raise TypeError("Missing required property 'ip_rules'")
             __props__.__dict__["ip_rules"] = ip_rules
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
@@ -650,7 +651,7 @@ class IpAccessSettings(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> pulumi.Output[Optional[Sequence['outputs.IpAccessSettingsIpRule']]]:
+    def ip_rules(self) -> pulumi.Output[Sequence['outputs.IpAccessSettingsIpRule']]:
         """
         The IP rules of the IP access settings. See IP Rule below.
 

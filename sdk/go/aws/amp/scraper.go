@@ -28,7 +28,7 @@ type Scraper struct {
 	// The Amazon Resource Name (ARN) of the new scraper.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for the managed scraper to send metrics to. See `destination`.
-	Destination ScraperDestinationPtrOutput `pulumi:"destination"`
+	Destination ScraperDestinationOutput `pulumi:"destination"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
@@ -53,6 +53,9 @@ func NewScraper(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Destination == nil {
+		return nil, errors.New("invalid value for required argument 'Destination'")
+	}
 	if args.ScrapeConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ScrapeConfiguration'")
 	}
@@ -134,7 +137,7 @@ type scraperArgs struct {
 	// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
 	Alias *string `pulumi:"alias"`
 	// Configuration block for the managed scraper to send metrics to. See `destination`.
-	Destination *ScraperDestination `pulumi:"destination"`
+	Destination ScraperDestination `pulumi:"destination"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
@@ -154,7 +157,7 @@ type ScraperArgs struct {
 	// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
 	Alias pulumi.StringPtrInput
 	// Configuration block for the managed scraper to send metrics to. See `destination`.
-	Destination ScraperDestinationPtrInput
+	Destination ScraperDestinationInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
@@ -267,8 +270,8 @@ func (o ScraperOutput) Arn() pulumi.StringOutput {
 }
 
 // Configuration block for the managed scraper to send metrics to. See `destination`.
-func (o ScraperOutput) Destination() ScraperDestinationPtrOutput {
-	return o.ApplyT(func(v *Scraper) ScraperDestinationPtrOutput { return v.Destination }).(ScraperDestinationPtrOutput)
+func (o ScraperOutput) Destination() ScraperDestinationOutput {
+	return o.ApplyT(func(v *Scraper) ScraperDestinationOutput { return v.Destination }).(ScraperDestinationOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

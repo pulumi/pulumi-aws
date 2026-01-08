@@ -180,6 +180,9 @@ func NewIpAccessSettings(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
+	if args.IpRules == nil {
+		return nil, errors.New("invalid value for required argument 'IpRules'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpAccessSettings
 	err := ctx.RegisterResource("aws:workspacesweb/ipAccessSettings:IpAccessSettings", name, args, &resource, opts...)

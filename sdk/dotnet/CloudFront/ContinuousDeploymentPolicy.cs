@@ -173,7 +173,7 @@ namespace Pulumi.Aws.CloudFront
         /// CloudFront domain name of the staging distribution. See `StagingDistributionDnsNames`.
         /// </summary>
         [Output("stagingDistributionDnsNames")]
-        public Output<Outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames?> StagingDistributionDnsNames { get; private set; } = null!;
+        public Output<Outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames> StagingDistributionDnsNames { get; private set; } = null!;
 
         /// <summary>
         /// Parameters for routing production traffic from primary to staging distributions. See `TrafficConfig`.
@@ -236,8 +236,8 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// CloudFront domain name of the staging distribution. See `StagingDistributionDnsNames`.
         /// </summary>
-        [Input("stagingDistributionDnsNames")]
-        public Input<Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs>? StagingDistributionDnsNames { get; set; }
+        [Input("stagingDistributionDnsNames", required: true)]
+        public Input<Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> StagingDistributionDnsNames { get; set; } = null!;
 
         /// <summary>
         /// Parameters for routing production traffic from primary to staging distributions. See `TrafficConfig`.

@@ -5,6 +5,7 @@ package com.pulumi.aws.cleanrooms.outputs;
 
 import com.pulumi.aws.cleanrooms.outputs.MembershipDefaultResultConfigurationOutputConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,7 +13,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MembershipDefaultResultConfiguration {
-    private @Nullable MembershipDefaultResultConfigurationOutputConfiguration outputConfiguration;
+    private MembershipDefaultResultConfigurationOutputConfiguration outputConfiguration;
     /**
      * @return The ARN of the IAM role which will be used to create the membership.
      * - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
@@ -23,8 +24,8 @@ public final class MembershipDefaultResultConfiguration {
     private @Nullable String roleArn;
 
     private MembershipDefaultResultConfiguration() {}
-    public Optional<MembershipDefaultResultConfigurationOutputConfiguration> outputConfiguration() {
-        return Optional.ofNullable(this.outputConfiguration);
+    public MembershipDefaultResultConfigurationOutputConfiguration outputConfiguration() {
+        return this.outputConfiguration;
     }
     /**
      * @return The ARN of the IAM role which will be used to create the membership.
@@ -46,7 +47,7 @@ public final class MembershipDefaultResultConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable MembershipDefaultResultConfigurationOutputConfiguration outputConfiguration;
+        private MembershipDefaultResultConfigurationOutputConfiguration outputConfiguration;
         private @Nullable String roleArn;
         public Builder() {}
         public Builder(MembershipDefaultResultConfiguration defaults) {
@@ -56,8 +57,10 @@ public final class MembershipDefaultResultConfiguration {
         }
 
         @CustomType.Setter
-        public Builder outputConfiguration(@Nullable MembershipDefaultResultConfigurationOutputConfiguration outputConfiguration) {
-
+        public Builder outputConfiguration(MembershipDefaultResultConfigurationOutputConfiguration outputConfiguration) {
+            if (outputConfiguration == null) {
+              throw new MissingRequiredPropertyException("MembershipDefaultResultConfiguration", "outputConfiguration");
+            }
             this.outputConfiguration = outputConfiguration;
             return this;
         }

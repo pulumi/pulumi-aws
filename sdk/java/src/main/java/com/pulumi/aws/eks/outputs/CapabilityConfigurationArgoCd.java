@@ -7,6 +7,7 @@ import com.pulumi.aws.eks.outputs.CapabilityConfigurationArgoCdAwsIdc;
 import com.pulumi.aws.eks.outputs.CapabilityConfigurationArgoCdNetworkAccess;
 import com.pulumi.aws.eks.outputs.CapabilityConfigurationArgoCdRbacRoleMapping;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -19,7 +20,7 @@ public final class CapabilityConfigurationArgoCd {
      * @return AWS IAM Identity Center configuration. See `awsIdc` below.
      * 
      */
-    private @Nullable CapabilityConfigurationArgoCdAwsIdc awsIdc;
+    private CapabilityConfigurationArgoCdAwsIdc awsIdc;
     /**
      * @return Kubernetes namespace for ArgoCD.
      * 
@@ -46,8 +47,8 @@ public final class CapabilityConfigurationArgoCd {
      * @return AWS IAM Identity Center configuration. See `awsIdc` below.
      * 
      */
-    public Optional<CapabilityConfigurationArgoCdAwsIdc> awsIdc() {
-        return Optional.ofNullable(this.awsIdc);
+    public CapabilityConfigurationArgoCdAwsIdc awsIdc() {
+        return this.awsIdc;
     }
     /**
      * @return Kubernetes namespace for ArgoCD.
@@ -87,7 +88,7 @@ public final class CapabilityConfigurationArgoCd {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable CapabilityConfigurationArgoCdAwsIdc awsIdc;
+        private CapabilityConfigurationArgoCdAwsIdc awsIdc;
         private @Nullable String namespace;
         private @Nullable CapabilityConfigurationArgoCdNetworkAccess networkAccess;
         private @Nullable List<CapabilityConfigurationArgoCdRbacRoleMapping> rbacRoleMappings;
@@ -103,8 +104,10 @@ public final class CapabilityConfigurationArgoCd {
         }
 
         @CustomType.Setter
-        public Builder awsIdc(@Nullable CapabilityConfigurationArgoCdAwsIdc awsIdc) {
-
+        public Builder awsIdc(CapabilityConfigurationArgoCdAwsIdc awsIdc) {
+            if (awsIdc == null) {
+              throw new MissingRequiredPropertyException("CapabilityConfigurationArgoCd", "awsIdc");
+            }
             this.awsIdc = awsIdc;
             return this;
         }

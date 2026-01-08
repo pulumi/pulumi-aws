@@ -33,8 +33,8 @@ namespace Pulumi.Aws.Lex.Inputs
         /// <summary>
         /// Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `PostCodeHookSpecification`.
         /// </summary>
-        [Input("postCodeHookSpecification", required: true)]
-        public Input<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs> PostCodeHookSpecification { get; set; } = null!;
+        [Input("postCodeHookSpecification")]
+        public Input<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs>? PostCodeHookSpecification { get; set; }
 
         public V2modelsIntentInitialResponseSettingCodeHookArgs()
         {

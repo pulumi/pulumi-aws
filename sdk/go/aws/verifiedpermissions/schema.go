@@ -64,7 +64,7 @@ type Schema struct {
 	pulumi.CustomResourceState
 
 	// The definition of the schema.
-	Definition SchemaDefinitionPtrOutput `pulumi:"definition"`
+	Definition SchemaDefinitionOutput `pulumi:"definition"`
 	// (Optional) Identifies the namespaces of the entities referenced by this schema.
 	Namespaces pulumi.StringArrayOutput `pulumi:"namespaces"`
 	// The ID of the Policy Store.
@@ -80,6 +80,9 @@ func NewSchema(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
 	if args.PolicyStoreId == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyStoreId'")
 	}
@@ -133,7 +136,7 @@ func (SchemaState) ElementType() reflect.Type {
 
 type schemaArgs struct {
 	// The definition of the schema.
-	Definition *SchemaDefinition `pulumi:"definition"`
+	Definition SchemaDefinition `pulumi:"definition"`
 	// The ID of the Policy Store.
 	PolicyStoreId string `pulumi:"policyStoreId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -143,7 +146,7 @@ type schemaArgs struct {
 // The set of arguments for constructing a Schema resource.
 type SchemaArgs struct {
 	// The definition of the schema.
-	Definition SchemaDefinitionPtrInput
+	Definition SchemaDefinitionInput
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -238,8 +241,8 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 }
 
 // The definition of the schema.
-func (o SchemaOutput) Definition() SchemaDefinitionPtrOutput {
-	return o.ApplyT(func(v *Schema) SchemaDefinitionPtrOutput { return v.Definition }).(SchemaDefinitionPtrOutput)
+func (o SchemaOutput) Definition() SchemaDefinitionOutput {
+	return o.ApplyT(func(v *Schema) SchemaDefinitionOutput { return v.Definition }).(SchemaDefinitionOutput)
 }
 
 // (Optional) Identifies the namespaces of the entities referenced by this schema.

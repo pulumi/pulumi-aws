@@ -221,14 +221,14 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dataCollectionOptions", refs={CloudVmClusterDataCollectionOptions.class}, tree="[0]")
-    private Output</* @Nullable */ CloudVmClusterDataCollectionOptions> dataCollectionOptions;
+    private Output<CloudVmClusterDataCollectionOptions> dataCollectionOptions;
 
     /**
      * @return The set of preferences for the various diagnostic collection options for the VM cluster.
      * 
      */
-    public Output<Optional<CloudVmClusterDataCollectionOptions>> dataCollectionOptions() {
-        return Codegen.optional(this.dataCollectionOptions);
+    public Output<CloudVmClusterDataCollectionOptions> dataCollectionOptions() {
+        return this.dataCollectionOptions;
     }
     /**
      * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.

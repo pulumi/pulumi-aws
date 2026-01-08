@@ -12,7 +12,7 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class ApiEventConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("authProviders")]
+        [Input("authProviders", required: true)]
         private InputList<Inputs.ApiEventConfigAuthProviderGetArgs>? _authProviders;
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.AppSync.Inputs
             set => _authProviders = value;
         }
 
-        [Input("connectionAuthModes")]
+        [Input("connectionAuthModes", required: true)]
         private InputList<Inputs.ApiEventConfigConnectionAuthModeGetArgs>? _connectionAuthModes;
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.AppSync.Inputs
             set => _connectionAuthModes = value;
         }
 
-        [Input("defaultPublishAuthModes")]
+        [Input("defaultPublishAuthModes", required: true)]
         private InputList<Inputs.ApiEventConfigDefaultPublishAuthModeGetArgs>? _defaultPublishAuthModes;
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.AppSync.Inputs
             set => _defaultPublishAuthModes = value;
         }
 
-        [Input("defaultSubscribeAuthModes")]
+        [Input("defaultSubscribeAuthModes", required: true)]
         private InputList<Inputs.ApiEventConfigDefaultSubscribeAuthModeGetArgs>? _defaultSubscribeAuthModes;
 
         /// <summary>

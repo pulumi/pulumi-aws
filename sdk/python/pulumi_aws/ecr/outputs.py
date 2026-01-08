@@ -540,22 +540,21 @@ class GetImagesImageIdResult(dict):
 class GetLifecyclePolicyDocumentRuleResult(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
+                 selection: 'outputs.GetLifecyclePolicyDocumentRuleSelectionResult',
                  action: Optional['outputs.GetLifecyclePolicyDocumentRuleActionResult'] = None,
-                 description: Optional[_builtins.str] = None,
-                 selection: Optional['outputs.GetLifecyclePolicyDocumentRuleSelectionResult'] = None):
+                 description: Optional[_builtins.str] = None):
         """
         :param _builtins.int priority: Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of "any" must have the highest value for `priority` and be evaluated last.
+        :param 'GetLifecyclePolicyDocumentRuleSelectionArgs' selection: Collects parameters describing the selection criteria for the ECR lifecycle policy:
         :param 'GetLifecyclePolicyDocumentRuleActionArgs' action: Specifies the action type.
         :param _builtins.str description: Describes the purpose of a rule within a lifecycle policy.
-        :param 'GetLifecyclePolicyDocumentRuleSelectionArgs' selection: Collects parameters describing the selection criteria for the ECR lifecycle policy:
         """
         pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "selection", selection)
         if action is not None:
             pulumi.set(__self__, "action", action)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if selection is not None:
-            pulumi.set(__self__, "selection", selection)
 
     @_builtins.property
     @pulumi.getter
@@ -564,6 +563,14 @@ class GetLifecyclePolicyDocumentRuleResult(dict):
         Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of "any" must have the highest value for `priority` and be evaluated last.
         """
         return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def selection(self) -> 'outputs.GetLifecyclePolicyDocumentRuleSelectionResult':
+        """
+        Collects parameters describing the selection criteria for the ECR lifecycle policy:
+        """
+        return pulumi.get(self, "selection")
 
     @_builtins.property
     @pulumi.getter
@@ -580,14 +587,6 @@ class GetLifecyclePolicyDocumentRuleResult(dict):
         Describes the purpose of a rule within a lifecycle policy.
         """
         return pulumi.get(self, "description")
-
-    @_builtins.property
-    @pulumi.getter
-    def selection(self) -> Optional['outputs.GetLifecyclePolicyDocumentRuleSelectionResult']:
-        """
-        Collects parameters describing the selection criteria for the ECR lifecycle policy:
-        """
-        return pulumi.get(self, "selection")
 
 
 @pulumi.output_type

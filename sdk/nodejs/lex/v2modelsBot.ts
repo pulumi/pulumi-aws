@@ -90,7 +90,7 @@ export class V2modelsBot extends pulumi.CustomResource {
     /**
      * Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
      */
-    declare public readonly dataPrivacies: pulumi.Output<outputs.lex.V2modelsBotDataPrivacy[] | undefined>;
+    declare public readonly dataPrivacies: pulumi.Output<outputs.lex.V2modelsBotDataPrivacy[]>;
     /**
      * Description of the bot. It appears in lists to help you identify a particular bot.
      */
@@ -160,6 +160,9 @@ export class V2modelsBot extends pulumi.CustomResource {
             resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as V2modelsBotArgs | undefined;
+            if (args?.dataPrivacies === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataPrivacies'");
+            }
             if (args?.idleSessionTtlInSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'idleSessionTtlInSeconds'");
             }
@@ -243,7 +246,7 @@ export interface V2modelsBotArgs {
     /**
      * Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
      */
-    dataPrivacies?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotDataPrivacy>[]>;
+    dataPrivacies: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotDataPrivacy>[]>;
     /**
      * Description of the bot. It appears in lists to help you identify a particular bot.
      */

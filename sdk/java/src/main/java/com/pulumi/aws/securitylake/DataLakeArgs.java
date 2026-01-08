@@ -23,15 +23,15 @@ public final class DataLakeArgs extends com.pulumi.resources.ResourceArgs {
      * Specify the Region or Regions that will contribute data to the rollup region.
      * 
      */
-    @Import(name="configuration")
-    private @Nullable Output<DataLakeConfigurationArgs> configuration;
+    @Import(name="configuration", required=true)
+    private Output<DataLakeConfigurationArgs> configuration;
 
     /**
      * @return Specify the Region or Regions that will contribute data to the rollup region.
      * 
      */
-    public Optional<Output<DataLakeConfigurationArgs>> configuration() {
-        return Optional.ofNullable(this.configuration);
+    public Output<DataLakeConfigurationArgs> configuration() {
+        return this.configuration;
     }
 
     /**
@@ -120,7 +120,7 @@ public final class DataLakeArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder configuration(@Nullable Output<DataLakeConfigurationArgs> configuration) {
+        public Builder configuration(Output<DataLakeConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
@@ -208,6 +208,9 @@ public final class DataLakeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DataLakeArgs build() {
+            if ($.configuration == null) {
+                throw new MissingRequiredPropertyException("DataLakeArgs", "configuration");
+            }
             if ($.metaStoreManagerRoleArn == null) {
                 throw new MissingRequiredPropertyException("DataLakeArgs", "metaStoreManagerRoleArn");
             }

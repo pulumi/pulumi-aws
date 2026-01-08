@@ -25,7 +25,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
      * @return Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
      * 
      */
-    private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes;
+    private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes;
     /**
      * @return Configuration block for settings on audio and DTMF input. See `audioAndDtmfInputSpecification`.
      * 
@@ -54,8 +54,8 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
      * @return Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
      * 
      */
-    public V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes() {
-        return this.allowedInputTypes;
+    public Optional<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes> allowedInputTypes() {
+        return Optional.ofNullable(this.allowedInputTypes);
     }
     /**
      * @return Configuration block for settings on audio and DTMF input. See `audioAndDtmfInputSpecification`.
@@ -89,7 +89,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowInterrupt;
-        private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes;
+        private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes;
         private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification audioAndDtmfInputSpecification;
         private String mapBlockKey;
         private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification textInputSpecification;
@@ -110,10 +110,8 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
             return this;
         }
         @CustomType.Setter
-        public Builder allowedInputTypes(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes) {
-            if (allowedInputTypes == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification", "allowedInputTypes");
-            }
+        public Builder allowedInputTypes(@Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes) {
+
             this.allowedInputTypes = allowedInputTypes;
             return this;
         }

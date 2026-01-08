@@ -21,9 +21,9 @@ __all__ = ['AgentDataSourceArgs', 'AgentDataSource']
 @pulumi.input_type
 class AgentDataSourceArgs:
     def __init__(__self__, *,
+                 data_source_configuration: pulumi.Input['AgentDataSourceDataSourceConfigurationArgs'],
                  knowledge_base_id: pulumi.Input[_builtins.str],
                  data_deletion_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_configuration: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -32,9 +32,9 @@ class AgentDataSourceArgs:
                  vector_ingestion_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a AgentDataSource resource.
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationArgs'] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
         :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
         :param pulumi.Input[_builtins.str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input['AgentDataSourceDataSourceConfigurationArgs'] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
         :param pulumi.Input[_builtins.str] description: Description of the data source.
         :param pulumi.Input[_builtins.str] name: Name of the data source.
                
@@ -43,11 +43,10 @@ class AgentDataSourceArgs:
         :param pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
+        pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
         if data_deletion_policy is not None:
             pulumi.set(__self__, "data_deletion_policy", data_deletion_policy)
-        if data_source_configuration is not None:
-            pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -60,6 +59,18 @@ class AgentDataSourceArgs:
             pulumi.set(__self__, "timeouts", timeouts)
         if vector_ingestion_configuration is not None:
             pulumi.set(__self__, "vector_ingestion_configuration", vector_ingestion_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceConfiguration")
+    def data_source_configuration(self) -> pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']:
+        """
+        Details about how the data source is stored. See `data_source_configuration` block for details.
+        """
+        return pulumi.get(self, "data_source_configuration")
+
+    @data_source_configuration.setter
+    def data_source_configuration(self, value: pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']):
+        pulumi.set(self, "data_source_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
@@ -84,18 +95,6 @@ class AgentDataSourceArgs:
     @data_deletion_policy.setter
     def data_deletion_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "data_deletion_policy", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSourceConfiguration")
-    def data_source_configuration(self) -> Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']]:
-        """
-        Details about how the data source is stored. See `data_source_configuration` block for details.
-        """
-        return pulumi.get(self, "data_source_configuration")
-
-    @data_source_configuration.setter
-    def data_source_configuration(self, value: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']]):
-        pulumi.set(self, "data_source_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -466,6 +465,8 @@ class AgentDataSource(pulumi.CustomResource):
             __props__ = AgentDataSourceArgs.__new__(AgentDataSourceArgs)
 
             __props__.__dict__["data_deletion_policy"] = data_deletion_policy
+            if data_source_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'data_source_configuration'")
             __props__.__dict__["data_source_configuration"] = data_source_configuration
             __props__.__dict__["description"] = description
             if knowledge_base_id is None and not opts.urn:
@@ -542,7 +543,7 @@ class AgentDataSource(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="dataSourceConfiguration")
-    def data_source_configuration(self) -> pulumi.Output[Optional['outputs.AgentDataSourceDataSourceConfiguration']]:
+    def data_source_configuration(self) -> pulumi.Output['outputs.AgentDataSourceDataSourceConfiguration']:
         """
         Details about how the data source is stored. See `data_source_configuration` block for details.
         """

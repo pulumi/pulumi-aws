@@ -65,7 +65,7 @@ namespace Pulumi.Aws.LakeFormation
         /// Exactly one of the following is required:
         /// </summary>
         [Output("lfTag")]
-        public Output<Outputs.ResourceLfTagLfTag?> LfTag { get; private set; } = null!;
+        public Output<Outputs.ResourceLfTagLfTag> LfTag { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ResourceLfTag(string name, ResourceLfTagArgs? args = null, CustomResourceOptions? options = null)
+        public ResourceLfTag(string name, ResourceLfTagArgs args, CustomResourceOptions? options = null)
             : base("aws:lakeformation/resourceLfTag:ResourceLfTag", name, args ?? new ResourceLfTagArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -153,8 +153,8 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// Exactly one of the following is required:
         /// </summary>
-        [Input("lfTag")]
-        public Input<Inputs.ResourceLfTagLfTagArgs>? LfTag { get; set; }
+        [Input("lfTag", required: true)]
+        public Input<Inputs.ResourceLfTagLfTagArgs> LfTag { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

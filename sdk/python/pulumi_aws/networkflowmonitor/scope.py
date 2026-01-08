@@ -21,26 +21,39 @@ __all__ = ['ScopeArgs', 'Scope']
 @pulumi.input_type
 class ScopeArgs:
     def __init__(__self__, *,
+                 targets: pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]],
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['ScopeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Scope resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]] targets: The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "targets", targets)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if targets is not None:
-            pulumi.set(__self__, "targets", targets)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter
+    def targets(self) -> pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]]:
+        """
+        The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]]):
+        pulumi.set(self, "targets", value)
 
     @_builtins.property
     @pulumi.getter
@@ -65,20 +78,6 @@ class ScopeArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]]]:
-        """
-        The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "targets")
-
-    @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]]]):
-        pulumi.set(self, "targets", value)
 
     @_builtins.property
     @pulumi.getter
@@ -268,7 +267,7 @@ class Scope(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ScopeArgs] = None,
+                 args: ScopeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Flow Monitor Scope.
@@ -335,6 +334,8 @@ class Scope(pulumi.CustomResource):
 
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
+            if targets is None and not opts.urn:
+                raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["scope_arn"] = None
@@ -428,7 +429,7 @@ class Scope(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def targets(self) -> pulumi.Output[Optional[Sequence['outputs.ScopeTarget']]]:
+    def targets(self) -> pulumi.Output[Sequence['outputs.ScopeTarget']]:
         """
         The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
 

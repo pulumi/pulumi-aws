@@ -5,9 +5,9 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.CustomModelValidationDataConfigValidator;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomModelValidationDataConfig {
@@ -15,7 +15,7 @@ public final class CustomModelValidationDataConfig {
      * @return Information about the validators.
      * 
      */
-    private @Nullable List<CustomModelValidationDataConfigValidator> validators;
+    private List<CustomModelValidationDataConfigValidator> validators;
 
     private CustomModelValidationDataConfig() {}
     /**
@@ -23,7 +23,7 @@ public final class CustomModelValidationDataConfig {
      * 
      */
     public List<CustomModelValidationDataConfigValidator> validators() {
-        return this.validators == null ? List.of() : this.validators;
+        return this.validators;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class CustomModelValidationDataConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<CustomModelValidationDataConfigValidator> validators;
+        private List<CustomModelValidationDataConfigValidator> validators;
         public Builder() {}
         public Builder(CustomModelValidationDataConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class CustomModelValidationDataConfig {
         }
 
         @CustomType.Setter
-        public Builder validators(@Nullable List<CustomModelValidationDataConfigValidator> validators) {
-
+        public Builder validators(List<CustomModelValidationDataConfigValidator> validators) {
+            if (validators == null) {
+              throw new MissingRequiredPropertyException("CustomModelValidationDataConfig", "validators");
+            }
             this.validators = validators;
             return this;
         }

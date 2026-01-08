@@ -6,6 +6,7 @@ package com.pulumi.aws.workspacesweb.inputs;
 import com.pulumi.aws.workspacesweb.inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -67,15 +68,15 @@ public final class DataProtectionSettingsInlineRedactionConfigurationArgs extend
      * The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
      * 
      */
-    @Import(name="inlineRedactionPatterns")
-    private @Nullable Output<List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs>> inlineRedactionPatterns;
+    @Import(name="inlineRedactionPatterns", required=true)
+    private Output<List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs>> inlineRedactionPatterns;
 
     /**
      * @return The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
      * 
      */
-    public Optional<Output<List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs>>> inlineRedactionPatterns() {
-        return Optional.ofNullable(this.inlineRedactionPatterns);
+    public Output<List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs>> inlineRedactionPatterns() {
+        return this.inlineRedactionPatterns;
     }
 
     private DataProtectionSettingsInlineRedactionConfigurationArgs() {}
@@ -194,7 +195,7 @@ public final class DataProtectionSettingsInlineRedactionConfigurationArgs extend
          * @return builder
          * 
          */
-        public Builder inlineRedactionPatterns(@Nullable Output<List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs>> inlineRedactionPatterns) {
+        public Builder inlineRedactionPatterns(Output<List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs>> inlineRedactionPatterns) {
             $.inlineRedactionPatterns = inlineRedactionPatterns;
             return this;
         }
@@ -220,6 +221,9 @@ public final class DataProtectionSettingsInlineRedactionConfigurationArgs extend
         }
 
         public DataProtectionSettingsInlineRedactionConfigurationArgs build() {
+            if ($.inlineRedactionPatterns == null) {
+                throw new MissingRequiredPropertyException("DataProtectionSettingsInlineRedactionConfigurationArgs", "inlineRedactionPatterns");
+            }
             return $;
         }
     }

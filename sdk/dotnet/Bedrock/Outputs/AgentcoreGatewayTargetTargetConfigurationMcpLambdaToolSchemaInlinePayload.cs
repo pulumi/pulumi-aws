@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Schema for the tool's input. See `SchemaDefinition` below.
         /// </summary>
-        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema? InputSchema;
+        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema InputSchema;
         /// <summary>
         /// Name of the tool.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload(
             string description,
 
-            Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema? inputSchema,
+            Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema inputSchema,
 
             string name,
 

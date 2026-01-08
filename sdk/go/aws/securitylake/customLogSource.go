@@ -72,7 +72,7 @@ type CustomLogSource struct {
 	// The attributes of a third-party custom source.
 	Attributes CustomLogSourceAttributeArrayOutput `pulumi:"attributes"`
 	// The configuration for the third-party custom source.
-	Configuration CustomLogSourceConfigurationPtrOutput `pulumi:"configuration"`
+	Configuration CustomLogSourceConfigurationOutput `pulumi:"configuration"`
 	// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
 	EventClasses pulumi.StringArrayOutput `pulumi:"eventClasses"`
 	// The details of the log provider for a third-party custom source.
@@ -94,6 +94,9 @@ func NewCustomLogSource(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Configuration == nil {
+		return nil, errors.New("invalid value for required argument 'Configuration'")
+	}
 	if args.SourceName == nil {
 		return nil, errors.New("invalid value for required argument 'SourceName'")
 	}
@@ -163,7 +166,7 @@ func (CustomLogSourceState) ElementType() reflect.Type {
 
 type customLogSourceArgs struct {
 	// The configuration for the third-party custom source.
-	Configuration *CustomLogSourceConfiguration `pulumi:"configuration"`
+	Configuration CustomLogSourceConfiguration `pulumi:"configuration"`
 	// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
 	EventClasses []string `pulumi:"eventClasses"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -179,7 +182,7 @@ type customLogSourceArgs struct {
 // The set of arguments for constructing a CustomLogSource resource.
 type CustomLogSourceArgs struct {
 	// The configuration for the third-party custom source.
-	Configuration CustomLogSourceConfigurationPtrInput
+	Configuration CustomLogSourceConfigurationInput
 	// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
 	EventClasses pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -285,8 +288,8 @@ func (o CustomLogSourceOutput) Attributes() CustomLogSourceAttributeArrayOutput 
 }
 
 // The configuration for the third-party custom source.
-func (o CustomLogSourceOutput) Configuration() CustomLogSourceConfigurationPtrOutput {
-	return o.ApplyT(func(v *CustomLogSource) CustomLogSourceConfigurationPtrOutput { return v.Configuration }).(CustomLogSourceConfigurationPtrOutput)
+func (o CustomLogSourceOutput) Configuration() CustomLogSourceConfigurationOutput {
+	return o.ApplyT(func(v *CustomLogSource) CustomLogSourceConfigurationOutput { return v.Configuration }).(CustomLogSourceConfigurationOutput)
 }
 
 // The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.

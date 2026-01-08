@@ -7,9 +7,8 @@ import com.pulumi.aws.securitylake.inputs.CustomLogSourceConfigurationCrawlerCon
 import com.pulumi.aws.securitylake.inputs.CustomLogSourceConfigurationProviderIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class CustomLogSourceConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,30 +19,30 @@ public final class CustomLogSourceConfigurationArgs extends com.pulumi.resources
      * The configuration for the Glue Crawler for the third-party custom source.
      * 
      */
-    @Import(name="crawlerConfiguration")
-    private @Nullable Output<CustomLogSourceConfigurationCrawlerConfigurationArgs> crawlerConfiguration;
+    @Import(name="crawlerConfiguration", required=true)
+    private Output<CustomLogSourceConfigurationCrawlerConfigurationArgs> crawlerConfiguration;
 
     /**
      * @return The configuration for the Glue Crawler for the third-party custom source.
      * 
      */
-    public Optional<Output<CustomLogSourceConfigurationCrawlerConfigurationArgs>> crawlerConfiguration() {
-        return Optional.ofNullable(this.crawlerConfiguration);
+    public Output<CustomLogSourceConfigurationCrawlerConfigurationArgs> crawlerConfiguration() {
+        return this.crawlerConfiguration;
     }
 
     /**
      * The identity of the log provider for the third-party custom source.
      * 
      */
-    @Import(name="providerIdentity")
-    private @Nullable Output<CustomLogSourceConfigurationProviderIdentityArgs> providerIdentity;
+    @Import(name="providerIdentity", required=true)
+    private Output<CustomLogSourceConfigurationProviderIdentityArgs> providerIdentity;
 
     /**
      * @return The identity of the log provider for the third-party custom source.
      * 
      */
-    public Optional<Output<CustomLogSourceConfigurationProviderIdentityArgs>> providerIdentity() {
-        return Optional.ofNullable(this.providerIdentity);
+    public Output<CustomLogSourceConfigurationProviderIdentityArgs> providerIdentity() {
+        return this.providerIdentity;
     }
 
     private CustomLogSourceConfigurationArgs() {}
@@ -77,7 +76,7 @@ public final class CustomLogSourceConfigurationArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder crawlerConfiguration(@Nullable Output<CustomLogSourceConfigurationCrawlerConfigurationArgs> crawlerConfiguration) {
+        public Builder crawlerConfiguration(Output<CustomLogSourceConfigurationCrawlerConfigurationArgs> crawlerConfiguration) {
             $.crawlerConfiguration = crawlerConfiguration;
             return this;
         }
@@ -98,7 +97,7 @@ public final class CustomLogSourceConfigurationArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder providerIdentity(@Nullable Output<CustomLogSourceConfigurationProviderIdentityArgs> providerIdentity) {
+        public Builder providerIdentity(Output<CustomLogSourceConfigurationProviderIdentityArgs> providerIdentity) {
             $.providerIdentity = providerIdentity;
             return this;
         }
@@ -114,6 +113,12 @@ public final class CustomLogSourceConfigurationArgs extends com.pulumi.resources
         }
 
         public CustomLogSourceConfigurationArgs build() {
+            if ($.crawlerConfiguration == null) {
+                throw new MissingRequiredPropertyException("CustomLogSourceConfigurationArgs", "crawlerConfiguration");
+            }
+            if ($.providerIdentity == null) {
+                throw new MissingRequiredPropertyException("CustomLogSourceConfigurationArgs", "providerIdentity");
+            }
             return $;
         }
     }

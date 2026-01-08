@@ -7,6 +7,7 @@ import com.pulumi.aws.transfer.inputs.WebAppIdentityProviderDetailsArgs;
 import com.pulumi.aws.transfer.inputs.WebAppWebAppUnitArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -40,8 +41,8 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    @Import(name="identityProviderDetails")
-    private @Nullable Output<WebAppIdentityProviderDetailsArgs> identityProviderDetails;
+    @Import(name="identityProviderDetails", required=true)
+    private Output<WebAppIdentityProviderDetailsArgs> identityProviderDetails;
 
     /**
      * @return Block for details of the identity provider to use with the web app. See Identity provider details below.
@@ -49,8 +50,8 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<WebAppIdentityProviderDetailsArgs>> identityProviderDetails() {
-        return Optional.ofNullable(this.identityProviderDetails);
+    public Output<WebAppIdentityProviderDetailsArgs> identityProviderDetails() {
+        return this.identityProviderDetails;
     }
 
     /**
@@ -173,7 +174,7 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder identityProviderDetails(@Nullable Output<WebAppIdentityProviderDetailsArgs> identityProviderDetails) {
+        public Builder identityProviderDetails(Output<WebAppIdentityProviderDetailsArgs> identityProviderDetails) {
             $.identityProviderDetails = identityProviderDetails;
             return this;
         }
@@ -288,6 +289,9 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WebAppArgs build() {
+            if ($.identityProviderDetails == null) {
+                throw new MissingRequiredPropertyException("WebAppArgs", "identityProviderDetails");
+            }
             return $;
         }
     }

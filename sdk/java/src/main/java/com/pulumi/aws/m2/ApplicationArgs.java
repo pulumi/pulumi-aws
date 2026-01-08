@@ -23,15 +23,15 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
      * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
-    @Import(name="definition")
-    private @Nullable Output<ApplicationDefinitionArgs> definition;
+    @Import(name="definition", required=true)
+    private Output<ApplicationDefinitionArgs> definition;
 
     /**
      * @return The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
-    public Optional<Output<ApplicationDefinitionArgs>> definition() {
-        return Optional.ofNullable(this.definition);
+    public Output<ApplicationDefinitionArgs> definition() {
+        return this.definition;
     }
 
     /**
@@ -188,7 +188,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder definition(@Nullable Output<ApplicationDefinitionArgs> definition) {
+        public Builder definition(Output<ApplicationDefinitionArgs> definition) {
             $.definition = definition;
             return this;
         }
@@ -364,6 +364,9 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApplicationArgs build() {
+            if ($.definition == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "definition");
+            }
             if ($.engineType == null) {
                 throw new MissingRequiredPropertyException("ApplicationArgs", "engineType");
             }

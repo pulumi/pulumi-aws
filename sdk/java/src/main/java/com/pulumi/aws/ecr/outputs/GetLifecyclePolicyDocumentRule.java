@@ -34,7 +34,7 @@ public final class GetLifecyclePolicyDocumentRule {
      * @return Collects parameters describing the selection criteria for the ECR lifecycle policy:
      * 
      */
-    private @Nullable GetLifecyclePolicyDocumentRuleSelection selection;
+    private GetLifecyclePolicyDocumentRuleSelection selection;
 
     private GetLifecyclePolicyDocumentRule() {}
     /**
@@ -62,8 +62,8 @@ public final class GetLifecyclePolicyDocumentRule {
      * @return Collects parameters describing the selection criteria for the ECR lifecycle policy:
      * 
      */
-    public Optional<GetLifecyclePolicyDocumentRuleSelection> selection() {
-        return Optional.ofNullable(this.selection);
+    public GetLifecyclePolicyDocumentRuleSelection selection() {
+        return this.selection;
     }
 
     public static Builder builder() {
@@ -78,7 +78,7 @@ public final class GetLifecyclePolicyDocumentRule {
         private @Nullable GetLifecyclePolicyDocumentRuleAction action;
         private @Nullable String description;
         private Integer priority;
-        private @Nullable GetLifecyclePolicyDocumentRuleSelection selection;
+        private GetLifecyclePolicyDocumentRuleSelection selection;
         public Builder() {}
         public Builder(GetLifecyclePolicyDocumentRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -109,8 +109,10 @@ public final class GetLifecyclePolicyDocumentRule {
             return this;
         }
         @CustomType.Setter
-        public Builder selection(@Nullable GetLifecyclePolicyDocumentRuleSelection selection) {
-
+        public Builder selection(GetLifecyclePolicyDocumentRuleSelection selection) {
+            if (selection == null) {
+              throw new MissingRequiredPropertyException("GetLifecyclePolicyDocumentRule", "selection");
+            }
             this.selection = selection;
             return this;
         }

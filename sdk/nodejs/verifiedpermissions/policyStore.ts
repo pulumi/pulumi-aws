@@ -86,7 +86,7 @@ export class PolicyStore extends pulumi.CustomResource {
     /**
      * Validation settings for the policy store.
      */
-    declare public readonly validationSettings: pulumi.Output<outputs.verifiedpermissions.PolicyStoreValidationSettings | undefined>;
+    declare public readonly validationSettings: pulumi.Output<outputs.verifiedpermissions.PolicyStoreValidationSettings>;
 
     /**
      * Create a PolicyStore resource with the given unique name, arguments, and options.
@@ -95,7 +95,7 @@ export class PolicyStore extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PolicyStoreArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: PolicyStoreArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyStoreArgs | PolicyStoreState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -111,6 +111,9 @@ export class PolicyStore extends pulumi.CustomResource {
             resourceInputs["validationSettings"] = state?.validationSettings;
         } else {
             const args = argsOrState as PolicyStoreArgs | undefined;
+            if (args?.validationSettings === undefined && !opts.urn) {
+                throw new Error("Missing required property 'validationSettings'");
+            }
             resourceInputs["deletionProtection"] = args?.deletionProtection;
             resourceInputs["description"] = args?.description;
             resourceInputs["region"] = args?.region;
@@ -186,5 +189,5 @@ export interface PolicyStoreArgs {
     /**
      * Validation settings for the policy store.
      */
-    validationSettings?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreValidationSettings>;
+    validationSettings: pulumi.Input<inputs.verifiedpermissions.PolicyStoreValidationSettings>;
 }

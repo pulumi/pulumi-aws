@@ -6780,7 +6780,7 @@ if not MYPY:
         """
         The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
         """
-        schedule_frequency: NotRequired[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgsDict']]
+        schedule_frequency: pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgsDict']
         """
         The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
         """
@@ -6795,7 +6795,7 @@ elif False:
 class RefreshScheduleScheduleArgs:
     def __init__(__self__, *,
                  refresh_type: pulumi.Input[_builtins.str],
-                 schedule_frequency: Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']] = None,
+                 schedule_frequency: pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs'],
                  start_after_date_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] refresh_type: The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
@@ -6803,8 +6803,7 @@ class RefreshScheduleScheduleArgs:
         :param pulumi.Input[_builtins.str] start_after_date_time: Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
         """
         pulumi.set(__self__, "refresh_type", refresh_type)
-        if schedule_frequency is not None:
-            pulumi.set(__self__, "schedule_frequency", schedule_frequency)
+        pulumi.set(__self__, "schedule_frequency", schedule_frequency)
         if start_after_date_time is not None:
             pulumi.set(__self__, "start_after_date_time", start_after_date_time)
 
@@ -6822,14 +6821,14 @@ class RefreshScheduleScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="scheduleFrequency")
-    def schedule_frequency(self) -> Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']]:
+    def schedule_frequency(self) -> pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']:
         """
         The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
         """
         return pulumi.get(self, "schedule_frequency")
 
     @schedule_frequency.setter
-    def schedule_frequency(self, value: Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']]):
+    def schedule_frequency(self, value: pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']):
         pulumi.set(self, "schedule_frequency", value)
 
     @_builtins.property

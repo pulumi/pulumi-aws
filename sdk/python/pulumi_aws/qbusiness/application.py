@@ -21,10 +21,10 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
+                 attachments_configuration: pulumi.Input['ApplicationAttachmentsConfigurationArgs'],
                  display_name: pulumi.Input[_builtins.str],
                  iam_service_role_arn: pulumi.Input[_builtins.str],
                  identity_center_instance_arn: pulumi.Input[_builtins.str],
-                 attachments_configuration: Optional[pulumi.Input['ApplicationAttachmentsConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_configuration: Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -32,21 +32,20 @@ class ApplicationArgs:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
+        :param pulumi.Input['ApplicationAttachmentsConfigurationArgs'] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
         :param pulumi.Input[_builtins.str] display_name: Name of the Amazon Q application.
         :param pulumi.Input[_builtins.str] iam_service_role_arn: ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
         :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
                
                The following arguments are optional:
-        :param pulumi.Input['ApplicationAttachmentsConfigurationArgs'] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the Amazon Q application.
         :param pulumi.Input['ApplicationEncryptionConfigurationArgs'] encryption_configuration: Information about encryption configuration. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        pulumi.set(__self__, "attachments_configuration", attachments_configuration)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "iam_service_role_arn", iam_service_role_arn)
         pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
-        if attachments_configuration is not None:
-            pulumi.set(__self__, "attachments_configuration", attachments_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encryption_configuration is not None:
@@ -57,6 +56,18 @@ class ApplicationArgs:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="attachmentsConfiguration")
+    def attachments_configuration(self) -> pulumi.Input['ApplicationAttachmentsConfigurationArgs']:
+        """
+        Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+        """
+        return pulumi.get(self, "attachments_configuration")
+
+    @attachments_configuration.setter
+    def attachments_configuration(self, value: pulumi.Input['ApplicationAttachmentsConfigurationArgs']):
+        pulumi.set(self, "attachments_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -95,18 +106,6 @@ class ApplicationArgs:
     @identity_center_instance_arn.setter
     def identity_center_instance_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "identity_center_instance_arn", value)
-
-    @_builtins.property
-    @pulumi.getter(name="attachmentsConfiguration")
-    def attachments_configuration(self) -> Optional[pulumi.Input['ApplicationAttachmentsConfigurationArgs']]:
-        """
-        Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
-        """
-        return pulumi.get(self, "attachments_configuration")
-
-    @attachments_configuration.setter
-    def attachments_configuration(self, value: Optional[pulumi.Input['ApplicationAttachmentsConfigurationArgs']]):
-        pulumi.set(self, "attachments_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -478,6 +477,8 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
+            if attachments_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'attachments_configuration'")
             __props__.__dict__["attachments_configuration"] = attachments_configuration
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
@@ -566,7 +567,7 @@ class Application(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="attachmentsConfiguration")
-    def attachments_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationAttachmentsConfiguration']]:
+    def attachments_configuration(self) -> pulumi.Output['outputs.ApplicationAttachmentsConfiguration']:
         """
         Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
         """

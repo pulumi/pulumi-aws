@@ -5,9 +5,9 @@ package com.pulumi.aws.s3tables.outputs;
 
 import com.pulumi.aws.s3tables.outputs.TableBucketReplicationRuleDestination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class TableBucketReplicationRule {
@@ -15,7 +15,7 @@ public final class TableBucketReplicationRule {
      * @return Replication destination. See Destination below for more details.
      * 
      */
-    private @Nullable List<TableBucketReplicationRuleDestination> destinations;
+    private List<TableBucketReplicationRuleDestination> destinations;
 
     private TableBucketReplicationRule() {}
     /**
@@ -23,7 +23,7 @@ public final class TableBucketReplicationRule {
      * 
      */
     public List<TableBucketReplicationRuleDestination> destinations() {
-        return this.destinations == null ? List.of() : this.destinations;
+        return this.destinations;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class TableBucketReplicationRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<TableBucketReplicationRuleDestination> destinations;
+        private List<TableBucketReplicationRuleDestination> destinations;
         public Builder() {}
         public Builder(TableBucketReplicationRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class TableBucketReplicationRule {
         }
 
         @CustomType.Setter
-        public Builder destinations(@Nullable List<TableBucketReplicationRuleDestination> destinations) {
-
+        public Builder destinations(List<TableBucketReplicationRuleDestination> destinations) {
+            if (destinations == null) {
+              throw new MissingRequiredPropertyException("TableBucketReplicationRule", "destinations");
+            }
             this.destinations = destinations;
             return this;
         }

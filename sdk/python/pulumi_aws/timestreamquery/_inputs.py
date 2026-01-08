@@ -1614,7 +1614,7 @@ class ScheduledQueryScheduleConfigurationArgs:
 
 if not MYPY:
     class ScheduledQueryTargetConfigurationArgsDict(TypedDict):
-        timestream_configuration: NotRequired[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationArgsDict']]
+        timestream_configuration: pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationArgsDict']
         """
         Configuration block for information needed to write data into the Timestream database and table. See below.
         """
@@ -1624,23 +1624,22 @@ elif False:
 @pulumi.input_type
 class ScheduledQueryTargetConfigurationArgs:
     def __init__(__self__, *,
-                 timestream_configuration: Optional[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationArgs']] = None):
+                 timestream_configuration: pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationArgs']):
         """
         :param pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationArgs'] timestream_configuration: Configuration block for information needed to write data into the Timestream database and table. See below.
         """
-        if timestream_configuration is not None:
-            pulumi.set(__self__, "timestream_configuration", timestream_configuration)
+        pulumi.set(__self__, "timestream_configuration", timestream_configuration)
 
     @_builtins.property
     @pulumi.getter(name="timestreamConfiguration")
-    def timestream_configuration(self) -> Optional[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationArgs']]:
+    def timestream_configuration(self) -> pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationArgs']:
         """
         Configuration block for information needed to write data into the Timestream database and table. See below.
         """
         return pulumi.get(self, "timestream_configuration")
 
     @timestream_configuration.setter
-    def timestream_configuration(self, value: Optional[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationArgs']]):
+    def timestream_configuration(self, value: pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationArgs']):
         pulumi.set(self, "timestream_configuration", value)
 
 
@@ -1650,6 +1649,10 @@ if not MYPY:
         """
         Name of Timestream database to which the query result will be written.
         """
+        dimension_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgsDict']]]
+        """
+        Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
+        """
         table_name: pulumi.Input[_builtins.str]
         """
         Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
@@ -1657,10 +1660,6 @@ if not MYPY:
         time_column: pulumi.Input[_builtins.str]
         """
         Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
-        """
-        dimension_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgsDict']]]]
-        """
-        Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
         """
         measure_name_column: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -1681,26 +1680,25 @@ elif False:
 class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
+                 dimension_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs']]],
                  table_name: pulumi.Input[_builtins.str],
                  time_column: pulumi.Input[_builtins.str],
-                 dimension_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs']]]] = None,
                  measure_name_column: Optional[pulumi.Input[_builtins.str]] = None,
                  mixed_measure_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs']]]] = None,
                  multi_measure_mappings: Optional[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] database_name: Name of Timestream database to which the query result will be written.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs']]] dimension_mappings: Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
         :param pulumi.Input[_builtins.str] table_name: Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
         :param pulumi.Input[_builtins.str] time_column: Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
-        :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs']]] dimension_mappings: Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
         :param pulumi.Input[_builtins.str] measure_name_column: Name of the measure column.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs']]] mixed_measure_mappings: Configuration block for how to map measures to multi-measure records. See below.
         :param pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs'] multi_measure_mappings: Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
         """
         pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "dimension_mappings", dimension_mappings)
         pulumi.set(__self__, "table_name", table_name)
         pulumi.set(__self__, "time_column", time_column)
-        if dimension_mappings is not None:
-            pulumi.set(__self__, "dimension_mappings", dimension_mappings)
         if measure_name_column is not None:
             pulumi.set(__self__, "measure_name_column", measure_name_column)
         if mixed_measure_mappings is not None:
@@ -1719,6 +1717,18 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dimensionMappings")
+    def dimension_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs']]]:
+        """
+        Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
+        """
+        return pulumi.get(self, "dimension_mappings")
+
+    @dimension_mappings.setter
+    def dimension_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs']]]):
+        pulumi.set(self, "dimension_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
@@ -1743,18 +1753,6 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs:
     @time_column.setter
     def time_column(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "time_column", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dimensionMappings")
-    def dimension_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs']]]]:
-        """
-        Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
-        """
-        return pulumi.get(self, "dimension_mappings")
-
-    @dimension_mappings.setter
-    def dimension_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs']]]]):
-        pulumi.set(self, "dimension_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="measureNameColumn")
@@ -2026,7 +2024,7 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappin
 
 if not MYPY:
     class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgsDict(TypedDict):
-        multi_measure_attribute_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgsDict']]]]
+        multi_measure_attribute_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgsDict']]]
         """
         Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
         """
@@ -2040,27 +2038,26 @@ elif False:
 @pulumi.input_type
 class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs:
     def __init__(__self__, *,
-                 multi_measure_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs']]]] = None,
+                 multi_measure_attribute_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs']]],
                  target_multi_measure_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs']]] multi_measure_attribute_mappings: Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
         :param pulumi.Input[_builtins.str] target_multi_measure_name: Name of the target multi-measure name in the derived table. This input is required when `measure_name_column` is not provided. If `measure_name_column` is provided, then the value from that column will be used as the multi-measure name.
         """
-        if multi_measure_attribute_mappings is not None:
-            pulumi.set(__self__, "multi_measure_attribute_mappings", multi_measure_attribute_mappings)
+        pulumi.set(__self__, "multi_measure_attribute_mappings", multi_measure_attribute_mappings)
         if target_multi_measure_name is not None:
             pulumi.set(__self__, "target_multi_measure_name", target_multi_measure_name)
 
     @_builtins.property
     @pulumi.getter(name="multiMeasureAttributeMappings")
-    def multi_measure_attribute_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs']]]]:
+    def multi_measure_attribute_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs']]]:
         """
         Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
         """
         return pulumi.get(self, "multi_measure_attribute_mappings")
 
     @multi_measure_attribute_mappings.setter
-    def multi_measure_attribute_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs']]]]):
+    def multi_measure_attribute_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs']]]):
         pulumi.set(self, "multi_measure_attribute_mappings", value)
 
     @_builtins.property

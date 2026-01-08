@@ -5161,7 +5161,7 @@ class ResponseHeadersPolicyServerTimingHeadersConfigArgs:
 
 if not MYPY:
     class TrustStoreCaCertificatesBundleSourceArgsDict(TypedDict):
-        ca_certificates_bundle_s3_location: NotRequired[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgsDict']]
+        ca_certificates_bundle_s3_location: pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgsDict']
         """
         Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
         """
@@ -5171,23 +5171,22 @@ elif False:
 @pulumi.input_type
 class TrustStoreCaCertificatesBundleSourceArgs:
     def __init__(__self__, *,
-                 ca_certificates_bundle_s3_location: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']] = None):
+                 ca_certificates_bundle_s3_location: pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']):
         """
         :param pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs'] ca_certificates_bundle_s3_location: Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
         """
-        if ca_certificates_bundle_s3_location is not None:
-            pulumi.set(__self__, "ca_certificates_bundle_s3_location", ca_certificates_bundle_s3_location)
+        pulumi.set(__self__, "ca_certificates_bundle_s3_location", ca_certificates_bundle_s3_location)
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3Location")
-    def ca_certificates_bundle_s3_location(self) -> Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']]:
+    def ca_certificates_bundle_s3_location(self) -> pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']:
         """
         Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
         """
         return pulumi.get(self, "ca_certificates_bundle_s3_location")
 
     @ca_certificates_bundle_s3_location.setter
-    def ca_certificates_bundle_s3_location(self, value: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']]):
+    def ca_certificates_bundle_s3_location(self, value: pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']):
         pulumi.set(self, "ca_certificates_bundle_s3_location", value)
 
 
@@ -5446,7 +5445,7 @@ if not MYPY:
         """
         The origin protocol policy for the CloudFront VPC origin endpoint configuration.
         """
-        origin_ssl_protocols: NotRequired[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgsDict']]
+        origin_ssl_protocols: pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgsDict']
         """
         A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
         """
@@ -5461,7 +5460,7 @@ class VpcOriginVpcOriginEndpointConfigArgs:
                  https_port: pulumi.Input[_builtins.int],
                  name: pulumi.Input[_builtins.str],
                  origin_protocol_policy: pulumi.Input[_builtins.str],
-                 origin_ssl_protocols: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']] = None):
+                 origin_ssl_protocols: pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']):
         """
         :param pulumi.Input[_builtins.str] arn: The VPC origin ARN.
         :param pulumi.Input[_builtins.int] http_port: The HTTP port for the CloudFront VPC origin endpoint configuration.
@@ -5475,8 +5474,7 @@ class VpcOriginVpcOriginEndpointConfigArgs:
         pulumi.set(__self__, "https_port", https_port)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
-        if origin_ssl_protocols is not None:
-            pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
+        pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
 
     @_builtins.property
     @pulumi.getter
@@ -5540,14 +5538,14 @@ class VpcOriginVpcOriginEndpointConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="originSslProtocols")
-    def origin_ssl_protocols(self) -> Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']]:
+    def origin_ssl_protocols(self) -> pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']:
         """
         A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
         """
         return pulumi.get(self, "origin_ssl_protocols")
 
     @origin_ssl_protocols.setter
-    def origin_ssl_protocols(self, value: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']]):
+    def origin_ssl_protocols(self, value: pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']):
         pulumi.set(self, "origin_ssl_protocols", value)
 
 

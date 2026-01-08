@@ -22,27 +22,26 @@ __all__ = ['RefreshScheduleArgs', 'RefreshSchedule']
 class RefreshScheduleArgs:
     def __init__(__self__, *,
                  data_set_id: pulumi.Input[_builtins.str],
+                 schedule: pulumi.Input['RefreshScheduleScheduleArgs'],
                  schedule_id: pulumi.Input[_builtins.str],
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['RefreshScheduleScheduleArgs']] = None):
+                 region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RefreshSchedule resource.
         :param pulumi.Input[_builtins.str] data_set_id: The ID of the dataset.
-        :param pulumi.Input[_builtins.str] schedule_id: The ID of the refresh schedule.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['RefreshScheduleScheduleArgs'] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] schedule_id: The ID of the refresh schedule.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "schedule_id", schedule_id)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
 
     @_builtins.property
     @pulumi.getter(name="dataSetId")
@@ -55,6 +54,20 @@ class RefreshScheduleArgs:
     @data_set_id.setter
     def data_set_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "data_set_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['RefreshScheduleScheduleArgs']:
+        """
+        The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['RefreshScheduleScheduleArgs']):
+        pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleId")
@@ -88,20 +101,6 @@ class RefreshScheduleArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['RefreshScheduleScheduleArgs']]:
-        """
-        The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "schedule")
-
-    @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['RefreshScheduleScheduleArgs']]):
-        pulumi.set(self, "schedule", value)
 
 
 @pulumi.input_type
@@ -417,6 +416,8 @@ class RefreshSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_set_id'")
             __props__.__dict__["data_set_id"] = data_set_id
             __props__.__dict__["region"] = region
+            if schedule is None and not opts.urn:
+                raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
             if schedule_id is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_id'")
@@ -496,7 +497,7 @@ class RefreshSchedule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> pulumi.Output[Optional['outputs.RefreshScheduleSchedule']]:
+    def schedule(self) -> pulumi.Output['outputs.RefreshScheduleSchedule']:
         """
         The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 

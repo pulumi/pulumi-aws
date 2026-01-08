@@ -504,7 +504,7 @@ public class AgentcoreGatewayTarget extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="targetConfiguration", refs={AgentcoreGatewayTargetTargetConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ AgentcoreGatewayTargetTargetConfiguration> targetConfiguration;
+    private Output<AgentcoreGatewayTargetTargetConfiguration> targetConfiguration;
 
     /**
      * @return Configuration for the target endpoint. See `targetConfiguration` below.
@@ -512,8 +512,8 @@ public class AgentcoreGatewayTarget extends com.pulumi.resources.CustomResource 
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<AgentcoreGatewayTargetTargetConfiguration>> targetConfiguration() {
-        return Codegen.optional(this.targetConfiguration);
+    public Output<AgentcoreGatewayTargetTargetConfiguration> targetConfiguration() {
+        return this.targetConfiguration;
     }
     /**
      * Unique identifier of the gateway target.

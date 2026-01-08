@@ -95,6 +95,9 @@ func NewFilter(ctx *pulumi.Context,
 	if args.Action == nil {
 		return nil, errors.New("invalid value for required argument 'Action'")
 	}
+	if args.FilterCriterias == nil {
+		return nil, errors.New("invalid value for required argument 'FilterCriterias'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Filter
 	err := ctx.RegisterResource("aws:inspector2/filter:Filter", name, args, &resource, opts...)

@@ -60,8 +60,8 @@ public final class RefreshScheduleArgs extends com.pulumi.resources.ResourceArgs
      * The following arguments are optional:
      * 
      */
-    @Import(name="schedule")
-    private @Nullable Output<RefreshScheduleScheduleArgs> schedule;
+    @Import(name="schedule", required=true)
+    private Output<RefreshScheduleScheduleArgs> schedule;
 
     /**
      * @return The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
@@ -69,8 +69,8 @@ public final class RefreshScheduleArgs extends com.pulumi.resources.ResourceArgs
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<RefreshScheduleScheduleArgs>> schedule() {
-        return Optional.ofNullable(this.schedule);
+    public Output<RefreshScheduleScheduleArgs> schedule() {
+        return this.schedule;
     }
 
     /**
@@ -175,7 +175,7 @@ public final class RefreshScheduleArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder schedule(@Nullable Output<RefreshScheduleScheduleArgs> schedule) {
+        public Builder schedule(Output<RefreshScheduleScheduleArgs> schedule) {
             $.schedule = schedule;
             return this;
         }
@@ -216,6 +216,9 @@ public final class RefreshScheduleArgs extends com.pulumi.resources.ResourceArgs
         public RefreshScheduleArgs build() {
             if ($.dataSetId == null) {
                 throw new MissingRequiredPropertyException("RefreshScheduleArgs", "dataSetId");
+            }
+            if ($.schedule == null) {
+                throw new MissingRequiredPropertyException("RefreshScheduleArgs", "schedule");
             }
             if ($.scheduleId == null) {
                 throw new MissingRequiredPropertyException("RefreshScheduleArgs", "scheduleId");

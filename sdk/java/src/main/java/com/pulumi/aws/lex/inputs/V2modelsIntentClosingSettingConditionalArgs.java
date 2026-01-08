@@ -53,15 +53,15 @@ public final class V2modelsIntentClosingSettingConditionalArgs extends com.pulum
      * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
      * 
      */
-    @Import(name="defaultBranch", required=true)
-    private Output<V2modelsIntentClosingSettingConditionalDefaultBranchArgs> defaultBranch;
+    @Import(name="defaultBranch")
+    private @Nullable Output<V2modelsIntentClosingSettingConditionalDefaultBranchArgs> defaultBranch;
 
     /**
      * @return Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
      * 
      */
-    public Output<V2modelsIntentClosingSettingConditionalDefaultBranchArgs> defaultBranch() {
-        return this.defaultBranch;
+    public Optional<Output<V2modelsIntentClosingSettingConditionalDefaultBranchArgs>> defaultBranch() {
+        return Optional.ofNullable(this.defaultBranch);
     }
 
     private V2modelsIntentClosingSettingConditionalArgs() {}
@@ -148,7 +148,7 @@ public final class V2modelsIntentClosingSettingConditionalArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder defaultBranch(Output<V2modelsIntentClosingSettingConditionalDefaultBranchArgs> defaultBranch) {
+        public Builder defaultBranch(@Nullable Output<V2modelsIntentClosingSettingConditionalDefaultBranchArgs> defaultBranch) {
             $.defaultBranch = defaultBranch;
             return this;
         }
@@ -166,9 +166,6 @@ public final class V2modelsIntentClosingSettingConditionalArgs extends com.pulum
         public V2modelsIntentClosingSettingConditionalArgs build() {
             if ($.active == null) {
                 throw new MissingRequiredPropertyException("V2modelsIntentClosingSettingConditionalArgs", "active");
-            }
-            if ($.defaultBranch == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentClosingSettingConditionalArgs", "defaultBranch");
             }
             return $;
         }

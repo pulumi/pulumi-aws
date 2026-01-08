@@ -25,15 +25,15 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
      * The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
      * 
      */
-    @Import(name="localResources")
-    private @Nullable Output<List<MonitorLocalResourceArgs>> localResources;
+    @Import(name="localResources", required=true)
+    private Output<List<MonitorLocalResourceArgs>> localResources;
 
     /**
      * @return The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
      * 
      */
-    public Optional<Output<List<MonitorLocalResourceArgs>>> localResources() {
-        return Optional.ofNullable(this.localResources);
+    public Output<List<MonitorLocalResourceArgs>> localResources() {
+        return this.localResources;
     }
 
     /**
@@ -158,7 +158,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder localResources(@Nullable Output<List<MonitorLocalResourceArgs>> localResources) {
+        public Builder localResources(Output<List<MonitorLocalResourceArgs>> localResources) {
             $.localResources = localResources;
             return this;
         }
@@ -312,6 +312,9 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MonitorArgs build() {
+            if ($.localResources == null) {
+                throw new MissingRequiredPropertyException("MonitorArgs", "localResources");
+            }
             if ($.monitorName == null) {
                 throw new MissingRequiredPropertyException("MonitorArgs", "monitorName");
             }

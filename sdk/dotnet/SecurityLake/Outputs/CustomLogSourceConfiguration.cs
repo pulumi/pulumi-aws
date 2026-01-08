@@ -16,17 +16,17 @@ namespace Pulumi.Aws.SecurityLake.Outputs
         /// <summary>
         /// The configuration for the Glue Crawler for the third-party custom source.
         /// </summary>
-        public readonly Outputs.CustomLogSourceConfigurationCrawlerConfiguration? CrawlerConfiguration;
+        public readonly Outputs.CustomLogSourceConfigurationCrawlerConfiguration CrawlerConfiguration;
         /// <summary>
         /// The identity of the log provider for the third-party custom source.
         /// </summary>
-        public readonly Outputs.CustomLogSourceConfigurationProviderIdentity? ProviderIdentity;
+        public readonly Outputs.CustomLogSourceConfigurationProviderIdentity ProviderIdentity;
 
         [OutputConstructor]
         private CustomLogSourceConfiguration(
-            Outputs.CustomLogSourceConfigurationCrawlerConfiguration? crawlerConfiguration,
+            Outputs.CustomLogSourceConfigurationCrawlerConfiguration crawlerConfiguration,
 
-            Outputs.CustomLogSourceConfigurationProviderIdentity? providerIdentity)
+            Outputs.CustomLogSourceConfigurationProviderIdentity providerIdentity)
         {
             CrawlerConfiguration = crawlerConfiguration;
             ProviderIdentity = providerIdentity;

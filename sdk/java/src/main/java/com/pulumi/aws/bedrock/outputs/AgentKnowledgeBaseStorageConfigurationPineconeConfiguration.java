@@ -27,7 +27,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    private @Nullable AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping;
+    private AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping;
     /**
      * @return Namespace to be used to write new data to your database.
      * 
@@ -53,8 +53,8 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping() {
+        return this.fieldMapping;
     }
     /**
      * @return Namespace to be used to write new data to your database.
@@ -75,7 +75,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
     public static final class Builder {
         private String connectionString;
         private String credentialsSecretArn;
-        private @Nullable AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping;
+        private AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping;
         private @Nullable String namespace;
         public Builder() {}
         public Builder(AgentKnowledgeBaseStorageConfigurationPineconeConfiguration defaults) {
@@ -103,8 +103,10 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder fieldMapping(@Nullable AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping) {
-
+        public Builder fieldMapping(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping) {
+            if (fieldMapping == null) {
+              throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationPineconeConfiguration", "fieldMapping");
+            }
             this.fieldMapping = fieldMapping;
             return this;
         }

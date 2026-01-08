@@ -55,8 +55,8 @@ public final class ContactsRotationArgs extends com.pulumi.resources.ResourceArg
      * The following arguments are optional:
      * 
      */
-    @Import(name="recurrence")
-    private @Nullable Output<ContactsRotationRecurrenceArgs> recurrence;
+    @Import(name="recurrence", required=true)
+    private Output<ContactsRotationRecurrenceArgs> recurrence;
 
     /**
      * @return Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
@@ -64,8 +64,8 @@ public final class ContactsRotationArgs extends com.pulumi.resources.ResourceArg
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<ContactsRotationRecurrenceArgs>> recurrence() {
-        return Optional.ofNullable(this.recurrence);
+    public Output<ContactsRotationRecurrenceArgs> recurrence() {
+        return this.recurrence;
     }
 
     /**
@@ -218,7 +218,7 @@ public final class ContactsRotationArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder recurrence(@Nullable Output<ContactsRotationRecurrenceArgs> recurrence) {
+        public Builder recurrence(Output<ContactsRotationRecurrenceArgs> recurrence) {
             $.recurrence = recurrence;
             return this;
         }
@@ -322,6 +322,9 @@ public final class ContactsRotationArgs extends com.pulumi.resources.ResourceArg
         public ContactsRotationArgs build() {
             if ($.contactIds == null) {
                 throw new MissingRequiredPropertyException("ContactsRotationArgs", "contactIds");
+            }
+            if ($.recurrence == null) {
+                throw new MissingRequiredPropertyException("ContactsRotationArgs", "recurrence");
             }
             if ($.timeZoneId == null) {
                 throw new MissingRequiredPropertyException("ContactsRotationArgs", "timeZoneId");

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ecr.Outputs
         /// <summary>
         /// Collects parameters describing the selection criteria for the ECR lifecycle policy:
         /// </summary>
-        public readonly Outputs.GetLifecyclePolicyDocumentRuleSelectionResult? Selection;
+        public readonly Outputs.GetLifecyclePolicyDocumentRuleSelectionResult Selection;
 
         [OutputConstructor]
         private GetLifecyclePolicyDocumentRuleResult(
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ecr.Outputs
 
             int priority,
 
-            Outputs.GetLifecyclePolicyDocumentRuleSelectionResult? selection)
+            Outputs.GetLifecyclePolicyDocumentRuleSelectionResult selection)
         {
             Action = action;
             Description = description;

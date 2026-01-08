@@ -83,7 +83,7 @@ export class Filter extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly filterCriterias: pulumi.Output<outputs.inspector2.FilterFilterCriteria[] | undefined>;
+    declare public readonly filterCriterias: pulumi.Output<outputs.inspector2.FilterFilterCriteria[]>;
     /**
      * Name of the filter.
      */
@@ -131,6 +131,9 @@ export class Filter extends pulumi.CustomResource {
             const args = argsOrState as FilterArgs | undefined;
             if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
+            }
+            if (args?.filterCriterias === undefined && !opts.urn) {
+                throw new Error("Missing required property 'filterCriterias'");
             }
             resourceInputs["action"] = args?.action;
             resourceInputs["description"] = args?.description;
@@ -208,7 +211,7 @@ export interface FilterArgs {
      *
      * The following arguments are optional:
      */
-    filterCriterias?: pulumi.Input<pulumi.Input<inputs.inspector2.FilterFilterCriteria>[]>;
+    filterCriterias: pulumi.Input<pulumi.Input<inputs.inspector2.FilterFilterCriteria>[]>;
     /**
      * Name of the filter.
      */
