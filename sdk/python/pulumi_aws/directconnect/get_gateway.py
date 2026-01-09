@@ -26,7 +26,7 @@ class GetGatewayResult:
     """
     A collection of values returned by getGateway.
     """
-    def __init__(__self__, amazon_side_asn=None, arn=None, id=None, name=None, owner_account_id=None):
+    def __init__(__self__, amazon_side_asn=None, arn=None, id=None, name=None, owner_account_id=None, tags=None):
         if amazon_side_asn and not isinstance(amazon_side_asn, str):
             raise TypeError("Expected argument 'amazon_side_asn' to be a str")
         pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
@@ -42,6 +42,9 @@ class GetGatewayResult:
         if owner_account_id and not isinstance(owner_account_id, str):
             raise TypeError("Expected argument 'owner_account_id' to be a str")
         pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="amazonSideAsn")
@@ -80,6 +83,14 @@ class GetGatewayResult:
         """
         return pulumi.get(self, "owner_account_id")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        A map of tags assigned to the gateway.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetGatewayResult(GetGatewayResult):
     # pylint: disable=using-constant-test
@@ -91,10 +102,12 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             arn=self.arn,
             id=self.id,
             name=self.name,
-            owner_account_id=self.owner_account_id)
+            owner_account_id=self.owner_account_id,
+            tags=self.tags)
 
 
 def get_gateway(name: Optional[_builtins.str] = None,
+                tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
     Retrieve information about a Direct Connect Gateway.
@@ -110,9 +123,11 @@ def get_gateway(name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str name: Name of the gateway to retrieve.
+    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the gateway.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:directconnect/getGateway:getGateway', __args__, opts=opts, typ=GetGatewayResult).value
 
@@ -121,8 +136,10 @@ def get_gateway(name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        owner_account_id=pulumi.get(__ret__, 'owner_account_id'))
+        owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_gateway_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Retrieve information about a Direct Connect Gateway.
@@ -138,9 +155,11 @@ def get_gateway_output(name: Optional[pulumi.Input[_builtins.str]] = None,
 
 
     :param _builtins.str name: Name of the gateway to retrieve.
+    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the gateway.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getGateway:getGateway', __args__, opts=opts, typ=GetGatewayResult)
     return __ret__.apply(lambda __response__: GetGatewayResult(
@@ -148,4 +167,5 @@ def get_gateway_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        owner_account_id=pulumi.get(__response__, 'owner_account_id')))
+        owner_account_id=pulumi.get(__response__, 'owner_account_id'),
+        tags=pulumi.get(__response__, 'tags')))

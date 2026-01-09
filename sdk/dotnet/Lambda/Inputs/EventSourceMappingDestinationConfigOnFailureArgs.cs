@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lambda.Inputs
     public sealed class EventSourceMappingDestinationConfigOnFailureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the destination resource.
+        /// ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
         /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;

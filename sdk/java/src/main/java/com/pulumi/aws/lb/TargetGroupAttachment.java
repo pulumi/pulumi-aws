@@ -122,6 +122,53 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Target using QUIC
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.TargetGroup;
+ * import com.pulumi.aws.lb.TargetGroupArgs;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.lb.TargetGroupAttachment;
+ * import com.pulumi.aws.lb.TargetGroupAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new TargetGroup("test", TargetGroupArgs.builder()
+ *             .name("test")
+ *             .port(443)
+ *             .protocol("QUIC")
+ *             .build());
+ * 
+ *         var testInstance = new Instance("testInstance");
+ * 
+ *         var testTargetGroupAttachment = new TargetGroupAttachment("testTargetGroupAttachment", TargetGroupAttachmentArgs.builder()
+ *             .targetGroupArn(test.arn())
+ *             .targetId(testInstance.id())
+ *             .port(443)
+ *             .quicServerId("0x1a2b3c4d5e6f7a8b")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * You cannot import Target Group Attachments.
@@ -156,6 +203,20 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> port() {
         return Codegen.optional(this.port);
+    }
+    /**
+     * Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+     * 
+     */
+    @Export(name="quicServerId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> quicServerId;
+
+    /**
+     * @return Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+     * 
+     */
+    public Output<Optional<String>> quicServerId() {
+        return Codegen.optional(this.quicServerId);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

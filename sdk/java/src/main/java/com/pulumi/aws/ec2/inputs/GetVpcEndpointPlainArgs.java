@@ -78,6 +78,21 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
+     * AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
+     * 
+     */
+    @Import(name="serviceRegion")
+    private @Nullable String serviceRegion;
+
+    /**
+     * @return AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
+     * 
+     */
+    public Optional<String> serviceRegion() {
+        return Optional.ofNullable(this.serviceRegion);
+    }
+
+    /**
      * State of the specific VPC Endpoint to retrieve.
      * 
      */
@@ -110,6 +125,21 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
+     * VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+     * 
+     */
+    @Import(name="vpcEndpointType")
+    private @Nullable String vpcEndpointType;
+
+    /**
+     * @return VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+     * 
+     */
+    public Optional<String> vpcEndpointType() {
+        return Optional.ofNullable(this.vpcEndpointType);
+    }
+
+    /**
      * ID of the VPC in which the specific VPC Endpoint is used.
      * 
      * The arguments of this data source act as filters for querying the available VPC endpoints.
@@ -137,8 +167,10 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
         this.id = $.id;
         this.region = $.region;
         this.serviceName = $.serviceName;
+        this.serviceRegion = $.serviceRegion;
         this.state = $.state;
         this.tags = $.tags;
+        this.vpcEndpointType = $.vpcEndpointType;
         this.vpcId = $.vpcId;
     }
 
@@ -215,6 +247,17 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
+         * @param serviceRegion AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceRegion(@Nullable String serviceRegion) {
+            $.serviceRegion = serviceRegion;
+            return this;
+        }
+
+        /**
          * @param state State of the specific VPC Endpoint to retrieve.
          * 
          * @return builder
@@ -234,6 +277,17 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param vpcEndpointType VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcEndpointType(@Nullable String vpcEndpointType) {
+            $.vpcEndpointType = vpcEndpointType;
             return this;
         }
 

@@ -223,6 +223,10 @@ export class Permission extends pulumi.CustomResource {
      */
     declare public readonly functionUrlAuthType: pulumi.Output<string | undefined>;
     /**
+     * Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+     */
+    declare public readonly invokedViaFunctionUrl: pulumi.Output<boolean | undefined>;
+    /**
      * AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
      *
      * The following arguments are optional:
@@ -274,6 +278,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["eventSourceToken"] = state?.eventSourceToken;
             resourceInputs["function"] = state?.function;
             resourceInputs["functionUrlAuthType"] = state?.functionUrlAuthType;
+            resourceInputs["invokedViaFunctionUrl"] = state?.invokedViaFunctionUrl;
             resourceInputs["principal"] = state?.principal;
             resourceInputs["principalOrgId"] = state?.principalOrgId;
             resourceInputs["qualifier"] = state?.qualifier;
@@ -297,6 +302,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["eventSourceToken"] = args?.eventSourceToken;
             resourceInputs["function"] = args?.function;
             resourceInputs["functionUrlAuthType"] = args?.functionUrlAuthType;
+            resourceInputs["invokedViaFunctionUrl"] = args?.invokedViaFunctionUrl;
             resourceInputs["principal"] = args?.principal;
             resourceInputs["principalOrgId"] = args?.principalOrgId;
             resourceInputs["qualifier"] = args?.qualifier;
@@ -331,6 +337,10 @@ export interface PermissionState {
      * Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
      */
     functionUrlAuthType?: pulumi.Input<string>;
+    /**
+     * Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+     */
+    invokedViaFunctionUrl?: pulumi.Input<boolean>;
     /**
      * AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
      *
@@ -387,6 +397,10 @@ export interface PermissionArgs {
      * Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
      */
     functionUrlAuthType?: pulumi.Input<string>;
+    /**
+     * Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+     */
+    invokedViaFunctionUrl?: pulumi.Input<boolean>;
     /**
      * AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
      *

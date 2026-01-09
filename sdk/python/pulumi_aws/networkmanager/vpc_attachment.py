@@ -35,7 +35,7 @@ class VpcAttachmentArgs:
                
                The following arguments are optional:
         :param pulumi.Input['VpcAttachmentOptionsArgs'] options: Options for the VPC attachment. See below.
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
@@ -102,7 +102,7 @@ class VpcAttachmentArgs:
     @pulumi.getter(name="routingPolicyLabel")
     def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         """
         return pulumi.get(self, "routing_policy_label")
 
@@ -153,7 +153,7 @@ class _VpcAttachmentState:
         :param pulumi.Input['VpcAttachmentOptionsArgs'] options: Options for the VPC attachment. See below.
         :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
         :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
         :param pulumi.Input[_builtins.str] state: State of the attachment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: Subnet ARNs of the VPC attachment.
@@ -308,7 +308,7 @@ class _VpcAttachmentState:
     @pulumi.getter(name="routingPolicyLabel")
     def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         """
         return pulumi.get(self, "routing_policy_label")
 
@@ -451,7 +451,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: ID of a core network for the VPC attachment.
         :param pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']] options: Options for the VPC attachment. See below.
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: Subnet ARNs of the VPC attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] vpc_arn: ARN of the VPC.
@@ -601,7 +601,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']] options: Options for the VPC attachment. See below.
         :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
         :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
         :param pulumi.Input[_builtins.str] state: State of the attachment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: Subnet ARNs of the VPC attachment.
@@ -709,7 +709,7 @@ class VpcAttachment(pulumi.CustomResource):
     @pulumi.getter(name="routingPolicyLabel")
     def routing_policy_label(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         """
         return pulumi.get(self, "routing_policy_label")
 

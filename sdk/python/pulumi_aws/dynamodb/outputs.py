@@ -16,6 +16,12 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'GlobalSecondaryIndexKeySchema',
+    'GlobalSecondaryIndexOnDemandThroughput',
+    'GlobalSecondaryIndexProjection',
+    'GlobalSecondaryIndexProvisionedThroughput',
+    'GlobalSecondaryIndexTimeouts',
+    'GlobalSecondaryIndexWarmThroughput',
     'GlobalTableReplica',
     'TableAttribute',
     'TableExportIncrementalExportSpecification',
@@ -46,6 +52,315 @@ __all__ = [
     'GetTableTtlResult',
     'GetTableWarmThroughputResult',
 ]
+
+@pulumi.output_type
+class GlobalSecondaryIndexKeySchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+        elif key == "attributeType":
+            suggest = "attribute_type"
+        elif key == "keyType":
+            suggest = "key_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalSecondaryIndexKeySchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalSecondaryIndexKeySchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalSecondaryIndexKeySchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_name: _builtins.str,
+                 attribute_type: _builtins.str,
+                 key_type: _builtins.str):
+        """
+        :param _builtins.str attribute_name: Name of the attribute.
+        :param _builtins.str attribute_type: Type of the attribute in the index.
+               Valid values are `S` (string), `N` (number), or `B` (binary).
+        :param _builtins.str key_type: Key type.
+               Valid values are `HASH` or `RANGE`.
+        """
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "attribute_type", attribute_type)
+        pulumi.set(__self__, "key_type", key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> _builtins.str:
+        """
+        Name of the attribute.
+        """
+        return pulumi.get(self, "attribute_name")
+
+    @_builtins.property
+    @pulumi.getter(name="attributeType")
+    def attribute_type(self) -> _builtins.str:
+        """
+        Type of the attribute in the index.
+        Valid values are `S` (string), `N` (number), or `B` (binary).
+        """
+        return pulumi.get(self, "attribute_type")
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> _builtins.str:
+        """
+        Key type.
+        Valid values are `HASH` or `RANGE`.
+        """
+        return pulumi.get(self, "key_type")
+
+
+@pulumi.output_type
+class GlobalSecondaryIndexOnDemandThroughput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxReadRequestUnits":
+            suggest = "max_read_request_units"
+        elif key == "maxWriteRequestUnits":
+            suggest = "max_write_request_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalSecondaryIndexOnDemandThroughput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalSecondaryIndexOnDemandThroughput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalSecondaryIndexOnDemandThroughput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_read_request_units: Optional[_builtins.int] = None,
+                 max_write_request_units: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_read_request_units: Maximum number of read request units for this index.
+        :param _builtins.int max_write_request_units: Maximum number of write request units for this index.
+        """
+        if max_read_request_units is not None:
+            pulumi.set(__self__, "max_read_request_units", max_read_request_units)
+        if max_write_request_units is not None:
+            pulumi.set(__self__, "max_write_request_units", max_write_request_units)
+
+    @_builtins.property
+    @pulumi.getter(name="maxReadRequestUnits")
+    def max_read_request_units(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of read request units for this index.
+        """
+        return pulumi.get(self, "max_read_request_units")
+
+    @_builtins.property
+    @pulumi.getter(name="maxWriteRequestUnits")
+    def max_write_request_units(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of write request units for this index.
+        """
+        return pulumi.get(self, "max_write_request_units")
+
+
+@pulumi.output_type
+class GlobalSecondaryIndexProjection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectionType":
+            suggest = "projection_type"
+        elif key == "nonKeyAttributes":
+            suggest = "non_key_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalSecondaryIndexProjection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalSecondaryIndexProjection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalSecondaryIndexProjection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 projection_type: _builtins.str,
+                 non_key_attributes: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str projection_type: The set of attributes represented in the index.
+               One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
+        :param Sequence[_builtins.str] non_key_attributes: Specifies which additional attributes to include in the index.
+               Only valid when `projection_type` is `INCLUDE`.`
+        """
+        pulumi.set(__self__, "projection_type", projection_type)
+        if non_key_attributes is not None:
+            pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+
+    @_builtins.property
+    @pulumi.getter(name="projectionType")
+    def projection_type(self) -> _builtins.str:
+        """
+        The set of attributes represented in the index.
+        One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
+        """
+        return pulumi.get(self, "projection_type")
+
+    @_builtins.property
+    @pulumi.getter(name="nonKeyAttributes")
+    def non_key_attributes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies which additional attributes to include in the index.
+        Only valid when `projection_type` is `INCLUDE`.`
+        """
+        return pulumi.get(self, "non_key_attributes")
+
+
+@pulumi.output_type
+class GlobalSecondaryIndexProvisionedThroughput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readCapacityUnits":
+            suggest = "read_capacity_units"
+        elif key == "writeCapacityUnits":
+            suggest = "write_capacity_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalSecondaryIndexProvisionedThroughput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalSecondaryIndexProvisionedThroughput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalSecondaryIndexProvisionedThroughput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 read_capacity_units: Optional[_builtins.int] = None,
+                 write_capacity_units: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int read_capacity_units: Number of read capacity units for this index.
+        :param _builtins.int write_capacity_units: Number of write capacity units for this index.
+        """
+        if read_capacity_units is not None:
+            pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+        if write_capacity_units is not None:
+            pulumi.set(__self__, "write_capacity_units", write_capacity_units)
+
+    @_builtins.property
+    @pulumi.getter(name="readCapacityUnits")
+    def read_capacity_units(self) -> Optional[_builtins.int]:
+        """
+        Number of read capacity units for this index.
+        """
+        return pulumi.get(self, "read_capacity_units")
+
+    @_builtins.property
+    @pulumi.getter(name="writeCapacityUnits")
+    def write_capacity_units(self) -> Optional[_builtins.int]:
+        """
+        Number of write capacity units for this index.
+        """
+        return pulumi.get(self, "write_capacity_units")
+
+
+@pulumi.output_type
+class GlobalSecondaryIndexTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class GlobalSecondaryIndexWarmThroughput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readUnitsPerSecond":
+            suggest = "read_units_per_second"
+        elif key == "writeUnitsPerSecond":
+            suggest = "write_units_per_second"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalSecondaryIndexWarmThroughput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalSecondaryIndexWarmThroughput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalSecondaryIndexWarmThroughput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 read_units_per_second: _builtins.int,
+                 write_units_per_second: _builtins.int):
+        """
+        :param _builtins.int read_units_per_second: Number of read operations this index can instantaneously support.
+        :param _builtins.int write_units_per_second: Number of write operations this index can instantaneously support.
+        """
+        pulumi.set(__self__, "read_units_per_second", read_units_per_second)
+        pulumi.set(__self__, "write_units_per_second", write_units_per_second)
+
+    @_builtins.property
+    @pulumi.getter(name="readUnitsPerSecond")
+    def read_units_per_second(self) -> _builtins.int:
+        """
+        Number of read operations this index can instantaneously support.
+        """
+        return pulumi.get(self, "read_units_per_second")
+
+    @_builtins.property
+    @pulumi.getter(name="writeUnitsPerSecond")
+    def write_units_per_second(self) -> _builtins.int:
+        """
+        Number of write operations this index can instantaneously support.
+        """
+        return pulumi.get(self, "write_units_per_second")
+
 
 @pulumi.output_type
 class GlobalTableReplica(dict):

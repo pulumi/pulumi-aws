@@ -284,6 +284,20 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.pipelineName;
     }
     /**
+     * ARN of the IAM role that grants the pipeline permission to access AWS resources.
+     * 
+     */
+    @Export(name="pipelineRoleArn", refs={String.class}, tree="[0]")
+    private Output<String> pipelineRoleArn;
+
+    /**
+     * @return ARN of the IAM role that grants the pipeline permission to access AWS resources.
+     * 
+     */
+    public Output<String> pipelineRoleArn() {
+        return this.pipelineRoleArn;
+    }
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */

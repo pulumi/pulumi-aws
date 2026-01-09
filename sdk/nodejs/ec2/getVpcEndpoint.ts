@@ -36,8 +36,10 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
         "id": args.id,
         "region": args.region,
         "serviceName": args.serviceName,
+        "serviceRegion": args.serviceRegion,
         "state": args.state,
         "tags": args.tags,
+        "vpcEndpointType": args.vpcEndpointType,
         "vpcId": args.vpcId,
     }, opts);
 }
@@ -63,6 +65,10 @@ export interface GetVpcEndpointArgs {
      */
     serviceName?: string;
     /**
+     * AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
+     */
+    serviceRegion?: string;
+    /**
      * State of the specific VPC Endpoint to retrieve.
      */
     state?: string;
@@ -71,6 +77,10 @@ export interface GetVpcEndpointArgs {
      * a pair on the specific VPC Endpoint to retrieve.
      */
     tags?: {[key: string]: string};
+    /**
+     * VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+     */
+    vpcEndpointType?: string;
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
      *
@@ -137,15 +147,13 @@ export interface GetVpcEndpointResult {
      */
     readonly securityGroupIds: string[];
     readonly serviceName: string;
+    readonly serviceRegion: string;
     readonly state: string;
     /**
      * One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
      */
     readonly subnetIds: string[];
     readonly tags: {[key: string]: string};
-    /**
-     * VPC Endpoint type, `Gateway` or `Interface`.
-     */
     readonly vpcEndpointType: string;
     readonly vpcId: string;
 }
@@ -178,8 +186,10 @@ export function getVpcEndpointOutput(args?: GetVpcEndpointOutputArgs, opts?: pul
         "id": args.id,
         "region": args.region,
         "serviceName": args.serviceName,
+        "serviceRegion": args.serviceRegion,
         "state": args.state,
         "tags": args.tags,
+        "vpcEndpointType": args.vpcEndpointType,
         "vpcId": args.vpcId,
     }, opts);
 }
@@ -205,6 +215,10 @@ export interface GetVpcEndpointOutputArgs {
      */
     serviceName?: pulumi.Input<string>;
     /**
+     * AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
+     */
+    serviceRegion?: pulumi.Input<string>;
+    /**
      * State of the specific VPC Endpoint to retrieve.
      */
     state?: pulumi.Input<string>;
@@ -213,6 +227,10 @@ export interface GetVpcEndpointOutputArgs {
      * a pair on the specific VPC Endpoint to retrieve.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+     */
+    vpcEndpointType?: pulumi.Input<string>;
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
      *

@@ -108,6 +108,21 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
     }
 
     /**
+     * List of string values to be evaluated as matching conditions.
+     * 
+     */
+    @Import(name="matches")
+    private @Nullable Output<List<String>> matches;
+
+    /**
+     * @return List of string values to be evaluated as matching conditions.
+     * 
+     */
+    public Optional<Output<List<String>>> matches() {
+        return Optional.ofNullable(this.matches);
+    }
+
+    /**
      * List of string values to be evaluated.
      * 
      */
@@ -122,6 +137,21 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.notEquals);
     }
 
+    /**
+     * List of string values to be evaluated as non-matching conditions.
+     * 
+     */
+    @Import(name="notMatches")
+    private @Nullable Output<List<String>> notMatches;
+
+    /**
+     * @return List of string values to be evaluated as non-matching conditions.
+     * 
+     */
+    public Optional<Output<List<String>>> notMatches() {
+        return Optional.ofNullable(this.notMatches);
+    }
+
     private FilterFindingCriteriaCriterionArgs() {}
 
     private FilterFindingCriteriaCriterionArgs(FilterFindingCriteriaCriterionArgs $) {
@@ -131,7 +161,9 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
         this.greaterThanOrEqual = $.greaterThanOrEqual;
         this.lessThan = $.lessThan;
         this.lessThanOrEqual = $.lessThanOrEqual;
+        this.matches = $.matches;
         this.notEquals = $.notEquals;
+        this.notMatches = $.notMatches;
     }
 
     public static Builder builder() {
@@ -289,6 +321,37 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
         }
 
         /**
+         * @param matches List of string values to be evaluated as matching conditions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder matches(@Nullable Output<List<String>> matches) {
+            $.matches = matches;
+            return this;
+        }
+
+        /**
+         * @param matches List of string values to be evaluated as matching conditions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder matches(List<String> matches) {
+            return matches(Output.of(matches));
+        }
+
+        /**
+         * @param matches List of string values to be evaluated as matching conditions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder matches(String... matches) {
+            return matches(List.of(matches));
+        }
+
+        /**
          * @param notEquals List of string values to be evaluated.
          * 
          * @return builder
@@ -317,6 +380,37 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
          */
         public Builder notEquals(String... notEquals) {
             return notEquals(List.of(notEquals));
+        }
+
+        /**
+         * @param notMatches List of string values to be evaluated as non-matching conditions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notMatches(@Nullable Output<List<String>> notMatches) {
+            $.notMatches = notMatches;
+            return this;
+        }
+
+        /**
+         * @param notMatches List of string values to be evaluated as non-matching conditions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notMatches(List<String> notMatches) {
+            return notMatches(Output.of(notMatches));
+        }
+
+        /**
+         * @param notMatches List of string values to be evaluated as non-matching conditions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notMatches(String... notMatches) {
+            return notMatches(List.of(notMatches));
         }
 
         public FilterFindingCriteriaCriterionArgs build() {

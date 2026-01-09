@@ -13,22 +13,28 @@ namespace Pulumi.Aws.Ecr.Inputs
     public sealed class GetLifecyclePolicyDocumentRuleSelectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specify a count number. If the `CountType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `CountType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
+        /// Specify a count number. If the `CountType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `CountType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `CountType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `CountType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
         /// </summary>
         [Input("countNumber", required: true)]
         public int CountNumber { get; set; }
 
         /// <summary>
-        /// Specify a count type to apply to the images. If `CountType` is set to "imageCountMoreThan", you also specify `CountNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `CountType` is set to "sinceImagePushed", you also specify `CountUnit` and `CountNumber` to specify a time limit on the images that exist in your repository.
+        /// Specify a count type to apply to the images. If `CountType` is set to `imageCountMoreThan`, you also specify `CountNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `CountType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `CountUnit` and `CountNumber` to specify a time limit on the images that exist in your repository.
         /// </summary>
         [Input("countType", required: true)]
         public string CountType { get; set; } = null!;
 
         /// <summary>
-        /// Specify a count unit of days to indicate that as the unit of time, in addition to `CountNumber`, which is the number of days.
+        /// Specify a count unit of `Days` to indicate that as the unit of time, in addition to `CountNumber`, which is the number of days.
         /// </summary>
         [Input("countUnit")]
         public string? CountUnit { get; set; }
+
+        /// <summary>
+        /// The rule will only select images of this storage class. When using a `CountType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `Standard`. When using a `CountType` of `sinceImageTransitioned`, this is required, and the only supported value is `Archive`. If you omit this, the value of `Standard` will be used.
+        /// </summary>
+        [Input("storageClass")]
+        public string? StorageClass { get; set; }
 
         [Input("tagPatternLists")]
         private List<string>? _tagPatternLists;
@@ -55,7 +61,7 @@ namespace Pulumi.Aws.Ecr.Inputs
         }
 
         /// <summary>
-        /// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `TagPrefixList` value. If you specify "untagged", then you must omit `TagPrefixList`.
+        /// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `Tagged`, `Untagged`, or `Any`. If you specify `Any`, then all images have the rule evaluated against them. If you specify `Tagged`, then you must also specify a `TagPrefixList` value or a `TagPatternList` value. If you specify `Untagged`, then you must omit both `TagPrefixList` and `TagPatternList`.
         /// </summary>
         [Input("tagStatus", required: true)]
         public string TagStatus { get; set; } = null!;

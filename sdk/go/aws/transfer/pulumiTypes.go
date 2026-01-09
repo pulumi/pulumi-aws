@@ -2320,6 +2320,337 @@ func (o UserPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type WebAppEndpointDetails struct {
+	// Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+	Vpc *WebAppEndpointDetailsVpc `pulumi:"vpc"`
+}
+
+// WebAppEndpointDetailsInput is an input type that accepts WebAppEndpointDetailsArgs and WebAppEndpointDetailsOutput values.
+// You can construct a concrete instance of `WebAppEndpointDetailsInput` via:
+//
+//	WebAppEndpointDetailsArgs{...}
+type WebAppEndpointDetailsInput interface {
+	pulumi.Input
+
+	ToWebAppEndpointDetailsOutput() WebAppEndpointDetailsOutput
+	ToWebAppEndpointDetailsOutputWithContext(context.Context) WebAppEndpointDetailsOutput
+}
+
+type WebAppEndpointDetailsArgs struct {
+	// Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+	Vpc WebAppEndpointDetailsVpcPtrInput `pulumi:"vpc"`
+}
+
+func (WebAppEndpointDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppEndpointDetails)(nil)).Elem()
+}
+
+func (i WebAppEndpointDetailsArgs) ToWebAppEndpointDetailsOutput() WebAppEndpointDetailsOutput {
+	return i.ToWebAppEndpointDetailsOutputWithContext(context.Background())
+}
+
+func (i WebAppEndpointDetailsArgs) ToWebAppEndpointDetailsOutputWithContext(ctx context.Context) WebAppEndpointDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppEndpointDetailsOutput)
+}
+
+func (i WebAppEndpointDetailsArgs) ToWebAppEndpointDetailsPtrOutput() WebAppEndpointDetailsPtrOutput {
+	return i.ToWebAppEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i WebAppEndpointDetailsArgs) ToWebAppEndpointDetailsPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppEndpointDetailsOutput).ToWebAppEndpointDetailsPtrOutputWithContext(ctx)
+}
+
+// WebAppEndpointDetailsPtrInput is an input type that accepts WebAppEndpointDetailsArgs, WebAppEndpointDetailsPtr and WebAppEndpointDetailsPtrOutput values.
+// You can construct a concrete instance of `WebAppEndpointDetailsPtrInput` via:
+//
+//	        WebAppEndpointDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAppEndpointDetailsPtrInput interface {
+	pulumi.Input
+
+	ToWebAppEndpointDetailsPtrOutput() WebAppEndpointDetailsPtrOutput
+	ToWebAppEndpointDetailsPtrOutputWithContext(context.Context) WebAppEndpointDetailsPtrOutput
+}
+
+type webAppEndpointDetailsPtrType WebAppEndpointDetailsArgs
+
+func WebAppEndpointDetailsPtr(v *WebAppEndpointDetailsArgs) WebAppEndpointDetailsPtrInput {
+	return (*webAppEndpointDetailsPtrType)(v)
+}
+
+func (*webAppEndpointDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppEndpointDetails)(nil)).Elem()
+}
+
+func (i *webAppEndpointDetailsPtrType) ToWebAppEndpointDetailsPtrOutput() WebAppEndpointDetailsPtrOutput {
+	return i.ToWebAppEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *webAppEndpointDetailsPtrType) ToWebAppEndpointDetailsPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppEndpointDetailsPtrOutput)
+}
+
+type WebAppEndpointDetailsOutput struct{ *pulumi.OutputState }
+
+func (WebAppEndpointDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppEndpointDetails)(nil)).Elem()
+}
+
+func (o WebAppEndpointDetailsOutput) ToWebAppEndpointDetailsOutput() WebAppEndpointDetailsOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsOutput) ToWebAppEndpointDetailsOutputWithContext(ctx context.Context) WebAppEndpointDetailsOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsOutput) ToWebAppEndpointDetailsPtrOutput() WebAppEndpointDetailsPtrOutput {
+	return o.ToWebAppEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o WebAppEndpointDetailsOutput) ToWebAppEndpointDetailsPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAppEndpointDetails) *WebAppEndpointDetails {
+		return &v
+	}).(WebAppEndpointDetailsPtrOutput)
+}
+
+// Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+func (o WebAppEndpointDetailsOutput) Vpc() WebAppEndpointDetailsVpcPtrOutput {
+	return o.ApplyT(func(v WebAppEndpointDetails) *WebAppEndpointDetailsVpc { return v.Vpc }).(WebAppEndpointDetailsVpcPtrOutput)
+}
+
+type WebAppEndpointDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAppEndpointDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppEndpointDetails)(nil)).Elem()
+}
+
+func (o WebAppEndpointDetailsPtrOutput) ToWebAppEndpointDetailsPtrOutput() WebAppEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsPtrOutput) ToWebAppEndpointDetailsPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsPtrOutput) Elem() WebAppEndpointDetailsOutput {
+	return o.ApplyT(func(v *WebAppEndpointDetails) WebAppEndpointDetails {
+		if v != nil {
+			return *v
+		}
+		var ret WebAppEndpointDetails
+		return ret
+	}).(WebAppEndpointDetailsOutput)
+}
+
+// Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+func (o WebAppEndpointDetailsPtrOutput) Vpc() WebAppEndpointDetailsVpcPtrOutput {
+	return o.ApplyT(func(v *WebAppEndpointDetails) *WebAppEndpointDetailsVpc {
+		if v == nil {
+			return nil
+		}
+		return v.Vpc
+	}).(WebAppEndpointDetailsVpcPtrOutput)
+}
+
+type WebAppEndpointDetailsVpc struct {
+	// List of security group IDs that control access to the web app endpoint. If not specified, the VPC's default security group is used.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// List of subnet IDs within the VPC where the web app endpoint will be deployed. These subnets must be in the same VPC specified in the `vpcId` parameter.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// ID of the VPC endpoint created for the web app.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+	// ID of the VPC where the web app endpoint will be hosted. The VPC must be dual-stack, meaning it supports both IPv4 and IPv6 addressing.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// WebAppEndpointDetailsVpcInput is an input type that accepts WebAppEndpointDetailsVpcArgs and WebAppEndpointDetailsVpcOutput values.
+// You can construct a concrete instance of `WebAppEndpointDetailsVpcInput` via:
+//
+//	WebAppEndpointDetailsVpcArgs{...}
+type WebAppEndpointDetailsVpcInput interface {
+	pulumi.Input
+
+	ToWebAppEndpointDetailsVpcOutput() WebAppEndpointDetailsVpcOutput
+	ToWebAppEndpointDetailsVpcOutputWithContext(context.Context) WebAppEndpointDetailsVpcOutput
+}
+
+type WebAppEndpointDetailsVpcArgs struct {
+	// List of security group IDs that control access to the web app endpoint. If not specified, the VPC's default security group is used.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// List of subnet IDs within the VPC where the web app endpoint will be deployed. These subnets must be in the same VPC specified in the `vpcId` parameter.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// ID of the VPC endpoint created for the web app.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
+	// ID of the VPC where the web app endpoint will be hosted. The VPC must be dual-stack, meaning it supports both IPv4 and IPv6 addressing.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (WebAppEndpointDetailsVpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppEndpointDetailsVpc)(nil)).Elem()
+}
+
+func (i WebAppEndpointDetailsVpcArgs) ToWebAppEndpointDetailsVpcOutput() WebAppEndpointDetailsVpcOutput {
+	return i.ToWebAppEndpointDetailsVpcOutputWithContext(context.Background())
+}
+
+func (i WebAppEndpointDetailsVpcArgs) ToWebAppEndpointDetailsVpcOutputWithContext(ctx context.Context) WebAppEndpointDetailsVpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppEndpointDetailsVpcOutput)
+}
+
+func (i WebAppEndpointDetailsVpcArgs) ToWebAppEndpointDetailsVpcPtrOutput() WebAppEndpointDetailsVpcPtrOutput {
+	return i.ToWebAppEndpointDetailsVpcPtrOutputWithContext(context.Background())
+}
+
+func (i WebAppEndpointDetailsVpcArgs) ToWebAppEndpointDetailsVpcPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppEndpointDetailsVpcOutput).ToWebAppEndpointDetailsVpcPtrOutputWithContext(ctx)
+}
+
+// WebAppEndpointDetailsVpcPtrInput is an input type that accepts WebAppEndpointDetailsVpcArgs, WebAppEndpointDetailsVpcPtr and WebAppEndpointDetailsVpcPtrOutput values.
+// You can construct a concrete instance of `WebAppEndpointDetailsVpcPtrInput` via:
+//
+//	        WebAppEndpointDetailsVpcArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAppEndpointDetailsVpcPtrInput interface {
+	pulumi.Input
+
+	ToWebAppEndpointDetailsVpcPtrOutput() WebAppEndpointDetailsVpcPtrOutput
+	ToWebAppEndpointDetailsVpcPtrOutputWithContext(context.Context) WebAppEndpointDetailsVpcPtrOutput
+}
+
+type webAppEndpointDetailsVpcPtrType WebAppEndpointDetailsVpcArgs
+
+func WebAppEndpointDetailsVpcPtr(v *WebAppEndpointDetailsVpcArgs) WebAppEndpointDetailsVpcPtrInput {
+	return (*webAppEndpointDetailsVpcPtrType)(v)
+}
+
+func (*webAppEndpointDetailsVpcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppEndpointDetailsVpc)(nil)).Elem()
+}
+
+func (i *webAppEndpointDetailsVpcPtrType) ToWebAppEndpointDetailsVpcPtrOutput() WebAppEndpointDetailsVpcPtrOutput {
+	return i.ToWebAppEndpointDetailsVpcPtrOutputWithContext(context.Background())
+}
+
+func (i *webAppEndpointDetailsVpcPtrType) ToWebAppEndpointDetailsVpcPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppEndpointDetailsVpcPtrOutput)
+}
+
+type WebAppEndpointDetailsVpcOutput struct{ *pulumi.OutputState }
+
+func (WebAppEndpointDetailsVpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppEndpointDetailsVpc)(nil)).Elem()
+}
+
+func (o WebAppEndpointDetailsVpcOutput) ToWebAppEndpointDetailsVpcOutput() WebAppEndpointDetailsVpcOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsVpcOutput) ToWebAppEndpointDetailsVpcOutputWithContext(ctx context.Context) WebAppEndpointDetailsVpcOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsVpcOutput) ToWebAppEndpointDetailsVpcPtrOutput() WebAppEndpointDetailsVpcPtrOutput {
+	return o.ToWebAppEndpointDetailsVpcPtrOutputWithContext(context.Background())
+}
+
+func (o WebAppEndpointDetailsVpcOutput) ToWebAppEndpointDetailsVpcPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsVpcPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAppEndpointDetailsVpc) *WebAppEndpointDetailsVpc {
+		return &v
+	}).(WebAppEndpointDetailsVpcPtrOutput)
+}
+
+// List of security group IDs that control access to the web app endpoint. If not specified, the VPC's default security group is used.
+func (o WebAppEndpointDetailsVpcOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebAppEndpointDetailsVpc) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs within the VPC where the web app endpoint will be deployed. These subnets must be in the same VPC specified in the `vpcId` parameter.
+func (o WebAppEndpointDetailsVpcOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebAppEndpointDetailsVpc) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// ID of the VPC endpoint created for the web app.
+func (o WebAppEndpointDetailsVpcOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppEndpointDetailsVpc) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
+// ID of the VPC where the web app endpoint will be hosted. The VPC must be dual-stack, meaning it supports both IPv4 and IPv6 addressing.
+func (o WebAppEndpointDetailsVpcOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppEndpointDetailsVpc) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type WebAppEndpointDetailsVpcPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAppEndpointDetailsVpcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppEndpointDetailsVpc)(nil)).Elem()
+}
+
+func (o WebAppEndpointDetailsVpcPtrOutput) ToWebAppEndpointDetailsVpcPtrOutput() WebAppEndpointDetailsVpcPtrOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsVpcPtrOutput) ToWebAppEndpointDetailsVpcPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsVpcPtrOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsVpcPtrOutput) Elem() WebAppEndpointDetailsVpcOutput {
+	return o.ApplyT(func(v *WebAppEndpointDetailsVpc) WebAppEndpointDetailsVpc {
+		if v != nil {
+			return *v
+		}
+		var ret WebAppEndpointDetailsVpc
+		return ret
+	}).(WebAppEndpointDetailsVpcOutput)
+}
+
+// List of security group IDs that control access to the web app endpoint. If not specified, the VPC's default security group is used.
+func (o WebAppEndpointDetailsVpcPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebAppEndpointDetailsVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs within the VPC where the web app endpoint will be deployed. These subnets must be in the same VPC specified in the `vpcId` parameter.
+func (o WebAppEndpointDetailsVpcPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebAppEndpointDetailsVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// ID of the VPC endpoint created for the web app.
+func (o WebAppEndpointDetailsVpcPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppEndpointDetailsVpc) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the VPC where the web app endpoint will be hosted. The VPC must be dual-stack, meaning it supports both IPv4 and IPv6 addressing.
+func (o WebAppEndpointDetailsVpcPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppEndpointDetailsVpc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 type WebAppIdentityProviderDetails struct {
 	// Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
 	IdentityCenterConfig *WebAppIdentityProviderDetailsIdentityCenterConfig `pulumi:"identityCenterConfig"`
@@ -7496,6 +7827,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryMappingArrayInput)(nil)).Elem(), UserHomeDirectoryMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfileInput)(nil)).Elem(), UserPosixProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfilePtrInput)(nil)).Elem(), UserPosixProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppEndpointDetailsInput)(nil)).Elem(), WebAppEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppEndpointDetailsPtrInput)(nil)).Elem(), WebAppEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppEndpointDetailsVpcInput)(nil)).Elem(), WebAppEndpointDetailsVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppEndpointDetailsVpcPtrInput)(nil)).Elem(), WebAppEndpointDetailsVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAppIdentityProviderDetailsInput)(nil)).Elem(), WebAppIdentityProviderDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAppIdentityProviderDetailsPtrInput)(nil)).Elem(), WebAppIdentityProviderDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAppIdentityProviderDetailsIdentityCenterConfigInput)(nil)).Elem(), WebAppIdentityProviderDetailsIdentityCenterConfigArgs{})
@@ -7590,6 +7925,10 @@ func init() {
 	pulumi.RegisterOutputType(UserHomeDirectoryMappingArrayOutput{})
 	pulumi.RegisterOutputType(UserPosixProfileOutput{})
 	pulumi.RegisterOutputType(UserPosixProfilePtrOutput{})
+	pulumi.RegisterOutputType(WebAppEndpointDetailsOutput{})
+	pulumi.RegisterOutputType(WebAppEndpointDetailsPtrOutput{})
+	pulumi.RegisterOutputType(WebAppEndpointDetailsVpcOutput{})
+	pulumi.RegisterOutputType(WebAppEndpointDetailsVpcPtrOutput{})
 	pulumi.RegisterOutputType(WebAppIdentityProviderDetailsOutput{})
 	pulumi.RegisterOutputType(WebAppIdentityProviderDetailsPtrOutput{})
 	pulumi.RegisterOutputType(WebAppIdentityProviderDetailsIdentityCenterConfigOutput{})

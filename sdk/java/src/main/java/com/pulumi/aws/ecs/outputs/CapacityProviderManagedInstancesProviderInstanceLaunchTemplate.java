@@ -16,6 +16,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplate {
     /**
+     * @return The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+     * 
+     */
+    private @Nullable String capacityOptionType;
+    /**
      * @return The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
      * 
      */
@@ -42,6 +47,13 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration storageConfiguration;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplate() {}
+    /**
+     * @return The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+     * 
+     */
+    public Optional<String> capacityOptionType() {
+        return Optional.ofNullable(this.capacityOptionType);
+    }
     /**
      * @return The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
      * 
@@ -87,6 +99,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String capacityOptionType;
         private String ec2InstanceProfileArn;
         private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements instanceRequirements;
         private @Nullable String monitoring;
@@ -95,6 +108,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         public Builder() {}
         public Builder(CapacityProviderManagedInstancesProviderInstanceLaunchTemplate defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.capacityOptionType = defaults.capacityOptionType;
     	      this.ec2InstanceProfileArn = defaults.ec2InstanceProfileArn;
     	      this.instanceRequirements = defaults.instanceRequirements;
     	      this.monitoring = defaults.monitoring;
@@ -102,6 +116,12 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     	      this.storageConfiguration = defaults.storageConfiguration;
         }
 
+        @CustomType.Setter
+        public Builder capacityOptionType(@Nullable String capacityOptionType) {
+
+            this.capacityOptionType = capacityOptionType;
+            return this;
+        }
         @CustomType.Setter
         public Builder ec2InstanceProfileArn(String ec2InstanceProfileArn) {
             if (ec2InstanceProfileArn == null) {
@@ -138,6 +158,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
         public CapacityProviderManagedInstancesProviderInstanceLaunchTemplate build() {
             final var _resultValue = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplate();
+            _resultValue.capacityOptionType = capacityOptionType;
             _resultValue.ec2InstanceProfileArn = ec2InstanceProfileArn;
             _resultValue.instanceRequirements = instanceRequirements;
             _resultValue.monitoring = monitoring;

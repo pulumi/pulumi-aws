@@ -61,6 +61,12 @@ namespace Pulumi.Aws.VpcLattice
         public Output<ImmutableArray<Outputs.ServiceNetworkResourceAssociationDnsEntry>> DnsEntries { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `False`. When set to `True`, the resource configuration identified by `ResourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+        /// </summary>
+        [Output("privateDnsEnabled")]
+        public Output<bool> PrivateDnsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ServiceNetworkResourceAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `False`. When set to `True`, the resource configuration identified by `ResourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+        /// </summary>
+        [Input("privateDnsEnabled")]
+        public Input<bool>? PrivateDnsEnabled { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -201,6 +213,12 @@ namespace Pulumi.Aws.VpcLattice
             get => _dnsEntries ?? (_dnsEntries = new InputList<Inputs.ServiceNetworkResourceAssociationDnsEntryGetArgs>());
             set => _dnsEntries = value;
         }
+
+        /// <summary>
+        /// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `False`. When set to `True`, the resource configuration identified by `ResourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+        /// </summary>
+        [Input("privateDnsEnabled")]
+        public Input<bool>? PrivateDnsEnabled { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

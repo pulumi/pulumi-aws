@@ -261,6 +261,10 @@ export interface GetFunctionResult {
      */
     readonly reservedConcurrentExecutions: number;
     /**
+     * ARN to be used for invoking Lambda Function from API Gateway with response streaming.
+     */
+    readonly responseStreamingInvokeArn: string;
+    /**
      * IAM role attached to the Lambda Function.
      */
     readonly role: string;

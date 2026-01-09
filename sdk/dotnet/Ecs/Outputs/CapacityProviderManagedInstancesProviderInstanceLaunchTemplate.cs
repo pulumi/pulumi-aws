@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplate
     {
         /// <summary>
+        /// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+        /// </summary>
+        public readonly string? CapacityOptionType;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
         /// </summary>
         public readonly string Ec2InstanceProfileArn;
@@ -36,6 +40,8 @@ namespace Pulumi.Aws.Ecs.Outputs
 
         [OutputConstructor]
         private CapacityProviderManagedInstancesProviderInstanceLaunchTemplate(
+            string? capacityOptionType,
+
             string ec2InstanceProfileArn,
 
             Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements? instanceRequirements,
@@ -46,6 +52,7 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration? storageConfiguration)
         {
+            CapacityOptionType = capacityOptionType;
             Ec2InstanceProfileArn = ec2InstanceProfileArn;
             InstanceRequirements = instanceRequirements;
             Monitoring = monitoring;

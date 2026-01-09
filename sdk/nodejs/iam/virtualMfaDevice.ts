@@ -60,39 +60,43 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) specifying the virtual mfa device.
+     * Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
+     * Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
      */
     declare public /*out*/ readonly base32StringSeed: pulumi.Output<string>;
     /**
-     * The date and time when the virtual MFA device was enabled.
+     * Date and time when the virtual MFA device was enabled.
      */
     declare public /*out*/ readonly enableDate: pulumi.Output<string>;
     /**
-     * The path for the virtual MFA device.
+     * Path for the virtual MFA device.
      */
     declare public readonly path: pulumi.Output<string | undefined>;
     /**
-     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+     * QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
      */
     declare public /*out*/ readonly qrCodePng: pulumi.Output<string>;
+    /**
+     * Serial number associated with the virtual MFA device.
+     */
+    declare public /*out*/ readonly serialNumber: pulumi.Output<string>;
     /**
      * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The associated IAM User name if the virtual MFA device is enabled.
+     * Name of the IAM user associated with this virtual MFA device.
      */
     declare public /*out*/ readonly userName: pulumi.Output<string>;
     /**
-     * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+     * Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      */
     declare public readonly virtualMfaDeviceName: pulumi.Output<string>;
 
@@ -114,6 +118,7 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
             resourceInputs["enableDate"] = state?.enableDate;
             resourceInputs["path"] = state?.path;
             resourceInputs["qrCodePng"] = state?.qrCodePng;
+            resourceInputs["serialNumber"] = state?.serialNumber;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["userName"] = state?.userName;
@@ -130,6 +135,7 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
             resourceInputs["base32StringSeed"] = undefined /*out*/;
             resourceInputs["enableDate"] = undefined /*out*/;
             resourceInputs["qrCodePng"] = undefined /*out*/;
+            resourceInputs["serialNumber"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["userName"] = undefined /*out*/;
         }
@@ -143,39 +149,43 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
  */
 export interface VirtualMfaDeviceState {
     /**
-     * The Amazon Resource Name (ARN) specifying the virtual mfa device.
+     * Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
+     * Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
      */
     base32StringSeed?: pulumi.Input<string>;
     /**
-     * The date and time when the virtual MFA device was enabled.
+     * Date and time when the virtual MFA device was enabled.
      */
     enableDate?: pulumi.Input<string>;
     /**
-     * The path for the virtual MFA device.
+     * Path for the virtual MFA device.
      */
     path?: pulumi.Input<string>;
     /**
-     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+     * QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
      */
     qrCodePng?: pulumi.Input<string>;
+    /**
+     * Serial number associated with the virtual MFA device.
+     */
+    serialNumber?: pulumi.Input<string>;
     /**
      * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The associated IAM User name if the virtual MFA device is enabled.
+     * Name of the IAM user associated with this virtual MFA device.
      */
     userName?: pulumi.Input<string>;
     /**
-     * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+     * Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      */
     virtualMfaDeviceName?: pulumi.Input<string>;
 }
@@ -185,7 +195,7 @@ export interface VirtualMfaDeviceState {
  */
 export interface VirtualMfaDeviceArgs {
     /**
-     * The path for the virtual MFA device.
+     * Path for the virtual MFA device.
      */
     path?: pulumi.Input<string>;
     /**
@@ -193,7 +203,7 @@ export interface VirtualMfaDeviceArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+     * Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      */
     virtualMfaDeviceName: pulumi.Input<string>;
 }

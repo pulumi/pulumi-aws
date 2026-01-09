@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetRepositoryCreationTemplateResult
     {
         /// <summary>
-        /// Which features this template applies to. Contains one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        /// Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         /// </summary>
         public readonly ImmutableArray<string> AppliedFors;
         /// <summary>

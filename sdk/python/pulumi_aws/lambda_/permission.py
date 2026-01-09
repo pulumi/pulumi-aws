@@ -24,6 +24,7 @@ class PermissionArgs:
                  principal: pulumi.Input[_builtins.str],
                  event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
                  function_url_auth_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
                  principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -40,6 +41,7 @@ class PermissionArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] event_source_token: Event Source Token for Alexa Skills
         :param pulumi.Input[_builtins.str] function_url_auth_type: Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
+        :param pulumi.Input[_builtins.bool] invoked_via_function_url: Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
         :param pulumi.Input[_builtins.str] principal_org_id: AWS Organizations ID to grant permission to all accounts under this organization
         :param pulumi.Input[_builtins.str] qualifier: Lambda function version or alias name
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
@@ -55,6 +57,8 @@ class PermissionArgs:
             pulumi.set(__self__, "event_source_token", event_source_token)
         if function_url_auth_type is not None:
             pulumi.set(__self__, "function_url_auth_type", function_url_auth_type)
+        if invoked_via_function_url is not None:
+            pulumi.set(__self__, "invoked_via_function_url", invoked_via_function_url)
         if principal_org_id is not None:
             pulumi.set(__self__, "principal_org_id", principal_org_id)
         if qualifier is not None:
@@ -131,6 +135,18 @@ class PermissionArgs:
     @function_url_auth_type.setter
     def function_url_auth_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "function_url_auth_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="invokedViaFunctionUrl")
+    def invoked_via_function_url(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+        """
+        return pulumi.get(self, "invoked_via_function_url")
+
+    @invoked_via_function_url.setter
+    def invoked_via_function_url(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "invoked_via_function_url", value)
 
     @_builtins.property
     @pulumi.getter(name="principalOrgId")
@@ -224,6 +240,7 @@ class _PermissionState:
                  event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
                  function: Optional[pulumi.Input[_builtins.str]] = None,
                  function_url_auth_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
                  principal: Optional[pulumi.Input[_builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -238,6 +255,7 @@ class _PermissionState:
         :param pulumi.Input[_builtins.str] event_source_token: Event Source Token for Alexa Skills
         :param pulumi.Input[_builtins.str] function: Name or ARN of the Lambda function
         :param pulumi.Input[_builtins.str] function_url_auth_type: Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
+        :param pulumi.Input[_builtins.bool] invoked_via_function_url: Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
         :param pulumi.Input[_builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
                
                The following arguments are optional:
@@ -257,6 +275,8 @@ class _PermissionState:
             pulumi.set(__self__, "function", function)
         if function_url_auth_type is not None:
             pulumi.set(__self__, "function_url_auth_type", function_url_auth_type)
+        if invoked_via_function_url is not None:
+            pulumi.set(__self__, "invoked_via_function_url", invoked_via_function_url)
         if principal is not None:
             pulumi.set(__self__, "principal", principal)
         if principal_org_id is not None:
@@ -321,6 +341,18 @@ class _PermissionState:
     @function_url_auth_type.setter
     def function_url_auth_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "function_url_auth_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="invokedViaFunctionUrl")
+    def invoked_via_function_url(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+        """
+        return pulumi.get(self, "invoked_via_function_url")
+
+    @invoked_via_function_url.setter
+    def invoked_via_function_url(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "invoked_via_function_url", value)
 
     @_builtins.property
     @pulumi.getter
@@ -431,6 +463,7 @@ class Permission(pulumi.CustomResource):
                  event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
                  function: Optional[pulumi.Input[_builtins.str]] = None,
                  function_url_auth_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
                  principal: Optional[pulumi.Input[_builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -601,6 +634,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] event_source_token: Event Source Token for Alexa Skills
         :param pulumi.Input[_builtins.str] function: Name or ARN of the Lambda function
         :param pulumi.Input[_builtins.str] function_url_auth_type: Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
+        :param pulumi.Input[_builtins.bool] invoked_via_function_url: Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
         :param pulumi.Input[_builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
                
                The following arguments are optional:
@@ -792,6 +826,7 @@ class Permission(pulumi.CustomResource):
                  event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
                  function: Optional[pulumi.Input[_builtins.str]] = None,
                  function_url_auth_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
                  principal: Optional[pulumi.Input[_builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -817,6 +852,7 @@ class Permission(pulumi.CustomResource):
                 raise TypeError("Missing required property 'function'")
             __props__.__dict__["function"] = function
             __props__.__dict__["function_url_auth_type"] = function_url_auth_type
+            __props__.__dict__["invoked_via_function_url"] = invoked_via_function_url
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
@@ -841,6 +877,7 @@ class Permission(pulumi.CustomResource):
             event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
             function: Optional[pulumi.Input[_builtins.str]] = None,
             function_url_auth_type: Optional[pulumi.Input[_builtins.str]] = None,
+            invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
             principal: Optional[pulumi.Input[_builtins.str]] = None,
             principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
             qualifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -860,6 +897,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] event_source_token: Event Source Token for Alexa Skills
         :param pulumi.Input[_builtins.str] function: Name or ARN of the Lambda function
         :param pulumi.Input[_builtins.str] function_url_auth_type: Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
+        :param pulumi.Input[_builtins.bool] invoked_via_function_url: Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
         :param pulumi.Input[_builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
                
                The following arguments are optional:
@@ -879,6 +917,7 @@ class Permission(pulumi.CustomResource):
         __props__.__dict__["event_source_token"] = event_source_token
         __props__.__dict__["function"] = function
         __props__.__dict__["function_url_auth_type"] = function_url_auth_type
+        __props__.__dict__["invoked_via_function_url"] = invoked_via_function_url
         __props__.__dict__["principal"] = principal
         __props__.__dict__["principal_org_id"] = principal_org_id
         __props__.__dict__["qualifier"] = qualifier
@@ -920,6 +959,14 @@ class Permission(pulumi.CustomResource):
         Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
         """
         return pulumi.get(self, "function_url_auth_type")
+
+    @_builtins.property
+    @pulumi.getter(name="invokedViaFunctionUrl")
+    def invoked_via_function_url(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+        """
+        return pulumi.get(self, "invoked_via_function_url")
 
     @_builtins.property
     @pulumi.getter

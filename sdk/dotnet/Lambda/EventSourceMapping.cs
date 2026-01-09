@@ -227,6 +227,7 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             MaximumPollers = 100,
     ///             MinimumPollers = 10,
+    ///             PollerGroupName = "group-123",
     ///         },
     ///     });
     /// 

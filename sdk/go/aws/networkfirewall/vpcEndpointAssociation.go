@@ -36,7 +36,7 @@ import (
 //				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
 //				VpcId:       pulumi.Any(exampleAwsVpc.Id),
 //				SubnetMapping: &networkfirewall.VpcEndpointAssociationSubnetMappingArgs{
-//					SubnetId: pulumi.Any(exampleTwo.Id),
+//					SubnetId: pulumi.Any(exampleAwsSubnet.Id),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example endpoint"),

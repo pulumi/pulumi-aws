@@ -102,6 +102,20 @@ public class Proxy extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
+     * Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
+     * 
+     */
+    @Export(name="endpointNetworkType", refs={String.class}, tree="[0]")
+    private Output<String> endpointNetworkType;
+
+    /**
+     * @return Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
+     * 
+     */
+    public Output<String> endpointNetworkType() {
+        return this.endpointNetworkType;
+    }
+    /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      * 
      */
@@ -212,6 +226,20 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+     * 
+     */
+    @Export(name="targetConnectionNetworkType", refs={String.class}, tree="[0]")
+    private Output<String> targetConnectionNetworkType;
+
+    /**
+     * @return Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+     * 
+     */
+    public Output<String> targetConnectionNetworkType() {
+        return this.targetConnectionNetworkType;
     }
     /**
      * One or more VPC security group IDs to associate with the new proxy.

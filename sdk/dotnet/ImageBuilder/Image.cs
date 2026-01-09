@@ -110,6 +110,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> InfrastructureConfigurationArn { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block with logging configuration. Detailed below.
+        /// </summary>
+        [Output("loggingConfiguration")]
+        public Output<Outputs.ImageLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the AMI.
         /// </summary>
         [Output("name")]
@@ -260,6 +266,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string> InfrastructureConfigurationArn { get; set; } = null!;
 
         /// <summary>
+        /// Configuration block with logging configuration. Detailed below.
+        /// </summary>
+        [Input("loggingConfiguration")]
+        public Input<Inputs.ImageLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -358,6 +370,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("infrastructureConfigurationArn")]
         public Input<string>? InfrastructureConfigurationArn { get; set; }
+
+        /// <summary>
+        /// Configuration block with logging configuration. Detailed below.
+        /// </summary>
+        [Input("loggingConfiguration")]
+        public Input<Inputs.ImageLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
         /// Name of the AMI.

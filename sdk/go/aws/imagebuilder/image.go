@@ -78,6 +78,8 @@ type Image struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
+	// Configuration block with logging configuration. Detailed below.
+	LoggingConfiguration ImageLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// Name of the AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Operating System version of the image.
@@ -153,6 +155,8 @@ type imageState struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
+	// Configuration block with logging configuration. Detailed below.
+	LoggingConfiguration *ImageLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// Name of the AMI.
 	Name *string `pulumi:"name"`
 	// Operating System version of the image.
@@ -196,6 +200,8 @@ type ImageState struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringPtrInput
+	// Configuration block with logging configuration. Detailed below.
+	LoggingConfiguration ImageLoggingConfigurationPtrInput
 	// Name of the AMI.
 	Name pulumi.StringPtrInput
 	// Operating System version of the image.
@@ -239,6 +245,8 @@ type imageArgs struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
+	// Configuration block with logging configuration. Detailed below.
+	LoggingConfiguration *ImageLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -267,6 +275,8 @@ type ImageArgs struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringInput
+	// Configuration block with logging configuration. Detailed below.
+	LoggingConfiguration ImageLoggingConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -412,6 +422,11 @@ func (o ImageOutput) ImageTestsConfiguration() ImageImageTestsConfigurationOutpu
 // The following arguments are optional:
 func (o ImageOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
+}
+
+// Configuration block with logging configuration. Detailed below.
+func (o ImageOutput) LoggingConfiguration() ImageLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Image) ImageLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(ImageLoggingConfigurationPtrOutput)
 }
 
 // Name of the AMI.

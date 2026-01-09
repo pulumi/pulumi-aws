@@ -17,6 +17,8 @@ import (
 //
 // > **Note:** When using dynamodb.TableReplica with this resource, use `lifecycle` `ignoreChanges` for `replica`, _e.g._, `lifecycle { ignoreChanges = [replica] }`.
 //
+// > **Note:** If autoscaling creates drift for your `globalSecondaryIndex` blocks and/or more granular `lifecycle` management for GSIs, we recommend using the new **experimental** resource `dynamodb.GlobalSecondaryIndex`.
+//
 // ## DynamoDB Table attributes
 //
 // Only define attributes on the table object that are going to be used as:
@@ -25,6 +27,8 @@ import (
 // * LSI or GSI hash key or range key
 //
 // The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
+//
+// > **Note:** When using the `dynamodb.GlobalSecondaryIndex` resource, you do not need to define the attributes for externally managed GSIs in the `dynamodb.Table` resource.
 //
 // ## Example Usage
 //

@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudfront.DistributionArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionState;
+import com.pulumi.aws.cloudfront.outputs.DistributionConnectionFunctionAssociation;
 import com.pulumi.aws.cloudfront.outputs.DistributionCustomErrorResponse;
 import com.pulumi.aws.cloudfront.outputs.DistributionDefaultCacheBehavior;
 import com.pulumi.aws.cloudfront.outputs.DistributionLoggingConfig;
@@ -16,6 +17,7 @@ import com.pulumi.aws.cloudfront.outputs.DistributionRestrictions;
 import com.pulumi.aws.cloudfront.outputs.DistributionTrustedKeyGroup;
 import com.pulumi.aws.cloudfront.outputs.DistributionTrustedSigner;
 import com.pulumi.aws.cloudfront.outputs.DistributionViewerCertificate;
+import com.pulumi.aws.cloudfront.outputs.DistributionViewerMtlsConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -554,6 +556,66 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With Connection Function and Viewer mTLS
+ * 
+ * The example below creates a CloudFront distribution with a connection function association and viewer mTLS configuration.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudfront.ConnectionFunction;
+ * import com.pulumi.aws.cloudfront.ConnectionFunctionArgs;
+ * import com.pulumi.aws.cloudfront.TrustStore;
+ * import com.pulumi.aws.cloudfront.TrustStoreArgs;
+ * import com.pulumi.aws.cloudfront.Distribution;
+ * import com.pulumi.aws.cloudfront.DistributionArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionConnectionFunctionAssociationArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionViewerMtlsConfigArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionViewerMtlsConfigTrustStoreConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ConnectionFunction("example", ConnectionFunctionArgs.builder()
+ *             .name("example-connection-function")
+ *             .build());
+ * 
+ *         var exampleTrustStore = new TrustStore("exampleTrustStore", TrustStoreArgs.builder()
+ *             .name("example-trust-store")
+ *             .build());
+ * 
+ *         var exampleDistribution = new Distribution("exampleDistribution", DistributionArgs.builder()
+ *             .connectionFunctionAssociation(DistributionConnectionFunctionAssociationArgs.builder()
+ *                 .id(example.id())
+ *                 .build())
+ *             .viewerMtlsConfig(DistributionViewerMtlsConfigArgs.builder()
+ *                 .mode("verify")
+ *                 .trustStoreConfig(DistributionViewerMtlsConfigTrustStoreConfigArgs.builder()
+ *                     .trustStoreId(exampleTrustStore.id())
+ *                     .advertiseTrustStoreCaNames(true)
+ *                     .ignoreCertificateExpiry(false)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
@@ -634,6 +696,20 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
+    }
+    /**
+     * A connection function association configuration block (maximum one).
+     * 
+     */
+    @Export(name="connectionFunctionAssociation", refs={DistributionConnectionFunctionAssociation.class}, tree="[0]")
+    private Output</* @Nullable */ DistributionConnectionFunctionAssociation> connectionFunctionAssociation;
+
+    /**
+     * @return A connection function association configuration block (maximum one).
+     * 
+     */
+    public Output<Optional<DistributionConnectionFunctionAssociation>> connectionFunctionAssociation() {
+        return Codegen.optional(this.connectionFunctionAssociation);
     }
     /**
      * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
@@ -1012,6 +1088,20 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      */
     public Output<DistributionViewerCertificate> viewerCertificate() {
         return this.viewerCertificate;
+    }
+    /**
+     * The viewer mTLS configuration for this distribution (maximum one).
+     * 
+     */
+    @Export(name="viewerMtlsConfig", refs={DistributionViewerMtlsConfig.class}, tree="[0]")
+    private Output</* @Nullable */ DistributionViewerMtlsConfig> viewerMtlsConfig;
+
+    /**
+     * @return The viewer mTLS configuration for this distribution (maximum one).
+     * 
+     */
+    public Output<Optional<DistributionViewerMtlsConfig>> viewerMtlsConfig() {
+        return Codegen.optional(this.viewerMtlsConfig);
     }
     /**
      * If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.

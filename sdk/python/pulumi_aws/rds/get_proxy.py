@@ -27,7 +27,7 @@ class GetProxyResult:
     """
     A collection of values returned by getProxy.
     """
-    def __init__(__self__, arn=None, auths=None, debug_logging=None, default_auth_scheme=None, endpoint=None, engine_family=None, id=None, idle_client_timeout=None, name=None, region=None, require_tls=None, role_arn=None, vpc_id=None, vpc_security_group_ids=None, vpc_subnet_ids=None):
+    def __init__(__self__, arn=None, auths=None, debug_logging=None, default_auth_scheme=None, endpoint=None, endpoint_network_type=None, engine_family=None, id=None, idle_client_timeout=None, name=None, region=None, require_tls=None, role_arn=None, target_connection_network_type=None, vpc_id=None, vpc_security_group_ids=None, vpc_subnet_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetProxyResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if endpoint_network_type and not isinstance(endpoint_network_type, str):
+            raise TypeError("Expected argument 'endpoint_network_type' to be a str")
+        pulumi.set(__self__, "endpoint_network_type", endpoint_network_type)
         if engine_family and not isinstance(engine_family, str):
             raise TypeError("Expected argument 'engine_family' to be a str")
         pulumi.set(__self__, "engine_family", engine_family)
@@ -64,6 +67,9 @@ class GetProxyResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if target_connection_network_type and not isinstance(target_connection_network_type, str):
+            raise TypeError("Expected argument 'target_connection_network_type' to be a str")
+        pulumi.set(__self__, "target_connection_network_type", target_connection_network_type)
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -113,6 +119,14 @@ class GetProxyResult:
         Endpoint that you can use to connect to the DB proxy.
         """
         return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointNetworkType")
+    def endpoint_network_type(self) -> _builtins.str:
+        """
+        Network type of the DB proxy endpoint.
+        """
+        return pulumi.get(self, "endpoint_network_type")
 
     @_builtins.property
     @pulumi.getter(name="engineFamily")
@@ -165,6 +179,14 @@ class GetProxyResult:
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
+    @pulumi.getter(name="targetConnectionNetworkType")
+    def target_connection_network_type(self) -> _builtins.str:
+        """
+        Network type that the proxy uses to connect to the target database.
+        """
+        return pulumi.get(self, "target_connection_network_type")
+
+    @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
         """
@@ -200,6 +222,7 @@ class AwaitableGetProxyResult(GetProxyResult):
             debug_logging=self.debug_logging,
             default_auth_scheme=self.default_auth_scheme,
             endpoint=self.endpoint,
+            endpoint_network_type=self.endpoint_network_type,
             engine_family=self.engine_family,
             id=self.id,
             idle_client_timeout=self.idle_client_timeout,
@@ -207,6 +230,7 @@ class AwaitableGetProxyResult(GetProxyResult):
             region=self.region,
             require_tls=self.require_tls,
             role_arn=self.role_arn,
+            target_connection_network_type=self.target_connection_network_type,
             vpc_id=self.vpc_id,
             vpc_security_group_ids=self.vpc_security_group_ids,
             vpc_subnet_ids=self.vpc_subnet_ids)
@@ -243,6 +267,7 @@ def get_proxy(name: Optional[_builtins.str] = None,
         debug_logging=pulumi.get(__ret__, 'debug_logging'),
         default_auth_scheme=pulumi.get(__ret__, 'default_auth_scheme'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
+        endpoint_network_type=pulumi.get(__ret__, 'endpoint_network_type'),
         engine_family=pulumi.get(__ret__, 'engine_family'),
         id=pulumi.get(__ret__, 'id'),
         idle_client_timeout=pulumi.get(__ret__, 'idle_client_timeout'),
@@ -250,6 +275,7 @@ def get_proxy(name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         require_tls=pulumi.get(__ret__, 'require_tls'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
+        target_connection_network_type=pulumi.get(__ret__, 'target_connection_network_type'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'),
         vpc_subnet_ids=pulumi.get(__ret__, 'vpc_subnet_ids'))
@@ -283,6 +309,7 @@ def get_proxy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         debug_logging=pulumi.get(__response__, 'debug_logging'),
         default_auth_scheme=pulumi.get(__response__, 'default_auth_scheme'),
         endpoint=pulumi.get(__response__, 'endpoint'),
+        endpoint_network_type=pulumi.get(__response__, 'endpoint_network_type'),
         engine_family=pulumi.get(__response__, 'engine_family'),
         id=pulumi.get(__response__, 'id'),
         idle_client_timeout=pulumi.get(__response__, 'idle_client_timeout'),
@@ -290,6 +317,7 @@ def get_proxy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         region=pulumi.get(__response__, 'region'),
         require_tls=pulumi.get(__response__, 'require_tls'),
         role_arn=pulumi.get(__response__, 'role_arn'),
+        target_connection_network_type=pulumi.get(__response__, 'target_connection_network_type'),
         vpc_id=pulumi.get(__response__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids'),
         vpc_subnet_ids=pulumi.get(__response__, 'vpc_subnet_ids')))

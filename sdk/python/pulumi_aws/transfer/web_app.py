@@ -22,6 +22,7 @@ __all__ = ['WebAppArgs', 'WebApp']
 class WebAppArgs:
     def __init__(__self__, *,
                  access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_details: Optional[pulumi.Input['WebAppEndpointDetailsArgs']] = None,
                  identity_provider_details: Optional[pulumi.Input['WebAppIdentityProviderDetailsArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -29,7 +30,8 @@ class WebAppArgs:
                  web_app_units: Optional[pulumi.Input[Sequence[pulumi.Input['WebAppWebAppUnitArgs']]]] = None):
         """
         The set of arguments for constructing a WebApp resource.
-        :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app.
+        :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
+        :param pulumi.Input['WebAppEndpointDetailsArgs'] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
         :param pulumi.Input['WebAppIdentityProviderDetailsArgs'] identity_provider_details: Block for details of the identity provider to use with the web app. See Identity provider details below.
                
                The following arguments are optional:
@@ -41,6 +43,8 @@ class WebAppArgs:
         """
         if access_endpoint is not None:
             pulumi.set(__self__, "access_endpoint", access_endpoint)
+        if endpoint_details is not None:
+            pulumi.set(__self__, "endpoint_details", endpoint_details)
         if identity_provider_details is not None:
             pulumi.set(__self__, "identity_provider_details", identity_provider_details)
         if region is not None:
@@ -56,13 +60,25 @@ class WebAppArgs:
     @pulumi.getter(name="accessEndpoint")
     def access_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        URL provided to interact with the Transfer Family web app.
+        URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
         """
         return pulumi.get(self, "access_endpoint")
 
     @access_endpoint.setter
     def access_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "access_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointDetails")
+    def endpoint_details(self) -> Optional[pulumi.Input['WebAppEndpointDetailsArgs']]:
+        """
+        Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        """
+        return pulumi.get(self, "endpoint_details")
+
+    @endpoint_details.setter
+    def endpoint_details(self, value: Optional[pulumi.Input['WebAppEndpointDetailsArgs']]):
+        pulumi.set(self, "endpoint_details", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderDetails")
@@ -133,6 +149,7 @@ class _WebAppState:
     def __init__(__self__, *,
                  access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_details: Optional[pulumi.Input['WebAppEndpointDetailsArgs']] = None,
                  identity_provider_details: Optional[pulumi.Input['WebAppIdentityProviderDetailsArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -142,8 +159,9 @@ class _WebAppState:
                  web_app_units: Optional[pulumi.Input[Sequence[pulumi.Input['WebAppWebAppUnitArgs']]]] = None):
         """
         Input properties used for looking up and filtering WebApp resources.
-        :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app.
+        :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
         :param pulumi.Input[_builtins.str] arn: ARN of the Web App.
+        :param pulumi.Input['WebAppEndpointDetailsArgs'] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
         :param pulumi.Input['WebAppIdentityProviderDetailsArgs'] identity_provider_details: Block for details of the identity provider to use with the web app. See Identity provider details below.
                
                The following arguments are optional:
@@ -158,6 +176,8 @@ class _WebAppState:
             pulumi.set(__self__, "access_endpoint", access_endpoint)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if endpoint_details is not None:
+            pulumi.set(__self__, "endpoint_details", endpoint_details)
         if identity_provider_details is not None:
             pulumi.set(__self__, "identity_provider_details", identity_provider_details)
         if region is not None:
@@ -177,7 +197,7 @@ class _WebAppState:
     @pulumi.getter(name="accessEndpoint")
     def access_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        URL provided to interact with the Transfer Family web app.
+        URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
         """
         return pulumi.get(self, "access_endpoint")
 
@@ -196,6 +216,18 @@ class _WebAppState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointDetails")
+    def endpoint_details(self) -> Optional[pulumi.Input['WebAppEndpointDetailsArgs']]:
+        """
+        Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        """
+        return pulumi.get(self, "endpoint_details")
+
+    @endpoint_details.setter
+    def endpoint_details(self, value: Optional[pulumi.Input['WebAppEndpointDetailsArgs']]):
+        pulumi.set(self, "endpoint_details", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderDetails")
@@ -289,6 +321,7 @@ class WebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_details: Optional[pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']]] = None,
                  identity_provider_details: Optional[pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -382,7 +415,8 @@ class WebApp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app.
+        :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
+        :param pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
         :param pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']] identity_provider_details: Block for details of the identity provider to use with the web app. See Identity provider details below.
                
                The following arguments are optional:
@@ -499,6 +533,7 @@ class WebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_details: Optional[pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']]] = None,
                  identity_provider_details: Optional[pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -514,6 +549,7 @@ class WebApp(pulumi.CustomResource):
             __props__ = WebAppArgs.__new__(WebAppArgs)
 
             __props__.__dict__["access_endpoint"] = access_endpoint
+            __props__.__dict__["endpoint_details"] = endpoint_details
             __props__.__dict__["identity_provider_details"] = identity_provider_details
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
@@ -534,6 +570,7 @@ class WebApp(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
+            endpoint_details: Optional[pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']]] = None,
             identity_provider_details: Optional[pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -548,8 +585,9 @@ class WebApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app.
+        :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
         :param pulumi.Input[_builtins.str] arn: ARN of the Web App.
+        :param pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
         :param pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']] identity_provider_details: Block for details of the identity provider to use with the web app. See Identity provider details below.
                
                The following arguments are optional:
@@ -566,6 +604,7 @@ class WebApp(pulumi.CustomResource):
 
         __props__.__dict__["access_endpoint"] = access_endpoint
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["endpoint_details"] = endpoint_details
         __props__.__dict__["identity_provider_details"] = identity_provider_details
         __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
@@ -579,7 +618,7 @@ class WebApp(pulumi.CustomResource):
     @pulumi.getter(name="accessEndpoint")
     def access_endpoint(self) -> pulumi.Output[_builtins.str]:
         """
-        URL provided to interact with the Transfer Family web app.
+        URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
         """
         return pulumi.get(self, "access_endpoint")
 
@@ -590,6 +629,14 @@ class WebApp(pulumi.CustomResource):
         ARN of the Web App.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointDetails")
+    def endpoint_details(self) -> pulumi.Output[Optional['outputs.WebAppEndpointDetails']]:
+        """
+        Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        """
+        return pulumi.get(self, "endpoint_details")
 
     @_builtins.property
     @pulumi.getter(name="identityProviderDetails")

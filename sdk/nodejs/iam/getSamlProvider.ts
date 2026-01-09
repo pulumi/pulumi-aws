@@ -64,6 +64,10 @@ export interface GetSamlProviderResult {
      */
     readonly samlMetadataDocument: string;
     /**
+     * Unique identifier assigned to the SAML provider.
+     */
+    readonly samlProviderUuid: string;
+    /**
      * Tags attached to the SAML provider.
      */
     readonly tags: {[key: string]: string};

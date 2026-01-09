@@ -206,7 +206,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Protocol to use for routing traffic to the targets.
-     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
      * Required when `targetType` is `instance`, `ip`, or `alb`.
      * Does not apply when `targetType` is `lambda`.
      * 
@@ -216,7 +216,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Protocol to use for routing traffic to the targets.
-     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
      * Required when `targetType` is `instance`, `ip`, or `alb`.
      * Does not apply when `targetType` is `lambda`.
      * 
@@ -727,7 +727,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param protocol Protocol to use for routing traffic to the targets.
-         * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+         * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
          * Required when `targetType` is `instance`, `ip`, or `alb`.
          * Does not apply when `targetType` is `lambda`.
          * 
@@ -741,7 +741,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param protocol Protocol to use for routing traffic to the targets.
-         * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+         * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
          * Required when `targetType` is `instance`, `ip`, or `alb`.
          * Does not apply when `targetType` is `lambda`.
          * 

@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRepositoryCreationTemplateResult {
     /**
-     * @return Which features this template applies to. Contains one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+     * @return Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
      * 
      */
     private List<String> appliedFors;
@@ -74,7 +74,7 @@ public final class GetRepositoryCreationTemplateResult {
 
     private GetRepositoryCreationTemplateResult() {}
     /**
-     * @return Which features this template applies to. Contains one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+     * @return Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
      * 
      */
     public List<String> appliedFors() {

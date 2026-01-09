@@ -69,6 +69,10 @@ type Gateway struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// AWS Account ID of the gateway.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewGateway registers a new resource with the given unique name, arguments, and options.
@@ -112,6 +116,10 @@ type gatewayState struct {
 	Name *string `pulumi:"name"`
 	// AWS Account ID of the gateway.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type GatewayState struct {
@@ -123,6 +131,10 @@ type GatewayState struct {
 	Name pulumi.StringPtrInput
 	// AWS Account ID of the gateway.
 	OwnerAccountId pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (GatewayState) ElementType() reflect.Type {
@@ -134,6 +146,8 @@ type gatewayArgs struct {
 	AmazonSideAsn string `pulumi:"amazonSideAsn"`
 	// The name of the connection.
 	Name *string `pulumi:"name"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Gateway resource.
@@ -142,6 +156,8 @@ type GatewayArgs struct {
 	AmazonSideAsn pulumi.StringInput
 	// The name of the connection.
 	Name pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (GatewayArgs) ElementType() reflect.Type {
@@ -249,6 +265,16 @@ func (o GatewayOutput) Name() pulumi.StringOutput {
 // AWS Account ID of the gateway.
 func (o GatewayOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o GatewayOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o GatewayOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type GatewayArrayOutput struct{ *pulumi.OutputState }

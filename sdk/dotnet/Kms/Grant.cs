@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Kms
     public partial class Grant : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
         /// </summary>
         [Output("constraints")]
         public Output<ImmutableArray<Outputs.GrantConstraint>> Constraints { get; private set; } = null!;
 
         /// <summary>
-        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
         /// </summary>
         [Output("grantCreationTokens")]
         public Output<ImmutableArray<string>> GrantCreationTokens { get; private set; } = null!;
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> GrantId { get; private set; } = null!;
 
         /// <summary>
-        /// The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
+        /// The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
         /// </summary>
         [Output("grantToken")]
         public Output<string> GrantToken { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Kms
         private InputList<Inputs.GrantConstraintArgs>? _constraints;
 
         /// <summary>
-        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
         /// </summary>
         public InputList<Inputs.GrantConstraintArgs> Constraints
         {
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Kms
         private InputList<string>? _grantCreationTokens;
 
         /// <summary>
-        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
         /// </summary>
         public InputList<string> GrantCreationTokens
         {
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Kms
         private InputList<Inputs.GrantConstraintGetArgs>? _constraints;
 
         /// <summary>
-        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
         /// </summary>
         public InputList<Inputs.GrantConstraintGetArgs> Constraints
         {
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Kms
         private InputList<string>? _grantCreationTokens;
 
         /// <summary>
-        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
         /// </summary>
         public InputList<string> GrantCreationTokens
         {
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Kms
         private Input<string>? _grantToken;
 
         /// <summary>
-        /// The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
+        /// The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
         /// </summary>
         public Input<string>? GrantToken
         {

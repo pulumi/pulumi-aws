@@ -137,6 +137,8 @@ export class OntapFileSystem extends pulumi.CustomResource {
     declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
      * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
+     *
+     * >  **Note:** The 198.19.* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
      */
     declare public readonly endpointIpAddressRange: pulumi.Output<string>;
     /**
@@ -333,6 +335,8 @@ export interface OntapFileSystemState {
     dnsName?: pulumi.Input<string>;
     /**
      * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
+     *
+     * >  **Note:** The 198.19.* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
      */
     endpointIpAddressRange?: pulumi.Input<string>;
     /**
@@ -435,6 +439,8 @@ export interface OntapFileSystemArgs {
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.OntapFileSystemDiskIopsConfiguration>;
     /**
      * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
+     *
+     * >  **Note:** The 198.19.* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
      */
     endpointIpAddressRange?: pulumi.Input<string>;
     /**

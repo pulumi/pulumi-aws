@@ -54,6 +54,18 @@ namespace Pulumi.Aws.GuardDuty.Inputs
         [Input("lessThanOrEqual")]
         public Input<string>? LessThanOrEqual { get; set; }
 
+        [Input("matches")]
+        private InputList<string>? _matches;
+
+        /// <summary>
+        /// List of string values to be evaluated as matching conditions.
+        /// </summary>
+        public InputList<string> Matches
+        {
+            get => _matches ?? (_matches = new InputList<string>());
+            set => _matches = value;
+        }
+
         [Input("notEquals")]
         private InputList<string>? _notEquals;
 
@@ -64,6 +76,18 @@ namespace Pulumi.Aws.GuardDuty.Inputs
         {
             get => _notEquals ?? (_notEquals = new InputList<string>());
             set => _notEquals = value;
+        }
+
+        [Input("notMatches")]
+        private InputList<string>? _notMatches;
+
+        /// <summary>
+        /// List of string values to be evaluated as non-matching conditions.
+        /// </summary>
+        public InputList<string> NotMatches
+        {
+            get => _notMatches ?? (_notMatches = new InputList<string>());
+            set => _notMatches = value;
         }
 
         public FilterFindingCriteriaCriterionGetArgs()

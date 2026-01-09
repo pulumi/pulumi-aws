@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -408,6 +409,20 @@ public class Permission extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> functionUrlAuthType() {
         return Codegen.optional(this.functionUrlAuthType);
+    }
+    /**
+     * Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+     * 
+     */
+    @Export(name="invokedViaFunctionUrl", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> invokedViaFunctionUrl;
+
+    /**
+     * @return Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+     * 
+     */
+    public Output<Optional<Boolean>> invokedViaFunctionUrl() {
+        return Codegen.optional(this.invokedViaFunctionUrl);
     }
     /**
      * AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)

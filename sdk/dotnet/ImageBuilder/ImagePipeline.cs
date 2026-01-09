@@ -102,6 +102,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> InfrastructureConfigurationArn { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block with logging configuration. Detailed below.
+        /// </summary>
+        [Output("loggingConfiguration")]
+        public Output<Outputs.ImagePipelineLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the image pipeline.
         /// 
         /// The following arguments are optional:
@@ -252,6 +258,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string> InfrastructureConfigurationArn { get; set; } = null!;
 
         /// <summary>
+        /// Configuration block with logging configuration. Detailed below.
+        /// </summary>
+        [Input("loggingConfiguration")]
+        public Input<Inputs.ImagePipelineLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
+
+        /// <summary>
         /// Name of the image pipeline.
         /// 
         /// The following arguments are optional:
@@ -392,6 +404,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("infrastructureConfigurationArn")]
         public Input<string>? InfrastructureConfigurationArn { get; set; }
+
+        /// <summary>
+        /// Configuration block with logging configuration. Detailed below.
+        /// </summary>
+        [Input("loggingConfiguration")]
+        public Input<Inputs.ImagePipelineLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
         /// Name of the image pipeline.

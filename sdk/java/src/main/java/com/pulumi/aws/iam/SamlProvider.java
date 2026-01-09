@@ -114,6 +114,20 @@ public class SamlProvider extends com.pulumi.resources.CustomResource {
         return this.samlMetadataDocument;
     }
     /**
+     * Unique identifier assigned to the SAML provider.
+     * 
+     */
+    @Export(name="samlProviderUuid", refs={String.class}, tree="[0]")
+    private Output<String> samlProviderUuid;
+
+    /**
+     * @return Unique identifier assigned to the SAML provider.
+     * 
+     */
+    public Output<String> samlProviderUuid() {
+        return this.samlProviderUuid;
+    }
+    /**
      * Map of resource tags for the IAM SAML provider. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

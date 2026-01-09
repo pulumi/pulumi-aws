@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -21,6 +22,16 @@ public final class GetVpcEndpointDnsOption {
      * 
      */
     private Boolean privateDnsOnlyForInboundResolverEndpoint;
+    /**
+     * @return Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
+     * 
+     */
+    private String privateDnsPreference;
+    /**
+     * @return List of private domains to create private hosted zones for and associate with the specified VPC.
+     * 
+     */
+    private List<String> privateDnsSpecifiedDomains;
 
     private GetVpcEndpointDnsOption() {}
     /**
@@ -37,6 +48,20 @@ public final class GetVpcEndpointDnsOption {
     public Boolean privateDnsOnlyForInboundResolverEndpoint() {
         return this.privateDnsOnlyForInboundResolverEndpoint;
     }
+    /**
+     * @return Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
+     * 
+     */
+    public String privateDnsPreference() {
+        return this.privateDnsPreference;
+    }
+    /**
+     * @return List of private domains to create private hosted zones for and associate with the specified VPC.
+     * 
+     */
+    public List<String> privateDnsSpecifiedDomains() {
+        return this.privateDnsSpecifiedDomains;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +74,15 @@ public final class GetVpcEndpointDnsOption {
     public static final class Builder {
         private String dnsRecordIpType;
         private Boolean privateDnsOnlyForInboundResolverEndpoint;
+        private String privateDnsPreference;
+        private List<String> privateDnsSpecifiedDomains;
         public Builder() {}
         public Builder(GetVpcEndpointDnsOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsRecordIpType = defaults.dnsRecordIpType;
     	      this.privateDnsOnlyForInboundResolverEndpoint = defaults.privateDnsOnlyForInboundResolverEndpoint;
+    	      this.privateDnsPreference = defaults.privateDnsPreference;
+    	      this.privateDnsSpecifiedDomains = defaults.privateDnsSpecifiedDomains;
         }
 
         @CustomType.Setter
@@ -72,10 +101,31 @@ public final class GetVpcEndpointDnsOption {
             this.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
             return this;
         }
+        @CustomType.Setter
+        public Builder privateDnsPreference(String privateDnsPreference) {
+            if (privateDnsPreference == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointDnsOption", "privateDnsPreference");
+            }
+            this.privateDnsPreference = privateDnsPreference;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder privateDnsSpecifiedDomains(List<String> privateDnsSpecifiedDomains) {
+            if (privateDnsSpecifiedDomains == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointDnsOption", "privateDnsSpecifiedDomains");
+            }
+            this.privateDnsSpecifiedDomains = privateDnsSpecifiedDomains;
+            return this;
+        }
+        public Builder privateDnsSpecifiedDomains(String... privateDnsSpecifiedDomains) {
+            return privateDnsSpecifiedDomains(List.of(privateDnsSpecifiedDomains));
+        }
         public GetVpcEndpointDnsOption build() {
             final var _resultValue = new GetVpcEndpointDnsOption();
             _resultValue.dnsRecordIpType = dnsRecordIpType;
             _resultValue.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
+            _resultValue.privateDnsPreference = privateDnsPreference;
+            _resultValue.privateDnsSpecifiedDomains = privateDnsSpecifiedDomains;
             return _resultValue;
         }
     }

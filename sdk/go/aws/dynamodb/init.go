@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:dynamodb/contributorInsights:ContributorInsights":
 		r = &ContributorInsights{}
+	case "aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex":
+		r = &GlobalSecondaryIndex{}
 	case "aws:dynamodb/globalTable:GlobalTable":
 		r = &GlobalTable{}
 	case "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination":
@@ -55,6 +57,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dynamodb/contributorInsights",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dynamodb/globalSecondaryIndex",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

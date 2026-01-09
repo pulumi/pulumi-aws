@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Policy on untagged image
+ * ### Policy on Untagged Images
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,27 +26,27 @@ import * as utilities from "../utilities";
  * const exampleLifecyclePolicy = new aws.ecr.LifecyclePolicy("example", {
  *     repository: example.name,
  *     policy: `{
- *     \\"rules\\": [
- *         {
- *             \\"rulePriority\\": 1,
- *             \\"description\\": \\"Expire images older than 14 days\\",
- *             \\"selection\\": {
- *                 \\"tagStatus\\": \\"untagged\\",
- *                 \\"countType\\": \\"sinceImagePushed\\",
- *                 \\"countUnit\\": \\"days\\",
- *                 \\"countNumber\\": 14
- *             },
- *             \\"action\\": {
- *                 \\"type\\": \\"expire\\"
- *             }
- *         }
- *     ]
+ *   \\"rules\\": [
+ *     {
+ *       \\"rulePriority\\": 1,
+ *       \\"description\\": \\"Expire images older than 14 days\\",
+ *       \\"selection\\": {
+ *         \\"tagStatus\\": \\"untagged\\",
+ *         \\"countType\\": \\"sinceImagePushed\\",
+ *         \\"countUnit\\": \\"days\\",
+ *         \\"countNumber\\": 14
+ *       },
+ *       \\"action\\": {
+ *         \\"type\\": \\"expire\\"
+ *       }
+ *     }
+ *   ]
  * }
  * `,
  * });
  * ```
  *
- * ### Policy on tagged image
+ * ### Policy on Tagged Images
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -56,21 +56,66 @@ import * as utilities from "../utilities";
  * const exampleLifecyclePolicy = new aws.ecr.LifecyclePolicy("example", {
  *     repository: example.name,
  *     policy: `{
- *     \\"rules\\": [
- *         {
- *             \\"rulePriority\\": 1,
- *             \\"description\\": \\"Keep last 30 images\\",
- *             \\"selection\\": {
- *                 \\"tagStatus\\": \\"tagged\\",
- *                 \\"tagPrefixList\\": [\\"v\\"],
- *                 \\"countType\\": \\"imageCountMoreThan\\",
- *                 \\"countNumber\\": 30
- *             },
- *             \\"action\\": {
- *                 \\"type\\": \\"expire\\"
- *             }
- *         }
- *     ]
+ *   \\"rules\\": [
+ *     {
+ *       \\"rulePriority\\": 1,
+ *       \\"description\\": \\"Keep last 30 images\\",
+ *       \\"selection\\": {
+ *         \\"tagStatus\\": \\"tagged\\",
+ *         \\"tagPrefixList\\": [\\"v\\"],
+ *         \\"countType\\": \\"imageCountMoreThan\\",
+ *         \\"countNumber\\": 30
+ *       },
+ *       \\"action\\": {
+ *         \\"type\\": \\"expire\\"
+ *       }
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * ### Policy to Archive and Delete
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecr.Repository("example", {name: "example-repo"});
+ * const exampleLifecyclePolicy = new aws.ecr.LifecyclePolicy("example", {
+ *     repository: example.name,
+ *     policy: `{
+ *   \\"rules\\": [
+ *     {
+ *       \\"rulePriority\\": 1,
+ *       \\"description\\": \\"Archive images not pulled in 90 days\\",
+ *       \\"selection\\": {
+ *         \\"tagStatus\\": \\"any\\",
+ *         \\"countType\\": \\"sinceImagePulled\\",
+ *         \\"countUnit\\": \\"days\\",
+ *         \\"countNumber\\": 90
+ *       },
+ *       \\"action\\": {
+ *         \\"type\\": \\"transition\\",
+ *         \\"targetStorageClass\\": \\"archive\\"
+ *       }
+ *     },
+ *     {
+ *       \\"rulePriority\\": 2,
+ *       \\"description\\": \\"Delete images archived for more than 365 days\\",
+ *       \\"selection\\": {
+ *         \\"tagStatus\\": \\"any\\",
+ *         \\"storageClass\\": \\"archive\\",
+ *         \\"countType\\": \\"sinceImageTransitioned\\",
+ *         \\"countUnit\\": \\"days\\",
+ *         \\"countNumber\\": 365
+ *       },
+ *       \\"action\\": {
+ *         \\"type\\": \\"expire\\"
+ *       }
+ *     }
+ *   ]
  * }
  * `,
  * });

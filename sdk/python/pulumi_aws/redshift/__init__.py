@@ -23,6 +23,7 @@ from .get_producer_data_shares import *
 from .get_subnet_group import *
 from .hsm_client_certificate import *
 from .hsm_configuration import *
+from .idc_application import *
 from .integration import *
 from .logging import *
 from .parameter_group import *

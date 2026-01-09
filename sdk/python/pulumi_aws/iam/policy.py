@@ -22,6 +22,7 @@ __all__ = ['PolicyArgs', 'Policy']
 class PolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']],
+                 delay_after_policy_creation_in_ms: Optional[pulumi.Input[_builtins.int]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -30,6 +31,7 @@ class PolicyArgs:
         """
         The set of arguments for constructing a Policy resource.
         :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
+        :param pulumi.Input[_builtins.int] delay_after_policy_creation_in_ms: Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
         :param pulumi.Input[_builtins.str] description: Description of the IAM policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -37,6 +39,8 @@ class PolicyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "policy", policy)
+        if delay_after_policy_creation_in_ms is not None:
+            pulumi.set(__self__, "delay_after_policy_creation_in_ms", delay_after_policy_creation_in_ms)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -59,6 +63,18 @@ class PolicyArgs:
     @policy.setter
     def policy(self, value: pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]):
         pulumi.set(self, "policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="delayAfterPolicyCreationInMs")
+    def delay_after_policy_creation_in_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+        """
+        return pulumi.get(self, "delay_after_policy_creation_in_ms")
+
+    @delay_after_policy_creation_in_ms.setter
+    def delay_after_policy_creation_in_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "delay_after_policy_creation_in_ms", value)
 
     @_builtins.property
     @pulumi.getter
@@ -126,6 +142,7 @@ class _PolicyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  attachment_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 delay_after_policy_creation_in_ms: Optional[pulumi.Input[_builtins.int]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -138,6 +155,7 @@ class _PolicyState:
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this policy.
         :param pulumi.Input[_builtins.int] attachment_count: Number of entities (users, groups, and roles) that the policy is attached to.
+        :param pulumi.Input[_builtins.int] delay_after_policy_creation_in_ms: Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
         :param pulumi.Input[_builtins.str] description: Description of the IAM policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -151,6 +169,8 @@ class _PolicyState:
             pulumi.set(__self__, "arn", arn)
         if attachment_count is not None:
             pulumi.set(__self__, "attachment_count", attachment_count)
+        if delay_after_policy_creation_in_ms is not None:
+            pulumi.set(__self__, "delay_after_policy_creation_in_ms", delay_after_policy_creation_in_ms)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -191,6 +211,18 @@ class _PolicyState:
     @attachment_count.setter
     def attachment_count(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "attachment_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="delayAfterPolicyCreationInMs")
+    def delay_after_policy_creation_in_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+        """
+        return pulumi.get(self, "delay_after_policy_creation_in_ms")
+
+    @delay_after_policy_creation_in_ms.setter
+    def delay_after_policy_creation_in_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "delay_after_policy_creation_in_ms", value)
 
     @_builtins.property
     @pulumi.getter
@@ -295,6 +327,7 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delay_after_policy_creation_in_ms: Optional[pulumi.Input[_builtins.int]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -342,6 +375,7 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.int] delay_after_policy_creation_in_ms: Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
         :param pulumi.Input[_builtins.str] description: Description of the IAM policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -408,6 +442,7 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delay_after_policy_creation_in_ms: Optional[pulumi.Input[_builtins.int]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -423,6 +458,7 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyArgs.__new__(PolicyArgs)
 
+            __props__.__dict__["delay_after_policy_creation_in_ms"] = delay_after_policy_creation_in_ms
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
@@ -447,6 +483,7 @@ class Policy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             attachment_count: Optional[pulumi.Input[_builtins.int]] = None,
+            delay_after_policy_creation_in_ms: Optional[pulumi.Input[_builtins.int]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -464,6 +501,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this policy.
         :param pulumi.Input[_builtins.int] attachment_count: Number of entities (users, groups, and roles) that the policy is attached to.
+        :param pulumi.Input[_builtins.int] delay_after_policy_creation_in_ms: Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
         :param pulumi.Input[_builtins.str] description: Description of the IAM policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -479,6 +517,7 @@ class Policy(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["attachment_count"] = attachment_count
+        __props__.__dict__["delay_after_policy_creation_in_ms"] = delay_after_policy_creation_in_ms
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
@@ -504,6 +543,14 @@ class Policy(pulumi.CustomResource):
         Number of entities (users, groups, and roles) that the policy is attached to.
         """
         return pulumi.get(self, "attachment_count")
+
+    @_builtins.property
+    @pulumi.getter(name="delayAfterPolicyCreationInMs")
+    def delay_after_policy_creation_in_ms(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+        """
+        return pulumi.get(self, "delay_after_policy_creation_in_ms")
 
     @_builtins.property
     @pulumi.getter

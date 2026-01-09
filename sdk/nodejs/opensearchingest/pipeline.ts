@@ -145,6 +145,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     declare public readonly pipelineName: pulumi.Output<string>;
     /**
+     * ARN of the IAM role that grants the pipeline permission to access AWS resources.
+     */
+    declare public readonly pipelineRoleArn: pulumi.Output<string>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -181,6 +185,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineArn"] = state?.pipelineArn;
             resourceInputs["pipelineConfigurationBody"] = state?.pipelineConfigurationBody;
             resourceInputs["pipelineName"] = state?.pipelineName;
+            resourceInputs["pipelineRoleArn"] = state?.pipelineRoleArn;
             resourceInputs["region"] = state?.region;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
@@ -207,6 +212,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["minUnits"] = args?.minUnits;
             resourceInputs["pipelineConfigurationBody"] = args?.pipelineConfigurationBody;
             resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["pipelineRoleArn"] = args?.pipelineRoleArn;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
@@ -263,6 +269,10 @@ export interface PipelineState {
      */
     pipelineName?: pulumi.Input<string>;
     /**
+     * ARN of the IAM role that grants the pipeline permission to access AWS resources.
+     */
+    pipelineRoleArn?: pulumi.Input<string>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
@@ -312,6 +322,10 @@ export interface PipelineArgs {
      * The following arguments are optional:
      */
     pipelineName: pulumi.Input<string>;
+    /**
+     * ARN of the IAM role that grants the pipeline permission to access AWS resources.
+     */
+    pipelineRoleArn?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

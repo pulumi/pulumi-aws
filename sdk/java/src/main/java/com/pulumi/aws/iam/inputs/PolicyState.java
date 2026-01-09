@@ -50,6 +50,21 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     * 
+     */
+    @Import(name="delayAfterPolicyCreationInMs")
+    private @Nullable Output<Integer> delayAfterPolicyCreationInMs;
+
+    /**
+     * @return Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     * 
+     */
+    public Optional<Output<Integer>> delayAfterPolicyCreationInMs() {
+        return Optional.ofNullable(this.delayAfterPolicyCreationInMs);
+    }
+
+    /**
      * Description of the IAM policy.
      * 
      */
@@ -174,6 +189,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     private PolicyState(PolicyState $) {
         this.arn = $.arn;
         this.attachmentCount = $.attachmentCount;
+        this.delayAfterPolicyCreationInMs = $.delayAfterPolicyCreationInMs;
         this.description = $.description;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
@@ -242,6 +258,27 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder attachmentCount(Integer attachmentCount) {
             return attachmentCount(Output.of(attachmentCount));
+        }
+
+        /**
+         * @param delayAfterPolicyCreationInMs Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder delayAfterPolicyCreationInMs(@Nullable Output<Integer> delayAfterPolicyCreationInMs) {
+            $.delayAfterPolicyCreationInMs = delayAfterPolicyCreationInMs;
+            return this;
+        }
+
+        /**
+         * @param delayAfterPolicyCreationInMs Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder delayAfterPolicyCreationInMs(Integer delayAfterPolicyCreationInMs) {
+            return delayAfterPolicyCreationInMs(Output.of(delayAfterPolicyCreationInMs));
         }
 
         /**

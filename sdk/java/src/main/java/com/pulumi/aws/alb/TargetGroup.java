@@ -503,7 +503,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * Protocol to use for routing traffic to the targets.
-     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
      * Required when `targetType` is `instance`, `ip`, or `alb`.
      * Does not apply when `targetType` is `lambda`.
      * 
@@ -513,7 +513,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Protocol to use for routing traffic to the targets.
-     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
      * Required when `targetType` is `instance`, `ip`, or `alb`.
      * Does not apply when `targetType` is `lambda`.
      * 

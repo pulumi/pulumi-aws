@@ -106,6 +106,48 @@ import (
 //
 // ```
 //
+// ### Target using QUIC
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := lb.NewTargetGroup(ctx, "test", &lb.TargetGroupArgs{
+//				Name:     pulumi.String("test"),
+//				Port:     pulumi.Int(443),
+//				Protocol: pulumi.String("QUIC"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testInstance, err := ec2.NewInstance(ctx, "test", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewTargetGroupAttachment(ctx, "test", &lb.TargetGroupAttachmentArgs{
+//				TargetGroupArn: test.Arn,
+//				TargetId:       testInstance.ID(),
+//				Port:           pulumi.Int(443),
+//				QuicServerId:   pulumi.String("0x1a2b3c4d5e6f7a8b"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // You cannot import Target Group Attachments.
@@ -116,6 +158,8 @@ type TargetGroupAttachment struct {
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
+	// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+	QuicServerId pulumi.StringPtrOutput `pulumi:"quicServerId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the target group with which to register targets.
@@ -172,6 +216,8 @@ type targetGroupAttachmentState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port *int `pulumi:"port"`
+	// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+	QuicServerId *string `pulumi:"quicServerId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the target group with which to register targets.
@@ -187,6 +233,8 @@ type TargetGroupAttachmentState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrInput
+	// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+	QuicServerId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the target group with which to register targets.
@@ -206,6 +254,8 @@ type targetGroupAttachmentArgs struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port *int `pulumi:"port"`
+	// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+	QuicServerId *string `pulumi:"quicServerId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the target group with which to register targets.
@@ -222,6 +272,8 @@ type TargetGroupAttachmentArgs struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrInput
+	// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+	QuicServerId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the target group with which to register targets.
@@ -327,6 +379,11 @@ func (o TargetGroupAttachmentOutput) AvailabilityZone() pulumi.StringPtrOutput {
 // The port on which targets receive traffic.
 func (o TargetGroupAttachmentOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+func (o TargetGroupAttachmentOutput) QuicServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringPtrOutput { return v.QuicServerId }).(pulumi.StringPtrOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

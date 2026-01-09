@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -96,6 +97,20 @@ public class ServiceNetworkResourceAssociation extends com.pulumi.resources.Cust
      */
     public Output<List<ServiceNetworkResourceAssociationDnsEntry>> dnsEntries() {
         return this.dnsEntries;
+    }
+    /**
+     * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+     * 
+     */
+    @Export(name="privateDnsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> privateDnsEnabled;
+
+    /**
+     * @return Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+     * 
+     */
+    public Output<Boolean> privateDnsEnabled() {
+        return this.privateDnsEnabled;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

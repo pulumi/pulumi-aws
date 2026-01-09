@@ -82,6 +82,7 @@ public final class GetVpcEndpointResult {
      */
     private List<String> securityGroupIds;
     private String serviceName;
+    private String serviceRegion;
     private String state;
     /**
      * @return One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
@@ -89,10 +90,6 @@ public final class GetVpcEndpointResult {
      */
     private List<String> subnetIds;
     private Map<String,String> tags;
-    /**
-     * @return VPC Endpoint type, `Gateway` or `Interface`.
-     * 
-     */
     private String vpcEndpointType;
     private String vpcId;
 
@@ -196,6 +193,9 @@ public final class GetVpcEndpointResult {
     public String serviceName() {
         return this.serviceName;
     }
+    public String serviceRegion() {
+        return this.serviceRegion;
+    }
     public String state() {
         return this.state;
     }
@@ -209,10 +209,6 @@ public final class GetVpcEndpointResult {
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return VPC Endpoint type, `Gateway` or `Interface`.
-     * 
-     */
     public String vpcEndpointType() {
         return this.vpcEndpointType;
     }
@@ -246,6 +242,7 @@ public final class GetVpcEndpointResult {
         private List<String> routeTableIds;
         private List<String> securityGroupIds;
         private String serviceName;
+        private String serviceRegion;
         private String state;
         private List<String> subnetIds;
         private Map<String,String> tags;
@@ -271,6 +268,7 @@ public final class GetVpcEndpointResult {
     	      this.routeTableIds = defaults.routeTableIds;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.serviceName = defaults.serviceName;
+    	      this.serviceRegion = defaults.serviceRegion;
     	      this.state = defaults.state;
     	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
@@ -434,6 +432,14 @@ public final class GetVpcEndpointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder serviceRegion(String serviceRegion) {
+            if (serviceRegion == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "serviceRegion");
+            }
+            this.serviceRegion = serviceRegion;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetVpcEndpointResult", "state");
@@ -495,6 +501,7 @@ public final class GetVpcEndpointResult {
             _resultValue.routeTableIds = routeTableIds;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.serviceName = serviceName;
+            _resultValue.serviceRegion = serviceRegion;
             _resultValue.state = state;
             _resultValue.subnetIds = subnetIds;
             _resultValue.tags = tags;

@@ -1929,11 +1929,11 @@ func (o GetImagesImageIdArrayOutput) Index(i pulumi.IntInput) GetImagesImageIdOu
 }
 
 type GetLifecyclePolicyDocumentRule struct {
-	// Specifies the action type.
+	// Specifies the action to take.
 	Action *GetLifecyclePolicyDocumentRuleAction `pulumi:"action"`
 	// Describes the purpose of a rule within a lifecycle policy.
 	Description *string `pulumi:"description"`
-	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
+	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
 	Priority int `pulumi:"priority"`
 	// Collects parameters describing the selection criteria for the ECR lifecycle policy:
 	Selection *GetLifecyclePolicyDocumentRuleSelection `pulumi:"selection"`
@@ -1951,11 +1951,11 @@ type GetLifecyclePolicyDocumentRuleInput interface {
 }
 
 type GetLifecyclePolicyDocumentRuleArgs struct {
-	// Specifies the action type.
+	// Specifies the action to take.
 	Action GetLifecyclePolicyDocumentRuleActionPtrInput `pulumi:"action"`
 	// Describes the purpose of a rule within a lifecycle policy.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
+	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Collects parameters describing the selection criteria for the ECR lifecycle policy:
 	Selection GetLifecyclePolicyDocumentRuleSelectionPtrInput `pulumi:"selection"`
@@ -2012,7 +2012,7 @@ func (o GetLifecyclePolicyDocumentRuleOutput) ToGetLifecyclePolicyDocumentRuleOu
 	return o
 }
 
-// Specifies the action type.
+// Specifies the action to take.
 func (o GetLifecyclePolicyDocumentRuleOutput) Action() GetLifecyclePolicyDocumentRuleActionPtrOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRule) *GetLifecyclePolicyDocumentRuleAction { return v.Action }).(GetLifecyclePolicyDocumentRuleActionPtrOutput)
 }
@@ -2022,7 +2022,7 @@ func (o GetLifecyclePolicyDocumentRuleOutput) Description() pulumi.StringPtrOutp
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
+// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
 func (o GetLifecyclePolicyDocumentRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRule) int { return v.Priority }).(pulumi.IntOutput)
 }
@@ -2053,7 +2053,9 @@ func (o GetLifecyclePolicyDocumentRuleArrayOutput) Index(i pulumi.IntInput) GetL
 }
 
 type GetLifecyclePolicyDocumentRuleAction struct {
-	// The supported value is `expire`.
+	TargetStorageClass *string `pulumi:"targetStorageClass"`
+	// Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+	// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 	Type string `pulumi:"type"`
 }
 
@@ -2069,7 +2071,9 @@ type GetLifecyclePolicyDocumentRuleActionInput interface {
 }
 
 type GetLifecyclePolicyDocumentRuleActionArgs struct {
-	// The supported value is `expire`.
+	TargetStorageClass pulumi.StringPtrInput `pulumi:"targetStorageClass"`
+	// Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+	// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2150,7 +2154,12 @@ func (o GetLifecyclePolicyDocumentRuleActionOutput) ToGetLifecyclePolicyDocument
 	}).(GetLifecyclePolicyDocumentRuleActionPtrOutput)
 }
 
-// The supported value is `expire`.
+func (o GetLifecyclePolicyDocumentRuleActionOutput) TargetStorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleAction) *string { return v.TargetStorageClass }).(pulumi.StringPtrOutput)
+}
+
+// Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 func (o GetLifecyclePolicyDocumentRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2179,7 +2188,17 @@ func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) Elem() GetLifecyclePolicy
 	}).(GetLifecyclePolicyDocumentRuleActionOutput)
 }
 
-// The supported value is `expire`.
+func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) TargetStorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetStorageClass
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleAction) *string {
 		if v == nil {
@@ -2190,17 +2209,19 @@ func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) Type() pulumi.StringPtrOu
 }
 
 type GetLifecyclePolicyDocumentRuleSelection struct {
-	// Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
+	// Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
 	CountNumber int `pulumi:"countNumber"`
-	// Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+	// Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 	CountType string `pulumi:"countType"`
-	// Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+	// Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
 	CountUnit *string `pulumi:"countUnit"`
+	// The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+	StorageClass *string `pulumi:"storageClass"`
 	// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
 	TagPatternLists []string `pulumi:"tagPatternLists"`
 	// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
 	TagPrefixLists []string `pulumi:"tagPrefixLists"`
-	// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
+	// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
 	TagStatus string `pulumi:"tagStatus"`
 }
 
@@ -2216,17 +2237,19 @@ type GetLifecyclePolicyDocumentRuleSelectionInput interface {
 }
 
 type GetLifecyclePolicyDocumentRuleSelectionArgs struct {
-	// Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
+	// Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
 	CountNumber pulumi.IntInput `pulumi:"countNumber"`
-	// Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+	// Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 	CountType pulumi.StringInput `pulumi:"countType"`
-	// Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+	// Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
 	CountUnit pulumi.StringPtrInput `pulumi:"countUnit"`
+	// The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 	// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
 	TagPatternLists pulumi.StringArrayInput `pulumi:"tagPatternLists"`
 	// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
 	TagPrefixLists pulumi.StringArrayInput `pulumi:"tagPrefixLists"`
-	// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
+	// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
 	TagStatus pulumi.StringInput `pulumi:"tagStatus"`
 }
 
@@ -2307,19 +2330,24 @@ func (o GetLifecyclePolicyDocumentRuleSelectionOutput) ToGetLifecyclePolicyDocum
 	}).(GetLifecyclePolicyDocumentRuleSelectionPtrOutput)
 }
 
-// Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
+// Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) CountNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) int { return v.CountNumber }).(pulumi.IntOutput)
 }
 
-// Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+// Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) CountType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) string { return v.CountType }).(pulumi.StringOutput)
 }
 
-// Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+// Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) CountUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) *string { return v.CountUnit }).(pulumi.StringPtrOutput)
+}
+
+// The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+func (o GetLifecyclePolicyDocumentRuleSelectionOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
 
 // You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
@@ -2332,7 +2360,7 @@ func (o GetLifecyclePolicyDocumentRuleSelectionOutput) TagPrefixLists() pulumi.S
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) []string { return v.TagPrefixLists }).(pulumi.StringArrayOutput)
 }
 
-// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
+// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) TagStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) string { return v.TagStatus }).(pulumi.StringOutput)
 }
@@ -2361,7 +2389,7 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) Elem() GetLifecyclePol
 	}).(GetLifecyclePolicyDocumentRuleSelectionOutput)
 }
 
-// Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
+// Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *int {
 		if v == nil {
@@ -2371,7 +2399,7 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountNumber() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+// Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
 		if v == nil {
@@ -2381,13 +2409,23 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+// Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
 		if v == nil {
 			return nil
 		}
 		return v.CountUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageClass
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2411,7 +2449,7 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPrefixLists() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
+// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
 		if v == nil {

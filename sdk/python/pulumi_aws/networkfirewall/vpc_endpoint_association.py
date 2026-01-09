@@ -343,7 +343,7 @@ class VpcEndpointAssociation(pulumi.CustomResource):
             firewall_arn=example_aws_networkfirewall_firewall["arn"],
             vpc_id=example_aws_vpc["id"],
             subnet_mapping={
-                "subnet_id": example_two["id"],
+                "subnet_id": example_aws_subnet["id"],
             },
             tags={
                 "Name": "example endpoint",
@@ -390,7 +390,7 @@ class VpcEndpointAssociation(pulumi.CustomResource):
             firewall_arn=example_aws_networkfirewall_firewall["arn"],
             vpc_id=example_aws_vpc["id"],
             subnet_mapping={
-                "subnet_id": example_two["id"],
+                "subnet_id": example_aws_subnet["id"],
             },
             tags={
                 "Name": "example endpoint",

@@ -827,6 +827,8 @@ type Function struct {
 	ReplacementSecurityGroupIds pulumi.StringArrayOutput `pulumi:"replacementSecurityGroupIds"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
 	ReservedConcurrentExecutions pulumi.IntPtrOutput `pulumi:"reservedConcurrentExecutions"`
+	// ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `apigateway.Integration`'s `uri`.
+	ResponseStreamingInvokeArn pulumi.StringOutput `pulumi:"responseStreamingInvokeArn"`
 	// ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
 	//
 	// The following arguments are optional:
@@ -964,6 +966,8 @@ type functionState struct {
 	ReplacementSecurityGroupIds []string `pulumi:"replacementSecurityGroupIds"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
+	// ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `apigateway.Integration`'s `uri`.
+	ResponseStreamingInvokeArn *string `pulumi:"responseStreamingInvokeArn"`
 	// ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
 	//
 	// The following arguments are optional:
@@ -1069,6 +1073,8 @@ type FunctionState struct {
 	ReplacementSecurityGroupIds pulumi.StringArrayInput
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
 	ReservedConcurrentExecutions pulumi.IntPtrInput
+	// ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `apigateway.Integration`'s `uri`.
+	ResponseStreamingInvokeArn pulumi.StringPtrInput
 	// ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
 	//
 	// The following arguments are optional:
@@ -1526,6 +1532,11 @@ func (o FunctionOutput) ReplacementSecurityGroupIds() pulumi.StringArrayOutput {
 // Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
 func (o FunctionOutput) ReservedConcurrentExecutions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.ReservedConcurrentExecutions }).(pulumi.IntPtrOutput)
+}
+
+// ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `apigateway.Integration`'s `uri`.
+func (o FunctionOutput) ResponseStreamingInvokeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.ResponseStreamingInvokeArn }).(pulumi.StringOutput)
 }
 
 // ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.

@@ -709,7 +709,7 @@ class EventSourceMappingDestinationConfigOnFailure(dict):
     def __init__(__self__, *,
                  destination_arn: _builtins.str):
         """
-        :param _builtins.str destination_arn: ARN of the destination resource.
+        :param _builtins.str destination_arn: ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
 
@@ -717,7 +717,7 @@ class EventSourceMappingDestinationConfigOnFailure(dict):
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> _builtins.str:
         """
-        ARN of the destination resource.
+        ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -850,6 +850,8 @@ class EventSourceMappingProvisionedPollerConfig(dict):
             suggest = "maximum_pollers"
         elif key == "minimumPollers":
             suggest = "minimum_pollers"
+        elif key == "pollerGroupName":
+            suggest = "poller_group_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingProvisionedPollerConfig. Access the value via the '{suggest}' property getter instead.")
@@ -864,15 +866,19 @@ class EventSourceMappingProvisionedPollerConfig(dict):
 
     def __init__(__self__, *,
                  maximum_pollers: Optional[_builtins.int] = None,
-                 minimum_pollers: Optional[_builtins.int] = None):
+                 minimum_pollers: Optional[_builtins.int] = None,
+                 poller_group_name: Optional[_builtins.str] = None):
         """
         :param _builtins.int maximum_pollers: Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
         :param _builtins.int minimum_pollers: Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+        :param _builtins.str poller_group_name: The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
         """
         if maximum_pollers is not None:
             pulumi.set(__self__, "maximum_pollers", maximum_pollers)
         if minimum_pollers is not None:
             pulumi.set(__self__, "minimum_pollers", minimum_pollers)
+        if poller_group_name is not None:
+            pulumi.set(__self__, "poller_group_name", poller_group_name)
 
     @_builtins.property
     @pulumi.getter(name="maximumPollers")
@@ -889,6 +895,14 @@ class EventSourceMappingProvisionedPollerConfig(dict):
         Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
         """
         return pulumi.get(self, "minimum_pollers")
+
+    @_builtins.property
+    @pulumi.getter(name="pollerGroupName")
+    def poller_group_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+        """
+        return pulumi.get(self, "poller_group_name")
 
 
 @pulumi.output_type

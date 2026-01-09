@@ -33,28 +33,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kms/grant:Grant")
 public class Grant extends com.pulumi.resources.CustomResource {
     /**
-     * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+     * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
      * 
      */
     @Export(name="constraints", refs={List.class,GrantConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GrantConstraint>> constraints;
 
     /**
-     * @return A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+     * @return A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
      * 
      */
     public Output<Optional<List<GrantConstraint>>> constraints() {
         return Codegen.optional(this.constraints);
     }
     /**
-     * A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+     * A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
      * 
      */
     @Export(name="grantCreationTokens", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> grantCreationTokens;
 
     /**
-     * @return A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+     * @return A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
      * 
      */
     public Output<Optional<List<String>>> grantCreationTokens() {
@@ -75,14 +75,14 @@ public class Grant extends com.pulumi.resources.CustomResource {
         return this.grantId;
     }
     /**
-     * The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
+     * The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
      * 
      */
     @Export(name="grantToken", refs={String.class}, tree="[0]")
     private Output<String> grantToken;
 
     /**
-     * @return The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
+     * @return The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
      * 
      */
     public Output<String> grantToken() {

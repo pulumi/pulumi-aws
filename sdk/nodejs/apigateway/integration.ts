@@ -60,9 +60,9 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  * import * as std from "@pulumi/std";
  *
- * const config = new pulumi.Config();
- * const myregion = config.requireObject<any>("myregion");
- * const accountId = config.requireObject<any>("accountId");
+ * const current = aws.getCallerIdentity({});
+ * const currentGetRegion = aws.getRegion({});
+ * const currentGetPartition = aws.getPartition({});
  * // API Gateway
  * const api = new aws.apigateway.RestApi("api", {name: "myapi"});
  * const resource = new aws.apigateway.Resource("resource", {
@@ -115,7 +115,28 @@ import {RestApi} from "./index";
  *     action: "lambda:InvokeFunction",
  *     "function": lambda.name,
  *     principal: "apigateway.amazonaws.com",
- *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}${resource.path}`,
+ *     sourceArn: pulumi.all([currentGetPartition, currentGetRegion, current, api.id, method.httpMethod, resource.path]).apply(([currentGetPartition, currentGetRegion, current, id, httpMethod, path]) => `arn:${currentGetPartition.partition}:execute-api:${currentGetRegion.region}:${current.accountId}:${id}/*&#47;${httpMethod}${path}`),
+ * });
+ * ```
+ *
+ * ## Lambda integration with response streaming
+ *
+ * All other resources and data sources are the same as in the previous example; only the integration configuration differs.
+ * Note that the `timeout` of the `aws.lambda.Function` may need to be adjusted.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const integration = new aws.apigateway.Integration("integration", {
+ *     restApi: api.id,
+ *     resourceId: resource.id,
+ *     httpMethod: method.httpMethod,
+ *     integrationHttpMethod: "POST",
+ *     type: "AWS_PROXY",
+ *     uri: lambda.responseStreamingInvokeArn,
+ *     responseTransferMode: "STREAM",
+ *     timeoutMilliseconds: 900000,
  * });
  * ```
  *

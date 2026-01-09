@@ -17,14 +17,14 @@ public final class GlobalSettingsState extends com.pulumi.resources.ResourceArgs
     public static final GlobalSettingsState Empty = new GlobalSettingsState();
 
     /**
-     * A list of resources along with the opt-in preferences for the account.
+     * A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
      * 
      */
     @Import(name="globalSettings")
     private @Nullable Output<Map<String,String>> globalSettings;
 
     /**
-     * @return A list of resources along with the opt-in preferences for the account.
+     * @return A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
      * 
      */
     public Optional<Output<Map<String,String>>> globalSettings() {
@@ -56,7 +56,7 @@ public final class GlobalSettingsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param globalSettings A list of resources along with the opt-in preferences for the account.
+         * @param globalSettings A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class GlobalSettingsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param globalSettings A list of resources along with the opt-in preferences for the account.
+         * @param globalSettings A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
          * 
          * @return builder
          * 

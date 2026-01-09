@@ -155,14 +155,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
      * 
      */
     @Import(name="routingPolicyLabel")
     private @Nullable Output<String> routingPolicyLabel;
 
     /**
-     * @return The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * @return The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
      * 
      */
     public Optional<Output<String>> routingPolicyLabel() {
@@ -492,7 +492,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param routingPolicyLabel The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+         * @param routingPolicyLabel The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param routingPolicyLabel The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+         * @param routingPolicyLabel The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
          * 
          * @return builder
          * 

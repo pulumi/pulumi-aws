@@ -152,6 +152,7 @@ import * as utilities from "../utilities";
  *     provisionedPollerConfig: {
  *         maximumPollers: 100,
  *         minimumPollers: 10,
+ *         pollerGroupName: "group-123",
  *     },
  * });
  * ```

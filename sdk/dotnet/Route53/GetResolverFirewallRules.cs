@@ -159,7 +159,13 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverFirewallRulesResult
     {
+        /// <summary>
+        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule.
+        /// </summary>
         public readonly string? Action;
+        /// <summary>
+        /// The unique identifier of the firewall rule group.
+        /// </summary>
         public readonly string FirewallRuleGroupId;
         /// <summary>
         /// List with information about the firewall rules. See details below.
@@ -169,6 +175,9 @@ namespace Pulumi.Aws.Route53
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The priority of the rule in the rule group.
+        /// </summary>
         public readonly int? Priority;
         public readonly string Region;
 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Dlm.Inputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleCreateRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `Interval`, `IntervalUnit`, and `Times`.
+        /// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `Interval`, `IntervalUnit`, and `Times`. For details on valid Cron expressions, see [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html#eb-cron-expressions).
         /// </summary>
         [Input("cronExpression")]
         public Input<string>? CronExpression { get; set; }

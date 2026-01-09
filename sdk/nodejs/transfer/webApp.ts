@@ -128,13 +128,17 @@ export class WebApp extends pulumi.CustomResource {
     }
 
     /**
-     * URL provided to interact with the Transfer Family web app.
+     * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
      */
     declare public readonly accessEndpoint: pulumi.Output<string>;
     /**
      * ARN of the Web App.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     */
+    declare public readonly endpointDetails: pulumi.Output<outputs.transfer.WebAppEndpointDetails | undefined>;
     /**
      * Block for details of the identity provider to use with the web app. See Identity provider details below.
      *
@@ -179,6 +183,7 @@ export class WebApp extends pulumi.CustomResource {
             const state = argsOrState as WebAppState | undefined;
             resourceInputs["accessEndpoint"] = state?.accessEndpoint;
             resourceInputs["arn"] = state?.arn;
+            resourceInputs["endpointDetails"] = state?.endpointDetails;
             resourceInputs["identityProviderDetails"] = state?.identityProviderDetails;
             resourceInputs["region"] = state?.region;
             resourceInputs["tags"] = state?.tags;
@@ -189,6 +194,7 @@ export class WebApp extends pulumi.CustomResource {
         } else {
             const args = argsOrState as WebAppArgs | undefined;
             resourceInputs["accessEndpoint"] = args?.accessEndpoint;
+            resourceInputs["endpointDetails"] = args?.endpointDetails;
             resourceInputs["identityProviderDetails"] = args?.identityProviderDetails;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
@@ -208,13 +214,17 @@ export class WebApp extends pulumi.CustomResource {
  */
 export interface WebAppState {
     /**
-     * URL provided to interact with the Transfer Family web app.
+     * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
      */
     accessEndpoint?: pulumi.Input<string>;
     /**
      * ARN of the Web App.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     */
+    endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetails>;
     /**
      * Block for details of the identity provider to use with the web app. See Identity provider details below.
      *
@@ -250,9 +260,13 @@ export interface WebAppState {
  */
 export interface WebAppArgs {
     /**
-     * URL provided to interact with the Transfer Family web app.
+     * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
      */
     accessEndpoint?: pulumi.Input<string>;
+    /**
+     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     */
+    endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetails>;
     /**
      * Block for details of the identity provider to use with the web app. See Identity provider details below.
      *

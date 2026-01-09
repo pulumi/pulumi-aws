@@ -149,14 +149,14 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     * IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
      * 
      */
     @Import(name="ipcMode")
     private @Nullable Output<String> ipcMode;
 
     /**
-     * @return IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     * @return IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
      * 
      */
     public Optional<Output<String>> ipcMode() {
@@ -179,14 +179,14 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+     * Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
      * 
      */
     @Import(name="networkMode")
     private @Nullable Output<String> networkMode;
 
     /**
-     * @return Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+     * @return Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
      * 
      */
     public Optional<Output<String>> networkMode() {
@@ -194,14 +194,14 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     * Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
      * 
      */
     @Import(name="pidMode")
     private @Nullable Output<String> pidMode;
 
     /**
-     * @return Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     * @return Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
      * 
      */
     public Optional<Output<String>> pidMode() {
@@ -254,14 +254,14 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+     * Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
      * 
      */
     @Import(name="requiresCompatibilities")
     private @Nullable Output<List<String>> requiresCompatibilities;
 
     /**
-     * @return Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+     * @return Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
      * 
      */
     public Optional<Output<List<String>>> requiresCompatibilities() {
@@ -616,7 +616,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ipcMode IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+         * @param ipcMode IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
          * 
          * @return builder
          * 
@@ -627,7 +627,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ipcMode IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+         * @param ipcMode IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
          * 
          * @return builder
          * 
@@ -658,7 +658,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param networkMode Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+         * @param networkMode Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
          * 
          * @return builder
          * 
@@ -669,7 +669,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param networkMode Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+         * @param networkMode Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pidMode Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+         * @param pidMode Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
          * 
          * @return builder
          * 
@@ -690,7 +690,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pidMode Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+         * @param pidMode Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
          * 
          * @return builder
          * 
@@ -773,7 +773,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param requiresCompatibilities Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+         * @param requiresCompatibilities Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
          * 
          * @return builder
          * 
@@ -784,7 +784,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param requiresCompatibilities Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+         * @param requiresCompatibilities Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
          * 
          * @return builder
          * 
@@ -794,7 +794,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param requiresCompatibilities Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+         * @param requiresCompatibilities Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
          * 
          * @return builder
          * 

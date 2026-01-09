@@ -14,6 +14,8 @@ import (
 
 // Provides an AWS Backup Global Settings resource.
 //
+// > **Note:** This resource will show perpetual differences for any supported settings not explicitly configured in the `globalSettings` configuration block. To avoid this, specify all supported options with their default values (typically `"false"`, but check the plan diff for the actual value). See [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide for available settings.
+//
 // ## Example Usage
 //
 // ```go
@@ -30,7 +32,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewGlobalSettings(ctx, "test", &backup.GlobalSettingsArgs{
 //				GlobalSettings: pulumi.StringMap{
-//					"isCrossAccountBackupEnabled": pulumi.String("true"),
+//					"isCrossAccountBackupEnabled":     pulumi.String("true"),
+//					"isMpaEnabled":                    pulumi.String("false"),
+//					"isDelegatedAdministratorEnabled": pulumi.String("false"),
 //				},
 //			})
 //			if err != nil {
@@ -52,7 +56,7 @@ import (
 type GlobalSettings struct {
 	pulumi.CustomResourceState
 
-	// A list of resources along with the opt-in preferences for the account.
+	// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 	GlobalSettings pulumi.StringMapOutput `pulumi:"globalSettings"`
 }
 
@@ -89,12 +93,12 @@ func GetGlobalSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlobalSettings resources.
 type globalSettingsState struct {
-	// A list of resources along with the opt-in preferences for the account.
+	// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 	GlobalSettings map[string]string `pulumi:"globalSettings"`
 }
 
 type GlobalSettingsState struct {
-	// A list of resources along with the opt-in preferences for the account.
+	// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 	GlobalSettings pulumi.StringMapInput
 }
 
@@ -103,13 +107,13 @@ func (GlobalSettingsState) ElementType() reflect.Type {
 }
 
 type globalSettingsArgs struct {
-	// A list of resources along with the opt-in preferences for the account.
+	// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 	GlobalSettings map[string]string `pulumi:"globalSettings"`
 }
 
 // The set of arguments for constructing a GlobalSettings resource.
 type GlobalSettingsArgs struct {
-	// A list of resources along with the opt-in preferences for the account.
+	// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 	GlobalSettings pulumi.StringMapInput
 }
 
@@ -200,7 +204,7 @@ func (o GlobalSettingsOutput) ToGlobalSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A list of resources along with the opt-in preferences for the account.
+// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 func (o GlobalSettingsOutput) GlobalSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GlobalSettings) pulumi.StringMapOutput { return v.GlobalSettings }).(pulumi.StringMapOutput)
 }

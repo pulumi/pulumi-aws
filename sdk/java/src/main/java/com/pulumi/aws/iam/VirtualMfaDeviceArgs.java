@@ -18,14 +18,14 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.ResourceArg
     public static final VirtualMfaDeviceArgs Empty = new VirtualMfaDeviceArgs();
 
     /**
-     * The path for the virtual MFA device.
+     * Path for the virtual MFA device.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The path for the virtual MFA device.
+     * @return Path for the virtual MFA device.
      * 
      */
     public Optional<Output<String>> path() {
@@ -48,14 +48,14 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+     * Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
     @Import(name="virtualMfaDeviceName", required=true)
     private Output<String> virtualMfaDeviceName;
 
     /**
-     * @return The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+     * @return Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
     public Output<String> virtualMfaDeviceName() {
@@ -89,7 +89,7 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param path The path for the virtual MFA device.
+         * @param path Path for the virtual MFA device.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param path The path for the virtual MFA device.
+         * @param path Path for the virtual MFA device.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param virtualMfaDeviceName The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+         * @param virtualMfaDeviceName Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param virtualMfaDeviceName The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+         * @param virtualMfaDeviceName Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
          * 
          * @return builder
          * 

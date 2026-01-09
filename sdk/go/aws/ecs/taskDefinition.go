@@ -424,13 +424,13 @@ type TaskDefinition struct {
 	//
 	// The following arguments are optional:
 	Family pulumi.StringOutput `pulumi:"family"`
-	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+	// IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
 	IpcMode pulumi.StringPtrOutput `pulumi:"ipcMode"`
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Memory pulumi.StringPtrOutput `pulumi:"memory"`
-	// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+	// Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
 	NetworkMode pulumi.StringOutput `pulumi:"networkMode"`
-	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+	// Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
 	PidMode pulumi.StringPtrOutput `pulumi:"pidMode"`
 	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
 	PlacementConstraints TaskDefinitionPlacementConstraintArrayOutput `pulumi:"placementConstraints"`
@@ -438,7 +438,7 @@ type TaskDefinition struct {
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrOutput `pulumi:"proxyConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+	// Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
 	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
 	// Revision of the task in a particular family.
 	Revision pulumi.IntOutput `pulumi:"revision"`
@@ -516,13 +516,13 @@ type taskDefinitionState struct {
 	//
 	// The following arguments are optional:
 	Family *string `pulumi:"family"`
-	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+	// IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
 	IpcMode *string `pulumi:"ipcMode"`
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Memory *string `pulumi:"memory"`
-	// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+	// Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
 	NetworkMode *string `pulumi:"networkMode"`
-	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+	// Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
 	PidMode *string `pulumi:"pidMode"`
 	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
 	PlacementConstraints []TaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
@@ -530,7 +530,7 @@ type taskDefinitionState struct {
 	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+	// Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// Revision of the task in a particular family.
 	Revision *int `pulumi:"revision"`
@@ -573,13 +573,13 @@ type TaskDefinitionState struct {
 	//
 	// The following arguments are optional:
 	Family pulumi.StringPtrInput
-	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+	// IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
 	IpcMode pulumi.StringPtrInput
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Memory pulumi.StringPtrInput
-	// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+	// Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
 	NetworkMode pulumi.StringPtrInput
-	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+	// Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
 	PidMode pulumi.StringPtrInput
 	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
 	PlacementConstraints TaskDefinitionPlacementConstraintArrayInput
@@ -587,7 +587,7 @@ type TaskDefinitionState struct {
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+	// Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
 	RequiresCompatibilities pulumi.StringArrayInput
 	// Revision of the task in a particular family.
 	Revision pulumi.IntPtrInput
@@ -630,13 +630,13 @@ type taskDefinitionArgs struct {
 	//
 	// The following arguments are optional:
 	Family string `pulumi:"family"`
-	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+	// IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
 	IpcMode *string `pulumi:"ipcMode"`
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Memory *string `pulumi:"memory"`
-	// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+	// Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
 	NetworkMode *string `pulumi:"networkMode"`
-	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+	// Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
 	PidMode *string `pulumi:"pidMode"`
 	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
 	PlacementConstraints []TaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
@@ -644,7 +644,7 @@ type taskDefinitionArgs struct {
 	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+	// Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
@@ -680,13 +680,13 @@ type TaskDefinitionArgs struct {
 	//
 	// The following arguments are optional:
 	Family pulumi.StringInput
-	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+	// IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
 	IpcMode pulumi.StringPtrInput
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Memory pulumi.StringPtrInput
-	// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+	// Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
 	NetworkMode pulumi.StringPtrInput
-	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+	// Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
 	PidMode pulumi.StringPtrInput
 	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
 	PlacementConstraints TaskDefinitionPlacementConstraintArrayInput
@@ -694,7 +694,7 @@ type TaskDefinitionArgs struct {
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+	// Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
 	RequiresCompatibilities pulumi.StringArrayInput
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
@@ -843,7 +843,7 @@ func (o TaskDefinitionOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
-// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+// IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
 func (o TaskDefinitionOutput) IpcMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.IpcMode }).(pulumi.StringPtrOutput)
 }
@@ -853,12 +853,12 @@ func (o TaskDefinitionOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Memory }).(pulumi.StringPtrOutput)
 }
 
-// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+// Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
 func (o TaskDefinitionOutput) NetworkMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.NetworkMode }).(pulumi.StringOutput)
 }
 
-// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+// Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
 func (o TaskDefinitionOutput) PidMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.PidMode }).(pulumi.StringPtrOutput)
 }
@@ -878,7 +878,7 @@ func (o TaskDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+// Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
 func (o TaskDefinitionOutput) RequiresCompatibilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringArrayOutput { return v.RequiresCompatibilities }).(pulumi.StringArrayOutput)
 }

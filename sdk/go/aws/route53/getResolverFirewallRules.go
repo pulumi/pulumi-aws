@@ -64,12 +64,15 @@ type GetResolverFirewallRulesArgs struct {
 
 // A collection of values returned by getResolverFirewallRules.
 type GetResolverFirewallRulesResult struct {
-	Action              *string `pulumi:"action"`
-	FirewallRuleGroupId string  `pulumi:"firewallRuleGroupId"`
+	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule.
+	Action *string `pulumi:"action"`
+	// The unique identifier of the firewall rule group.
+	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
 	// List with information about the firewall rules. See details below.
 	FirewallRules []GetResolverFirewallRulesFirewallRule `pulumi:"firewallRules"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The priority of the rule in the rule group.
 	Priority *int   `pulumi:"priority"`
 	Region   string `pulumi:"region"`
 }
@@ -114,10 +117,12 @@ func (o GetResolverFirewallRulesResultOutput) ToGetResolverFirewallRulesResultOu
 	return o
 }
 
+// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule.
 func (o GetResolverFirewallRulesResultOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the firewall rule group.
 func (o GetResolverFirewallRulesResultOutput) FirewallRuleGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) string { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
 }
@@ -132,6 +137,7 @@ func (o GetResolverFirewallRulesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The priority of the rule in the rule group.
 func (o GetResolverFirewallRulesResultOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }

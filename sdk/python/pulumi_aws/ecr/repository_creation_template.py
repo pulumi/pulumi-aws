@@ -34,7 +34,7 @@ class RepositoryCreationTemplateArgs:
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryCreationTemplate resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         :param pulumi.Input[_builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         :param pulumi.Input[_builtins.str] description: The description for this template.
@@ -70,7 +70,7 @@ class RepositoryCreationTemplateArgs:
     @pulumi.getter(name="appliedFors")
     def applied_fors(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         """
         return pulumi.get(self, "applied_fors")
 
@@ -213,7 +213,7 @@ class _RepositoryCreationTemplateState:
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryCreationTemplate resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         :param pulumi.Input[_builtins.str] description: The description for this template.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
@@ -254,7 +254,7 @@ class _RepositoryCreationTemplateState:
     @pulumi.getter(name="appliedFors")
     def applied_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         """
         return pulumi.get(self, "applied_fors")
 
@@ -486,7 +486,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         :param pulumi.Input[_builtins.str] description: The description for this template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
@@ -657,7 +657,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         :param pulumi.Input[_builtins.str] description: The description for this template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
@@ -691,7 +691,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter(name="appliedFors")
     def applied_fors(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         """
         return pulumi.get(self, "applied_fors")
 

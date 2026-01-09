@@ -285,7 +285,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     declare public readonly authToken: pulumi.Output<string | undefined>;
     /**
-     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
+     * Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
      */
     declare public readonly authTokenUpdateStrategy: pulumi.Output<string | undefined>;
     /**
@@ -643,7 +643,7 @@ export interface ReplicationGroupState {
      */
     authToken?: pulumi.Input<string>;
     /**
-     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
+     * Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
      */
     authTokenUpdateStrategy?: pulumi.Input<string>;
     /**
@@ -874,7 +874,7 @@ export interface ReplicationGroupArgs {
      */
     authToken?: pulumi.Input<string>;
     /**
-     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
+     * Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
      */
     authTokenUpdateStrategy?: pulumi.Input<string>;
     /**

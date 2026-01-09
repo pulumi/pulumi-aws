@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Athena.Outputs
     [OutputType]
     public sealed class WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration
     {
-        /// <summary>
-        /// KMS key ARN for encrypting managed query results.
-        /// </summary>
         public readonly string? KmsKey;
 
         [OutputConstructor]

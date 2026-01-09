@@ -96,6 +96,21 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
+     * 
+     */
+    @Import(name="endpointNetworkType")
+    private @Nullable Output<String> endpointNetworkType;
+
+    /**
+     * @return Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
+     * 
+     */
+    public Optional<Output<String>> endpointNetworkType() {
+        return Optional.ofNullable(this.endpointNetworkType);
+    }
+
+    /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      * 
      */
@@ -216,6 +231,21 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+     * 
+     */
+    @Import(name="targetConnectionNetworkType")
+    private @Nullable Output<String> targetConnectionNetworkType;
+
+    /**
+     * @return Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+     * 
+     */
+    public Optional<Output<String>> targetConnectionNetworkType() {
+        return Optional.ofNullable(this.targetConnectionNetworkType);
+    }
+
+    /**
      * One or more VPC security group IDs to associate with the new proxy.
      * 
      */
@@ -253,6 +283,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         this.debugLogging = $.debugLogging;
         this.defaultAuthScheme = $.defaultAuthScheme;
         this.endpoint = $.endpoint;
+        this.endpointNetworkType = $.endpointNetworkType;
         this.engineFamily = $.engineFamily;
         this.idleClientTimeout = $.idleClientTimeout;
         this.name = $.name;
@@ -261,6 +292,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         this.roleArn = $.roleArn;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.targetConnectionNetworkType = $.targetConnectionNetworkType;
         this.vpcSecurityGroupIds = $.vpcSecurityGroupIds;
         this.vpcSubnetIds = $.vpcSubnetIds;
     }
@@ -396,6 +428,27 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param endpointNetworkType Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointNetworkType(@Nullable Output<String> endpointNetworkType) {
+            $.endpointNetworkType = endpointNetworkType;
+            return this;
+        }
+
+        /**
+         * @param endpointNetworkType Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointNetworkType(String endpointNetworkType) {
+            return endpointNetworkType(Output.of(endpointNetworkType));
         }
 
         /**
@@ -564,6 +617,27 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param targetConnectionNetworkType Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetConnectionNetworkType(@Nullable Output<String> targetConnectionNetworkType) {
+            $.targetConnectionNetworkType = targetConnectionNetworkType;
+            return this;
+        }
+
+        /**
+         * @param targetConnectionNetworkType Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetConnectionNetworkType(String targetConnectionNetworkType) {
+            return targetConnectionNetworkType(Output.of(targetConnectionNetworkType));
         }
 
         /**

@@ -176,10 +176,12 @@ import (
 type WebApp struct {
 	pulumi.CustomResourceState
 
-	// URL provided to interact with the Transfer Family web app.
+	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
 	AccessEndpoint pulumi.StringOutput `pulumi:"accessEndpoint"`
 	// ARN of the Web App.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+	EndpointDetails WebAppEndpointDetailsPtrOutput `pulumi:"endpointDetails"`
 	// Block for details of the identity provider to use with the web app. See Identity provider details below.
 	//
 	// The following arguments are optional:
@@ -228,10 +230,12 @@ func GetWebApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebApp resources.
 type webAppState struct {
-	// URL provided to interact with the Transfer Family web app.
+	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
 	AccessEndpoint *string `pulumi:"accessEndpoint"`
 	// ARN of the Web App.
 	Arn *string `pulumi:"arn"`
+	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+	EndpointDetails *WebAppEndpointDetails `pulumi:"endpointDetails"`
 	// Block for details of the identity provider to use with the web app. See Identity provider details below.
 	//
 	// The following arguments are optional:
@@ -251,10 +255,12 @@ type webAppState struct {
 }
 
 type WebAppState struct {
-	// URL provided to interact with the Transfer Family web app.
+	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
 	AccessEndpoint pulumi.StringPtrInput
 	// ARN of the Web App.
 	Arn pulumi.StringPtrInput
+	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+	EndpointDetails WebAppEndpointDetailsPtrInput
 	// Block for details of the identity provider to use with the web app. See Identity provider details below.
 	//
 	// The following arguments are optional:
@@ -278,8 +284,10 @@ func (WebAppState) ElementType() reflect.Type {
 }
 
 type webAppArgs struct {
-	// URL provided to interact with the Transfer Family web app.
+	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
 	AccessEndpoint *string `pulumi:"accessEndpoint"`
+	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+	EndpointDetails *WebAppEndpointDetails `pulumi:"endpointDetails"`
 	// Block for details of the identity provider to use with the web app. See Identity provider details below.
 	//
 	// The following arguments are optional:
@@ -297,8 +305,10 @@ type webAppArgs struct {
 
 // The set of arguments for constructing a WebApp resource.
 type WebAppArgs struct {
-	// URL provided to interact with the Transfer Family web app.
+	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
 	AccessEndpoint pulumi.StringPtrInput
+	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+	EndpointDetails WebAppEndpointDetailsPtrInput
 	// Block for details of the identity provider to use with the web app. See Identity provider details below.
 	//
 	// The following arguments are optional:
@@ -401,7 +411,7 @@ func (o WebAppOutput) ToWebAppOutputWithContext(ctx context.Context) WebAppOutpu
 	return o
 }
 
-// URL provided to interact with the Transfer Family web app.
+// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
 func (o WebAppOutput) AccessEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.AccessEndpoint }).(pulumi.StringOutput)
 }
@@ -409,6 +419,11 @@ func (o WebAppOutput) AccessEndpoint() pulumi.StringOutput {
 // ARN of the Web App.
 func (o WebAppOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+func (o WebAppOutput) EndpointDetails() WebAppEndpointDetailsPtrOutput {
+	return o.ApplyT(func(v *WebApp) WebAppEndpointDetailsPtrOutput { return v.EndpointDetails }).(WebAppEndpointDetailsPtrOutput)
 }
 
 // Block for details of the identity provider to use with the web app. See Identity provider details below.

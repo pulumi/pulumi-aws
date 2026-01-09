@@ -79,6 +79,12 @@ namespace Pulumi.Aws.Iam
         public Output<int> AttachmentCount { get; private set; } = null!;
 
         /// <summary>
+        /// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+        /// </summary>
+        [Output("delayAfterPolicyCreationInMs")]
+        public Output<int?> DelayAfterPolicyCreationInMs { get; private set; } = null!;
+
+        /// <summary>
         /// Description of the IAM policy.
         /// </summary>
         [Output("description")]
@@ -173,6 +179,12 @@ namespace Pulumi.Aws.Iam
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+        /// </summary>
+        [Input("delayAfterPolicyCreationInMs")]
+        public Input<int>? DelayAfterPolicyCreationInMs { get; set; }
+
+        /// <summary>
         /// Description of the IAM policy.
         /// </summary>
         [Input("description")]
@@ -233,6 +245,12 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("attachmentCount")]
         public Input<int>? AttachmentCount { get; set; }
+
+        /// <summary>
+        /// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+        /// </summary>
+        [Input("delayAfterPolicyCreationInMs")]
+        public Input<int>? DelayAfterPolicyCreationInMs { get; set; }
 
         /// <summary>
         /// Description of the IAM policy.

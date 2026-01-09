@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudfront;
 
+import com.pulumi.aws.cloudfront.inputs.DistributionConnectionFunctionAssociationArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionCustomErrorResponseArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionLoggingConfigArgs;
@@ -11,6 +12,7 @@ import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionOriginGroupArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionViewerCertificateArgs;
+import com.pulumi.aws.cloudfront.inputs.DistributionViewerMtlsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -70,6 +72,21 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
+    }
+
+    /**
+     * A connection function association configuration block (maximum one).
+     * 
+     */
+    @Import(name="connectionFunctionAssociation")
+    private @Nullable Output<DistributionConnectionFunctionAssociationArgs> connectionFunctionAssociation;
+
+    /**
+     * @return A connection function association configuration block (maximum one).
+     * 
+     */
+    public Optional<Output<DistributionConnectionFunctionAssociationArgs>> connectionFunctionAssociation() {
+        return Optional.ofNullable(this.connectionFunctionAssociation);
     }
 
     /**
@@ -328,6 +345,21 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The viewer mTLS configuration for this distribution (maximum one).
+     * 
+     */
+    @Import(name="viewerMtlsConfig")
+    private @Nullable Output<DistributionViewerMtlsConfigArgs> viewerMtlsConfig;
+
+    /**
+     * @return The viewer mTLS configuration for this distribution (maximum one).
+     * 
+     */
+    public Optional<Output<DistributionViewerMtlsConfigArgs>> viewerMtlsConfig() {
+        return Optional.ofNullable(this.viewerMtlsConfig);
+    }
+
+    /**
      * If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
      * 
      */
@@ -363,6 +395,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         this.aliases = $.aliases;
         this.anycastIpListId = $.anycastIpListId;
         this.comment = $.comment;
+        this.connectionFunctionAssociation = $.connectionFunctionAssociation;
         this.continuousDeploymentPolicyId = $.continuousDeploymentPolicyId;
         this.customErrorResponses = $.customErrorResponses;
         this.defaultCacheBehavior = $.defaultCacheBehavior;
@@ -380,6 +413,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         this.staging = $.staging;
         this.tags = $.tags;
         this.viewerCertificate = $.viewerCertificate;
+        this.viewerMtlsConfig = $.viewerMtlsConfig;
         this.waitForDeployment = $.waitForDeployment;
         this.webAclId = $.webAclId;
     }
@@ -473,6 +507,27 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
+        }
+
+        /**
+         * @param connectionFunctionAssociation A connection function association configuration block (maximum one).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionFunctionAssociation(@Nullable Output<DistributionConnectionFunctionAssociationArgs> connectionFunctionAssociation) {
+            $.connectionFunctionAssociation = connectionFunctionAssociation;
+            return this;
+        }
+
+        /**
+         * @param connectionFunctionAssociation A connection function association configuration block (maximum one).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionFunctionAssociation(DistributionConnectionFunctionAssociationArgs connectionFunctionAssociation) {
+            return connectionFunctionAssociation(Output.of(connectionFunctionAssociation));
         }
 
         /**
@@ -870,6 +925,27 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder viewerCertificate(DistributionViewerCertificateArgs viewerCertificate) {
             return viewerCertificate(Output.of(viewerCertificate));
+        }
+
+        /**
+         * @param viewerMtlsConfig The viewer mTLS configuration for this distribution (maximum one).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder viewerMtlsConfig(@Nullable Output<DistributionViewerMtlsConfigArgs> viewerMtlsConfig) {
+            $.viewerMtlsConfig = viewerMtlsConfig;
+            return this;
+        }
+
+        /**
+         * @param viewerMtlsConfig The viewer mTLS configuration for this distribution (maximum one).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder viewerMtlsConfig(DistributionViewerMtlsConfigArgs viewerMtlsConfig) {
+            return viewerMtlsConfig(Output.of(viewerMtlsConfig));
         }
 
         /**

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// ### Domain List Rule
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,9 +56,41 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// 
+    /// ### DNS Firewall Advanced Rule
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Route53.ResolverFirewallRuleGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Tags = null,
+    ///     });
+    /// 
+    ///     var exampleResolverFirewallRule = new Aws.Route53.ResolverFirewallRule("example", new()
+    ///     {
+    ///         Name = "block-dga",
+    ///         Action = "BLOCK",
+    ///         BlockResponse = "NODATA",
+    ///         FirewallRuleGroupId = example.Id,
+    ///         DnsThreatProtection = "DGA",
+    ///         ConfidenceThreshold = "HIGH",
+    ///         Priority = 100,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:
+    /// DNS Firewall Advanced rule:
+    /// 
+    /// Using `pulumi import`, import Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID (for standard rules) or threat protection ID (for advanced rules) separated by ':'. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
@@ -66,7 +100,7 @@ namespace Pulumi.Aws.Route53
     public partial class ResolverFirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -96,10 +130,22 @@ namespace Pulumi.Aws.Route53
         public Output<string?> BlockResponse { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the domain list that you want to use in the rule.
+        /// The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `FirewallDomainListId`.
+        /// </summary>
+        [Output("confidenceThreshold")]
+        public Output<string?> ConfidenceThreshold { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `FirewallDomainListId`.
+        /// </summary>
+        [Output("dnsThreatProtection")]
+        public Output<string?> DnsThreatProtection { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `DnsThreatProtection` and `ConfidenceThreshold`.
         /// </summary>
         [Output("firewallDomainListId")]
-        public Output<string> FirewallDomainListId { get; private set; } = null!;
+        public Output<string?> FirewallDomainListId { get; private set; } = null!;
 
         /// <summary>
         /// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
@@ -112,6 +158,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Output("firewallRuleGroupId")]
         public Output<string> FirewallRuleGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the DNS Firewall Advanced rule. Only set for DNS Firewall Advanced rules.
+        /// </summary>
+        [Output("firewallThreatProtectionId")]
+        public Output<string> FirewallThreatProtectionId { get; private set; } = null!;
 
         /// <summary>
         /// A name that lets you identify the rule, to manage and use it.
@@ -184,7 +236,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -214,10 +266,22 @@ namespace Pulumi.Aws.Route53
         public Input<string>? BlockResponse { get; set; }
 
         /// <summary>
-        /// The ID of the domain list that you want to use in the rule.
+        /// The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `FirewallDomainListId`.
         /// </summary>
-        [Input("firewallDomainListId", required: true)]
-        public Input<string> FirewallDomainListId { get; set; } = null!;
+        [Input("confidenceThreshold")]
+        public Input<string>? ConfidenceThreshold { get; set; }
+
+        /// <summary>
+        /// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `FirewallDomainListId`.
+        /// </summary>
+        [Input("dnsThreatProtection")]
+        public Input<string>? DnsThreatProtection { get; set; }
+
+        /// <summary>
+        /// The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `DnsThreatProtection` and `ConfidenceThreshold`.
+        /// </summary>
+        [Input("firewallDomainListId")]
+        public Input<string>? FirewallDomainListId { get; set; }
 
         /// <summary>
         /// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
@@ -264,7 +328,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverFirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -294,7 +358,19 @@ namespace Pulumi.Aws.Route53
         public Input<string>? BlockResponse { get; set; }
 
         /// <summary>
-        /// The ID of the domain list that you want to use in the rule.
+        /// The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `FirewallDomainListId`.
+        /// </summary>
+        [Input("confidenceThreshold")]
+        public Input<string>? ConfidenceThreshold { get; set; }
+
+        /// <summary>
+        /// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `FirewallDomainListId`.
+        /// </summary>
+        [Input("dnsThreatProtection")]
+        public Input<string>? DnsThreatProtection { get; set; }
+
+        /// <summary>
+        /// The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `DnsThreatProtection` and `ConfidenceThreshold`.
         /// </summary>
         [Input("firewallDomainListId")]
         public Input<string>? FirewallDomainListId { get; set; }
@@ -310,6 +386,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("firewallRuleGroupId")]
         public Input<string>? FirewallRuleGroupId { get; set; }
+
+        /// <summary>
+        /// The ID of the DNS Firewall Advanced rule. Only set for DNS Firewall Advanced rules.
+        /// </summary>
+        [Input("firewallThreatProtectionId")]
+        public Input<string>? FirewallThreatProtectionId { get; set; }
 
         /// <summary>
         /// A name that lets you identify the rule, to manage and use it.

@@ -26,5 +26,6 @@ from .organizational_unit import *
 from .policy import *
 from .policy_attachment import *
 from .resource_policy import *
+from .tag import *
 from ._inputs import *
 from . import outputs

@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.athena.outputs;
 
+import com.pulumi.aws.athena.outputs.WorkgroupConfigurationCustomerContentEncryptionConfiguration;
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationEngineVersion;
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationIdentityCenterConfiguration;
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationManagedQueryResultsConfiguration;
+import com.pulumi.aws.athena.outputs.WorkgroupConfigurationMonitoringConfiguration;
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationResultConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -22,6 +24,16 @@ public final class WorkgroupConfiguration {
      * 
      */
     private @Nullable Integer bytesScannedCutoffPerQuery;
+    /**
+     * @return Configuration block to specify the KMS key that is used to encrypt the user&#39;s data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+     * 
+     */
+    private @Nullable WorkgroupConfigurationCustomerContentEncryptionConfiguration customerContentEncryptionConfiguration;
+    /**
+     * @return Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
+     * 
+     */
+    private @Nullable Boolean enableMinimumEncryptionConfiguration;
     /**
      * @return Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
      * 
@@ -48,6 +60,11 @@ public final class WorkgroupConfiguration {
      */
     private @Nullable WorkgroupConfigurationManagedQueryResultsConfiguration managedQueryResultsConfiguration;
     /**
+     * @return Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
+     * 
+     */
+    private @Nullable WorkgroupConfigurationMonitoringConfiguration monitoringConfiguration;
+    /**
      * @return Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
      */
@@ -70,6 +87,20 @@ public final class WorkgroupConfiguration {
      */
     public Optional<Integer> bytesScannedCutoffPerQuery() {
         return Optional.ofNullable(this.bytesScannedCutoffPerQuery);
+    }
+    /**
+     * @return Configuration block to specify the KMS key that is used to encrypt the user&#39;s data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+     * 
+     */
+    public Optional<WorkgroupConfigurationCustomerContentEncryptionConfiguration> customerContentEncryptionConfiguration() {
+        return Optional.ofNullable(this.customerContentEncryptionConfiguration);
+    }
+    /**
+     * @return Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
+     * 
+     */
+    public Optional<Boolean> enableMinimumEncryptionConfiguration() {
+        return Optional.ofNullable(this.enableMinimumEncryptionConfiguration);
     }
     /**
      * @return Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
@@ -107,6 +138,13 @@ public final class WorkgroupConfiguration {
         return Optional.ofNullable(this.managedQueryResultsConfiguration);
     }
     /**
+     * @return Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
+     * 
+     */
+    public Optional<WorkgroupConfigurationMonitoringConfiguration> monitoringConfiguration() {
+        return Optional.ofNullable(this.monitoringConfiguration);
+    }
+    /**
      * @return Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
      */
@@ -138,11 +176,14 @@ public final class WorkgroupConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer bytesScannedCutoffPerQuery;
+        private @Nullable WorkgroupConfigurationCustomerContentEncryptionConfiguration customerContentEncryptionConfiguration;
+        private @Nullable Boolean enableMinimumEncryptionConfiguration;
         private @Nullable Boolean enforceWorkgroupConfiguration;
         private @Nullable WorkgroupConfigurationEngineVersion engineVersion;
         private @Nullable String executionRole;
         private @Nullable WorkgroupConfigurationIdentityCenterConfiguration identityCenterConfiguration;
         private @Nullable WorkgroupConfigurationManagedQueryResultsConfiguration managedQueryResultsConfiguration;
+        private @Nullable WorkgroupConfigurationMonitoringConfiguration monitoringConfiguration;
         private @Nullable Boolean publishCloudwatchMetricsEnabled;
         private @Nullable Boolean requesterPaysEnabled;
         private @Nullable WorkgroupConfigurationResultConfiguration resultConfiguration;
@@ -150,11 +191,14 @@ public final class WorkgroupConfiguration {
         public Builder(WorkgroupConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bytesScannedCutoffPerQuery = defaults.bytesScannedCutoffPerQuery;
+    	      this.customerContentEncryptionConfiguration = defaults.customerContentEncryptionConfiguration;
+    	      this.enableMinimumEncryptionConfiguration = defaults.enableMinimumEncryptionConfiguration;
     	      this.enforceWorkgroupConfiguration = defaults.enforceWorkgroupConfiguration;
     	      this.engineVersion = defaults.engineVersion;
     	      this.executionRole = defaults.executionRole;
     	      this.identityCenterConfiguration = defaults.identityCenterConfiguration;
     	      this.managedQueryResultsConfiguration = defaults.managedQueryResultsConfiguration;
+    	      this.monitoringConfiguration = defaults.monitoringConfiguration;
     	      this.publishCloudwatchMetricsEnabled = defaults.publishCloudwatchMetricsEnabled;
     	      this.requesterPaysEnabled = defaults.requesterPaysEnabled;
     	      this.resultConfiguration = defaults.resultConfiguration;
@@ -164,6 +208,18 @@ public final class WorkgroupConfiguration {
         public Builder bytesScannedCutoffPerQuery(@Nullable Integer bytesScannedCutoffPerQuery) {
 
             this.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customerContentEncryptionConfiguration(@Nullable WorkgroupConfigurationCustomerContentEncryptionConfiguration customerContentEncryptionConfiguration) {
+
+            this.customerContentEncryptionConfiguration = customerContentEncryptionConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableMinimumEncryptionConfiguration(@Nullable Boolean enableMinimumEncryptionConfiguration) {
+
+            this.enableMinimumEncryptionConfiguration = enableMinimumEncryptionConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -197,6 +253,12 @@ public final class WorkgroupConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder monitoringConfiguration(@Nullable WorkgroupConfigurationMonitoringConfiguration monitoringConfiguration) {
+
+            this.monitoringConfiguration = monitoringConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder publishCloudwatchMetricsEnabled(@Nullable Boolean publishCloudwatchMetricsEnabled) {
 
             this.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
@@ -217,11 +279,14 @@ public final class WorkgroupConfiguration {
         public WorkgroupConfiguration build() {
             final var _resultValue = new WorkgroupConfiguration();
             _resultValue.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
+            _resultValue.customerContentEncryptionConfiguration = customerContentEncryptionConfiguration;
+            _resultValue.enableMinimumEncryptionConfiguration = enableMinimumEncryptionConfiguration;
             _resultValue.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
             _resultValue.engineVersion = engineVersion;
             _resultValue.executionRole = executionRole;
             _resultValue.identityCenterConfiguration = identityCenterConfiguration;
             _resultValue.managedQueryResultsConfiguration = managedQueryResultsConfiguration;
+            _resultValue.monitoringConfiguration = monitoringConfiguration;
             _resultValue.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             _resultValue.requesterPaysEnabled = requesterPaysEnabled;
             _resultValue.resultConfiguration = resultConfiguration;

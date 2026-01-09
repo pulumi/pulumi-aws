@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Transfer
     public partial class WebApp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// URL provided to interact with the Transfer Family web app.
+        /// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `AccessEndpoint` must not be provided.
         /// </summary>
         [Output("accessEndpoint")]
         public Output<string> AccessEndpoint { get; private set; } = null!;
@@ -187,6 +187,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        /// </summary>
+        [Output("endpointDetails")]
+        public Output<Outputs.WebAppEndpointDetails?> EndpointDetails { get; private set; } = null!;
 
         /// <summary>
         /// Block for details of the identity provider to use with the web app. See Identity provider details below.
@@ -277,10 +283,16 @@ namespace Pulumi.Aws.Transfer
     public sealed class WebAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// URL provided to interact with the Transfer Family web app.
+        /// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `AccessEndpoint` must not be provided.
         /// </summary>
         [Input("accessEndpoint")]
         public Input<string>? AccessEndpoint { get; set; }
+
+        /// <summary>
+        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        /// </summary>
+        [Input("endpointDetails")]
+        public Input<Inputs.WebAppEndpointDetailsArgs>? EndpointDetails { get; set; }
 
         /// <summary>
         /// Block for details of the identity provider to use with the web app. See Identity provider details below.
@@ -336,7 +348,7 @@ namespace Pulumi.Aws.Transfer
     public sealed class WebAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// URL provided to interact with the Transfer Family web app.
+        /// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `AccessEndpoint` must not be provided.
         /// </summary>
         [Input("accessEndpoint")]
         public Input<string>? AccessEndpoint { get; set; }
@@ -346,6 +358,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        /// </summary>
+        [Input("endpointDetails")]
+        public Input<Inputs.WebAppEndpointDetailsGetArgs>? EndpointDetails { get; set; }
 
         /// <summary>
         /// Block for details of the identity provider to use with the web app. See Identity provider details below.

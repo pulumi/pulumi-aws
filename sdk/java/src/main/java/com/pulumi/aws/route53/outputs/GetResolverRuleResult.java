@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.route53.outputs;
 
+import com.pulumi.aws.route53.outputs.GetResolverRuleTargetIp;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -43,6 +45,11 @@ public final class GetResolverRuleResult {
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return List of configurations for target IP addresses. Only applicable for `FORWARD` rules. See `targetIps` below for details.
+     * 
+     */
+    private List<GetResolverRuleTargetIp> targetIps;
 
     private GetResolverRuleResult() {}
     /**
@@ -99,6 +106,13 @@ public final class GetResolverRuleResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return List of configurations for target IP addresses. Only applicable for `FORWARD` rules. See `targetIps` below for details.
+     * 
+     */
+    public List<GetResolverRuleTargetIp> targetIps() {
+        return this.targetIps;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -120,6 +134,7 @@ public final class GetResolverRuleResult {
         private String ruleType;
         private String shareStatus;
         private Map<String,String> tags;
+        private List<GetResolverRuleTargetIp> targetIps;
         public Builder() {}
         public Builder(GetResolverRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -134,6 +149,7 @@ public final class GetResolverRuleResult {
     	      this.ruleType = defaults.ruleType;
     	      this.shareStatus = defaults.shareStatus;
     	      this.tags = defaults.tags;
+    	      this.targetIps = defaults.targetIps;
         }
 
         @CustomType.Setter
@@ -224,6 +240,17 @@ public final class GetResolverRuleResult {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
+        public Builder targetIps(List<GetResolverRuleTargetIp> targetIps) {
+            if (targetIps == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "targetIps");
+            }
+            this.targetIps = targetIps;
+            return this;
+        }
+        public Builder targetIps(GetResolverRuleTargetIp... targetIps) {
+            return targetIps(List.of(targetIps));
+        }
         public GetResolverRuleResult build() {
             final var _resultValue = new GetResolverRuleResult();
             _resultValue.arn = arn;
@@ -237,6 +264,7 @@ public final class GetResolverRuleResult {
             _resultValue.ruleType = ruleType;
             _resultValue.shareStatus = shareStatus;
             _resultValue.tags = tags;
+            _resultValue.targetIps = targetIps;
             return _resultValue;
         }
     }

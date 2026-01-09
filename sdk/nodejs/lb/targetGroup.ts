@@ -215,7 +215,7 @@ export class TargetGroup extends pulumi.CustomResource {
     declare public readonly preserveClientIp: pulumi.Output<string>;
     /**
      * Protocol to use for routing traffic to the targets.
-     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
      * Required when `targetType` is `instance`, `ip`, or `alb`.
      * Does not apply when `targetType` is `lambda`.
      */
@@ -430,7 +430,7 @@ export interface TargetGroupState {
     preserveClientIp?: pulumi.Input<string>;
     /**
      * Protocol to use for routing traffic to the targets.
-     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
      * Required when `targetType` is `instance`, `ip`, or `alb`.
      * Does not apply when `targetType` is `lambda`.
      */
@@ -553,7 +553,7 @@ export interface TargetGroupArgs {
     preserveClientIp?: pulumi.Input<string>;
     /**
      * Protocol to use for routing traffic to the targets.
-     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
      * Required when `targetType` is `instance`, `ip`, or `alb`.
      * Does not apply when `targetType` is `lambda`.
      */

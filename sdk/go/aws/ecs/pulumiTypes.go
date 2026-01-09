@@ -774,6 +774,8 @@ func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOut
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplate struct {
+	// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+	CapacityOptionType *string `pulumi:"capacityOptionType"`
 	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
 	Ec2InstanceProfileArn string `pulumi:"ec2InstanceProfileArn"`
 	// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
@@ -798,6 +800,8 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInput interfa
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs struct {
+	// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+	CapacityOptionType pulumi.StringPtrInput `pulumi:"capacityOptionType"`
 	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
 	Ec2InstanceProfileArn pulumi.StringInput `pulumi:"ec2InstanceProfileArn"`
 	// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
@@ -887,6 +891,13 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) To
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
 }
 
+// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) CapacityOptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *string {
+		return v.CapacityOptionType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) Ec2InstanceProfileArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) string {
@@ -942,6 +953,16 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
 		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplate
 		return ret
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput)
+}
+
+// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) CapacityOptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityOptionType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.

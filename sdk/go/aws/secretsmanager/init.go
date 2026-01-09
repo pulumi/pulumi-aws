@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecretRotation{}
 	case "aws:secretsmanager/secretVersion:SecretVersion":
 		r = &SecretVersion{}
+	case "aws:secretsmanager/tag:Tag":
+		r = &Tag{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"secretsmanager/secretVersion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"secretsmanager/tag",
 		&module{version},
 	)
 }

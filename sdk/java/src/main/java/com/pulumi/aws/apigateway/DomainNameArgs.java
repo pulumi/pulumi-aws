@@ -110,6 +110,21 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+     * 
+     */
+    @Import(name="endpointAccessMode")
+    private @Nullable Output<String> endpointAccessMode;
+
+    /**
+     * @return Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+     * 
+     */
+    public Optional<Output<String>> endpointAccessMode() {
+        return Optional.ofNullable(this.endpointAccessMode);
+    }
+
+    /**
      * Configuration block defining API endpoint information including type. See below.
      * 
      */
@@ -219,14 +234,14 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      * 
      */
     @Import(name="securityPolicy")
     private @Nullable Output<String> securityPolicy;
 
     /**
-     * @return Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+     * @return Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      * 
      */
     public Optional<Output<String>> securityPolicy() {
@@ -261,6 +276,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         this.certificateName = $.certificateName;
         this.certificatePrivateKey = $.certificatePrivateKey;
         this.domainName = $.domainName;
+        this.endpointAccessMode = $.endpointAccessMode;
         this.endpointConfiguration = $.endpointConfiguration;
         this.mutualTlsAuthentication = $.mutualTlsAuthentication;
         this.ownershipVerificationCertificateArn = $.ownershipVerificationCertificateArn;
@@ -417,6 +433,27 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param endpointAccessMode Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointAccessMode(@Nullable Output<String> endpointAccessMode) {
+            $.endpointAccessMode = endpointAccessMode;
+            return this;
+        }
+
+        /**
+         * @param endpointAccessMode Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointAccessMode(String endpointAccessMode) {
+            return endpointAccessMode(Output.of(endpointAccessMode));
+        }
+
+        /**
          * @param endpointConfiguration Configuration block defining API endpoint information including type. See below.
          * 
          * @return builder
@@ -568,7 +605,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityPolicy Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+         * @param securityPolicy Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
          * 
          * @return builder
          * 
@@ -579,7 +616,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityPolicy Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+         * @param securityPolicy Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
          * 
          * @return builder
          * 

@@ -55,6 +55,8 @@ __all__ = [
     'ImageImageScanningConfigurationEcrConfigurationArgsDict',
     'ImageImageTestsConfigurationArgs',
     'ImageImageTestsConfigurationArgsDict',
+    'ImageLoggingConfigurationArgs',
+    'ImageLoggingConfigurationArgsDict',
     'ImageOutputResourceArgs',
     'ImageOutputResourceArgsDict',
     'ImageOutputResourceAmiArgs',
@@ -67,6 +69,8 @@ __all__ = [
     'ImagePipelineImageScanningConfigurationEcrConfigurationArgsDict',
     'ImagePipelineImageTestsConfigurationArgs',
     'ImagePipelineImageTestsConfigurationArgsDict',
+    'ImagePipelineLoggingConfigurationArgs',
+    'ImagePipelineLoggingConfigurationArgsDict',
     'ImagePipelineScheduleArgs',
     'ImagePipelineScheduleArgsDict',
     'ImagePipelineWorkflowArgs',
@@ -1714,6 +1718,37 @@ class ImageImageTestsConfigurationArgs:
 
 
 if not MYPY:
+    class ImageLoggingConfigurationArgsDict(TypedDict):
+        log_group_name: pulumi.Input[_builtins.str]
+        """
+        Name of the CloudWatch Log Group to send logs to.
+        """
+elif False:
+    ImageLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ImageLoggingConfigurationArgs:
+    def __init__(__self__, *,
+                 log_group_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] log_group_name: Name of the CloudWatch Log Group to send logs to.
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the CloudWatch Log Group to send logs to.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_group_name", value)
+
+
+if not MYPY:
     class ImageOutputResourceArgsDict(TypedDict):
         amis: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgsDict']]]]
         """
@@ -2076,6 +2111,58 @@ class ImagePipelineImageTestsConfigurationArgs:
     @timeout_minutes.setter
     def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "timeout_minutes", value)
+
+
+if not MYPY:
+    class ImagePipelineLoggingConfigurationArgsDict(TypedDict):
+        image_log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Name of the CloudWatch Log Group to send image logs to.
+        """
+        pipeline_log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Name of the CloudWatch Log Group to send pipeline logs to.
+        """
+elif False:
+    ImagePipelineLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ImagePipelineLoggingConfigurationArgs:
+    def __init__(__self__, *,
+                 image_log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pipeline_log_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] image_log_group_name: Name of the CloudWatch Log Group to send image logs to.
+        :param pulumi.Input[_builtins.str] pipeline_log_group_name: Name of the CloudWatch Log Group to send pipeline logs to.
+        """
+        if image_log_group_name is not None:
+            pulumi.set(__self__, "image_log_group_name", image_log_group_name)
+        if pipeline_log_group_name is not None:
+            pulumi.set(__self__, "pipeline_log_group_name", pipeline_log_group_name)
+
+    @_builtins.property
+    @pulumi.getter(name="imageLogGroupName")
+    def image_log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the CloudWatch Log Group to send image logs to.
+        """
+        return pulumi.get(self, "image_log_group_name")
+
+    @image_log_group_name.setter
+    def image_log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "image_log_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineLogGroupName")
+    def pipeline_log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the CloudWatch Log Group to send pipeline logs to.
+        """
+        return pulumi.get(self, "pipeline_log_group_name")
+
+    @pipeline_log_group_name.setter
+    def pipeline_log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pipeline_log_group_name", value)
 
 
 if not MYPY:

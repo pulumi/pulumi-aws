@@ -19,6 +19,14 @@ __all__ = [
     'ClusterClusterNode',
     'EndpointAccessVpcEndpoint',
     'EndpointAccessVpcEndpointNetworkInterface',
+    'IdcApplicationAuthorizedTokenIssuer',
+    'IdcApplicationServiceIntegration',
+    'IdcApplicationServiceIntegrationLakeFormation',
+    'IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery',
+    'IdcApplicationServiceIntegrationRedshift',
+    'IdcApplicationServiceIntegrationRedshiftConnect',
+    'IdcApplicationServiceIntegrationS3AccessGrants',
+    'IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess',
     'IntegrationTimeouts',
     'ParameterGroupParameter',
     'ScheduledActionTargetAction',
@@ -234,6 +242,263 @@ class EndpointAccessVpcEndpointNetworkInterface(dict):
         The subnet identifier.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class IdcApplicationAuthorizedTokenIssuer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizedAudiencesLists":
+            suggest = "authorized_audiences_lists"
+        elif key == "trustedTokenIssuerArn":
+            suggest = "trusted_token_issuer_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdcApplicationAuthorizedTokenIssuer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdcApplicationAuthorizedTokenIssuer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdcApplicationAuthorizedTokenIssuer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorized_audiences_lists: Optional[Sequence[_builtins.str]] = None,
+                 trusted_token_issuer_arn: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] authorized_audiences_lists: List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+        :param _builtins.str trusted_token_issuer_arn: ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+        """
+        if authorized_audiences_lists is not None:
+            pulumi.set(__self__, "authorized_audiences_lists", authorized_audiences_lists)
+        if trusted_token_issuer_arn is not None:
+            pulumi.set(__self__, "trusted_token_issuer_arn", trusted_token_issuer_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizedAudiencesLists")
+    def authorized_audiences_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+        """
+        return pulumi.get(self, "authorized_audiences_lists")
+
+    @_builtins.property
+    @pulumi.getter(name="trustedTokenIssuerArn")
+    def trusted_token_issuer_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+        """
+        return pulumi.get(self, "trusted_token_issuer_arn")
+
+
+@pulumi.output_type
+class IdcApplicationServiceIntegration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lakeFormation":
+            suggest = "lake_formation"
+        elif key == "s3AccessGrants":
+            suggest = "s3_access_grants"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdcApplicationServiceIntegration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdcApplicationServiceIntegration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdcApplicationServiceIntegration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lake_formation: Optional['outputs.IdcApplicationServiceIntegrationLakeFormation'] = None,
+                 redshift: Optional['outputs.IdcApplicationServiceIntegrationRedshift'] = None,
+                 s3_access_grants: Optional['outputs.IdcApplicationServiceIntegrationS3AccessGrants'] = None):
+        """
+        :param 'IdcApplicationServiceIntegrationLakeFormationArgs' lake_formation: List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
+        :param 'IdcApplicationServiceIntegrationRedshiftArgs' redshift: List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
+        :param 'IdcApplicationServiceIntegrationS3AccessGrantsArgs' s3_access_grants: List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
+        """
+        if lake_formation is not None:
+            pulumi.set(__self__, "lake_formation", lake_formation)
+        if redshift is not None:
+            pulumi.set(__self__, "redshift", redshift)
+        if s3_access_grants is not None:
+            pulumi.set(__self__, "s3_access_grants", s3_access_grants)
+
+    @_builtins.property
+    @pulumi.getter(name="lakeFormation")
+    def lake_formation(self) -> Optional['outputs.IdcApplicationServiceIntegrationLakeFormation']:
+        """
+        List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
+        """
+        return pulumi.get(self, "lake_formation")
+
+    @_builtins.property
+    @pulumi.getter
+    def redshift(self) -> Optional['outputs.IdcApplicationServiceIntegrationRedshift']:
+        """
+        List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
+        """
+        return pulumi.get(self, "redshift")
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessGrants")
+    def s3_access_grants(self) -> Optional['outputs.IdcApplicationServiceIntegrationS3AccessGrants']:
+        """
+        List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
+        """
+        return pulumi.get(self, "s3_access_grants")
+
+
+@pulumi.output_type
+class IdcApplicationServiceIntegrationLakeFormation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lakeFormationQuery":
+            suggest = "lake_formation_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdcApplicationServiceIntegrationLakeFormation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdcApplicationServiceIntegrationLakeFormation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdcApplicationServiceIntegrationLakeFormation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lake_formation_query: Optional['outputs.IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery'] = None):
+        """
+        :param 'IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs' lake_formation_query: Lake formation scope.
+        """
+        if lake_formation_query is not None:
+            pulumi.set(__self__, "lake_formation_query", lake_formation_query)
+
+    @_builtins.property
+    @pulumi.getter(name="lakeFormationQuery")
+    def lake_formation_query(self) -> Optional['outputs.IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery']:
+        """
+        Lake formation scope.
+        """
+        return pulumi.get(self, "lake_formation_query")
+
+
+@pulumi.output_type
+class IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery(dict):
+    def __init__(__self__, *,
+                 authorization: _builtins.str):
+        """
+        :param _builtins.str authorization: Determines whether the query scope is enabled or disabled.
+        """
+        pulumi.set(__self__, "authorization", authorization)
+
+    @_builtins.property
+    @pulumi.getter
+    def authorization(self) -> _builtins.str:
+        """
+        Determines whether the query scope is enabled or disabled.
+        """
+        return pulumi.get(self, "authorization")
+
+
+@pulumi.output_type
+class IdcApplicationServiceIntegrationRedshift(dict):
+    def __init__(__self__, *,
+                 connect: Optional['outputs.IdcApplicationServiceIntegrationRedshiftConnect'] = None):
+        """
+        :param 'IdcApplicationServiceIntegrationRedshiftConnectArgs' connect: Amazon Redshift connect service integration scope.
+        """
+        if connect is not None:
+            pulumi.set(__self__, "connect", connect)
+
+    @_builtins.property
+    @pulumi.getter
+    def connect(self) -> Optional['outputs.IdcApplicationServiceIntegrationRedshiftConnect']:
+        """
+        Amazon Redshift connect service integration scope.
+        """
+        return pulumi.get(self, "connect")
+
+
+@pulumi.output_type
+class IdcApplicationServiceIntegrationRedshiftConnect(dict):
+    def __init__(__self__, *,
+                 authorization: _builtins.str):
+        """
+        :param _builtins.str authorization: Determines whether the connect integration is enabled or disabled.
+        """
+        pulumi.set(__self__, "authorization", authorization)
+
+    @_builtins.property
+    @pulumi.getter
+    def authorization(self) -> _builtins.str:
+        """
+        Determines whether the connect integration is enabled or disabled.
+        """
+        return pulumi.get(self, "authorization")
+
+
+@pulumi.output_type
+class IdcApplicationServiceIntegrationS3AccessGrants(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readWriteAccess":
+            suggest = "read_write_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdcApplicationServiceIntegrationS3AccessGrants. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdcApplicationServiceIntegrationS3AccessGrants.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdcApplicationServiceIntegrationS3AccessGrants.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 read_write_access: Optional['outputs.IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess'] = None):
+        """
+        :param 'IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs' read_write_access: S3 Access grants integration scope.
+        """
+        if read_write_access is not None:
+            pulumi.set(__self__, "read_write_access", read_write_access)
+
+    @_builtins.property
+    @pulumi.getter(name="readWriteAccess")
+    def read_write_access(self) -> Optional['outputs.IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess']:
+        """
+        S3 Access grants integration scope.
+        """
+        return pulumi.get(self, "read_write_access")
+
+
+@pulumi.output_type
+class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess(dict):
+    def __init__(__self__, *,
+                 authorization: _builtins.str):
+        """
+        :param _builtins.str authorization: Determines whether read/write scope is enabled or disabled.
+        """
+        pulumi.set(__self__, "authorization", authorization)
+
+    @_builtins.property
+    @pulumi.getter
+    def authorization(self) -> _builtins.str:
+        """
+        Determines whether read/write scope is enabled or disabled.
+        """
+        return pulumi.get(self, "authorization")
 
 
 @pulumi.output_type

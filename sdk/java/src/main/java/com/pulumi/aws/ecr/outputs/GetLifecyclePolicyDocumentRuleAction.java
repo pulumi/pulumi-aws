@@ -7,18 +7,26 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLifecyclePolicyDocumentRuleAction {
+    private @Nullable String targetStorageClass;
     /**
-     * @return The supported value is `expire`.
+     * @return Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
      * 
      */
     private String type;
 
     private GetLifecyclePolicyDocumentRuleAction() {}
+    public Optional<String> targetStorageClass() {
+        return Optional.ofNullable(this.targetStorageClass);
+    }
     /**
-     * @return The supported value is `expire`.
+     * @return Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
      * 
      */
     public String type() {
@@ -34,13 +42,21 @@ public final class GetLifecyclePolicyDocumentRuleAction {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String targetStorageClass;
         private String type;
         public Builder() {}
         public Builder(GetLifecyclePolicyDocumentRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.targetStorageClass = defaults.targetStorageClass;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder targetStorageClass(@Nullable String targetStorageClass) {
+
+            this.targetStorageClass = targetStorageClass;
+            return this;
+        }
         @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
@@ -51,6 +67,7 @@ public final class GetLifecyclePolicyDocumentRuleAction {
         }
         public GetLifecyclePolicyDocumentRuleAction build() {
             final var _resultValue = new GetLifecyclePolicyDocumentRuleAction();
+            _resultValue.targetStorageClass = targetStorageClass;
             _resultValue.type = type;
             return _resultValue;
         }

@@ -150,6 +150,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
+        /// Network type of the DB proxy endpoint.
+        /// </summary>
+        public readonly string EndpointNetworkType;
+        /// <summary>
         /// Kinds of databases that the proxy can connect to.
         /// </summary>
         public readonly string EngineFamily;
@@ -171,6 +175,10 @@ namespace Pulumi.Aws.Rds
         /// ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
         /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Network type that the proxy uses to connect to the target database.
+        /// </summary>
+        public readonly string TargetConnectionNetworkType;
         /// <summary>
         /// Provides the VPC ID of the DB proxy.
         /// </summary>
@@ -196,6 +204,8 @@ namespace Pulumi.Aws.Rds
 
             string endpoint,
 
+            string endpointNetworkType,
+
             string engineFamily,
 
             string id,
@@ -210,6 +220,8 @@ namespace Pulumi.Aws.Rds
 
             string roleArn,
 
+            string targetConnectionNetworkType,
+
             string vpcId,
 
             ImmutableArray<string> vpcSecurityGroupIds,
@@ -221,6 +233,7 @@ namespace Pulumi.Aws.Rds
             DebugLogging = debugLogging;
             DefaultAuthScheme = defaultAuthScheme;
             Endpoint = endpoint;
+            EndpointNetworkType = endpointNetworkType;
             EngineFamily = engineFamily;
             Id = id;
             IdleClientTimeout = idleClientTimeout;
@@ -228,6 +241,7 @@ namespace Pulumi.Aws.Rds
             Region = region;
             RequireTls = requireTls;
             RoleArn = roleArn;
+            TargetConnectionNetworkType = targetConnectionNetworkType;
             VpcId = vpcId;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
             VpcSubnetIds = vpcSubnetIds;

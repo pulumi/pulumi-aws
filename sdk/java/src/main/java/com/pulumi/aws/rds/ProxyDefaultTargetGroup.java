@@ -15,74 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Provides a resource to manage an RDS DB proxy default target group resource.
- * 
- * The `aws.rds.ProxyDefaultTargetGroup` behaves differently from normal resources, in that the provider does not _create_ or _destroy_ this resource, since it implicitly exists as part of an RDS DB Proxy. On the provider resource creation it is automatically imported and on resource destruction, the provider performs no actions in RDS.
- * 
  * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.Proxy;
- * import com.pulumi.aws.rds.ProxyArgs;
- * import com.pulumi.aws.rds.inputs.ProxyAuthArgs;
- * import com.pulumi.aws.rds.ProxyDefaultTargetGroup;
- * import com.pulumi.aws.rds.ProxyDefaultTargetGroupArgs;
- * import com.pulumi.aws.rds.inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Proxy("example", ProxyArgs.builder()
- *             .name("example")
- *             .debugLogging(false)
- *             .engineFamily("MYSQL")
- *             .idleClientTimeout(1800)
- *             .requireTls(true)
- *             .roleArn(exampleAwsIamRole.arn())
- *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
- *             .vpcSubnetIds(exampleAwsSubnet.id())
- *             .auths(ProxyAuthArgs.builder()
- *                 .authScheme("SECRETS")
- *                 .description("example")
- *                 .iamAuth("DISABLED")
- *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Name", "example"),
- *                 Map.entry("Key", "value")
- *             ))
- *             .build());
- * 
- *         var exampleProxyDefaultTargetGroup = new ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", ProxyDefaultTargetGroupArgs.builder()
- *             .dbProxyName(example.name())
- *             .connectionPoolConfig(ProxyDefaultTargetGroupConnectionPoolConfigArgs.builder()
- *                 .connectionBorrowTimeout(120)
- *                 .initQuery("SET x=1, y=2")
- *                 .maxConnectionsPercent(100)
- *                 .maxIdleConnectionsPercent(50)
- *                 .sessionPinningFilters("EXCLUDE_VARIABLE_SETS")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * 
  * ## Import
  * 

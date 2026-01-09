@@ -2585,6 +2585,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudfront/connectionFunction",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/connectionFunction:ConnectionFunction": "ConnectionFunction"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudfront/connectionGroup",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/connectionGroup:ConnectionGroup": "ConnectionGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudfront/continuousDeploymentPolicy",
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
@@ -2597,6 +2613,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
    "aws:cloudfront/distribution:Distribution": "Distribution"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudfront/distributionTenant",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/distributionTenant:DistributionTenant": "DistributionTenant"
   }
  },
  {
@@ -2661,6 +2685,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
    "aws:cloudfront/monitoringSubscription:MonitoringSubscription": "MonitoringSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudfront/multitenantDistribution",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/multitenantDistribution:MultitenantDistribution": "MultitenantDistribution"
   }
  },
  {
@@ -4441,6 +4473,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "dynamodb/globalSecondaryIndex",
+  "fqn": "pulumi_aws.dynamodb",
+  "classes": {
+   "aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex": "GlobalSecondaryIndex"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "dynamodb/globalTable",
   "fqn": "pulumi_aws.dynamodb",
   "classes": {
@@ -5637,6 +5677,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ecr",
   "classes": {
    "aws:ecr/pullThroughCacheRule:PullThroughCacheRule": "PullThroughCacheRule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ecr/pullTimeUpdateExclusion",
+  "fqn": "pulumi_aws.ecr",
+  "classes": {
+   "aws:ecr/pullTimeUpdateExclusion:PullTimeUpdateExclusion": "PullTimeUpdateExclusion"
   }
  },
  {
@@ -9281,6 +9329,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "organizations/tag",
+  "fqn": "pulumi_aws.organizations",
+  "classes": {
+   "aws:organizations/tag:Tag": "Tag"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "paymentcryptography/key",
   "fqn": "pulumi_aws.paymentcryptography",
   "classes": {
@@ -10013,6 +10069,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/hsmConfiguration:HsmConfiguration": "HsmConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/idcApplication",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/idcApplication:IdcApplication": "IdcApplication"
   }
  },
  {
@@ -11425,6 +11489,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "secretsmanager/tag",
+  "fqn": "pulumi_aws.secretsmanager",
+  "classes": {
+   "aws:secretsmanager/tag:Tag": "Tag"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "securityhub/account",
   "fqn": "pulumi_aws.securityhub",
   "classes": {
@@ -11981,6 +12053,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sesv2",
   "classes": {
    "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy": "EmailIdentityPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sesv2/tenant",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/tenant:Tenant": "Tenant"
   }
  },
  {

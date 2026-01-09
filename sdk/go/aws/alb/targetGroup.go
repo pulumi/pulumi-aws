@@ -265,7 +265,7 @@ type TargetGroup struct {
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
 	PreserveClientIp pulumi.StringOutput `pulumi:"preserveClientIp"`
 	// Protocol to use for routing traffic to the targets.
-	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
 	// Required when `targetType` is `instance`, `ip`, or `alb`.
 	// Does not apply when `targetType` is `lambda`.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
@@ -374,7 +374,7 @@ type targetGroupState struct {
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
 	PreserveClientIp *string `pulumi:"preserveClientIp"`
 	// Protocol to use for routing traffic to the targets.
-	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
 	// Required when `targetType` is `instance`, `ip`, or `alb`.
 	// Does not apply when `targetType` is `lambda`.
 	Protocol *string `pulumi:"protocol"`
@@ -448,7 +448,7 @@ type TargetGroupState struct {
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
 	PreserveClientIp pulumi.StringPtrInput
 	// Protocol to use for routing traffic to the targets.
-	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
 	// Required when `targetType` is `instance`, `ip`, or `alb`.
 	// Does not apply when `targetType` is `lambda`.
 	Protocol pulumi.StringPtrInput
@@ -520,7 +520,7 @@ type targetGroupArgs struct {
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
 	PreserveClientIp *string `pulumi:"preserveClientIp"`
 	// Protocol to use for routing traffic to the targets.
-	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
 	// Required when `targetType` is `instance`, `ip`, or `alb`.
 	// Does not apply when `targetType` is `lambda`.
 	Protocol *string `pulumi:"protocol"`
@@ -587,7 +587,7 @@ type TargetGroupArgs struct {
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
 	PreserveClientIp pulumi.StringPtrInput
 	// Protocol to use for routing traffic to the targets.
-	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
 	// Required when `targetType` is `instance`, `ip`, or `alb`.
 	// Does not apply when `targetType` is `lambda`.
 	Protocol pulumi.StringPtrInput
@@ -790,7 +790,7 @@ func (o TargetGroupOutput) PreserveClientIp() pulumi.StringOutput {
 }
 
 // Protocol to use for routing traffic to the targets.
-// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
 // Required when `targetType` is `instance`, `ip`, or `alb`.
 // Does not apply when `targetType` is `lambda`.
 func (o TargetGroupOutput) Protocol() pulumi.StringPtrOutput {

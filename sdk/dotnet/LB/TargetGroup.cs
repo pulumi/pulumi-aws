@@ -279,7 +279,7 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// Protocol to use for routing traffic to the targets.
-        /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+        /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
         /// Required when `TargetType` is `Instance`, `Ip`, or `Alb`.
         /// Does not apply when `TargetType` is `Lambda`.
         /// </summary>
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// Protocol to use for routing traffic to the targets.
-        /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+        /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
         /// Required when `TargetType` is `Instance`, `Ip`, or `Alb`.
         /// Does not apply when `TargetType` is `Lambda`.
         /// </summary>
@@ -711,7 +711,7 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// Protocol to use for routing traffic to the targets.
-        /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+        /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
         /// Required when `TargetType` is `Instance`, `Ip`, or `Alb`.
         /// Does not apply when `TargetType` is `Lambda`.
         /// </summary>

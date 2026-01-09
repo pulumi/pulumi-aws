@@ -97,6 +97,10 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     declare public readonly infrastructureConfigurationArn: pulumi.Output<string>;
     /**
+     * Configuration block with logging configuration. Detailed below.
+     */
+    declare public readonly loggingConfiguration: pulumi.Output<outputs.imagebuilder.ImagePipelineLoggingConfiguration | undefined>;
+    /**
      * Name of the image pipeline.
      *
      * The following arguments are optional:
@@ -158,6 +162,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["imageScanningConfiguration"] = state?.imageScanningConfiguration;
             resourceInputs["imageTestsConfiguration"] = state?.imageTestsConfiguration;
             resourceInputs["infrastructureConfigurationArn"] = state?.infrastructureConfigurationArn;
+            resourceInputs["loggingConfiguration"] = state?.loggingConfiguration;
             resourceInputs["name"] = state?.name;
             resourceInputs["platform"] = state?.platform;
             resourceInputs["region"] = state?.region;
@@ -180,6 +185,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["imageScanningConfiguration"] = args?.imageScanningConfiguration;
             resourceInputs["imageTestsConfiguration"] = args?.imageTestsConfiguration;
             resourceInputs["infrastructureConfigurationArn"] = args?.infrastructureConfigurationArn;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["schedule"] = args?.schedule;
@@ -260,6 +266,10 @@ export interface ImagePipelineState {
      */
     infrastructureConfigurationArn?: pulumi.Input<string>;
     /**
+     * Configuration block with logging configuration. Detailed below.
+     */
+    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineLoggingConfiguration>;
+    /**
      * Name of the image pipeline.
      *
      * The following arguments are optional:
@@ -335,6 +345,10 @@ export interface ImagePipelineArgs {
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      */
     infrastructureConfigurationArn: pulumi.Input<string>;
+    /**
+     * Configuration block with logging configuration. Detailed below.
+     */
+    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineLoggingConfiguration>;
     /**
      * Name of the image pipeline.
      *

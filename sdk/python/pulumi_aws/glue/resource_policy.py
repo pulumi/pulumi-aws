@@ -162,10 +162,10 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
+        Using `pulumi import`, import Glue Resource Policy using the region where the resource resides. For example:
 
         ```sh
-        $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+        $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test us-east-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,10 +205,10 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
+        Using `pulumi import`, import Glue Resource Policy using the region where the resource resides. For example:
 
         ```sh
-        $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+        $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test us-east-1
         ```
 
         :param str resource_name: The name of the resource.

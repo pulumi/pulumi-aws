@@ -15,6 +15,18 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'GlobalSecondaryIndexKeySchemaArgs',
+    'GlobalSecondaryIndexKeySchemaArgsDict',
+    'GlobalSecondaryIndexOnDemandThroughputArgs',
+    'GlobalSecondaryIndexOnDemandThroughputArgsDict',
+    'GlobalSecondaryIndexProjectionArgs',
+    'GlobalSecondaryIndexProjectionArgsDict',
+    'GlobalSecondaryIndexProvisionedThroughputArgs',
+    'GlobalSecondaryIndexProvisionedThroughputArgsDict',
+    'GlobalSecondaryIndexTimeoutsArgs',
+    'GlobalSecondaryIndexTimeoutsArgsDict',
+    'GlobalSecondaryIndexWarmThroughputArgs',
+    'GlobalSecondaryIndexWarmThroughputArgsDict',
     'GlobalTableReplicaArgs',
     'GlobalTableReplicaArgsDict',
     'TableAttributeArgs',
@@ -56,6 +68,364 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class GlobalSecondaryIndexKeySchemaArgsDict(TypedDict):
+        attribute_name: pulumi.Input[_builtins.str]
+        """
+        Name of the attribute.
+        """
+        attribute_type: pulumi.Input[_builtins.str]
+        """
+        Type of the attribute in the index.
+        Valid values are `S` (string), `N` (number), or `B` (binary).
+        """
+        key_type: pulumi.Input[_builtins.str]
+        """
+        Key type.
+        Valid values are `HASH` or `RANGE`.
+        """
+elif False:
+    GlobalSecondaryIndexKeySchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GlobalSecondaryIndexKeySchemaArgs:
+    def __init__(__self__, *,
+                 attribute_name: pulumi.Input[_builtins.str],
+                 attribute_type: pulumi.Input[_builtins.str],
+                 key_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] attribute_name: Name of the attribute.
+        :param pulumi.Input[_builtins.str] attribute_type: Type of the attribute in the index.
+               Valid values are `S` (string), `N` (number), or `B` (binary).
+        :param pulumi.Input[_builtins.str] key_type: Key type.
+               Valid values are `HASH` or `RANGE`.
+        """
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "attribute_type", attribute_type)
+        pulumi.set(__self__, "key_type", key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the attribute.
+        """
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "attribute_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeType")
+    def attribute_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of the attribute in the index.
+        Valid values are `S` (string), `N` (number), or `B` (binary).
+        """
+        return pulumi.get(self, "attribute_type")
+
+    @attribute_type.setter
+    def attribute_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "attribute_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Key type.
+        Valid values are `HASH` or `RANGE`.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_type", value)
+
+
+if not MYPY:
+    class GlobalSecondaryIndexOnDemandThroughputArgsDict(TypedDict):
+        max_read_request_units: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Maximum number of read request units for this index.
+        """
+        max_write_request_units: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Maximum number of write request units for this index.
+        """
+elif False:
+    GlobalSecondaryIndexOnDemandThroughputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GlobalSecondaryIndexOnDemandThroughputArgs:
+    def __init__(__self__, *,
+                 max_read_request_units: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_write_request_units: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_read_request_units: Maximum number of read request units for this index.
+        :param pulumi.Input[_builtins.int] max_write_request_units: Maximum number of write request units for this index.
+        """
+        if max_read_request_units is not None:
+            pulumi.set(__self__, "max_read_request_units", max_read_request_units)
+        if max_write_request_units is not None:
+            pulumi.set(__self__, "max_write_request_units", max_write_request_units)
+
+    @_builtins.property
+    @pulumi.getter(name="maxReadRequestUnits")
+    def max_read_request_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum number of read request units for this index.
+        """
+        return pulumi.get(self, "max_read_request_units")
+
+    @max_read_request_units.setter
+    def max_read_request_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_read_request_units", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxWriteRequestUnits")
+    def max_write_request_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum number of write request units for this index.
+        """
+        return pulumi.get(self, "max_write_request_units")
+
+    @max_write_request_units.setter
+    def max_write_request_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_write_request_units", value)
+
+
+if not MYPY:
+    class GlobalSecondaryIndexProjectionArgsDict(TypedDict):
+        projection_type: pulumi.Input[_builtins.str]
+        """
+        The set of attributes represented in the index.
+        One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
+        """
+        non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies which additional attributes to include in the index.
+        Only valid when `projection_type` is `INCLUDE`.`
+        """
+elif False:
+    GlobalSecondaryIndexProjectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GlobalSecondaryIndexProjectionArgs:
+    def __init__(__self__, *,
+                 projection_type: pulumi.Input[_builtins.str],
+                 non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] projection_type: The set of attributes represented in the index.
+               One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] non_key_attributes: Specifies which additional attributes to include in the index.
+               Only valid when `projection_type` is `INCLUDE`.`
+        """
+        pulumi.set(__self__, "projection_type", projection_type)
+        if non_key_attributes is not None:
+            pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+
+    @_builtins.property
+    @pulumi.getter(name="projectionType")
+    def projection_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The set of attributes represented in the index.
+        One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
+        """
+        return pulumi.get(self, "projection_type")
+
+    @projection_type.setter
+    def projection_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "projection_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nonKeyAttributes")
+    def non_key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies which additional attributes to include in the index.
+        Only valid when `projection_type` is `INCLUDE`.`
+        """
+        return pulumi.get(self, "non_key_attributes")
+
+    @non_key_attributes.setter
+    def non_key_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "non_key_attributes", value)
+
+
+if not MYPY:
+    class GlobalSecondaryIndexProvisionedThroughputArgsDict(TypedDict):
+        read_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Number of read capacity units for this index.
+        """
+        write_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Number of write capacity units for this index.
+        """
+elif False:
+    GlobalSecondaryIndexProvisionedThroughputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GlobalSecondaryIndexProvisionedThroughputArgs:
+    def __init__(__self__, *,
+                 read_capacity_units: Optional[pulumi.Input[_builtins.int]] = None,
+                 write_capacity_units: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] read_capacity_units: Number of read capacity units for this index.
+        :param pulumi.Input[_builtins.int] write_capacity_units: Number of write capacity units for this index.
+        """
+        if read_capacity_units is not None:
+            pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+        if write_capacity_units is not None:
+            pulumi.set(__self__, "write_capacity_units", write_capacity_units)
+
+    @_builtins.property
+    @pulumi.getter(name="readCapacityUnits")
+    def read_capacity_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of read capacity units for this index.
+        """
+        return pulumi.get(self, "read_capacity_units")
+
+    @read_capacity_units.setter
+    def read_capacity_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "read_capacity_units", value)
+
+    @_builtins.property
+    @pulumi.getter(name="writeCapacityUnits")
+    def write_capacity_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of write capacity units for this index.
+        """
+        return pulumi.get(self, "write_capacity_units")
+
+    @write_capacity_units.setter
+    def write_capacity_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "write_capacity_units", value)
+
+
+if not MYPY:
+    class GlobalSecondaryIndexTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    GlobalSecondaryIndexTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GlobalSecondaryIndexTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class GlobalSecondaryIndexWarmThroughputArgsDict(TypedDict):
+        read_units_per_second: pulumi.Input[_builtins.int]
+        """
+        Number of read operations this index can instantaneously support.
+        """
+        write_units_per_second: pulumi.Input[_builtins.int]
+        """
+        Number of write operations this index can instantaneously support.
+        """
+elif False:
+    GlobalSecondaryIndexWarmThroughputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GlobalSecondaryIndexWarmThroughputArgs:
+    def __init__(__self__, *,
+                 read_units_per_second: pulumi.Input[_builtins.int],
+                 write_units_per_second: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] read_units_per_second: Number of read operations this index can instantaneously support.
+        :param pulumi.Input[_builtins.int] write_units_per_second: Number of write operations this index can instantaneously support.
+        """
+        pulumi.set(__self__, "read_units_per_second", read_units_per_second)
+        pulumi.set(__self__, "write_units_per_second", write_units_per_second)
+
+    @_builtins.property
+    @pulumi.getter(name="readUnitsPerSecond")
+    def read_units_per_second(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of read operations this index can instantaneously support.
+        """
+        return pulumi.get(self, "read_units_per_second")
+
+    @read_units_per_second.setter
+    def read_units_per_second(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "read_units_per_second", value)
+
+    @_builtins.property
+    @pulumi.getter(name="writeUnitsPerSecond")
+    def write_units_per_second(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of write operations this index can instantaneously support.
+        """
+        return pulumi.get(self, "write_units_per_second")
+
+    @write_units_per_second.setter
+    def write_units_per_second(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "write_units_per_second", value)
+
 
 if not MYPY:
     class GlobalTableReplicaArgsDict(TypedDict):

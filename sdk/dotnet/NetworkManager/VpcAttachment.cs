@@ -133,7 +133,7 @@ namespace Pulumi.Aws.NetworkManager
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        /// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         /// </summary>
         [Output("routingPolicyLabel")]
         public Output<string?> RoutingPolicyLabel { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.NetworkManager
         public Input<Inputs.VpcAttachmentOptionsArgs>? Options { get; set; }
 
         /// <summary>
-        /// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        /// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         /// </summary>
         [Input("routingPolicyLabel")]
         public Input<string>? RoutingPolicyLabel { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.NetworkManager
         public Input<string>? ResourceArn { get; set; }
 
         /// <summary>
-        /// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+        /// The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         /// </summary>
         [Input("routingPolicyLabel")]
         public Input<string>? RoutingPolicyLabel { get; set; }

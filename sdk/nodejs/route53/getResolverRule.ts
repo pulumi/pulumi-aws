@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -100,6 +103,10 @@ export interface GetResolverRuleResult {
      * Map of tags assigned to the resolver rule.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * List of configurations for target IP addresses. Only applicable for `FORWARD` rules. See `targetIps` below for details.
+     */
+    readonly targetIps: outputs.route53.GetResolverRuleTargetIp[];
 }
 /**
  * `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.

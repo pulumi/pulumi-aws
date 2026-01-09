@@ -48,6 +48,21 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+     * 
+     */
+    @Import(name="quicServerId")
+    private @Nullable Output<String> quicServerId;
+
+    /**
+     * @return Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+     * 
+     */
+    public Optional<Output<String>> quicServerId() {
+        return Optional.ofNullable(this.quicServerId);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -101,6 +116,7 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Resour
     private TargetGroupAttachmentArgs(TargetGroupAttachmentArgs $) {
         this.availabilityZone = $.availabilityZone;
         this.port = $.port;
+        this.quicServerId = $.quicServerId;
         this.region = $.region;
         this.targetGroupArn = $.targetGroupArn;
         this.targetId = $.targetId;
@@ -164,6 +180,27 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Resour
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        /**
+         * @param quicServerId Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder quicServerId(@Nullable Output<String> quicServerId) {
+            $.quicServerId = quicServerId;
+            return this;
+        }
+
+        /**
+         * @param quicServerId Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder quicServerId(String quicServerId) {
+            return quicServerId(Output.of(quicServerId));
         }
 
         /**

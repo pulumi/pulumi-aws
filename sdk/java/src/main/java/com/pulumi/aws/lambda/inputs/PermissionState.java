@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,6 +74,21 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> functionUrlAuthType() {
         return Optional.ofNullable(this.functionUrlAuthType);
+    }
+
+    /**
+     * Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+     * 
+     */
+    @Import(name="invokedViaFunctionUrl")
+    private @Nullable Output<Boolean> invokedViaFunctionUrl;
+
+    /**
+     * @return Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+     * 
+     */
+    public Optional<Output<Boolean>> invokedViaFunctionUrl() {
+        return Optional.ofNullable(this.invokedViaFunctionUrl);
     }
 
     /**
@@ -206,6 +222,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         this.eventSourceToken = $.eventSourceToken;
         this.function = $.function;
         this.functionUrlAuthType = $.functionUrlAuthType;
+        this.invokedViaFunctionUrl = $.invokedViaFunctionUrl;
         this.principal = $.principal;
         this.principalOrgId = $.principalOrgId;
         this.qualifier = $.qualifier;
@@ -316,6 +333,27 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder functionUrlAuthType(String functionUrlAuthType) {
             return functionUrlAuthType(Output.of(functionUrlAuthType));
+        }
+
+        /**
+         * @param invokedViaFunctionUrl Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+         * 
+         * @return builder
+         * 
+         */
+        public Builder invokedViaFunctionUrl(@Nullable Output<Boolean> invokedViaFunctionUrl) {
+            $.invokedViaFunctionUrl = invokedViaFunctionUrl;
+            return this;
+        }
+
+        /**
+         * @param invokedViaFunctionUrl Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+         * 
+         * @return builder
+         * 
+         */
+        public Builder invokedViaFunctionUrl(Boolean invokedViaFunctionUrl) {
+            return invokedViaFunctionUrl(Output.of(invokedViaFunctionUrl));
         }
 
         /**

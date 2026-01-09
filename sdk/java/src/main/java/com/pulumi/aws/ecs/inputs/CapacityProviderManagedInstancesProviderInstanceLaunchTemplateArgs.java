@@ -20,6 +20,21 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs();
 
     /**
+     * The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+     * 
+     */
+    @Import(name="capacityOptionType")
+    private @Nullable Output<String> capacityOptionType;
+
+    /**
+     * @return The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+     * 
+     */
+    public Optional<Output<String>> capacityOptionType() {
+        return Optional.ofNullable(this.capacityOptionType);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
      * 
      */
@@ -97,6 +112,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs() {}
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs $) {
+        this.capacityOptionType = $.capacityOptionType;
         this.ec2InstanceProfileArn = $.ec2InstanceProfileArn;
         this.instanceRequirements = $.instanceRequirements;
         this.monitoring = $.monitoring;
@@ -120,6 +136,27 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
 
         public Builder(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs defaults) {
             $ = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param capacityOptionType The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityOptionType(@Nullable Output<String> capacityOptionType) {
+            $.capacityOptionType = capacityOptionType;
+            return this;
+        }
+
+        /**
+         * @param capacityOptionType The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityOptionType(String capacityOptionType) {
+            return capacityOptionType(Output.of(capacityOptionType));
         }
 
         /**

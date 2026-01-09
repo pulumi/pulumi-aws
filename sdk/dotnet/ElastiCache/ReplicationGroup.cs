@@ -343,7 +343,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> AuthToken { get; private set; } = null!;
 
         /// <summary>
-        /// Strategy to use when updating the `AuthToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `AuthToken` is set.
+        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
         /// </summary>
         [Output("authTokenUpdateStrategy")]
         public Output<string?> AuthTokenUpdateStrategy { get; private set; } = null!;
@@ -724,7 +724,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy to use when updating the `AuthToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `AuthToken` is set.
+        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }
@@ -1075,7 +1075,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy to use when updating the `AuthToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `AuthToken` is set.
+        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }

@@ -16,6 +16,11 @@ public final class DistributionOriginVpcOriginConfig {
     private @Nullable Integer originKeepaliveTimeout;
     private @Nullable Integer originReadTimeout;
     /**
+     * @return The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+     * 
+     */
+    private @Nullable String ownerAccountId;
+    /**
      * @return The VPC origin ID.
      * 
      */
@@ -27,6 +32,13 @@ public final class DistributionOriginVpcOriginConfig {
     }
     public Optional<Integer> originReadTimeout() {
         return Optional.ofNullable(this.originReadTimeout);
+    }
+    /**
+     * @return The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+     * 
+     */
+    public Optional<String> ownerAccountId() {
+        return Optional.ofNullable(this.ownerAccountId);
     }
     /**
      * @return The VPC origin ID.
@@ -47,12 +59,14 @@ public final class DistributionOriginVpcOriginConfig {
     public static final class Builder {
         private @Nullable Integer originKeepaliveTimeout;
         private @Nullable Integer originReadTimeout;
+        private @Nullable String ownerAccountId;
         private String vpcOriginId;
         public Builder() {}
         public Builder(DistributionOriginVpcOriginConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.originKeepaliveTimeout = defaults.originKeepaliveTimeout;
     	      this.originReadTimeout = defaults.originReadTimeout;
+    	      this.ownerAccountId = defaults.ownerAccountId;
     	      this.vpcOriginId = defaults.vpcOriginId;
         }
 
@@ -69,6 +83,12 @@ public final class DistributionOriginVpcOriginConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder ownerAccountId(@Nullable String ownerAccountId) {
+
+            this.ownerAccountId = ownerAccountId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder vpcOriginId(String vpcOriginId) {
             if (vpcOriginId == null) {
               throw new MissingRequiredPropertyException("DistributionOriginVpcOriginConfig", "vpcOriginId");
@@ -80,6 +100,7 @@ public final class DistributionOriginVpcOriginConfig {
             final var _resultValue = new DistributionOriginVpcOriginConfig();
             _resultValue.originKeepaliveTimeout = originKeepaliveTimeout;
             _resultValue.originReadTimeout = originReadTimeout;
+            _resultValue.ownerAccountId = ownerAccountId;
             _resultValue.vpcOriginId = vpcOriginId;
             return _resultValue;
         }

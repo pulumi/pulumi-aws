@@ -61,6 +61,11 @@ export type PullThroughCacheRule = import("./pullThroughCacheRule").PullThroughC
 export const PullThroughCacheRule: typeof import("./pullThroughCacheRule").PullThroughCacheRule = null as any;
 utilities.lazyLoad(exports, ["PullThroughCacheRule"], () => require("./pullThroughCacheRule"));
 
+export { PullTimeUpdateExclusionArgs, PullTimeUpdateExclusionState } from "./pullTimeUpdateExclusion";
+export type PullTimeUpdateExclusion = import("./pullTimeUpdateExclusion").PullTimeUpdateExclusion;
+export const PullTimeUpdateExclusion: typeof import("./pullTimeUpdateExclusion").PullTimeUpdateExclusion = null as any;
+utilities.lazyLoad(exports, ["PullTimeUpdateExclusion"], () => require("./pullTimeUpdateExclusion"));
+
 export { RegistryPolicyArgs, RegistryPolicyState } from "./registryPolicy";
 export type RegistryPolicy = import("./registryPolicy").RegistryPolicy;
 export const RegistryPolicy: typeof import("./registryPolicy").RegistryPolicy = null as any;
@@ -105,6 +110,8 @@ const _module = {
                 return new LifecyclePolicy(name, <any>undefined, { urn })
             case "aws:ecr/pullThroughCacheRule:PullThroughCacheRule":
                 return new PullThroughCacheRule(name, <any>undefined, { urn })
+            case "aws:ecr/pullTimeUpdateExclusion:PullTimeUpdateExclusion":
+                return new PullTimeUpdateExclusion(name, <any>undefined, { urn })
             case "aws:ecr/registryPolicy:RegistryPolicy":
                 return new RegistryPolicy(name, <any>undefined, { urn })
             case "aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration":
@@ -125,6 +132,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "ecr/accountSetting", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/lifecyclePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/pullThroughCacheRule", _module)
+pulumi.runtime.registerResourceModule("aws", "ecr/pullTimeUpdateExclusion", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/registryPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/registryScanningConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/replicationConfiguration", _module)

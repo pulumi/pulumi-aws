@@ -65,6 +65,10 @@ export class Proxy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
+     * Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
+     */
+    declare public readonly endpointNetworkType: pulumi.Output<string>;
+    /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      */
     declare public readonly engineFamily: pulumi.Output<string>;
@@ -97,6 +101,10 @@ export class Proxy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
+     * Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+     */
+    declare public readonly targetConnectionNetworkType: pulumi.Output<string>;
+    /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
     declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
@@ -123,6 +131,7 @@ export class Proxy extends pulumi.CustomResource {
             resourceInputs["debugLogging"] = state?.debugLogging;
             resourceInputs["defaultAuthScheme"] = state?.defaultAuthScheme;
             resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["endpointNetworkType"] = state?.endpointNetworkType;
             resourceInputs["engineFamily"] = state?.engineFamily;
             resourceInputs["idleClientTimeout"] = state?.idleClientTimeout;
             resourceInputs["name"] = state?.name;
@@ -131,6 +140,7 @@ export class Proxy extends pulumi.CustomResource {
             resourceInputs["roleArn"] = state?.roleArn;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["targetConnectionNetworkType"] = state?.targetConnectionNetworkType;
             resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
             resourceInputs["vpcSubnetIds"] = state?.vpcSubnetIds;
         } else {
@@ -147,6 +157,7 @@ export class Proxy extends pulumi.CustomResource {
             resourceInputs["auths"] = args?.auths;
             resourceInputs["debugLogging"] = args?.debugLogging;
             resourceInputs["defaultAuthScheme"] = args?.defaultAuthScheme;
+            resourceInputs["endpointNetworkType"] = args?.endpointNetworkType;
             resourceInputs["engineFamily"] = args?.engineFamily;
             resourceInputs["idleClientTimeout"] = args?.idleClientTimeout;
             resourceInputs["name"] = args?.name;
@@ -154,6 +165,7 @@ export class Proxy extends pulumi.CustomResource {
             resourceInputs["requireTls"] = args?.requireTls;
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetConnectionNetworkType"] = args?.targetConnectionNetworkType;
             resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["vpcSubnetIds"] = args?.vpcSubnetIds;
             resourceInputs["arn"] = undefined /*out*/;
@@ -190,6 +202,10 @@ export interface ProxyState {
      */
     endpoint?: pulumi.Input<string>;
     /**
+     * Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
+     */
+    endpointNetworkType?: pulumi.Input<string>;
+    /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      */
     engineFamily?: pulumi.Input<string>;
@@ -222,6 +238,10 @@ export interface ProxyState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+     */
+    targetConnectionNetworkType?: pulumi.Input<string>;
+    /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -247,6 +267,10 @@ export interface ProxyArgs {
      * Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
      */
     defaultAuthScheme?: pulumi.Input<string>;
+    /**
+     * Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
+     */
+    endpointNetworkType?: pulumi.Input<string>;
     /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      */
@@ -275,6 +299,10 @@ export interface ProxyArgs {
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+     */
+    targetConnectionNetworkType?: pulumi.Input<string>;
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      */

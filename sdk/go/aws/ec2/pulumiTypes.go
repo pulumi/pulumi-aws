@@ -38469,8 +38469,12 @@ func (o VpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) VpcEndpointDnsE
 type VpcEndpointDnsOptions struct {
 	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 	DnsRecordIpType *string `pulumi:"dnsRecordIpType"`
-	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
+	// Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
 	PrivateDnsOnlyForInboundResolverEndpoint *bool `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
+	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `privateDnsEnabled` is `true` and when the `vpcEndpointType` is `ServiceNetwork` or `Resource`.
+	PrivateDnsPreference *string `pulumi:"privateDnsPreference"`
+	// List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `privateDnsEnabled` is `true` and `privateDnsPreference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
+	PrivateDnsSpecifiedDomains []string `pulumi:"privateDnsSpecifiedDomains"`
 }
 
 // VpcEndpointDnsOptionsInput is an input type that accepts VpcEndpointDnsOptionsArgs and VpcEndpointDnsOptionsOutput values.
@@ -38487,8 +38491,12 @@ type VpcEndpointDnsOptionsInput interface {
 type VpcEndpointDnsOptionsArgs struct {
 	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 	DnsRecordIpType pulumi.StringPtrInput `pulumi:"dnsRecordIpType"`
-	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
+	// Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
 	PrivateDnsOnlyForInboundResolverEndpoint pulumi.BoolPtrInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
+	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `privateDnsEnabled` is `true` and when the `vpcEndpointType` is `ServiceNetwork` or `Resource`.
+	PrivateDnsPreference pulumi.StringPtrInput `pulumi:"privateDnsPreference"`
+	// List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `privateDnsEnabled` is `true` and `privateDnsPreference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
+	PrivateDnsSpecifiedDomains pulumi.StringArrayInput `pulumi:"privateDnsSpecifiedDomains"`
 }
 
 func (VpcEndpointDnsOptionsArgs) ElementType() reflect.Type {
@@ -38573,9 +38581,19 @@ func (o VpcEndpointDnsOptionsOutput) DnsRecordIpType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointDnsOptions) *string { return v.DnsRecordIpType }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
+// Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
 func (o VpcEndpointDnsOptionsOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcEndpointDnsOptions) *bool { return v.PrivateDnsOnlyForInboundResolverEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `privateDnsEnabled` is `true` and when the `vpcEndpointType` is `ServiceNetwork` or `Resource`.
+func (o VpcEndpointDnsOptionsOutput) PrivateDnsPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointDnsOptions) *string { return v.PrivateDnsPreference }).(pulumi.StringPtrOutput)
+}
+
+// List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `privateDnsEnabled` is `true` and `privateDnsPreference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
+func (o VpcEndpointDnsOptionsOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpcEndpointDnsOptions) []string { return v.PrivateDnsSpecifiedDomains }).(pulumi.StringArrayOutput)
 }
 
 type VpcEndpointDnsOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -38612,7 +38630,7 @@ func (o VpcEndpointDnsOptionsPtrOutput) DnsRecordIpType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
+// Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
 func (o VpcEndpointDnsOptionsPtrOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointDnsOptions) *bool {
 		if v == nil {
@@ -38620,6 +38638,26 @@ func (o VpcEndpointDnsOptionsPtrOutput) PrivateDnsOnlyForInboundResolverEndpoint
 		}
 		return v.PrivateDnsOnlyForInboundResolverEndpoint
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `privateDnsEnabled` is `true` and when the `vpcEndpointType` is `ServiceNetwork` or `Resource`.
+func (o VpcEndpointDnsOptionsPtrOutput) PrivateDnsPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `privateDnsEnabled` is `true` and `privateDnsPreference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
+func (o VpcEndpointDnsOptionsPtrOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsSpecifiedDomains
+	}).(pulumi.StringArrayOutput)
 }
 
 type VpcEndpointServicePrivateDnsNameConfiguration struct {
@@ -63101,6 +63139,10 @@ type GetVpcEndpointDnsOption struct {
 	DnsRecordIpType string `pulumi:"dnsRecordIpType"`
 	// Indicates whether to enable private DNS only for inbound endpoints.
 	PrivateDnsOnlyForInboundResolverEndpoint bool `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
+	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
+	PrivateDnsPreference string `pulumi:"privateDnsPreference"`
+	// List of private domains to create private hosted zones for and associate with the specified VPC.
+	PrivateDnsSpecifiedDomains []string `pulumi:"privateDnsSpecifiedDomains"`
 }
 
 // GetVpcEndpointDnsOptionInput is an input type that accepts GetVpcEndpointDnsOptionArgs and GetVpcEndpointDnsOptionOutput values.
@@ -63119,6 +63161,10 @@ type GetVpcEndpointDnsOptionArgs struct {
 	DnsRecordIpType pulumi.StringInput `pulumi:"dnsRecordIpType"`
 	// Indicates whether to enable private DNS only for inbound endpoints.
 	PrivateDnsOnlyForInboundResolverEndpoint pulumi.BoolInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
+	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
+	PrivateDnsPreference pulumi.StringInput `pulumi:"privateDnsPreference"`
+	// List of private domains to create private hosted zones for and associate with the specified VPC.
+	PrivateDnsSpecifiedDomains pulumi.StringArrayInput `pulumi:"privateDnsSpecifiedDomains"`
 }
 
 func (GetVpcEndpointDnsOptionArgs) ElementType() reflect.Type {
@@ -63180,6 +63226,16 @@ func (o GetVpcEndpointDnsOptionOutput) DnsRecordIpType() pulumi.StringOutput {
 // Indicates whether to enable private DNS only for inbound endpoints.
 func (o GetVpcEndpointDnsOptionOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVpcEndpointDnsOption) bool { return v.PrivateDnsOnlyForInboundResolverEndpoint }).(pulumi.BoolOutput)
+}
+
+// Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
+func (o GetVpcEndpointDnsOptionOutput) PrivateDnsPreference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcEndpointDnsOption) string { return v.PrivateDnsPreference }).(pulumi.StringOutput)
+}
+
+// List of private domains to create private hosted zones for and associate with the specified VPC.
+func (o GetVpcEndpointDnsOptionOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcEndpointDnsOption) []string { return v.PrivateDnsSpecifiedDomains }).(pulumi.StringArrayOutput)
 }
 
 type GetVpcEndpointDnsOptionArrayOutput struct{ *pulumi.OutputState }

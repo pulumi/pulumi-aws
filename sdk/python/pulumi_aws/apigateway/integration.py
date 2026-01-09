@@ -780,9 +780,9 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        config = pulumi.Config()
-        myregion = config.require_object("myregion")
-        account_id = config.require_object("accountId")
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        current_get_partition = aws.get_partition()
         # API Gateway
         api = aws.apigateway.RestApi("api", name="myapi")
         resource = aws.apigateway.Resource("resource",
@@ -830,8 +830,28 @@ class Integration(pulumi.CustomResource):
                 id=api.id,
                 http_method=method.http_method,
                 path=resource.path
-        ).apply(lambda resolved_outputs: f"arn:aws:execute-api:{myregion}:{account_id}:{resolved_outputs['id']}/*/{resolved_outputs['http_method']}{resolved_outputs['path']}")
+        ).apply(lambda resolved_outputs: f"arn:{current_get_partition.partition}:execute-api:{current_get_region.region}:{current.account_id}:{resolved_outputs['id']}/*/{resolved_outputs['http_method']}{resolved_outputs['path']}")
         )
+        ```
+
+        ## Lambda integration with response streaming
+
+        All other resources and data sources are the same as in the previous example; only the integration configuration differs.
+        Note that the `timeout` of the `lambda.Function` may need to be adjusted.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        integration = aws.apigateway.Integration("integration",
+            rest_api=api["id"],
+            resource_id=resource["id"],
+            http_method=method["httpMethod"],
+            integration_http_method="POST",
+            type="AWS_PROXY",
+            uri=lambda_["responseStreamingInvokeArn"],
+            response_transfer_mode="STREAM",
+            timeout_milliseconds=900000)
         ```
 
         ## VPC Link
@@ -1029,9 +1049,9 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        config = pulumi.Config()
-        myregion = config.require_object("myregion")
-        account_id = config.require_object("accountId")
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        current_get_partition = aws.get_partition()
         # API Gateway
         api = aws.apigateway.RestApi("api", name="myapi")
         resource = aws.apigateway.Resource("resource",
@@ -1079,8 +1099,28 @@ class Integration(pulumi.CustomResource):
                 id=api.id,
                 http_method=method.http_method,
                 path=resource.path
-        ).apply(lambda resolved_outputs: f"arn:aws:execute-api:{myregion}:{account_id}:{resolved_outputs['id']}/*/{resolved_outputs['http_method']}{resolved_outputs['path']}")
+        ).apply(lambda resolved_outputs: f"arn:{current_get_partition.partition}:execute-api:{current_get_region.region}:{current.account_id}:{resolved_outputs['id']}/*/{resolved_outputs['http_method']}{resolved_outputs['path']}")
         )
+        ```
+
+        ## Lambda integration with response streaming
+
+        All other resources and data sources are the same as in the previous example; only the integration configuration differs.
+        Note that the `timeout` of the `lambda.Function` may need to be adjusted.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        integration = aws.apigateway.Integration("integration",
+            rest_api=api["id"],
+            resource_id=resource["id"],
+            http_method=method["httpMethod"],
+            integration_http_method="POST",
+            type="AWS_PROXY",
+            uri=lambda_["responseStreamingInvokeArn"],
+            response_transfer_mode="STREAM",
+            timeout_milliseconds=900000)
         ```
 
         ## VPC Link

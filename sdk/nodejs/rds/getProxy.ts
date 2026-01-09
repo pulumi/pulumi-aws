@@ -68,6 +68,10 @@ export interface GetProxyResult {
      */
     readonly endpoint: string;
     /**
+     * Network type of the DB proxy endpoint.
+     */
+    readonly endpointNetworkType: string;
+    /**
      * Kinds of databases that the proxy can connect to.
      */
     readonly engineFamily: string;
@@ -89,6 +93,10 @@ export interface GetProxyResult {
      * ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
      */
     readonly roleArn: string;
+    /**
+     * Network type that the proxy uses to connect to the target database.
+     */
+    readonly targetConnectionNetworkType: string;
     /**
      * Provides the VPC ID of the DB proxy.
      */

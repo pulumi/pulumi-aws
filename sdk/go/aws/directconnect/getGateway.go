@@ -52,6 +52,8 @@ func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.
 type LookupGatewayArgs struct {
 	// Name of the gateway to retrieve.
 	Name string `pulumi:"name"`
+	// A map of tags assigned to the gateway.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getGateway.
@@ -65,6 +67,8 @@ type LookupGatewayResult struct {
 	Name string `pulumi:"name"`
 	// AWS Account ID of the gateway.
 	OwnerAccountId string `pulumi:"ownerAccountId"`
+	// A map of tags assigned to the gateway.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
@@ -80,6 +84,8 @@ func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts
 type LookupGatewayOutputArgs struct {
 	// Name of the gateway to retrieve.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A map of tags assigned to the gateway.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupGatewayOutputArgs) ElementType() reflect.Type {
@@ -123,6 +129,11 @@ func (o LookupGatewayResultOutput) Name() pulumi.StringOutput {
 // AWS Account ID of the gateway.
 func (o LookupGatewayResultOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the gateway.
+func (o LookupGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

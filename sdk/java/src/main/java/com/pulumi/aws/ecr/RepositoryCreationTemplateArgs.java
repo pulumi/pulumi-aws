@@ -21,14 +21,14 @@ public final class RepositoryCreationTemplateArgs extends com.pulumi.resources.R
     public static final RepositoryCreationTemplateArgs Empty = new RepositoryCreationTemplateArgs();
 
     /**
-     * Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+     * Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
      * 
      */
     @Import(name="appliedFors", required=true)
     private Output<List<String>> appliedFors;
 
     /**
-     * @return Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+     * @return Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
      * 
      */
     public Output<List<String>> appliedFors() {
@@ -212,7 +212,7 @@ public final class RepositoryCreationTemplateArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param appliedFors Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+         * @param appliedFors Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class RepositoryCreationTemplateArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param appliedFors Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+         * @param appliedFors Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class RepositoryCreationTemplateArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param appliedFors Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+         * @param appliedFors Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
          * 
          * @return builder
          * 

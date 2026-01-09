@@ -192,6 +192,10 @@ namespace Pulumi.Aws.ApiGateway
         public readonly string DomainName;
         public readonly string DomainNameId;
         /// <summary>
+        /// (Optional) Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
+        /// </summary>
+        public readonly string EndpointAccessMode;
+        /// <summary>
         /// List of objects with the endpoint configuration of this domain name.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainNameEndpointConfigurationResult> EndpointConfigurations;
@@ -247,6 +251,8 @@ namespace Pulumi.Aws.ApiGateway
 
             string domainNameId,
 
+            string endpointAccessMode,
+
             ImmutableArray<Outputs.GetDomainNameEndpointConfigurationResult> endpointConfigurations,
 
             string id,
@@ -275,6 +281,7 @@ namespace Pulumi.Aws.ApiGateway
             CloudfrontZoneId = cloudfrontZoneId;
             DomainName = domainName;
             DomainNameId = domainNameId;
+            EndpointAccessMode = endpointAccessMode;
             EndpointConfigurations = endpointConfigurations;
             Id = id;
             Policy = policy;

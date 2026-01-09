@@ -70,74 +70,88 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:iam/virtualMfaDevice:VirtualMfaDevice")
 public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) specifying the virtual mfa device.
+     * Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the virtual mfa device.
+     * @return Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
+     * Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
      * 
      */
     @Export(name="base32StringSeed", refs={String.class}, tree="[0]")
     private Output<String> base32StringSeed;
 
     /**
-     * @return The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
+     * @return Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
      * 
      */
     public Output<String> base32StringSeed() {
         return this.base32StringSeed;
     }
     /**
-     * The date and time when the virtual MFA device was enabled.
+     * Date and time when the virtual MFA device was enabled.
      * 
      */
     @Export(name="enableDate", refs={String.class}, tree="[0]")
     private Output<String> enableDate;
 
     /**
-     * @return The date and time when the virtual MFA device was enabled.
+     * @return Date and time when the virtual MFA device was enabled.
      * 
      */
     public Output<String> enableDate() {
         return this.enableDate;
     }
     /**
-     * The path for the virtual MFA device.
+     * Path for the virtual MFA device.
      * 
      */
     @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
     /**
-     * @return The path for the virtual MFA device.
+     * @return Path for the virtual MFA device.
      * 
      */
     public Output<Optional<String>> path() {
         return Codegen.optional(this.path);
     }
     /**
-     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+     * QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
      * 
      */
     @Export(name="qrCodePng", refs={String.class}, tree="[0]")
     private Output<String> qrCodePng;
 
     /**
-     * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+     * @return QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
      * 
      */
     public Output<String> qrCodePng() {
         return this.qrCodePng;
+    }
+    /**
+     * Serial number associated with the virtual MFA device.
+     * 
+     */
+    @Export(name="serialNumber", refs={String.class}, tree="[0]")
+    private Output<String> serialNumber;
+
+    /**
+     * @return Serial number associated with the virtual MFA device.
+     * 
+     */
+    public Output<String> serialNumber() {
+        return this.serialNumber;
     }
     /**
      * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -154,42 +168,42 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The associated IAM User name if the virtual MFA device is enabled.
+     * Name of the IAM user associated with this virtual MFA device.
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
-     * @return The associated IAM User name if the virtual MFA device is enabled.
+     * @return Name of the IAM user associated with this virtual MFA device.
      * 
      */
     public Output<String> userName() {
         return this.userName;
     }
     /**
-     * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+     * Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
     @Export(name="virtualMfaDeviceName", refs={String.class}, tree="[0]")
     private Output<String> virtualMfaDeviceName;
 
     /**
-     * @return The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+     * @return Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
     public Output<String> virtualMfaDeviceName() {

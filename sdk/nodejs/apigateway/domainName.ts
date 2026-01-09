@@ -88,6 +88,23 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Enhanced Security Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.apigateway.DomainName("example", {
+ *     domainName: "api.example.com",
+ *     regionalCertificateArn: exampleAwsAcmCertificateValidation.certificateArn,
+ *     securityPolicy: "SecurityPolicy_TLS13_1_3_2025_09",
+ *     endpointAccessMode: "STRICT",
+ *     endpointConfiguration: {
+ *         types: "REGIONAL",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * For a private custom domain name:
@@ -176,6 +193,10 @@ export class DomainName extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly domainNameId: pulumi.Output<string>;
     /**
+     * Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+     */
+    declare public readonly endpointAccessMode: pulumi.Output<string | undefined>;
+    /**
      * Configuration block defining API endpoint information including type. See below.
      */
     declare public readonly endpointConfiguration: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration>;
@@ -214,7 +235,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly regionalZoneId: pulumi.Output<string>;
     /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      */
     declare public readonly securityPolicy: pulumi.Output<string>;
     /**
@@ -252,6 +273,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["cloudfrontZoneId"] = state?.cloudfrontZoneId;
             resourceInputs["domainName"] = state?.domainName;
             resourceInputs["domainNameId"] = state?.domainNameId;
+            resourceInputs["endpointAccessMode"] = state?.endpointAccessMode;
             resourceInputs["endpointConfiguration"] = state?.endpointConfiguration;
             resourceInputs["mutualTlsAuthentication"] = state?.mutualTlsAuthentication;
             resourceInputs["ownershipVerificationCertificateArn"] = state?.ownershipVerificationCertificateArn;
@@ -275,6 +297,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["certificateName"] = args?.certificateName;
             resourceInputs["certificatePrivateKey"] = args?.certificatePrivateKey ? pulumi.secret(args.certificatePrivateKey) : undefined;
             resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["endpointAccessMode"] = args?.endpointAccessMode;
             resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
             resourceInputs["mutualTlsAuthentication"] = args?.mutualTlsAuthentication;
             resourceInputs["ownershipVerificationCertificateArn"] = args?.ownershipVerificationCertificateArn;
@@ -349,6 +372,10 @@ export interface DomainNameState {
      */
     domainNameId?: pulumi.Input<string>;
     /**
+     * Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+     */
+    endpointAccessMode?: pulumi.Input<string>;
+    /**
      * Configuration block defining API endpoint information including type. See below.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
@@ -387,7 +414,7 @@ export interface DomainNameState {
      */
     regionalZoneId?: pulumi.Input<string>;
     /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      */
     securityPolicy?: pulumi.Input<string>;
     /**
@@ -431,6 +458,10 @@ export interface DomainNameArgs {
      */
     domainName: pulumi.Input<string>;
     /**
+     * Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+     */
+    endpointAccessMode?: pulumi.Input<string>;
+    /**
      * Configuration block defining API endpoint information including type. See below.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
@@ -461,7 +492,7 @@ export interface DomainNameArgs {
      */
     regionalCertificateName?: pulumi.Input<string>;
     /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      */
     securityPolicy?: pulumi.Input<string>;
     /**

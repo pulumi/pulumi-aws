@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder;
 
 import com.pulumi.aws.imagebuilder.inputs.ImageImageScanningConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImageImageTestsConfigurationArgs;
+import com.pulumi.aws.imagebuilder.inputs.ImageLoggingConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImageWorkflowArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -147,6 +148,21 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block with logging configuration. Detailed below.
+     * 
+     */
+    @Import(name="loggingConfiguration")
+    private @Nullable Output<ImageLoggingConfigurationArgs> loggingConfiguration;
+
+    /**
+     * @return Configuration block with logging configuration. Detailed below.
+     * 
+     */
+    public Optional<Output<ImageLoggingConfigurationArgs>> loggingConfiguration() {
+        return Optional.ofNullable(this.loggingConfiguration);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -202,6 +218,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         this.imageScanningConfiguration = $.imageScanningConfiguration;
         this.imageTestsConfiguration = $.imageTestsConfiguration;
         this.infrastructureConfigurationArn = $.infrastructureConfigurationArn;
+        this.loggingConfiguration = $.loggingConfiguration;
         this.region = $.region;
         this.tags = $.tags;
         this.workflows = $.workflows;
@@ -395,6 +412,27 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder infrastructureConfigurationArn(String infrastructureConfigurationArn) {
             return infrastructureConfigurationArn(Output.of(infrastructureConfigurationArn));
+        }
+
+        /**
+         * @param loggingConfiguration Configuration block with logging configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingConfiguration(@Nullable Output<ImageLoggingConfigurationArgs> loggingConfiguration) {
+            $.loggingConfiguration = loggingConfiguration;
+            return this;
+        }
+
+        /**
+         * @param loggingConfiguration Configuration block with logging configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingConfiguration(ImageLoggingConfigurationArgs loggingConfiguration) {
+            return loggingConfiguration(Output.of(loggingConfiguration));
         }
 
         /**

@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.ImageArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImageState;
 import com.pulumi.aws.imagebuilder.outputs.ImageImageScanningConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImageImageTestsConfiguration;
+import com.pulumi.aws.imagebuilder.outputs.ImageLoggingConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImageOutputResource;
 import com.pulumi.aws.imagebuilder.outputs.ImageWorkflow;
 import com.pulumi.core.Output;
@@ -217,6 +218,20 @@ public class Image extends com.pulumi.resources.CustomResource {
      */
     public Output<String> infrastructureConfigurationArn() {
         return this.infrastructureConfigurationArn;
+    }
+    /**
+     * Configuration block with logging configuration. Detailed below.
+     * 
+     */
+    @Export(name="loggingConfiguration", refs={ImageLoggingConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ImageLoggingConfiguration> loggingConfiguration;
+
+    /**
+     * @return Configuration block with logging configuration. Detailed below.
+     * 
+     */
+    public Output<Optional<ImageLoggingConfiguration>> loggingConfiguration() {
+        return Codegen.optional(this.loggingConfiguration);
     }
     /**
      * Name of the AMI.

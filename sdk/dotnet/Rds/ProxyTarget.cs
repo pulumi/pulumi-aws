@@ -10,76 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// Provides an RDS DB proxy target resource.
-    /// 
     /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rds.Proxy("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         DebugLogging = false,
-    ///         EngineFamily = "MYSQL",
-    ///         IdleClientTimeout = 1800,
-    ///         RequireTls = true,
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         VpcSecurityGroupIds = new[]
-    ///         {
-    ///             exampleAwsSecurityGroup.Id,
-    ///         },
-    ///         VpcSubnetIds = new[]
-    ///         {
-    ///             exampleAwsSubnet.Id,
-    ///         },
-    ///         Auths = new[]
-    ///         {
-    ///             new Aws.Rds.Inputs.ProxyAuthArgs
-    ///             {
-    ///                 AuthScheme = "SECRETS",
-    ///                 Description = "example",
-    ///                 IamAuth = "DISABLED",
-    ///                 SecretArn = exampleAwsSecretsmanagerSecret.Arn,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example" },
-    ///             { "Key", "value" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleProxyDefaultTargetGroup = new Aws.Rds.ProxyDefaultTargetGroup("example", new()
-    ///     {
-    ///         DbProxyName = example.Name,
-    ///         ConnectionPoolConfig = new Aws.Rds.Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs
-    ///         {
-    ///             ConnectionBorrowTimeout = 120,
-    ///             InitQuery = "SET x=1, y=2",
-    ///             MaxConnectionsPercent = 100,
-    ///             MaxIdleConnectionsPercent = 50,
-    ///             SessionPinningFilters = new[]
-    ///             {
-    ///                 "EXCLUDE_VARIABLE_SETS",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleProxyTarget = new Aws.Rds.ProxyTarget("example", new()
-    ///     {
-    ///         DbInstanceIdentifier = exampleAwsDbInstance.Identifier,
-    ///         DbProxyName = example.Name,
-    ///         TargetGroupName = exampleProxyDefaultTargetGroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

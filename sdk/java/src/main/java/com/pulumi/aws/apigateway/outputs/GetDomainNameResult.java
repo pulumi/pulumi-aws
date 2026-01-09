@@ -46,6 +46,11 @@ public final class GetDomainNameResult {
     private String domainName;
     private String domainNameId;
     /**
+     * @return (Optional) Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
+     * 
+     */
+    private String endpointAccessMode;
+    /**
      * @return List of objects with the endpoint configuration of this domain name.
      * 
      */
@@ -142,6 +147,13 @@ public final class GetDomainNameResult {
         return this.domainNameId;
     }
     /**
+     * @return (Optional) Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
+     * 
+     */
+    public String endpointAccessMode() {
+        return this.endpointAccessMode;
+    }
+    /**
      * @return List of objects with the endpoint configuration of this domain name.
      * 
      */
@@ -225,6 +237,7 @@ public final class GetDomainNameResult {
         private String cloudfrontZoneId;
         private String domainName;
         private String domainNameId;
+        private String endpointAccessMode;
         private List<GetDomainNameEndpointConfiguration> endpointConfigurations;
         private String id;
         private String policy;
@@ -246,6 +259,7 @@ public final class GetDomainNameResult {
     	      this.cloudfrontZoneId = defaults.cloudfrontZoneId;
     	      this.domainName = defaults.domainName;
     	      this.domainNameId = defaults.domainNameId;
+    	      this.endpointAccessMode = defaults.endpointAccessMode;
     	      this.endpointConfigurations = defaults.endpointConfigurations;
     	      this.id = defaults.id;
     	      this.policy = defaults.policy;
@@ -320,6 +334,14 @@ public final class GetDomainNameResult {
               throw new MissingRequiredPropertyException("GetDomainNameResult", "domainNameId");
             }
             this.domainNameId = domainNameId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpointAccessMode(String endpointAccessMode) {
+            if (endpointAccessMode == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "endpointAccessMode");
+            }
+            this.endpointAccessMode = endpointAccessMode;
             return this;
         }
         @CustomType.Setter
@@ -415,6 +437,7 @@ public final class GetDomainNameResult {
             _resultValue.cloudfrontZoneId = cloudfrontZoneId;
             _resultValue.domainName = domainName;
             _resultValue.domainNameId = domainNameId;
+            _resultValue.endpointAccessMode = endpointAccessMode;
             _resultValue.endpointConfigurations = endpointConfigurations;
             _resultValue.id = id;
             _resultValue.policy = policy;

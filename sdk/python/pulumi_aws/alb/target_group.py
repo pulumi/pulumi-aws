@@ -61,7 +61,7 @@ class TargetGroupArgs:
         :param pulumi.Input[_builtins.int] port: Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[_builtins.str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
         :param pulumi.Input[_builtins.str] protocol: Protocol to use for routing traffic to the targets.
-               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
                Required when `target_type` is `instance`, `ip`, or `alb`.
                Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[_builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
@@ -287,7 +287,7 @@ class TargetGroupArgs:
     def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Protocol to use for routing traffic to the targets.
-        Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+        Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
         Required when `target_type` is `instance`, `ip`, or `alb`.
         Does not apply when `target_type` is `lambda`.
         """
@@ -502,7 +502,7 @@ class _TargetGroupState:
         :param pulumi.Input[_builtins.int] port: Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[_builtins.str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
         :param pulumi.Input[_builtins.str] protocol: Protocol to use for routing traffic to the targets.
-               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
                Required when `target_type` is `instance`, `ip`, or `alb`.
                Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[_builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
@@ -773,7 +773,7 @@ class _TargetGroupState:
     def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Protocol to use for routing traffic to the targets.
-        Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+        Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
         Required when `target_type` is `instance`, `ip`, or `alb`.
         Does not apply when `target_type` is `lambda`.
         """
@@ -1109,7 +1109,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[_builtins.str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
         :param pulumi.Input[_builtins.str] protocol: Protocol to use for routing traffic to the targets.
-               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
                Required when `target_type` is `instance`, `ip`, or `alb`.
                Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[_builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
@@ -1395,7 +1395,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[_builtins.str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
         :param pulumi.Input[_builtins.str] protocol: Protocol to use for routing traffic to the targets.
-               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
                Required when `target_type` is `instance`, `ip`, or `alb`.
                Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[_builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
@@ -1582,7 +1582,7 @@ class TargetGroup(pulumi.CustomResource):
     def protocol(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Protocol to use for routing traffic to the targets.
-        Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+        Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
         Required when `target_type` is `instance`, `ip`, or `alb`.
         Does not apply when `target_type` is `lambda`.
         """

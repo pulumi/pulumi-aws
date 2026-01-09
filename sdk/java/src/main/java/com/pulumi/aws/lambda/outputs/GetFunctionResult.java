@@ -144,6 +144,11 @@ public final class GetFunctionResult {
      */
     private Integer reservedConcurrentExecutions;
     /**
+     * @return ARN to be used for invoking Lambda Function from API Gateway with response streaming.
+     * 
+     */
+    private String responseStreamingInvokeArn;
+    /**
      * @return IAM role attached to the Lambda Function.
      * 
      */
@@ -385,6 +390,13 @@ public final class GetFunctionResult {
         return this.reservedConcurrentExecutions;
     }
     /**
+     * @return ARN to be used for invoking Lambda Function from API Gateway with response streaming.
+     * 
+     */
+    public String responseStreamingInvokeArn() {
+        return this.responseStreamingInvokeArn;
+    }
+    /**
      * @return IAM role attached to the Lambda Function.
      * 
      */
@@ -515,6 +527,7 @@ public final class GetFunctionResult {
         private @Nullable String qualifier;
         private String region;
         private Integer reservedConcurrentExecutions;
+        private String responseStreamingInvokeArn;
         private String role;
         private String runtime;
         private String signingJobArn;
@@ -557,6 +570,7 @@ public final class GetFunctionResult {
     	      this.qualifier = defaults.qualifier;
     	      this.region = defaults.region;
     	      this.reservedConcurrentExecutions = defaults.reservedConcurrentExecutions;
+    	      this.responseStreamingInvokeArn = defaults.responseStreamingInvokeArn;
     	      this.role = defaults.role;
     	      this.runtime = defaults.runtime;
     	      this.signingJobArn = defaults.signingJobArn;
@@ -800,6 +814,14 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder responseStreamingInvokeArn(String responseStreamingInvokeArn) {
+            if (responseStreamingInvokeArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "responseStreamingInvokeArn");
+            }
+            this.responseStreamingInvokeArn = responseStreamingInvokeArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder role(String role) {
             if (role == null) {
               throw new MissingRequiredPropertyException("GetFunctionResult", "role");
@@ -934,6 +956,7 @@ public final class GetFunctionResult {
             _resultValue.qualifier = qualifier;
             _resultValue.region = region;
             _resultValue.reservedConcurrentExecutions = reservedConcurrentExecutions;
+            _resultValue.responseStreamingInvokeArn = responseStreamingInvokeArn;
             _resultValue.role = role;
             _resultValue.runtime = runtime;
             _resultValue.signingJobArn = signingJobArn;

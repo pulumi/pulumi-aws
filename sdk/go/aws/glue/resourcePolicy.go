@@ -81,10 +81,10 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
+// Using `pulumi import`, import Glue Resource Policy using the region where the resource resides. For example:
 //
 // ```sh
-// $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+// $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test us-east-1
 // ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState

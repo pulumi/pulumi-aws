@@ -240,6 +240,9 @@ namespace Pulumi.Aws.Bedrock
         [Output("memoryId")]
         public Output<string> MemoryId { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+        /// </summary>
         [Output("memoryStrategyId")]
         public Output<string> MemoryStrategyId { get; private set; } = null!;
 
@@ -403,6 +406,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("memoryId")]
         public Input<string>? MemoryId { get; set; }
 
+        /// <summary>
+        /// Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+        /// </summary>
         [Input("memoryStrategyId")]
         public Input<string>? MemoryStrategyId { get; set; }
 

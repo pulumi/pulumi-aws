@@ -133,6 +133,21 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN of the IAM role that grants the pipeline permission to access AWS resources.
+     * 
+     */
+    @Import(name="pipelineRoleArn")
+    private @Nullable Output<String> pipelineRoleArn;
+
+    /**
+     * @return ARN of the IAM role that grants the pipeline permission to access AWS resources.
+     * 
+     */
+    public Optional<Output<String>> pipelineRoleArn() {
+        return Optional.ofNullable(this.pipelineRoleArn);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -194,6 +209,7 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         this.minUnits = $.minUnits;
         this.pipelineConfigurationBody = $.pipelineConfigurationBody;
         this.pipelineName = $.pipelineName;
+        this.pipelineRoleArn = $.pipelineRoleArn;
         this.region = $.region;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
@@ -367,6 +383,27 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder pipelineName(String pipelineName) {
             return pipelineName(Output.of(pipelineName));
+        }
+
+        /**
+         * @param pipelineRoleArn ARN of the IAM role that grants the pipeline permission to access AWS resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineRoleArn(@Nullable Output<String> pipelineRoleArn) {
+            $.pipelineRoleArn = pipelineRoleArn;
+            return this;
+        }
+
+        /**
+         * @param pipelineRoleArn ARN of the IAM role that grants the pipeline permission to access AWS resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineRoleArn(String pipelineRoleArn) {
+            return pipelineRoleArn(Output.of(pipelineRoleArn));
         }
 
         /**

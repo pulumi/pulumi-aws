@@ -165,6 +165,10 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string SamlMetadataDocument;
         /// <summary>
+        /// Unique identifier assigned to the SAML provider.
+        /// </summary>
+        public readonly string SamlProviderUuid;
+        /// <summary>
         /// Tags attached to the SAML provider.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -185,6 +189,8 @@ namespace Pulumi.Aws.Iam
 
             string samlMetadataDocument,
 
+            string samlProviderUuid,
+
             ImmutableDictionary<string, string> tags,
 
             string validUntil)
@@ -194,6 +200,7 @@ namespace Pulumi.Aws.Iam
             Id = id;
             Name = name;
             SamlMetadataDocument = samlMetadataDocument;
+            SamlProviderUuid = samlProviderUuid;
             Tags = tags;
             ValidUntil = validUntil;
         }

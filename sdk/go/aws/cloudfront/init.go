@@ -23,10 +23,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:cloudfront/cachePolicy:CachePolicy":
 		r = &CachePolicy{}
+	case "aws:cloudfront/connectionFunction:ConnectionFunction":
+		r = &ConnectionFunction{}
+	case "aws:cloudfront/connectionGroup:ConnectionGroup":
+		r = &ConnectionGroup{}
 	case "aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy":
 		r = &ContinuousDeploymentPolicy{}
 	case "aws:cloudfront/distribution:Distribution":
 		r = &Distribution{}
+	case "aws:cloudfront/distributionTenant:DistributionTenant":
+		r = &DistributionTenant{}
 	case "aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig":
 		r = &FieldLevelEncryptionConfig{}
 	case "aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile":
@@ -43,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KeyvaluestoreKeysExclusive{}
 	case "aws:cloudfront/monitoringSubscription:MonitoringSubscription":
 		r = &MonitoringSubscription{}
+	case "aws:cloudfront/multitenantDistribution:MultitenantDistribution":
+		r = &MultitenantDistribution{}
 	case "aws:cloudfront/originAccessControl:OriginAccessControl":
 		r = &OriginAccessControl{}
 	case "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
@@ -79,12 +87,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"cloudfront/connectionFunction",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/connectionGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"cloudfront/continuousDeploymentPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/distribution",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/distributionTenant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -125,6 +148,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/monitoringSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/multitenantDistribution",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

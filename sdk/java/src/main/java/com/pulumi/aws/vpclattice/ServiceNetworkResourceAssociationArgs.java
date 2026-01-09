@@ -7,6 +7,7 @@ import com.pulumi.aws.vpclattice.inputs.ServiceNetworkResourceAssociationTimeout
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class ServiceNetworkResourceAssociationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceNetworkResourceAssociationArgs Empty = new ServiceNetworkResourceAssociationArgs();
+
+    /**
+     * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+     * 
+     */
+    @Import(name="privateDnsEnabled")
+    private @Nullable Output<Boolean> privateDnsEnabled;
+
+    /**
+     * @return Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+     * 
+     */
+    public Optional<Output<Boolean>> privateDnsEnabled() {
+        return Optional.ofNullable(this.privateDnsEnabled);
+    }
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -92,6 +108,7 @@ public final class ServiceNetworkResourceAssociationArgs extends com.pulumi.reso
     private ServiceNetworkResourceAssociationArgs() {}
 
     private ServiceNetworkResourceAssociationArgs(ServiceNetworkResourceAssociationArgs $) {
+        this.privateDnsEnabled = $.privateDnsEnabled;
         this.region = $.region;
         this.resourceConfigurationIdentifier = $.resourceConfigurationIdentifier;
         this.serviceNetworkIdentifier = $.serviceNetworkIdentifier;
@@ -115,6 +132,27 @@ public final class ServiceNetworkResourceAssociationArgs extends com.pulumi.reso
 
         public Builder(ServiceNetworkResourceAssociationArgs defaults) {
             $ = new ServiceNetworkResourceAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param privateDnsEnabled Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsEnabled(@Nullable Output<Boolean> privateDnsEnabled) {
+            $.privateDnsEnabled = privateDnsEnabled;
+            return this;
+        }
+
+        /**
+         * @param privateDnsEnabled Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsEnabled(Boolean privateDnsEnabled) {
+            return privateDnsEnabled(Output.of(privateDnsEnabled));
         }
 
         /**

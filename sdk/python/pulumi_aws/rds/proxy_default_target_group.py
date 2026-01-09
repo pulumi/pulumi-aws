@@ -172,45 +172,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an RDS DB proxy default target group resource.
-
-        The `rds.ProxyDefaultTargetGroup` behaves differently from normal resources, in that the provider does not _create_ or _destroy_ this resource, since it implicitly exists as part of an RDS DB Proxy. On the provider resource creation it is automatically imported and on resource destruction, the provider performs no actions in RDS.
-
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.Proxy("example",
-            name="example",
-            debug_logging=False,
-            engine_family="MYSQL",
-            idle_client_timeout=1800,
-            require_tls=True,
-            role_arn=example_aws_iam_role["arn"],
-            vpc_security_group_ids=[example_aws_security_group["id"]],
-            vpc_subnet_ids=[example_aws_subnet["id"]],
-            auths=[{
-                "auth_scheme": "SECRETS",
-                "description": "example",
-                "iam_auth": "DISABLED",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            }],
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("example",
-            db_proxy_name=example.name,
-            connection_pool_config={
-                "connection_borrow_timeout": 120,
-                "init_query": "SET x=1, y=2",
-                "max_connections_percent": 100,
-                "max_idle_connections_percent": 50,
-                "session_pinning_filters": ["EXCLUDE_VARIABLE_SETS"],
-            })
-        ```
 
         ## Import
 
@@ -233,45 +195,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
                  args: ProxyDefaultTargetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an RDS DB proxy default target group resource.
-
-        The `rds.ProxyDefaultTargetGroup` behaves differently from normal resources, in that the provider does not _create_ or _destroy_ this resource, since it implicitly exists as part of an RDS DB Proxy. On the provider resource creation it is automatically imported and on resource destruction, the provider performs no actions in RDS.
-
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.Proxy("example",
-            name="example",
-            debug_logging=False,
-            engine_family="MYSQL",
-            idle_client_timeout=1800,
-            require_tls=True,
-            role_arn=example_aws_iam_role["arn"],
-            vpc_security_group_ids=[example_aws_security_group["id"]],
-            vpc_subnet_ids=[example_aws_subnet["id"]],
-            auths=[{
-                "auth_scheme": "SECRETS",
-                "description": "example",
-                "iam_auth": "DISABLED",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            }],
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("example",
-            db_proxy_name=example.name,
-            connection_pool_config={
-                "connection_borrow_timeout": 120,
-                "init_query": "SET x=1, y=2",
-                "max_connections_percent": 100,
-                "max_idle_connections_percent": 50,
-                "session_pinning_filters": ["EXCLUDE_VARIABLE_SETS"],
-            })
-        ```
 
         ## Import
 

@@ -22,6 +22,7 @@ export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getGateway:getGateway", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface GetGatewayArgs {
      * Name of the gateway to retrieve.
      */
     name: string;
+    /**
+     * A map of tags assigned to the gateway.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -56,6 +61,10 @@ export interface GetGatewayResult {
      * AWS Account ID of the gateway.
      */
     readonly ownerAccountId: string;
+    /**
+     * A map of tags assigned to the gateway.
+     */
+    readonly tags: {[key: string]: string};
 }
 /**
  * Retrieve information about a Direct Connect Gateway.
@@ -75,6 +84,7 @@ export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:directconnect/getGateway:getGateway", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -86,4 +96,8 @@ export interface GetGatewayOutputArgs {
      * Name of the gateway to retrieve.
      */
     name: pulumi.Input<string>;
+    /**
+     * A map of tags assigned to the gateway.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

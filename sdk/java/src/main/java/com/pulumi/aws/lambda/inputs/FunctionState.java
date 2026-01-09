@@ -500,6 +500,21 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+     * 
+     */
+    @Import(name="responseStreamingInvokeArn")
+    private @Nullable Output<String> responseStreamingInvokeArn;
+
+    /**
+     * @return ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+     * 
+     */
+    public Optional<Output<String>> responseStreamingInvokeArn() {
+        return Optional.ofNullable(this.responseStreamingInvokeArn);
+    }
+
+    /**
      * ARN of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
      * 
      * The following arguments are optional:
@@ -822,6 +837,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         this.replaceSecurityGroupsOnDestroy = $.replaceSecurityGroupsOnDestroy;
         this.replacementSecurityGroupIds = $.replacementSecurityGroupIds;
         this.reservedConcurrentExecutions = $.reservedConcurrentExecutions;
+        this.responseStreamingInvokeArn = $.responseStreamingInvokeArn;
         this.role = $.role;
         this.runtime = $.runtime;
         this.s3Bucket = $.s3Bucket;
@@ -1540,6 +1556,27 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder reservedConcurrentExecutions(Integer reservedConcurrentExecutions) {
             return reservedConcurrentExecutions(Output.of(reservedConcurrentExecutions));
+        }
+
+        /**
+         * @param responseStreamingInvokeArn ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder responseStreamingInvokeArn(@Nullable Output<String> responseStreamingInvokeArn) {
+            $.responseStreamingInvokeArn = responseStreamingInvokeArn;
+            return this;
+        }
+
+        /**
+         * @param responseStreamingInvokeArn ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder responseStreamingInvokeArn(String responseStreamingInvokeArn) {
+            return responseStreamingInvokeArn(Output.of(responseStreamingInvokeArn));
         }
 
         /**

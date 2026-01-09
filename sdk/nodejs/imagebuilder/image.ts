@@ -106,6 +106,10 @@ export class Image extends pulumi.CustomResource {
      */
     declare public readonly infrastructureConfigurationArn: pulumi.Output<string>;
     /**
+     * Configuration block with logging configuration. Detailed below.
+     */
+    declare public readonly loggingConfiguration: pulumi.Output<outputs.imagebuilder.ImageLoggingConfiguration | undefined>;
+    /**
      * Name of the AMI.
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
@@ -165,6 +169,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["imageScanningConfiguration"] = state?.imageScanningConfiguration;
             resourceInputs["imageTestsConfiguration"] = state?.imageTestsConfiguration;
             resourceInputs["infrastructureConfigurationArn"] = state?.infrastructureConfigurationArn;
+            resourceInputs["loggingConfiguration"] = state?.loggingConfiguration;
             resourceInputs["name"] = state?.name;
             resourceInputs["osVersion"] = state?.osVersion;
             resourceInputs["outputResources"] = state?.outputResources;
@@ -187,6 +192,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["imageScanningConfiguration"] = args?.imageScanningConfiguration;
             resourceInputs["imageTestsConfiguration"] = args?.imageTestsConfiguration;
             resourceInputs["infrastructureConfigurationArn"] = args?.infrastructureConfigurationArn;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["workflows"] = args?.workflows;
@@ -250,6 +256,10 @@ export interface ImageState {
      * The following arguments are optional:
      */
     infrastructureConfigurationArn?: pulumi.Input<string>;
+    /**
+     * Configuration block with logging configuration. Detailed below.
+     */
+    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImageLoggingConfiguration>;
     /**
      * Name of the AMI.
      */
@@ -326,6 +336,10 @@ export interface ImageArgs {
      * The following arguments are optional:
      */
     infrastructureConfigurationArn: pulumi.Input<string>;
+    /**
+     * Configuration block with logging configuration. Detailed below.
+     */
+    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImageLoggingConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -55,6 +55,11 @@ export type SecretVersion = import("./secretVersion").SecretVersion;
 export const SecretVersion: typeof import("./secretVersion").SecretVersion = null as any;
 utilities.lazyLoad(exports, ["SecretVersion"], () => require("./secretVersion"));
 
+export { TagArgs, TagState } from "./tag";
+export type Tag = import("./tag").Tag;
+export const Tag: typeof import("./tag").Tag = null as any;
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -68,6 +73,8 @@ const _module = {
                 return new SecretRotation(name, <any>undefined, { urn })
             case "aws:secretsmanager/secretVersion:SecretVersion":
                 return new SecretVersion(name, <any>undefined, { urn })
+            case "aws:secretsmanager/tag:Tag":
+                return new Tag(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -77,3 +84,4 @@ pulumi.runtime.registerResourceModule("aws", "secretsmanager/secret", _module)
 pulumi.runtime.registerResourceModule("aws", "secretsmanager/secretPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "secretsmanager/secretRotation", _module)
 pulumi.runtime.registerResourceModule("aws", "secretsmanager/secretVersion", _module)
+pulumi.runtime.registerResourceModule("aws", "secretsmanager/tag", _module)

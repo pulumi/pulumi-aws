@@ -60,6 +60,8 @@ type ServiceNetworkResourceAssociation struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// DNS entry of the association in the service network.
 	DnsEntries ServiceNetworkResourceAssociationDnsEntryArrayOutput `pulumi:"dnsEntries"`
+	// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+	PrivateDnsEnabled pulumi.BoolOutput `pulumi:"privateDnsEnabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of Resource Configuration to associate to the Service Network.
@@ -115,6 +117,8 @@ type serviceNetworkResourceAssociationState struct {
 	Arn *string `pulumi:"arn"`
 	// DNS entry of the association in the service network.
 	DnsEntries []ServiceNetworkResourceAssociationDnsEntry `pulumi:"dnsEntries"`
+	// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of Resource Configuration to associate to the Service Network.
@@ -135,6 +139,8 @@ type ServiceNetworkResourceAssociationState struct {
 	Arn pulumi.StringPtrInput
 	// DNS entry of the association in the service network.
 	DnsEntries ServiceNetworkResourceAssociationDnsEntryArrayInput
+	// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+	PrivateDnsEnabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of Resource Configuration to associate to the Service Network.
@@ -155,6 +161,8 @@ func (ServiceNetworkResourceAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkResourceAssociationArgs struct {
+	// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of Resource Configuration to associate to the Service Network.
@@ -170,6 +178,8 @@ type serviceNetworkResourceAssociationArgs struct {
 
 // The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
 type ServiceNetworkResourceAssociationArgs struct {
+	// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+	PrivateDnsEnabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of Resource Configuration to associate to the Service Network.
@@ -280,6 +290,11 @@ func (o ServiceNetworkResourceAssociationOutput) DnsEntries() ServiceNetworkReso
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) ServiceNetworkResourceAssociationDnsEntryArrayOutput {
 		return v.DnsEntries
 	}).(ServiceNetworkResourceAssociationDnsEntryArrayOutput)
+}
+
+// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+func (o ServiceNetworkResourceAssociationOutput) PrivateDnsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.BoolOutput { return v.PrivateDnsEnabled }).(pulumi.BoolOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

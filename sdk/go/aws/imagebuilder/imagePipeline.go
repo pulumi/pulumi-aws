@@ -46,6 +46,8 @@ type ImagePipeline struct {
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
+	// Configuration block with logging configuration. Detailed below.
+	LoggingConfiguration ImagePipelineLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// Name of the image pipeline.
 	//
 	// The following arguments are optional:
@@ -127,6 +129,8 @@ type imagePipelineState struct {
 	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
+	// Configuration block with logging configuration. Detailed below.
+	LoggingConfiguration *ImagePipelineLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// Name of the image pipeline.
 	//
 	// The following arguments are optional:
@@ -176,6 +180,8 @@ type ImagePipelineState struct {
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn pulumi.StringPtrInput
+	// Configuration block with logging configuration. Detailed below.
+	LoggingConfiguration ImagePipelineLoggingConfigurationPtrInput
 	// Name of the image pipeline.
 	//
 	// The following arguments are optional:
@@ -219,6 +225,8 @@ type imagePipelineArgs struct {
 	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
+	// Configuration block with logging configuration. Detailed below.
+	LoggingConfiguration *ImagePipelineLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// Name of the image pipeline.
 	//
 	// The following arguments are optional:
@@ -255,6 +263,8 @@ type ImagePipelineArgs struct {
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn pulumi.StringInput
+	// Configuration block with logging configuration. Detailed below.
+	LoggingConfiguration ImagePipelineLoggingConfigurationPtrInput
 	// Name of the image pipeline.
 	//
 	// The following arguments are optional:
@@ -428,6 +438,11 @@ func (o ImagePipelineOutput) ImageTestsConfiguration() ImagePipelineImageTestsCo
 // Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 func (o ImagePipelineOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
+}
+
+// Configuration block with logging configuration. Detailed below.
+func (o ImagePipelineOutput) LoggingConfiguration() ImagePipelineLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) ImagePipelineLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(ImagePipelineLoggingConfigurationPtrOutput)
 }
 
 // Name of the image pipeline.

@@ -99,6 +99,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.apigateway.RestApi;
  * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.apigateway.Resource;
@@ -131,9 +135,15 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         final var config = ctx.config();
- *         final var myregion = config.get("myregion");
- *         final var accountId = config.get("accountId");
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
+ * 
  *         // API Gateway
  *         var api = new RestApi("api", RestApiArgs.builder()
  *             .name("myapi")
@@ -199,12 +209,55 @@ import javax.annotation.Nullable;
  *                 var id = values.t1;
  *                 var httpMethod = values.t2;
  *                 var path = values.t3;
- *                 return String.format("arn:aws:execute-api:%s:%s:%s/*}&#47;{@code %s%s", myregion,accountId,id,httpMethod,path);
+ *                 return String.format("arn:%s:execute-api:%s:%s:%s/*}&#47;{@code %s%s", currentGetPartition.partition(),currentGetRegion.region(),current.accountId(),id,httpMethod,path);
  *             }}{@code ))
  *             .build());
  * 
  *     }}{@code
  * }}{@code
+ * }
+ * </pre>
+ * 
+ * ## Lambda integration with response streaming
+ * 
+ * All other resources and data sources are the same as in the previous example; only the integration configuration differs.
+ * Note that the `timeout` of the `aws.lambda.Function` may need to be adjusted.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.Integration;
+ * import com.pulumi.aws.apigateway.IntegrationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var integration = new Integration("integration", IntegrationArgs.builder()
+ *             .restApi(api.id())
+ *             .resourceId(resource.id())
+ *             .httpMethod(method.httpMethod())
+ *             .integrationHttpMethod("POST")
+ *             .type("AWS_PROXY")
+ *             .uri(lambda.responseStreamingInvokeArn())
+ *             .responseTransferMode("STREAM")
+ *             .timeoutMilliseconds(900000)
+ *             .build());
+ * 
+ *     }
+ * }
  * }
  * </pre>
  * 

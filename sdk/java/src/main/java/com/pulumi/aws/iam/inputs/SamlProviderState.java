@@ -62,6 +62,21 @@ public final class SamlProviderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Unique identifier assigned to the SAML provider.
+     * 
+     */
+    @Import(name="samlProviderUuid")
+    private @Nullable Output<String> samlProviderUuid;
+
+    /**
+     * @return Unique identifier assigned to the SAML provider.
+     * 
+     */
+    public Optional<Output<String>> samlProviderUuid() {
+        return Optional.ofNullable(this.samlProviderUuid);
+    }
+
+    /**
      * Map of resource tags for the IAM SAML provider. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -112,6 +127,7 @@ public final class SamlProviderState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.name = $.name;
         this.samlMetadataDocument = $.samlMetadataDocument;
+        this.samlProviderUuid = $.samlProviderUuid;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.validUntil = $.validUntil;
@@ -196,6 +212,27 @@ public final class SamlProviderState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder samlMetadataDocument(String samlMetadataDocument) {
             return samlMetadataDocument(Output.of(samlMetadataDocument));
+        }
+
+        /**
+         * @param samlProviderUuid Unique identifier assigned to the SAML provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlProviderUuid(@Nullable Output<String> samlProviderUuid) {
+            $.samlProviderUuid = samlProviderUuid;
+            return this;
+        }
+
+        /**
+         * @param samlProviderUuid Unique identifier assigned to the SAML provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlProviderUuid(String samlProviderUuid) {
+            return samlProviderUuid(Output.of(samlProviderUuid));
         }
 
         /**

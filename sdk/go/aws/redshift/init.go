@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HsmClientCertificate{}
 	case "aws:redshift/hsmConfiguration:HsmConfiguration":
 		r = &HsmConfiguration{}
+	case "aws:redshift/idcApplication:IdcApplication":
+		r = &IdcApplication{}
 	case "aws:redshift/integration:Integration":
 		r = &Integration{}
 	case "aws:redshift/logging:Logging":
@@ -133,6 +135,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"redshift/hsmConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"redshift/idcApplication",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

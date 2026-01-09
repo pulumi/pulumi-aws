@@ -28,7 +28,7 @@ class GetVpcEndpointResult:
     """
     A collection of values returned by getVpcEndpoint.
     """
-    def __init__(__self__, arn=None, cidr_blocks=None, dns_entries=None, dns_options=None, filters=None, id=None, ip_address_type=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, region=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, cidr_blocks=None, dns_entries=None, dns_options=None, filters=None, id=None, ip_address_type=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, region=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, service_region=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -80,6 +80,9 @@ class GetVpcEndpointResult:
         if service_name and not isinstance(service_name, str):
             raise TypeError("Expected argument 'service_name' to be a str")
         pulumi.set(__self__, "service_name", service_name)
+        if service_region and not isinstance(service_region, str):
+            raise TypeError("Expected argument 'service_region' to be a str")
+        pulumi.set(__self__, "service_region", service_region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -218,6 +221,11 @@ class GetVpcEndpointResult:
         return pulumi.get(self, "service_name")
 
     @_builtins.property
+    @pulumi.getter(name="serviceRegion")
+    def service_region(self) -> _builtins.str:
+        return pulumi.get(self, "service_region")
+
+    @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
         return pulumi.get(self, "state")
@@ -238,9 +246,6 @@ class GetVpcEndpointResult:
     @_builtins.property
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> _builtins.str:
-        """
-        VPC Endpoint type, `Gateway` or `Interface`.
-        """
         return pulumi.get(self, "vpc_endpoint_type")
 
     @_builtins.property
@@ -272,6 +277,7 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
             route_table_ids=self.route_table_ids,
             security_group_ids=self.security_group_ids,
             service_name=self.service_name,
+            service_region=self.service_region,
             state=self.state,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
@@ -283,8 +289,10 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
                      id: Optional[_builtins.str] = None,
                      region: Optional[_builtins.str] = None,
                      service_name: Optional[_builtins.str] = None,
+                     service_region: Optional[_builtins.str] = None,
                      state: Optional[_builtins.str] = None,
                      tags: Optional[Mapping[str, _builtins.str]] = None,
+                     vpc_endpoint_type: Optional[_builtins.str] = None,
                      vpc_id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointResult:
     """
@@ -310,9 +318,11 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
     :param _builtins.str id: ID of the specific VPC Endpoint to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param _builtins.str service_region: AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
     :param _builtins.str state: State of the specific VPC Endpoint to retrieve.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the specific VPC Endpoint to retrieve.
+    :param _builtins.str vpc_endpoint_type: VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
     :param _builtins.str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
            
            The arguments of this data source act as filters for querying the available VPC endpoints.
@@ -323,8 +333,10 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
     __args__['id'] = id
     __args__['region'] = region
     __args__['serviceName'] = service_name
+    __args__['serviceRegion'] = service_region
     __args__['state'] = state
     __args__['tags'] = tags
+    __args__['vpcEndpointType'] = vpc_endpoint_type
     __args__['vpcId'] = vpc_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts, typ=GetVpcEndpointResult).value
@@ -347,6 +359,7 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
         route_table_ids=pulumi.get(__ret__, 'route_table_ids'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         service_name=pulumi.get(__ret__, 'service_name'),
+        service_region=pulumi.get(__ret__, 'service_region'),
         state=pulumi.get(__ret__, 'state'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -356,8 +369,10 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
                             id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             service_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                            service_region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+                            vpc_endpoint_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointResult]:
     """
@@ -383,9 +398,11 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
     :param _builtins.str id: ID of the specific VPC Endpoint to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param _builtins.str service_region: AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
     :param _builtins.str state: State of the specific VPC Endpoint to retrieve.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the specific VPC Endpoint to retrieve.
+    :param _builtins.str vpc_endpoint_type: VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
     :param _builtins.str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
            
            The arguments of this data source act as filters for querying the available VPC endpoints.
@@ -396,8 +413,10 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
     __args__['id'] = id
     __args__['region'] = region
     __args__['serviceName'] = service_name
+    __args__['serviceRegion'] = service_region
     __args__['state'] = state
     __args__['tags'] = tags
+    __args__['vpcEndpointType'] = vpc_endpoint_type
     __args__['vpcId'] = vpc_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts, typ=GetVpcEndpointResult)
@@ -419,6 +438,7 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
         route_table_ids=pulumi.get(__response__, 'route_table_ids'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         service_name=pulumi.get(__response__, 'service_name'),
+        service_region=pulumi.get(__response__, 'service_region'),
         state=pulumi.get(__response__, 'state'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags'),

@@ -1247,6 +1247,20 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.reservedConcurrentExecutions);
     }
     /**
+     * ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+     * 
+     */
+    @Export(name="responseStreamingInvokeArn", refs={String.class}, tree="[0]")
+    private Output<String> responseStreamingInvokeArn;
+
+    /**
+     * @return ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+     * 
+     */
+    public Output<String> responseStreamingInvokeArn() {
+        return this.responseStreamingInvokeArn;
+    }
+    /**
      * ARN of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
      * 
      * The following arguments are optional:

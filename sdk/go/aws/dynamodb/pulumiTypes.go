@@ -13,6 +13,934 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GlobalSecondaryIndexKeySchema struct {
+	// Name of the attribute.
+	AttributeName string `pulumi:"attributeName"`
+	// Type of the attribute in the index.
+	// Valid values are `S` (string), `N` (number), or `B` (binary).
+	AttributeType string `pulumi:"attributeType"`
+	// Key type.
+	// Valid values are `HASH` or `RANGE`.
+	KeyType string `pulumi:"keyType"`
+}
+
+// GlobalSecondaryIndexKeySchemaInput is an input type that accepts GlobalSecondaryIndexKeySchemaArgs and GlobalSecondaryIndexKeySchemaOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexKeySchemaInput` via:
+//
+//	GlobalSecondaryIndexKeySchemaArgs{...}
+type GlobalSecondaryIndexKeySchemaInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexKeySchemaOutput() GlobalSecondaryIndexKeySchemaOutput
+	ToGlobalSecondaryIndexKeySchemaOutputWithContext(context.Context) GlobalSecondaryIndexKeySchemaOutput
+}
+
+type GlobalSecondaryIndexKeySchemaArgs struct {
+	// Name of the attribute.
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	// Type of the attribute in the index.
+	// Valid values are `S` (string), `N` (number), or `B` (binary).
+	AttributeType pulumi.StringInput `pulumi:"attributeType"`
+	// Key type.
+	// Valid values are `HASH` or `RANGE`.
+	KeyType pulumi.StringInput `pulumi:"keyType"`
+}
+
+func (GlobalSecondaryIndexKeySchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (i GlobalSecondaryIndexKeySchemaArgs) ToGlobalSecondaryIndexKeySchemaOutput() GlobalSecondaryIndexKeySchemaOutput {
+	return i.ToGlobalSecondaryIndexKeySchemaOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexKeySchemaArgs) ToGlobalSecondaryIndexKeySchemaOutputWithContext(ctx context.Context) GlobalSecondaryIndexKeySchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexKeySchemaOutput)
+}
+
+// GlobalSecondaryIndexKeySchemaArrayInput is an input type that accepts GlobalSecondaryIndexKeySchemaArray and GlobalSecondaryIndexKeySchemaArrayOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexKeySchemaArrayInput` via:
+//
+//	GlobalSecondaryIndexKeySchemaArray{ GlobalSecondaryIndexKeySchemaArgs{...} }
+type GlobalSecondaryIndexKeySchemaArrayInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexKeySchemaArrayOutput() GlobalSecondaryIndexKeySchemaArrayOutput
+	ToGlobalSecondaryIndexKeySchemaArrayOutputWithContext(context.Context) GlobalSecondaryIndexKeySchemaArrayOutput
+}
+
+type GlobalSecondaryIndexKeySchemaArray []GlobalSecondaryIndexKeySchemaInput
+
+func (GlobalSecondaryIndexKeySchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (i GlobalSecondaryIndexKeySchemaArray) ToGlobalSecondaryIndexKeySchemaArrayOutput() GlobalSecondaryIndexKeySchemaArrayOutput {
+	return i.ToGlobalSecondaryIndexKeySchemaArrayOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexKeySchemaArray) ToGlobalSecondaryIndexKeySchemaArrayOutputWithContext(ctx context.Context) GlobalSecondaryIndexKeySchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexKeySchemaArrayOutput)
+}
+
+type GlobalSecondaryIndexKeySchemaOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexKeySchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexKeySchemaOutput) ToGlobalSecondaryIndexKeySchemaOutput() GlobalSecondaryIndexKeySchemaOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexKeySchemaOutput) ToGlobalSecondaryIndexKeySchemaOutputWithContext(ctx context.Context) GlobalSecondaryIndexKeySchemaOutput {
+	return o
+}
+
+// Name of the attribute.
+func (o GlobalSecondaryIndexKeySchemaOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexKeySchema) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+// Type of the attribute in the index.
+// Valid values are `S` (string), `N` (number), or `B` (binary).
+func (o GlobalSecondaryIndexKeySchemaOutput) AttributeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexKeySchema) string { return v.AttributeType }).(pulumi.StringOutput)
+}
+
+// Key type.
+// Valid values are `HASH` or `RANGE`.
+func (o GlobalSecondaryIndexKeySchemaOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexKeySchema) string { return v.KeyType }).(pulumi.StringOutput)
+}
+
+type GlobalSecondaryIndexKeySchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexKeySchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexKeySchemaArrayOutput) ToGlobalSecondaryIndexKeySchemaArrayOutput() GlobalSecondaryIndexKeySchemaArrayOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexKeySchemaArrayOutput) ToGlobalSecondaryIndexKeySchemaArrayOutputWithContext(ctx context.Context) GlobalSecondaryIndexKeySchemaArrayOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexKeySchemaArrayOutput) Index(i pulumi.IntInput) GlobalSecondaryIndexKeySchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalSecondaryIndexKeySchema {
+		return vs[0].([]GlobalSecondaryIndexKeySchema)[vs[1].(int)]
+	}).(GlobalSecondaryIndexKeySchemaOutput)
+}
+
+type GlobalSecondaryIndexOnDemandThroughput struct {
+	// Maximum number of read request units for this index.
+	MaxReadRequestUnits *int `pulumi:"maxReadRequestUnits"`
+	// Maximum number of write request units for this index.
+	MaxWriteRequestUnits *int `pulumi:"maxWriteRequestUnits"`
+}
+
+// GlobalSecondaryIndexOnDemandThroughputInput is an input type that accepts GlobalSecondaryIndexOnDemandThroughputArgs and GlobalSecondaryIndexOnDemandThroughputOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexOnDemandThroughputInput` via:
+//
+//	GlobalSecondaryIndexOnDemandThroughputArgs{...}
+type GlobalSecondaryIndexOnDemandThroughputInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexOnDemandThroughputOutput() GlobalSecondaryIndexOnDemandThroughputOutput
+	ToGlobalSecondaryIndexOnDemandThroughputOutputWithContext(context.Context) GlobalSecondaryIndexOnDemandThroughputOutput
+}
+
+type GlobalSecondaryIndexOnDemandThroughputArgs struct {
+	// Maximum number of read request units for this index.
+	MaxReadRequestUnits pulumi.IntPtrInput `pulumi:"maxReadRequestUnits"`
+	// Maximum number of write request units for this index.
+	MaxWriteRequestUnits pulumi.IntPtrInput `pulumi:"maxWriteRequestUnits"`
+}
+
+func (GlobalSecondaryIndexOnDemandThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (i GlobalSecondaryIndexOnDemandThroughputArgs) ToGlobalSecondaryIndexOnDemandThroughputOutput() GlobalSecondaryIndexOnDemandThroughputOutput {
+	return i.ToGlobalSecondaryIndexOnDemandThroughputOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexOnDemandThroughputArgs) ToGlobalSecondaryIndexOnDemandThroughputOutputWithContext(ctx context.Context) GlobalSecondaryIndexOnDemandThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexOnDemandThroughputOutput)
+}
+
+func (i GlobalSecondaryIndexOnDemandThroughputArgs) ToGlobalSecondaryIndexOnDemandThroughputPtrOutput() GlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return i.ToGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexOnDemandThroughputArgs) ToGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexOnDemandThroughputOutput).ToGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(ctx)
+}
+
+// GlobalSecondaryIndexOnDemandThroughputPtrInput is an input type that accepts GlobalSecondaryIndexOnDemandThroughputArgs, GlobalSecondaryIndexOnDemandThroughputPtr and GlobalSecondaryIndexOnDemandThroughputPtrOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexOnDemandThroughputPtrInput` via:
+//
+//	        GlobalSecondaryIndexOnDemandThroughputArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalSecondaryIndexOnDemandThroughputPtrInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexOnDemandThroughputPtrOutput() GlobalSecondaryIndexOnDemandThroughputPtrOutput
+	ToGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(context.Context) GlobalSecondaryIndexOnDemandThroughputPtrOutput
+}
+
+type globalSecondaryIndexOnDemandThroughputPtrType GlobalSecondaryIndexOnDemandThroughputArgs
+
+func GlobalSecondaryIndexOnDemandThroughputPtr(v *GlobalSecondaryIndexOnDemandThroughputArgs) GlobalSecondaryIndexOnDemandThroughputPtrInput {
+	return (*globalSecondaryIndexOnDemandThroughputPtrType)(v)
+}
+
+func (*globalSecondaryIndexOnDemandThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (i *globalSecondaryIndexOnDemandThroughputPtrType) ToGlobalSecondaryIndexOnDemandThroughputPtrOutput() GlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return i.ToGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *globalSecondaryIndexOnDemandThroughputPtrType) ToGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexOnDemandThroughputPtrOutput)
+}
+
+type GlobalSecondaryIndexOnDemandThroughputOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexOnDemandThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexOnDemandThroughputOutput) ToGlobalSecondaryIndexOnDemandThroughputOutput() GlobalSecondaryIndexOnDemandThroughputOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexOnDemandThroughputOutput) ToGlobalSecondaryIndexOnDemandThroughputOutputWithContext(ctx context.Context) GlobalSecondaryIndexOnDemandThroughputOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexOnDemandThroughputOutput) ToGlobalSecondaryIndexOnDemandThroughputPtrOutput() GlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return o.ToGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalSecondaryIndexOnDemandThroughputOutput) ToGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalSecondaryIndexOnDemandThroughput) *GlobalSecondaryIndexOnDemandThroughput {
+		return &v
+	}).(GlobalSecondaryIndexOnDemandThroughputPtrOutput)
+}
+
+// Maximum number of read request units for this index.
+func (o GlobalSecondaryIndexOnDemandThroughputOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexOnDemandThroughput) *int { return v.MaxReadRequestUnits }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of write request units for this index.
+func (o GlobalSecondaryIndexOnDemandThroughputOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexOnDemandThroughput) *int { return v.MaxWriteRequestUnits }).(pulumi.IntPtrOutput)
+}
+
+type GlobalSecondaryIndexOnDemandThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexOnDemandThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexOnDemandThroughputPtrOutput) ToGlobalSecondaryIndexOnDemandThroughputPtrOutput() GlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexOnDemandThroughputPtrOutput) ToGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexOnDemandThroughputPtrOutput) Elem() GlobalSecondaryIndexOnDemandThroughputOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexOnDemandThroughput) GlobalSecondaryIndexOnDemandThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalSecondaryIndexOnDemandThroughput
+		return ret
+	}).(GlobalSecondaryIndexOnDemandThroughputOutput)
+}
+
+// Maximum number of read request units for this index.
+func (o GlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexOnDemandThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxReadRequestUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of write request units for this index.
+func (o GlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexOnDemandThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxWriteRequestUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+type GlobalSecondaryIndexProjection struct {
+	// Specifies which additional attributes to include in the index.
+	// Only valid when `projectionType` is `INCLUDE`.`
+	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
+	// The set of attributes represented in the index.
+	// One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
+	ProjectionType string `pulumi:"projectionType"`
+}
+
+// GlobalSecondaryIndexProjectionInput is an input type that accepts GlobalSecondaryIndexProjectionArgs and GlobalSecondaryIndexProjectionOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexProjectionInput` via:
+//
+//	GlobalSecondaryIndexProjectionArgs{...}
+type GlobalSecondaryIndexProjectionInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexProjectionOutput() GlobalSecondaryIndexProjectionOutput
+	ToGlobalSecondaryIndexProjectionOutputWithContext(context.Context) GlobalSecondaryIndexProjectionOutput
+}
+
+type GlobalSecondaryIndexProjectionArgs struct {
+	// Specifies which additional attributes to include in the index.
+	// Only valid when `projectionType` is `INCLUDE`.`
+	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
+	// The set of attributes represented in the index.
+	// One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
+	ProjectionType pulumi.StringInput `pulumi:"projectionType"`
+}
+
+func (GlobalSecondaryIndexProjectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexProjection)(nil)).Elem()
+}
+
+func (i GlobalSecondaryIndexProjectionArgs) ToGlobalSecondaryIndexProjectionOutput() GlobalSecondaryIndexProjectionOutput {
+	return i.ToGlobalSecondaryIndexProjectionOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexProjectionArgs) ToGlobalSecondaryIndexProjectionOutputWithContext(ctx context.Context) GlobalSecondaryIndexProjectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexProjectionOutput)
+}
+
+func (i GlobalSecondaryIndexProjectionArgs) ToGlobalSecondaryIndexProjectionPtrOutput() GlobalSecondaryIndexProjectionPtrOutput {
+	return i.ToGlobalSecondaryIndexProjectionPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexProjectionArgs) ToGlobalSecondaryIndexProjectionPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexProjectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexProjectionOutput).ToGlobalSecondaryIndexProjectionPtrOutputWithContext(ctx)
+}
+
+// GlobalSecondaryIndexProjectionPtrInput is an input type that accepts GlobalSecondaryIndexProjectionArgs, GlobalSecondaryIndexProjectionPtr and GlobalSecondaryIndexProjectionPtrOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexProjectionPtrInput` via:
+//
+//	        GlobalSecondaryIndexProjectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalSecondaryIndexProjectionPtrInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexProjectionPtrOutput() GlobalSecondaryIndexProjectionPtrOutput
+	ToGlobalSecondaryIndexProjectionPtrOutputWithContext(context.Context) GlobalSecondaryIndexProjectionPtrOutput
+}
+
+type globalSecondaryIndexProjectionPtrType GlobalSecondaryIndexProjectionArgs
+
+func GlobalSecondaryIndexProjectionPtr(v *GlobalSecondaryIndexProjectionArgs) GlobalSecondaryIndexProjectionPtrInput {
+	return (*globalSecondaryIndexProjectionPtrType)(v)
+}
+
+func (*globalSecondaryIndexProjectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalSecondaryIndexProjection)(nil)).Elem()
+}
+
+func (i *globalSecondaryIndexProjectionPtrType) ToGlobalSecondaryIndexProjectionPtrOutput() GlobalSecondaryIndexProjectionPtrOutput {
+	return i.ToGlobalSecondaryIndexProjectionPtrOutputWithContext(context.Background())
+}
+
+func (i *globalSecondaryIndexProjectionPtrType) ToGlobalSecondaryIndexProjectionPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexProjectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexProjectionPtrOutput)
+}
+
+type GlobalSecondaryIndexProjectionOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexProjectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexProjection)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexProjectionOutput) ToGlobalSecondaryIndexProjectionOutput() GlobalSecondaryIndexProjectionOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexProjectionOutput) ToGlobalSecondaryIndexProjectionOutputWithContext(ctx context.Context) GlobalSecondaryIndexProjectionOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexProjectionOutput) ToGlobalSecondaryIndexProjectionPtrOutput() GlobalSecondaryIndexProjectionPtrOutput {
+	return o.ToGlobalSecondaryIndexProjectionPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalSecondaryIndexProjectionOutput) ToGlobalSecondaryIndexProjectionPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexProjectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalSecondaryIndexProjection) *GlobalSecondaryIndexProjection {
+		return &v
+	}).(GlobalSecondaryIndexProjectionPtrOutput)
+}
+
+// Specifies which additional attributes to include in the index.
+// Only valid when `projectionType` is `INCLUDE`.`
+func (o GlobalSecondaryIndexProjectionOutput) NonKeyAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexProjection) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
+}
+
+// The set of attributes represented in the index.
+// One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
+func (o GlobalSecondaryIndexProjectionOutput) ProjectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexProjection) string { return v.ProjectionType }).(pulumi.StringOutput)
+}
+
+type GlobalSecondaryIndexProjectionPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexProjectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalSecondaryIndexProjection)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexProjectionPtrOutput) ToGlobalSecondaryIndexProjectionPtrOutput() GlobalSecondaryIndexProjectionPtrOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexProjectionPtrOutput) ToGlobalSecondaryIndexProjectionPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexProjectionPtrOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexProjectionPtrOutput) Elem() GlobalSecondaryIndexProjectionOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexProjection) GlobalSecondaryIndexProjection {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalSecondaryIndexProjection
+		return ret
+	}).(GlobalSecondaryIndexProjectionOutput)
+}
+
+// Specifies which additional attributes to include in the index.
+// Only valid when `projectionType` is `INCLUDE`.`
+func (o GlobalSecondaryIndexProjectionPtrOutput) NonKeyAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexProjection) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NonKeyAttributes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The set of attributes represented in the index.
+// One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
+func (o GlobalSecondaryIndexProjectionPtrOutput) ProjectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexProjection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectionType
+	}).(pulumi.StringPtrOutput)
+}
+
+type GlobalSecondaryIndexProvisionedThroughput struct {
+	// Number of read capacity units for this index.
+	ReadCapacityUnits *int `pulumi:"readCapacityUnits"`
+	// Number of write capacity units for this index.
+	WriteCapacityUnits *int `pulumi:"writeCapacityUnits"`
+}
+
+// GlobalSecondaryIndexProvisionedThroughputInput is an input type that accepts GlobalSecondaryIndexProvisionedThroughputArgs and GlobalSecondaryIndexProvisionedThroughputOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexProvisionedThroughputInput` via:
+//
+//	GlobalSecondaryIndexProvisionedThroughputArgs{...}
+type GlobalSecondaryIndexProvisionedThroughputInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexProvisionedThroughputOutput() GlobalSecondaryIndexProvisionedThroughputOutput
+	ToGlobalSecondaryIndexProvisionedThroughputOutputWithContext(context.Context) GlobalSecondaryIndexProvisionedThroughputOutput
+}
+
+type GlobalSecondaryIndexProvisionedThroughputArgs struct {
+	// Number of read capacity units for this index.
+	ReadCapacityUnits pulumi.IntPtrInput `pulumi:"readCapacityUnits"`
+	// Number of write capacity units for this index.
+	WriteCapacityUnits pulumi.IntPtrInput `pulumi:"writeCapacityUnits"`
+}
+
+func (GlobalSecondaryIndexProvisionedThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexProvisionedThroughput)(nil)).Elem()
+}
+
+func (i GlobalSecondaryIndexProvisionedThroughputArgs) ToGlobalSecondaryIndexProvisionedThroughputOutput() GlobalSecondaryIndexProvisionedThroughputOutput {
+	return i.ToGlobalSecondaryIndexProvisionedThroughputOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexProvisionedThroughputArgs) ToGlobalSecondaryIndexProvisionedThroughputOutputWithContext(ctx context.Context) GlobalSecondaryIndexProvisionedThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexProvisionedThroughputOutput)
+}
+
+func (i GlobalSecondaryIndexProvisionedThroughputArgs) ToGlobalSecondaryIndexProvisionedThroughputPtrOutput() GlobalSecondaryIndexProvisionedThroughputPtrOutput {
+	return i.ToGlobalSecondaryIndexProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexProvisionedThroughputArgs) ToGlobalSecondaryIndexProvisionedThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexProvisionedThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexProvisionedThroughputOutput).ToGlobalSecondaryIndexProvisionedThroughputPtrOutputWithContext(ctx)
+}
+
+// GlobalSecondaryIndexProvisionedThroughputPtrInput is an input type that accepts GlobalSecondaryIndexProvisionedThroughputArgs, GlobalSecondaryIndexProvisionedThroughputPtr and GlobalSecondaryIndexProvisionedThroughputPtrOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexProvisionedThroughputPtrInput` via:
+//
+//	        GlobalSecondaryIndexProvisionedThroughputArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalSecondaryIndexProvisionedThroughputPtrInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexProvisionedThroughputPtrOutput() GlobalSecondaryIndexProvisionedThroughputPtrOutput
+	ToGlobalSecondaryIndexProvisionedThroughputPtrOutputWithContext(context.Context) GlobalSecondaryIndexProvisionedThroughputPtrOutput
+}
+
+type globalSecondaryIndexProvisionedThroughputPtrType GlobalSecondaryIndexProvisionedThroughputArgs
+
+func GlobalSecondaryIndexProvisionedThroughputPtr(v *GlobalSecondaryIndexProvisionedThroughputArgs) GlobalSecondaryIndexProvisionedThroughputPtrInput {
+	return (*globalSecondaryIndexProvisionedThroughputPtrType)(v)
+}
+
+func (*globalSecondaryIndexProvisionedThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalSecondaryIndexProvisionedThroughput)(nil)).Elem()
+}
+
+func (i *globalSecondaryIndexProvisionedThroughputPtrType) ToGlobalSecondaryIndexProvisionedThroughputPtrOutput() GlobalSecondaryIndexProvisionedThroughputPtrOutput {
+	return i.ToGlobalSecondaryIndexProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *globalSecondaryIndexProvisionedThroughputPtrType) ToGlobalSecondaryIndexProvisionedThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexProvisionedThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexProvisionedThroughputPtrOutput)
+}
+
+type GlobalSecondaryIndexProvisionedThroughputOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexProvisionedThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexProvisionedThroughput)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexProvisionedThroughputOutput) ToGlobalSecondaryIndexProvisionedThroughputOutput() GlobalSecondaryIndexProvisionedThroughputOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexProvisionedThroughputOutput) ToGlobalSecondaryIndexProvisionedThroughputOutputWithContext(ctx context.Context) GlobalSecondaryIndexProvisionedThroughputOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexProvisionedThroughputOutput) ToGlobalSecondaryIndexProvisionedThroughputPtrOutput() GlobalSecondaryIndexProvisionedThroughputPtrOutput {
+	return o.ToGlobalSecondaryIndexProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalSecondaryIndexProvisionedThroughputOutput) ToGlobalSecondaryIndexProvisionedThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexProvisionedThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalSecondaryIndexProvisionedThroughput) *GlobalSecondaryIndexProvisionedThroughput {
+		return &v
+	}).(GlobalSecondaryIndexProvisionedThroughputPtrOutput)
+}
+
+// Number of read capacity units for this index.
+func (o GlobalSecondaryIndexProvisionedThroughputOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexProvisionedThroughput) *int { return v.ReadCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+// Number of write capacity units for this index.
+func (o GlobalSecondaryIndexProvisionedThroughputOutput) WriteCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexProvisionedThroughput) *int { return v.WriteCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+type GlobalSecondaryIndexProvisionedThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexProvisionedThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalSecondaryIndexProvisionedThroughput)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexProvisionedThroughputPtrOutput) ToGlobalSecondaryIndexProvisionedThroughputPtrOutput() GlobalSecondaryIndexProvisionedThroughputPtrOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexProvisionedThroughputPtrOutput) ToGlobalSecondaryIndexProvisionedThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexProvisionedThroughputPtrOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexProvisionedThroughputPtrOutput) Elem() GlobalSecondaryIndexProvisionedThroughputOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexProvisionedThroughput) GlobalSecondaryIndexProvisionedThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalSecondaryIndexProvisionedThroughput
+		return ret
+	}).(GlobalSecondaryIndexProvisionedThroughputOutput)
+}
+
+// Number of read capacity units for this index.
+func (o GlobalSecondaryIndexProvisionedThroughputPtrOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexProvisionedThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of write capacity units for this index.
+func (o GlobalSecondaryIndexProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexProvisionedThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WriteCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+type GlobalSecondaryIndexTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// GlobalSecondaryIndexTimeoutsInput is an input type that accepts GlobalSecondaryIndexTimeoutsArgs and GlobalSecondaryIndexTimeoutsOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexTimeoutsInput` via:
+//
+//	GlobalSecondaryIndexTimeoutsArgs{...}
+type GlobalSecondaryIndexTimeoutsInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexTimeoutsOutput() GlobalSecondaryIndexTimeoutsOutput
+	ToGlobalSecondaryIndexTimeoutsOutputWithContext(context.Context) GlobalSecondaryIndexTimeoutsOutput
+}
+
+type GlobalSecondaryIndexTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (GlobalSecondaryIndexTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexTimeouts)(nil)).Elem()
+}
+
+func (i GlobalSecondaryIndexTimeoutsArgs) ToGlobalSecondaryIndexTimeoutsOutput() GlobalSecondaryIndexTimeoutsOutput {
+	return i.ToGlobalSecondaryIndexTimeoutsOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexTimeoutsArgs) ToGlobalSecondaryIndexTimeoutsOutputWithContext(ctx context.Context) GlobalSecondaryIndexTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexTimeoutsOutput)
+}
+
+func (i GlobalSecondaryIndexTimeoutsArgs) ToGlobalSecondaryIndexTimeoutsPtrOutput() GlobalSecondaryIndexTimeoutsPtrOutput {
+	return i.ToGlobalSecondaryIndexTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexTimeoutsArgs) ToGlobalSecondaryIndexTimeoutsPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexTimeoutsOutput).ToGlobalSecondaryIndexTimeoutsPtrOutputWithContext(ctx)
+}
+
+// GlobalSecondaryIndexTimeoutsPtrInput is an input type that accepts GlobalSecondaryIndexTimeoutsArgs, GlobalSecondaryIndexTimeoutsPtr and GlobalSecondaryIndexTimeoutsPtrOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexTimeoutsPtrInput` via:
+//
+//	        GlobalSecondaryIndexTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalSecondaryIndexTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexTimeoutsPtrOutput() GlobalSecondaryIndexTimeoutsPtrOutput
+	ToGlobalSecondaryIndexTimeoutsPtrOutputWithContext(context.Context) GlobalSecondaryIndexTimeoutsPtrOutput
+}
+
+type globalSecondaryIndexTimeoutsPtrType GlobalSecondaryIndexTimeoutsArgs
+
+func GlobalSecondaryIndexTimeoutsPtr(v *GlobalSecondaryIndexTimeoutsArgs) GlobalSecondaryIndexTimeoutsPtrInput {
+	return (*globalSecondaryIndexTimeoutsPtrType)(v)
+}
+
+func (*globalSecondaryIndexTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalSecondaryIndexTimeouts)(nil)).Elem()
+}
+
+func (i *globalSecondaryIndexTimeoutsPtrType) ToGlobalSecondaryIndexTimeoutsPtrOutput() GlobalSecondaryIndexTimeoutsPtrOutput {
+	return i.ToGlobalSecondaryIndexTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *globalSecondaryIndexTimeoutsPtrType) ToGlobalSecondaryIndexTimeoutsPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexTimeoutsPtrOutput)
+}
+
+type GlobalSecondaryIndexTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexTimeouts)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexTimeoutsOutput) ToGlobalSecondaryIndexTimeoutsOutput() GlobalSecondaryIndexTimeoutsOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexTimeoutsOutput) ToGlobalSecondaryIndexTimeoutsOutputWithContext(ctx context.Context) GlobalSecondaryIndexTimeoutsOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexTimeoutsOutput) ToGlobalSecondaryIndexTimeoutsPtrOutput() GlobalSecondaryIndexTimeoutsPtrOutput {
+	return o.ToGlobalSecondaryIndexTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalSecondaryIndexTimeoutsOutput) ToGlobalSecondaryIndexTimeoutsPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalSecondaryIndexTimeouts) *GlobalSecondaryIndexTimeouts {
+		return &v
+	}).(GlobalSecondaryIndexTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o GlobalSecondaryIndexTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o GlobalSecondaryIndexTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o GlobalSecondaryIndexTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type GlobalSecondaryIndexTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalSecondaryIndexTimeouts)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexTimeoutsPtrOutput) ToGlobalSecondaryIndexTimeoutsPtrOutput() GlobalSecondaryIndexTimeoutsPtrOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexTimeoutsPtrOutput) ToGlobalSecondaryIndexTimeoutsPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexTimeoutsPtrOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexTimeoutsPtrOutput) Elem() GlobalSecondaryIndexTimeoutsOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexTimeouts) GlobalSecondaryIndexTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalSecondaryIndexTimeouts
+		return ret
+	}).(GlobalSecondaryIndexTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o GlobalSecondaryIndexTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o GlobalSecondaryIndexTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o GlobalSecondaryIndexTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type GlobalSecondaryIndexWarmThroughput struct {
+	// Number of read operations this index can instantaneously support.
+	ReadUnitsPerSecond int `pulumi:"readUnitsPerSecond"`
+	// Number of write operations this index can instantaneously support.
+	WriteUnitsPerSecond int `pulumi:"writeUnitsPerSecond"`
+}
+
+// GlobalSecondaryIndexWarmThroughputInput is an input type that accepts GlobalSecondaryIndexWarmThroughputArgs and GlobalSecondaryIndexWarmThroughputOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexWarmThroughputInput` via:
+//
+//	GlobalSecondaryIndexWarmThroughputArgs{...}
+type GlobalSecondaryIndexWarmThroughputInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexWarmThroughputOutput() GlobalSecondaryIndexWarmThroughputOutput
+	ToGlobalSecondaryIndexWarmThroughputOutputWithContext(context.Context) GlobalSecondaryIndexWarmThroughputOutput
+}
+
+type GlobalSecondaryIndexWarmThroughputArgs struct {
+	// Number of read operations this index can instantaneously support.
+	ReadUnitsPerSecond pulumi.IntInput `pulumi:"readUnitsPerSecond"`
+	// Number of write operations this index can instantaneously support.
+	WriteUnitsPerSecond pulumi.IntInput `pulumi:"writeUnitsPerSecond"`
+}
+
+func (GlobalSecondaryIndexWarmThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (i GlobalSecondaryIndexWarmThroughputArgs) ToGlobalSecondaryIndexWarmThroughputOutput() GlobalSecondaryIndexWarmThroughputOutput {
+	return i.ToGlobalSecondaryIndexWarmThroughputOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexWarmThroughputArgs) ToGlobalSecondaryIndexWarmThroughputOutputWithContext(ctx context.Context) GlobalSecondaryIndexWarmThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexWarmThroughputOutput)
+}
+
+func (i GlobalSecondaryIndexWarmThroughputArgs) ToGlobalSecondaryIndexWarmThroughputPtrOutput() GlobalSecondaryIndexWarmThroughputPtrOutput {
+	return i.ToGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalSecondaryIndexWarmThroughputArgs) ToGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexWarmThroughputOutput).ToGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(ctx)
+}
+
+// GlobalSecondaryIndexWarmThroughputPtrInput is an input type that accepts GlobalSecondaryIndexWarmThroughputArgs, GlobalSecondaryIndexWarmThroughputPtr and GlobalSecondaryIndexWarmThroughputPtrOutput values.
+// You can construct a concrete instance of `GlobalSecondaryIndexWarmThroughputPtrInput` via:
+//
+//	        GlobalSecondaryIndexWarmThroughputArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalSecondaryIndexWarmThroughputPtrInput interface {
+	pulumi.Input
+
+	ToGlobalSecondaryIndexWarmThroughputPtrOutput() GlobalSecondaryIndexWarmThroughputPtrOutput
+	ToGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(context.Context) GlobalSecondaryIndexWarmThroughputPtrOutput
+}
+
+type globalSecondaryIndexWarmThroughputPtrType GlobalSecondaryIndexWarmThroughputArgs
+
+func GlobalSecondaryIndexWarmThroughputPtr(v *GlobalSecondaryIndexWarmThroughputArgs) GlobalSecondaryIndexWarmThroughputPtrInput {
+	return (*globalSecondaryIndexWarmThroughputPtrType)(v)
+}
+
+func (*globalSecondaryIndexWarmThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (i *globalSecondaryIndexWarmThroughputPtrType) ToGlobalSecondaryIndexWarmThroughputPtrOutput() GlobalSecondaryIndexWarmThroughputPtrOutput {
+	return i.ToGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *globalSecondaryIndexWarmThroughputPtrType) ToGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalSecondaryIndexWarmThroughputPtrOutput)
+}
+
+type GlobalSecondaryIndexWarmThroughputOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexWarmThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexWarmThroughputOutput) ToGlobalSecondaryIndexWarmThroughputOutput() GlobalSecondaryIndexWarmThroughputOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexWarmThroughputOutput) ToGlobalSecondaryIndexWarmThroughputOutputWithContext(ctx context.Context) GlobalSecondaryIndexWarmThroughputOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexWarmThroughputOutput) ToGlobalSecondaryIndexWarmThroughputPtrOutput() GlobalSecondaryIndexWarmThroughputPtrOutput {
+	return o.ToGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalSecondaryIndexWarmThroughputOutput) ToGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexWarmThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalSecondaryIndexWarmThroughput) *GlobalSecondaryIndexWarmThroughput {
+		return &v
+	}).(GlobalSecondaryIndexWarmThroughputPtrOutput)
+}
+
+// Number of read operations this index can instantaneously support.
+func (o GlobalSecondaryIndexWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexWarmThroughput) int { return v.ReadUnitsPerSecond }).(pulumi.IntOutput)
+}
+
+// Number of write operations this index can instantaneously support.
+func (o GlobalSecondaryIndexWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntOutput {
+	return o.ApplyT(func(v GlobalSecondaryIndexWarmThroughput) int { return v.WriteUnitsPerSecond }).(pulumi.IntOutput)
+}
+
+type GlobalSecondaryIndexWarmThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalSecondaryIndexWarmThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (o GlobalSecondaryIndexWarmThroughputPtrOutput) ToGlobalSecondaryIndexWarmThroughputPtrOutput() GlobalSecondaryIndexWarmThroughputPtrOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexWarmThroughputPtrOutput) ToGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(ctx context.Context) GlobalSecondaryIndexWarmThroughputPtrOutput {
+	return o
+}
+
+func (o GlobalSecondaryIndexWarmThroughputPtrOutput) Elem() GlobalSecondaryIndexWarmThroughputOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexWarmThroughput) GlobalSecondaryIndexWarmThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalSecondaryIndexWarmThroughput
+		return ret
+	}).(GlobalSecondaryIndexWarmThroughputOutput)
+}
+
+// Number of read operations this index can instantaneously support.
+func (o GlobalSecondaryIndexWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ReadUnitsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of write operations this index can instantaneously support.
+func (o GlobalSecondaryIndexWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalSecondaryIndexWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.WriteUnitsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
 type GlobalTableReplica struct {
 	// AWS region name of replica DynamoDB TableE.g., `us-east-1`
 	RegionName string `pulumi:"regionName"`
@@ -3912,6 +4840,18 @@ func (o GetTableWarmThroughputArrayOutput) Index(i pulumi.IntInput) GetTableWarm
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexKeySchemaInput)(nil)).Elem(), GlobalSecondaryIndexKeySchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexKeySchemaArrayInput)(nil)).Elem(), GlobalSecondaryIndexKeySchemaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexOnDemandThroughputInput)(nil)).Elem(), GlobalSecondaryIndexOnDemandThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexOnDemandThroughputPtrInput)(nil)).Elem(), GlobalSecondaryIndexOnDemandThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexProjectionInput)(nil)).Elem(), GlobalSecondaryIndexProjectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexProjectionPtrInput)(nil)).Elem(), GlobalSecondaryIndexProjectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexProvisionedThroughputInput)(nil)).Elem(), GlobalSecondaryIndexProvisionedThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexProvisionedThroughputPtrInput)(nil)).Elem(), GlobalSecondaryIndexProvisionedThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexTimeoutsInput)(nil)).Elem(), GlobalSecondaryIndexTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexTimeoutsPtrInput)(nil)).Elem(), GlobalSecondaryIndexTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexWarmThroughputInput)(nil)).Elem(), GlobalSecondaryIndexWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSecondaryIndexWarmThroughputPtrInput)(nil)).Elem(), GlobalSecondaryIndexWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaInput)(nil)).Elem(), GlobalTableReplicaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaArrayInput)(nil)).Elem(), GlobalTableReplicaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAttributeInput)(nil)).Elem(), TableAttributeArgs{})
@@ -3968,6 +4908,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableTtlInput)(nil)).Elem(), GetTableTtlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableWarmThroughputInput)(nil)).Elem(), GetTableWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableWarmThroughputArrayInput)(nil)).Elem(), GetTableWarmThroughputArray{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexKeySchemaOutput{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexKeySchemaArrayOutput{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexOnDemandThroughputOutput{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexOnDemandThroughputPtrOutput{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexProjectionOutput{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexProjectionPtrOutput{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexProvisionedThroughputOutput{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexProvisionedThroughputPtrOutput{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexTimeoutsOutput{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexWarmThroughputOutput{})
+	pulumi.RegisterOutputType(GlobalSecondaryIndexWarmThroughputPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableReplicaOutput{})
 	pulumi.RegisterOutputType(GlobalTableReplicaArrayOutput{})
 	pulumi.RegisterOutputType(TableAttributeOutput{})

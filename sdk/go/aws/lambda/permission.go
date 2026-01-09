@@ -354,6 +354,8 @@ type Permission struct {
 	Function pulumi.StringOutput `pulumi:"function"`
 	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType pulumi.StringPtrOutput `pulumi:"functionUrlAuthType"`
+	// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+	InvokedViaFunctionUrl pulumi.BoolPtrOutput `pulumi:"invokedViaFunctionUrl"`
 	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
 	//
 	// The following arguments are optional:
@@ -421,6 +423,8 @@ type permissionState struct {
 	Function interface{} `pulumi:"function"`
 	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
+	// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+	InvokedViaFunctionUrl *bool `pulumi:"invokedViaFunctionUrl"`
 	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
 	//
 	// The following arguments are optional:
@@ -450,6 +454,8 @@ type PermissionState struct {
 	Function pulumi.Input
 	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType pulumi.StringPtrInput
+	// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+	InvokedViaFunctionUrl pulumi.BoolPtrInput
 	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
 	//
 	// The following arguments are optional:
@@ -483,6 +489,8 @@ type permissionArgs struct {
 	Function interface{} `pulumi:"function"`
 	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
+	// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+	InvokedViaFunctionUrl *bool `pulumi:"invokedViaFunctionUrl"`
 	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
 	//
 	// The following arguments are optional:
@@ -513,6 +521,8 @@ type PermissionArgs struct {
 	Function pulumi.Input
 	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType pulumi.StringPtrInput
+	// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+	InvokedViaFunctionUrl pulumi.BoolPtrInput
 	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
 	//
 	// The following arguments are optional:
@@ -638,6 +648,11 @@ func (o PermissionOutput) Function() pulumi.StringOutput {
 // Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 func (o PermissionOutput) FunctionUrlAuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.FunctionUrlAuthType }).(pulumi.StringPtrOutput)
+}
+
+// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+func (o PermissionOutput) InvokedViaFunctionUrl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.BoolPtrOutput { return v.InvokedViaFunctionUrl }).(pulumi.BoolPtrOutput)
 }
 
 // AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)

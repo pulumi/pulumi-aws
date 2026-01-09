@@ -896,6 +896,12 @@ namespace Pulumi.Aws.Lambda
         public Output<int?> ReservedConcurrentExecutions { get; private set; } = null!;
 
         /// <summary>
+        /// ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `aws.apigateway.Integration`'s `Uri`.
+        /// </summary>
+        [Output("responseStreamingInvokeArn")]
+        public Output<string> ResponseStreamingInvokeArn { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         /// 
         /// The following arguments are optional:
@@ -1534,6 +1540,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("reservedConcurrentExecutions")]
         public Input<int>? ReservedConcurrentExecutions { get; set; }
+
+        /// <summary>
+        /// ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `aws.apigateway.Integration`'s `Uri`.
+        /// </summary>
+        [Input("responseStreamingInvokeArn")]
+        public Input<string>? ResponseStreamingInvokeArn { get; set; }
 
         /// <summary>
         /// ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.

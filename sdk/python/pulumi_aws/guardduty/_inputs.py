@@ -448,9 +448,17 @@ if not MYPY:
         """
         A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
+        matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of string values to be evaluated as matching conditions.
+        """
         not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         List of string values to be evaluated.
+        """
+        not_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of string values to be evaluated as non-matching conditions.
         """
 elif False:
     FilterFindingCriteriaCriterionArgsDict: TypeAlias = Mapping[str, Any]
@@ -464,7 +472,9 @@ class FilterFindingCriteriaCriterionArgs:
                  greater_than_or_equal: Optional[pulumi.Input[_builtins.str]] = None,
                  less_than: Optional[pulumi.Input[_builtins.str]] = None,
                  less_than_or_equal: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 matches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_matches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] field: The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] equals: List of string values to be evaluated.
@@ -472,7 +482,9 @@ class FilterFindingCriteriaCriterionArgs:
         :param pulumi.Input[_builtins.str] greater_than_or_equal: A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] less_than: A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] less_than_or_equal: A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] matches: List of string values to be evaluated as matching conditions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_equals: List of string values to be evaluated.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_matches: List of string values to be evaluated as non-matching conditions.
         """
         pulumi.set(__self__, "field", field)
         if equals is not None:
@@ -485,8 +497,12 @@ class FilterFindingCriteriaCriterionArgs:
             pulumi.set(__self__, "less_than", less_than)
         if less_than_or_equal is not None:
             pulumi.set(__self__, "less_than_or_equal", less_than_or_equal)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
         if not_equals is not None:
             pulumi.set(__self__, "not_equals", not_equals)
+        if not_matches is not None:
+            pulumi.set(__self__, "not_matches", not_matches)
 
     @_builtins.property
     @pulumi.getter
@@ -561,6 +577,18 @@ class FilterFindingCriteriaCriterionArgs:
         pulumi.set(self, "less_than_or_equal", value)
 
     @_builtins.property
+    @pulumi.getter
+    def matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of string values to be evaluated as matching conditions.
+        """
+        return pulumi.get(self, "matches")
+
+    @matches.setter
+    def matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "matches", value)
+
+    @_builtins.property
     @pulumi.getter(name="notEquals")
     def not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -571,6 +599,18 @@ class FilterFindingCriteriaCriterionArgs:
     @not_equals.setter
     def not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_equals", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notMatches")
+    def not_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of string values to be evaluated as non-matching conditions.
+        """
+        return pulumi.get(self, "not_matches")
+
+    @not_matches.setter
+    def not_matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "not_matches", value)
 
 
 if not MYPY:

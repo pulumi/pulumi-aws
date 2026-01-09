@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Athena.Inputs
 
     public sealed class WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// KMS key ARN for encrypting managed query results.
-        /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
 

@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Route53.Outputs
         /// </summary>
         public readonly string BlockResponse;
         /// <summary>
+        /// The confidence threshold for DNS Firewall Advanced rules.
+        /// </summary>
+        public readonly string ConfidenceThreshold;
+        /// <summary>
         /// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
         /// </summary>
         public readonly string CreationTime;
@@ -42,13 +46,25 @@ namespace Pulumi.Aws.Route53.Outputs
         /// </summary>
         public readonly string CreatorRequestId;
         /// <summary>
+        /// The type of DNS Firewall Advanced rule.
+        /// </summary>
+        public readonly string DnsThreatProtection;
+        /// <summary>
         /// The ID of the domain list that's used in the rule.
         /// </summary>
         public readonly string FirewallDomainListId;
         /// <summary>
+        /// How DNS Firewall evaluates DNS redirection in the DNS redirection chain.
+        /// </summary>
+        public readonly string FirewallDomainRedirectionAction;
+        /// <summary>
         /// The unique identifier of the firewall rule group that you want to retrieve the rules for.
         /// </summary>
         public readonly string FirewallRuleGroupId;
+        /// <summary>
+        /// The ID of the DNS Firewall Advanced rule.
+        /// </summary>
+        public readonly string FirewallThreatProtectionId;
         /// <summary>
         /// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
         /// </summary>
@@ -61,6 +77,10 @@ namespace Pulumi.Aws.Route53.Outputs
         /// The setting that determines the processing order of the rules in a rule group.
         /// </summary>
         public readonly int Priority;
+        /// <summary>
+        /// The DNS query type that the rule evaluates.
+        /// </summary>
+        public readonly string QType;
 
         [OutputConstructor]
         private GetResolverFirewallRulesFirewallRuleResult(
@@ -74,32 +94,47 @@ namespace Pulumi.Aws.Route53.Outputs
 
             string blockResponse,
 
+            string confidenceThreshold,
+
             string creationTime,
 
             string creatorRequestId,
 
+            string dnsThreatProtection,
+
             string firewallDomainListId,
 
+            string firewallDomainRedirectionAction,
+
             string firewallRuleGroupId,
+
+            string firewallThreatProtectionId,
 
             string modificationTime,
 
             string name,
 
-            int priority)
+            int priority,
+
+            string qType)
         {
             Action = action;
             BlockOverrideDnsType = blockOverrideDnsType;
             BlockOverrideDomain = blockOverrideDomain;
             BlockOverrideTtl = blockOverrideTtl;
             BlockResponse = blockResponse;
+            ConfidenceThreshold = confidenceThreshold;
             CreationTime = creationTime;
             CreatorRequestId = creatorRequestId;
+            DnsThreatProtection = dnsThreatProtection;
             FirewallDomainListId = firewallDomainListId;
+            FirewallDomainRedirectionAction = firewallDomainRedirectionAction;
             FirewallRuleGroupId = firewallRuleGroupId;
+            FirewallThreatProtectionId = firewallThreatProtectionId;
             ModificationTime = modificationTime;
             Name = name;
             Priority = priority;
+            QType = qType;
         }
     }
 }

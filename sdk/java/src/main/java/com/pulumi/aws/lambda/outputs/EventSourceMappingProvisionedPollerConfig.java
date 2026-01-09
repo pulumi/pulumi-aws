@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +22,11 @@ public final class EventSourceMappingProvisionedPollerConfig {
      * 
      */
     private @Nullable Integer minimumPollers;
+    /**
+     * @return The name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+     * 
+     */
+    private @Nullable String pollerGroupName;
 
     private EventSourceMappingProvisionedPollerConfig() {}
     /**
@@ -37,6 +43,13 @@ public final class EventSourceMappingProvisionedPollerConfig {
     public Optional<Integer> minimumPollers() {
         return Optional.ofNullable(this.minimumPollers);
     }
+    /**
+     * @return The name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+     * 
+     */
+    public Optional<String> pollerGroupName() {
+        return Optional.ofNullable(this.pollerGroupName);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +62,13 @@ public final class EventSourceMappingProvisionedPollerConfig {
     public static final class Builder {
         private @Nullable Integer maximumPollers;
         private @Nullable Integer minimumPollers;
+        private @Nullable String pollerGroupName;
         public Builder() {}
         public Builder(EventSourceMappingProvisionedPollerConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maximumPollers = defaults.maximumPollers;
     	      this.minimumPollers = defaults.minimumPollers;
+    	      this.pollerGroupName = defaults.pollerGroupName;
         }
 
         @CustomType.Setter
@@ -68,10 +83,17 @@ public final class EventSourceMappingProvisionedPollerConfig {
             this.minimumPollers = minimumPollers;
             return this;
         }
+        @CustomType.Setter
+        public Builder pollerGroupName(@Nullable String pollerGroupName) {
+
+            this.pollerGroupName = pollerGroupName;
+            return this;
+        }
         public EventSourceMappingProvisionedPollerConfig build() {
             final var _resultValue = new EventSourceMappingProvisionedPollerConfig();
             _resultValue.maximumPollers = maximumPollers;
             _resultValue.minimumPollers = minimumPollers;
+            _resultValue.pollerGroupName = pollerGroupName;
             return _resultValue;
         }
     }

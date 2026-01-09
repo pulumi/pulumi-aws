@@ -23,6 +23,7 @@ class TargetGroupAttachmentArgs:
                  target_id: pulumi.Input[_builtins.str],
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
+                 quic_server_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TargetGroupAttachment resource.
@@ -32,6 +33,7 @@ class TargetGroupAttachmentArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         :param pulumi.Input[_builtins.int] port: The port on which targets receive traffic.
+        :param pulumi.Input[_builtins.str] quic_server_id: Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "target_group_arn", target_group_arn)
@@ -40,6 +42,8 @@ class TargetGroupAttachmentArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if quic_server_id is not None:
+            pulumi.set(__self__, "quic_server_id", quic_server_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
 
@@ -94,6 +98,18 @@ class TargetGroupAttachmentArgs:
         pulumi.set(self, "port", value)
 
     @_builtins.property
+    @pulumi.getter(name="quicServerId")
+    def quic_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+        """
+        return pulumi.get(self, "quic_server_id")
+
+    @quic_server_id.setter
+    def quic_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "quic_server_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -111,6 +127,7 @@ class _TargetGroupAttachmentState:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
+                 quic_server_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  target_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  target_id: Optional[pulumi.Input[_builtins.str]] = None):
@@ -118,6 +135,7 @@ class _TargetGroupAttachmentState:
         Input properties used for looking up and filtering TargetGroupAttachment resources.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         :param pulumi.Input[_builtins.int] port: The port on which targets receive traffic.
+        :param pulumi.Input[_builtins.str] quic_server_id: Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_group_arn: The ARN of the target group with which to register targets.
         :param pulumi.Input[_builtins.str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
@@ -128,6 +146,8 @@ class _TargetGroupAttachmentState:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if quic_server_id is not None:
+            pulumi.set(__self__, "quic_server_id", quic_server_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if target_group_arn is not None:
@@ -158,6 +178,18 @@ class _TargetGroupAttachmentState:
     @port.setter
     def port(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="quicServerId")
+    def quic_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+        """
+        return pulumi.get(self, "quic_server_id")
+
+    @quic_server_id.setter
+    def quic_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "quic_server_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -206,6 +238,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
+                 quic_server_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  target_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  target_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -253,6 +286,24 @@ class TargetGroupAttachment(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[with_lb]))
         ```
 
+        ### Target using QUIC
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lb.TargetGroup("test",
+            name="test",
+            port=443,
+            protocol="QUIC")
+        test_instance = aws.ec2.Instance("test")
+        test_target_group_attachment = aws.lb.TargetGroupAttachment("test",
+            target_group_arn=test.arn,
+            target_id=test_instance.id,
+            port=443,
+            quic_server_id="0x1a2b3c4d5e6f7a8b")
+        ```
+
         ## Import
 
         You cannot import Target Group Attachments.
@@ -261,6 +312,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         :param pulumi.Input[_builtins.int] port: The port on which targets receive traffic.
+        :param pulumi.Input[_builtins.str] quic_server_id: Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_group_arn: The ARN of the target group with which to register targets.
         :param pulumi.Input[_builtins.str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
@@ -316,6 +368,24 @@ class TargetGroupAttachment(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[with_lb]))
         ```
 
+        ### Target using QUIC
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lb.TargetGroup("test",
+            name="test",
+            port=443,
+            protocol="QUIC")
+        test_instance = aws.ec2.Instance("test")
+        test_target_group_attachment = aws.lb.TargetGroupAttachment("test",
+            target_group_arn=test.arn,
+            target_id=test_instance.id,
+            port=443,
+            quic_server_id="0x1a2b3c4d5e6f7a8b")
+        ```
+
         ## Import
 
         You cannot import Target Group Attachments.
@@ -337,6 +407,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
+                 quic_server_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  target_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  target_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -351,6 +422,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["port"] = port
+            __props__.__dict__["quic_server_id"] = quic_server_id
             __props__.__dict__["region"] = region
             if target_group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group_arn'")
@@ -372,6 +444,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
             port: Optional[pulumi.Input[_builtins.int]] = None,
+            quic_server_id: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             target_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
             target_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'TargetGroupAttachment':
@@ -384,6 +457,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         :param pulumi.Input[_builtins.int] port: The port on which targets receive traffic.
+        :param pulumi.Input[_builtins.str] quic_server_id: Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_group_arn: The ARN of the target group with which to register targets.
         :param pulumi.Input[_builtins.str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
@@ -396,6 +470,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["port"] = port
+        __props__.__dict__["quic_server_id"] = quic_server_id
         __props__.__dict__["region"] = region
         __props__.__dict__["target_group_arn"] = target_group_arn
         __props__.__dict__["target_id"] = target_id
@@ -416,6 +491,14 @@ class TargetGroupAttachment(pulumi.CustomResource):
         The port on which targets receive traffic.
         """
         return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="quicServerId")
+    def quic_server_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+        """
+        return pulumi.get(self, "quic_server_id")
 
     @_builtins.property
     @pulumi.getter
