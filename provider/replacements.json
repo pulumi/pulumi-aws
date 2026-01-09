@@ -321,6 +321,10 @@
     {
       "old": "  description              = \"I made this collaboration with terraform!\"",
       "new": "  description              = \"I made this collaboration with Pulumi!\""
+    },
+    {
+      "old": "In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:\n",
+      "new": "In TODO v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:\n"
     }
   ],
   "cleanrooms_configured_table.html.markdown": [
