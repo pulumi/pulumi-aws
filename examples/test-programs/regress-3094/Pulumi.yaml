@@ -1,3 +1,0 @@
-name: regress-3094
-runtime: nodejs
-description: Reproduce AWS 3094
