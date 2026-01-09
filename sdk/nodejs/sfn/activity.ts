@@ -41,8 +41,6 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:
- *
  * Using `pulumi import`, import activities using the `arn`. For example:
  *
  * ```sh

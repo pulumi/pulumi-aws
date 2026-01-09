@@ -27,7 +27,7 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, architectures=None, arn=None, capacity_provider_configs=None, code_sha256=None, code_signing_config_arn=None, dead_letter_config=None, description=None, durable_configs=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, logging_configs=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, region=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, source_kms_key_arn=None, tags=None, tenancy_configs=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, capacity_provider_configs=None, code_sha256=None, code_signing_config_arn=None, dead_letter_config=None, description=None, durable_configs=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, logging_configs=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, region=None, reserved_concurrent_executions=None, response_streaming_invoke_arn=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, source_kms_key_arn=None, tags=None, tenancy_configs=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -106,6 +106,9 @@ class GetFunctionResult:
         if reserved_concurrent_executions and not isinstance(reserved_concurrent_executions, int):
             raise TypeError("Expected argument 'reserved_concurrent_executions' to be a int")
         pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
+        if response_streaming_invoke_arn and not isinstance(response_streaming_invoke_arn, str):
+            raise TypeError("Expected argument 'response_streaming_invoke_arn' to be a str")
+        pulumi.set(__self__, "response_streaming_invoke_arn", response_streaming_invoke_arn)
         if role and not isinstance(role, str):
             raise TypeError("Expected argument 'role' to be a str")
         pulumi.set(__self__, "role", role)
@@ -346,6 +349,14 @@ class GetFunctionResult:
         return pulumi.get(self, "reserved_concurrent_executions")
 
     @_builtins.property
+    @pulumi.getter(name="responseStreamingInvokeArn")
+    def response_streaming_invoke_arn(self) -> _builtins.str:
+        """
+        ARN to be used for invoking Lambda Function from API Gateway with response streaming.
+        """
+        return pulumi.get(self, "response_streaming_invoke_arn")
+
+    @_builtins.property
     @pulumi.getter
     def role(self) -> _builtins.str:
         """
@@ -483,6 +494,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             qualifier=self.qualifier,
             region=self.region,
             reserved_concurrent_executions=self.reserved_concurrent_executions,
+            response_streaming_invoke_arn=self.response_streaming_invoke_arn,
             role=self.role,
             runtime=self.runtime,
             signing_job_arn=self.signing_job_arn,
@@ -651,6 +663,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
         qualifier=pulumi.get(__ret__, 'qualifier'),
         region=pulumi.get(__ret__, 'region'),
         reserved_concurrent_executions=pulumi.get(__ret__, 'reserved_concurrent_executions'),
+        response_streaming_invoke_arn=pulumi.get(__ret__, 'response_streaming_invoke_arn'),
         role=pulumi.get(__ret__, 'role'),
         runtime=pulumi.get(__ret__, 'runtime'),
         signing_job_arn=pulumi.get(__ret__, 'signing_job_arn'),
@@ -816,6 +829,7 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
         qualifier=pulumi.get(__response__, 'qualifier'),
         region=pulumi.get(__response__, 'region'),
         reserved_concurrent_executions=pulumi.get(__response__, 'reserved_concurrent_executions'),
+        response_streaming_invoke_arn=pulumi.get(__response__, 'response_streaming_invoke_arn'),
         role=pulumi.get(__response__, 'role'),
         runtime=pulumi.get(__response__, 'runtime'),
         signing_job_arn=pulumi.get(__response__, 'signing_job_arn'),

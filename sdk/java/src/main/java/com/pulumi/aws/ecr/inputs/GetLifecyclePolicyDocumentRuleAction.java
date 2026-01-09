@@ -7,21 +7,32 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetLifecyclePolicyDocumentRuleAction extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLifecyclePolicyDocumentRuleAction Empty = new GetLifecyclePolicyDocumentRuleAction();
 
+    @Import(name="targetStorageClass")
+    private @Nullable String targetStorageClass;
+
+    public Optional<String> targetStorageClass() {
+        return Optional.ofNullable(this.targetStorageClass);
+    }
+
     /**
-     * The supported value is `expire`.
+     * Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
      * 
      */
     @Import(name="type", required=true)
     private String type;
 
     /**
-     * @return The supported value is `expire`.
+     * @return Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
      * 
      */
     public String type() {
@@ -31,6 +42,7 @@ public final class GetLifecyclePolicyDocumentRuleAction extends com.pulumi.resou
     private GetLifecyclePolicyDocumentRuleAction() {}
 
     private GetLifecyclePolicyDocumentRuleAction(GetLifecyclePolicyDocumentRuleAction $) {
+        this.targetStorageClass = $.targetStorageClass;
         this.type = $.type;
     }
 
@@ -52,8 +64,14 @@ public final class GetLifecyclePolicyDocumentRuleAction extends com.pulumi.resou
             $ = new GetLifecyclePolicyDocumentRuleAction(Objects.requireNonNull(defaults));
         }
 
+        public Builder targetStorageClass(@Nullable String targetStorageClass) {
+            $.targetStorageClass = targetStorageClass;
+            return this;
+        }
+
         /**
-         * @param type The supported value is `expire`.
+         * @param type Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+         * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
          * 
          * @return builder
          * 

@@ -19,6 +19,18 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<int>? BytesScannedCutoffPerQuery { get; set; }
 
         /// <summary>
+        /// Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+        /// </summary>
+        [Input("customerContentEncryptionConfiguration")]
+        public Input<Inputs.WorkgroupConfigurationCustomerContentEncryptionConfigurationGetArgs>? CustomerContentEncryptionConfiguration { get; set; }
+
+        /// <summary>
+        /// Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
+        /// </summary>
+        [Input("enableMinimumEncryptionConfiguration")]
+        public Input<bool>? EnableMinimumEncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `True`.
         /// </summary>
         [Input("enforceWorkgroupConfiguration")]
@@ -47,6 +59,12 @@ namespace Pulumi.Aws.Athena.Inputs
         /// </summary>
         [Input("managedQueryResultsConfiguration")]
         public Input<Inputs.WorkgroupConfigurationManagedQueryResultsConfigurationGetArgs>? ManagedQueryResultsConfiguration { get; set; }
+
+        /// <summary>
+        /// Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
+        /// </summary>
+        [Input("monitoringConfiguration")]
+        public Input<Inputs.WorkgroupConfigurationMonitoringConfigurationGetArgs>? MonitoringConfiguration { get; set; }
 
         /// <summary>
         /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `True`.

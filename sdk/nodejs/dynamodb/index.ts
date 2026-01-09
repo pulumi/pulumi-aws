@@ -26,6 +26,11 @@ export const getTables: typeof import("./getTables").getTables = null as any;
 export const getTablesOutput: typeof import("./getTables").getTablesOutput = null as any;
 utilities.lazyLoad(exports, ["getTables","getTablesOutput"], () => require("./getTables"));
 
+export { GlobalSecondaryIndexArgs, GlobalSecondaryIndexState } from "./globalSecondaryIndex";
+export type GlobalSecondaryIndex = import("./globalSecondaryIndex").GlobalSecondaryIndex;
+export const GlobalSecondaryIndex: typeof import("./globalSecondaryIndex").GlobalSecondaryIndex = null as any;
+utilities.lazyLoad(exports, ["GlobalSecondaryIndex"], () => require("./globalSecondaryIndex"));
+
 export { GlobalTableArgs, GlobalTableState } from "./globalTable";
 export type GlobalTable = import("./globalTable").GlobalTable;
 export const GlobalTable: typeof import("./globalTable").GlobalTable = null as any;
@@ -73,6 +78,8 @@ const _module = {
         switch (type) {
             case "aws:dynamodb/contributorInsights:ContributorInsights":
                 return new ContributorInsights(name, <any>undefined, { urn })
+            case "aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex":
+                return new GlobalSecondaryIndex(name, <any>undefined, { urn })
             case "aws:dynamodb/globalTable:GlobalTable":
                 return new GlobalTable(name, <any>undefined, { urn })
             case "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination":
@@ -95,6 +102,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "dynamodb/contributorInsights", _module)
+pulumi.runtime.registerResourceModule("aws", "dynamodb/globalSecondaryIndex", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/globalTable", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/kinesisStreamingDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/resourcePolicy", _module)

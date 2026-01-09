@@ -18,14 +18,14 @@ public final class ResolverFirewallRuleArgs extends com.pulumi.resources.Resourc
     public static final ResolverFirewallRuleArgs Empty = new ResolverFirewallRuleArgs();
 
     /**
-     * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+     * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+     * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
      * 
      */
     public Output<String> action() {
@@ -93,18 +93,48 @@ public final class ResolverFirewallRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ID of the domain list that you want to use in the rule.
+     * The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
      * 
      */
-    @Import(name="firewallDomainListId", required=true)
-    private Output<String> firewallDomainListId;
+    @Import(name="confidenceThreshold")
+    private @Nullable Output<String> confidenceThreshold;
 
     /**
-     * @return The ID of the domain list that you want to use in the rule.
+     * @return The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
      * 
      */
-    public Output<String> firewallDomainListId() {
-        return this.firewallDomainListId;
+    public Optional<Output<String>> confidenceThreshold() {
+        return Optional.ofNullable(this.confidenceThreshold);
+    }
+
+    /**
+     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+     * 
+     */
+    @Import(name="dnsThreatProtection")
+    private @Nullable Output<String> dnsThreatProtection;
+
+    /**
+     * @return The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+     * 
+     */
+    public Optional<Output<String>> dnsThreatProtection() {
+        return Optional.ofNullable(this.dnsThreatProtection);
+    }
+
+    /**
+     * The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
+     * 
+     */
+    @Import(name="firewallDomainListId")
+    private @Nullable Output<String> firewallDomainListId;
+
+    /**
+     * @return The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
+     * 
+     */
+    public Optional<Output<String>> firewallDomainListId() {
+        return Optional.ofNullable(this.firewallDomainListId);
     }
 
     /**
@@ -205,6 +235,8 @@ public final class ResolverFirewallRuleArgs extends com.pulumi.resources.Resourc
         this.blockOverrideDomain = $.blockOverrideDomain;
         this.blockOverrideTtl = $.blockOverrideTtl;
         this.blockResponse = $.blockResponse;
+        this.confidenceThreshold = $.confidenceThreshold;
+        this.dnsThreatProtection = $.dnsThreatProtection;
         this.firewallDomainListId = $.firewallDomainListId;
         this.firewallDomainRedirectionAction = $.firewallDomainRedirectionAction;
         this.firewallRuleGroupId = $.firewallRuleGroupId;
@@ -233,7 +265,7 @@ public final class ResolverFirewallRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param action The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+         * @param action The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
          * 
          * @return builder
          * 
@@ -244,7 +276,7 @@ public final class ResolverFirewallRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param action The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+         * @param action The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
          * 
          * @return builder
          * 
@@ -338,18 +370,60 @@ public final class ResolverFirewallRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param firewallDomainListId The ID of the domain list that you want to use in the rule.
+         * @param confidenceThreshold The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
          * 
          * @return builder
          * 
          */
-        public Builder firewallDomainListId(Output<String> firewallDomainListId) {
+        public Builder confidenceThreshold(@Nullable Output<String> confidenceThreshold) {
+            $.confidenceThreshold = confidenceThreshold;
+            return this;
+        }
+
+        /**
+         * @param confidenceThreshold The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder confidenceThreshold(String confidenceThreshold) {
+            return confidenceThreshold(Output.of(confidenceThreshold));
+        }
+
+        /**
+         * @param dnsThreatProtection The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsThreatProtection(@Nullable Output<String> dnsThreatProtection) {
+            $.dnsThreatProtection = dnsThreatProtection;
+            return this;
+        }
+
+        /**
+         * @param dnsThreatProtection The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsThreatProtection(String dnsThreatProtection) {
+            return dnsThreatProtection(Output.of(dnsThreatProtection));
+        }
+
+        /**
+         * @param firewallDomainListId The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder firewallDomainListId(@Nullable Output<String> firewallDomainListId) {
             $.firewallDomainListId = firewallDomainListId;
             return this;
         }
 
         /**
-         * @param firewallDomainListId The ID of the domain list that you want to use in the rule.
+         * @param firewallDomainListId The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
          * 
          * @return builder
          * 
@@ -487,9 +561,6 @@ public final class ResolverFirewallRuleArgs extends com.pulumi.resources.Resourc
         public ResolverFirewallRuleArgs build() {
             if ($.action == null) {
                 throw new MissingRequiredPropertyException("ResolverFirewallRuleArgs", "action");
-            }
-            if ($.firewallDomainListId == null) {
-                throw new MissingRequiredPropertyException("ResolverFirewallRuleArgs", "firewallDomainListId");
             }
             if ($.firewallRuleGroupId == null) {
                 throw new MissingRequiredPropertyException("ResolverFirewallRuleArgs", "firewallRuleGroupId");

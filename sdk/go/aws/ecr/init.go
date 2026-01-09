@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LifecyclePolicy{}
 	case "aws:ecr/pullThroughCacheRule:PullThroughCacheRule":
 		r = &PullThroughCacheRule{}
+	case "aws:ecr/pullTimeUpdateExclusion:PullTimeUpdateExclusion":
+		r = &PullTimeUpdateExclusion{}
 	case "aws:ecr/registryPolicy:RegistryPolicy":
 		r = &RegistryPolicy{}
 	case "aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration":
@@ -65,6 +67,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ecr/pullThroughCacheRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ecr/pullTimeUpdateExclusion",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

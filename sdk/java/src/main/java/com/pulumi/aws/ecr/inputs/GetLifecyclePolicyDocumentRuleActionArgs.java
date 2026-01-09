@@ -8,21 +8,32 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetLifecyclePolicyDocumentRuleActionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GetLifecyclePolicyDocumentRuleActionArgs Empty = new GetLifecyclePolicyDocumentRuleActionArgs();
 
+    @Import(name="targetStorageClass")
+    private @Nullable Output<String> targetStorageClass;
+
+    public Optional<Output<String>> targetStorageClass() {
+        return Optional.ofNullable(this.targetStorageClass);
+    }
+
     /**
-     * The supported value is `expire`.
+     * Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The supported value is `expire`.
+     * @return Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
      * 
      */
     public Output<String> type() {
@@ -32,6 +43,7 @@ public final class GetLifecyclePolicyDocumentRuleActionArgs extends com.pulumi.r
     private GetLifecyclePolicyDocumentRuleActionArgs() {}
 
     private GetLifecyclePolicyDocumentRuleActionArgs(GetLifecyclePolicyDocumentRuleActionArgs $) {
+        this.targetStorageClass = $.targetStorageClass;
         this.type = $.type;
     }
 
@@ -53,8 +65,18 @@ public final class GetLifecyclePolicyDocumentRuleActionArgs extends com.pulumi.r
             $ = new GetLifecyclePolicyDocumentRuleActionArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder targetStorageClass(@Nullable Output<String> targetStorageClass) {
+            $.targetStorageClass = targetStorageClass;
+            return this;
+        }
+
+        public Builder targetStorageClass(String targetStorageClass) {
+            return targetStorageClass(Output.of(targetStorageClass));
+        }
+
         /**
-         * @param type The supported value is `expire`.
+         * @param type Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+         * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
          * 
          * @return builder
          * 
@@ -65,7 +87,8 @@ public final class GetLifecyclePolicyDocumentRuleActionArgs extends com.pulumi.r
         }
 
         /**
-         * @param type The supported value is `expire`.
+         * @param type Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+         * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
          * 
          * @return builder
          * 

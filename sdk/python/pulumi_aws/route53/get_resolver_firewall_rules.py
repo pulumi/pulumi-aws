@@ -50,11 +50,17 @@ class GetResolverFirewallRulesResult:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[_builtins.str]:
+        """
+        The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule.
+        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> _builtins.str:
+        """
+        The unique identifier of the firewall rule group.
+        """
         return pulumi.get(self, "firewall_rule_group_id")
 
     @_builtins.property
@@ -76,6 +82,9 @@ class GetResolverFirewallRulesResult:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> Optional[_builtins.int]:
+        """
+        The priority of the rule in the rule group.
+        """
         return pulumi.get(self, "priority")
 
     @_builtins.property

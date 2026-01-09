@@ -113,7 +113,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
     }
 
     /**
-     * Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+     * Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
      */
     declare public readonly appliedFors: pulumi.Output<string[]>;
     /**
@@ -214,7 +214,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
  */
 export interface RepositoryCreationTemplateState {
     /**
-     * Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+     * Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
      */
     appliedFors?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -265,7 +265,7 @@ export interface RepositoryCreationTemplateState {
  */
 export interface RepositoryCreationTemplateArgs {
     /**
-     * Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+     * Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
      */
     appliedFors: pulumi.Input<pulumi.Input<string>[]>;
     /**

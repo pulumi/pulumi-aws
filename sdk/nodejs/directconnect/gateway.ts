@@ -81,6 +81,14 @@ export class Gateway extends pulumi.CustomResource {
      * AWS Account ID of the gateway.
      */
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -99,6 +107,8 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["name"] = state?.name;
             resourceInputs["ownerAccountId"] = state?.ownerAccountId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
             if (args?.amazonSideAsn === undefined && !opts.urn) {
@@ -106,8 +116,10 @@ export class Gateway extends pulumi.CustomResource {
             }
             resourceInputs["amazonSideAsn"] = args?.amazonSideAsn;
             resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
@@ -134,6 +146,14 @@ export interface GatewayState {
      * AWS Account ID of the gateway.
      */
     ownerAccountId?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -148,4 +168,8 @@ export interface GatewayArgs {
      * The name of the connection.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -302,7 +302,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     declare public readonly family: pulumi.Output<string>;
     /**
-     * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     * IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
      */
     declare public readonly ipcMode: pulumi.Output<string | undefined>;
     /**
@@ -310,11 +310,11 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     declare public readonly memory: pulumi.Output<string | undefined>;
     /**
-     * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+     * Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
      */
     declare public readonly networkMode: pulumi.Output<string>;
     /**
-     * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     * Process namespace to use for the containers in the task. Valid values: host`, `task`.
      */
     declare public readonly pidMode: pulumi.Output<string | undefined>;
     /**
@@ -330,7 +330,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+     * Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
      */
     declare public readonly requiresCompatibilities: pulumi.Output<string[] | undefined>;
     /**
@@ -484,7 +484,7 @@ export interface TaskDefinitionState {
      */
     family?: pulumi.Input<string>;
     /**
-     * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     * IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
      */
     ipcMode?: pulumi.Input<string>;
     /**
@@ -492,11 +492,11 @@ export interface TaskDefinitionState {
      */
     memory?: pulumi.Input<string>;
     /**
-     * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+     * Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
      */
     networkMode?: pulumi.Input<string>;
     /**
-     * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     * Process namespace to use for the containers in the task. Valid values: host`, `task`.
      */
     pidMode?: pulumi.Input<string>;
     /**
@@ -512,7 +512,7 @@ export interface TaskDefinitionState {
      */
     region?: pulumi.Input<string>;
     /**
-     * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+     * Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
      */
     requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -584,7 +584,7 @@ export interface TaskDefinitionArgs {
      */
     family: pulumi.Input<string>;
     /**
-     * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     * IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
      */
     ipcMode?: pulumi.Input<string>;
     /**
@@ -592,11 +592,11 @@ export interface TaskDefinitionArgs {
      */
     memory?: pulumi.Input<string>;
     /**
-     * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+     * Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
      */
     networkMode?: pulumi.Input<string>;
     /**
-     * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     * Process namespace to use for the containers in the task. Valid values: host`, `task`.
      */
     pidMode?: pulumi.Input<string>;
     /**
@@ -612,7 +612,7 @@ export interface TaskDefinitionArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+     * Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
      */
     requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**

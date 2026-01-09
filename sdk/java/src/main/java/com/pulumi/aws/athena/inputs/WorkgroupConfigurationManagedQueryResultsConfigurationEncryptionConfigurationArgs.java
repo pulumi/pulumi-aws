@@ -15,17 +15,9 @@ public final class WorkgroupConfigurationManagedQueryResultsConfigurationEncrypt
 
     public static final WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs Empty = new WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs();
 
-    /**
-     * KMS key ARN for encrypting managed query results.
-     * 
-     */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
-    /**
-     * @return KMS key ARN for encrypting managed query results.
-     * 
-     */
     public Optional<Output<String>> kmsKey() {
         return Optional.ofNullable(this.kmsKey);
     }
@@ -54,23 +46,11 @@ public final class WorkgroupConfigurationManagedQueryResultsConfigurationEncrypt
             $ = new WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKey KMS key ARN for encrypting managed query results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(@Nullable Output<String> kmsKey) {
             $.kmsKey = kmsKey;
             return this;
         }
 
-        /**
-         * @param kmsKey KMS key ARN for encrypting managed query results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(String kmsKey) {
             return kmsKey(Output.of(kmsKey));
         }

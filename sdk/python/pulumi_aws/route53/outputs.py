@@ -50,6 +50,7 @@ __all__ = [
     'GetRecordsResourceRecordSetResourceRecordResult',
     'GetResolverEndpointFilterResult',
     'GetResolverFirewallRulesFirewallRuleResult',
+    'GetResolverRuleTargetIpResult',
     'GetTrafficPolicyDocumentEndpointResult',
     'GetTrafficPolicyDocumentRuleResult',
     'GetTrafficPolicyDocumentRuleGeoProximityLocationResult',
@@ -1703,39 +1704,54 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
                  block_override_domain: _builtins.str,
                  block_override_ttl: _builtins.int,
                  block_response: _builtins.str,
+                 confidence_threshold: _builtins.str,
                  creation_time: _builtins.str,
                  creator_request_id: _builtins.str,
+                 dns_threat_protection: _builtins.str,
                  firewall_domain_list_id: _builtins.str,
+                 firewall_domain_redirection_action: _builtins.str,
                  firewall_rule_group_id: _builtins.str,
+                 firewall_threat_protection_id: _builtins.str,
                  modification_time: _builtins.str,
                  name: _builtins.str,
-                 priority: _builtins.int):
+                 priority: _builtins.int,
+                 q_type: _builtins.str):
         """
         :param _builtins.str action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
         :param _builtins.str block_override_dns_type: The DNS record's type.
         :param _builtins.str block_override_domain: The custom DNS record to send back in response to the query.
         :param _builtins.int block_override_ttl: The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
         :param _builtins.str block_response: The way that you want DNS Firewall to block the request.
+        :param _builtins.str confidence_threshold: The confidence threshold for DNS Firewall Advanced rules.
         :param _builtins.str creation_time: The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
         :param _builtins.str creator_request_id: A unique string defined by you to identify the request.
+        :param _builtins.str dns_threat_protection: The type of DNS Firewall Advanced rule.
         :param _builtins.str firewall_domain_list_id: The ID of the domain list that's used in the rule.
+        :param _builtins.str firewall_domain_redirection_action: How DNS Firewall evaluates DNS redirection in the DNS redirection chain.
         :param _builtins.str firewall_rule_group_id: The unique identifier of the firewall rule group that you want to retrieve the rules for.
+        :param _builtins.str firewall_threat_protection_id: The ID of the DNS Firewall Advanced rule.
         :param _builtins.str modification_time: The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
         :param _builtins.str name: The name of the rule.
         :param _builtins.int priority: The setting that determines the processing order of the rules in a rule group.
+        :param _builtins.str q_type: The DNS query type that the rule evaluates.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "block_override_dns_type", block_override_dns_type)
         pulumi.set(__self__, "block_override_domain", block_override_domain)
         pulumi.set(__self__, "block_override_ttl", block_override_ttl)
         pulumi.set(__self__, "block_response", block_response)
+        pulumi.set(__self__, "confidence_threshold", confidence_threshold)
         pulumi.set(__self__, "creation_time", creation_time)
         pulumi.set(__self__, "creator_request_id", creator_request_id)
+        pulumi.set(__self__, "dns_threat_protection", dns_threat_protection)
         pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
+        pulumi.set(__self__, "firewall_domain_redirection_action", firewall_domain_redirection_action)
         pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
+        pulumi.set(__self__, "firewall_threat_protection_id", firewall_threat_protection_id)
         pulumi.set(__self__, "modification_time", modification_time)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "q_type", q_type)
 
     @_builtins.property
     @pulumi.getter
@@ -1778,6 +1794,14 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
         return pulumi.get(self, "block_response")
 
     @_builtins.property
+    @pulumi.getter(name="confidenceThreshold")
+    def confidence_threshold(self) -> _builtins.str:
+        """
+        The confidence threshold for DNS Firewall Advanced rules.
+        """
+        return pulumi.get(self, "confidence_threshold")
+
+    @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
         """
@@ -1794,6 +1818,14 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
         return pulumi.get(self, "creator_request_id")
 
     @_builtins.property
+    @pulumi.getter(name="dnsThreatProtection")
+    def dns_threat_protection(self) -> _builtins.str:
+        """
+        The type of DNS Firewall Advanced rule.
+        """
+        return pulumi.get(self, "dns_threat_protection")
+
+    @_builtins.property
     @pulumi.getter(name="firewallDomainListId")
     def firewall_domain_list_id(self) -> _builtins.str:
         """
@@ -1802,12 +1834,28 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
         return pulumi.get(self, "firewall_domain_list_id")
 
     @_builtins.property
+    @pulumi.getter(name="firewallDomainRedirectionAction")
+    def firewall_domain_redirection_action(self) -> _builtins.str:
+        """
+        How DNS Firewall evaluates DNS redirection in the DNS redirection chain.
+        """
+        return pulumi.get(self, "firewall_domain_redirection_action")
+
+    @_builtins.property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> _builtins.str:
         """
         The unique identifier of the firewall rule group that you want to retrieve the rules for.
         """
         return pulumi.get(self, "firewall_rule_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="firewallThreatProtectionId")
+    def firewall_threat_protection_id(self) -> _builtins.str:
+        """
+        The ID of the DNS Firewall Advanced rule.
+        """
+        return pulumi.get(self, "firewall_threat_protection_id")
 
     @_builtins.property
     @pulumi.getter(name="modificationTime")
@@ -1832,6 +1880,65 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
         The setting that determines the processing order of the rules in a rule group.
         """
         return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter(name="qType")
+    def q_type(self) -> _builtins.str:
+        """
+        The DNS query type that the rule evaluates.
+        """
+        return pulumi.get(self, "q_type")
+
+
+@pulumi.output_type
+class GetResolverRuleTargetIpResult(dict):
+    def __init__(__self__, *,
+                 ip: _builtins.str,
+                 ipv6: _builtins.str,
+                 port: _builtins.int,
+                 protocol: _builtins.str):
+        """
+        :param _builtins.str ip: IPv4 address that you want to forward DNS queries to.
+        :param _builtins.str ipv6: IPv6 address that you want to forward DNS queries to.
+        :param _builtins.int port: Port at the IP address that you want to forward DNS queries to.
+        :param _builtins.str protocol: Protocol for the target IP address. Valid values are `Do53` (DNS over port 53), `DoH` (DNS over HTTPS), and `DoH-FIPS` (DNS over HTTPS with FIPS).
+        """
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "ipv6", ipv6)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @_builtins.property
+    @pulumi.getter
+    def ip(self) -> _builtins.str:
+        """
+        IPv4 address that you want to forward DNS queries to.
+        """
+        return pulumi.get(self, "ip")
+
+    @_builtins.property
+    @pulumi.getter
+    def ipv6(self) -> _builtins.str:
+        """
+        IPv6 address that you want to forward DNS queries to.
+        """
+        return pulumi.get(self, "ipv6")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        Port at the IP address that you want to forward DNS queries to.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> _builtins.str:
+        """
+        Protocol for the target IP address. Valid values are `Do53` (DNS over port 53), `DoH` (DNS over HTTPS), and `DoH-FIPS` (DNS over HTTPS with FIPS).
+        """
+        return pulumi.get(self, "protocol")
 
 
 @pulumi.output_type

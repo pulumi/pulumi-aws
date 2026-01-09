@@ -38,9 +38,17 @@ namespace Pulumi.Aws.GuardDuty.Outputs
         /// </summary>
         public readonly string? LessThanOrEqual;
         /// <summary>
+        /// List of string values to be evaluated as matching conditions.
+        /// </summary>
+        public readonly ImmutableArray<string> Matches;
+        /// <summary>
         /// List of string values to be evaluated.
         /// </summary>
         public readonly ImmutableArray<string> NotEquals;
+        /// <summary>
+        /// List of string values to be evaluated as non-matching conditions.
+        /// </summary>
+        public readonly ImmutableArray<string> NotMatches;
 
         [OutputConstructor]
         private FilterFindingCriteriaCriterion(
@@ -56,7 +64,11 @@ namespace Pulumi.Aws.GuardDuty.Outputs
 
             string? lessThanOrEqual,
 
-            ImmutableArray<string> notEquals)
+            ImmutableArray<string> matches,
+
+            ImmutableArray<string> notEquals,
+
+            ImmutableArray<string> notMatches)
         {
             Equals = equals;
             Field = field;
@@ -64,7 +76,9 @@ namespace Pulumi.Aws.GuardDuty.Outputs
             GreaterThanOrEqual = greaterThanOrEqual;
             LessThan = lessThan;
             LessThanOrEqual = lessThanOrEqual;
+            Matches = matches;
             NotEquals = notEquals;
+            NotMatches = notMatches;
         }
     }
 }

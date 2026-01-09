@@ -347,9 +347,17 @@ public class AgentcoreMemoryStrategy extends com.pulumi.resources.CustomResource
     public Output<String> memoryId() {
         return this.memoryId;
     }
+    /**
+     * Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+     * 
+     */
     @Export(name="memoryStrategyId", refs={String.class}, tree="[0]")
     private Output<String> memoryStrategyId;
 
+    /**
+     * @return Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+     * 
+     */
     public Output<String> memoryStrategyId() {
         return this.memoryStrategyId;
     }

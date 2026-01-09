@@ -6,6 +6,7 @@ package com.pulumi.aws.directconnect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -31,6 +32,11 @@ public final class GetGatewayResult {
      * 
      */
     private String ownerAccountId;
+    /**
+     * @return A map of tags assigned to the gateway.
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetGatewayResult() {}
     /**
@@ -64,6 +70,13 @@ public final class GetGatewayResult {
     public String ownerAccountId() {
         return this.ownerAccountId;
     }
+    /**
+     * @return A map of tags assigned to the gateway.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -79,6 +92,7 @@ public final class GetGatewayResult {
         private String id;
         private String name;
         private String ownerAccountId;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -87,6 +101,7 @@ public final class GetGatewayResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.ownerAccountId = defaults.ownerAccountId;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -129,6 +144,14 @@ public final class GetGatewayResult {
             this.ownerAccountId = ownerAccountId;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetGatewayResult build() {
             final var _resultValue = new GetGatewayResult();
             _resultValue.amazonSideAsn = amazonSideAsn;
@@ -136,6 +159,7 @@ public final class GetGatewayResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.ownerAccountId = ownerAccountId;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

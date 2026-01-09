@@ -6,7 +6,7 @@ Subject: [PATCH] Adding APN 1.1 marketplace identifier to User Agent request
 
 
 diff --git a/internal/conns/config.go b/internal/conns/config.go
-index 7a8c75cf10d..21ce78cc98a 100644
+index fdd8aa969f3..8686e60d977 100644
 --- a/internal/conns/config.go
 +++ b/internal/conns/config.go
 @@ -82,6 +82,7 @@ func (c *Config) ConfigureProvider(ctx context.Context, client *AWSClient) (*AWS

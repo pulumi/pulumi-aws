@@ -52,6 +52,7 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 			`"plantimestamp()"`,
 		),
 		simpleReplace("Read more about sensitive data in state.\n\n", ""),
+		simpleReplace("In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:\n", ""),
 		reReplace(`(?m)^(\s*)Terraform resource `, "${1}Resource "),
 		reReplace(`(?m)^(\s*)Terraform data source `, "${1}Data source "),
 

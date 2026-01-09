@@ -554,14 +554,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return this.family;
     }
     /**
-     * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     * IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
      * 
      */
     @Export(name="ipcMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipcMode;
 
     /**
-     * @return IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     * @return IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
      * 
      */
     public Output<Optional<String>> ipcMode() {
@@ -582,28 +582,28 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.memory);
     }
     /**
-     * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+     * Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
      * 
      */
     @Export(name="networkMode", refs={String.class}, tree="[0]")
     private Output<String> networkMode;
 
     /**
-     * @return Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+     * @return Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
      * 
      */
     public Output<String> networkMode() {
         return this.networkMode;
     }
     /**
-     * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     * Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
      * 
      */
     @Export(name="pidMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pidMode;
 
     /**
-     * @return Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     * @return Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
      * 
      */
     public Output<Optional<String>> pidMode() {
@@ -652,14 +652,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+     * Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
      * 
      */
     @Export(name="requiresCompatibilities", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> requiresCompatibilities;
 
     /**
-     * @return Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+     * @return Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
      * 
      */
     public Output<Optional<List<String>>> requiresCompatibilities() {

@@ -93,6 +93,18 @@ namespace Pulumi.Aws.DirectConnect
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the gateway.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetGatewayArgs()
         {
         }
@@ -106,6 +118,18 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the gateway.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetGatewayInvokeArgs()
         {
@@ -134,6 +158,10 @@ namespace Pulumi.Aws.DirectConnect
         /// AWS Account ID of the gateway.
         /// </summary>
         public readonly string OwnerAccountId;
+        /// <summary>
+        /// A map of tags assigned to the gateway.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetGatewayResult(
@@ -145,13 +173,16 @@ namespace Pulumi.Aws.DirectConnect
 
             string name,
 
-            string ownerAccountId)
+            string ownerAccountId,
+
+            ImmutableDictionary<string, string> tags)
         {
             AmazonSideAsn = amazonSideAsn;
             Arn = arn;
             Id = id;
             Name = name;
             OwnerAccountId = ownerAccountId;
+            Tags = tags;
         }
     }
 }

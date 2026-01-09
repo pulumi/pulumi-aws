@@ -44,10 +44,20 @@ public final class FilterFindingCriteriaCriterion {
      */
     private @Nullable String lessThanOrEqual;
     /**
+     * @return List of string values to be evaluated as matching conditions.
+     * 
+     */
+    private @Nullable List<String> matches;
+    /**
      * @return List of string values to be evaluated.
      * 
      */
     private @Nullable List<String> notEquals;
+    /**
+     * @return List of string values to be evaluated as non-matching conditions.
+     * 
+     */
+    private @Nullable List<String> notMatches;
 
     private FilterFindingCriteriaCriterion() {}
     /**
@@ -93,11 +103,25 @@ public final class FilterFindingCriteriaCriterion {
         return Optional.ofNullable(this.lessThanOrEqual);
     }
     /**
+     * @return List of string values to be evaluated as matching conditions.
+     * 
+     */
+    public List<String> matches() {
+        return this.matches == null ? List.of() : this.matches;
+    }
+    /**
      * @return List of string values to be evaluated.
      * 
      */
     public List<String> notEquals() {
         return this.notEquals == null ? List.of() : this.notEquals;
+    }
+    /**
+     * @return List of string values to be evaluated as non-matching conditions.
+     * 
+     */
+    public List<String> notMatches() {
+        return this.notMatches == null ? List.of() : this.notMatches;
     }
 
     public static Builder builder() {
@@ -115,7 +139,9 @@ public final class FilterFindingCriteriaCriterion {
         private @Nullable String greaterThanOrEqual;
         private @Nullable String lessThan;
         private @Nullable String lessThanOrEqual;
+        private @Nullable List<String> matches;
         private @Nullable List<String> notEquals;
+        private @Nullable List<String> notMatches;
         public Builder() {}
         public Builder(FilterFindingCriteriaCriterion defaults) {
     	      Objects.requireNonNull(defaults);
@@ -125,7 +151,9 @@ public final class FilterFindingCriteriaCriterion {
     	      this.greaterThanOrEqual = defaults.greaterThanOrEqual;
     	      this.lessThan = defaults.lessThan;
     	      this.lessThanOrEqual = defaults.lessThanOrEqual;
+    	      this.matches = defaults.matches;
     	      this.notEquals = defaults.notEquals;
+    	      this.notMatches = defaults.notMatches;
         }
 
         @CustomType.Setter("equals")
@@ -170,6 +198,15 @@ public final class FilterFindingCriteriaCriterion {
             return this;
         }
         @CustomType.Setter
+        public Builder matches(@Nullable List<String> matches) {
+
+            this.matches = matches;
+            return this;
+        }
+        public Builder matches(String... matches) {
+            return matches(List.of(matches));
+        }
+        @CustomType.Setter
         public Builder notEquals(@Nullable List<String> notEquals) {
 
             this.notEquals = notEquals;
@@ -177,6 +214,15 @@ public final class FilterFindingCriteriaCriterion {
         }
         public Builder notEquals(String... notEquals) {
             return notEquals(List.of(notEquals));
+        }
+        @CustomType.Setter
+        public Builder notMatches(@Nullable List<String> notMatches) {
+
+            this.notMatches = notMatches;
+            return this;
+        }
+        public Builder notMatches(String... notMatches) {
+            return notMatches(List.of(notMatches));
         }
         public FilterFindingCriteriaCriterion build() {
             final var _resultValue = new FilterFindingCriteriaCriterion();
@@ -186,7 +232,9 @@ public final class FilterFindingCriteriaCriterion {
             _resultValue.greaterThanOrEqual = greaterThanOrEqual;
             _resultValue.lessThan = lessThan;
             _resultValue.lessThanOrEqual = lessThanOrEqual;
+            _resultValue.matches = matches;
             _resultValue.notEquals = notEquals;
+            _resultValue.notMatches = notMatches;
             return _resultValue;
         }
     }

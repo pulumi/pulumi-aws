@@ -7,13 +7,18 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .cache_policy import *
+from .connection_function import *
+from .connection_group import *
 from .continuous_deployment_policy import *
 from .distribution import *
+from .distribution_tenant import *
 from .field_level_encryption_config import *
 from .field_level_encryption_profile import *
 from .function import *
 from .get_cache_policy import *
+from .get_connection_group import *
 from .get_distribution import *
+from .get_distribution_tenant import *
 from .get_function import *
 from .get_log_delivery_canonical_user_id import *
 from .get_origin_access_control import *
@@ -27,6 +32,7 @@ from .key_value_store import *
 from .keyvaluestore_key import *
 from .keyvaluestore_keys_exclusive import *
 from .monitoring_subscription import *
+from .multitenant_distribution import *
 from .origin_access_control import *
 from .origin_access_identity import *
 from .origin_request_policy import *

@@ -164,6 +164,8 @@ type Pipeline struct {
 	//
 	// The following arguments are optional:
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
+	// ARN of the IAM role that grants the pipeline permission to access AWS resources.
+	PipelineRoleArn pulumi.StringOutput `pulumi:"pipelineRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -236,6 +238,8 @@ type pipelineState struct {
 	//
 	// The following arguments are optional:
 	PipelineName *string `pulumi:"pipelineName"`
+	// ARN of the IAM role that grants the pipeline permission to access AWS resources.
+	PipelineRoleArn *string `pulumi:"pipelineRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -267,6 +271,8 @@ type PipelineState struct {
 	//
 	// The following arguments are optional:
 	PipelineName pulumi.StringPtrInput
+	// ARN of the IAM role that grants the pipeline permission to access AWS resources.
+	PipelineRoleArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -298,6 +304,8 @@ type pipelineArgs struct {
 	//
 	// The following arguments are optional:
 	PipelineName string `pulumi:"pipelineName"`
+	// ARN of the IAM role that grants the pipeline permission to access AWS resources.
+	PipelineRoleArn *string `pulumi:"pipelineRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -325,6 +333,8 @@ type PipelineArgs struct {
 	//
 	// The following arguments are optional:
 	PipelineName pulumi.StringInput
+	// ARN of the IAM role that grants the pipeline permission to access AWS resources.
+	PipelineRoleArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -466,6 +476,11 @@ func (o PipelineOutput) PipelineConfigurationBody() pulumi.StringOutput {
 // The following arguments are optional:
 func (o PipelineOutput) PipelineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineName }).(pulumi.StringOutput)
+}
+
+// ARN of the IAM role that grants the pipeline permission to access AWS resources.
+func (o PipelineOutput) PipelineRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineRoleArn }).(pulumi.StringOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

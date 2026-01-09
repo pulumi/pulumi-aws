@@ -32,6 +32,21 @@ public final class DistributionOriginVpcOriginConfigArgs extends com.pulumi.reso
     }
 
     /**
+     * The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+     * 
+     */
+    @Import(name="ownerAccountId")
+    private @Nullable Output<String> ownerAccountId;
+
+    /**
+     * @return The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+     * 
+     */
+    public Optional<Output<String>> ownerAccountId() {
+        return Optional.ofNullable(this.ownerAccountId);
+    }
+
+    /**
      * The VPC origin ID.
      * 
      */
@@ -51,6 +66,7 @@ public final class DistributionOriginVpcOriginConfigArgs extends com.pulumi.reso
     private DistributionOriginVpcOriginConfigArgs(DistributionOriginVpcOriginConfigArgs $) {
         this.originKeepaliveTimeout = $.originKeepaliveTimeout;
         this.originReadTimeout = $.originReadTimeout;
+        this.ownerAccountId = $.ownerAccountId;
         this.vpcOriginId = $.vpcOriginId;
     }
 
@@ -88,6 +104,27 @@ public final class DistributionOriginVpcOriginConfigArgs extends com.pulumi.reso
 
         public Builder originReadTimeout(Integer originReadTimeout) {
             return originReadTimeout(Output.of(originReadTimeout));
+        }
+
+        /**
+         * @param ownerAccountId The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownerAccountId(@Nullable Output<String> ownerAccountId) {
+            $.ownerAccountId = ownerAccountId;
+            return this;
+        }
+
+        /**
+         * @param ownerAccountId The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownerAccountId(String ownerAccountId) {
+            return ownerAccountId(Output.of(ownerAccountId));
         }
 
         /**

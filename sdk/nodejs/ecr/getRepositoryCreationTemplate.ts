@@ -53,7 +53,7 @@ export interface GetRepositoryCreationTemplateArgs {
  */
 export interface GetRepositoryCreationTemplateResult {
     /**
-     * Which features this template applies to. Contains one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+     * Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
      */
     readonly appliedFors: string[];
     /**

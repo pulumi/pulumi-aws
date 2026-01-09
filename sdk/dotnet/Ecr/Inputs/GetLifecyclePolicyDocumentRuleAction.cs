@@ -12,8 +12,12 @@ namespace Pulumi.Aws.Ecr.Inputs
 
     public sealed class GetLifecyclePolicyDocumentRuleActionArgs : global::Pulumi.InvokeArgs
     {
+        [Input("targetStorageClass")]
+        public string? TargetStorageClass { get; set; }
+
         /// <summary>
-        /// The supported value is `Expire`.
+        /// Specify an action type. The supported values are `Expire` (to delete images) and `Transition` (to move images to archive storage).
+        /// * `targetStorageClass` (Required if `Type` is `Transition`) - The storage class you want the lifecycle policy to transition the image to. `Archive` is the only supported value.
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;

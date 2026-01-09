@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Domain List Rule
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -76,9 +78,58 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### DNS Firewall Advanced Rule
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.ResolverFirewallRuleGroup;
+ * import com.pulumi.aws.route53.ResolverFirewallRuleGroupArgs;
+ * import com.pulumi.aws.route53.ResolverFirewallRule;
+ * import com.pulumi.aws.route53.ResolverFirewallRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResolverFirewallRuleGroup("example", ResolverFirewallRuleGroupArgs.builder()
+ *             .name("example")
+ *             .tags(Map.ofEntries(
+ *             ))
+ *             .build());
+ * 
+ *         var exampleResolverFirewallRule = new ResolverFirewallRule("exampleResolverFirewallRule", ResolverFirewallRuleArgs.builder()
+ *             .name("block-dga")
+ *             .action("BLOCK")
+ *             .blockResponse("NODATA")
+ *             .firewallRuleGroupId(example.id())
+ *             .dnsThreatProtection("DGA")
+ *             .confidenceThreshold("HIGH")
+ *             .priority(100)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
- * Using `pulumi import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by &#39;:&#39;. For example:
+ * DNS Firewall Advanced rule:
+ * 
+ * Using `pulumi import`, import Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID (for standard rules) or threat protection ID (for advanced rules) separated by &#39;:&#39;. For example:
  * 
  * ```sh
  * $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
@@ -88,14 +139,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/resolverFirewallRule:ResolverFirewallRule")
 public class ResolverFirewallRule extends com.pulumi.resources.CustomResource {
     /**
-     * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+     * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
      * 
      */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
-     * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+     * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
      * 
      */
     public Output<String> action() {
@@ -158,18 +209,46 @@ public class ResolverFirewallRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.blockResponse);
     }
     /**
-     * The ID of the domain list that you want to use in the rule.
+     * The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
+     * 
+     */
+    @Export(name="confidenceThreshold", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> confidenceThreshold;
+
+    /**
+     * @return The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
+     * 
+     */
+    public Output<Optional<String>> confidenceThreshold() {
+        return Codegen.optional(this.confidenceThreshold);
+    }
+    /**
+     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+     * 
+     */
+    @Export(name="dnsThreatProtection", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> dnsThreatProtection;
+
+    /**
+     * @return The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+     * 
+     */
+    public Output<Optional<String>> dnsThreatProtection() {
+        return Codegen.optional(this.dnsThreatProtection);
+    }
+    /**
+     * The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
      * 
      */
     @Export(name="firewallDomainListId", refs={String.class}, tree="[0]")
-    private Output<String> firewallDomainListId;
+    private Output</* @Nullable */ String> firewallDomainListId;
 
     /**
-     * @return The ID of the domain list that you want to use in the rule.
+     * @return The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
      * 
      */
-    public Output<String> firewallDomainListId() {
-        return this.firewallDomainListId;
+    public Output<Optional<String>> firewallDomainListId() {
+        return Codegen.optional(this.firewallDomainListId);
     }
     /**
      * Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
@@ -198,6 +277,20 @@ public class ResolverFirewallRule extends com.pulumi.resources.CustomResource {
      */
     public Output<String> firewallRuleGroupId() {
         return this.firewallRuleGroupId;
+    }
+    /**
+     * The ID of the DNS Firewall Advanced rule. Only set for DNS Firewall Advanced rules.
+     * 
+     */
+    @Export(name="firewallThreatProtectionId", refs={String.class}, tree="[0]")
+    private Output<String> firewallThreatProtectionId;
+
+    /**
+     * @return The ID of the DNS Firewall Advanced rule. Only set for DNS Firewall Advanced rules.
+     * 
+     */
+    public Output<String> firewallThreatProtectionId() {
+        return this.firewallThreatProtectionId;
     }
     /**
      * A name that lets you identify the rule, to manage and use it.

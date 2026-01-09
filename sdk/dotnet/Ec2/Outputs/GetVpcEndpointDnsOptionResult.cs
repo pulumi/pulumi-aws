@@ -21,15 +21,29 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// Indicates whether to enable private DNS only for inbound endpoints.
         /// </summary>
         public readonly bool PrivateDnsOnlyForInboundResolverEndpoint;
+        /// <summary>
+        /// Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
+        /// </summary>
+        public readonly string PrivateDnsPreference;
+        /// <summary>
+        /// List of private domains to create private hosted zones for and associate with the specified VPC.
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateDnsSpecifiedDomains;
 
         [OutputConstructor]
         private GetVpcEndpointDnsOptionResult(
             string dnsRecordIpType,
 
-            bool privateDnsOnlyForInboundResolverEndpoint)
+            bool privateDnsOnlyForInboundResolverEndpoint,
+
+            string privateDnsPreference,
+
+            ImmutableArray<string> privateDnsSpecifiedDomains)
         {
             DnsRecordIpType = dnsRecordIpType;
             PrivateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
+            PrivateDnsPreference = privateDnsPreference;
+            PrivateDnsSpecifiedDomains = privateDnsSpecifiedDomains;
         }
     }
 }

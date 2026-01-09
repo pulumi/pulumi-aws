@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .vpcId(exampleAwsVpc.id())
  *             .subnetMapping(VpcEndpointAssociationSubnetMappingArgs.builder()
- *                 .subnetId(exampleTwo.id())
+ *                 .subnetId(exampleAwsSubnet.id())
  *                 .build())
  *             .tags(Map.of("Name", "example endpoint"))
  *             .build());

@@ -27,6 +27,7 @@ class DomainNameArgs:
                  certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
                  certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
                  certificate_private_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -44,6 +45,7 @@ class DomainNameArgs:
         :param pulumi.Input[_builtins.str] certificate_chain: Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         :param pulumi.Input[_builtins.str] certificate_name: Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
         :param pulumi.Input[_builtins.str] certificate_private_key: Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
+        :param pulumi.Input[_builtins.str] endpoint_access_mode: Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
         :param pulumi.Input['DomainNameEndpointConfigurationArgs'] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
         :param pulumi.Input[_builtins.str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
@@ -53,7 +55,7 @@ class DomainNameArgs:
                
                When uploading a certificate, the following arguments are supported:
         :param pulumi.Input[_builtins.str] regional_certificate_name: User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
-        :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+        :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                When referencing an AWS-managed certificate, the following arguments are supported:
@@ -69,6 +71,8 @@ class DomainNameArgs:
             pulumi.set(__self__, "certificate_name", certificate_name)
         if certificate_private_key is not None:
             pulumi.set(__self__, "certificate_private_key", certificate_private_key)
+        if endpoint_access_mode is not None:
+            pulumi.set(__self__, "endpoint_access_mode", endpoint_access_mode)
         if endpoint_configuration is not None:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if mutual_tls_authentication is not None:
@@ -161,6 +165,18 @@ class DomainNameArgs:
         pulumi.set(self, "certificate_private_key", value)
 
     @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
+
+    @endpoint_access_mode.setter
+    def endpoint_access_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "endpoint_access_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']]:
         """
@@ -250,7 +266,7 @@ class DomainNameArgs:
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+        Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         """
         return pulumi.get(self, "security_policy")
 
@@ -287,6 +303,7 @@ class _DomainNameState:
                  cloudfront_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_name_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -312,6 +329,7 @@ class _DomainNameState:
         :param pulumi.Input[_builtins.str] cloudfront_zone_id: For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         :param pulumi.Input[_builtins.str] domain_name: Fully-qualified domain name to register.
         :param pulumi.Input[_builtins.str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+        :param pulumi.Input[_builtins.str] endpoint_access_mode: Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
         :param pulumi.Input['DomainNameEndpointConfigurationArgs'] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
         :param pulumi.Input[_builtins.str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
@@ -323,7 +341,7 @@ class _DomainNameState:
         :param pulumi.Input[_builtins.str] regional_certificate_name: User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         :param pulumi.Input[_builtins.str] regional_domain_name: Hostname for the custom domain's regional endpoint.
         :param pulumi.Input[_builtins.str] regional_zone_id: Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-        :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+        :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                When referencing an AWS-managed certificate, the following arguments are supported:
@@ -351,6 +369,8 @@ class _DomainNameState:
             pulumi.set(__self__, "domain_name", domain_name)
         if domain_name_id is not None:
             pulumi.set(__self__, "domain_name_id", domain_name_id)
+        if endpoint_access_mode is not None:
+            pulumi.set(__self__, "endpoint_access_mode", endpoint_access_mode)
         if endpoint_configuration is not None:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if mutual_tls_authentication is not None:
@@ -509,6 +529,18 @@ class _DomainNameState:
         pulumi.set(self, "domain_name_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
+
+    @endpoint_access_mode.setter
+    def endpoint_access_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "endpoint_access_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']]:
         """
@@ -622,7 +654,7 @@ class _DomainNameState:
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+        Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         """
         return pulumi.get(self, "security_policy")
 
@@ -669,6 +701,7 @@ class DomainName(pulumi.CustomResource):
                  certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
                  certificate_private_key: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -756,6 +789,22 @@ class DomainName(pulumi.CustomResource):
             }])
         ```
 
+        ### Enhanced Security Policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigateway.DomainName("example",
+            domain_name="api.example.com",
+            regional_certificate_arn=example_aws_acm_certificate_validation["certificateArn"],
+            security_policy="SecurityPolicy_TLS13_1_3_2025_09",
+            endpoint_access_mode="STRICT",
+            endpoint_configuration={
+                "types": "REGIONAL",
+            })
+        ```
+
         ## Import
 
         For a private custom domain name:
@@ -779,6 +828,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] certificate_name: Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
         :param pulumi.Input[_builtins.str] certificate_private_key: Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         :param pulumi.Input[_builtins.str] domain_name: Fully-qualified domain name to register.
+        :param pulumi.Input[_builtins.str] endpoint_access_mode: Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
         :param pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
         :param pulumi.Input[_builtins.str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
@@ -788,7 +838,7 @@ class DomainName(pulumi.CustomResource):
                
                When uploading a certificate, the following arguments are supported:
         :param pulumi.Input[_builtins.str] regional_certificate_name: User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
-        :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+        :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                When referencing an AWS-managed certificate, the following arguments are supported:
@@ -876,6 +926,22 @@ class DomainName(pulumi.CustomResource):
             }])
         ```
 
+        ### Enhanced Security Policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigateway.DomainName("example",
+            domain_name="api.example.com",
+            regional_certificate_arn=example_aws_acm_certificate_validation["certificateArn"],
+            security_policy="SecurityPolicy_TLS13_1_3_2025_09",
+            endpoint_access_mode="STRICT",
+            endpoint_configuration={
+                "types": "REGIONAL",
+            })
+        ```
+
         ## Import
 
         For a private custom domain name:
@@ -912,6 +978,7 @@ class DomainName(pulumi.CustomResource):
                  certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
                  certificate_private_key: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -938,6 +1005,7 @@ class DomainName(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["endpoint_access_mode"] = endpoint_access_mode
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
             __props__.__dict__["ownership_verification_certificate_arn"] = ownership_verification_certificate_arn
@@ -978,6 +1046,7 @@ class DomainName(pulumi.CustomResource):
             cloudfront_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
             domain_name: Optional[pulumi.Input[_builtins.str]] = None,
             domain_name_id: Optional[pulumi.Input[_builtins.str]] = None,
+            endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
             endpoint_configuration: Optional[pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
             mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
             ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1008,6 +1077,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloudfront_zone_id: For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         :param pulumi.Input[_builtins.str] domain_name: Fully-qualified domain name to register.
         :param pulumi.Input[_builtins.str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+        :param pulumi.Input[_builtins.str] endpoint_access_mode: Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
         :param pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
         :param pulumi.Input[_builtins.str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
@@ -1019,7 +1089,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] regional_certificate_name: User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         :param pulumi.Input[_builtins.str] regional_domain_name: Hostname for the custom domain's regional endpoint.
         :param pulumi.Input[_builtins.str] regional_zone_id: Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-        :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+        :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                When referencing an AWS-managed certificate, the following arguments are supported:
@@ -1040,6 +1110,7 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["cloudfront_zone_id"] = cloudfront_zone_id
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["domain_name_id"] = domain_name_id
+        __props__.__dict__["endpoint_access_mode"] = endpoint_access_mode
         __props__.__dict__["endpoint_configuration"] = endpoint_configuration
         __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
         __props__.__dict__["ownership_verification_certificate_arn"] = ownership_verification_certificate_arn
@@ -1143,6 +1214,14 @@ class DomainName(pulumi.CustomResource):
         return pulumi.get(self, "domain_name_id")
 
     @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
+
+    @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> pulumi.Output['outputs.DomainNameEndpointConfiguration']:
         """
@@ -1220,7 +1299,7 @@ class DomainName(pulumi.CustomResource):
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> pulumi.Output[_builtins.str]:
         """
-        Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+        Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         """
         return pulumi.get(self, "security_policy")
 

@@ -10,7 +10,9 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -67,70 +69,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter")
 public class LogSubscriptionFilter extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
+     * Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+     * 
+     */
+    @Export(name="applyOnTransformedLogs", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> applyOnTransformedLogs;
+
+    /**
+     * @return Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+     * 
+     */
+    public Output<Boolean> applyOnTransformedLogs() {
+        return this.applyOnTransformedLogs;
+    }
+    /**
+     * ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
      * 
      */
     @Export(name="destinationArn", refs={String.class}, tree="[0]")
     private Output<String> destinationArn;
 
     /**
-     * @return The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
+     * @return ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
      * 
      */
     public Output<String> destinationArn() {
         return this.destinationArn;
     }
     /**
-     * The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are &#34;Random&#34; and &#34;ByLogStream&#34;.
+     * Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are &#34;Random&#34; and &#34;ByLogStream&#34;.
      * 
      */
     @Export(name="distribution", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> distribution;
 
     /**
-     * @return The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are &#34;Random&#34; and &#34;ByLogStream&#34;.
+     * @return Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are &#34;Random&#34; and &#34;ByLogStream&#34;.
      * 
      */
     public Output<Optional<String>> distribution() {
         return Codegen.optional(this.distribution);
     }
     /**
-     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
+     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+     * 
+     */
+    @Export(name="emitSystemFields", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> emitSystemFields;
+
+    /**
+     * @return List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+     * 
+     */
+    public Output<Optional<List<String>>> emitSystemFields() {
+        return Codegen.optional(this.emitSystemFields);
+    }
+    /**
+     * Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      * 
      */
     @Export(name="filterPattern", refs={String.class}, tree="[0]")
     private Output<String> filterPattern;
 
     /**
-     * @return A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
+     * @return Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      * 
      */
     public Output<String> filterPattern() {
         return this.filterPattern;
     }
     /**
-     * The name of the log group to associate the subscription filter with
+     * Name of the log group to associate the subscription filter with.
      * 
      */
     @Export(name="logGroup", refs={String.class}, tree="[0]")
     private Output<String> logGroup;
 
     /**
-     * @return The name of the log group to associate the subscription filter with
+     * @return Name of the log group to associate the subscription filter with.
      * 
      */
     public Output<String> logGroup() {
         return this.logGroup;
     }
     /**
-     * A name for the subscription filter
+     * Name for the subscription filter.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name for the subscription filter
+     * @return Name for the subscription filter.
      * 
      */
     public Output<String> name() {
@@ -151,14 +181,14 @@ public class LogSubscriptionFilter extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
+     * ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don&#39;t need to provide the ARN when you are working with a logical destination for cross-account delivery. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
+     * @return ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don&#39;t need to provide the ARN when you are working with a logical destination for cross-account delivery. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
      * 
      */
     public Output<String> roleArn() {

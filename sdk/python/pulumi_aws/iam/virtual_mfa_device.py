@@ -24,8 +24,8 @@ class VirtualMfaDeviceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMfaDevice resource.
-        :param pulumi.Input[_builtins.str] virtual_mfa_device_name: The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-        :param pulumi.Input[_builtins.str] path: The path for the virtual MFA device.
+        :param pulumi.Input[_builtins.str] virtual_mfa_device_name: Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+        :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "virtual_mfa_device_name", virtual_mfa_device_name)
@@ -38,7 +38,7 @@ class VirtualMfaDeviceArgs:
     @pulumi.getter(name="virtualMfaDeviceName")
     def virtual_mfa_device_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+        Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         """
         return pulumi.get(self, "virtual_mfa_device_name")
 
@@ -50,7 +50,7 @@ class VirtualMfaDeviceArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The path for the virtual MFA device.
+        Path for the virtual MFA device.
         """
         return pulumi.get(self, "path")
 
@@ -79,21 +79,23 @@ class _VirtualMfaDeviceState:
                  enable_date: Optional[pulumi.Input[_builtins.str]] = None,
                  path: Optional[pulumi.Input[_builtins.str]] = None,
                  qr_code_png: Optional[pulumi.Input[_builtins.str]] = None,
+                 serial_number: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  virtual_mfa_device_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualMfaDevice resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the virtual mfa device.
-        :param pulumi.Input[_builtins.str] base32_string_seed: The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
-        :param pulumi.Input[_builtins.str] enable_date: The date and time when the virtual MFA device was enabled.
-        :param pulumi.Input[_builtins.str] path: The path for the virtual MFA device.
-        :param pulumi.Input[_builtins.str] qr_code_png: A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+        :param pulumi.Input[_builtins.str] base32_string_seed: Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
+        :param pulumi.Input[_builtins.str] enable_date: Date and time when the virtual MFA device was enabled.
+        :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
+        :param pulumi.Input[_builtins.str] qr_code_png: QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
+        :param pulumi.Input[_builtins.str] serial_number: Serial number associated with the virtual MFA device.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] user_name: The associated IAM User name if the virtual MFA device is enabled.
-        :param pulumi.Input[_builtins.str] virtual_mfa_device_name: The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] user_name: Name of the IAM user associated with this virtual MFA device.
+        :param pulumi.Input[_builtins.str] virtual_mfa_device_name: Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -105,6 +107,8 @@ class _VirtualMfaDeviceState:
             pulumi.set(__self__, "path", path)
         if qr_code_png is not None:
             pulumi.set(__self__, "qr_code_png", qr_code_png)
+        if serial_number is not None:
+            pulumi.set(__self__, "serial_number", serial_number)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -118,7 +122,7 @@ class _VirtualMfaDeviceState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) specifying the virtual mfa device.
+        Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
         """
         return pulumi.get(self, "arn")
 
@@ -130,7 +134,7 @@ class _VirtualMfaDeviceState:
     @pulumi.getter(name="base32StringSeed")
     def base32_string_seed(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
+        Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
         """
         return pulumi.get(self, "base32_string_seed")
 
@@ -142,7 +146,7 @@ class _VirtualMfaDeviceState:
     @pulumi.getter(name="enableDate")
     def enable_date(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The date and time when the virtual MFA device was enabled.
+        Date and time when the virtual MFA device was enabled.
         """
         return pulumi.get(self, "enable_date")
 
@@ -154,7 +158,7 @@ class _VirtualMfaDeviceState:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The path for the virtual MFA device.
+        Path for the virtual MFA device.
         """
         return pulumi.get(self, "path")
 
@@ -166,13 +170,25 @@ class _VirtualMfaDeviceState:
     @pulumi.getter(name="qrCodePng")
     def qr_code_png(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+        QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
         """
         return pulumi.get(self, "qr_code_png")
 
     @qr_code_png.setter
     def qr_code_png(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "qr_code_png", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Serial number associated with the virtual MFA device.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @serial_number.setter
+    def serial_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "serial_number", value)
 
     @_builtins.property
     @pulumi.getter
@@ -190,7 +206,7 @@ class _VirtualMfaDeviceState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -202,7 +218,7 @@ class _VirtualMfaDeviceState:
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The associated IAM User name if the virtual MFA device is enabled.
+        Name of the IAM user associated with this virtual MFA device.
         """
         return pulumi.get(self, "user_name")
 
@@ -214,7 +230,7 @@ class _VirtualMfaDeviceState:
     @pulumi.getter(name="virtualMfaDeviceName")
     def virtual_mfa_device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+        Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         """
         return pulumi.get(self, "virtual_mfa_device_name")
 
@@ -262,9 +278,9 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] path: The path for the virtual MFA device.
+        :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] virtual_mfa_device_name: The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+        :param pulumi.Input[_builtins.str] virtual_mfa_device_name: Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         """
         ...
     @overload
@@ -335,6 +351,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
             __props__.__dict__["base32_string_seed"] = None
             __props__.__dict__["enable_date"] = None
             __props__.__dict__["qr_code_png"] = None
+            __props__.__dict__["serial_number"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["user_name"] = None
         super(VirtualMfaDevice, __self__).__init__(
@@ -352,6 +369,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
             enable_date: Optional[pulumi.Input[_builtins.str]] = None,
             path: Optional[pulumi.Input[_builtins.str]] = None,
             qr_code_png: Optional[pulumi.Input[_builtins.str]] = None,
+            serial_number: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             user_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -363,15 +381,16 @@ class VirtualMfaDevice(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the virtual mfa device.
-        :param pulumi.Input[_builtins.str] base32_string_seed: The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
-        :param pulumi.Input[_builtins.str] enable_date: The date and time when the virtual MFA device was enabled.
-        :param pulumi.Input[_builtins.str] path: The path for the virtual MFA device.
-        :param pulumi.Input[_builtins.str] qr_code_png: A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+        :param pulumi.Input[_builtins.str] base32_string_seed: Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
+        :param pulumi.Input[_builtins.str] enable_date: Date and time when the virtual MFA device was enabled.
+        :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
+        :param pulumi.Input[_builtins.str] qr_code_png: QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
+        :param pulumi.Input[_builtins.str] serial_number: Serial number associated with the virtual MFA device.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] user_name: The associated IAM User name if the virtual MFA device is enabled.
-        :param pulumi.Input[_builtins.str] virtual_mfa_device_name: The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] user_name: Name of the IAM user associated with this virtual MFA device.
+        :param pulumi.Input[_builtins.str] virtual_mfa_device_name: Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -382,6 +401,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
         __props__.__dict__["enable_date"] = enable_date
         __props__.__dict__["path"] = path
         __props__.__dict__["qr_code_png"] = qr_code_png
+        __props__.__dict__["serial_number"] = serial_number
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["user_name"] = user_name
@@ -392,7 +412,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) specifying the virtual mfa device.
+        Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
         """
         return pulumi.get(self, "arn")
 
@@ -400,7 +420,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
     @pulumi.getter(name="base32StringSeed")
     def base32_string_seed(self) -> pulumi.Output[_builtins.str]:
         """
-        The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
+        Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
         """
         return pulumi.get(self, "base32_string_seed")
 
@@ -408,7 +428,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
     @pulumi.getter(name="enableDate")
     def enable_date(self) -> pulumi.Output[_builtins.str]:
         """
-        The date and time when the virtual MFA device was enabled.
+        Date and time when the virtual MFA device was enabled.
         """
         return pulumi.get(self, "enable_date")
 
@@ -416,7 +436,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The path for the virtual MFA device.
+        Path for the virtual MFA device.
         """
         return pulumi.get(self, "path")
 
@@ -424,9 +444,17 @@ class VirtualMfaDevice(pulumi.CustomResource):
     @pulumi.getter(name="qrCodePng")
     def qr_code_png(self) -> pulumi.Output[_builtins.str]:
         """
-        A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+        QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
         """
         return pulumi.get(self, "qr_code_png")
+
+    @_builtins.property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> pulumi.Output[_builtins.str]:
+        """
+        Serial number associated with the virtual MFA device.
+        """
+        return pulumi.get(self, "serial_number")
 
     @_builtins.property
     @pulumi.getter
@@ -440,7 +468,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -448,7 +476,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The associated IAM User name if the virtual MFA device is enabled.
+        Name of the IAM user associated with this virtual MFA device.
         """
         return pulumi.get(self, "user_name")
 
@@ -456,7 +484,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
     @pulumi.getter(name="virtualMfaDeviceName")
     def virtual_mfa_device_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+        Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         """
         return pulumi.get(self, "virtual_mfa_device_name")
 

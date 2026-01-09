@@ -18,18 +18,32 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? DnsRecordIpType;
         /// <summary>
-        /// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `False`. Can only be specified if PrivateDnsEnabled is `True`.
+        /// Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `False`. This argument can be specified only if `PrivateDnsEnabled` is `True`.
         /// </summary>
         public readonly bool? PrivateDnsOnlyForInboundResolverEndpoint;
+        /// <summary>
+        /// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `PrivateDnsEnabled` is `True` and when the `VpcEndpointType` is `ServiceNetwork` or `Resource`.
+        /// </summary>
+        public readonly string? PrivateDnsPreference;
+        /// <summary>
+        /// List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `PrivateDnsEnabled` is `True` and `PrivateDnsPreference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateDnsSpecifiedDomains;
 
         [OutputConstructor]
         private VpcEndpointDnsOptions(
             string? dnsRecordIpType,
 
-            bool? privateDnsOnlyForInboundResolverEndpoint)
+            bool? privateDnsOnlyForInboundResolverEndpoint,
+
+            string? privateDnsPreference,
+
+            ImmutableArray<string> privateDnsSpecifiedDomains)
         {
             DnsRecordIpType = dnsRecordIpType;
             PrivateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
+            PrivateDnsPreference = privateDnsPreference;
+            PrivateDnsSpecifiedDomains = privateDnsSpecifiedDomains;
         }
     }
 }

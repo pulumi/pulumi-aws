@@ -49,34 +49,40 @@ namespace Pulumi.Aws.Iam
     public partial class VirtualMfaDevice : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the virtual mfa device.
+        /// Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `Base32StringSeed` is base64-encoded.
+        /// Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `Base32StringSeed` is base64-encoded.
         /// </summary>
         [Output("base32StringSeed")]
         public Output<string> Base32StringSeed { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time when the virtual MFA device was enabled.
+        /// Date and time when the virtual MFA device was enabled.
         /// </summary>
         [Output("enableDate")]
         public Output<string> EnableDate { get; private set; } = null!;
 
         /// <summary>
-        /// The path for the virtual MFA device.
+        /// Path for the virtual MFA device.
         /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
-        /// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+        /// QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
         /// </summary>
         [Output("qrCodePng")]
         public Output<string> QrCodePng { get; private set; } = null!;
+
+        /// <summary>
+        /// Serial number associated with the virtual MFA device.
+        /// </summary>
+        [Output("serialNumber")]
+        public Output<string> SerialNumber { get; private set; } = null!;
 
         /// <summary>
         /// Map of resource tags for the virtual mfa device. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -85,19 +91,19 @@ namespace Pulumi.Aws.Iam
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The associated IAM User name if the virtual MFA device is enabled.
+        /// Name of the IAM user associated with this virtual MFA device.
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+        /// Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         /// </summary>
         [Output("virtualMfaDeviceName")]
         public Output<string> VirtualMfaDeviceName { get; private set; } = null!;
@@ -149,7 +155,7 @@ namespace Pulumi.Aws.Iam
     public sealed class VirtualMfaDeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The path for the virtual MFA device.
+        /// Path for the virtual MFA device.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
@@ -167,7 +173,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+        /// Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         /// </summary>
         [Input("virtualMfaDeviceName", required: true)]
         public Input<string> VirtualMfaDeviceName { get; set; } = null!;
@@ -181,34 +187,40 @@ namespace Pulumi.Aws.Iam
     public sealed class VirtualMfaDeviceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the virtual mfa device.
+        /// Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `Base32StringSeed` is base64-encoded.
+        /// Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `Base32StringSeed` is base64-encoded.
         /// </summary>
         [Input("base32StringSeed")]
         public Input<string>? Base32StringSeed { get; set; }
 
         /// <summary>
-        /// The date and time when the virtual MFA device was enabled.
+        /// Date and time when the virtual MFA device was enabled.
         /// </summary>
         [Input("enableDate")]
         public Input<string>? EnableDate { get; set; }
 
         /// <summary>
-        /// The path for the virtual MFA device.
+        /// Path for the virtual MFA device.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+        /// QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
         /// </summary>
         [Input("qrCodePng")]
         public Input<string>? QrCodePng { get; set; }
+
+        /// <summary>
+        /// Serial number associated with the virtual MFA device.
+        /// </summary>
+        [Input("serialNumber")]
+        public Input<string>? SerialNumber { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -226,7 +238,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -235,13 +247,13 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The associated IAM User name if the virtual MFA device is enabled.
+        /// Name of the IAM user associated with this virtual MFA device.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
         /// <summary>
-        /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+        /// Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         /// </summary>
         [Input("virtualMfaDeviceName")]
         public Input<string>? VirtualMfaDeviceName { get; set; }

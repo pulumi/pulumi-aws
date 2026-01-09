@@ -20,15 +20,19 @@ __all__ = ['GatewayArgs', 'Gateway']
 class GatewayArgs:
     def __init__(__self__, *,
                  amazon_side_asn: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
         :param pulumi.Input[_builtins.str] amazon_side_asn: The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
         :param pulumi.Input[_builtins.str] name: The name of the connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="amazonSideAsn")
@@ -54,6 +58,18 @@ class GatewayArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _GatewayState:
@@ -61,13 +77,17 @@ class _GatewayState:
                  amazon_side_asn: Optional[pulumi.Input[_builtins.str]] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Gateway resources.
         :param pulumi.Input[_builtins.str] amazon_side_asn: The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
         :param pulumi.Input[_builtins.str] arn: The ARN of the gateway.
         :param pulumi.Input[_builtins.str] name: The name of the connection.
         :param pulumi.Input[_builtins.str] owner_account_id: AWS Account ID of the gateway.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if amazon_side_asn is not None:
             pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
@@ -77,6 +97,10 @@ class _GatewayState:
             pulumi.set(__self__, "name", name)
         if owner_account_id is not None:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @_builtins.property
     @pulumi.getter(name="amazonSideAsn")
@@ -126,6 +150,30 @@ class _GatewayState:
     def owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "owner_account_id", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.type_token("aws:directconnect/gateway:Gateway")
 class Gateway(pulumi.CustomResource):
@@ -135,6 +183,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_side_asn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Direct Connect Gateway.
@@ -172,6 +221,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] amazon_side_asn: The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
         :param pulumi.Input[_builtins.str] name: The name of the connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -228,6 +278,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_side_asn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -241,8 +292,10 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'amazon_side_asn'")
             __props__.__dict__["amazon_side_asn"] = amazon_side_asn
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_account_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(Gateway, __self__).__init__(
             'aws:directconnect/gateway:Gateway',
             resource_name,
@@ -256,7 +309,9 @@ class Gateway(pulumi.CustomResource):
             amazon_side_asn: Optional[pulumi.Input[_builtins.str]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Gateway':
+            owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Gateway':
         """
         Get an existing Gateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -268,6 +323,8 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the gateway.
         :param pulumi.Input[_builtins.str] name: The name of the connection.
         :param pulumi.Input[_builtins.str] owner_account_id: AWS Account ID of the gateway.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -277,6 +334,8 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_account_id"] = owner_account_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return Gateway(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -310,4 +369,20 @@ class Gateway(pulumi.CustomResource):
         AWS Account ID of the gateway.
         """
         return pulumi.get(self, "owner_account_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 

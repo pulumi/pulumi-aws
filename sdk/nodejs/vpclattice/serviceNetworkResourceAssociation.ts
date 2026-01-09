@@ -72,6 +72,10 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dnsEntries: pulumi.Output<outputs.vpclattice.ServiceNetworkResourceAssociationDnsEntry[]>;
     /**
+     * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+     */
+    declare public readonly privateDnsEnabled: pulumi.Output<boolean>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
             const state = argsOrState as ServiceNetworkResourceAssociationState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["dnsEntries"] = state?.dnsEntries;
+            resourceInputs["privateDnsEnabled"] = state?.privateDnsEnabled;
             resourceInputs["region"] = state?.region;
             resourceInputs["resourceConfigurationIdentifier"] = state?.resourceConfigurationIdentifier;
             resourceInputs["serviceNetworkIdentifier"] = state?.serviceNetworkIdentifier;
@@ -124,6 +129,7 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
             if (args?.serviceNetworkIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceNetworkIdentifier'");
             }
+            resourceInputs["privateDnsEnabled"] = args?.privateDnsEnabled;
             resourceInputs["region"] = args?.region;
             resourceInputs["resourceConfigurationIdentifier"] = args?.resourceConfigurationIdentifier;
             resourceInputs["serviceNetworkIdentifier"] = args?.serviceNetworkIdentifier;
@@ -150,6 +156,10 @@ export interface ServiceNetworkResourceAssociationState {
      * DNS entry of the association in the service network.
      */
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkResourceAssociationDnsEntry>[]>;
+    /**
+     * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+     */
+    privateDnsEnabled?: pulumi.Input<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -179,6 +189,10 @@ export interface ServiceNetworkResourceAssociationState {
  * The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
  */
 export interface ServiceNetworkResourceAssociationArgs {
+    /**
+     * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
+     */
+    privateDnsEnabled?: pulumi.Input<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

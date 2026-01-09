@@ -376,6 +376,31 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Connection Function and Viewer mTLS
+ *
+ * The example below creates a CloudFront distribution with a connection function association and viewer mTLS configuration.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudfront.ConnectionFunction("example", {name: "example-connection-function"});
+ * const exampleTrustStore = new aws.cloudfront.TrustStore("example", {name: "example-trust-store"});
+ * const exampleDistribution = new aws.cloudfront.Distribution("example", {
+ *     connectionFunctionAssociation: {
+ *         id: example.id,
+ *     },
+ *     viewerMtlsConfig: {
+ *         mode: "verify",
+ *         trustStoreConfig: {
+ *             trustStoreId: exampleTrustStore.id,
+ *             advertiseTrustStoreCaNames: true,
+ *             ignoreCertificateExpiry: false,
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
@@ -432,6 +457,10 @@ export class Distribution extends pulumi.CustomResource {
      * Any comments you want to include about the distribution.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
+    /**
+     * A connection function association configuration block (maximum one).
+     */
+    declare public readonly connectionFunctionAssociation: pulumi.Output<outputs.cloudfront.DistributionConnectionFunctionAssociation | undefined>;
     /**
      * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
      */
@@ -541,6 +570,10 @@ export class Distribution extends pulumi.CustomResource {
      */
     declare public readonly viewerCertificate: pulumi.Output<outputs.cloudfront.DistributionViewerCertificate>;
     /**
+     * The viewer mTLS configuration for this distribution (maximum one).
+     */
+    declare public readonly viewerMtlsConfig: pulumi.Output<outputs.cloudfront.DistributionViewerMtlsConfig | undefined>;
+    /**
      * If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
      */
     declare public readonly waitForDeployment: pulumi.Output<boolean | undefined>;
@@ -567,6 +600,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["callerReference"] = state?.callerReference;
             resourceInputs["comment"] = state?.comment;
+            resourceInputs["connectionFunctionAssociation"] = state?.connectionFunctionAssociation;
             resourceInputs["continuousDeploymentPolicyId"] = state?.continuousDeploymentPolicyId;
             resourceInputs["customErrorResponses"] = state?.customErrorResponses;
             resourceInputs["defaultCacheBehavior"] = state?.defaultCacheBehavior;
@@ -594,6 +628,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["trustedKeyGroups"] = state?.trustedKeyGroups;
             resourceInputs["trustedSigners"] = state?.trustedSigners;
             resourceInputs["viewerCertificate"] = state?.viewerCertificate;
+            resourceInputs["viewerMtlsConfig"] = state?.viewerMtlsConfig;
             resourceInputs["waitForDeployment"] = state?.waitForDeployment;
             resourceInputs["webAclId"] = state?.webAclId;
         } else {
@@ -616,6 +651,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["aliases"] = args?.aliases;
             resourceInputs["anycastIpListId"] = args?.anycastIpListId;
             resourceInputs["comment"] = args?.comment;
+            resourceInputs["connectionFunctionAssociation"] = args?.connectionFunctionAssociation;
             resourceInputs["continuousDeploymentPolicyId"] = args?.continuousDeploymentPolicyId;
             resourceInputs["customErrorResponses"] = args?.customErrorResponses;
             resourceInputs["defaultCacheBehavior"] = args?.defaultCacheBehavior;
@@ -633,6 +669,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["staging"] = args?.staging;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["viewerCertificate"] = args?.viewerCertificate;
+            resourceInputs["viewerMtlsConfig"] = args?.viewerMtlsConfig;
             resourceInputs["waitForDeployment"] = args?.waitForDeployment;
             resourceInputs["webAclId"] = args?.webAclId;
             resourceInputs["arn"] = undefined /*out*/;
@@ -677,6 +714,10 @@ export interface DistributionState {
      * Any comments you want to include about the distribution.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * A connection function association configuration block (maximum one).
+     */
+    connectionFunctionAssociation?: pulumi.Input<inputs.cloudfront.DistributionConnectionFunctionAssociation>;
     /**
      * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
      */
@@ -786,6 +827,10 @@ export interface DistributionState {
      */
     viewerCertificate?: pulumi.Input<inputs.cloudfront.DistributionViewerCertificate>;
     /**
+     * The viewer mTLS configuration for this distribution (maximum one).
+     */
+    viewerMtlsConfig?: pulumi.Input<inputs.cloudfront.DistributionViewerMtlsConfig>;
+    /**
      * If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
      */
     waitForDeployment?: pulumi.Input<boolean>;
@@ -811,6 +856,10 @@ export interface DistributionArgs {
      * Any comments you want to include about the distribution.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * A connection function association configuration block (maximum one).
+     */
+    connectionFunctionAssociation?: pulumi.Input<inputs.cloudfront.DistributionConnectionFunctionAssociation>;
     /**
      * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
      */
@@ -879,6 +928,10 @@ export interface DistributionArgs {
      * The SSL configuration for this distribution (maximum one).
      */
     viewerCertificate: pulumi.Input<inputs.cloudfront.DistributionViewerCertificate>;
+    /**
+     * The viewer mTLS configuration for this distribution (maximum one).
+     */
+    viewerMtlsConfig?: pulumi.Input<inputs.cloudfront.DistributionViewerMtlsConfig>;
     /**
      * If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
      */

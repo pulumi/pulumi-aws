@@ -890,11 +890,11 @@ if not MYPY:
     class GetLifecyclePolicyDocumentRuleArgsDict(TypedDict):
         priority: _builtins.int
         """
-        Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of "any" must have the highest value for `priority` and be evaluated last.
+        Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of `any` must have the highest value for `priority` and be evaluated last.
         """
         action: NotRequired['GetLifecyclePolicyDocumentRuleActionArgsDict']
         """
-        Specifies the action type.
+        Specifies the action to take.
         """
         description: NotRequired[_builtins.str]
         """
@@ -915,8 +915,8 @@ class GetLifecyclePolicyDocumentRuleArgs:
                  description: Optional[_builtins.str] = None,
                  selection: Optional['GetLifecyclePolicyDocumentRuleSelectionArgs'] = None):
         """
-        :param _builtins.int priority: Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of "any" must have the highest value for `priority` and be evaluated last.
-        :param 'GetLifecyclePolicyDocumentRuleActionArgs' action: Specifies the action type.
+        :param _builtins.int priority: Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of `any` must have the highest value for `priority` and be evaluated last.
+        :param 'GetLifecyclePolicyDocumentRuleActionArgs' action: Specifies the action to take.
         :param _builtins.str description: Describes the purpose of a rule within a lifecycle policy.
         :param 'GetLifecyclePolicyDocumentRuleSelectionArgs' selection: Collects parameters describing the selection criteria for the ECR lifecycle policy:
         """
@@ -932,7 +932,7 @@ class GetLifecyclePolicyDocumentRuleArgs:
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of "any" must have the highest value for `priority` and be evaluated last.
+        Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of `any` must have the highest value for `priority` and be evaluated last.
         """
         return pulumi.get(self, "priority")
 
@@ -944,7 +944,7 @@ class GetLifecyclePolicyDocumentRuleArgs:
     @pulumi.getter
     def action(self) -> Optional['GetLifecyclePolicyDocumentRuleActionArgs']:
         """
-        Specifies the action type.
+        Specifies the action to take.
         """
         return pulumi.get(self, "action")
 
@@ -981,25 +981,32 @@ if not MYPY:
     class GetLifecyclePolicyDocumentRuleActionArgsDict(TypedDict):
         type: _builtins.str
         """
-        The supported value is `expire`.
+        Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+        * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
         """
+        target_storage_class: NotRequired[_builtins.str]
 elif False:
     GetLifecyclePolicyDocumentRuleActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetLifecyclePolicyDocumentRuleActionArgs:
     def __init__(__self__, *,
-                 type: _builtins.str):
+                 type: _builtins.str,
+                 target_storage_class: Optional[_builtins.str] = None):
         """
-        :param _builtins.str type: The supported value is `expire`.
+        :param _builtins.str type: Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+               * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
         """
         pulumi.set(__self__, "type", type)
+        if target_storage_class is not None:
+            pulumi.set(__self__, "target_storage_class", target_storage_class)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The supported value is `expire`.
+        Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
+        * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
         """
         return pulumi.get(self, "type")
 
@@ -1007,24 +1014,37 @@ class GetLifecyclePolicyDocumentRuleActionArgs:
     def type(self, value: _builtins.str):
         pulumi.set(self, "type", value)
 
+    @_builtins.property
+    @pulumi.getter(name="targetStorageClass")
+    def target_storage_class(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "target_storage_class")
+
+    @target_storage_class.setter
+    def target_storage_class(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "target_storage_class", value)
+
 
 if not MYPY:
     class GetLifecyclePolicyDocumentRuleSelectionArgsDict(TypedDict):
         count_number: _builtins.int
         """
-        Specify a count number. If the `count_type` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is "sinceImagePushed", then the value is the maximum age limit for your images.
+        Specify a count number. If the `count_type` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `count_type` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `count_type` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
         """
         count_type: _builtins.str
         """
-        Specify a count type to apply to the images. If `count_type` is set to "imageCountMoreThan", you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to "sinceImagePushed", you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
+        Specify a count type to apply to the images. If `count_type` is set to `imageCountMoreThan`, you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
         """
         tag_status: _builtins.str
         """
-        Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tag_prefix_list` value. If you specify "untagged", then you must omit `tag_prefix_list`.
+        Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tag_prefix_list` value or a `tag_pattern_list` value. If you specify `untagged`, then you must omit both `tag_prefix_list` and `tag_pattern_list`.
         """
         count_unit: NotRequired[_builtins.str]
         """
-        Specify a count unit of days to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
+        Specify a count unit of `days` to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
+        """
+        storage_class: NotRequired[_builtins.str]
+        """
+        The rule will only select images of this storage class. When using a `count_type` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `count_type` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
         """
         tag_pattern_lists: NotRequired[Sequence[_builtins.str]]
         """
@@ -1044,13 +1064,15 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
                  count_type: _builtins.str,
                  tag_status: _builtins.str,
                  count_unit: Optional[_builtins.str] = None,
+                 storage_class: Optional[_builtins.str] = None,
                  tag_pattern_lists: Optional[Sequence[_builtins.str]] = None,
                  tag_prefix_lists: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.int count_number: Specify a count number. If the `count_type` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is "sinceImagePushed", then the value is the maximum age limit for your images.
-        :param _builtins.str count_type: Specify a count type to apply to the images. If `count_type` is set to "imageCountMoreThan", you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to "sinceImagePushed", you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
-        :param _builtins.str tag_status: Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tag_prefix_list` value. If you specify "untagged", then you must omit `tag_prefix_list`.
-        :param _builtins.str count_unit: Specify a count unit of days to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
+        :param _builtins.int count_number: Specify a count number. If the `count_type` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `count_type` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `count_type` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
+        :param _builtins.str count_type: Specify a count type to apply to the images. If `count_type` is set to `imageCountMoreThan`, you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
+        :param _builtins.str tag_status: Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tag_prefix_list` value or a `tag_pattern_list` value. If you specify `untagged`, then you must omit both `tag_prefix_list` and `tag_pattern_list`.
+        :param _builtins.str count_unit: Specify a count unit of `days` to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
+        :param _builtins.str storage_class: The rule will only select images of this storage class. When using a `count_type` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `count_type` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
         :param Sequence[_builtins.str] tag_pattern_lists: You must specify a comma-separated list of image tag patterns that may contain wildcards (\\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
         :param Sequence[_builtins.str] tag_prefix_lists: You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
         """
@@ -1059,6 +1081,8 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
         pulumi.set(__self__, "tag_status", tag_status)
         if count_unit is not None:
             pulumi.set(__self__, "count_unit", count_unit)
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
         if tag_pattern_lists is not None:
             pulumi.set(__self__, "tag_pattern_lists", tag_pattern_lists)
         if tag_prefix_lists is not None:
@@ -1068,7 +1092,7 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
     @pulumi.getter(name="countNumber")
     def count_number(self) -> _builtins.int:
         """
-        Specify a count number. If the `count_type` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is "sinceImagePushed", then the value is the maximum age limit for your images.
+        Specify a count number. If the `count_type` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `count_type` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `count_type` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
         """
         return pulumi.get(self, "count_number")
 
@@ -1080,7 +1104,7 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
     @pulumi.getter(name="countType")
     def count_type(self) -> _builtins.str:
         """
-        Specify a count type to apply to the images. If `count_type` is set to "imageCountMoreThan", you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to "sinceImagePushed", you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
+        Specify a count type to apply to the images. If `count_type` is set to `imageCountMoreThan`, you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
         """
         return pulumi.get(self, "count_type")
 
@@ -1092,7 +1116,7 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
     @pulumi.getter(name="tagStatus")
     def tag_status(self) -> _builtins.str:
         """
-        Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tag_prefix_list` value. If you specify "untagged", then you must omit `tag_prefix_list`.
+        Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tag_prefix_list` value or a `tag_pattern_list` value. If you specify `untagged`, then you must omit both `tag_prefix_list` and `tag_pattern_list`.
         """
         return pulumi.get(self, "tag_status")
 
@@ -1104,13 +1128,25 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
     @pulumi.getter(name="countUnit")
     def count_unit(self) -> Optional[_builtins.str]:
         """
-        Specify a count unit of days to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
+        Specify a count unit of `days` to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
         """
         return pulumi.get(self, "count_unit")
 
     @count_unit.setter
     def count_unit(self, value: Optional[_builtins.str]):
         pulumi.set(self, "count_unit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional[_builtins.str]:
+        """
+        The rule will only select images of this storage class. When using a `count_type` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `count_type` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+        """
+        return pulumi.get(self, "storage_class")
+
+    @storage_class.setter
+    def storage_class(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "storage_class", value)
 
     @_builtins.property
     @pulumi.getter(name="tagPatternLists")

@@ -121,7 +121,7 @@ import (
 type RepositoryCreationTemplate struct {
 	pulumi.CustomResourceState
 
-	// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+	// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
 	AppliedFors pulumi.StringArrayOutput `pulumi:"appliedFors"`
 	// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
 	CustomRoleArn pulumi.StringPtrOutput `pulumi:"customRoleArn"`
@@ -182,7 +182,7 @@ func GetRepositoryCreationTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryCreationTemplate resources.
 type repositoryCreationTemplateState struct {
-	// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+	// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
 	AppliedFors []string `pulumi:"appliedFors"`
 	// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
 	CustomRoleArn *string `pulumi:"customRoleArn"`
@@ -208,7 +208,7 @@ type repositoryCreationTemplateState struct {
 }
 
 type RepositoryCreationTemplateState struct {
-	// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+	// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
 	AppliedFors pulumi.StringArrayInput
 	// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
 	CustomRoleArn pulumi.StringPtrInput
@@ -238,7 +238,7 @@ func (RepositoryCreationTemplateState) ElementType() reflect.Type {
 }
 
 type repositoryCreationTemplateArgs struct {
-	// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+	// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
 	AppliedFors []string `pulumi:"appliedFors"`
 	// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
 	CustomRoleArn *string `pulumi:"customRoleArn"`
@@ -263,7 +263,7 @@ type repositoryCreationTemplateArgs struct {
 
 // The set of arguments for constructing a RepositoryCreationTemplate resource.
 type RepositoryCreationTemplateArgs struct {
-	// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+	// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
 	AppliedFors pulumi.StringArrayInput
 	// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
 	CustomRoleArn pulumi.StringPtrInput
@@ -373,7 +373,7 @@ func (o RepositoryCreationTemplateOutput) ToRepositoryCreationTemplateOutputWith
 	return o
 }
 
-// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
 func (o RepositoryCreationTemplateOutput) AppliedFors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringArrayOutput { return v.AppliedFors }).(pulumi.StringArrayOutput)
 }

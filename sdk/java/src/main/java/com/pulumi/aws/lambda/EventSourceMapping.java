@@ -306,6 +306,7 @@ import javax.annotation.Nullable;
  *             .provisionedPollerConfig(EventSourceMappingProvisionedPollerConfigArgs.builder()
  *                 .maximumPollers(100)
  *                 .minimumPollers(10)
+ *                 .pollerGroupName("group-123")
  *                 .build())
  *             .build());
  * 

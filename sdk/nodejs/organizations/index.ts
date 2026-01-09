@@ -105,6 +105,11 @@ export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
 utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
+export { TagArgs, TagState } from "./tag";
+export type Tag = import("./tag").Tag;
+export const Tag: typeof import("./tag").Tag = null as any;
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -124,6 +129,8 @@ const _module = {
                 return new PolicyAttachment(name, <any>undefined, { urn })
             case "aws:organizations/resourcePolicy:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
+            case "aws:organizations/tag:Tag":
+                return new Tag(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -136,3 +143,4 @@ pulumi.runtime.registerResourceModule("aws", "organizations/organizationalUnit",
 pulumi.runtime.registerResourceModule("aws", "organizations/policy", _module)
 pulumi.runtime.registerResourceModule("aws", "organizations/policyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "organizations/resourcePolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "organizations/tag", _module)

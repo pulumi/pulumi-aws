@@ -152,6 +152,46 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Enhanced Security Policy
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.DomainName;
+ * import com.pulumi.aws.apigateway.DomainNameArgs;
+ * import com.pulumi.aws.apigateway.inputs.DomainNameEndpointConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DomainName("example", DomainNameArgs.builder()
+ *             .domainName("api.example.com")
+ *             .regionalCertificateArn(exampleAwsAcmCertificateValidation.certificateArn())
+ *             .securityPolicy("SecurityPolicy_TLS13_1_3_2025_09")
+ *             .endpointAccessMode("STRICT")
+ *             .endpointConfiguration(DomainNameEndpointConfigurationArgs.builder()
+ *                 .types("REGIONAL")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * For a private custom domain name:
@@ -325,6 +365,20 @@ public class DomainName extends com.pulumi.resources.CustomResource {
         return this.domainNameId;
     }
     /**
+     * Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+     * 
+     */
+    @Export(name="endpointAccessMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> endpointAccessMode;
+
+    /**
+     * @return Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
+     * 
+     */
+    public Output<Optional<String>> endpointAccessMode() {
+        return Codegen.optional(this.endpointAccessMode);
+    }
+    /**
      * Configuration block defining API endpoint information including type. See below.
      * 
      */
@@ -455,14 +509,14 @@ public class DomainName extends com.pulumi.resources.CustomResource {
         return this.regionalZoneId;
     }
     /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      * 
      */
     @Export(name="securityPolicy", refs={String.class}, tree="[0]")
     private Output<String> securityPolicy;
 
     /**
-     * @return Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+     * @return Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      * 
      */
     public Output<String> securityPolicy() {

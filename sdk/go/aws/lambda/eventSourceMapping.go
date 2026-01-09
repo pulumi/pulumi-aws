@@ -254,8 +254,9 @@ import (
 //					},
 //				},
 //				ProvisionedPollerConfig: &lambda.EventSourceMappingProvisionedPollerConfigArgs{
-//					MaximumPollers: pulumi.Int(100),
-//					MinimumPollers: pulumi.Int(10),
+//					MaximumPollers:  pulumi.Int(100),
+//					MinimumPollers:  pulumi.Int(10),
+//					PollerGroupName: pulumi.String("group-123"),
 //				},
 //			})
 //			if err != nil {

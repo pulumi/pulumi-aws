@@ -88,6 +88,8 @@ type LookupResolverRuleResult struct {
 	ShareStatus string `pulumi:"shareStatus"`
 	// Map of tags assigned to the resolver rule.
 	Tags map[string]string `pulumi:"tags"`
+	// List of configurations for target IP addresses. Only applicable for `FORWARD` rules. See `targetIps` below for details.
+	TargetIps []GetResolverRuleTargetIp `pulumi:"targetIps"`
 }
 
 func LookupResolverRuleOutput(ctx *pulumi.Context, args LookupResolverRuleOutputArgs, opts ...pulumi.InvokeOption) LookupResolverRuleResultOutput {
@@ -184,6 +186,11 @@ func (o LookupResolverRuleResultOutput) ShareStatus() pulumi.StringOutput {
 // Map of tags assigned to the resolver rule.
 func (o LookupResolverRuleResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupResolverRuleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// List of configurations for target IP addresses. Only applicable for `FORWARD` rules. See `targetIps` below for details.
+func (o LookupResolverRuleResultOutput) TargetIps() GetResolverRuleTargetIpArrayOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) []GetResolverRuleTargetIp { return v.TargetIps }).(GetResolverRuleTargetIpArrayOutput)
 }
 
 func init() {

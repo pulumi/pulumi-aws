@@ -19,6 +19,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<int>? OriginReadTimeout { get; set; }
 
         /// <summary>
+        /// The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+        /// </summary>
+        [Input("ownerAccountId")]
+        public Input<string>? OwnerAccountId { get; set; }
+
+        /// <summary>
         /// The VPC origin ID.
         /// </summary>
         [Input("vpcOriginId", required: true)]

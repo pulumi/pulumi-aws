@@ -1938,7 +1938,7 @@ func (o EventSourceMappingDestinationConfigPtrOutput) OnFailure() EventSourceMap
 }
 
 type EventSourceMappingDestinationConfigOnFailure struct {
-	// ARN of the destination resource.
+	// ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
 	DestinationArn string `pulumi:"destinationArn"`
 }
 
@@ -1954,7 +1954,7 @@ type EventSourceMappingDestinationConfigOnFailureInput interface {
 }
 
 type EventSourceMappingDestinationConfigOnFailureArgs struct {
-	// ARN of the destination resource.
+	// ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
 	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
 }
 
@@ -2035,7 +2035,7 @@ func (o EventSourceMappingDestinationConfigOnFailureOutput) ToEventSourceMapping
 	}).(EventSourceMappingDestinationConfigOnFailurePtrOutput)
 }
 
-// ARN of the destination resource.
+// ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
 func (o EventSourceMappingDestinationConfigOnFailureOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSourceMappingDestinationConfigOnFailure) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
@@ -2064,7 +2064,7 @@ func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) Elem() EventSourc
 	}).(EventSourceMappingDestinationConfigOnFailureOutput)
 }
 
-// ARN of the destination resource.
+// ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
 func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingDestinationConfigOnFailure) *string {
 		if v == nil {
@@ -2625,6 +2625,8 @@ type EventSourceMappingProvisionedPollerConfig struct {
 	MaximumPollers *int `pulumi:"maximumPollers"`
 	// Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
 	MinimumPollers *int `pulumi:"minimumPollers"`
+	// The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+	PollerGroupName *string `pulumi:"pollerGroupName"`
 }
 
 // EventSourceMappingProvisionedPollerConfigInput is an input type that accepts EventSourceMappingProvisionedPollerConfigArgs and EventSourceMappingProvisionedPollerConfigOutput values.
@@ -2643,6 +2645,8 @@ type EventSourceMappingProvisionedPollerConfigArgs struct {
 	MaximumPollers pulumi.IntPtrInput `pulumi:"maximumPollers"`
 	// Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
 	MinimumPollers pulumi.IntPtrInput `pulumi:"minimumPollers"`
+	// The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+	PollerGroupName pulumi.StringPtrInput `pulumi:"pollerGroupName"`
 }
 
 func (EventSourceMappingProvisionedPollerConfigArgs) ElementType() reflect.Type {
@@ -2732,6 +2736,11 @@ func (o EventSourceMappingProvisionedPollerConfigOutput) MinimumPollers() pulumi
 	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *int { return v.MinimumPollers }).(pulumi.IntPtrOutput)
 }
 
+// The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+func (o EventSourceMappingProvisionedPollerConfigOutput) PollerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *string { return v.PollerGroupName }).(pulumi.StringPtrOutput)
+}
+
 type EventSourceMappingProvisionedPollerConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingProvisionedPollerConfigPtrOutput) ElementType() reflect.Type {
@@ -2774,6 +2783,16 @@ func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MinimumPollers() pul
 		}
 		return v.MinimumPollers
 	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+func (o EventSourceMappingProvisionedPollerConfigPtrOutput) PollerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingProvisionedPollerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PollerGroupName
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSourceMappingScalingConfig struct {

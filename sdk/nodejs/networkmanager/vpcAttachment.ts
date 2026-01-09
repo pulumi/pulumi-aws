@@ -117,7 +117,7 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
-     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
      */
     declare public readonly routingPolicyLabel: pulumi.Output<string | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface VpcAttachmentState {
      */
     resourceArn?: pulumi.Input<string>;
     /**
-     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
      */
     routingPolicyLabel?: pulumi.Input<string>;
     /**
@@ -294,7 +294,7 @@ export interface VpcAttachmentArgs {
      */
     options?: pulumi.Input<inputs.networkmanager.VpcAttachmentOptions>;
     /**
-     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
      */
     routingPolicyLabel?: pulumi.Input<string>;
     /**

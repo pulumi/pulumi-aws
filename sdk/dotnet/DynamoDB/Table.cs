@@ -16,6 +16,8 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// &gt; **Note:** When using aws.dynamodb.TableReplica with this resource, use `Lifecycle` `IgnoreChanges` for `Replica`, _e.g._, `lifecycle { IgnoreChanges = [replica] }`.
     /// 
+    /// &gt; **Note:** If autoscaling creates drift for your `GlobalSecondaryIndex` blocks and/or more granular `Lifecycle` management for GSIs, we recommend using the new **experimental** resource `aws.dynamodb.GlobalSecondaryIndex`.
+    /// 
     /// ## DynamoDB Table attributes
     /// 
     /// Only define attributes on the table object that are going to be used as:
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.DynamoDB
     /// * LSI or GSI hash key or range key
     /// 
     /// The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
+    /// 
+    /// &gt; **Note:** When using the `aws.dynamodb.GlobalSecondaryIndex` resource, you do not need to define the attributes for externally managed GSIs in the `aws.dynamodb.Table` resource.
     /// 
     /// ## Example Usage
     /// 

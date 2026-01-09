@@ -252,6 +252,8 @@ type LookupFunctionResult struct {
 	Region             string  `pulumi:"region"`
 	// Amount of reserved concurrent executions for this Lambda function or `-1` if unreserved.
 	ReservedConcurrentExecutions int `pulumi:"reservedConcurrentExecutions"`
+	// ARN to be used for invoking Lambda Function from API Gateway with response streaming.
+	ResponseStreamingInvokeArn string `pulumi:"responseStreamingInvokeArn"`
 	// IAM role attached to the Lambda Function.
 	Role string `pulumi:"role"`
 	// Runtime environment for the Lambda function.
@@ -449,6 +451,11 @@ func (o LookupFunctionResultOutput) Region() pulumi.StringOutput {
 // Amount of reserved concurrent executions for this Lambda function or `-1` if unreserved.
 func (o LookupFunctionResultOutput) ReservedConcurrentExecutions() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupFunctionResult) int { return v.ReservedConcurrentExecutions }).(pulumi.IntOutput)
+}
+
+// ARN to be used for invoking Lambda Function from API Gateway with response streaming.
+func (o LookupFunctionResultOutput) ResponseStreamingInvokeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFunctionResult) string { return v.ResponseStreamingInvokeArn }).(pulumi.StringOutput)
 }
 
 // IAM role attached to the Lambda Function.

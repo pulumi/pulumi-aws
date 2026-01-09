@@ -14,17 +14,21 @@ namespace Pulumi.Aws.Ecr.Outputs
     public sealed class GetLifecyclePolicyDocumentRuleSelectionResult
     {
         /// <summary>
-        /// Specify a count number. If the `CountType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `CountType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
+        /// Specify a count number. If the `CountType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `CountType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `CountType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `CountType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
         /// </summary>
         public readonly int CountNumber;
         /// <summary>
-        /// Specify a count type to apply to the images. If `CountType` is set to "imageCountMoreThan", you also specify `CountNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `CountType` is set to "sinceImagePushed", you also specify `CountUnit` and `CountNumber` to specify a time limit on the images that exist in your repository.
+        /// Specify a count type to apply to the images. If `CountType` is set to `imageCountMoreThan`, you also specify `CountNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `CountType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `CountUnit` and `CountNumber` to specify a time limit on the images that exist in your repository.
         /// </summary>
         public readonly string CountType;
         /// <summary>
-        /// Specify a count unit of days to indicate that as the unit of time, in addition to `CountNumber`, which is the number of days.
+        /// Specify a count unit of `Days` to indicate that as the unit of time, in addition to `CountNumber`, which is the number of days.
         /// </summary>
         public readonly string? CountUnit;
+        /// <summary>
+        /// The rule will only select images of this storage class. When using a `CountType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `Standard`. When using a `CountType` of `sinceImageTransitioned`, this is required, and the only supported value is `Archive`. If you omit this, the value of `Standard` will be used.
+        /// </summary>
+        public readonly string? StorageClass;
         /// <summary>
         /// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `Prod`, `Prod1`, `Prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
         /// </summary>
@@ -34,7 +38,7 @@ namespace Pulumi.Aws.Ecr.Outputs
         /// </summary>
         public readonly ImmutableArray<string> TagPrefixLists;
         /// <summary>
-        /// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `TagPrefixList` value. If you specify "untagged", then you must omit `TagPrefixList`.
+        /// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `Tagged`, `Untagged`, or `Any`. If you specify `Any`, then all images have the rule evaluated against them. If you specify `Tagged`, then you must also specify a `TagPrefixList` value or a `TagPatternList` value. If you specify `Untagged`, then you must omit both `TagPrefixList` and `TagPatternList`.
         /// </summary>
         public readonly string TagStatus;
 
@@ -46,6 +50,8 @@ namespace Pulumi.Aws.Ecr.Outputs
 
             string? countUnit,
 
+            string? storageClass,
+
             ImmutableArray<string> tagPatternLists,
 
             ImmutableArray<string> tagPrefixLists,
@@ -55,6 +61,7 @@ namespace Pulumi.Aws.Ecr.Outputs
             CountNumber = countNumber;
             CountType = countType;
             CountUnit = countUnit;
+            StorageClass = storageClass;
             TagPatternLists = tagPatternLists;
             TagPrefixLists = tagPrefixLists;
             TagStatus = tagStatus;

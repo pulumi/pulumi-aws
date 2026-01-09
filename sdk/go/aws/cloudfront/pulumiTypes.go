@@ -1129,6 +1129,497 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQue
 	}).(pulumi.StringArrayOutput)
 }
 
+type ConnectionFunctionConnectionFunctionConfig struct {
+	// Comment to describe the function.
+	Comment string `pulumi:"comment"`
+	// Key value store associations. See `keyValueStoreAssociation` below.
+	KeyValueStoreAssociation *ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation `pulumi:"keyValueStoreAssociation"`
+	// Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+	Runtime string `pulumi:"runtime"`
+}
+
+// ConnectionFunctionConnectionFunctionConfigInput is an input type that accepts ConnectionFunctionConnectionFunctionConfigArgs and ConnectionFunctionConnectionFunctionConfigOutput values.
+// You can construct a concrete instance of `ConnectionFunctionConnectionFunctionConfigInput` via:
+//
+//	ConnectionFunctionConnectionFunctionConfigArgs{...}
+type ConnectionFunctionConnectionFunctionConfigInput interface {
+	pulumi.Input
+
+	ToConnectionFunctionConnectionFunctionConfigOutput() ConnectionFunctionConnectionFunctionConfigOutput
+	ToConnectionFunctionConnectionFunctionConfigOutputWithContext(context.Context) ConnectionFunctionConnectionFunctionConfigOutput
+}
+
+type ConnectionFunctionConnectionFunctionConfigArgs struct {
+	// Comment to describe the function.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Key value store associations. See `keyValueStoreAssociation` below.
+	KeyValueStoreAssociation ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrInput `pulumi:"keyValueStoreAssociation"`
+	// Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+	Runtime pulumi.StringInput `pulumi:"runtime"`
+}
+
+func (ConnectionFunctionConnectionFunctionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionConnectionFunctionConfig)(nil)).Elem()
+}
+
+func (i ConnectionFunctionConnectionFunctionConfigArgs) ToConnectionFunctionConnectionFunctionConfigOutput() ConnectionFunctionConnectionFunctionConfigOutput {
+	return i.ToConnectionFunctionConnectionFunctionConfigOutputWithContext(context.Background())
+}
+
+func (i ConnectionFunctionConnectionFunctionConfigArgs) ToConnectionFunctionConnectionFunctionConfigOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionFunctionConnectionFunctionConfigOutput)
+}
+
+func (i ConnectionFunctionConnectionFunctionConfigArgs) ToConnectionFunctionConnectionFunctionConfigPtrOutput() ConnectionFunctionConnectionFunctionConfigPtrOutput {
+	return i.ToConnectionFunctionConnectionFunctionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionFunctionConnectionFunctionConfigArgs) ToConnectionFunctionConnectionFunctionConfigPtrOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionFunctionConnectionFunctionConfigOutput).ToConnectionFunctionConnectionFunctionConfigPtrOutputWithContext(ctx)
+}
+
+// ConnectionFunctionConnectionFunctionConfigPtrInput is an input type that accepts ConnectionFunctionConnectionFunctionConfigArgs, ConnectionFunctionConnectionFunctionConfigPtr and ConnectionFunctionConnectionFunctionConfigPtrOutput values.
+// You can construct a concrete instance of `ConnectionFunctionConnectionFunctionConfigPtrInput` via:
+//
+//	        ConnectionFunctionConnectionFunctionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionFunctionConnectionFunctionConfigPtrInput interface {
+	pulumi.Input
+
+	ToConnectionFunctionConnectionFunctionConfigPtrOutput() ConnectionFunctionConnectionFunctionConfigPtrOutput
+	ToConnectionFunctionConnectionFunctionConfigPtrOutputWithContext(context.Context) ConnectionFunctionConnectionFunctionConfigPtrOutput
+}
+
+type connectionFunctionConnectionFunctionConfigPtrType ConnectionFunctionConnectionFunctionConfigArgs
+
+func ConnectionFunctionConnectionFunctionConfigPtr(v *ConnectionFunctionConnectionFunctionConfigArgs) ConnectionFunctionConnectionFunctionConfigPtrInput {
+	return (*connectionFunctionConnectionFunctionConfigPtrType)(v)
+}
+
+func (*connectionFunctionConnectionFunctionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionFunctionConnectionFunctionConfig)(nil)).Elem()
+}
+
+func (i *connectionFunctionConnectionFunctionConfigPtrType) ToConnectionFunctionConnectionFunctionConfigPtrOutput() ConnectionFunctionConnectionFunctionConfigPtrOutput {
+	return i.ToConnectionFunctionConnectionFunctionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionFunctionConnectionFunctionConfigPtrType) ToConnectionFunctionConnectionFunctionConfigPtrOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionFunctionConnectionFunctionConfigPtrOutput)
+}
+
+type ConnectionFunctionConnectionFunctionConfigOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionConnectionFunctionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionConnectionFunctionConfig)(nil)).Elem()
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigOutput) ToConnectionFunctionConnectionFunctionConfigOutput() ConnectionFunctionConnectionFunctionConfigOutput {
+	return o
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigOutput) ToConnectionFunctionConnectionFunctionConfigOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigOutput {
+	return o
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigOutput) ToConnectionFunctionConnectionFunctionConfigPtrOutput() ConnectionFunctionConnectionFunctionConfigPtrOutput {
+	return o.ToConnectionFunctionConnectionFunctionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigOutput) ToConnectionFunctionConnectionFunctionConfigPtrOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionFunctionConnectionFunctionConfig) *ConnectionFunctionConnectionFunctionConfig {
+		return &v
+	}).(ConnectionFunctionConnectionFunctionConfigPtrOutput)
+}
+
+// Comment to describe the function.
+func (o ConnectionFunctionConnectionFunctionConfigOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionFunctionConnectionFunctionConfig) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+// Key value store associations. See `keyValueStoreAssociation` below.
+func (o ConnectionFunctionConnectionFunctionConfigOutput) KeyValueStoreAssociation() ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput {
+	return o.ApplyT(func(v ConnectionFunctionConnectionFunctionConfig) *ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation {
+		return v.KeyValueStoreAssociation
+	}).(ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput)
+}
+
+// Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+func (o ConnectionFunctionConnectionFunctionConfigOutput) Runtime() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionFunctionConnectionFunctionConfig) string { return v.Runtime }).(pulumi.StringOutput)
+}
+
+type ConnectionFunctionConnectionFunctionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionConnectionFunctionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionFunctionConnectionFunctionConfig)(nil)).Elem()
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigPtrOutput) ToConnectionFunctionConnectionFunctionConfigPtrOutput() ConnectionFunctionConnectionFunctionConfigPtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigPtrOutput) ToConnectionFunctionConnectionFunctionConfigPtrOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigPtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigPtrOutput) Elem() ConnectionFunctionConnectionFunctionConfigOutput {
+	return o.ApplyT(func(v *ConnectionFunctionConnectionFunctionConfig) ConnectionFunctionConnectionFunctionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionFunctionConnectionFunctionConfig
+		return ret
+	}).(ConnectionFunctionConnectionFunctionConfigOutput)
+}
+
+// Comment to describe the function.
+func (o ConnectionFunctionConnectionFunctionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionFunctionConnectionFunctionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key value store associations. See `keyValueStoreAssociation` below.
+func (o ConnectionFunctionConnectionFunctionConfigPtrOutput) KeyValueStoreAssociation() ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput {
+	return o.ApplyT(func(v *ConnectionFunctionConnectionFunctionConfig) *ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation {
+		if v == nil {
+			return nil
+		}
+		return v.KeyValueStoreAssociation
+	}).(ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput)
+}
+
+// Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+func (o ConnectionFunctionConnectionFunctionConfigPtrOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionFunctionConnectionFunctionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Runtime
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation struct {
+	// ARN of the key value store.
+	KeyValueStoreArn string `pulumi:"keyValueStoreArn"`
+}
+
+// ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationInput is an input type that accepts ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs and ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput values.
+// You can construct a concrete instance of `ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationInput` via:
+//
+//	ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs{...}
+type ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationInput interface {
+	pulumi.Input
+
+	ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput() ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput
+	ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutputWithContext(context.Context) ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput
+}
+
+type ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs struct {
+	// ARN of the key value store.
+	KeyValueStoreArn pulumi.StringInput `pulumi:"keyValueStoreArn"`
+}
+
+func (ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (i ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput() ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput {
+	return i.ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutputWithContext(context.Background())
+}
+
+func (i ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput)
+}
+
+func (i ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput() ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput {
+	return i.ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput).ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutputWithContext(ctx)
+}
+
+// ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrInput is an input type that accepts ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs, ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtr and ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput values.
+// You can construct a concrete instance of `ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrInput` via:
+//
+//	        ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput() ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput
+	ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutputWithContext(context.Context) ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput
+}
+
+type connectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrType ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs
+
+func ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtr(v *ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs) ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrInput {
+	return (*connectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrType)(v)
+}
+
+func (*connectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (i *connectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrType) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput() ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput {
+	return i.ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrType) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput)
+}
+
+type ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput() ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput {
+	return o
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput {
+	return o
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput() ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput {
+	return o.ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation) *ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation {
+		return &v
+	}).(ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput)
+}
+
+// ARN of the key value store.
+func (o ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput) KeyValueStoreArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation) string {
+		return v.KeyValueStoreArn
+	}).(pulumi.StringOutput)
+}
+
+type ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput() ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput) ToConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutputWithContext(ctx context.Context) ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput) Elem() ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput {
+	return o.ApplyT(func(v *ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation) ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation
+		return ret
+	}).(ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput)
+}
+
+// ARN of the key value store.
+func (o ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput) KeyValueStoreArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyValueStoreArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionGroupTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+	Update *string `pulumi:"update"`
+}
+
+// ConnectionGroupTimeoutsInput is an input type that accepts ConnectionGroupTimeoutsArgs and ConnectionGroupTimeoutsOutput values.
+// You can construct a concrete instance of `ConnectionGroupTimeoutsInput` via:
+//
+//	ConnectionGroupTimeoutsArgs{...}
+type ConnectionGroupTimeoutsInput interface {
+	pulumi.Input
+
+	ToConnectionGroupTimeoutsOutput() ConnectionGroupTimeoutsOutput
+	ToConnectionGroupTimeoutsOutputWithContext(context.Context) ConnectionGroupTimeoutsOutput
+}
+
+type ConnectionGroupTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ConnectionGroupTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionGroupTimeouts)(nil)).Elem()
+}
+
+func (i ConnectionGroupTimeoutsArgs) ToConnectionGroupTimeoutsOutput() ConnectionGroupTimeoutsOutput {
+	return i.ToConnectionGroupTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ConnectionGroupTimeoutsArgs) ToConnectionGroupTimeoutsOutputWithContext(ctx context.Context) ConnectionGroupTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGroupTimeoutsOutput)
+}
+
+func (i ConnectionGroupTimeoutsArgs) ToConnectionGroupTimeoutsPtrOutput() ConnectionGroupTimeoutsPtrOutput {
+	return i.ToConnectionGroupTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionGroupTimeoutsArgs) ToConnectionGroupTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionGroupTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGroupTimeoutsOutput).ToConnectionGroupTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ConnectionGroupTimeoutsPtrInput is an input type that accepts ConnectionGroupTimeoutsArgs, ConnectionGroupTimeoutsPtr and ConnectionGroupTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ConnectionGroupTimeoutsPtrInput` via:
+//
+//	        ConnectionGroupTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionGroupTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionGroupTimeoutsPtrOutput() ConnectionGroupTimeoutsPtrOutput
+	ToConnectionGroupTimeoutsPtrOutputWithContext(context.Context) ConnectionGroupTimeoutsPtrOutput
+}
+
+type connectionGroupTimeoutsPtrType ConnectionGroupTimeoutsArgs
+
+func ConnectionGroupTimeoutsPtr(v *ConnectionGroupTimeoutsArgs) ConnectionGroupTimeoutsPtrInput {
+	return (*connectionGroupTimeoutsPtrType)(v)
+}
+
+func (*connectionGroupTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionGroupTimeouts)(nil)).Elem()
+}
+
+func (i *connectionGroupTimeoutsPtrType) ToConnectionGroupTimeoutsPtrOutput() ConnectionGroupTimeoutsPtrOutput {
+	return i.ToConnectionGroupTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionGroupTimeoutsPtrType) ToConnectionGroupTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionGroupTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGroupTimeoutsPtrOutput)
+}
+
+type ConnectionGroupTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionGroupTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionGroupTimeouts)(nil)).Elem()
+}
+
+func (o ConnectionGroupTimeoutsOutput) ToConnectionGroupTimeoutsOutput() ConnectionGroupTimeoutsOutput {
+	return o
+}
+
+func (o ConnectionGroupTimeoutsOutput) ToConnectionGroupTimeoutsOutputWithContext(ctx context.Context) ConnectionGroupTimeoutsOutput {
+	return o
+}
+
+func (o ConnectionGroupTimeoutsOutput) ToConnectionGroupTimeoutsPtrOutput() ConnectionGroupTimeoutsPtrOutput {
+	return o.ToConnectionGroupTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionGroupTimeoutsOutput) ToConnectionGroupTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionGroupTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGroupTimeouts) *ConnectionGroupTimeouts {
+		return &v
+	}).(ConnectionGroupTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+func (o ConnectionGroupTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionGroupTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+func (o ConnectionGroupTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionGroupTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+func (o ConnectionGroupTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionGroupTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionGroupTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionGroupTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionGroupTimeouts)(nil)).Elem()
+}
+
+func (o ConnectionGroupTimeoutsPtrOutput) ToConnectionGroupTimeoutsPtrOutput() ConnectionGroupTimeoutsPtrOutput {
+	return o
+}
+
+func (o ConnectionGroupTimeoutsPtrOutput) ToConnectionGroupTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionGroupTimeoutsPtrOutput {
+	return o
+}
+
+func (o ConnectionGroupTimeoutsPtrOutput) Elem() ConnectionGroupTimeoutsOutput {
+	return o.ApplyT(func(v *ConnectionGroupTimeouts) ConnectionGroupTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGroupTimeouts
+		return ret
+	}).(ConnectionGroupTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+func (o ConnectionGroupTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGroupTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+func (o ConnectionGroupTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGroupTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+func (o ConnectionGroupTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGroupTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ContinuousDeploymentPolicyStagingDistributionDnsNames struct {
 	// A list of CloudFront domain names for the staging distribution.
 	Items []string `pulumi:"items"`
@@ -1936,6 +2427,143 @@ func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickine
 		}
 		return &v.MaximumTtl
 	}).(pulumi.IntPtrOutput)
+}
+
+type DistributionConnectionFunctionAssociation struct {
+	// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+	Id string `pulumi:"id"`
+}
+
+// DistributionConnectionFunctionAssociationInput is an input type that accepts DistributionConnectionFunctionAssociationArgs and DistributionConnectionFunctionAssociationOutput values.
+// You can construct a concrete instance of `DistributionConnectionFunctionAssociationInput` via:
+//
+//	DistributionConnectionFunctionAssociationArgs{...}
+type DistributionConnectionFunctionAssociationInput interface {
+	pulumi.Input
+
+	ToDistributionConnectionFunctionAssociationOutput() DistributionConnectionFunctionAssociationOutput
+	ToDistributionConnectionFunctionAssociationOutputWithContext(context.Context) DistributionConnectionFunctionAssociationOutput
+}
+
+type DistributionConnectionFunctionAssociationArgs struct {
+	// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (DistributionConnectionFunctionAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConnectionFunctionAssociation)(nil)).Elem()
+}
+
+func (i DistributionConnectionFunctionAssociationArgs) ToDistributionConnectionFunctionAssociationOutput() DistributionConnectionFunctionAssociationOutput {
+	return i.ToDistributionConnectionFunctionAssociationOutputWithContext(context.Background())
+}
+
+func (i DistributionConnectionFunctionAssociationArgs) ToDistributionConnectionFunctionAssociationOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConnectionFunctionAssociationOutput)
+}
+
+func (i DistributionConnectionFunctionAssociationArgs) ToDistributionConnectionFunctionAssociationPtrOutput() DistributionConnectionFunctionAssociationPtrOutput {
+	return i.ToDistributionConnectionFunctionAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionConnectionFunctionAssociationArgs) ToDistributionConnectionFunctionAssociationPtrOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConnectionFunctionAssociationOutput).ToDistributionConnectionFunctionAssociationPtrOutputWithContext(ctx)
+}
+
+// DistributionConnectionFunctionAssociationPtrInput is an input type that accepts DistributionConnectionFunctionAssociationArgs, DistributionConnectionFunctionAssociationPtr and DistributionConnectionFunctionAssociationPtrOutput values.
+// You can construct a concrete instance of `DistributionConnectionFunctionAssociationPtrInput` via:
+//
+//	        DistributionConnectionFunctionAssociationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionConnectionFunctionAssociationPtrInput interface {
+	pulumi.Input
+
+	ToDistributionConnectionFunctionAssociationPtrOutput() DistributionConnectionFunctionAssociationPtrOutput
+	ToDistributionConnectionFunctionAssociationPtrOutputWithContext(context.Context) DistributionConnectionFunctionAssociationPtrOutput
+}
+
+type distributionConnectionFunctionAssociationPtrType DistributionConnectionFunctionAssociationArgs
+
+func DistributionConnectionFunctionAssociationPtr(v *DistributionConnectionFunctionAssociationArgs) DistributionConnectionFunctionAssociationPtrInput {
+	return (*distributionConnectionFunctionAssociationPtrType)(v)
+}
+
+func (*distributionConnectionFunctionAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConnectionFunctionAssociation)(nil)).Elem()
+}
+
+func (i *distributionConnectionFunctionAssociationPtrType) ToDistributionConnectionFunctionAssociationPtrOutput() DistributionConnectionFunctionAssociationPtrOutput {
+	return i.ToDistributionConnectionFunctionAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionConnectionFunctionAssociationPtrType) ToDistributionConnectionFunctionAssociationPtrOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConnectionFunctionAssociationPtrOutput)
+}
+
+type DistributionConnectionFunctionAssociationOutput struct{ *pulumi.OutputState }
+
+func (DistributionConnectionFunctionAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConnectionFunctionAssociation)(nil)).Elem()
+}
+
+func (o DistributionConnectionFunctionAssociationOutput) ToDistributionConnectionFunctionAssociationOutput() DistributionConnectionFunctionAssociationOutput {
+	return o
+}
+
+func (o DistributionConnectionFunctionAssociationOutput) ToDistributionConnectionFunctionAssociationOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationOutput {
+	return o
+}
+
+func (o DistributionConnectionFunctionAssociationOutput) ToDistributionConnectionFunctionAssociationPtrOutput() DistributionConnectionFunctionAssociationPtrOutput {
+	return o.ToDistributionConnectionFunctionAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConnectionFunctionAssociationOutput) ToDistributionConnectionFunctionAssociationPtrOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConnectionFunctionAssociation) *DistributionConnectionFunctionAssociation {
+		return &v
+	}).(DistributionConnectionFunctionAssociationPtrOutput)
+}
+
+// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+func (o DistributionConnectionFunctionAssociationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionConnectionFunctionAssociation) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type DistributionConnectionFunctionAssociationPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConnectionFunctionAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConnectionFunctionAssociation)(nil)).Elem()
+}
+
+func (o DistributionConnectionFunctionAssociationPtrOutput) ToDistributionConnectionFunctionAssociationPtrOutput() DistributionConnectionFunctionAssociationPtrOutput {
+	return o
+}
+
+func (o DistributionConnectionFunctionAssociationPtrOutput) ToDistributionConnectionFunctionAssociationPtrOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationPtrOutput {
+	return o
+}
+
+func (o DistributionConnectionFunctionAssociationPtrOutput) Elem() DistributionConnectionFunctionAssociationOutput {
+	return o.ApplyT(func(v *DistributionConnectionFunctionAssociation) DistributionConnectionFunctionAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConnectionFunctionAssociation
+		return ret
+	}).(DistributionConnectionFunctionAssociationOutput)
+}
+
+// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+func (o DistributionConnectionFunctionAssociationPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConnectionFunctionAssociation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 type DistributionCustomErrorResponse struct {
@@ -5538,6 +6166,8 @@ func (o DistributionOriginS3OriginConfigPtrOutput) OriginAccessIdentity() pulumi
 type DistributionOriginVpcOriginConfig struct {
 	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
 	OriginReadTimeout      *int `pulumi:"originReadTimeout"`
+	// The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// The VPC origin ID.
 	VpcOriginId string `pulumi:"vpcOriginId"`
 }
@@ -5556,6 +6186,8 @@ type DistributionOriginVpcOriginConfigInput interface {
 type DistributionOriginVpcOriginConfigArgs struct {
 	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
 	OriginReadTimeout      pulumi.IntPtrInput `pulumi:"originReadTimeout"`
+	// The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+	OwnerAccountId pulumi.StringPtrInput `pulumi:"ownerAccountId"`
 	// The VPC origin ID.
 	VpcOriginId pulumi.StringInput `pulumi:"vpcOriginId"`
 }
@@ -5645,6 +6277,11 @@ func (o DistributionOriginVpcOriginConfigOutput) OriginReadTimeout() pulumi.IntP
 	return o.ApplyT(func(v DistributionOriginVpcOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
 }
 
+// The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+func (o DistributionOriginVpcOriginConfigOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionOriginVpcOriginConfig) *string { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
+}
+
 // The VPC origin ID.
 func (o DistributionOriginVpcOriginConfigOutput) VpcOriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginVpcOriginConfig) string { return v.VpcOriginId }).(pulumi.StringOutput)
@@ -5690,6 +6327,16 @@ func (o DistributionOriginVpcOriginConfigPtrOutput) OriginReadTimeout() pulumi.I
 		}
 		return v.OriginReadTimeout
 	}).(pulumi.IntPtrOutput)
+}
+
+// The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+func (o DistributionOriginVpcOriginConfigPtrOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionOriginVpcOriginConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OwnerAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The VPC origin ID.
@@ -5988,6 +6635,1198 @@ func (o DistributionRestrictionsGeoRestrictionPtrOutput) RestrictionType() pulum
 			return nil
 		}
 		return &v.RestrictionType
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantCustomizations struct {
+	// Certificate configuration for the tenant (maximum one).
+	Certificate *DistributionTenantCustomizationsCertificate `pulumi:"certificate"`
+	// Geographic restrictions configuration for the tenant (maximum one).
+	GeoRestriction *DistributionTenantCustomizationsGeoRestriction `pulumi:"geoRestriction"`
+	// Web ACL configuration for the tenant (maximum one).
+	WebAcl *DistributionTenantCustomizationsWebAcl `pulumi:"webAcl"`
+}
+
+// DistributionTenantCustomizationsInput is an input type that accepts DistributionTenantCustomizationsArgs and DistributionTenantCustomizationsOutput values.
+// You can construct a concrete instance of `DistributionTenantCustomizationsInput` via:
+//
+//	DistributionTenantCustomizationsArgs{...}
+type DistributionTenantCustomizationsInput interface {
+	pulumi.Input
+
+	ToDistributionTenantCustomizationsOutput() DistributionTenantCustomizationsOutput
+	ToDistributionTenantCustomizationsOutputWithContext(context.Context) DistributionTenantCustomizationsOutput
+}
+
+type DistributionTenantCustomizationsArgs struct {
+	// Certificate configuration for the tenant (maximum one).
+	Certificate DistributionTenantCustomizationsCertificatePtrInput `pulumi:"certificate"`
+	// Geographic restrictions configuration for the tenant (maximum one).
+	GeoRestriction DistributionTenantCustomizationsGeoRestrictionPtrInput `pulumi:"geoRestriction"`
+	// Web ACL configuration for the tenant (maximum one).
+	WebAcl DistributionTenantCustomizationsWebAclPtrInput `pulumi:"webAcl"`
+}
+
+func (DistributionTenantCustomizationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantCustomizations)(nil)).Elem()
+}
+
+func (i DistributionTenantCustomizationsArgs) ToDistributionTenantCustomizationsOutput() DistributionTenantCustomizationsOutput {
+	return i.ToDistributionTenantCustomizationsOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantCustomizationsArgs) ToDistributionTenantCustomizationsOutputWithContext(ctx context.Context) DistributionTenantCustomizationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsOutput)
+}
+
+func (i DistributionTenantCustomizationsArgs) ToDistributionTenantCustomizationsPtrOutput() DistributionTenantCustomizationsPtrOutput {
+	return i.ToDistributionTenantCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantCustomizationsArgs) ToDistributionTenantCustomizationsPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsOutput).ToDistributionTenantCustomizationsPtrOutputWithContext(ctx)
+}
+
+// DistributionTenantCustomizationsPtrInput is an input type that accepts DistributionTenantCustomizationsArgs, DistributionTenantCustomizationsPtr and DistributionTenantCustomizationsPtrOutput values.
+// You can construct a concrete instance of `DistributionTenantCustomizationsPtrInput` via:
+//
+//	        DistributionTenantCustomizationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionTenantCustomizationsPtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantCustomizationsPtrOutput() DistributionTenantCustomizationsPtrOutput
+	ToDistributionTenantCustomizationsPtrOutputWithContext(context.Context) DistributionTenantCustomizationsPtrOutput
+}
+
+type distributionTenantCustomizationsPtrType DistributionTenantCustomizationsArgs
+
+func DistributionTenantCustomizationsPtr(v *DistributionTenantCustomizationsArgs) DistributionTenantCustomizationsPtrInput {
+	return (*distributionTenantCustomizationsPtrType)(v)
+}
+
+func (*distributionTenantCustomizationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantCustomizations)(nil)).Elem()
+}
+
+func (i *distributionTenantCustomizationsPtrType) ToDistributionTenantCustomizationsPtrOutput() DistributionTenantCustomizationsPtrOutput {
+	return i.ToDistributionTenantCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionTenantCustomizationsPtrType) ToDistributionTenantCustomizationsPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsPtrOutput)
+}
+
+type DistributionTenantCustomizationsOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantCustomizationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantCustomizations)(nil)).Elem()
+}
+
+func (o DistributionTenantCustomizationsOutput) ToDistributionTenantCustomizationsOutput() DistributionTenantCustomizationsOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsOutput) ToDistributionTenantCustomizationsOutputWithContext(ctx context.Context) DistributionTenantCustomizationsOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsOutput) ToDistributionTenantCustomizationsPtrOutput() DistributionTenantCustomizationsPtrOutput {
+	return o.ToDistributionTenantCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantCustomizationsOutput) ToDistributionTenantCustomizationsPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantCustomizations) *DistributionTenantCustomizations {
+		return &v
+	}).(DistributionTenantCustomizationsPtrOutput)
+}
+
+// Certificate configuration for the tenant (maximum one).
+func (o DistributionTenantCustomizationsOutput) Certificate() DistributionTenantCustomizationsCertificatePtrOutput {
+	return o.ApplyT(func(v DistributionTenantCustomizations) *DistributionTenantCustomizationsCertificate {
+		return v.Certificate
+	}).(DistributionTenantCustomizationsCertificatePtrOutput)
+}
+
+// Geographic restrictions configuration for the tenant (maximum one).
+func (o DistributionTenantCustomizationsOutput) GeoRestriction() DistributionTenantCustomizationsGeoRestrictionPtrOutput {
+	return o.ApplyT(func(v DistributionTenantCustomizations) *DistributionTenantCustomizationsGeoRestriction {
+		return v.GeoRestriction
+	}).(DistributionTenantCustomizationsGeoRestrictionPtrOutput)
+}
+
+// Web ACL configuration for the tenant (maximum one).
+func (o DistributionTenantCustomizationsOutput) WebAcl() DistributionTenantCustomizationsWebAclPtrOutput {
+	return o.ApplyT(func(v DistributionTenantCustomizations) *DistributionTenantCustomizationsWebAcl { return v.WebAcl }).(DistributionTenantCustomizationsWebAclPtrOutput)
+}
+
+type DistributionTenantCustomizationsPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantCustomizationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantCustomizations)(nil)).Elem()
+}
+
+func (o DistributionTenantCustomizationsPtrOutput) ToDistributionTenantCustomizationsPtrOutput() DistributionTenantCustomizationsPtrOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsPtrOutput) ToDistributionTenantCustomizationsPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsPtrOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsPtrOutput) Elem() DistributionTenantCustomizationsOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizations) DistributionTenantCustomizations {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantCustomizations
+		return ret
+	}).(DistributionTenantCustomizationsOutput)
+}
+
+// Certificate configuration for the tenant (maximum one).
+func (o DistributionTenantCustomizationsPtrOutput) Certificate() DistributionTenantCustomizationsCertificatePtrOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizations) *DistributionTenantCustomizationsCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(DistributionTenantCustomizationsCertificatePtrOutput)
+}
+
+// Geographic restrictions configuration for the tenant (maximum one).
+func (o DistributionTenantCustomizationsPtrOutput) GeoRestriction() DistributionTenantCustomizationsGeoRestrictionPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizations) *DistributionTenantCustomizationsGeoRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.GeoRestriction
+	}).(DistributionTenantCustomizationsGeoRestrictionPtrOutput)
+}
+
+// Web ACL configuration for the tenant (maximum one).
+func (o DistributionTenantCustomizationsPtrOutput) WebAcl() DistributionTenantCustomizationsWebAclPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizations) *DistributionTenantCustomizationsWebAcl {
+		if v == nil {
+			return nil
+		}
+		return v.WebAcl
+	}).(DistributionTenantCustomizationsWebAclPtrOutput)
+}
+
+type DistributionTenantCustomizationsCertificate struct {
+	// ARN of the distribution tenant.
+	Arn *string `pulumi:"arn"`
+}
+
+// DistributionTenantCustomizationsCertificateInput is an input type that accepts DistributionTenantCustomizationsCertificateArgs and DistributionTenantCustomizationsCertificateOutput values.
+// You can construct a concrete instance of `DistributionTenantCustomizationsCertificateInput` via:
+//
+//	DistributionTenantCustomizationsCertificateArgs{...}
+type DistributionTenantCustomizationsCertificateInput interface {
+	pulumi.Input
+
+	ToDistributionTenantCustomizationsCertificateOutput() DistributionTenantCustomizationsCertificateOutput
+	ToDistributionTenantCustomizationsCertificateOutputWithContext(context.Context) DistributionTenantCustomizationsCertificateOutput
+}
+
+type DistributionTenantCustomizationsCertificateArgs struct {
+	// ARN of the distribution tenant.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+}
+
+func (DistributionTenantCustomizationsCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantCustomizationsCertificate)(nil)).Elem()
+}
+
+func (i DistributionTenantCustomizationsCertificateArgs) ToDistributionTenantCustomizationsCertificateOutput() DistributionTenantCustomizationsCertificateOutput {
+	return i.ToDistributionTenantCustomizationsCertificateOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantCustomizationsCertificateArgs) ToDistributionTenantCustomizationsCertificateOutputWithContext(ctx context.Context) DistributionTenantCustomizationsCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsCertificateOutput)
+}
+
+func (i DistributionTenantCustomizationsCertificateArgs) ToDistributionTenantCustomizationsCertificatePtrOutput() DistributionTenantCustomizationsCertificatePtrOutput {
+	return i.ToDistributionTenantCustomizationsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantCustomizationsCertificateArgs) ToDistributionTenantCustomizationsCertificatePtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsCertificateOutput).ToDistributionTenantCustomizationsCertificatePtrOutputWithContext(ctx)
+}
+
+// DistributionTenantCustomizationsCertificatePtrInput is an input type that accepts DistributionTenantCustomizationsCertificateArgs, DistributionTenantCustomizationsCertificatePtr and DistributionTenantCustomizationsCertificatePtrOutput values.
+// You can construct a concrete instance of `DistributionTenantCustomizationsCertificatePtrInput` via:
+//
+//	        DistributionTenantCustomizationsCertificateArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionTenantCustomizationsCertificatePtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantCustomizationsCertificatePtrOutput() DistributionTenantCustomizationsCertificatePtrOutput
+	ToDistributionTenantCustomizationsCertificatePtrOutputWithContext(context.Context) DistributionTenantCustomizationsCertificatePtrOutput
+}
+
+type distributionTenantCustomizationsCertificatePtrType DistributionTenantCustomizationsCertificateArgs
+
+func DistributionTenantCustomizationsCertificatePtr(v *DistributionTenantCustomizationsCertificateArgs) DistributionTenantCustomizationsCertificatePtrInput {
+	return (*distributionTenantCustomizationsCertificatePtrType)(v)
+}
+
+func (*distributionTenantCustomizationsCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantCustomizationsCertificate)(nil)).Elem()
+}
+
+func (i *distributionTenantCustomizationsCertificatePtrType) ToDistributionTenantCustomizationsCertificatePtrOutput() DistributionTenantCustomizationsCertificatePtrOutput {
+	return i.ToDistributionTenantCustomizationsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *distributionTenantCustomizationsCertificatePtrType) ToDistributionTenantCustomizationsCertificatePtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsCertificatePtrOutput)
+}
+
+type DistributionTenantCustomizationsCertificateOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantCustomizationsCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantCustomizationsCertificate)(nil)).Elem()
+}
+
+func (o DistributionTenantCustomizationsCertificateOutput) ToDistributionTenantCustomizationsCertificateOutput() DistributionTenantCustomizationsCertificateOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsCertificateOutput) ToDistributionTenantCustomizationsCertificateOutputWithContext(ctx context.Context) DistributionTenantCustomizationsCertificateOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsCertificateOutput) ToDistributionTenantCustomizationsCertificatePtrOutput() DistributionTenantCustomizationsCertificatePtrOutput {
+	return o.ToDistributionTenantCustomizationsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantCustomizationsCertificateOutput) ToDistributionTenantCustomizationsCertificatePtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsCertificatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantCustomizationsCertificate) *DistributionTenantCustomizationsCertificate {
+		return &v
+	}).(DistributionTenantCustomizationsCertificatePtrOutput)
+}
+
+// ARN of the distribution tenant.
+func (o DistributionTenantCustomizationsCertificateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantCustomizationsCertificate) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantCustomizationsCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantCustomizationsCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantCustomizationsCertificate)(nil)).Elem()
+}
+
+func (o DistributionTenantCustomizationsCertificatePtrOutput) ToDistributionTenantCustomizationsCertificatePtrOutput() DistributionTenantCustomizationsCertificatePtrOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsCertificatePtrOutput) ToDistributionTenantCustomizationsCertificatePtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsCertificatePtrOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsCertificatePtrOutput) Elem() DistributionTenantCustomizationsCertificateOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizationsCertificate) DistributionTenantCustomizationsCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantCustomizationsCertificate
+		return ret
+	}).(DistributionTenantCustomizationsCertificateOutput)
+}
+
+// ARN of the distribution tenant.
+func (o DistributionTenantCustomizationsCertificatePtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizationsCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantCustomizationsGeoRestriction struct {
+	// Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restrictionType` is `whitelist` or `blacklist`.
+	Locations []string `pulumi:"locations"`
+	// Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
+	RestrictionType *string `pulumi:"restrictionType"`
+}
+
+// DistributionTenantCustomizationsGeoRestrictionInput is an input type that accepts DistributionTenantCustomizationsGeoRestrictionArgs and DistributionTenantCustomizationsGeoRestrictionOutput values.
+// You can construct a concrete instance of `DistributionTenantCustomizationsGeoRestrictionInput` via:
+//
+//	DistributionTenantCustomizationsGeoRestrictionArgs{...}
+type DistributionTenantCustomizationsGeoRestrictionInput interface {
+	pulumi.Input
+
+	ToDistributionTenantCustomizationsGeoRestrictionOutput() DistributionTenantCustomizationsGeoRestrictionOutput
+	ToDistributionTenantCustomizationsGeoRestrictionOutputWithContext(context.Context) DistributionTenantCustomizationsGeoRestrictionOutput
+}
+
+type DistributionTenantCustomizationsGeoRestrictionArgs struct {
+	// Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restrictionType` is `whitelist` or `blacklist`.
+	Locations pulumi.StringArrayInput `pulumi:"locations"`
+	// Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
+	RestrictionType pulumi.StringPtrInput `pulumi:"restrictionType"`
+}
+
+func (DistributionTenantCustomizationsGeoRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantCustomizationsGeoRestriction)(nil)).Elem()
+}
+
+func (i DistributionTenantCustomizationsGeoRestrictionArgs) ToDistributionTenantCustomizationsGeoRestrictionOutput() DistributionTenantCustomizationsGeoRestrictionOutput {
+	return i.ToDistributionTenantCustomizationsGeoRestrictionOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantCustomizationsGeoRestrictionArgs) ToDistributionTenantCustomizationsGeoRestrictionOutputWithContext(ctx context.Context) DistributionTenantCustomizationsGeoRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsGeoRestrictionOutput)
+}
+
+func (i DistributionTenantCustomizationsGeoRestrictionArgs) ToDistributionTenantCustomizationsGeoRestrictionPtrOutput() DistributionTenantCustomizationsGeoRestrictionPtrOutput {
+	return i.ToDistributionTenantCustomizationsGeoRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantCustomizationsGeoRestrictionArgs) ToDistributionTenantCustomizationsGeoRestrictionPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsGeoRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsGeoRestrictionOutput).ToDistributionTenantCustomizationsGeoRestrictionPtrOutputWithContext(ctx)
+}
+
+// DistributionTenantCustomizationsGeoRestrictionPtrInput is an input type that accepts DistributionTenantCustomizationsGeoRestrictionArgs, DistributionTenantCustomizationsGeoRestrictionPtr and DistributionTenantCustomizationsGeoRestrictionPtrOutput values.
+// You can construct a concrete instance of `DistributionTenantCustomizationsGeoRestrictionPtrInput` via:
+//
+//	        DistributionTenantCustomizationsGeoRestrictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionTenantCustomizationsGeoRestrictionPtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantCustomizationsGeoRestrictionPtrOutput() DistributionTenantCustomizationsGeoRestrictionPtrOutput
+	ToDistributionTenantCustomizationsGeoRestrictionPtrOutputWithContext(context.Context) DistributionTenantCustomizationsGeoRestrictionPtrOutput
+}
+
+type distributionTenantCustomizationsGeoRestrictionPtrType DistributionTenantCustomizationsGeoRestrictionArgs
+
+func DistributionTenantCustomizationsGeoRestrictionPtr(v *DistributionTenantCustomizationsGeoRestrictionArgs) DistributionTenantCustomizationsGeoRestrictionPtrInput {
+	return (*distributionTenantCustomizationsGeoRestrictionPtrType)(v)
+}
+
+func (*distributionTenantCustomizationsGeoRestrictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantCustomizationsGeoRestriction)(nil)).Elem()
+}
+
+func (i *distributionTenantCustomizationsGeoRestrictionPtrType) ToDistributionTenantCustomizationsGeoRestrictionPtrOutput() DistributionTenantCustomizationsGeoRestrictionPtrOutput {
+	return i.ToDistributionTenantCustomizationsGeoRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionTenantCustomizationsGeoRestrictionPtrType) ToDistributionTenantCustomizationsGeoRestrictionPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsGeoRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsGeoRestrictionPtrOutput)
+}
+
+type DistributionTenantCustomizationsGeoRestrictionOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantCustomizationsGeoRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantCustomizationsGeoRestriction)(nil)).Elem()
+}
+
+func (o DistributionTenantCustomizationsGeoRestrictionOutput) ToDistributionTenantCustomizationsGeoRestrictionOutput() DistributionTenantCustomizationsGeoRestrictionOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsGeoRestrictionOutput) ToDistributionTenantCustomizationsGeoRestrictionOutputWithContext(ctx context.Context) DistributionTenantCustomizationsGeoRestrictionOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsGeoRestrictionOutput) ToDistributionTenantCustomizationsGeoRestrictionPtrOutput() DistributionTenantCustomizationsGeoRestrictionPtrOutput {
+	return o.ToDistributionTenantCustomizationsGeoRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantCustomizationsGeoRestrictionOutput) ToDistributionTenantCustomizationsGeoRestrictionPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsGeoRestrictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantCustomizationsGeoRestriction) *DistributionTenantCustomizationsGeoRestriction {
+		return &v
+	}).(DistributionTenantCustomizationsGeoRestrictionPtrOutput)
+}
+
+// Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restrictionType` is `whitelist` or `blacklist`.
+func (o DistributionTenantCustomizationsGeoRestrictionOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionTenantCustomizationsGeoRestriction) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
+func (o DistributionTenantCustomizationsGeoRestrictionOutput) RestrictionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantCustomizationsGeoRestriction) *string { return v.RestrictionType }).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantCustomizationsGeoRestrictionPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantCustomizationsGeoRestrictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantCustomizationsGeoRestriction)(nil)).Elem()
+}
+
+func (o DistributionTenantCustomizationsGeoRestrictionPtrOutput) ToDistributionTenantCustomizationsGeoRestrictionPtrOutput() DistributionTenantCustomizationsGeoRestrictionPtrOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsGeoRestrictionPtrOutput) ToDistributionTenantCustomizationsGeoRestrictionPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsGeoRestrictionPtrOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsGeoRestrictionPtrOutput) Elem() DistributionTenantCustomizationsGeoRestrictionOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizationsGeoRestriction) DistributionTenantCustomizationsGeoRestriction {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantCustomizationsGeoRestriction
+		return ret
+	}).(DistributionTenantCustomizationsGeoRestrictionOutput)
+}
+
+// Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restrictionType` is `whitelist` or `blacklist`.
+func (o DistributionTenantCustomizationsGeoRestrictionPtrOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizationsGeoRestriction) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Locations
+	}).(pulumi.StringArrayOutput)
+}
+
+// Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
+func (o DistributionTenantCustomizationsGeoRestrictionPtrOutput) RestrictionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizationsGeoRestriction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictionType
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantCustomizationsWebAcl struct {
+	// Action to take for the web ACL. Valid values: `allow`, `block`.
+	Action *string `pulumi:"action"`
+	// ARN of the distribution tenant.
+	Arn *string `pulumi:"arn"`
+}
+
+// DistributionTenantCustomizationsWebAclInput is an input type that accepts DistributionTenantCustomizationsWebAclArgs and DistributionTenantCustomizationsWebAclOutput values.
+// You can construct a concrete instance of `DistributionTenantCustomizationsWebAclInput` via:
+//
+//	DistributionTenantCustomizationsWebAclArgs{...}
+type DistributionTenantCustomizationsWebAclInput interface {
+	pulumi.Input
+
+	ToDistributionTenantCustomizationsWebAclOutput() DistributionTenantCustomizationsWebAclOutput
+	ToDistributionTenantCustomizationsWebAclOutputWithContext(context.Context) DistributionTenantCustomizationsWebAclOutput
+}
+
+type DistributionTenantCustomizationsWebAclArgs struct {
+	// Action to take for the web ACL. Valid values: `allow`, `block`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// ARN of the distribution tenant.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+}
+
+func (DistributionTenantCustomizationsWebAclArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantCustomizationsWebAcl)(nil)).Elem()
+}
+
+func (i DistributionTenantCustomizationsWebAclArgs) ToDistributionTenantCustomizationsWebAclOutput() DistributionTenantCustomizationsWebAclOutput {
+	return i.ToDistributionTenantCustomizationsWebAclOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantCustomizationsWebAclArgs) ToDistributionTenantCustomizationsWebAclOutputWithContext(ctx context.Context) DistributionTenantCustomizationsWebAclOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsWebAclOutput)
+}
+
+func (i DistributionTenantCustomizationsWebAclArgs) ToDistributionTenantCustomizationsWebAclPtrOutput() DistributionTenantCustomizationsWebAclPtrOutput {
+	return i.ToDistributionTenantCustomizationsWebAclPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantCustomizationsWebAclArgs) ToDistributionTenantCustomizationsWebAclPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsWebAclPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsWebAclOutput).ToDistributionTenantCustomizationsWebAclPtrOutputWithContext(ctx)
+}
+
+// DistributionTenantCustomizationsWebAclPtrInput is an input type that accepts DistributionTenantCustomizationsWebAclArgs, DistributionTenantCustomizationsWebAclPtr and DistributionTenantCustomizationsWebAclPtrOutput values.
+// You can construct a concrete instance of `DistributionTenantCustomizationsWebAclPtrInput` via:
+//
+//	        DistributionTenantCustomizationsWebAclArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionTenantCustomizationsWebAclPtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantCustomizationsWebAclPtrOutput() DistributionTenantCustomizationsWebAclPtrOutput
+	ToDistributionTenantCustomizationsWebAclPtrOutputWithContext(context.Context) DistributionTenantCustomizationsWebAclPtrOutput
+}
+
+type distributionTenantCustomizationsWebAclPtrType DistributionTenantCustomizationsWebAclArgs
+
+func DistributionTenantCustomizationsWebAclPtr(v *DistributionTenantCustomizationsWebAclArgs) DistributionTenantCustomizationsWebAclPtrInput {
+	return (*distributionTenantCustomizationsWebAclPtrType)(v)
+}
+
+func (*distributionTenantCustomizationsWebAclPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantCustomizationsWebAcl)(nil)).Elem()
+}
+
+func (i *distributionTenantCustomizationsWebAclPtrType) ToDistributionTenantCustomizationsWebAclPtrOutput() DistributionTenantCustomizationsWebAclPtrOutput {
+	return i.ToDistributionTenantCustomizationsWebAclPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionTenantCustomizationsWebAclPtrType) ToDistributionTenantCustomizationsWebAclPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsWebAclPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantCustomizationsWebAclPtrOutput)
+}
+
+type DistributionTenantCustomizationsWebAclOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantCustomizationsWebAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantCustomizationsWebAcl)(nil)).Elem()
+}
+
+func (o DistributionTenantCustomizationsWebAclOutput) ToDistributionTenantCustomizationsWebAclOutput() DistributionTenantCustomizationsWebAclOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsWebAclOutput) ToDistributionTenantCustomizationsWebAclOutputWithContext(ctx context.Context) DistributionTenantCustomizationsWebAclOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsWebAclOutput) ToDistributionTenantCustomizationsWebAclPtrOutput() DistributionTenantCustomizationsWebAclPtrOutput {
+	return o.ToDistributionTenantCustomizationsWebAclPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantCustomizationsWebAclOutput) ToDistributionTenantCustomizationsWebAclPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsWebAclPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantCustomizationsWebAcl) *DistributionTenantCustomizationsWebAcl {
+		return &v
+	}).(DistributionTenantCustomizationsWebAclPtrOutput)
+}
+
+// Action to take for the web ACL. Valid values: `allow`, `block`.
+func (o DistributionTenantCustomizationsWebAclOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantCustomizationsWebAcl) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the distribution tenant.
+func (o DistributionTenantCustomizationsWebAclOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantCustomizationsWebAcl) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantCustomizationsWebAclPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantCustomizationsWebAclPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantCustomizationsWebAcl)(nil)).Elem()
+}
+
+func (o DistributionTenantCustomizationsWebAclPtrOutput) ToDistributionTenantCustomizationsWebAclPtrOutput() DistributionTenantCustomizationsWebAclPtrOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsWebAclPtrOutput) ToDistributionTenantCustomizationsWebAclPtrOutputWithContext(ctx context.Context) DistributionTenantCustomizationsWebAclPtrOutput {
+	return o
+}
+
+func (o DistributionTenantCustomizationsWebAclPtrOutput) Elem() DistributionTenantCustomizationsWebAclOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizationsWebAcl) DistributionTenantCustomizationsWebAcl {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantCustomizationsWebAcl
+		return ret
+	}).(DistributionTenantCustomizationsWebAclOutput)
+}
+
+// Action to take for the web ACL. Valid values: `allow`, `block`.
+func (o DistributionTenantCustomizationsWebAclPtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizationsWebAcl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the distribution tenant.
+func (o DistributionTenantCustomizationsWebAclPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantCustomizationsWebAcl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantDomain struct {
+	// Set of domains associated with the distribution tenant.
+	Domain string `pulumi:"domain"`
+	// Current status of the distribution tenant.
+	Status *string `pulumi:"status"`
+}
+
+// DistributionTenantDomainInput is an input type that accepts DistributionTenantDomainArgs and DistributionTenantDomainOutput values.
+// You can construct a concrete instance of `DistributionTenantDomainInput` via:
+//
+//	DistributionTenantDomainArgs{...}
+type DistributionTenantDomainInput interface {
+	pulumi.Input
+
+	ToDistributionTenantDomainOutput() DistributionTenantDomainOutput
+	ToDistributionTenantDomainOutputWithContext(context.Context) DistributionTenantDomainOutput
+}
+
+type DistributionTenantDomainArgs struct {
+	// Set of domains associated with the distribution tenant.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Current status of the distribution tenant.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DistributionTenantDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantDomain)(nil)).Elem()
+}
+
+func (i DistributionTenantDomainArgs) ToDistributionTenantDomainOutput() DistributionTenantDomainOutput {
+	return i.ToDistributionTenantDomainOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantDomainArgs) ToDistributionTenantDomainOutputWithContext(ctx context.Context) DistributionTenantDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantDomainOutput)
+}
+
+// DistributionTenantDomainArrayInput is an input type that accepts DistributionTenantDomainArray and DistributionTenantDomainArrayOutput values.
+// You can construct a concrete instance of `DistributionTenantDomainArrayInput` via:
+//
+//	DistributionTenantDomainArray{ DistributionTenantDomainArgs{...} }
+type DistributionTenantDomainArrayInput interface {
+	pulumi.Input
+
+	ToDistributionTenantDomainArrayOutput() DistributionTenantDomainArrayOutput
+	ToDistributionTenantDomainArrayOutputWithContext(context.Context) DistributionTenantDomainArrayOutput
+}
+
+type DistributionTenantDomainArray []DistributionTenantDomainInput
+
+func (DistributionTenantDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTenantDomain)(nil)).Elem()
+}
+
+func (i DistributionTenantDomainArray) ToDistributionTenantDomainArrayOutput() DistributionTenantDomainArrayOutput {
+	return i.ToDistributionTenantDomainArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantDomainArray) ToDistributionTenantDomainArrayOutputWithContext(ctx context.Context) DistributionTenantDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantDomainArrayOutput)
+}
+
+type DistributionTenantDomainOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantDomain)(nil)).Elem()
+}
+
+func (o DistributionTenantDomainOutput) ToDistributionTenantDomainOutput() DistributionTenantDomainOutput {
+	return o
+}
+
+func (o DistributionTenantDomainOutput) ToDistributionTenantDomainOutputWithContext(ctx context.Context) DistributionTenantDomainOutput {
+	return o
+}
+
+// Set of domains associated with the distribution tenant.
+func (o DistributionTenantDomainOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionTenantDomain) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// Current status of the distribution tenant.
+func (o DistributionTenantDomainOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantDomain) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTenantDomain)(nil)).Elem()
+}
+
+func (o DistributionTenantDomainArrayOutput) ToDistributionTenantDomainArrayOutput() DistributionTenantDomainArrayOutput {
+	return o
+}
+
+func (o DistributionTenantDomainArrayOutput) ToDistributionTenantDomainArrayOutputWithContext(ctx context.Context) DistributionTenantDomainArrayOutput {
+	return o
+}
+
+func (o DistributionTenantDomainArrayOutput) Index(i pulumi.IntInput) DistributionTenantDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionTenantDomain {
+		return vs[0].([]DistributionTenantDomain)[vs[1].(int)]
+	}).(DistributionTenantDomainOutput)
+}
+
+type DistributionTenantManagedCertificateRequest struct {
+	// Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
+	CertificateTransparencyLoggingPreference *string `pulumi:"certificateTransparencyLoggingPreference"`
+	// Primary domain name for the certificate.
+	PrimaryDomainName *string `pulumi:"primaryDomainName"`
+	// Host for validation token. Valid values: `cloudfront`, `domain`.
+	ValidationTokenHost *string `pulumi:"validationTokenHost"`
+}
+
+// DistributionTenantManagedCertificateRequestInput is an input type that accepts DistributionTenantManagedCertificateRequestArgs and DistributionTenantManagedCertificateRequestOutput values.
+// You can construct a concrete instance of `DistributionTenantManagedCertificateRequestInput` via:
+//
+//	DistributionTenantManagedCertificateRequestArgs{...}
+type DistributionTenantManagedCertificateRequestInput interface {
+	pulumi.Input
+
+	ToDistributionTenantManagedCertificateRequestOutput() DistributionTenantManagedCertificateRequestOutput
+	ToDistributionTenantManagedCertificateRequestOutputWithContext(context.Context) DistributionTenantManagedCertificateRequestOutput
+}
+
+type DistributionTenantManagedCertificateRequestArgs struct {
+	// Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
+	CertificateTransparencyLoggingPreference pulumi.StringPtrInput `pulumi:"certificateTransparencyLoggingPreference"`
+	// Primary domain name for the certificate.
+	PrimaryDomainName pulumi.StringPtrInput `pulumi:"primaryDomainName"`
+	// Host for validation token. Valid values: `cloudfront`, `domain`.
+	ValidationTokenHost pulumi.StringPtrInput `pulumi:"validationTokenHost"`
+}
+
+func (DistributionTenantManagedCertificateRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantManagedCertificateRequest)(nil)).Elem()
+}
+
+func (i DistributionTenantManagedCertificateRequestArgs) ToDistributionTenantManagedCertificateRequestOutput() DistributionTenantManagedCertificateRequestOutput {
+	return i.ToDistributionTenantManagedCertificateRequestOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantManagedCertificateRequestArgs) ToDistributionTenantManagedCertificateRequestOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantManagedCertificateRequestOutput)
+}
+
+func (i DistributionTenantManagedCertificateRequestArgs) ToDistributionTenantManagedCertificateRequestPtrOutput() DistributionTenantManagedCertificateRequestPtrOutput {
+	return i.ToDistributionTenantManagedCertificateRequestPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantManagedCertificateRequestArgs) ToDistributionTenantManagedCertificateRequestPtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantManagedCertificateRequestOutput).ToDistributionTenantManagedCertificateRequestPtrOutputWithContext(ctx)
+}
+
+// DistributionTenantManagedCertificateRequestPtrInput is an input type that accepts DistributionTenantManagedCertificateRequestArgs, DistributionTenantManagedCertificateRequestPtr and DistributionTenantManagedCertificateRequestPtrOutput values.
+// You can construct a concrete instance of `DistributionTenantManagedCertificateRequestPtrInput` via:
+//
+//	        DistributionTenantManagedCertificateRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionTenantManagedCertificateRequestPtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantManagedCertificateRequestPtrOutput() DistributionTenantManagedCertificateRequestPtrOutput
+	ToDistributionTenantManagedCertificateRequestPtrOutputWithContext(context.Context) DistributionTenantManagedCertificateRequestPtrOutput
+}
+
+type distributionTenantManagedCertificateRequestPtrType DistributionTenantManagedCertificateRequestArgs
+
+func DistributionTenantManagedCertificateRequestPtr(v *DistributionTenantManagedCertificateRequestArgs) DistributionTenantManagedCertificateRequestPtrInput {
+	return (*distributionTenantManagedCertificateRequestPtrType)(v)
+}
+
+func (*distributionTenantManagedCertificateRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantManagedCertificateRequest)(nil)).Elem()
+}
+
+func (i *distributionTenantManagedCertificateRequestPtrType) ToDistributionTenantManagedCertificateRequestPtrOutput() DistributionTenantManagedCertificateRequestPtrOutput {
+	return i.ToDistributionTenantManagedCertificateRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionTenantManagedCertificateRequestPtrType) ToDistributionTenantManagedCertificateRequestPtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantManagedCertificateRequestPtrOutput)
+}
+
+type DistributionTenantManagedCertificateRequestOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantManagedCertificateRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantManagedCertificateRequest)(nil)).Elem()
+}
+
+func (o DistributionTenantManagedCertificateRequestOutput) ToDistributionTenantManagedCertificateRequestOutput() DistributionTenantManagedCertificateRequestOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestOutput) ToDistributionTenantManagedCertificateRequestOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestOutput) ToDistributionTenantManagedCertificateRequestPtrOutput() DistributionTenantManagedCertificateRequestPtrOutput {
+	return o.ToDistributionTenantManagedCertificateRequestPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantManagedCertificateRequestOutput) ToDistributionTenantManagedCertificateRequestPtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantManagedCertificateRequest) *DistributionTenantManagedCertificateRequest {
+		return &v
+	}).(DistributionTenantManagedCertificateRequestPtrOutput)
+}
+
+// Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
+func (o DistributionTenantManagedCertificateRequestOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantManagedCertificateRequest) *string {
+		return v.CertificateTransparencyLoggingPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary domain name for the certificate.
+func (o DistributionTenantManagedCertificateRequestOutput) PrimaryDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantManagedCertificateRequest) *string { return v.PrimaryDomainName }).(pulumi.StringPtrOutput)
+}
+
+// Host for validation token. Valid values: `cloudfront`, `domain`.
+func (o DistributionTenantManagedCertificateRequestOutput) ValidationTokenHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantManagedCertificateRequest) *string { return v.ValidationTokenHost }).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantManagedCertificateRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantManagedCertificateRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantManagedCertificateRequest)(nil)).Elem()
+}
+
+func (o DistributionTenantManagedCertificateRequestPtrOutput) ToDistributionTenantManagedCertificateRequestPtrOutput() DistributionTenantManagedCertificateRequestPtrOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestPtrOutput) ToDistributionTenantManagedCertificateRequestPtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestPtrOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestPtrOutput) Elem() DistributionTenantManagedCertificateRequestOutput {
+	return o.ApplyT(func(v *DistributionTenantManagedCertificateRequest) DistributionTenantManagedCertificateRequest {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantManagedCertificateRequest
+		return ret
+	}).(DistributionTenantManagedCertificateRequestOutput)
+}
+
+// Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
+func (o DistributionTenantManagedCertificateRequestPtrOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantManagedCertificateRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateTransparencyLoggingPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary domain name for the certificate.
+func (o DistributionTenantManagedCertificateRequestPtrOutput) PrimaryDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantManagedCertificateRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryDomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Host for validation token. Valid values: `cloudfront`, `domain`.
+func (o DistributionTenantManagedCertificateRequestPtrOutput) ValidationTokenHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantManagedCertificateRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationTokenHost
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantParameter struct {
+	// Name of the distribution tenant.
+	Name string `pulumi:"name"`
+	// Value of the parameter.
+	Value string `pulumi:"value"`
+}
+
+// DistributionTenantParameterInput is an input type that accepts DistributionTenantParameterArgs and DistributionTenantParameterOutput values.
+// You can construct a concrete instance of `DistributionTenantParameterInput` via:
+//
+//	DistributionTenantParameterArgs{...}
+type DistributionTenantParameterInput interface {
+	pulumi.Input
+
+	ToDistributionTenantParameterOutput() DistributionTenantParameterOutput
+	ToDistributionTenantParameterOutputWithContext(context.Context) DistributionTenantParameterOutput
+}
+
+type DistributionTenantParameterArgs struct {
+	// Name of the distribution tenant.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DistributionTenantParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantParameter)(nil)).Elem()
+}
+
+func (i DistributionTenantParameterArgs) ToDistributionTenantParameterOutput() DistributionTenantParameterOutput {
+	return i.ToDistributionTenantParameterOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantParameterArgs) ToDistributionTenantParameterOutputWithContext(ctx context.Context) DistributionTenantParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantParameterOutput)
+}
+
+// DistributionTenantParameterArrayInput is an input type that accepts DistributionTenantParameterArray and DistributionTenantParameterArrayOutput values.
+// You can construct a concrete instance of `DistributionTenantParameterArrayInput` via:
+//
+//	DistributionTenantParameterArray{ DistributionTenantParameterArgs{...} }
+type DistributionTenantParameterArrayInput interface {
+	pulumi.Input
+
+	ToDistributionTenantParameterArrayOutput() DistributionTenantParameterArrayOutput
+	ToDistributionTenantParameterArrayOutputWithContext(context.Context) DistributionTenantParameterArrayOutput
+}
+
+type DistributionTenantParameterArray []DistributionTenantParameterInput
+
+func (DistributionTenantParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTenantParameter)(nil)).Elem()
+}
+
+func (i DistributionTenantParameterArray) ToDistributionTenantParameterArrayOutput() DistributionTenantParameterArrayOutput {
+	return i.ToDistributionTenantParameterArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantParameterArray) ToDistributionTenantParameterArrayOutputWithContext(ctx context.Context) DistributionTenantParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantParameterArrayOutput)
+}
+
+type DistributionTenantParameterOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantParameter)(nil)).Elem()
+}
+
+func (o DistributionTenantParameterOutput) ToDistributionTenantParameterOutput() DistributionTenantParameterOutput {
+	return o
+}
+
+func (o DistributionTenantParameterOutput) ToDistributionTenantParameterOutputWithContext(ctx context.Context) DistributionTenantParameterOutput {
+	return o
+}
+
+// Name of the distribution tenant.
+func (o DistributionTenantParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionTenantParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the parameter.
+func (o DistributionTenantParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionTenantParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DistributionTenantParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTenantParameter)(nil)).Elem()
+}
+
+func (o DistributionTenantParameterArrayOutput) ToDistributionTenantParameterArrayOutput() DistributionTenantParameterArrayOutput {
+	return o
+}
+
+func (o DistributionTenantParameterArrayOutput) ToDistributionTenantParameterArrayOutputWithContext(ctx context.Context) DistributionTenantParameterArrayOutput {
+	return o
+}
+
+func (o DistributionTenantParameterArrayOutput) Index(i pulumi.IntInput) DistributionTenantParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionTenantParameter {
+		return vs[0].([]DistributionTenantParameter)[vs[1].(int)]
+	}).(DistributionTenantParameterOutput)
+}
+
+type DistributionTenantTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// DistributionTenantTimeoutsInput is an input type that accepts DistributionTenantTimeoutsArgs and DistributionTenantTimeoutsOutput values.
+// You can construct a concrete instance of `DistributionTenantTimeoutsInput` via:
+//
+//	DistributionTenantTimeoutsArgs{...}
+type DistributionTenantTimeoutsInput interface {
+	pulumi.Input
+
+	ToDistributionTenantTimeoutsOutput() DistributionTenantTimeoutsOutput
+	ToDistributionTenantTimeoutsOutputWithContext(context.Context) DistributionTenantTimeoutsOutput
+}
+
+type DistributionTenantTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (DistributionTenantTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantTimeouts)(nil)).Elem()
+}
+
+func (i DistributionTenantTimeoutsArgs) ToDistributionTenantTimeoutsOutput() DistributionTenantTimeoutsOutput {
+	return i.ToDistributionTenantTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantTimeoutsArgs) ToDistributionTenantTimeoutsOutputWithContext(ctx context.Context) DistributionTenantTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantTimeoutsOutput)
+}
+
+func (i DistributionTenantTimeoutsArgs) ToDistributionTenantTimeoutsPtrOutput() DistributionTenantTimeoutsPtrOutput {
+	return i.ToDistributionTenantTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantTimeoutsArgs) ToDistributionTenantTimeoutsPtrOutputWithContext(ctx context.Context) DistributionTenantTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantTimeoutsOutput).ToDistributionTenantTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DistributionTenantTimeoutsPtrInput is an input type that accepts DistributionTenantTimeoutsArgs, DistributionTenantTimeoutsPtr and DistributionTenantTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DistributionTenantTimeoutsPtrInput` via:
+//
+//	        DistributionTenantTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionTenantTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantTimeoutsPtrOutput() DistributionTenantTimeoutsPtrOutput
+	ToDistributionTenantTimeoutsPtrOutputWithContext(context.Context) DistributionTenantTimeoutsPtrOutput
+}
+
+type distributionTenantTimeoutsPtrType DistributionTenantTimeoutsArgs
+
+func DistributionTenantTimeoutsPtr(v *DistributionTenantTimeoutsArgs) DistributionTenantTimeoutsPtrInput {
+	return (*distributionTenantTimeoutsPtrType)(v)
+}
+
+func (*distributionTenantTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantTimeouts)(nil)).Elem()
+}
+
+func (i *distributionTenantTimeoutsPtrType) ToDistributionTenantTimeoutsPtrOutput() DistributionTenantTimeoutsPtrOutput {
+	return i.ToDistributionTenantTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionTenantTimeoutsPtrType) ToDistributionTenantTimeoutsPtrOutputWithContext(ctx context.Context) DistributionTenantTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantTimeoutsPtrOutput)
+}
+
+type DistributionTenantTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantTimeouts)(nil)).Elem()
+}
+
+func (o DistributionTenantTimeoutsOutput) ToDistributionTenantTimeoutsOutput() DistributionTenantTimeoutsOutput {
+	return o
+}
+
+func (o DistributionTenantTimeoutsOutput) ToDistributionTenantTimeoutsOutputWithContext(ctx context.Context) DistributionTenantTimeoutsOutput {
+	return o
+}
+
+func (o DistributionTenantTimeoutsOutput) ToDistributionTenantTimeoutsPtrOutput() DistributionTenantTimeoutsPtrOutput {
+	return o.ToDistributionTenantTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantTimeoutsOutput) ToDistributionTenantTimeoutsPtrOutputWithContext(ctx context.Context) DistributionTenantTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantTimeouts) *DistributionTenantTimeouts {
+		return &v
+	}).(DistributionTenantTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DistributionTenantTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DistributionTenantTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DistributionTenantTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantTimeouts)(nil)).Elem()
+}
+
+func (o DistributionTenantTimeoutsPtrOutput) ToDistributionTenantTimeoutsPtrOutput() DistributionTenantTimeoutsPtrOutput {
+	return o
+}
+
+func (o DistributionTenantTimeoutsPtrOutput) ToDistributionTenantTimeoutsPtrOutputWithContext(ctx context.Context) DistributionTenantTimeoutsPtrOutput {
+	return o
+}
+
+func (o DistributionTenantTimeoutsPtrOutput) Elem() DistributionTenantTimeoutsOutput {
+	return o.ApplyT(func(v *DistributionTenantTimeouts) DistributionTenantTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantTimeouts
+		return ret
+	}).(DistributionTenantTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DistributionTenantTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DistributionTenantTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DistributionTenantTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionTenantTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6625,6 +8464,339 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 			return nil
 		}
 		return v.SslSupportMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionViewerMtlsConfig struct {
+	// The mode for viewer mTLS. Valid values: `required`, `optional`.
+	Mode *string `pulumi:"mode"`
+	// The trust store configuration for viewer mTLS (maximum one).
+	TrustStoreConfig *DistributionViewerMtlsConfigTrustStoreConfig `pulumi:"trustStoreConfig"`
+}
+
+// DistributionViewerMtlsConfigInput is an input type that accepts DistributionViewerMtlsConfigArgs and DistributionViewerMtlsConfigOutput values.
+// You can construct a concrete instance of `DistributionViewerMtlsConfigInput` via:
+//
+//	DistributionViewerMtlsConfigArgs{...}
+type DistributionViewerMtlsConfigInput interface {
+	pulumi.Input
+
+	ToDistributionViewerMtlsConfigOutput() DistributionViewerMtlsConfigOutput
+	ToDistributionViewerMtlsConfigOutputWithContext(context.Context) DistributionViewerMtlsConfigOutput
+}
+
+type DistributionViewerMtlsConfigArgs struct {
+	// The mode for viewer mTLS. Valid values: `required`, `optional`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// The trust store configuration for viewer mTLS (maximum one).
+	TrustStoreConfig DistributionViewerMtlsConfigTrustStoreConfigPtrInput `pulumi:"trustStoreConfig"`
+}
+
+func (DistributionViewerMtlsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionViewerMtlsConfig)(nil)).Elem()
+}
+
+func (i DistributionViewerMtlsConfigArgs) ToDistributionViewerMtlsConfigOutput() DistributionViewerMtlsConfigOutput {
+	return i.ToDistributionViewerMtlsConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionViewerMtlsConfigArgs) ToDistributionViewerMtlsConfigOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerMtlsConfigOutput)
+}
+
+func (i DistributionViewerMtlsConfigArgs) ToDistributionViewerMtlsConfigPtrOutput() DistributionViewerMtlsConfigPtrOutput {
+	return i.ToDistributionViewerMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionViewerMtlsConfigArgs) ToDistributionViewerMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerMtlsConfigOutput).ToDistributionViewerMtlsConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionViewerMtlsConfigPtrInput is an input type that accepts DistributionViewerMtlsConfigArgs, DistributionViewerMtlsConfigPtr and DistributionViewerMtlsConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionViewerMtlsConfigPtrInput` via:
+//
+//	        DistributionViewerMtlsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionViewerMtlsConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionViewerMtlsConfigPtrOutput() DistributionViewerMtlsConfigPtrOutput
+	ToDistributionViewerMtlsConfigPtrOutputWithContext(context.Context) DistributionViewerMtlsConfigPtrOutput
+}
+
+type distributionViewerMtlsConfigPtrType DistributionViewerMtlsConfigArgs
+
+func DistributionViewerMtlsConfigPtr(v *DistributionViewerMtlsConfigArgs) DistributionViewerMtlsConfigPtrInput {
+	return (*distributionViewerMtlsConfigPtrType)(v)
+}
+
+func (*distributionViewerMtlsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionViewerMtlsConfig)(nil)).Elem()
+}
+
+func (i *distributionViewerMtlsConfigPtrType) ToDistributionViewerMtlsConfigPtrOutput() DistributionViewerMtlsConfigPtrOutput {
+	return i.ToDistributionViewerMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionViewerMtlsConfigPtrType) ToDistributionViewerMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerMtlsConfigPtrOutput)
+}
+
+type DistributionViewerMtlsConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionViewerMtlsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionViewerMtlsConfig)(nil)).Elem()
+}
+
+func (o DistributionViewerMtlsConfigOutput) ToDistributionViewerMtlsConfigOutput() DistributionViewerMtlsConfigOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigOutput) ToDistributionViewerMtlsConfigOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigOutput) ToDistributionViewerMtlsConfigPtrOutput() DistributionViewerMtlsConfigPtrOutput {
+	return o.ToDistributionViewerMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionViewerMtlsConfigOutput) ToDistributionViewerMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionViewerMtlsConfig) *DistributionViewerMtlsConfig {
+		return &v
+	}).(DistributionViewerMtlsConfigPtrOutput)
+}
+
+// The mode for viewer mTLS. Valid values: `required`, `optional`.
+func (o DistributionViewerMtlsConfigOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionViewerMtlsConfig) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The trust store configuration for viewer mTLS (maximum one).
+func (o DistributionViewerMtlsConfigOutput) TrustStoreConfig() DistributionViewerMtlsConfigTrustStoreConfigPtrOutput {
+	return o.ApplyT(func(v DistributionViewerMtlsConfig) *DistributionViewerMtlsConfigTrustStoreConfig {
+		return v.TrustStoreConfig
+	}).(DistributionViewerMtlsConfigTrustStoreConfigPtrOutput)
+}
+
+type DistributionViewerMtlsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionViewerMtlsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionViewerMtlsConfig)(nil)).Elem()
+}
+
+func (o DistributionViewerMtlsConfigPtrOutput) ToDistributionViewerMtlsConfigPtrOutput() DistributionViewerMtlsConfigPtrOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigPtrOutput) ToDistributionViewerMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigPtrOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigPtrOutput) Elem() DistributionViewerMtlsConfigOutput {
+	return o.ApplyT(func(v *DistributionViewerMtlsConfig) DistributionViewerMtlsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionViewerMtlsConfig
+		return ret
+	}).(DistributionViewerMtlsConfigOutput)
+}
+
+// The mode for viewer mTLS. Valid values: `required`, `optional`.
+func (o DistributionViewerMtlsConfigPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionViewerMtlsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The trust store configuration for viewer mTLS (maximum one).
+func (o DistributionViewerMtlsConfigPtrOutput) TrustStoreConfig() DistributionViewerMtlsConfigTrustStoreConfigPtrOutput {
+	return o.ApplyT(func(v *DistributionViewerMtlsConfig) *DistributionViewerMtlsConfigTrustStoreConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TrustStoreConfig
+	}).(DistributionViewerMtlsConfigTrustStoreConfigPtrOutput)
+}
+
+type DistributionViewerMtlsConfigTrustStoreConfig struct {
+	// Whether to advertise the trust store CA names to clients. Defaults to `false`.
+	AdvertiseTrustStoreCaNames *bool `pulumi:"advertiseTrustStoreCaNames"`
+	// Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
+	IgnoreCertificateExpiry *bool `pulumi:"ignoreCertificateExpiry"`
+	// Identifier of the trust store to use for viewer mTLS.
+	TrustStoreId string `pulumi:"trustStoreId"`
+}
+
+// DistributionViewerMtlsConfigTrustStoreConfigInput is an input type that accepts DistributionViewerMtlsConfigTrustStoreConfigArgs and DistributionViewerMtlsConfigTrustStoreConfigOutput values.
+// You can construct a concrete instance of `DistributionViewerMtlsConfigTrustStoreConfigInput` via:
+//
+//	DistributionViewerMtlsConfigTrustStoreConfigArgs{...}
+type DistributionViewerMtlsConfigTrustStoreConfigInput interface {
+	pulumi.Input
+
+	ToDistributionViewerMtlsConfigTrustStoreConfigOutput() DistributionViewerMtlsConfigTrustStoreConfigOutput
+	ToDistributionViewerMtlsConfigTrustStoreConfigOutputWithContext(context.Context) DistributionViewerMtlsConfigTrustStoreConfigOutput
+}
+
+type DistributionViewerMtlsConfigTrustStoreConfigArgs struct {
+	// Whether to advertise the trust store CA names to clients. Defaults to `false`.
+	AdvertiseTrustStoreCaNames pulumi.BoolPtrInput `pulumi:"advertiseTrustStoreCaNames"`
+	// Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
+	IgnoreCertificateExpiry pulumi.BoolPtrInput `pulumi:"ignoreCertificateExpiry"`
+	// Identifier of the trust store to use for viewer mTLS.
+	TrustStoreId pulumi.StringInput `pulumi:"trustStoreId"`
+}
+
+func (DistributionViewerMtlsConfigTrustStoreConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionViewerMtlsConfigTrustStoreConfig)(nil)).Elem()
+}
+
+func (i DistributionViewerMtlsConfigTrustStoreConfigArgs) ToDistributionViewerMtlsConfigTrustStoreConfigOutput() DistributionViewerMtlsConfigTrustStoreConfigOutput {
+	return i.ToDistributionViewerMtlsConfigTrustStoreConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionViewerMtlsConfigTrustStoreConfigArgs) ToDistributionViewerMtlsConfigTrustStoreConfigOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigTrustStoreConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerMtlsConfigTrustStoreConfigOutput)
+}
+
+func (i DistributionViewerMtlsConfigTrustStoreConfigArgs) ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutput() DistributionViewerMtlsConfigTrustStoreConfigPtrOutput {
+	return i.ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionViewerMtlsConfigTrustStoreConfigArgs) ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigTrustStoreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerMtlsConfigTrustStoreConfigOutput).ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionViewerMtlsConfigTrustStoreConfigPtrInput is an input type that accepts DistributionViewerMtlsConfigTrustStoreConfigArgs, DistributionViewerMtlsConfigTrustStoreConfigPtr and DistributionViewerMtlsConfigTrustStoreConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionViewerMtlsConfigTrustStoreConfigPtrInput` via:
+//
+//	        DistributionViewerMtlsConfigTrustStoreConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionViewerMtlsConfigTrustStoreConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutput() DistributionViewerMtlsConfigTrustStoreConfigPtrOutput
+	ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutputWithContext(context.Context) DistributionViewerMtlsConfigTrustStoreConfigPtrOutput
+}
+
+type distributionViewerMtlsConfigTrustStoreConfigPtrType DistributionViewerMtlsConfigTrustStoreConfigArgs
+
+func DistributionViewerMtlsConfigTrustStoreConfigPtr(v *DistributionViewerMtlsConfigTrustStoreConfigArgs) DistributionViewerMtlsConfigTrustStoreConfigPtrInput {
+	return (*distributionViewerMtlsConfigTrustStoreConfigPtrType)(v)
+}
+
+func (*distributionViewerMtlsConfigTrustStoreConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionViewerMtlsConfigTrustStoreConfig)(nil)).Elem()
+}
+
+func (i *distributionViewerMtlsConfigTrustStoreConfigPtrType) ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutput() DistributionViewerMtlsConfigTrustStoreConfigPtrOutput {
+	return i.ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionViewerMtlsConfigTrustStoreConfigPtrType) ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigTrustStoreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerMtlsConfigTrustStoreConfigPtrOutput)
+}
+
+type DistributionViewerMtlsConfigTrustStoreConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionViewerMtlsConfigTrustStoreConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionViewerMtlsConfigTrustStoreConfig)(nil)).Elem()
+}
+
+func (o DistributionViewerMtlsConfigTrustStoreConfigOutput) ToDistributionViewerMtlsConfigTrustStoreConfigOutput() DistributionViewerMtlsConfigTrustStoreConfigOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigTrustStoreConfigOutput) ToDistributionViewerMtlsConfigTrustStoreConfigOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigTrustStoreConfigOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigTrustStoreConfigOutput) ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutput() DistributionViewerMtlsConfigTrustStoreConfigPtrOutput {
+	return o.ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionViewerMtlsConfigTrustStoreConfigOutput) ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigTrustStoreConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionViewerMtlsConfigTrustStoreConfig) *DistributionViewerMtlsConfigTrustStoreConfig {
+		return &v
+	}).(DistributionViewerMtlsConfigTrustStoreConfigPtrOutput)
+}
+
+// Whether to advertise the trust store CA names to clients. Defaults to `false`.
+func (o DistributionViewerMtlsConfigTrustStoreConfigOutput) AdvertiseTrustStoreCaNames() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionViewerMtlsConfigTrustStoreConfig) *bool { return v.AdvertiseTrustStoreCaNames }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
+func (o DistributionViewerMtlsConfigTrustStoreConfigOutput) IgnoreCertificateExpiry() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionViewerMtlsConfigTrustStoreConfig) *bool { return v.IgnoreCertificateExpiry }).(pulumi.BoolPtrOutput)
+}
+
+// Identifier of the trust store to use for viewer mTLS.
+func (o DistributionViewerMtlsConfigTrustStoreConfigOutput) TrustStoreId() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionViewerMtlsConfigTrustStoreConfig) string { return v.TrustStoreId }).(pulumi.StringOutput)
+}
+
+type DistributionViewerMtlsConfigTrustStoreConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionViewerMtlsConfigTrustStoreConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionViewerMtlsConfigTrustStoreConfig)(nil)).Elem()
+}
+
+func (o DistributionViewerMtlsConfigTrustStoreConfigPtrOutput) ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutput() DistributionViewerMtlsConfigTrustStoreConfigPtrOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigTrustStoreConfigPtrOutput) ToDistributionViewerMtlsConfigTrustStoreConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigTrustStoreConfigPtrOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigTrustStoreConfigPtrOutput) Elem() DistributionViewerMtlsConfigTrustStoreConfigOutput {
+	return o.ApplyT(func(v *DistributionViewerMtlsConfigTrustStoreConfig) DistributionViewerMtlsConfigTrustStoreConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionViewerMtlsConfigTrustStoreConfig
+		return ret
+	}).(DistributionViewerMtlsConfigTrustStoreConfigOutput)
+}
+
+// Whether to advertise the trust store CA names to clients. Defaults to `false`.
+func (o DistributionViewerMtlsConfigTrustStoreConfigPtrOutput) AdvertiseTrustStoreCaNames() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionViewerMtlsConfigTrustStoreConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AdvertiseTrustStoreCaNames
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
+func (o DistributionViewerMtlsConfigTrustStoreConfigPtrOutput) IgnoreCertificateExpiry() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionViewerMtlsConfigTrustStoreConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreCertificateExpiry
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Identifier of the trust store to use for viewer mTLS.
+func (o DistributionViewerMtlsConfigTrustStoreConfigPtrOutput) TrustStoreId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionViewerMtlsConfigTrustStoreConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrustStoreId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8258,6 +10430,4123 @@ func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionC
 			return nil
 		}
 		return &v.RealtimeMetricsSubscriptionStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+type MultitenantDistributionActiveTrustedKeyGroup struct {
+	// Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+	Enabled *bool `pulumi:"enabled"`
+	// List of key groups. See Key Group Items below.
+	Items []MultitenantDistributionActiveTrustedKeyGroupItem `pulumi:"items"`
+}
+
+// MultitenantDistributionActiveTrustedKeyGroupInput is an input type that accepts MultitenantDistributionActiveTrustedKeyGroupArgs and MultitenantDistributionActiveTrustedKeyGroupOutput values.
+// You can construct a concrete instance of `MultitenantDistributionActiveTrustedKeyGroupInput` via:
+//
+//	MultitenantDistributionActiveTrustedKeyGroupArgs{...}
+type MultitenantDistributionActiveTrustedKeyGroupInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionActiveTrustedKeyGroupOutput() MultitenantDistributionActiveTrustedKeyGroupOutput
+	ToMultitenantDistributionActiveTrustedKeyGroupOutputWithContext(context.Context) MultitenantDistributionActiveTrustedKeyGroupOutput
+}
+
+type MultitenantDistributionActiveTrustedKeyGroupArgs struct {
+	// Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// List of key groups. See Key Group Items below.
+	Items MultitenantDistributionActiveTrustedKeyGroupItemArrayInput `pulumi:"items"`
+}
+
+func (MultitenantDistributionActiveTrustedKeyGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionActiveTrustedKeyGroup)(nil)).Elem()
+}
+
+func (i MultitenantDistributionActiveTrustedKeyGroupArgs) ToMultitenantDistributionActiveTrustedKeyGroupOutput() MultitenantDistributionActiveTrustedKeyGroupOutput {
+	return i.ToMultitenantDistributionActiveTrustedKeyGroupOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionActiveTrustedKeyGroupArgs) ToMultitenantDistributionActiveTrustedKeyGroupOutputWithContext(ctx context.Context) MultitenantDistributionActiveTrustedKeyGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionActiveTrustedKeyGroupOutput)
+}
+
+// MultitenantDistributionActiveTrustedKeyGroupArrayInput is an input type that accepts MultitenantDistributionActiveTrustedKeyGroupArray and MultitenantDistributionActiveTrustedKeyGroupArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionActiveTrustedKeyGroupArrayInput` via:
+//
+//	MultitenantDistributionActiveTrustedKeyGroupArray{ MultitenantDistributionActiveTrustedKeyGroupArgs{...} }
+type MultitenantDistributionActiveTrustedKeyGroupArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionActiveTrustedKeyGroupArrayOutput() MultitenantDistributionActiveTrustedKeyGroupArrayOutput
+	ToMultitenantDistributionActiveTrustedKeyGroupArrayOutputWithContext(context.Context) MultitenantDistributionActiveTrustedKeyGroupArrayOutput
+}
+
+type MultitenantDistributionActiveTrustedKeyGroupArray []MultitenantDistributionActiveTrustedKeyGroupInput
+
+func (MultitenantDistributionActiveTrustedKeyGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionActiveTrustedKeyGroup)(nil)).Elem()
+}
+
+func (i MultitenantDistributionActiveTrustedKeyGroupArray) ToMultitenantDistributionActiveTrustedKeyGroupArrayOutput() MultitenantDistributionActiveTrustedKeyGroupArrayOutput {
+	return i.ToMultitenantDistributionActiveTrustedKeyGroupArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionActiveTrustedKeyGroupArray) ToMultitenantDistributionActiveTrustedKeyGroupArrayOutputWithContext(ctx context.Context) MultitenantDistributionActiveTrustedKeyGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionActiveTrustedKeyGroupArrayOutput)
+}
+
+type MultitenantDistributionActiveTrustedKeyGroupOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionActiveTrustedKeyGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionActiveTrustedKeyGroup)(nil)).Elem()
+}
+
+func (o MultitenantDistributionActiveTrustedKeyGroupOutput) ToMultitenantDistributionActiveTrustedKeyGroupOutput() MultitenantDistributionActiveTrustedKeyGroupOutput {
+	return o
+}
+
+func (o MultitenantDistributionActiveTrustedKeyGroupOutput) ToMultitenantDistributionActiveTrustedKeyGroupOutputWithContext(ctx context.Context) MultitenantDistributionActiveTrustedKeyGroupOutput {
+	return o
+}
+
+// Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+func (o MultitenantDistributionActiveTrustedKeyGroupOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionActiveTrustedKeyGroup) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// List of key groups. See Key Group Items below.
+func (o MultitenantDistributionActiveTrustedKeyGroupOutput) Items() MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionActiveTrustedKeyGroup) []MultitenantDistributionActiveTrustedKeyGroupItem {
+		return v.Items
+	}).(MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput)
+}
+
+type MultitenantDistributionActiveTrustedKeyGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionActiveTrustedKeyGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionActiveTrustedKeyGroup)(nil)).Elem()
+}
+
+func (o MultitenantDistributionActiveTrustedKeyGroupArrayOutput) ToMultitenantDistributionActiveTrustedKeyGroupArrayOutput() MultitenantDistributionActiveTrustedKeyGroupArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionActiveTrustedKeyGroupArrayOutput) ToMultitenantDistributionActiveTrustedKeyGroupArrayOutputWithContext(ctx context.Context) MultitenantDistributionActiveTrustedKeyGroupArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionActiveTrustedKeyGroupArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionActiveTrustedKeyGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionActiveTrustedKeyGroup {
+		return vs[0].([]MultitenantDistributionActiveTrustedKeyGroup)[vs[1].(int)]
+	}).(MultitenantDistributionActiveTrustedKeyGroupOutput)
+}
+
+type MultitenantDistributionActiveTrustedKeyGroupItem struct {
+	// ID of the key group that contains the public keys.
+	KeyGroupId *string `pulumi:"keyGroupId"`
+	// Set of active CloudFront key pairs associated with the signer that can be used to verify the signatures of signed URLs and signed cookies.
+	KeyPairIds []string `pulumi:"keyPairIds"`
+}
+
+// MultitenantDistributionActiveTrustedKeyGroupItemInput is an input type that accepts MultitenantDistributionActiveTrustedKeyGroupItemArgs and MultitenantDistributionActiveTrustedKeyGroupItemOutput values.
+// You can construct a concrete instance of `MultitenantDistributionActiveTrustedKeyGroupItemInput` via:
+//
+//	MultitenantDistributionActiveTrustedKeyGroupItemArgs{...}
+type MultitenantDistributionActiveTrustedKeyGroupItemInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionActiveTrustedKeyGroupItemOutput() MultitenantDistributionActiveTrustedKeyGroupItemOutput
+	ToMultitenantDistributionActiveTrustedKeyGroupItemOutputWithContext(context.Context) MultitenantDistributionActiveTrustedKeyGroupItemOutput
+}
+
+type MultitenantDistributionActiveTrustedKeyGroupItemArgs struct {
+	// ID of the key group that contains the public keys.
+	KeyGroupId pulumi.StringPtrInput `pulumi:"keyGroupId"`
+	// Set of active CloudFront key pairs associated with the signer that can be used to verify the signatures of signed URLs and signed cookies.
+	KeyPairIds pulumi.StringArrayInput `pulumi:"keyPairIds"`
+}
+
+func (MultitenantDistributionActiveTrustedKeyGroupItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionActiveTrustedKeyGroupItem)(nil)).Elem()
+}
+
+func (i MultitenantDistributionActiveTrustedKeyGroupItemArgs) ToMultitenantDistributionActiveTrustedKeyGroupItemOutput() MultitenantDistributionActiveTrustedKeyGroupItemOutput {
+	return i.ToMultitenantDistributionActiveTrustedKeyGroupItemOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionActiveTrustedKeyGroupItemArgs) ToMultitenantDistributionActiveTrustedKeyGroupItemOutputWithContext(ctx context.Context) MultitenantDistributionActiveTrustedKeyGroupItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionActiveTrustedKeyGroupItemOutput)
+}
+
+// MultitenantDistributionActiveTrustedKeyGroupItemArrayInput is an input type that accepts MultitenantDistributionActiveTrustedKeyGroupItemArray and MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionActiveTrustedKeyGroupItemArrayInput` via:
+//
+//	MultitenantDistributionActiveTrustedKeyGroupItemArray{ MultitenantDistributionActiveTrustedKeyGroupItemArgs{...} }
+type MultitenantDistributionActiveTrustedKeyGroupItemArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionActiveTrustedKeyGroupItemArrayOutput() MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput
+	ToMultitenantDistributionActiveTrustedKeyGroupItemArrayOutputWithContext(context.Context) MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput
+}
+
+type MultitenantDistributionActiveTrustedKeyGroupItemArray []MultitenantDistributionActiveTrustedKeyGroupItemInput
+
+func (MultitenantDistributionActiveTrustedKeyGroupItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionActiveTrustedKeyGroupItem)(nil)).Elem()
+}
+
+func (i MultitenantDistributionActiveTrustedKeyGroupItemArray) ToMultitenantDistributionActiveTrustedKeyGroupItemArrayOutput() MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput {
+	return i.ToMultitenantDistributionActiveTrustedKeyGroupItemArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionActiveTrustedKeyGroupItemArray) ToMultitenantDistributionActiveTrustedKeyGroupItemArrayOutputWithContext(ctx context.Context) MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput)
+}
+
+type MultitenantDistributionActiveTrustedKeyGroupItemOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionActiveTrustedKeyGroupItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionActiveTrustedKeyGroupItem)(nil)).Elem()
+}
+
+func (o MultitenantDistributionActiveTrustedKeyGroupItemOutput) ToMultitenantDistributionActiveTrustedKeyGroupItemOutput() MultitenantDistributionActiveTrustedKeyGroupItemOutput {
+	return o
+}
+
+func (o MultitenantDistributionActiveTrustedKeyGroupItemOutput) ToMultitenantDistributionActiveTrustedKeyGroupItemOutputWithContext(ctx context.Context) MultitenantDistributionActiveTrustedKeyGroupItemOutput {
+	return o
+}
+
+// ID of the key group that contains the public keys.
+func (o MultitenantDistributionActiveTrustedKeyGroupItemOutput) KeyGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionActiveTrustedKeyGroupItem) *string { return v.KeyGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Set of active CloudFront key pairs associated with the signer that can be used to verify the signatures of signed URLs and signed cookies.
+func (o MultitenantDistributionActiveTrustedKeyGroupItemOutput) KeyPairIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionActiveTrustedKeyGroupItem) []string { return v.KeyPairIds }).(pulumi.StringArrayOutput)
+}
+
+type MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionActiveTrustedKeyGroupItem)(nil)).Elem()
+}
+
+func (o MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput) ToMultitenantDistributionActiveTrustedKeyGroupItemArrayOutput() MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput) ToMultitenantDistributionActiveTrustedKeyGroupItemArrayOutputWithContext(ctx context.Context) MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionActiveTrustedKeyGroupItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionActiveTrustedKeyGroupItem {
+		return vs[0].([]MultitenantDistributionActiveTrustedKeyGroupItem)[vs[1].(int)]
+	}).(MultitenantDistributionActiveTrustedKeyGroupItemOutput)
+}
+
+type MultitenantDistributionCacheBehavior struct {
+	// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+	AllowedMethods *MultitenantDistributionCacheBehaviorAllowedMethods `pulumi:"allowedMethods"`
+	// Unique identifier of the cache policy that is attached to the cache behavior.
+	CachePolicyId *string `pulumi:"cachePolicyId"`
+	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
+	Compress *bool `pulumi:"compress"`
+	// Field level encryption configuration ID.
+	FieldLevelEncryptionId *string `pulumi:"fieldLevelEncryptionId"`
+	// Configuration block for CloudFront Functions associations. See Function Association below.
+	FunctionAssociations []MultitenantDistributionCacheBehaviorFunctionAssociation `pulumi:"functionAssociations"`
+	// Configuration block for Lambda@Edge associations. See Lambda Function Association below.
+	LambdaFunctionAssociations []MultitenantDistributionCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
+	// Unique identifier of the origin request policy that is attached to the behavior.
+	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
+	// Pattern that specifies which requests you want this cache behavior to apply to.
+	PathPattern string `pulumi:"pathPattern"`
+	// ARN of the real-time log configuration that is attached to this cache behavior.
+	RealtimeLogConfigArn *string `pulumi:"realtimeLogConfigArn"`
+	// Identifier for a response headers policy.
+	ResponseHeadersPolicyId *string `pulumi:"responseHeadersPolicyId"`
+	// Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+	TargetOriginId string `pulumi:"targetOriginId"`
+	// List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+	TrustedKeyGroups *MultitenantDistributionCacheBehaviorTrustedKeyGroups `pulumi:"trustedKeyGroups"`
+	// Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+	ViewerProtocolPolicy string `pulumi:"viewerProtocolPolicy"`
+}
+
+// MultitenantDistributionCacheBehaviorInput is an input type that accepts MultitenantDistributionCacheBehaviorArgs and MultitenantDistributionCacheBehaviorOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCacheBehaviorInput` via:
+//
+//	MultitenantDistributionCacheBehaviorArgs{...}
+type MultitenantDistributionCacheBehaviorInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCacheBehaviorOutput() MultitenantDistributionCacheBehaviorOutput
+	ToMultitenantDistributionCacheBehaviorOutputWithContext(context.Context) MultitenantDistributionCacheBehaviorOutput
+}
+
+type MultitenantDistributionCacheBehaviorArgs struct {
+	// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+	AllowedMethods MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput `pulumi:"allowedMethods"`
+	// Unique identifier of the cache policy that is attached to the cache behavior.
+	CachePolicyId pulumi.StringPtrInput `pulumi:"cachePolicyId"`
+	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
+	Compress pulumi.BoolPtrInput `pulumi:"compress"`
+	// Field level encryption configuration ID.
+	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"fieldLevelEncryptionId"`
+	// Configuration block for CloudFront Functions associations. See Function Association below.
+	FunctionAssociations MultitenantDistributionCacheBehaviorFunctionAssociationArrayInput `pulumi:"functionAssociations"`
+	// Configuration block for Lambda@Edge associations. See Lambda Function Association below.
+	LambdaFunctionAssociations MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
+	// Unique identifier of the origin request policy that is attached to the behavior.
+	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
+	// Pattern that specifies which requests you want this cache behavior to apply to.
+	PathPattern pulumi.StringInput `pulumi:"pathPattern"`
+	// ARN of the real-time log configuration that is attached to this cache behavior.
+	RealtimeLogConfigArn pulumi.StringPtrInput `pulumi:"realtimeLogConfigArn"`
+	// Identifier for a response headers policy.
+	ResponseHeadersPolicyId pulumi.StringPtrInput `pulumi:"responseHeadersPolicyId"`
+	// Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+	TargetOriginId pulumi.StringInput `pulumi:"targetOriginId"`
+	// List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+	TrustedKeyGroups MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrInput `pulumi:"trustedKeyGroups"`
+	// Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+	ViewerProtocolPolicy pulumi.StringInput `pulumi:"viewerProtocolPolicy"`
+}
+
+func (MultitenantDistributionCacheBehaviorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCacheBehavior)(nil)).Elem()
+}
+
+func (i MultitenantDistributionCacheBehaviorArgs) ToMultitenantDistributionCacheBehaviorOutput() MultitenantDistributionCacheBehaviorOutput {
+	return i.ToMultitenantDistributionCacheBehaviorOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCacheBehaviorArgs) ToMultitenantDistributionCacheBehaviorOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorOutput)
+}
+
+// MultitenantDistributionCacheBehaviorArrayInput is an input type that accepts MultitenantDistributionCacheBehaviorArray and MultitenantDistributionCacheBehaviorArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCacheBehaviorArrayInput` via:
+//
+//	MultitenantDistributionCacheBehaviorArray{ MultitenantDistributionCacheBehaviorArgs{...} }
+type MultitenantDistributionCacheBehaviorArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCacheBehaviorArrayOutput() MultitenantDistributionCacheBehaviorArrayOutput
+	ToMultitenantDistributionCacheBehaviorArrayOutputWithContext(context.Context) MultitenantDistributionCacheBehaviorArrayOutput
+}
+
+type MultitenantDistributionCacheBehaviorArray []MultitenantDistributionCacheBehaviorInput
+
+func (MultitenantDistributionCacheBehaviorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionCacheBehavior)(nil)).Elem()
+}
+
+func (i MultitenantDistributionCacheBehaviorArray) ToMultitenantDistributionCacheBehaviorArrayOutput() MultitenantDistributionCacheBehaviorArrayOutput {
+	return i.ToMultitenantDistributionCacheBehaviorArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCacheBehaviorArray) ToMultitenantDistributionCacheBehaviorArrayOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorArrayOutput)
+}
+
+type MultitenantDistributionCacheBehaviorOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCacheBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCacheBehavior)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCacheBehaviorOutput) ToMultitenantDistributionCacheBehaviorOutput() MultitenantDistributionCacheBehaviorOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorOutput) ToMultitenantDistributionCacheBehaviorOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorOutput {
+	return o
+}
+
+// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+func (o MultitenantDistributionCacheBehaviorOutput) AllowedMethods() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) *MultitenantDistributionCacheBehaviorAllowedMethods {
+		return v.AllowedMethods
+	}).(MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput)
+}
+
+// Unique identifier of the cache policy that is attached to the cache behavior.
+func (o MultitenantDistributionCacheBehaviorOutput) CachePolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) *string { return v.CachePolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
+func (o MultitenantDistributionCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
+}
+
+// Field level encryption configuration ID.
+func (o MultitenantDistributionCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) *string { return v.FieldLevelEncryptionId }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for CloudFront Functions associations. See Function Association below.
+func (o MultitenantDistributionCacheBehaviorOutput) FunctionAssociations() MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) []MultitenantDistributionCacheBehaviorFunctionAssociation {
+		return v.FunctionAssociations
+	}).(MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput)
+}
+
+// Configuration block for Lambda@Edge associations. See Lambda Function Association below.
+func (o MultitenantDistributionCacheBehaviorOutput) LambdaFunctionAssociations() MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) []MultitenantDistributionCacheBehaviorLambdaFunctionAssociation {
+		return v.LambdaFunctionAssociations
+	}).(MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput)
+}
+
+// Unique identifier of the origin request policy that is attached to the behavior.
+func (o MultitenantDistributionCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Pattern that specifies which requests you want this cache behavior to apply to.
+func (o MultitenantDistributionCacheBehaviorOutput) PathPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) string { return v.PathPattern }).(pulumi.StringOutput)
+}
+
+// ARN of the real-time log configuration that is attached to this cache behavior.
+func (o MultitenantDistributionCacheBehaviorOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) *string { return v.RealtimeLogConfigArn }).(pulumi.StringPtrOutput)
+}
+
+// Identifier for a response headers policy.
+func (o MultitenantDistributionCacheBehaviorOutput) ResponseHeadersPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) *string { return v.ResponseHeadersPolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+func (o MultitenantDistributionCacheBehaviorOutput) TargetOriginId() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
+}
+
+// List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+func (o MultitenantDistributionCacheBehaviorOutput) TrustedKeyGroups() MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) *MultitenantDistributionCacheBehaviorTrustedKeyGroups {
+		return v.TrustedKeyGroups
+	}).(MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput)
+}
+
+// Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+func (o MultitenantDistributionCacheBehaviorOutput) ViewerProtocolPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) string { return v.ViewerProtocolPolicy }).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionCacheBehaviorArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCacheBehaviorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionCacheBehavior)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCacheBehaviorArrayOutput) ToMultitenantDistributionCacheBehaviorArrayOutput() MultitenantDistributionCacheBehaviorArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorArrayOutput) ToMultitenantDistributionCacheBehaviorArrayOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionCacheBehaviorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionCacheBehavior {
+		return vs[0].([]MultitenantDistributionCacheBehavior)[vs[1].(int)]
+	}).(MultitenantDistributionCacheBehaviorOutput)
+}
+
+type MultitenantDistributionCacheBehaviorAllowedMethods struct {
+	// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+	CachedMethods []string `pulumi:"cachedMethods"`
+	Items         []string `pulumi:"items"`
+}
+
+// MultitenantDistributionCacheBehaviorAllowedMethodsInput is an input type that accepts MultitenantDistributionCacheBehaviorAllowedMethodsArgs and MultitenantDistributionCacheBehaviorAllowedMethodsOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCacheBehaviorAllowedMethodsInput` via:
+//
+//	MultitenantDistributionCacheBehaviorAllowedMethodsArgs{...}
+type MultitenantDistributionCacheBehaviorAllowedMethodsInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCacheBehaviorAllowedMethodsOutput() MultitenantDistributionCacheBehaviorAllowedMethodsOutput
+	ToMultitenantDistributionCacheBehaviorAllowedMethodsOutputWithContext(context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsOutput
+}
+
+type MultitenantDistributionCacheBehaviorAllowedMethodsArgs struct {
+	// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+	CachedMethods pulumi.StringArrayInput `pulumi:"cachedMethods"`
+	Items         pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (MultitenantDistributionCacheBehaviorAllowedMethodsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCacheBehaviorAllowedMethods)(nil)).Elem()
+}
+
+func (i MultitenantDistributionCacheBehaviorAllowedMethodsArgs) ToMultitenantDistributionCacheBehaviorAllowedMethodsOutput() MultitenantDistributionCacheBehaviorAllowedMethodsOutput {
+	return i.ToMultitenantDistributionCacheBehaviorAllowedMethodsOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCacheBehaviorAllowedMethodsArgs) ToMultitenantDistributionCacheBehaviorAllowedMethodsOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorAllowedMethodsOutput)
+}
+
+func (i MultitenantDistributionCacheBehaviorAllowedMethodsArgs) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
+	return i.ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCacheBehaviorAllowedMethodsArgs) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorAllowedMethodsOutput).ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput is an input type that accepts MultitenantDistributionCacheBehaviorAllowedMethodsArgs, MultitenantDistributionCacheBehaviorAllowedMethodsPtr and MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput` via:
+//
+//	        MultitenantDistributionCacheBehaviorAllowedMethodsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput
+	ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput
+}
+
+type multitenantDistributionCacheBehaviorAllowedMethodsPtrType MultitenantDistributionCacheBehaviorAllowedMethodsArgs
+
+func MultitenantDistributionCacheBehaviorAllowedMethodsPtr(v *MultitenantDistributionCacheBehaviorAllowedMethodsArgs) MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput {
+	return (*multitenantDistributionCacheBehaviorAllowedMethodsPtrType)(v)
+}
+
+func (*multitenantDistributionCacheBehaviorAllowedMethodsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionCacheBehaviorAllowedMethods)(nil)).Elem()
+}
+
+func (i *multitenantDistributionCacheBehaviorAllowedMethodsPtrType) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
+	return i.ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionCacheBehaviorAllowedMethodsPtrType) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput)
+}
+
+type MultitenantDistributionCacheBehaviorAllowedMethodsOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCacheBehaviorAllowedMethodsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCacheBehaviorAllowedMethods)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) ToMultitenantDistributionCacheBehaviorAllowedMethodsOutput() MultitenantDistributionCacheBehaviorAllowedMethodsOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) ToMultitenantDistributionCacheBehaviorAllowedMethodsOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
+	return o.ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionCacheBehaviorAllowedMethods) *MultitenantDistributionCacheBehaviorAllowedMethods {
+		return &v
+	}).(MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput)
+}
+
+// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) CachedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehaviorAllowedMethods) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
+}
+
+func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehaviorAllowedMethods) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+type MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionCacheBehaviorAllowedMethods)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) Elem() MultitenantDistributionCacheBehaviorAllowedMethodsOutput {
+	return o.ApplyT(func(v *MultitenantDistributionCacheBehaviorAllowedMethods) MultitenantDistributionCacheBehaviorAllowedMethods {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionCacheBehaviorAllowedMethods
+		return ret
+	}).(MultitenantDistributionCacheBehaviorAllowedMethodsOutput)
+}
+
+// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+func (o MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) CachedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MultitenantDistributionCacheBehaviorAllowedMethods) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CachedMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MultitenantDistributionCacheBehaviorAllowedMethods) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type MultitenantDistributionCacheBehaviorFunctionAssociation struct {
+	// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+	EventType string `pulumi:"eventType"`
+	// ARN of the CloudFront function.
+	FunctionArn string `pulumi:"functionArn"`
+}
+
+// MultitenantDistributionCacheBehaviorFunctionAssociationInput is an input type that accepts MultitenantDistributionCacheBehaviorFunctionAssociationArgs and MultitenantDistributionCacheBehaviorFunctionAssociationOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCacheBehaviorFunctionAssociationInput` via:
+//
+//	MultitenantDistributionCacheBehaviorFunctionAssociationArgs{...}
+type MultitenantDistributionCacheBehaviorFunctionAssociationInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCacheBehaviorFunctionAssociationOutput() MultitenantDistributionCacheBehaviorFunctionAssociationOutput
+	ToMultitenantDistributionCacheBehaviorFunctionAssociationOutputWithContext(context.Context) MultitenantDistributionCacheBehaviorFunctionAssociationOutput
+}
+
+type MultitenantDistributionCacheBehaviorFunctionAssociationArgs struct {
+	// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// ARN of the CloudFront function.
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+}
+
+func (MultitenantDistributionCacheBehaviorFunctionAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (i MultitenantDistributionCacheBehaviorFunctionAssociationArgs) ToMultitenantDistributionCacheBehaviorFunctionAssociationOutput() MultitenantDistributionCacheBehaviorFunctionAssociationOutput {
+	return i.ToMultitenantDistributionCacheBehaviorFunctionAssociationOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCacheBehaviorFunctionAssociationArgs) ToMultitenantDistributionCacheBehaviorFunctionAssociationOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorFunctionAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorFunctionAssociationOutput)
+}
+
+// MultitenantDistributionCacheBehaviorFunctionAssociationArrayInput is an input type that accepts MultitenantDistributionCacheBehaviorFunctionAssociationArray and MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCacheBehaviorFunctionAssociationArrayInput` via:
+//
+//	MultitenantDistributionCacheBehaviorFunctionAssociationArray{ MultitenantDistributionCacheBehaviorFunctionAssociationArgs{...} }
+type MultitenantDistributionCacheBehaviorFunctionAssociationArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput() MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput
+	ToMultitenantDistributionCacheBehaviorFunctionAssociationArrayOutputWithContext(context.Context) MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput
+}
+
+type MultitenantDistributionCacheBehaviorFunctionAssociationArray []MultitenantDistributionCacheBehaviorFunctionAssociationInput
+
+func (MultitenantDistributionCacheBehaviorFunctionAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (i MultitenantDistributionCacheBehaviorFunctionAssociationArray) ToMultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput() MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput {
+	return i.ToMultitenantDistributionCacheBehaviorFunctionAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCacheBehaviorFunctionAssociationArray) ToMultitenantDistributionCacheBehaviorFunctionAssociationArrayOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput)
+}
+
+type MultitenantDistributionCacheBehaviorFunctionAssociationOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCacheBehaviorFunctionAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCacheBehaviorFunctionAssociationOutput) ToMultitenantDistributionCacheBehaviorFunctionAssociationOutput() MultitenantDistributionCacheBehaviorFunctionAssociationOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorFunctionAssociationOutput) ToMultitenantDistributionCacheBehaviorFunctionAssociationOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorFunctionAssociationOutput {
+	return o
+}
+
+// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+func (o MultitenantDistributionCacheBehaviorFunctionAssociationOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehaviorFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+// ARN of the CloudFront function.
+func (o MultitenantDistributionCacheBehaviorFunctionAssociationOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehaviorFunctionAssociation) string { return v.FunctionArn }).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput) ToMultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput() MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput) ToMultitenantDistributionCacheBehaviorFunctionAssociationArrayOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionCacheBehaviorFunctionAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionCacheBehaviorFunctionAssociation {
+		return vs[0].([]MultitenantDistributionCacheBehaviorFunctionAssociation)[vs[1].(int)]
+	}).(MultitenantDistributionCacheBehaviorFunctionAssociationOutput)
+}
+
+type MultitenantDistributionCacheBehaviorLambdaFunctionAssociation struct {
+	// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+	EventType string `pulumi:"eventType"`
+	// When set to true, the request body is exposed to the Lambda function. Default: `false`.
+	IncludeBody *bool `pulumi:"includeBody"`
+	// ARN of the Lambda function.
+	LambdaFunctionArn string `pulumi:"lambdaFunctionArn"`
+}
+
+// MultitenantDistributionCacheBehaviorLambdaFunctionAssociationInput is an input type that accepts MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs and MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCacheBehaviorLambdaFunctionAssociationInput` via:
+//
+//	MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs{...}
+type MultitenantDistributionCacheBehaviorLambdaFunctionAssociationInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput() MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput
+	ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutputWithContext(context.Context) MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput
+}
+
+type MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs struct {
+	// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// When set to true, the request body is exposed to the Lambda function. Default: `false`.
+	IncludeBody pulumi.BoolPtrInput `pulumi:"includeBody"`
+	// ARN of the Lambda function.
+	LambdaFunctionArn pulumi.StringInput `pulumi:"lambdaFunctionArn"`
+}
+
+func (MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
+}
+
+func (i MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs) ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput() MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput {
+	return i.ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs) ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput)
+}
+
+// MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayInput is an input type that accepts MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArray and MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayInput` via:
+//
+//	MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArray{ MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs{...} }
+type MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput() MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput
+	ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutputWithContext(context.Context) MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput
+}
+
+type MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArray []MultitenantDistributionCacheBehaviorLambdaFunctionAssociationInput
+
+func (MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
+}
+
+func (i MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArray) ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput() MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput {
+	return i.ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArray) ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput)
+}
+
+type MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput) ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput() MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput) ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput {
+	return o
+}
+
+// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+func (o MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehaviorLambdaFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+// When set to true, the request body is exposed to the Lambda function. Default: `false`.
+func (o MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput) IncludeBody() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehaviorLambdaFunctionAssociation) *bool { return v.IncludeBody }).(pulumi.BoolPtrOutput)
+}
+
+// ARN of the Lambda function.
+func (o MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput) LambdaFunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehaviorLambdaFunctionAssociation) string {
+		return v.LambdaFunctionArn
+	}).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput) ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput() MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput) ToMultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionCacheBehaviorLambdaFunctionAssociation {
+		return vs[0].([]MultitenantDistributionCacheBehaviorLambdaFunctionAssociation)[vs[1].(int)]
+	}).(MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput)
+}
+
+type MultitenantDistributionCacheBehaviorTrustedKeyGroups struct {
+	// Whether the distribution is enabled to accept end user requests for content.
+	Enabled *bool    `pulumi:"enabled"`
+	Items   []string `pulumi:"items"`
+}
+
+// MultitenantDistributionCacheBehaviorTrustedKeyGroupsInput is an input type that accepts MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs and MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCacheBehaviorTrustedKeyGroupsInput` via:
+//
+//	MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs{...}
+type MultitenantDistributionCacheBehaviorTrustedKeyGroupsInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput() MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput
+	ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsOutputWithContext(context.Context) MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput
+}
+
+type MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs struct {
+	// Whether the distribution is enabled to accept end user requests for content.
+	Enabled pulumi.BoolPtrInput     `pulumi:"enabled"`
+	Items   pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCacheBehaviorTrustedKeyGroups)(nil)).Elem()
+}
+
+func (i MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput() MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput {
+	return i.ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput)
+}
+
+func (i MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput() MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return i.ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput).ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrInput is an input type that accepts MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs, MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtr and MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrInput` via:
+//
+//	        MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput() MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput
+	ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(context.Context) MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput
+}
+
+type multitenantDistributionCacheBehaviorTrustedKeyGroupsPtrType MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs
+
+func MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtr(v *MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs) MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrInput {
+	return (*multitenantDistributionCacheBehaviorTrustedKeyGroupsPtrType)(v)
+}
+
+func (*multitenantDistributionCacheBehaviorTrustedKeyGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionCacheBehaviorTrustedKeyGroups)(nil)).Elem()
+}
+
+func (i *multitenantDistributionCacheBehaviorTrustedKeyGroupsPtrType) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput() MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return i.ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionCacheBehaviorTrustedKeyGroupsPtrType) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput)
+}
+
+type MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCacheBehaviorTrustedKeyGroups)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput() MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput() MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return o.ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionCacheBehaviorTrustedKeyGroups) *MultitenantDistributionCacheBehaviorTrustedKeyGroups {
+		return &v
+	}).(MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput)
+}
+
+// Whether the distribution is enabled to accept end user requests for content.
+func (o MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehaviorTrustedKeyGroups) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehaviorTrustedKeyGroups) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+type MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionCacheBehaviorTrustedKeyGroups)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput() MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput) ToMultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput) Elem() MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput {
+	return o.ApplyT(func(v *MultitenantDistributionCacheBehaviorTrustedKeyGroups) MultitenantDistributionCacheBehaviorTrustedKeyGroups {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionCacheBehaviorTrustedKeyGroups
+		return ret
+	}).(MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput)
+}
+
+// Whether the distribution is enabled to accept end user requests for content.
+func (o MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionCacheBehaviorTrustedKeyGroups) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MultitenantDistributionCacheBehaviorTrustedKeyGroups) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type MultitenantDistributionCustomErrorResponse struct {
+	// Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
+	ErrorCachingMinTtl *int `pulumi:"errorCachingMinTtl"`
+	// HTTP status code for which you want to specify a custom error page and/or a caching duration.
+	ErrorCode int `pulumi:"errorCode"`
+	// HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+	ResponseCode *string `pulumi:"responseCode"`
+	// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+	ResponsePagePath *string `pulumi:"responsePagePath"`
+}
+
+// MultitenantDistributionCustomErrorResponseInput is an input type that accepts MultitenantDistributionCustomErrorResponseArgs and MultitenantDistributionCustomErrorResponseOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCustomErrorResponseInput` via:
+//
+//	MultitenantDistributionCustomErrorResponseArgs{...}
+type MultitenantDistributionCustomErrorResponseInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCustomErrorResponseOutput() MultitenantDistributionCustomErrorResponseOutput
+	ToMultitenantDistributionCustomErrorResponseOutputWithContext(context.Context) MultitenantDistributionCustomErrorResponseOutput
+}
+
+type MultitenantDistributionCustomErrorResponseArgs struct {
+	// Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
+	ErrorCachingMinTtl pulumi.IntPtrInput `pulumi:"errorCachingMinTtl"`
+	// HTTP status code for which you want to specify a custom error page and/or a caching duration.
+	ErrorCode pulumi.IntInput `pulumi:"errorCode"`
+	// HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+	ResponseCode pulumi.StringPtrInput `pulumi:"responseCode"`
+	// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+	ResponsePagePath pulumi.StringPtrInput `pulumi:"responsePagePath"`
+}
+
+func (MultitenantDistributionCustomErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCustomErrorResponse)(nil)).Elem()
+}
+
+func (i MultitenantDistributionCustomErrorResponseArgs) ToMultitenantDistributionCustomErrorResponseOutput() MultitenantDistributionCustomErrorResponseOutput {
+	return i.ToMultitenantDistributionCustomErrorResponseOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCustomErrorResponseArgs) ToMultitenantDistributionCustomErrorResponseOutputWithContext(ctx context.Context) MultitenantDistributionCustomErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCustomErrorResponseOutput)
+}
+
+// MultitenantDistributionCustomErrorResponseArrayInput is an input type that accepts MultitenantDistributionCustomErrorResponseArray and MultitenantDistributionCustomErrorResponseArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionCustomErrorResponseArrayInput` via:
+//
+//	MultitenantDistributionCustomErrorResponseArray{ MultitenantDistributionCustomErrorResponseArgs{...} }
+type MultitenantDistributionCustomErrorResponseArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionCustomErrorResponseArrayOutput() MultitenantDistributionCustomErrorResponseArrayOutput
+	ToMultitenantDistributionCustomErrorResponseArrayOutputWithContext(context.Context) MultitenantDistributionCustomErrorResponseArrayOutput
+}
+
+type MultitenantDistributionCustomErrorResponseArray []MultitenantDistributionCustomErrorResponseInput
+
+func (MultitenantDistributionCustomErrorResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionCustomErrorResponse)(nil)).Elem()
+}
+
+func (i MultitenantDistributionCustomErrorResponseArray) ToMultitenantDistributionCustomErrorResponseArrayOutput() MultitenantDistributionCustomErrorResponseArrayOutput {
+	return i.ToMultitenantDistributionCustomErrorResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionCustomErrorResponseArray) ToMultitenantDistributionCustomErrorResponseArrayOutputWithContext(ctx context.Context) MultitenantDistributionCustomErrorResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCustomErrorResponseArrayOutput)
+}
+
+type MultitenantDistributionCustomErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCustomErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionCustomErrorResponse)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCustomErrorResponseOutput) ToMultitenantDistributionCustomErrorResponseOutput() MultitenantDistributionCustomErrorResponseOutput {
+	return o
+}
+
+func (o MultitenantDistributionCustomErrorResponseOutput) ToMultitenantDistributionCustomErrorResponseOutputWithContext(ctx context.Context) MultitenantDistributionCustomErrorResponseOutput {
+	return o
+}
+
+// Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
+func (o MultitenantDistributionCustomErrorResponseOutput) ErrorCachingMinTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCustomErrorResponse) *int { return v.ErrorCachingMinTtl }).(pulumi.IntPtrOutput)
+}
+
+// HTTP status code for which you want to specify a custom error page and/or a caching duration.
+func (o MultitenantDistributionCustomErrorResponseOutput) ErrorCode() pulumi.IntOutput {
+	return o.ApplyT(func(v MultitenantDistributionCustomErrorResponse) int { return v.ErrorCode }).(pulumi.IntOutput)
+}
+
+// HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+func (o MultitenantDistributionCustomErrorResponseOutput) ResponseCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCustomErrorResponse) *string { return v.ResponseCode }).(pulumi.StringPtrOutput)
+}
+
+// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+func (o MultitenantDistributionCustomErrorResponseOutput) ResponsePagePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionCustomErrorResponse) *string { return v.ResponsePagePath }).(pulumi.StringPtrOutput)
+}
+
+type MultitenantDistributionCustomErrorResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionCustomErrorResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionCustomErrorResponse)(nil)).Elem()
+}
+
+func (o MultitenantDistributionCustomErrorResponseArrayOutput) ToMultitenantDistributionCustomErrorResponseArrayOutput() MultitenantDistributionCustomErrorResponseArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionCustomErrorResponseArrayOutput) ToMultitenantDistributionCustomErrorResponseArrayOutputWithContext(ctx context.Context) MultitenantDistributionCustomErrorResponseArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionCustomErrorResponseArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionCustomErrorResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionCustomErrorResponse {
+		return vs[0].([]MultitenantDistributionCustomErrorResponse)[vs[1].(int)]
+	}).(MultitenantDistributionCustomErrorResponseOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehavior struct {
+	// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+	AllowedMethods *MultitenantDistributionDefaultCacheBehaviorAllowedMethods `pulumi:"allowedMethods"`
+	// Unique identifier of the cache policy that is attached to the cache behavior.
+	CachePolicyId *string `pulumi:"cachePolicyId"`
+	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
+	Compress *bool `pulumi:"compress"`
+	// Field level encryption configuration ID.
+	FieldLevelEncryptionId *string `pulumi:"fieldLevelEncryptionId"`
+	// Configuration block for CloudFront Functions associations. See Function Association below.
+	FunctionAssociations []MultitenantDistributionDefaultCacheBehaviorFunctionAssociation `pulumi:"functionAssociations"`
+	// Configuration block for Lambda@Edge associations. See Lambda Function Association below.
+	LambdaFunctionAssociations []MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
+	// Unique identifier of the origin request policy that is attached to the behavior.
+	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
+	// ARN of the real-time log configuration that is attached to this cache behavior.
+	RealtimeLogConfigArn *string `pulumi:"realtimeLogConfigArn"`
+	// Identifier for a response headers policy.
+	ResponseHeadersPolicyId *string `pulumi:"responseHeadersPolicyId"`
+	// Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+	TargetOriginId string `pulumi:"targetOriginId"`
+	// List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+	TrustedKeyGroups *MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups `pulumi:"trustedKeyGroups"`
+	// Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+	ViewerProtocolPolicy string `pulumi:"viewerProtocolPolicy"`
+}
+
+// MultitenantDistributionDefaultCacheBehaviorInput is an input type that accepts MultitenantDistributionDefaultCacheBehaviorArgs and MultitenantDistributionDefaultCacheBehaviorOutput values.
+// You can construct a concrete instance of `MultitenantDistributionDefaultCacheBehaviorInput` via:
+//
+//	MultitenantDistributionDefaultCacheBehaviorArgs{...}
+type MultitenantDistributionDefaultCacheBehaviorInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionDefaultCacheBehaviorOutput() MultitenantDistributionDefaultCacheBehaviorOutput
+	ToMultitenantDistributionDefaultCacheBehaviorOutputWithContext(context.Context) MultitenantDistributionDefaultCacheBehaviorOutput
+}
+
+type MultitenantDistributionDefaultCacheBehaviorArgs struct {
+	// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+	AllowedMethods MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrInput `pulumi:"allowedMethods"`
+	// Unique identifier of the cache policy that is attached to the cache behavior.
+	CachePolicyId pulumi.StringPtrInput `pulumi:"cachePolicyId"`
+	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
+	Compress pulumi.BoolPtrInput `pulumi:"compress"`
+	// Field level encryption configuration ID.
+	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"fieldLevelEncryptionId"`
+	// Configuration block for CloudFront Functions associations. See Function Association below.
+	FunctionAssociations MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayInput `pulumi:"functionAssociations"`
+	// Configuration block for Lambda@Edge associations. See Lambda Function Association below.
+	LambdaFunctionAssociations MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
+	// Unique identifier of the origin request policy that is attached to the behavior.
+	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
+	// ARN of the real-time log configuration that is attached to this cache behavior.
+	RealtimeLogConfigArn pulumi.StringPtrInput `pulumi:"realtimeLogConfigArn"`
+	// Identifier for a response headers policy.
+	ResponseHeadersPolicyId pulumi.StringPtrInput `pulumi:"responseHeadersPolicyId"`
+	// Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+	TargetOriginId pulumi.StringInput `pulumi:"targetOriginId"`
+	// List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+	TrustedKeyGroups MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrInput `pulumi:"trustedKeyGroups"`
+	// Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+	ViewerProtocolPolicy pulumi.StringInput `pulumi:"viewerProtocolPolicy"`
+}
+
+func (MultitenantDistributionDefaultCacheBehaviorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionDefaultCacheBehavior)(nil)).Elem()
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorArgs) ToMultitenantDistributionDefaultCacheBehaviorOutput() MultitenantDistributionDefaultCacheBehaviorOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorArgs) ToMultitenantDistributionDefaultCacheBehaviorOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorOutput)
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorArgs) ToMultitenantDistributionDefaultCacheBehaviorPtrOutput() MultitenantDistributionDefaultCacheBehaviorPtrOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorArgs) ToMultitenantDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorOutput).ToMultitenantDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionDefaultCacheBehaviorPtrInput is an input type that accepts MultitenantDistributionDefaultCacheBehaviorArgs, MultitenantDistributionDefaultCacheBehaviorPtr and MultitenantDistributionDefaultCacheBehaviorPtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionDefaultCacheBehaviorPtrInput` via:
+//
+//	        MultitenantDistributionDefaultCacheBehaviorArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionDefaultCacheBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionDefaultCacheBehaviorPtrOutput() MultitenantDistributionDefaultCacheBehaviorPtrOutput
+	ToMultitenantDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Context) MultitenantDistributionDefaultCacheBehaviorPtrOutput
+}
+
+type multitenantDistributionDefaultCacheBehaviorPtrType MultitenantDistributionDefaultCacheBehaviorArgs
+
+func MultitenantDistributionDefaultCacheBehaviorPtr(v *MultitenantDistributionDefaultCacheBehaviorArgs) MultitenantDistributionDefaultCacheBehaviorPtrInput {
+	return (*multitenantDistributionDefaultCacheBehaviorPtrType)(v)
+}
+
+func (*multitenantDistributionDefaultCacheBehaviorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionDefaultCacheBehavior)(nil)).Elem()
+}
+
+func (i *multitenantDistributionDefaultCacheBehaviorPtrType) ToMultitenantDistributionDefaultCacheBehaviorPtrOutput() MultitenantDistributionDefaultCacheBehaviorPtrOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionDefaultCacheBehaviorPtrType) ToMultitenantDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorPtrOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionDefaultCacheBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionDefaultCacheBehavior)(nil)).Elem()
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) ToMultitenantDistributionDefaultCacheBehaviorOutput() MultitenantDistributionDefaultCacheBehaviorOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) ToMultitenantDistributionDefaultCacheBehaviorOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) ToMultitenantDistributionDefaultCacheBehaviorPtrOutput() MultitenantDistributionDefaultCacheBehaviorPtrOutput {
+	return o.ToMultitenantDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) ToMultitenantDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionDefaultCacheBehavior) *MultitenantDistributionDefaultCacheBehavior {
+		return &v
+	}).(MultitenantDistributionDefaultCacheBehaviorPtrOutput)
+}
+
+// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) AllowedMethods() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) *MultitenantDistributionDefaultCacheBehaviorAllowedMethods {
+		return v.AllowedMethods
+	}).(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput)
+}
+
+// Unique identifier of the cache policy that is attached to the cache behavior.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) CachePolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) *string { return v.CachePolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
+}
+
+// Field level encryption configuration ID.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) *string { return v.FieldLevelEncryptionId }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for CloudFront Functions associations. See Function Association below.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) FunctionAssociations() MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) []MultitenantDistributionDefaultCacheBehaviorFunctionAssociation {
+		return v.FunctionAssociations
+	}).(MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput)
+}
+
+// Configuration block for Lambda@Edge associations. See Lambda Function Association below.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) LambdaFunctionAssociations() MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) []MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation {
+		return v.LambdaFunctionAssociations
+	}).(MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput)
+}
+
+// Unique identifier of the origin request policy that is attached to the behavior.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the real-time log configuration that is attached to this cache behavior.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) *string { return v.RealtimeLogConfigArn }).(pulumi.StringPtrOutput)
+}
+
+// Identifier for a response headers policy.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) ResponseHeadersPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) *string { return v.ResponseHeadersPolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) TargetOriginId() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
+}
+
+// List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) TrustedKeyGroups() MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) *MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups {
+		return v.TrustedKeyGroups
+	}).(MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput)
+}
+
+// Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) ViewerProtocolPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) string { return v.ViewerProtocolPolicy }).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionDefaultCacheBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionDefaultCacheBehavior)(nil)).Elem()
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) ToMultitenantDistributionDefaultCacheBehaviorPtrOutput() MultitenantDistributionDefaultCacheBehaviorPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) ToMultitenantDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) Elem() MultitenantDistributionDefaultCacheBehaviorOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) MultitenantDistributionDefaultCacheBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionDefaultCacheBehavior
+		return ret
+	}).(MultitenantDistributionDefaultCacheBehaviorOutput)
+}
+
+// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) AllowedMethods() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) *MultitenantDistributionDefaultCacheBehaviorAllowedMethods {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedMethods
+	}).(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput)
+}
+
+// Unique identifier of the cache policy that is attached to the cache behavior.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) CachePolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CachePolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) Compress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Compress
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Field level encryption configuration ID.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldLevelEncryptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for CloudFront Functions associations. See Function Association below.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) FunctionAssociations() MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) []MultitenantDistributionDefaultCacheBehaviorFunctionAssociation {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionAssociations
+	}).(MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput)
+}
+
+// Configuration block for Lambda@Edge associations. See Lambda Function Association below.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) []MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionAssociations
+	}).(MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput)
+}
+
+// Unique identifier of the origin request policy that is attached to the behavior.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OriginRequestPolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the real-time log configuration that is attached to this cache behavior.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RealtimeLogConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier for a response headers policy.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) ResponseHeadersPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseHeadersPolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) TargetOriginId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetOriginId
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) TrustedKeyGroups() MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) *MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedKeyGroups
+	}).(MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput)
+}
+
+// Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) ViewerProtocolPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ViewerProtocolPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorAllowedMethods struct {
+	// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+	CachedMethods []string `pulumi:"cachedMethods"`
+	Items         []string `pulumi:"items"`
+}
+
+// MultitenantDistributionDefaultCacheBehaviorAllowedMethodsInput is an input type that accepts MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs and MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput values.
+// You can construct a concrete instance of `MultitenantDistributionDefaultCacheBehaviorAllowedMethodsInput` via:
+//
+//	MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs{...}
+type MultitenantDistributionDefaultCacheBehaviorAllowedMethodsInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput
+	ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutputWithContext(context.Context) MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput
+}
+
+type MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs struct {
+	// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+	CachedMethods pulumi.StringArrayInput `pulumi:"cachedMethods"`
+	Items         pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorAllowedMethods)(nil)).Elem()
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput)
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput).ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrInput is an input type that accepts MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs, MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtr and MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrInput` via:
+//
+//	        MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput
+	ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Context) MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput
+}
+
+type multitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrType MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs
+
+func MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtr(v *MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs) MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrInput {
+	return (*multitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrType)(v)
+}
+
+func (*multitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionDefaultCacheBehaviorAllowedMethods)(nil)).Elem()
+}
+
+func (i *multitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrType) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrType) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorAllowedMethods)(nil)).Elem()
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput {
+	return o.ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionDefaultCacheBehaviorAllowedMethods) *MultitenantDistributionDefaultCacheBehaviorAllowedMethods {
+		return &v
+	}).(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput)
+}
+
+// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+func (o MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput) CachedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehaviorAllowedMethods) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehaviorAllowedMethods) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionDefaultCacheBehaviorAllowedMethods)(nil)).Elem()
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput) ToMultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput) Elem() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehaviorAllowedMethods) MultitenantDistributionDefaultCacheBehaviorAllowedMethods {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionDefaultCacheBehaviorAllowedMethods
+		return ret
+	}).(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput)
+}
+
+// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+func (o MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput) CachedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehaviorAllowedMethods) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CachedMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehaviorAllowedMethods) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorFunctionAssociation struct {
+	// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+	EventType string `pulumi:"eventType"`
+	// ARN of the CloudFront function.
+	FunctionArn string `pulumi:"functionArn"`
+}
+
+// MultitenantDistributionDefaultCacheBehaviorFunctionAssociationInput is an input type that accepts MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs and MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput values.
+// You can construct a concrete instance of `MultitenantDistributionDefaultCacheBehaviorFunctionAssociationInput` via:
+//
+//	MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs{...}
+type MultitenantDistributionDefaultCacheBehaviorFunctionAssociationInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput() MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput
+	ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutputWithContext(context.Context) MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput
+}
+
+type MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs struct {
+	// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// ARN of the CloudFront function.
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+}
+
+func (MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs) ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput() MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs) ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput)
+}
+
+// MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayInput is an input type that accepts MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArray and MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayInput` via:
+//
+//	MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArray{ MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs{...} }
+type MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput() MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput
+	ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutputWithContext(context.Context) MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput
+}
+
+type MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArray []MultitenantDistributionDefaultCacheBehaviorFunctionAssociationInput
+
+func (MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionDefaultCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArray) ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput() MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArray) ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput) ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput() MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput) ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput {
+	return o
+}
+
+// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+func (o MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehaviorFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+// ARN of the CloudFront function.
+func (o MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehaviorFunctionAssociation) string { return v.FunctionArn }).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionDefaultCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput) ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput() MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput) ToMultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionDefaultCacheBehaviorFunctionAssociation {
+		return vs[0].([]MultitenantDistributionDefaultCacheBehaviorFunctionAssociation)[vs[1].(int)]
+	}).(MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation struct {
+	// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+	EventType string `pulumi:"eventType"`
+	// When set to true, the request body is exposed to the Lambda function. Default: `false`.
+	IncludeBody *bool `pulumi:"includeBody"`
+	// ARN of the Lambda function.
+	LambdaFunctionArn string `pulumi:"lambdaFunctionArn"`
+}
+
+// MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationInput is an input type that accepts MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs and MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput values.
+// You can construct a concrete instance of `MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationInput` via:
+//
+//	MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs{...}
+type MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput() MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput
+	ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutputWithContext(context.Context) MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput
+}
+
+type MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs struct {
+	// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// When set to true, the request body is exposed to the Lambda function. Default: `false`.
+	IncludeBody pulumi.BoolPtrInput `pulumi:"includeBody"`
+	// ARN of the Lambda function.
+	LambdaFunctionArn pulumi.StringInput `pulumi:"lambdaFunctionArn"`
+}
+
+func (MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs) ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput() MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs) ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput)
+}
+
+// MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayInput is an input type that accepts MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArray and MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayInput` via:
+//
+//	MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArray{ MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs{...} }
+type MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput() MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput
+	ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutputWithContext(context.Context) MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput
+}
+
+type MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArray []MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationInput
+
+func (MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArray) ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput() MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArray) ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput() MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput {
+	return o
+}
+
+// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+func (o MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation) string {
+		return v.EventType
+	}).(pulumi.StringOutput)
+}
+
+// When set to true, the request body is exposed to the Lambda function. Default: `false`.
+func (o MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) IncludeBody() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation) *bool {
+		return v.IncludeBody
+	}).(pulumi.BoolPtrOutput)
+}
+
+// ARN of the Lambda function.
+func (o MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) LambdaFunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation) string {
+		return v.LambdaFunctionArn
+	}).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput) ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput() MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput) ToMultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation {
+		return vs[0].([]MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation)[vs[1].(int)]
+	}).(MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups struct {
+	// Whether the distribution is enabled to accept end user requests for content.
+	Enabled *bool    `pulumi:"enabled"`
+	Items   []string `pulumi:"items"`
+}
+
+// MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsInput is an input type that accepts MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs and MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput values.
+// You can construct a concrete instance of `MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsInput` via:
+//
+//	MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs{...}
+type MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput() MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput
+	ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutputWithContext(context.Context) MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput
+}
+
+type MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs struct {
+	// Whether the distribution is enabled to accept end user requests for content.
+	Enabled pulumi.BoolPtrInput     `pulumi:"enabled"`
+	Items   pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups)(nil)).Elem()
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput() MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput)
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput() MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput).ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrInput is an input type that accepts MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs, MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtr and MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrInput` via:
+//
+//	        MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput() MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput
+	ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(context.Context) MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput
+}
+
+type multitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrType MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs
+
+func MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtr(v *MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs) MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrInput {
+	return (*multitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrType)(v)
+}
+
+func (*multitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups)(nil)).Elem()
+}
+
+func (i *multitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrType) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput() MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return i.ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrType) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups)(nil)).Elem()
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput() MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput() MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return o.ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups) *MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups {
+		return &v
+	}).(MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput)
+}
+
+// Whether the distribution is enabled to accept end user requests for content.
+func (o MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+type MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups)(nil)).Elem()
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput() MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput) ToMultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutputWithContext(ctx context.Context) MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput) Elem() MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups) MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups
+		return ret
+	}).(MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput)
+}
+
+// Whether the distribution is enabled to accept end user requests for content.
+func (o MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type MultitenantDistributionOrigin struct {
+	// Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Default: 3.
+	ConnectionAttempts *int `pulumi:"connectionAttempts"`
+	// Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Default: 10.
+	ConnectionTimeout *int `pulumi:"connectionTimeout"`
+	// One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin. See Custom Header below.
+	CustomHeaders []MultitenantDistributionOriginCustomHeader `pulumi:"customHeaders"`
+	// CloudFront origin access identity to associate with the origin. See Custom Origin Config below.
+	CustomOriginConfigs []MultitenantDistributionOriginCustomOriginConfig `pulumi:"customOriginConfigs"`
+	// DNS domain name of either the S3 bucket, or web site of your custom origin.
+	DomainName string `pulumi:"domainName"`
+	// Identifier for the distribution.
+	Id string `pulumi:"id"`
+	// CloudFront origin access control identifier to associate with the origin.
+	OriginAccessControlId *string `pulumi:"originAccessControlId"`
+	// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
+	OriginPath *string `pulumi:"originPath"`
+	// CloudFront Origin Shield configuration information. See Origin Shield below.
+	OriginShields []MultitenantDistributionOriginOriginShield `pulumi:"originShields"`
+	// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+	ResponseCompletionTimeout *int `pulumi:"responseCompletionTimeout"`
+	// CloudFront VPC origin configuration. See VPC Origin Config below.
+	VpcOriginConfigs []MultitenantDistributionOriginVpcOriginConfig `pulumi:"vpcOriginConfigs"`
+}
+
+// MultitenantDistributionOriginInput is an input type that accepts MultitenantDistributionOriginArgs and MultitenantDistributionOriginOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginInput` via:
+//
+//	MultitenantDistributionOriginArgs{...}
+type MultitenantDistributionOriginInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginOutput() MultitenantDistributionOriginOutput
+	ToMultitenantDistributionOriginOutputWithContext(context.Context) MultitenantDistributionOriginOutput
+}
+
+type MultitenantDistributionOriginArgs struct {
+	// Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Default: 3.
+	ConnectionAttempts pulumi.IntPtrInput `pulumi:"connectionAttempts"`
+	// Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Default: 10.
+	ConnectionTimeout pulumi.IntPtrInput `pulumi:"connectionTimeout"`
+	// One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin. See Custom Header below.
+	CustomHeaders MultitenantDistributionOriginCustomHeaderArrayInput `pulumi:"customHeaders"`
+	// CloudFront origin access identity to associate with the origin. See Custom Origin Config below.
+	CustomOriginConfigs MultitenantDistributionOriginCustomOriginConfigArrayInput `pulumi:"customOriginConfigs"`
+	// DNS domain name of either the S3 bucket, or web site of your custom origin.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Identifier for the distribution.
+	Id pulumi.StringInput `pulumi:"id"`
+	// CloudFront origin access control identifier to associate with the origin.
+	OriginAccessControlId pulumi.StringPtrInput `pulumi:"originAccessControlId"`
+	// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
+	OriginPath pulumi.StringPtrInput `pulumi:"originPath"`
+	// CloudFront Origin Shield configuration information. See Origin Shield below.
+	OriginShields MultitenantDistributionOriginOriginShieldArrayInput `pulumi:"originShields"`
+	// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+	ResponseCompletionTimeout pulumi.IntPtrInput `pulumi:"responseCompletionTimeout"`
+	// CloudFront VPC origin configuration. See VPC Origin Config below.
+	VpcOriginConfigs MultitenantDistributionOriginVpcOriginConfigArrayInput `pulumi:"vpcOriginConfigs"`
+}
+
+func (MultitenantDistributionOriginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOrigin)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginArgs) ToMultitenantDistributionOriginOutput() MultitenantDistributionOriginOutput {
+	return i.ToMultitenantDistributionOriginOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginArgs) ToMultitenantDistributionOriginOutputWithContext(ctx context.Context) MultitenantDistributionOriginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginOutput)
+}
+
+// MultitenantDistributionOriginArrayInput is an input type that accepts MultitenantDistributionOriginArray and MultitenantDistributionOriginArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginArrayInput` via:
+//
+//	MultitenantDistributionOriginArray{ MultitenantDistributionOriginArgs{...} }
+type MultitenantDistributionOriginArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginArrayOutput() MultitenantDistributionOriginArrayOutput
+	ToMultitenantDistributionOriginArrayOutputWithContext(context.Context) MultitenantDistributionOriginArrayOutput
+}
+
+type MultitenantDistributionOriginArray []MultitenantDistributionOriginInput
+
+func (MultitenantDistributionOriginArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOrigin)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginArray) ToMultitenantDistributionOriginArrayOutput() MultitenantDistributionOriginArrayOutput {
+	return i.ToMultitenantDistributionOriginArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginArray) ToMultitenantDistributionOriginArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginArrayOutput)
+}
+
+type MultitenantDistributionOriginOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOrigin)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginOutput) ToMultitenantDistributionOriginOutput() MultitenantDistributionOriginOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginOutput) ToMultitenantDistributionOriginOutputWithContext(ctx context.Context) MultitenantDistributionOriginOutput {
+	return o
+}
+
+// Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Default: 3.
+func (o MultitenantDistributionOriginOutput) ConnectionAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOrigin) *int { return v.ConnectionAttempts }).(pulumi.IntPtrOutput)
+}
+
+// Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Default: 10.
+func (o MultitenantDistributionOriginOutput) ConnectionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOrigin) *int { return v.ConnectionTimeout }).(pulumi.IntPtrOutput)
+}
+
+// One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin. See Custom Header below.
+func (o MultitenantDistributionOriginOutput) CustomHeaders() MultitenantDistributionOriginCustomHeaderArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionOrigin) []MultitenantDistributionOriginCustomHeader {
+		return v.CustomHeaders
+	}).(MultitenantDistributionOriginCustomHeaderArrayOutput)
+}
+
+// CloudFront origin access identity to associate with the origin. See Custom Origin Config below.
+func (o MultitenantDistributionOriginOutput) CustomOriginConfigs() MultitenantDistributionOriginCustomOriginConfigArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionOrigin) []MultitenantDistributionOriginCustomOriginConfig {
+		return v.CustomOriginConfigs
+	}).(MultitenantDistributionOriginCustomOriginConfigArrayOutput)
+}
+
+// DNS domain name of either the S3 bucket, or web site of your custom origin.
+func (o MultitenantDistributionOriginOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionOrigin) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// Identifier for the distribution.
+func (o MultitenantDistributionOriginOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionOrigin) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// CloudFront origin access control identifier to associate with the origin.
+func (o MultitenantDistributionOriginOutput) OriginAccessControlId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOrigin) *string { return v.OriginAccessControlId }).(pulumi.StringPtrOutput)
+}
+
+// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
+func (o MultitenantDistributionOriginOutput) OriginPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOrigin) *string { return v.OriginPath }).(pulumi.StringPtrOutput)
+}
+
+// CloudFront Origin Shield configuration information. See Origin Shield below.
+func (o MultitenantDistributionOriginOutput) OriginShields() MultitenantDistributionOriginOriginShieldArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionOrigin) []MultitenantDistributionOriginOriginShield {
+		return v.OriginShields
+	}).(MultitenantDistributionOriginOriginShieldArrayOutput)
+}
+
+// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+func (o MultitenantDistributionOriginOutput) ResponseCompletionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOrigin) *int { return v.ResponseCompletionTimeout }).(pulumi.IntPtrOutput)
+}
+
+// CloudFront VPC origin configuration. See VPC Origin Config below.
+func (o MultitenantDistributionOriginOutput) VpcOriginConfigs() MultitenantDistributionOriginVpcOriginConfigArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionOrigin) []MultitenantDistributionOriginVpcOriginConfig {
+		return v.VpcOriginConfigs
+	}).(MultitenantDistributionOriginVpcOriginConfigArrayOutput)
+}
+
+type MultitenantDistributionOriginArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOrigin)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginArrayOutput) ToMultitenantDistributionOriginArrayOutput() MultitenantDistributionOriginArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginArrayOutput) ToMultitenantDistributionOriginArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionOriginOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionOrigin {
+		return vs[0].([]MultitenantDistributionOrigin)[vs[1].(int)]
+	}).(MultitenantDistributionOriginOutput)
+}
+
+type MultitenantDistributionOriginCustomHeader struct {
+	// Name of the header.
+	HeaderName string `pulumi:"headerName"`
+	// Value for the header.
+	HeaderValue string `pulumi:"headerValue"`
+}
+
+// MultitenantDistributionOriginCustomHeaderInput is an input type that accepts MultitenantDistributionOriginCustomHeaderArgs and MultitenantDistributionOriginCustomHeaderOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginCustomHeaderInput` via:
+//
+//	MultitenantDistributionOriginCustomHeaderArgs{...}
+type MultitenantDistributionOriginCustomHeaderInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginCustomHeaderOutput() MultitenantDistributionOriginCustomHeaderOutput
+	ToMultitenantDistributionOriginCustomHeaderOutputWithContext(context.Context) MultitenantDistributionOriginCustomHeaderOutput
+}
+
+type MultitenantDistributionOriginCustomHeaderArgs struct {
+	// Name of the header.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// Value for the header.
+	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
+}
+
+func (MultitenantDistributionOriginCustomHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginCustomHeader)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginCustomHeaderArgs) ToMultitenantDistributionOriginCustomHeaderOutput() MultitenantDistributionOriginCustomHeaderOutput {
+	return i.ToMultitenantDistributionOriginCustomHeaderOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginCustomHeaderArgs) ToMultitenantDistributionOriginCustomHeaderOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginCustomHeaderOutput)
+}
+
+// MultitenantDistributionOriginCustomHeaderArrayInput is an input type that accepts MultitenantDistributionOriginCustomHeaderArray and MultitenantDistributionOriginCustomHeaderArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginCustomHeaderArrayInput` via:
+//
+//	MultitenantDistributionOriginCustomHeaderArray{ MultitenantDistributionOriginCustomHeaderArgs{...} }
+type MultitenantDistributionOriginCustomHeaderArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginCustomHeaderArrayOutput() MultitenantDistributionOriginCustomHeaderArrayOutput
+	ToMultitenantDistributionOriginCustomHeaderArrayOutputWithContext(context.Context) MultitenantDistributionOriginCustomHeaderArrayOutput
+}
+
+type MultitenantDistributionOriginCustomHeaderArray []MultitenantDistributionOriginCustomHeaderInput
+
+func (MultitenantDistributionOriginCustomHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginCustomHeader)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginCustomHeaderArray) ToMultitenantDistributionOriginCustomHeaderArrayOutput() MultitenantDistributionOriginCustomHeaderArrayOutput {
+	return i.ToMultitenantDistributionOriginCustomHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginCustomHeaderArray) ToMultitenantDistributionOriginCustomHeaderArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginCustomHeaderArrayOutput)
+}
+
+type MultitenantDistributionOriginCustomHeaderOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginCustomHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginCustomHeader)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginCustomHeaderOutput) ToMultitenantDistributionOriginCustomHeaderOutput() MultitenantDistributionOriginCustomHeaderOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginCustomHeaderOutput) ToMultitenantDistributionOriginCustomHeaderOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomHeaderOutput {
+	return o
+}
+
+// Name of the header.
+func (o MultitenantDistributionOriginCustomHeaderOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginCustomHeader) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// Value for the header.
+func (o MultitenantDistributionOriginCustomHeaderOutput) HeaderValue() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginCustomHeader) string { return v.HeaderValue }).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionOriginCustomHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginCustomHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginCustomHeader)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginCustomHeaderArrayOutput) ToMultitenantDistributionOriginCustomHeaderArrayOutput() MultitenantDistributionOriginCustomHeaderArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginCustomHeaderArrayOutput) ToMultitenantDistributionOriginCustomHeaderArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomHeaderArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginCustomHeaderArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionOriginCustomHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionOriginCustomHeader {
+		return vs[0].([]MultitenantDistributionOriginCustomHeader)[vs[1].(int)]
+	}).(MultitenantDistributionOriginCustomHeaderOutput)
+}
+
+type MultitenantDistributionOriginCustomOriginConfig struct {
+	// HTTP port the custom origin listens on.
+	HttpPort int `pulumi:"httpPort"`
+	// HTTPS port the custom origin listens on.
+	HttpsPort int `pulumi:"httpsPort"`
+	// Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// Custom keep-alive timeout, in seconds. Default: 5.
+	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
+	// Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
+	OriginProtocolPolicy string `pulumi:"originProtocolPolicy"`
+	// Custom read timeout, in seconds. Default: 30.
+	OriginReadTimeout *int `pulumi:"originReadTimeout"`
+	// List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
+	OriginSslProtocols []string `pulumi:"originSslProtocols"`
+}
+
+// MultitenantDistributionOriginCustomOriginConfigInput is an input type that accepts MultitenantDistributionOriginCustomOriginConfigArgs and MultitenantDistributionOriginCustomOriginConfigOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginCustomOriginConfigInput` via:
+//
+//	MultitenantDistributionOriginCustomOriginConfigArgs{...}
+type MultitenantDistributionOriginCustomOriginConfigInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginCustomOriginConfigOutput() MultitenantDistributionOriginCustomOriginConfigOutput
+	ToMultitenantDistributionOriginCustomOriginConfigOutputWithContext(context.Context) MultitenantDistributionOriginCustomOriginConfigOutput
+}
+
+type MultitenantDistributionOriginCustomOriginConfigArgs struct {
+	// HTTP port the custom origin listens on.
+	HttpPort pulumi.IntInput `pulumi:"httpPort"`
+	// HTTPS port the custom origin listens on.
+	HttpsPort pulumi.IntInput `pulumi:"httpsPort"`
+	// Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
+	// Custom keep-alive timeout, in seconds. Default: 5.
+	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
+	// Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
+	OriginProtocolPolicy pulumi.StringInput `pulumi:"originProtocolPolicy"`
+	// Custom read timeout, in seconds. Default: 30.
+	OriginReadTimeout pulumi.IntPtrInput `pulumi:"originReadTimeout"`
+	// List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
+	OriginSslProtocols pulumi.StringArrayInput `pulumi:"originSslProtocols"`
+}
+
+func (MultitenantDistributionOriginCustomOriginConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginCustomOriginConfig)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginCustomOriginConfigArgs) ToMultitenantDistributionOriginCustomOriginConfigOutput() MultitenantDistributionOriginCustomOriginConfigOutput {
+	return i.ToMultitenantDistributionOriginCustomOriginConfigOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginCustomOriginConfigArgs) ToMultitenantDistributionOriginCustomOriginConfigOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomOriginConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginCustomOriginConfigOutput)
+}
+
+// MultitenantDistributionOriginCustomOriginConfigArrayInput is an input type that accepts MultitenantDistributionOriginCustomOriginConfigArray and MultitenantDistributionOriginCustomOriginConfigArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginCustomOriginConfigArrayInput` via:
+//
+//	MultitenantDistributionOriginCustomOriginConfigArray{ MultitenantDistributionOriginCustomOriginConfigArgs{...} }
+type MultitenantDistributionOriginCustomOriginConfigArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginCustomOriginConfigArrayOutput() MultitenantDistributionOriginCustomOriginConfigArrayOutput
+	ToMultitenantDistributionOriginCustomOriginConfigArrayOutputWithContext(context.Context) MultitenantDistributionOriginCustomOriginConfigArrayOutput
+}
+
+type MultitenantDistributionOriginCustomOriginConfigArray []MultitenantDistributionOriginCustomOriginConfigInput
+
+func (MultitenantDistributionOriginCustomOriginConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginCustomOriginConfig)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginCustomOriginConfigArray) ToMultitenantDistributionOriginCustomOriginConfigArrayOutput() MultitenantDistributionOriginCustomOriginConfigArrayOutput {
+	return i.ToMultitenantDistributionOriginCustomOriginConfigArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginCustomOriginConfigArray) ToMultitenantDistributionOriginCustomOriginConfigArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomOriginConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginCustomOriginConfigArrayOutput)
+}
+
+type MultitenantDistributionOriginCustomOriginConfigOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginCustomOriginConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginCustomOriginConfig)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigOutput) ToMultitenantDistributionOriginCustomOriginConfigOutput() MultitenantDistributionOriginCustomOriginConfigOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigOutput) ToMultitenantDistributionOriginCustomOriginConfigOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomOriginConfigOutput {
+	return o
+}
+
+// HTTP port the custom origin listens on.
+func (o MultitenantDistributionOriginCustomOriginConfigOutput) HttpPort() pulumi.IntOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginCustomOriginConfig) int { return v.HttpPort }).(pulumi.IntOutput)
+}
+
+// HTTPS port the custom origin listens on.
+func (o MultitenantDistributionOriginCustomOriginConfigOutput) HttpsPort() pulumi.IntOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginCustomOriginConfig) int { return v.HttpsPort }).(pulumi.IntOutput)
+}
+
+// Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
+func (o MultitenantDistributionOriginCustomOriginConfigOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginCustomOriginConfig) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// Custom keep-alive timeout, in seconds. Default: 5.
+func (o MultitenantDistributionOriginCustomOriginConfigOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
+func (o MultitenantDistributionOriginCustomOriginConfigOutput) OriginProtocolPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginCustomOriginConfig) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
+}
+
+// Custom read timeout, in seconds. Default: 30.
+func (o MultitenantDistributionOriginCustomOriginConfigOutput) OriginReadTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginCustomOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
+}
+
+// List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
+func (o MultitenantDistributionOriginCustomOriginConfigOutput) OriginSslProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginCustomOriginConfig) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
+}
+
+type MultitenantDistributionOriginCustomOriginConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginCustomOriginConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginCustomOriginConfig)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigArrayOutput) ToMultitenantDistributionOriginCustomOriginConfigArrayOutput() MultitenantDistributionOriginCustomOriginConfigArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigArrayOutput) ToMultitenantDistributionOriginCustomOriginConfigArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomOriginConfigArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionOriginCustomOriginConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionOriginCustomOriginConfig {
+		return vs[0].([]MultitenantDistributionOriginCustomOriginConfig)[vs[1].(int)]
+	}).(MultitenantDistributionOriginCustomOriginConfigOutput)
+}
+
+type MultitenantDistributionOriginGroup struct {
+	// Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
+	FailoverCriteria *MultitenantDistributionOriginGroupFailoverCriteria `pulumi:"failoverCriteria"`
+	// List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
+	Members []MultitenantDistributionOriginGroupMember `pulumi:"members"`
+	// Unique identifier for the origin group.
+	OriginId string `pulumi:"originId"`
+}
+
+// MultitenantDistributionOriginGroupInput is an input type that accepts MultitenantDistributionOriginGroupArgs and MultitenantDistributionOriginGroupOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginGroupInput` via:
+//
+//	MultitenantDistributionOriginGroupArgs{...}
+type MultitenantDistributionOriginGroupInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginGroupOutput() MultitenantDistributionOriginGroupOutput
+	ToMultitenantDistributionOriginGroupOutputWithContext(context.Context) MultitenantDistributionOriginGroupOutput
+}
+
+type MultitenantDistributionOriginGroupArgs struct {
+	// Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
+	FailoverCriteria MultitenantDistributionOriginGroupFailoverCriteriaPtrInput `pulumi:"failoverCriteria"`
+	// List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
+	Members MultitenantDistributionOriginGroupMemberArrayInput `pulumi:"members"`
+	// Unique identifier for the origin group.
+	OriginId pulumi.StringInput `pulumi:"originId"`
+}
+
+func (MultitenantDistributionOriginGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginGroup)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginGroupArgs) ToMultitenantDistributionOriginGroupOutput() MultitenantDistributionOriginGroupOutput {
+	return i.ToMultitenantDistributionOriginGroupOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginGroupArgs) ToMultitenantDistributionOriginGroupOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginGroupOutput)
+}
+
+// MultitenantDistributionOriginGroupArrayInput is an input type that accepts MultitenantDistributionOriginGroupArray and MultitenantDistributionOriginGroupArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginGroupArrayInput` via:
+//
+//	MultitenantDistributionOriginGroupArray{ MultitenantDistributionOriginGroupArgs{...} }
+type MultitenantDistributionOriginGroupArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginGroupArrayOutput() MultitenantDistributionOriginGroupArrayOutput
+	ToMultitenantDistributionOriginGroupArrayOutputWithContext(context.Context) MultitenantDistributionOriginGroupArrayOutput
+}
+
+type MultitenantDistributionOriginGroupArray []MultitenantDistributionOriginGroupInput
+
+func (MultitenantDistributionOriginGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginGroup)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginGroupArray) ToMultitenantDistributionOriginGroupArrayOutput() MultitenantDistributionOriginGroupArrayOutput {
+	return i.ToMultitenantDistributionOriginGroupArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginGroupArray) ToMultitenantDistributionOriginGroupArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginGroupArrayOutput)
+}
+
+type MultitenantDistributionOriginGroupOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginGroup)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginGroupOutput) ToMultitenantDistributionOriginGroupOutput() MultitenantDistributionOriginGroupOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginGroupOutput) ToMultitenantDistributionOriginGroupOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupOutput {
+	return o
+}
+
+// Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
+func (o MultitenantDistributionOriginGroupOutput) FailoverCriteria() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginGroup) *MultitenantDistributionOriginGroupFailoverCriteria {
+		return v.FailoverCriteria
+	}).(MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput)
+}
+
+// List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
+func (o MultitenantDistributionOriginGroupOutput) Members() MultitenantDistributionOriginGroupMemberArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginGroup) []MultitenantDistributionOriginGroupMember {
+		return v.Members
+	}).(MultitenantDistributionOriginGroupMemberArrayOutput)
+}
+
+// Unique identifier for the origin group.
+func (o MultitenantDistributionOriginGroupOutput) OriginId() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginGroup) string { return v.OriginId }).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionOriginGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginGroup)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginGroupArrayOutput) ToMultitenantDistributionOriginGroupArrayOutput() MultitenantDistributionOriginGroupArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginGroupArrayOutput) ToMultitenantDistributionOriginGroupArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginGroupArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionOriginGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionOriginGroup {
+		return vs[0].([]MultitenantDistributionOriginGroup)[vs[1].(int)]
+	}).(MultitenantDistributionOriginGroupOutput)
+}
+
+type MultitenantDistributionOriginGroupFailoverCriteria struct {
+	// List of HTTP status codes that trigger a failover to the secondary origin.
+	StatusCodes []int `pulumi:"statusCodes"`
+}
+
+// MultitenantDistributionOriginGroupFailoverCriteriaInput is an input type that accepts MultitenantDistributionOriginGroupFailoverCriteriaArgs and MultitenantDistributionOriginGroupFailoverCriteriaOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginGroupFailoverCriteriaInput` via:
+//
+//	MultitenantDistributionOriginGroupFailoverCriteriaArgs{...}
+type MultitenantDistributionOriginGroupFailoverCriteriaInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginGroupFailoverCriteriaOutput() MultitenantDistributionOriginGroupFailoverCriteriaOutput
+	ToMultitenantDistributionOriginGroupFailoverCriteriaOutputWithContext(context.Context) MultitenantDistributionOriginGroupFailoverCriteriaOutput
+}
+
+type MultitenantDistributionOriginGroupFailoverCriteriaArgs struct {
+	// List of HTTP status codes that trigger a failover to the secondary origin.
+	StatusCodes pulumi.IntArrayInput `pulumi:"statusCodes"`
+}
+
+func (MultitenantDistributionOriginGroupFailoverCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginGroupFailoverCriteria)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginGroupFailoverCriteriaArgs) ToMultitenantDistributionOriginGroupFailoverCriteriaOutput() MultitenantDistributionOriginGroupFailoverCriteriaOutput {
+	return i.ToMultitenantDistributionOriginGroupFailoverCriteriaOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginGroupFailoverCriteriaArgs) ToMultitenantDistributionOriginGroupFailoverCriteriaOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupFailoverCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginGroupFailoverCriteriaOutput)
+}
+
+func (i MultitenantDistributionOriginGroupFailoverCriteriaArgs) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutput() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
+	return i.ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginGroupFailoverCriteriaArgs) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginGroupFailoverCriteriaOutput).ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionOriginGroupFailoverCriteriaPtrInput is an input type that accepts MultitenantDistributionOriginGroupFailoverCriteriaArgs, MultitenantDistributionOriginGroupFailoverCriteriaPtr and MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginGroupFailoverCriteriaPtrInput` via:
+//
+//	        MultitenantDistributionOriginGroupFailoverCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionOriginGroupFailoverCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutput() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput
+	ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(context.Context) MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput
+}
+
+type multitenantDistributionOriginGroupFailoverCriteriaPtrType MultitenantDistributionOriginGroupFailoverCriteriaArgs
+
+func MultitenantDistributionOriginGroupFailoverCriteriaPtr(v *MultitenantDistributionOriginGroupFailoverCriteriaArgs) MultitenantDistributionOriginGroupFailoverCriteriaPtrInput {
+	return (*multitenantDistributionOriginGroupFailoverCriteriaPtrType)(v)
+}
+
+func (*multitenantDistributionOriginGroupFailoverCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionOriginGroupFailoverCriteria)(nil)).Elem()
+}
+
+func (i *multitenantDistributionOriginGroupFailoverCriteriaPtrType) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutput() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
+	return i.ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionOriginGroupFailoverCriteriaPtrType) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput)
+}
+
+type MultitenantDistributionOriginGroupFailoverCriteriaOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginGroupFailoverCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginGroupFailoverCriteria)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginGroupFailoverCriteriaOutput) ToMultitenantDistributionOriginGroupFailoverCriteriaOutput() MultitenantDistributionOriginGroupFailoverCriteriaOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginGroupFailoverCriteriaOutput) ToMultitenantDistributionOriginGroupFailoverCriteriaOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupFailoverCriteriaOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginGroupFailoverCriteriaOutput) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutput() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
+	return o.ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionOriginGroupFailoverCriteriaOutput) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionOriginGroupFailoverCriteria) *MultitenantDistributionOriginGroupFailoverCriteria {
+		return &v
+	}).(MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput)
+}
+
+// List of HTTP status codes that trigger a failover to the secondary origin.
+func (o MultitenantDistributionOriginGroupFailoverCriteriaOutput) StatusCodes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginGroupFailoverCriteria) []int { return v.StatusCodes }).(pulumi.IntArrayOutput)
+}
+
+type MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionOriginGroupFailoverCriteria)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutput() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput) Elem() MultitenantDistributionOriginGroupFailoverCriteriaOutput {
+	return o.ApplyT(func(v *MultitenantDistributionOriginGroupFailoverCriteria) MultitenantDistributionOriginGroupFailoverCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionOriginGroupFailoverCriteria
+		return ret
+	}).(MultitenantDistributionOriginGroupFailoverCriteriaOutput)
+}
+
+// List of HTTP status codes that trigger a failover to the secondary origin.
+func (o MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput) StatusCodes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *MultitenantDistributionOriginGroupFailoverCriteria) []int {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCodes
+	}).(pulumi.IntArrayOutput)
+}
+
+type MultitenantDistributionOriginGroupMember struct {
+	OriginId string `pulumi:"originId"`
+}
+
+// MultitenantDistributionOriginGroupMemberInput is an input type that accepts MultitenantDistributionOriginGroupMemberArgs and MultitenantDistributionOriginGroupMemberOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginGroupMemberInput` via:
+//
+//	MultitenantDistributionOriginGroupMemberArgs{...}
+type MultitenantDistributionOriginGroupMemberInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginGroupMemberOutput() MultitenantDistributionOriginGroupMemberOutput
+	ToMultitenantDistributionOriginGroupMemberOutputWithContext(context.Context) MultitenantDistributionOriginGroupMemberOutput
+}
+
+type MultitenantDistributionOriginGroupMemberArgs struct {
+	OriginId pulumi.StringInput `pulumi:"originId"`
+}
+
+func (MultitenantDistributionOriginGroupMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginGroupMember)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginGroupMemberArgs) ToMultitenantDistributionOriginGroupMemberOutput() MultitenantDistributionOriginGroupMemberOutput {
+	return i.ToMultitenantDistributionOriginGroupMemberOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginGroupMemberArgs) ToMultitenantDistributionOriginGroupMemberOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginGroupMemberOutput)
+}
+
+// MultitenantDistributionOriginGroupMemberArrayInput is an input type that accepts MultitenantDistributionOriginGroupMemberArray and MultitenantDistributionOriginGroupMemberArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginGroupMemberArrayInput` via:
+//
+//	MultitenantDistributionOriginGroupMemberArray{ MultitenantDistributionOriginGroupMemberArgs{...} }
+type MultitenantDistributionOriginGroupMemberArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginGroupMemberArrayOutput() MultitenantDistributionOriginGroupMemberArrayOutput
+	ToMultitenantDistributionOriginGroupMemberArrayOutputWithContext(context.Context) MultitenantDistributionOriginGroupMemberArrayOutput
+}
+
+type MultitenantDistributionOriginGroupMemberArray []MultitenantDistributionOriginGroupMemberInput
+
+func (MultitenantDistributionOriginGroupMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginGroupMember)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginGroupMemberArray) ToMultitenantDistributionOriginGroupMemberArrayOutput() MultitenantDistributionOriginGroupMemberArrayOutput {
+	return i.ToMultitenantDistributionOriginGroupMemberArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginGroupMemberArray) ToMultitenantDistributionOriginGroupMemberArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginGroupMemberArrayOutput)
+}
+
+type MultitenantDistributionOriginGroupMemberOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginGroupMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginGroupMember)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginGroupMemberOutput) ToMultitenantDistributionOriginGroupMemberOutput() MultitenantDistributionOriginGroupMemberOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginGroupMemberOutput) ToMultitenantDistributionOriginGroupMemberOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupMemberOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginGroupMemberOutput) OriginId() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginGroupMember) string { return v.OriginId }).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionOriginGroupMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginGroupMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginGroupMember)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginGroupMemberArrayOutput) ToMultitenantDistributionOriginGroupMemberArrayOutput() MultitenantDistributionOriginGroupMemberArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginGroupMemberArrayOutput) ToMultitenantDistributionOriginGroupMemberArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupMemberArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginGroupMemberArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionOriginGroupMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionOriginGroupMember {
+		return vs[0].([]MultitenantDistributionOriginGroupMember)[vs[1].(int)]
+	}).(MultitenantDistributionOriginGroupMemberOutput)
+}
+
+type MultitenantDistributionOriginOriginShield struct {
+	// Whether Origin Shield is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// AWS Region for Origin Shield. Required when `enabled` is `true`.
+	OriginShieldRegion *string `pulumi:"originShieldRegion"`
+}
+
+// MultitenantDistributionOriginOriginShieldInput is an input type that accepts MultitenantDistributionOriginOriginShieldArgs and MultitenantDistributionOriginOriginShieldOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginOriginShieldInput` via:
+//
+//	MultitenantDistributionOriginOriginShieldArgs{...}
+type MultitenantDistributionOriginOriginShieldInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginOriginShieldOutput() MultitenantDistributionOriginOriginShieldOutput
+	ToMultitenantDistributionOriginOriginShieldOutputWithContext(context.Context) MultitenantDistributionOriginOriginShieldOutput
+}
+
+type MultitenantDistributionOriginOriginShieldArgs struct {
+	// Whether Origin Shield is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// AWS Region for Origin Shield. Required when `enabled` is `true`.
+	OriginShieldRegion pulumi.StringPtrInput `pulumi:"originShieldRegion"`
+}
+
+func (MultitenantDistributionOriginOriginShieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginOriginShield)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginOriginShieldArgs) ToMultitenantDistributionOriginOriginShieldOutput() MultitenantDistributionOriginOriginShieldOutput {
+	return i.ToMultitenantDistributionOriginOriginShieldOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginOriginShieldArgs) ToMultitenantDistributionOriginOriginShieldOutputWithContext(ctx context.Context) MultitenantDistributionOriginOriginShieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginOriginShieldOutput)
+}
+
+// MultitenantDistributionOriginOriginShieldArrayInput is an input type that accepts MultitenantDistributionOriginOriginShieldArray and MultitenantDistributionOriginOriginShieldArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginOriginShieldArrayInput` via:
+//
+//	MultitenantDistributionOriginOriginShieldArray{ MultitenantDistributionOriginOriginShieldArgs{...} }
+type MultitenantDistributionOriginOriginShieldArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginOriginShieldArrayOutput() MultitenantDistributionOriginOriginShieldArrayOutput
+	ToMultitenantDistributionOriginOriginShieldArrayOutputWithContext(context.Context) MultitenantDistributionOriginOriginShieldArrayOutput
+}
+
+type MultitenantDistributionOriginOriginShieldArray []MultitenantDistributionOriginOriginShieldInput
+
+func (MultitenantDistributionOriginOriginShieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginOriginShield)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginOriginShieldArray) ToMultitenantDistributionOriginOriginShieldArrayOutput() MultitenantDistributionOriginOriginShieldArrayOutput {
+	return i.ToMultitenantDistributionOriginOriginShieldArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginOriginShieldArray) ToMultitenantDistributionOriginOriginShieldArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginOriginShieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginOriginShieldArrayOutput)
+}
+
+type MultitenantDistributionOriginOriginShieldOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginOriginShieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginOriginShield)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginOriginShieldOutput) ToMultitenantDistributionOriginOriginShieldOutput() MultitenantDistributionOriginOriginShieldOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginOriginShieldOutput) ToMultitenantDistributionOriginOriginShieldOutputWithContext(ctx context.Context) MultitenantDistributionOriginOriginShieldOutput {
+	return o
+}
+
+// Whether Origin Shield is enabled.
+func (o MultitenantDistributionOriginOriginShieldOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginOriginShield) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// AWS Region for Origin Shield. Required when `enabled` is `true`.
+func (o MultitenantDistributionOriginOriginShieldOutput) OriginShieldRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginOriginShield) *string { return v.OriginShieldRegion }).(pulumi.StringPtrOutput)
+}
+
+type MultitenantDistributionOriginOriginShieldArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginOriginShieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginOriginShield)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginOriginShieldArrayOutput) ToMultitenantDistributionOriginOriginShieldArrayOutput() MultitenantDistributionOriginOriginShieldArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginOriginShieldArrayOutput) ToMultitenantDistributionOriginOriginShieldArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginOriginShieldArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginOriginShieldArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionOriginOriginShieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionOriginOriginShield {
+		return vs[0].([]MultitenantDistributionOriginOriginShield)[vs[1].(int)]
+	}).(MultitenantDistributionOriginOriginShieldOutput)
+}
+
+type MultitenantDistributionOriginVpcOriginConfig struct {
+	// Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
+	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
+	// Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
+	OriginReadTimeout *int `pulumi:"originReadTimeout"`
+	// ID of the VPC origin that you want CloudFront to route requests to.
+	VpcOriginId string `pulumi:"vpcOriginId"`
+}
+
+// MultitenantDistributionOriginVpcOriginConfigInput is an input type that accepts MultitenantDistributionOriginVpcOriginConfigArgs and MultitenantDistributionOriginVpcOriginConfigOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginVpcOriginConfigInput` via:
+//
+//	MultitenantDistributionOriginVpcOriginConfigArgs{...}
+type MultitenantDistributionOriginVpcOriginConfigInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginVpcOriginConfigOutput() MultitenantDistributionOriginVpcOriginConfigOutput
+	ToMultitenantDistributionOriginVpcOriginConfigOutputWithContext(context.Context) MultitenantDistributionOriginVpcOriginConfigOutput
+}
+
+type MultitenantDistributionOriginVpcOriginConfigArgs struct {
+	// Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
+	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
+	// Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
+	OriginReadTimeout pulumi.IntPtrInput `pulumi:"originReadTimeout"`
+	// ID of the VPC origin that you want CloudFront to route requests to.
+	VpcOriginId pulumi.StringInput `pulumi:"vpcOriginId"`
+}
+
+func (MultitenantDistributionOriginVpcOriginConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginVpcOriginConfig)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginVpcOriginConfigArgs) ToMultitenantDistributionOriginVpcOriginConfigOutput() MultitenantDistributionOriginVpcOriginConfigOutput {
+	return i.ToMultitenantDistributionOriginVpcOriginConfigOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginVpcOriginConfigArgs) ToMultitenantDistributionOriginVpcOriginConfigOutputWithContext(ctx context.Context) MultitenantDistributionOriginVpcOriginConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginVpcOriginConfigOutput)
+}
+
+// MultitenantDistributionOriginVpcOriginConfigArrayInput is an input type that accepts MultitenantDistributionOriginVpcOriginConfigArray and MultitenantDistributionOriginVpcOriginConfigArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginVpcOriginConfigArrayInput` via:
+//
+//	MultitenantDistributionOriginVpcOriginConfigArray{ MultitenantDistributionOriginVpcOriginConfigArgs{...} }
+type MultitenantDistributionOriginVpcOriginConfigArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginVpcOriginConfigArrayOutput() MultitenantDistributionOriginVpcOriginConfigArrayOutput
+	ToMultitenantDistributionOriginVpcOriginConfigArrayOutputWithContext(context.Context) MultitenantDistributionOriginVpcOriginConfigArrayOutput
+}
+
+type MultitenantDistributionOriginVpcOriginConfigArray []MultitenantDistributionOriginVpcOriginConfigInput
+
+func (MultitenantDistributionOriginVpcOriginConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginVpcOriginConfig)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginVpcOriginConfigArray) ToMultitenantDistributionOriginVpcOriginConfigArrayOutput() MultitenantDistributionOriginVpcOriginConfigArrayOutput {
+	return i.ToMultitenantDistributionOriginVpcOriginConfigArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginVpcOriginConfigArray) ToMultitenantDistributionOriginVpcOriginConfigArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginVpcOriginConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginVpcOriginConfigArrayOutput)
+}
+
+type MultitenantDistributionOriginVpcOriginConfigOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginVpcOriginConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginVpcOriginConfig)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginVpcOriginConfigOutput) ToMultitenantDistributionOriginVpcOriginConfigOutput() MultitenantDistributionOriginVpcOriginConfigOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginVpcOriginConfigOutput) ToMultitenantDistributionOriginVpcOriginConfigOutputWithContext(ctx context.Context) MultitenantDistributionOriginVpcOriginConfigOutput {
+	return o
+}
+
+// Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
+func (o MultitenantDistributionOriginVpcOriginConfigOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginVpcOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
+func (o MultitenantDistributionOriginVpcOriginConfigOutput) OriginReadTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginVpcOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
+}
+
+// ID of the VPC origin that you want CloudFront to route requests to.
+func (o MultitenantDistributionOriginVpcOriginConfigOutput) VpcOriginId() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginVpcOriginConfig) string { return v.VpcOriginId }).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionOriginVpcOriginConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginVpcOriginConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionOriginVpcOriginConfig)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginVpcOriginConfigArrayOutput) ToMultitenantDistributionOriginVpcOriginConfigArrayOutput() MultitenantDistributionOriginVpcOriginConfigArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginVpcOriginConfigArrayOutput) ToMultitenantDistributionOriginVpcOriginConfigArrayOutputWithContext(ctx context.Context) MultitenantDistributionOriginVpcOriginConfigArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginVpcOriginConfigArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionOriginVpcOriginConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionOriginVpcOriginConfig {
+		return vs[0].([]MultitenantDistributionOriginVpcOriginConfig)[vs[1].(int)]
+	}).(MultitenantDistributionOriginVpcOriginConfigOutput)
+}
+
+type MultitenantDistributionRestrictions struct {
+	// Geographic restriction configuration. See Geo Restriction below.
+	GeoRestriction *MultitenantDistributionRestrictionsGeoRestriction `pulumi:"geoRestriction"`
+}
+
+// MultitenantDistributionRestrictionsInput is an input type that accepts MultitenantDistributionRestrictionsArgs and MultitenantDistributionRestrictionsOutput values.
+// You can construct a concrete instance of `MultitenantDistributionRestrictionsInput` via:
+//
+//	MultitenantDistributionRestrictionsArgs{...}
+type MultitenantDistributionRestrictionsInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionRestrictionsOutput() MultitenantDistributionRestrictionsOutput
+	ToMultitenantDistributionRestrictionsOutputWithContext(context.Context) MultitenantDistributionRestrictionsOutput
+}
+
+type MultitenantDistributionRestrictionsArgs struct {
+	// Geographic restriction configuration. See Geo Restriction below.
+	GeoRestriction MultitenantDistributionRestrictionsGeoRestrictionPtrInput `pulumi:"geoRestriction"`
+}
+
+func (MultitenantDistributionRestrictionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionRestrictions)(nil)).Elem()
+}
+
+func (i MultitenantDistributionRestrictionsArgs) ToMultitenantDistributionRestrictionsOutput() MultitenantDistributionRestrictionsOutput {
+	return i.ToMultitenantDistributionRestrictionsOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionRestrictionsArgs) ToMultitenantDistributionRestrictionsOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionRestrictionsOutput)
+}
+
+func (i MultitenantDistributionRestrictionsArgs) ToMultitenantDistributionRestrictionsPtrOutput() MultitenantDistributionRestrictionsPtrOutput {
+	return i.ToMultitenantDistributionRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionRestrictionsArgs) ToMultitenantDistributionRestrictionsPtrOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionRestrictionsOutput).ToMultitenantDistributionRestrictionsPtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionRestrictionsPtrInput is an input type that accepts MultitenantDistributionRestrictionsArgs, MultitenantDistributionRestrictionsPtr and MultitenantDistributionRestrictionsPtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionRestrictionsPtrInput` via:
+//
+//	        MultitenantDistributionRestrictionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionRestrictionsPtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionRestrictionsPtrOutput() MultitenantDistributionRestrictionsPtrOutput
+	ToMultitenantDistributionRestrictionsPtrOutputWithContext(context.Context) MultitenantDistributionRestrictionsPtrOutput
+}
+
+type multitenantDistributionRestrictionsPtrType MultitenantDistributionRestrictionsArgs
+
+func MultitenantDistributionRestrictionsPtr(v *MultitenantDistributionRestrictionsArgs) MultitenantDistributionRestrictionsPtrInput {
+	return (*multitenantDistributionRestrictionsPtrType)(v)
+}
+
+func (*multitenantDistributionRestrictionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionRestrictions)(nil)).Elem()
+}
+
+func (i *multitenantDistributionRestrictionsPtrType) ToMultitenantDistributionRestrictionsPtrOutput() MultitenantDistributionRestrictionsPtrOutput {
+	return i.ToMultitenantDistributionRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionRestrictionsPtrType) ToMultitenantDistributionRestrictionsPtrOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionRestrictionsPtrOutput)
+}
+
+type MultitenantDistributionRestrictionsOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionRestrictionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionRestrictions)(nil)).Elem()
+}
+
+func (o MultitenantDistributionRestrictionsOutput) ToMultitenantDistributionRestrictionsOutput() MultitenantDistributionRestrictionsOutput {
+	return o
+}
+
+func (o MultitenantDistributionRestrictionsOutput) ToMultitenantDistributionRestrictionsOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsOutput {
+	return o
+}
+
+func (o MultitenantDistributionRestrictionsOutput) ToMultitenantDistributionRestrictionsPtrOutput() MultitenantDistributionRestrictionsPtrOutput {
+	return o.ToMultitenantDistributionRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionRestrictionsOutput) ToMultitenantDistributionRestrictionsPtrOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionRestrictions) *MultitenantDistributionRestrictions {
+		return &v
+	}).(MultitenantDistributionRestrictionsPtrOutput)
+}
+
+// Geographic restriction configuration. See Geo Restriction below.
+func (o MultitenantDistributionRestrictionsOutput) GeoRestriction() MultitenantDistributionRestrictionsGeoRestrictionPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionRestrictions) *MultitenantDistributionRestrictionsGeoRestriction {
+		return v.GeoRestriction
+	}).(MultitenantDistributionRestrictionsGeoRestrictionPtrOutput)
+}
+
+type MultitenantDistributionRestrictionsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionRestrictionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionRestrictions)(nil)).Elem()
+}
+
+func (o MultitenantDistributionRestrictionsPtrOutput) ToMultitenantDistributionRestrictionsPtrOutput() MultitenantDistributionRestrictionsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionRestrictionsPtrOutput) ToMultitenantDistributionRestrictionsPtrOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionRestrictionsPtrOutput) Elem() MultitenantDistributionRestrictionsOutput {
+	return o.ApplyT(func(v *MultitenantDistributionRestrictions) MultitenantDistributionRestrictions {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionRestrictions
+		return ret
+	}).(MultitenantDistributionRestrictionsOutput)
+}
+
+// Geographic restriction configuration. See Geo Restriction below.
+func (o MultitenantDistributionRestrictionsPtrOutput) GeoRestriction() MultitenantDistributionRestrictionsGeoRestrictionPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionRestrictions) *MultitenantDistributionRestrictionsGeoRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.GeoRestriction
+	}).(MultitenantDistributionRestrictionsGeoRestrictionPtrOutput)
+}
+
+type MultitenantDistributionRestrictionsGeoRestriction struct {
+	// List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restrictionType` is `whitelist` or `blacklist`.
+	Items []string `pulumi:"items"`
+	// Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
+	RestrictionType string `pulumi:"restrictionType"`
+}
+
+// MultitenantDistributionRestrictionsGeoRestrictionInput is an input type that accepts MultitenantDistributionRestrictionsGeoRestrictionArgs and MultitenantDistributionRestrictionsGeoRestrictionOutput values.
+// You can construct a concrete instance of `MultitenantDistributionRestrictionsGeoRestrictionInput` via:
+//
+//	MultitenantDistributionRestrictionsGeoRestrictionArgs{...}
+type MultitenantDistributionRestrictionsGeoRestrictionInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionRestrictionsGeoRestrictionOutput() MultitenantDistributionRestrictionsGeoRestrictionOutput
+	ToMultitenantDistributionRestrictionsGeoRestrictionOutputWithContext(context.Context) MultitenantDistributionRestrictionsGeoRestrictionOutput
+}
+
+type MultitenantDistributionRestrictionsGeoRestrictionArgs struct {
+	// List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restrictionType` is `whitelist` or `blacklist`.
+	Items pulumi.StringArrayInput `pulumi:"items"`
+	// Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
+	RestrictionType pulumi.StringInput `pulumi:"restrictionType"`
+}
+
+func (MultitenantDistributionRestrictionsGeoRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionRestrictionsGeoRestriction)(nil)).Elem()
+}
+
+func (i MultitenantDistributionRestrictionsGeoRestrictionArgs) ToMultitenantDistributionRestrictionsGeoRestrictionOutput() MultitenantDistributionRestrictionsGeoRestrictionOutput {
+	return i.ToMultitenantDistributionRestrictionsGeoRestrictionOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionRestrictionsGeoRestrictionArgs) ToMultitenantDistributionRestrictionsGeoRestrictionOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsGeoRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionRestrictionsGeoRestrictionOutput)
+}
+
+func (i MultitenantDistributionRestrictionsGeoRestrictionArgs) ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutput() MultitenantDistributionRestrictionsGeoRestrictionPtrOutput {
+	return i.ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionRestrictionsGeoRestrictionArgs) ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsGeoRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionRestrictionsGeoRestrictionOutput).ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionRestrictionsGeoRestrictionPtrInput is an input type that accepts MultitenantDistributionRestrictionsGeoRestrictionArgs, MultitenantDistributionRestrictionsGeoRestrictionPtr and MultitenantDistributionRestrictionsGeoRestrictionPtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionRestrictionsGeoRestrictionPtrInput` via:
+//
+//	        MultitenantDistributionRestrictionsGeoRestrictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionRestrictionsGeoRestrictionPtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutput() MultitenantDistributionRestrictionsGeoRestrictionPtrOutput
+	ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutputWithContext(context.Context) MultitenantDistributionRestrictionsGeoRestrictionPtrOutput
+}
+
+type multitenantDistributionRestrictionsGeoRestrictionPtrType MultitenantDistributionRestrictionsGeoRestrictionArgs
+
+func MultitenantDistributionRestrictionsGeoRestrictionPtr(v *MultitenantDistributionRestrictionsGeoRestrictionArgs) MultitenantDistributionRestrictionsGeoRestrictionPtrInput {
+	return (*multitenantDistributionRestrictionsGeoRestrictionPtrType)(v)
+}
+
+func (*multitenantDistributionRestrictionsGeoRestrictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionRestrictionsGeoRestriction)(nil)).Elem()
+}
+
+func (i *multitenantDistributionRestrictionsGeoRestrictionPtrType) ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutput() MultitenantDistributionRestrictionsGeoRestrictionPtrOutput {
+	return i.ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionRestrictionsGeoRestrictionPtrType) ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsGeoRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionRestrictionsGeoRestrictionPtrOutput)
+}
+
+type MultitenantDistributionRestrictionsGeoRestrictionOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionRestrictionsGeoRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionRestrictionsGeoRestriction)(nil)).Elem()
+}
+
+func (o MultitenantDistributionRestrictionsGeoRestrictionOutput) ToMultitenantDistributionRestrictionsGeoRestrictionOutput() MultitenantDistributionRestrictionsGeoRestrictionOutput {
+	return o
+}
+
+func (o MultitenantDistributionRestrictionsGeoRestrictionOutput) ToMultitenantDistributionRestrictionsGeoRestrictionOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsGeoRestrictionOutput {
+	return o
+}
+
+func (o MultitenantDistributionRestrictionsGeoRestrictionOutput) ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutput() MultitenantDistributionRestrictionsGeoRestrictionPtrOutput {
+	return o.ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionRestrictionsGeoRestrictionOutput) ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsGeoRestrictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionRestrictionsGeoRestriction) *MultitenantDistributionRestrictionsGeoRestriction {
+		return &v
+	}).(MultitenantDistributionRestrictionsGeoRestrictionPtrOutput)
+}
+
+// List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restrictionType` is `whitelist` or `blacklist`.
+func (o MultitenantDistributionRestrictionsGeoRestrictionOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionRestrictionsGeoRestriction) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+// Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
+func (o MultitenantDistributionRestrictionsGeoRestrictionOutput) RestrictionType() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionRestrictionsGeoRestriction) string { return v.RestrictionType }).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionRestrictionsGeoRestrictionPtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionRestrictionsGeoRestrictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionRestrictionsGeoRestriction)(nil)).Elem()
+}
+
+func (o MultitenantDistributionRestrictionsGeoRestrictionPtrOutput) ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutput() MultitenantDistributionRestrictionsGeoRestrictionPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionRestrictionsGeoRestrictionPtrOutput) ToMultitenantDistributionRestrictionsGeoRestrictionPtrOutputWithContext(ctx context.Context) MultitenantDistributionRestrictionsGeoRestrictionPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionRestrictionsGeoRestrictionPtrOutput) Elem() MultitenantDistributionRestrictionsGeoRestrictionOutput {
+	return o.ApplyT(func(v *MultitenantDistributionRestrictionsGeoRestriction) MultitenantDistributionRestrictionsGeoRestriction {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionRestrictionsGeoRestriction
+		return ret
+	}).(MultitenantDistributionRestrictionsGeoRestrictionOutput)
+}
+
+// List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restrictionType` is `whitelist` or `blacklist`.
+func (o MultitenantDistributionRestrictionsGeoRestrictionPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MultitenantDistributionRestrictionsGeoRestriction) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+// Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
+func (o MultitenantDistributionRestrictionsGeoRestrictionPtrOutput) RestrictionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionRestrictionsGeoRestriction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RestrictionType
+	}).(pulumi.StringPtrOutput)
+}
+
+type MultitenantDistributionTenantConfig struct {
+	// One or more parameter definitions for the tenant configuration. See Parameter Definition below.
+	ParameterDefinitions []MultitenantDistributionTenantConfigParameterDefinition `pulumi:"parameterDefinitions"`
+}
+
+// MultitenantDistributionTenantConfigInput is an input type that accepts MultitenantDistributionTenantConfigArgs and MultitenantDistributionTenantConfigOutput values.
+// You can construct a concrete instance of `MultitenantDistributionTenantConfigInput` via:
+//
+//	MultitenantDistributionTenantConfigArgs{...}
+type MultitenantDistributionTenantConfigInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionTenantConfigOutput() MultitenantDistributionTenantConfigOutput
+	ToMultitenantDistributionTenantConfigOutputWithContext(context.Context) MultitenantDistributionTenantConfigOutput
+}
+
+type MultitenantDistributionTenantConfigArgs struct {
+	// One or more parameter definitions for the tenant configuration. See Parameter Definition below.
+	ParameterDefinitions MultitenantDistributionTenantConfigParameterDefinitionArrayInput `pulumi:"parameterDefinitions"`
+}
+
+func (MultitenantDistributionTenantConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionTenantConfig)(nil)).Elem()
+}
+
+func (i MultitenantDistributionTenantConfigArgs) ToMultitenantDistributionTenantConfigOutput() MultitenantDistributionTenantConfigOutput {
+	return i.ToMultitenantDistributionTenantConfigOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionTenantConfigArgs) ToMultitenantDistributionTenantConfigOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTenantConfigOutput)
+}
+
+func (i MultitenantDistributionTenantConfigArgs) ToMultitenantDistributionTenantConfigPtrOutput() MultitenantDistributionTenantConfigPtrOutput {
+	return i.ToMultitenantDistributionTenantConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionTenantConfigArgs) ToMultitenantDistributionTenantConfigPtrOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTenantConfigOutput).ToMultitenantDistributionTenantConfigPtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionTenantConfigPtrInput is an input type that accepts MultitenantDistributionTenantConfigArgs, MultitenantDistributionTenantConfigPtr and MultitenantDistributionTenantConfigPtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionTenantConfigPtrInput` via:
+//
+//	        MultitenantDistributionTenantConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionTenantConfigPtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionTenantConfigPtrOutput() MultitenantDistributionTenantConfigPtrOutput
+	ToMultitenantDistributionTenantConfigPtrOutputWithContext(context.Context) MultitenantDistributionTenantConfigPtrOutput
+}
+
+type multitenantDistributionTenantConfigPtrType MultitenantDistributionTenantConfigArgs
+
+func MultitenantDistributionTenantConfigPtr(v *MultitenantDistributionTenantConfigArgs) MultitenantDistributionTenantConfigPtrInput {
+	return (*multitenantDistributionTenantConfigPtrType)(v)
+}
+
+func (*multitenantDistributionTenantConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionTenantConfig)(nil)).Elem()
+}
+
+func (i *multitenantDistributionTenantConfigPtrType) ToMultitenantDistributionTenantConfigPtrOutput() MultitenantDistributionTenantConfigPtrOutput {
+	return i.ToMultitenantDistributionTenantConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionTenantConfigPtrType) ToMultitenantDistributionTenantConfigPtrOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTenantConfigPtrOutput)
+}
+
+type MultitenantDistributionTenantConfigOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionTenantConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionTenantConfig)(nil)).Elem()
+}
+
+func (o MultitenantDistributionTenantConfigOutput) ToMultitenantDistributionTenantConfigOutput() MultitenantDistributionTenantConfigOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigOutput) ToMultitenantDistributionTenantConfigOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigOutput) ToMultitenantDistributionTenantConfigPtrOutput() MultitenantDistributionTenantConfigPtrOutput {
+	return o.ToMultitenantDistributionTenantConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionTenantConfigOutput) ToMultitenantDistributionTenantConfigPtrOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionTenantConfig) *MultitenantDistributionTenantConfig {
+		return &v
+	}).(MultitenantDistributionTenantConfigPtrOutput)
+}
+
+// One or more parameter definitions for the tenant configuration. See Parameter Definition below.
+func (o MultitenantDistributionTenantConfigOutput) ParameterDefinitions() MultitenantDistributionTenantConfigParameterDefinitionArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionTenantConfig) []MultitenantDistributionTenantConfigParameterDefinition {
+		return v.ParameterDefinitions
+	}).(MultitenantDistributionTenantConfigParameterDefinitionArrayOutput)
+}
+
+type MultitenantDistributionTenantConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionTenantConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionTenantConfig)(nil)).Elem()
+}
+
+func (o MultitenantDistributionTenantConfigPtrOutput) ToMultitenantDistributionTenantConfigPtrOutput() MultitenantDistributionTenantConfigPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigPtrOutput) ToMultitenantDistributionTenantConfigPtrOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigPtrOutput) Elem() MultitenantDistributionTenantConfigOutput {
+	return o.ApplyT(func(v *MultitenantDistributionTenantConfig) MultitenantDistributionTenantConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionTenantConfig
+		return ret
+	}).(MultitenantDistributionTenantConfigOutput)
+}
+
+// One or more parameter definitions for the tenant configuration. See Parameter Definition below.
+func (o MultitenantDistributionTenantConfigPtrOutput) ParameterDefinitions() MultitenantDistributionTenantConfigParameterDefinitionArrayOutput {
+	return o.ApplyT(func(v *MultitenantDistributionTenantConfig) []MultitenantDistributionTenantConfigParameterDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.ParameterDefinitions
+	}).(MultitenantDistributionTenantConfigParameterDefinitionArrayOutput)
+}
+
+type MultitenantDistributionTenantConfigParameterDefinition struct {
+	// Definition of the parameter schema. See Parameter Definition Schema below.
+	Definitions []MultitenantDistributionTenantConfigParameterDefinitionDefinition `pulumi:"definitions"`
+	// Name of the parameter.
+	Name string `pulumi:"name"`
+}
+
+// MultitenantDistributionTenantConfigParameterDefinitionInput is an input type that accepts MultitenantDistributionTenantConfigParameterDefinitionArgs and MultitenantDistributionTenantConfigParameterDefinitionOutput values.
+// You can construct a concrete instance of `MultitenantDistributionTenantConfigParameterDefinitionInput` via:
+//
+//	MultitenantDistributionTenantConfigParameterDefinitionArgs{...}
+type MultitenantDistributionTenantConfigParameterDefinitionInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionTenantConfigParameterDefinitionOutput() MultitenantDistributionTenantConfigParameterDefinitionOutput
+	ToMultitenantDistributionTenantConfigParameterDefinitionOutputWithContext(context.Context) MultitenantDistributionTenantConfigParameterDefinitionOutput
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionArgs struct {
+	// Definition of the parameter schema. See Parameter Definition Schema below.
+	Definitions MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayInput `pulumi:"definitions"`
+	// Name of the parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (MultitenantDistributionTenantConfigParameterDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinition)(nil)).Elem()
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionArgs) ToMultitenantDistributionTenantConfigParameterDefinitionOutput() MultitenantDistributionTenantConfigParameterDefinitionOutput {
+	return i.ToMultitenantDistributionTenantConfigParameterDefinitionOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionArgs) ToMultitenantDistributionTenantConfigParameterDefinitionOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTenantConfigParameterDefinitionOutput)
+}
+
+// MultitenantDistributionTenantConfigParameterDefinitionArrayInput is an input type that accepts MultitenantDistributionTenantConfigParameterDefinitionArray and MultitenantDistributionTenantConfigParameterDefinitionArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionTenantConfigParameterDefinitionArrayInput` via:
+//
+//	MultitenantDistributionTenantConfigParameterDefinitionArray{ MultitenantDistributionTenantConfigParameterDefinitionArgs{...} }
+type MultitenantDistributionTenantConfigParameterDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionTenantConfigParameterDefinitionArrayOutput() MultitenantDistributionTenantConfigParameterDefinitionArrayOutput
+	ToMultitenantDistributionTenantConfigParameterDefinitionArrayOutputWithContext(context.Context) MultitenantDistributionTenantConfigParameterDefinitionArrayOutput
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionArray []MultitenantDistributionTenantConfigParameterDefinitionInput
+
+func (MultitenantDistributionTenantConfigParameterDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionTenantConfigParameterDefinition)(nil)).Elem()
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionArray) ToMultitenantDistributionTenantConfigParameterDefinitionArrayOutput() MultitenantDistributionTenantConfigParameterDefinitionArrayOutput {
+	return i.ToMultitenantDistributionTenantConfigParameterDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionArray) ToMultitenantDistributionTenantConfigParameterDefinitionArrayOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTenantConfigParameterDefinitionArrayOutput)
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionTenantConfigParameterDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinition)(nil)).Elem()
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionOutput) ToMultitenantDistributionTenantConfigParameterDefinitionOutput() MultitenantDistributionTenantConfigParameterDefinitionOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionOutput) ToMultitenantDistributionTenantConfigParameterDefinitionOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionOutput {
+	return o
+}
+
+// Definition of the parameter schema. See Parameter Definition Schema below.
+func (o MultitenantDistributionTenantConfigParameterDefinitionOutput) Definitions() MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionTenantConfigParameterDefinition) []MultitenantDistributionTenantConfigParameterDefinitionDefinition {
+		return v.Definitions
+	}).(MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput)
+}
+
+// Name of the parameter.
+func (o MultitenantDistributionTenantConfigParameterDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionTenantConfigParameterDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionTenantConfigParameterDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionTenantConfigParameterDefinition)(nil)).Elem()
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionArrayOutput) ToMultitenantDistributionTenantConfigParameterDefinitionArrayOutput() MultitenantDistributionTenantConfigParameterDefinitionArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionArrayOutput) ToMultitenantDistributionTenantConfigParameterDefinitionArrayOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionTenantConfigParameterDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionTenantConfigParameterDefinition {
+		return vs[0].([]MultitenantDistributionTenantConfigParameterDefinition)[vs[1].(int)]
+	}).(MultitenantDistributionTenantConfigParameterDefinitionOutput)
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionDefinition struct {
+	// String schema configuration. See String Schema below.
+	StringSchemas []MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema `pulumi:"stringSchemas"`
+}
+
+// MultitenantDistributionTenantConfigParameterDefinitionDefinitionInput is an input type that accepts MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs and MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput values.
+// You can construct a concrete instance of `MultitenantDistributionTenantConfigParameterDefinitionDefinitionInput` via:
+//
+//	MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs{...}
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput
+	ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionOutputWithContext(context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs struct {
+	// String schema configuration. See String Schema below.
+	StringSchemas MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayInput `pulumi:"stringSchemas"`
+}
+
+func (MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinitionDefinition)(nil)).Elem()
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput {
+	return i.ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput)
+}
+
+// MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayInput is an input type that accepts MultitenantDistributionTenantConfigParameterDefinitionDefinitionArray and MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayInput` via:
+//
+//	MultitenantDistributionTenantConfigParameterDefinitionDefinitionArray{ MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs{...} }
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput
+	ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutputWithContext(context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionArray []MultitenantDistributionTenantConfigParameterDefinitionDefinitionInput
+
+func (MultitenantDistributionTenantConfigParameterDefinitionDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionTenantConfigParameterDefinitionDefinition)(nil)).Elem()
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionDefinitionArray) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput {
+	return i.ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionDefinitionArray) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput)
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinitionDefinition)(nil)).Elem()
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput {
+	return o
+}
+
+// String schema configuration. See String Schema below.
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput) StringSchemas() MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput {
+	return o.ApplyT(func(v MultitenantDistributionTenantConfigParameterDefinitionDefinition) []MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema {
+		return v.StringSchemas
+	}).(MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput)
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionTenantConfigParameterDefinitionDefinition)(nil)).Elem()
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionTenantConfigParameterDefinitionDefinition {
+		return vs[0].([]MultitenantDistributionTenantConfigParameterDefinitionDefinition)[vs[1].(int)]
+	}).(MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput)
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema struct {
+	// Comment describing the parameter.
+	Comment *string `pulumi:"comment"`
+	// Default value for the parameter.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// Whether the parameter is required.
+	Required bool `pulumi:"required"`
+}
+
+// MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaInput is an input type that accepts MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs and MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput values.
+// You can construct a concrete instance of `MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaInput` via:
+//
+//	MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs{...}
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput
+	ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutputWithContext(context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs struct {
+	// Comment describing the parameter.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// Default value for the parameter.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// Whether the parameter is required.
+	Required pulumi.BoolInput `pulumi:"required"`
+}
+
+func (MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema)(nil)).Elem()
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput {
+	return i.ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput)
+}
+
+// MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayInput is an input type that accepts MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArray and MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput values.
+// You can construct a concrete instance of `MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayInput` via:
+//
+//	MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArray{ MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs{...} }
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput
+	ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutputWithContext(context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArray []MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaInput
+
+func (MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema)(nil)).Elem()
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArray) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput {
+	return i.ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArray) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput)
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema)(nil)).Elem()
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput {
+	return o
+}
+
+// Comment describing the parameter.
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema) *string {
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Default value for the parameter.
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema) *string {
+		return v.DefaultValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the parameter is required.
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema) bool {
+		return v.Required
+	}).(pulumi.BoolOutput)
+}
+
+type MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema)(nil)).Elem()
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput() MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput) ToMultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutputWithContext(ctx context.Context) MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput {
+	return o
+}
+
+func (o MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput) Index(i pulumi.IntInput) MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema {
+		return vs[0].([]MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema)[vs[1].(int)]
+	}).(MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput)
+}
+
+type MultitenantDistributionTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// MultitenantDistributionTimeoutsInput is an input type that accepts MultitenantDistributionTimeoutsArgs and MultitenantDistributionTimeoutsOutput values.
+// You can construct a concrete instance of `MultitenantDistributionTimeoutsInput` via:
+//
+//	MultitenantDistributionTimeoutsArgs{...}
+type MultitenantDistributionTimeoutsInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionTimeoutsOutput() MultitenantDistributionTimeoutsOutput
+	ToMultitenantDistributionTimeoutsOutputWithContext(context.Context) MultitenantDistributionTimeoutsOutput
+}
+
+type MultitenantDistributionTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (MultitenantDistributionTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionTimeouts)(nil)).Elem()
+}
+
+func (i MultitenantDistributionTimeoutsArgs) ToMultitenantDistributionTimeoutsOutput() MultitenantDistributionTimeoutsOutput {
+	return i.ToMultitenantDistributionTimeoutsOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionTimeoutsArgs) ToMultitenantDistributionTimeoutsOutputWithContext(ctx context.Context) MultitenantDistributionTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTimeoutsOutput)
+}
+
+func (i MultitenantDistributionTimeoutsArgs) ToMultitenantDistributionTimeoutsPtrOutput() MultitenantDistributionTimeoutsPtrOutput {
+	return i.ToMultitenantDistributionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionTimeoutsArgs) ToMultitenantDistributionTimeoutsPtrOutputWithContext(ctx context.Context) MultitenantDistributionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTimeoutsOutput).ToMultitenantDistributionTimeoutsPtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionTimeoutsPtrInput is an input type that accepts MultitenantDistributionTimeoutsArgs, MultitenantDistributionTimeoutsPtr and MultitenantDistributionTimeoutsPtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionTimeoutsPtrInput` via:
+//
+//	        MultitenantDistributionTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionTimeoutsPtrOutput() MultitenantDistributionTimeoutsPtrOutput
+	ToMultitenantDistributionTimeoutsPtrOutputWithContext(context.Context) MultitenantDistributionTimeoutsPtrOutput
+}
+
+type multitenantDistributionTimeoutsPtrType MultitenantDistributionTimeoutsArgs
+
+func MultitenantDistributionTimeoutsPtr(v *MultitenantDistributionTimeoutsArgs) MultitenantDistributionTimeoutsPtrInput {
+	return (*multitenantDistributionTimeoutsPtrType)(v)
+}
+
+func (*multitenantDistributionTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionTimeouts)(nil)).Elem()
+}
+
+func (i *multitenantDistributionTimeoutsPtrType) ToMultitenantDistributionTimeoutsPtrOutput() MultitenantDistributionTimeoutsPtrOutput {
+	return i.ToMultitenantDistributionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionTimeoutsPtrType) ToMultitenantDistributionTimeoutsPtrOutputWithContext(ctx context.Context) MultitenantDistributionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionTimeoutsPtrOutput)
+}
+
+type MultitenantDistributionTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionTimeouts)(nil)).Elem()
+}
+
+func (o MultitenantDistributionTimeoutsOutput) ToMultitenantDistributionTimeoutsOutput() MultitenantDistributionTimeoutsOutput {
+	return o
+}
+
+func (o MultitenantDistributionTimeoutsOutput) ToMultitenantDistributionTimeoutsOutputWithContext(ctx context.Context) MultitenantDistributionTimeoutsOutput {
+	return o
+}
+
+func (o MultitenantDistributionTimeoutsOutput) ToMultitenantDistributionTimeoutsPtrOutput() MultitenantDistributionTimeoutsPtrOutput {
+	return o.ToMultitenantDistributionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionTimeoutsOutput) ToMultitenantDistributionTimeoutsPtrOutputWithContext(ctx context.Context) MultitenantDistributionTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionTimeouts) *MultitenantDistributionTimeouts {
+		return &v
+	}).(MultitenantDistributionTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultitenantDistributionTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MultitenantDistributionTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultitenantDistributionTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type MultitenantDistributionTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionTimeouts)(nil)).Elem()
+}
+
+func (o MultitenantDistributionTimeoutsPtrOutput) ToMultitenantDistributionTimeoutsPtrOutput() MultitenantDistributionTimeoutsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionTimeoutsPtrOutput) ToMultitenantDistributionTimeoutsPtrOutputWithContext(ctx context.Context) MultitenantDistributionTimeoutsPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionTimeoutsPtrOutput) Elem() MultitenantDistributionTimeoutsOutput {
+	return o.ApplyT(func(v *MultitenantDistributionTimeouts) MultitenantDistributionTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionTimeouts
+		return ret
+	}).(MultitenantDistributionTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultitenantDistributionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MultitenantDistributionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultitenantDistributionTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type MultitenantDistributionViewerCertificate struct {
+	// ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
+	AcmCertificateArn *string `pulumi:"acmCertificateArn"`
+	// Whether to use the CloudFront default certificate. Cannot be used with `acmCertificateArn`.
+	CloudfrontDefaultCertificate *bool `pulumi:"cloudfrontDefaultCertificate"`
+	// Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
+	MinimumProtocolVersion *string `pulumi:"minimumProtocolVersion"`
+	// How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acmCertificateArn` is specified.
+	SslSupportMethod *string `pulumi:"sslSupportMethod"`
+}
+
+// MultitenantDistributionViewerCertificateInput is an input type that accepts MultitenantDistributionViewerCertificateArgs and MultitenantDistributionViewerCertificateOutput values.
+// You can construct a concrete instance of `MultitenantDistributionViewerCertificateInput` via:
+//
+//	MultitenantDistributionViewerCertificateArgs{...}
+type MultitenantDistributionViewerCertificateInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionViewerCertificateOutput() MultitenantDistributionViewerCertificateOutput
+	ToMultitenantDistributionViewerCertificateOutputWithContext(context.Context) MultitenantDistributionViewerCertificateOutput
+}
+
+type MultitenantDistributionViewerCertificateArgs struct {
+	// ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
+	AcmCertificateArn pulumi.StringPtrInput `pulumi:"acmCertificateArn"`
+	// Whether to use the CloudFront default certificate. Cannot be used with `acmCertificateArn`.
+	CloudfrontDefaultCertificate pulumi.BoolPtrInput `pulumi:"cloudfrontDefaultCertificate"`
+	// Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
+	MinimumProtocolVersion pulumi.StringPtrInput `pulumi:"minimumProtocolVersion"`
+	// How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acmCertificateArn` is specified.
+	SslSupportMethod pulumi.StringPtrInput `pulumi:"sslSupportMethod"`
+}
+
+func (MultitenantDistributionViewerCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionViewerCertificate)(nil)).Elem()
+}
+
+func (i MultitenantDistributionViewerCertificateArgs) ToMultitenantDistributionViewerCertificateOutput() MultitenantDistributionViewerCertificateOutput {
+	return i.ToMultitenantDistributionViewerCertificateOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionViewerCertificateArgs) ToMultitenantDistributionViewerCertificateOutputWithContext(ctx context.Context) MultitenantDistributionViewerCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionViewerCertificateOutput)
+}
+
+func (i MultitenantDistributionViewerCertificateArgs) ToMultitenantDistributionViewerCertificatePtrOutput() MultitenantDistributionViewerCertificatePtrOutput {
+	return i.ToMultitenantDistributionViewerCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionViewerCertificateArgs) ToMultitenantDistributionViewerCertificatePtrOutputWithContext(ctx context.Context) MultitenantDistributionViewerCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionViewerCertificateOutput).ToMultitenantDistributionViewerCertificatePtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionViewerCertificatePtrInput is an input type that accepts MultitenantDistributionViewerCertificateArgs, MultitenantDistributionViewerCertificatePtr and MultitenantDistributionViewerCertificatePtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionViewerCertificatePtrInput` via:
+//
+//	        MultitenantDistributionViewerCertificateArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionViewerCertificatePtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionViewerCertificatePtrOutput() MultitenantDistributionViewerCertificatePtrOutput
+	ToMultitenantDistributionViewerCertificatePtrOutputWithContext(context.Context) MultitenantDistributionViewerCertificatePtrOutput
+}
+
+type multitenantDistributionViewerCertificatePtrType MultitenantDistributionViewerCertificateArgs
+
+func MultitenantDistributionViewerCertificatePtr(v *MultitenantDistributionViewerCertificateArgs) MultitenantDistributionViewerCertificatePtrInput {
+	return (*multitenantDistributionViewerCertificatePtrType)(v)
+}
+
+func (*multitenantDistributionViewerCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionViewerCertificate)(nil)).Elem()
+}
+
+func (i *multitenantDistributionViewerCertificatePtrType) ToMultitenantDistributionViewerCertificatePtrOutput() MultitenantDistributionViewerCertificatePtrOutput {
+	return i.ToMultitenantDistributionViewerCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionViewerCertificatePtrType) ToMultitenantDistributionViewerCertificatePtrOutputWithContext(ctx context.Context) MultitenantDistributionViewerCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionViewerCertificatePtrOutput)
+}
+
+type MultitenantDistributionViewerCertificateOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionViewerCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionViewerCertificate)(nil)).Elem()
+}
+
+func (o MultitenantDistributionViewerCertificateOutput) ToMultitenantDistributionViewerCertificateOutput() MultitenantDistributionViewerCertificateOutput {
+	return o
+}
+
+func (o MultitenantDistributionViewerCertificateOutput) ToMultitenantDistributionViewerCertificateOutputWithContext(ctx context.Context) MultitenantDistributionViewerCertificateOutput {
+	return o
+}
+
+func (o MultitenantDistributionViewerCertificateOutput) ToMultitenantDistributionViewerCertificatePtrOutput() MultitenantDistributionViewerCertificatePtrOutput {
+	return o.ToMultitenantDistributionViewerCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionViewerCertificateOutput) ToMultitenantDistributionViewerCertificatePtrOutputWithContext(ctx context.Context) MultitenantDistributionViewerCertificatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionViewerCertificate) *MultitenantDistributionViewerCertificate {
+		return &v
+	}).(MultitenantDistributionViewerCertificatePtrOutput)
+}
+
+// ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
+func (o MultitenantDistributionViewerCertificateOutput) AcmCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionViewerCertificate) *string { return v.AcmCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Whether to use the CloudFront default certificate. Cannot be used with `acmCertificateArn`.
+func (o MultitenantDistributionViewerCertificateOutput) CloudfrontDefaultCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionViewerCertificate) *bool { return v.CloudfrontDefaultCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
+func (o MultitenantDistributionViewerCertificateOutput) MinimumProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionViewerCertificate) *string { return v.MinimumProtocolVersion }).(pulumi.StringPtrOutput)
+}
+
+// How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acmCertificateArn` is specified.
+func (o MultitenantDistributionViewerCertificateOutput) SslSupportMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionViewerCertificate) *string { return v.SslSupportMethod }).(pulumi.StringPtrOutput)
+}
+
+type MultitenantDistributionViewerCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionViewerCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionViewerCertificate)(nil)).Elem()
+}
+
+func (o MultitenantDistributionViewerCertificatePtrOutput) ToMultitenantDistributionViewerCertificatePtrOutput() MultitenantDistributionViewerCertificatePtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionViewerCertificatePtrOutput) ToMultitenantDistributionViewerCertificatePtrOutputWithContext(ctx context.Context) MultitenantDistributionViewerCertificatePtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionViewerCertificatePtrOutput) Elem() MultitenantDistributionViewerCertificateOutput {
+	return o.ApplyT(func(v *MultitenantDistributionViewerCertificate) MultitenantDistributionViewerCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionViewerCertificate
+		return ret
+	}).(MultitenantDistributionViewerCertificateOutput)
+}
+
+// ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
+func (o MultitenantDistributionViewerCertificatePtrOutput) AcmCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionViewerCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AcmCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to use the CloudFront default certificate. Cannot be used with `acmCertificateArn`.
+func (o MultitenantDistributionViewerCertificatePtrOutput) CloudfrontDefaultCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionViewerCertificate) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CloudfrontDefaultCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
+func (o MultitenantDistributionViewerCertificatePtrOutput) MinimumProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionViewerCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumProtocolVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acmCertificateArn` is specified.
+func (o MultitenantDistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionViewerCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslSupportMethod
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13920,6 +20209,738 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig
 	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput)
 }
 
+type GetDistributionTenantCustomization struct {
+	Certificates    []GetDistributionTenantCustomizationCertificate    `pulumi:"certificates"`
+	GeoRestrictions []GetDistributionTenantCustomizationGeoRestriction `pulumi:"geoRestrictions"`
+	WebAcls         []GetDistributionTenantCustomizationWebAcl         `pulumi:"webAcls"`
+}
+
+// GetDistributionTenantCustomizationInput is an input type that accepts GetDistributionTenantCustomizationArgs and GetDistributionTenantCustomizationOutput values.
+// You can construct a concrete instance of `GetDistributionTenantCustomizationInput` via:
+//
+//	GetDistributionTenantCustomizationArgs{...}
+type GetDistributionTenantCustomizationInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantCustomizationOutput() GetDistributionTenantCustomizationOutput
+	ToGetDistributionTenantCustomizationOutputWithContext(context.Context) GetDistributionTenantCustomizationOutput
+}
+
+type GetDistributionTenantCustomizationArgs struct {
+	Certificates    GetDistributionTenantCustomizationCertificateArrayInput    `pulumi:"certificates"`
+	GeoRestrictions GetDistributionTenantCustomizationGeoRestrictionArrayInput `pulumi:"geoRestrictions"`
+	WebAcls         GetDistributionTenantCustomizationWebAclArrayInput         `pulumi:"webAcls"`
+}
+
+func (GetDistributionTenantCustomizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantCustomization)(nil)).Elem()
+}
+
+func (i GetDistributionTenantCustomizationArgs) ToGetDistributionTenantCustomizationOutput() GetDistributionTenantCustomizationOutput {
+	return i.ToGetDistributionTenantCustomizationOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantCustomizationArgs) ToGetDistributionTenantCustomizationOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantCustomizationOutput)
+}
+
+// GetDistributionTenantCustomizationArrayInput is an input type that accepts GetDistributionTenantCustomizationArray and GetDistributionTenantCustomizationArrayOutput values.
+// You can construct a concrete instance of `GetDistributionTenantCustomizationArrayInput` via:
+//
+//	GetDistributionTenantCustomizationArray{ GetDistributionTenantCustomizationArgs{...} }
+type GetDistributionTenantCustomizationArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantCustomizationArrayOutput() GetDistributionTenantCustomizationArrayOutput
+	ToGetDistributionTenantCustomizationArrayOutputWithContext(context.Context) GetDistributionTenantCustomizationArrayOutput
+}
+
+type GetDistributionTenantCustomizationArray []GetDistributionTenantCustomizationInput
+
+func (GetDistributionTenantCustomizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantCustomization)(nil)).Elem()
+}
+
+func (i GetDistributionTenantCustomizationArray) ToGetDistributionTenantCustomizationArrayOutput() GetDistributionTenantCustomizationArrayOutput {
+	return i.ToGetDistributionTenantCustomizationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantCustomizationArray) ToGetDistributionTenantCustomizationArrayOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantCustomizationArrayOutput)
+}
+
+type GetDistributionTenantCustomizationOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantCustomizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantCustomization)(nil)).Elem()
+}
+
+func (o GetDistributionTenantCustomizationOutput) ToGetDistributionTenantCustomizationOutput() GetDistributionTenantCustomizationOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationOutput) ToGetDistributionTenantCustomizationOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationOutput) Certificates() GetDistributionTenantCustomizationCertificateArrayOutput {
+	return o.ApplyT(func(v GetDistributionTenantCustomization) []GetDistributionTenantCustomizationCertificate {
+		return v.Certificates
+	}).(GetDistributionTenantCustomizationCertificateArrayOutput)
+}
+
+func (o GetDistributionTenantCustomizationOutput) GeoRestrictions() GetDistributionTenantCustomizationGeoRestrictionArrayOutput {
+	return o.ApplyT(func(v GetDistributionTenantCustomization) []GetDistributionTenantCustomizationGeoRestriction {
+		return v.GeoRestrictions
+	}).(GetDistributionTenantCustomizationGeoRestrictionArrayOutput)
+}
+
+func (o GetDistributionTenantCustomizationOutput) WebAcls() GetDistributionTenantCustomizationWebAclArrayOutput {
+	return o.ApplyT(func(v GetDistributionTenantCustomization) []GetDistributionTenantCustomizationWebAcl {
+		return v.WebAcls
+	}).(GetDistributionTenantCustomizationWebAclArrayOutput)
+}
+
+type GetDistributionTenantCustomizationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantCustomizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantCustomization)(nil)).Elem()
+}
+
+func (o GetDistributionTenantCustomizationArrayOutput) ToGetDistributionTenantCustomizationArrayOutput() GetDistributionTenantCustomizationArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationArrayOutput) ToGetDistributionTenantCustomizationArrayOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationArrayOutput) Index(i pulumi.IntInput) GetDistributionTenantCustomizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionTenantCustomization {
+		return vs[0].([]GetDistributionTenantCustomization)[vs[1].(int)]
+	}).(GetDistributionTenantCustomizationOutput)
+}
+
+type GetDistributionTenantCustomizationCertificate struct {
+	// ARN (Amazon Resource Name) for the distribution tenant.
+	Arn string `pulumi:"arn"`
+}
+
+// GetDistributionTenantCustomizationCertificateInput is an input type that accepts GetDistributionTenantCustomizationCertificateArgs and GetDistributionTenantCustomizationCertificateOutput values.
+// You can construct a concrete instance of `GetDistributionTenantCustomizationCertificateInput` via:
+//
+//	GetDistributionTenantCustomizationCertificateArgs{...}
+type GetDistributionTenantCustomizationCertificateInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantCustomizationCertificateOutput() GetDistributionTenantCustomizationCertificateOutput
+	ToGetDistributionTenantCustomizationCertificateOutputWithContext(context.Context) GetDistributionTenantCustomizationCertificateOutput
+}
+
+type GetDistributionTenantCustomizationCertificateArgs struct {
+	// ARN (Amazon Resource Name) for the distribution tenant.
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (GetDistributionTenantCustomizationCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantCustomizationCertificate)(nil)).Elem()
+}
+
+func (i GetDistributionTenantCustomizationCertificateArgs) ToGetDistributionTenantCustomizationCertificateOutput() GetDistributionTenantCustomizationCertificateOutput {
+	return i.ToGetDistributionTenantCustomizationCertificateOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantCustomizationCertificateArgs) ToGetDistributionTenantCustomizationCertificateOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantCustomizationCertificateOutput)
+}
+
+// GetDistributionTenantCustomizationCertificateArrayInput is an input type that accepts GetDistributionTenantCustomizationCertificateArray and GetDistributionTenantCustomizationCertificateArrayOutput values.
+// You can construct a concrete instance of `GetDistributionTenantCustomizationCertificateArrayInput` via:
+//
+//	GetDistributionTenantCustomizationCertificateArray{ GetDistributionTenantCustomizationCertificateArgs{...} }
+type GetDistributionTenantCustomizationCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantCustomizationCertificateArrayOutput() GetDistributionTenantCustomizationCertificateArrayOutput
+	ToGetDistributionTenantCustomizationCertificateArrayOutputWithContext(context.Context) GetDistributionTenantCustomizationCertificateArrayOutput
+}
+
+type GetDistributionTenantCustomizationCertificateArray []GetDistributionTenantCustomizationCertificateInput
+
+func (GetDistributionTenantCustomizationCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantCustomizationCertificate)(nil)).Elem()
+}
+
+func (i GetDistributionTenantCustomizationCertificateArray) ToGetDistributionTenantCustomizationCertificateArrayOutput() GetDistributionTenantCustomizationCertificateArrayOutput {
+	return i.ToGetDistributionTenantCustomizationCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantCustomizationCertificateArray) ToGetDistributionTenantCustomizationCertificateArrayOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantCustomizationCertificateArrayOutput)
+}
+
+type GetDistributionTenantCustomizationCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantCustomizationCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantCustomizationCertificate)(nil)).Elem()
+}
+
+func (o GetDistributionTenantCustomizationCertificateOutput) ToGetDistributionTenantCustomizationCertificateOutput() GetDistributionTenantCustomizationCertificateOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationCertificateOutput) ToGetDistributionTenantCustomizationCertificateOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationCertificateOutput {
+	return o
+}
+
+// ARN (Amazon Resource Name) for the distribution tenant.
+func (o GetDistributionTenantCustomizationCertificateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionTenantCustomizationCertificate) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type GetDistributionTenantCustomizationCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantCustomizationCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantCustomizationCertificate)(nil)).Elem()
+}
+
+func (o GetDistributionTenantCustomizationCertificateArrayOutput) ToGetDistributionTenantCustomizationCertificateArrayOutput() GetDistributionTenantCustomizationCertificateArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationCertificateArrayOutput) ToGetDistributionTenantCustomizationCertificateArrayOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationCertificateArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationCertificateArrayOutput) Index(i pulumi.IntInput) GetDistributionTenantCustomizationCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionTenantCustomizationCertificate {
+		return vs[0].([]GetDistributionTenantCustomizationCertificate)[vs[1].(int)]
+	}).(GetDistributionTenantCustomizationCertificateOutput)
+}
+
+type GetDistributionTenantCustomizationGeoRestriction struct {
+	Locations       []string `pulumi:"locations"`
+	RestrictionType string   `pulumi:"restrictionType"`
+}
+
+// GetDistributionTenantCustomizationGeoRestrictionInput is an input type that accepts GetDistributionTenantCustomizationGeoRestrictionArgs and GetDistributionTenantCustomizationGeoRestrictionOutput values.
+// You can construct a concrete instance of `GetDistributionTenantCustomizationGeoRestrictionInput` via:
+//
+//	GetDistributionTenantCustomizationGeoRestrictionArgs{...}
+type GetDistributionTenantCustomizationGeoRestrictionInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantCustomizationGeoRestrictionOutput() GetDistributionTenantCustomizationGeoRestrictionOutput
+	ToGetDistributionTenantCustomizationGeoRestrictionOutputWithContext(context.Context) GetDistributionTenantCustomizationGeoRestrictionOutput
+}
+
+type GetDistributionTenantCustomizationGeoRestrictionArgs struct {
+	Locations       pulumi.StringArrayInput `pulumi:"locations"`
+	RestrictionType pulumi.StringInput      `pulumi:"restrictionType"`
+}
+
+func (GetDistributionTenantCustomizationGeoRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantCustomizationGeoRestriction)(nil)).Elem()
+}
+
+func (i GetDistributionTenantCustomizationGeoRestrictionArgs) ToGetDistributionTenantCustomizationGeoRestrictionOutput() GetDistributionTenantCustomizationGeoRestrictionOutput {
+	return i.ToGetDistributionTenantCustomizationGeoRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantCustomizationGeoRestrictionArgs) ToGetDistributionTenantCustomizationGeoRestrictionOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationGeoRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantCustomizationGeoRestrictionOutput)
+}
+
+// GetDistributionTenantCustomizationGeoRestrictionArrayInput is an input type that accepts GetDistributionTenantCustomizationGeoRestrictionArray and GetDistributionTenantCustomizationGeoRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetDistributionTenantCustomizationGeoRestrictionArrayInput` via:
+//
+//	GetDistributionTenantCustomizationGeoRestrictionArray{ GetDistributionTenantCustomizationGeoRestrictionArgs{...} }
+type GetDistributionTenantCustomizationGeoRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantCustomizationGeoRestrictionArrayOutput() GetDistributionTenantCustomizationGeoRestrictionArrayOutput
+	ToGetDistributionTenantCustomizationGeoRestrictionArrayOutputWithContext(context.Context) GetDistributionTenantCustomizationGeoRestrictionArrayOutput
+}
+
+type GetDistributionTenantCustomizationGeoRestrictionArray []GetDistributionTenantCustomizationGeoRestrictionInput
+
+func (GetDistributionTenantCustomizationGeoRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantCustomizationGeoRestriction)(nil)).Elem()
+}
+
+func (i GetDistributionTenantCustomizationGeoRestrictionArray) ToGetDistributionTenantCustomizationGeoRestrictionArrayOutput() GetDistributionTenantCustomizationGeoRestrictionArrayOutput {
+	return i.ToGetDistributionTenantCustomizationGeoRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantCustomizationGeoRestrictionArray) ToGetDistributionTenantCustomizationGeoRestrictionArrayOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationGeoRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantCustomizationGeoRestrictionArrayOutput)
+}
+
+type GetDistributionTenantCustomizationGeoRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantCustomizationGeoRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantCustomizationGeoRestriction)(nil)).Elem()
+}
+
+func (o GetDistributionTenantCustomizationGeoRestrictionOutput) ToGetDistributionTenantCustomizationGeoRestrictionOutput() GetDistributionTenantCustomizationGeoRestrictionOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationGeoRestrictionOutput) ToGetDistributionTenantCustomizationGeoRestrictionOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationGeoRestrictionOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationGeoRestrictionOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDistributionTenantCustomizationGeoRestriction) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+func (o GetDistributionTenantCustomizationGeoRestrictionOutput) RestrictionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionTenantCustomizationGeoRestriction) string { return v.RestrictionType }).(pulumi.StringOutput)
+}
+
+type GetDistributionTenantCustomizationGeoRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantCustomizationGeoRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantCustomizationGeoRestriction)(nil)).Elem()
+}
+
+func (o GetDistributionTenantCustomizationGeoRestrictionArrayOutput) ToGetDistributionTenantCustomizationGeoRestrictionArrayOutput() GetDistributionTenantCustomizationGeoRestrictionArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationGeoRestrictionArrayOutput) ToGetDistributionTenantCustomizationGeoRestrictionArrayOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationGeoRestrictionArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationGeoRestrictionArrayOutput) Index(i pulumi.IntInput) GetDistributionTenantCustomizationGeoRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionTenantCustomizationGeoRestriction {
+		return vs[0].([]GetDistributionTenantCustomizationGeoRestriction)[vs[1].(int)]
+	}).(GetDistributionTenantCustomizationGeoRestrictionOutput)
+}
+
+type GetDistributionTenantCustomizationWebAcl struct {
+	Action string `pulumi:"action"`
+	// ARN (Amazon Resource Name) for the distribution tenant.
+	Arn string `pulumi:"arn"`
+}
+
+// GetDistributionTenantCustomizationWebAclInput is an input type that accepts GetDistributionTenantCustomizationWebAclArgs and GetDistributionTenantCustomizationWebAclOutput values.
+// You can construct a concrete instance of `GetDistributionTenantCustomizationWebAclInput` via:
+//
+//	GetDistributionTenantCustomizationWebAclArgs{...}
+type GetDistributionTenantCustomizationWebAclInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantCustomizationWebAclOutput() GetDistributionTenantCustomizationWebAclOutput
+	ToGetDistributionTenantCustomizationWebAclOutputWithContext(context.Context) GetDistributionTenantCustomizationWebAclOutput
+}
+
+type GetDistributionTenantCustomizationWebAclArgs struct {
+	Action pulumi.StringInput `pulumi:"action"`
+	// ARN (Amazon Resource Name) for the distribution tenant.
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (GetDistributionTenantCustomizationWebAclArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantCustomizationWebAcl)(nil)).Elem()
+}
+
+func (i GetDistributionTenantCustomizationWebAclArgs) ToGetDistributionTenantCustomizationWebAclOutput() GetDistributionTenantCustomizationWebAclOutput {
+	return i.ToGetDistributionTenantCustomizationWebAclOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantCustomizationWebAclArgs) ToGetDistributionTenantCustomizationWebAclOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationWebAclOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantCustomizationWebAclOutput)
+}
+
+// GetDistributionTenantCustomizationWebAclArrayInput is an input type that accepts GetDistributionTenantCustomizationWebAclArray and GetDistributionTenantCustomizationWebAclArrayOutput values.
+// You can construct a concrete instance of `GetDistributionTenantCustomizationWebAclArrayInput` via:
+//
+//	GetDistributionTenantCustomizationWebAclArray{ GetDistributionTenantCustomizationWebAclArgs{...} }
+type GetDistributionTenantCustomizationWebAclArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantCustomizationWebAclArrayOutput() GetDistributionTenantCustomizationWebAclArrayOutput
+	ToGetDistributionTenantCustomizationWebAclArrayOutputWithContext(context.Context) GetDistributionTenantCustomizationWebAclArrayOutput
+}
+
+type GetDistributionTenantCustomizationWebAclArray []GetDistributionTenantCustomizationWebAclInput
+
+func (GetDistributionTenantCustomizationWebAclArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantCustomizationWebAcl)(nil)).Elem()
+}
+
+func (i GetDistributionTenantCustomizationWebAclArray) ToGetDistributionTenantCustomizationWebAclArrayOutput() GetDistributionTenantCustomizationWebAclArrayOutput {
+	return i.ToGetDistributionTenantCustomizationWebAclArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantCustomizationWebAclArray) ToGetDistributionTenantCustomizationWebAclArrayOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationWebAclArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantCustomizationWebAclArrayOutput)
+}
+
+type GetDistributionTenantCustomizationWebAclOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantCustomizationWebAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantCustomizationWebAcl)(nil)).Elem()
+}
+
+func (o GetDistributionTenantCustomizationWebAclOutput) ToGetDistributionTenantCustomizationWebAclOutput() GetDistributionTenantCustomizationWebAclOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationWebAclOutput) ToGetDistributionTenantCustomizationWebAclOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationWebAclOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationWebAclOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionTenantCustomizationWebAcl) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// ARN (Amazon Resource Name) for the distribution tenant.
+func (o GetDistributionTenantCustomizationWebAclOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionTenantCustomizationWebAcl) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type GetDistributionTenantCustomizationWebAclArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantCustomizationWebAclArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantCustomizationWebAcl)(nil)).Elem()
+}
+
+func (o GetDistributionTenantCustomizationWebAclArrayOutput) ToGetDistributionTenantCustomizationWebAclArrayOutput() GetDistributionTenantCustomizationWebAclArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationWebAclArrayOutput) ToGetDistributionTenantCustomizationWebAclArrayOutputWithContext(ctx context.Context) GetDistributionTenantCustomizationWebAclArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantCustomizationWebAclArrayOutput) Index(i pulumi.IntInput) GetDistributionTenantCustomizationWebAclOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionTenantCustomizationWebAcl {
+		return vs[0].([]GetDistributionTenantCustomizationWebAcl)[vs[1].(int)]
+	}).(GetDistributionTenantCustomizationWebAclOutput)
+}
+
+type GetDistributionTenantDomain struct {
+	// An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
+	Domain string `pulumi:"domain"`
+	// Current status of the distribution tenant. `Deployed` if the
+	// distribution tenant's information is fully propagated throughout the Amazon
+	// CloudFront system.
+	Status string `pulumi:"status"`
+}
+
+// GetDistributionTenantDomainInput is an input type that accepts GetDistributionTenantDomainArgs and GetDistributionTenantDomainOutput values.
+// You can construct a concrete instance of `GetDistributionTenantDomainInput` via:
+//
+//	GetDistributionTenantDomainArgs{...}
+type GetDistributionTenantDomainInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantDomainOutput() GetDistributionTenantDomainOutput
+	ToGetDistributionTenantDomainOutputWithContext(context.Context) GetDistributionTenantDomainOutput
+}
+
+type GetDistributionTenantDomainArgs struct {
+	// An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Current status of the distribution tenant. `Deployed` if the
+	// distribution tenant's information is fully propagated throughout the Amazon
+	// CloudFront system.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetDistributionTenantDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantDomain)(nil)).Elem()
+}
+
+func (i GetDistributionTenantDomainArgs) ToGetDistributionTenantDomainOutput() GetDistributionTenantDomainOutput {
+	return i.ToGetDistributionTenantDomainOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantDomainArgs) ToGetDistributionTenantDomainOutputWithContext(ctx context.Context) GetDistributionTenantDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantDomainOutput)
+}
+
+// GetDistributionTenantDomainArrayInput is an input type that accepts GetDistributionTenantDomainArray and GetDistributionTenantDomainArrayOutput values.
+// You can construct a concrete instance of `GetDistributionTenantDomainArrayInput` via:
+//
+//	GetDistributionTenantDomainArray{ GetDistributionTenantDomainArgs{...} }
+type GetDistributionTenantDomainArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantDomainArrayOutput() GetDistributionTenantDomainArrayOutput
+	ToGetDistributionTenantDomainArrayOutputWithContext(context.Context) GetDistributionTenantDomainArrayOutput
+}
+
+type GetDistributionTenantDomainArray []GetDistributionTenantDomainInput
+
+func (GetDistributionTenantDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantDomain)(nil)).Elem()
+}
+
+func (i GetDistributionTenantDomainArray) ToGetDistributionTenantDomainArrayOutput() GetDistributionTenantDomainArrayOutput {
+	return i.ToGetDistributionTenantDomainArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantDomainArray) ToGetDistributionTenantDomainArrayOutputWithContext(ctx context.Context) GetDistributionTenantDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantDomainArrayOutput)
+}
+
+type GetDistributionTenantDomainOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantDomain)(nil)).Elem()
+}
+
+func (o GetDistributionTenantDomainOutput) ToGetDistributionTenantDomainOutput() GetDistributionTenantDomainOutput {
+	return o
+}
+
+func (o GetDistributionTenantDomainOutput) ToGetDistributionTenantDomainOutputWithContext(ctx context.Context) GetDistributionTenantDomainOutput {
+	return o
+}
+
+// An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
+func (o GetDistributionTenantDomainOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionTenantDomain) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// Current status of the distribution tenant. `Deployed` if the
+// distribution tenant's information is fully propagated throughout the Amazon
+// CloudFront system.
+func (o GetDistributionTenantDomainOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionTenantDomain) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetDistributionTenantDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantDomain)(nil)).Elem()
+}
+
+func (o GetDistributionTenantDomainArrayOutput) ToGetDistributionTenantDomainArrayOutput() GetDistributionTenantDomainArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantDomainArrayOutput) ToGetDistributionTenantDomainArrayOutputWithContext(ctx context.Context) GetDistributionTenantDomainArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantDomainArrayOutput) Index(i pulumi.IntInput) GetDistributionTenantDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionTenantDomain {
+		return vs[0].([]GetDistributionTenantDomain)[vs[1].(int)]
+	}).(GetDistributionTenantDomainOutput)
+}
+
+type GetDistributionTenantManagedCertificateRequest struct {
+	CertificateTransparencyLoggingPreference string `pulumi:"certificateTransparencyLoggingPreference"`
+	PrimaryDomainName                        string `pulumi:"primaryDomainName"`
+	ValidationTokenHost                      string `pulumi:"validationTokenHost"`
+}
+
+// GetDistributionTenantManagedCertificateRequestInput is an input type that accepts GetDistributionTenantManagedCertificateRequestArgs and GetDistributionTenantManagedCertificateRequestOutput values.
+// You can construct a concrete instance of `GetDistributionTenantManagedCertificateRequestInput` via:
+//
+//	GetDistributionTenantManagedCertificateRequestArgs{...}
+type GetDistributionTenantManagedCertificateRequestInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantManagedCertificateRequestOutput() GetDistributionTenantManagedCertificateRequestOutput
+	ToGetDistributionTenantManagedCertificateRequestOutputWithContext(context.Context) GetDistributionTenantManagedCertificateRequestOutput
+}
+
+type GetDistributionTenantManagedCertificateRequestArgs struct {
+	CertificateTransparencyLoggingPreference pulumi.StringInput `pulumi:"certificateTransparencyLoggingPreference"`
+	PrimaryDomainName                        pulumi.StringInput `pulumi:"primaryDomainName"`
+	ValidationTokenHost                      pulumi.StringInput `pulumi:"validationTokenHost"`
+}
+
+func (GetDistributionTenantManagedCertificateRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantManagedCertificateRequest)(nil)).Elem()
+}
+
+func (i GetDistributionTenantManagedCertificateRequestArgs) ToGetDistributionTenantManagedCertificateRequestOutput() GetDistributionTenantManagedCertificateRequestOutput {
+	return i.ToGetDistributionTenantManagedCertificateRequestOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantManagedCertificateRequestArgs) ToGetDistributionTenantManagedCertificateRequestOutputWithContext(ctx context.Context) GetDistributionTenantManagedCertificateRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantManagedCertificateRequestOutput)
+}
+
+// GetDistributionTenantManagedCertificateRequestArrayInput is an input type that accepts GetDistributionTenantManagedCertificateRequestArray and GetDistributionTenantManagedCertificateRequestArrayOutput values.
+// You can construct a concrete instance of `GetDistributionTenantManagedCertificateRequestArrayInput` via:
+//
+//	GetDistributionTenantManagedCertificateRequestArray{ GetDistributionTenantManagedCertificateRequestArgs{...} }
+type GetDistributionTenantManagedCertificateRequestArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantManagedCertificateRequestArrayOutput() GetDistributionTenantManagedCertificateRequestArrayOutput
+	ToGetDistributionTenantManagedCertificateRequestArrayOutputWithContext(context.Context) GetDistributionTenantManagedCertificateRequestArrayOutput
+}
+
+type GetDistributionTenantManagedCertificateRequestArray []GetDistributionTenantManagedCertificateRequestInput
+
+func (GetDistributionTenantManagedCertificateRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantManagedCertificateRequest)(nil)).Elem()
+}
+
+func (i GetDistributionTenantManagedCertificateRequestArray) ToGetDistributionTenantManagedCertificateRequestArrayOutput() GetDistributionTenantManagedCertificateRequestArrayOutput {
+	return i.ToGetDistributionTenantManagedCertificateRequestArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantManagedCertificateRequestArray) ToGetDistributionTenantManagedCertificateRequestArrayOutputWithContext(ctx context.Context) GetDistributionTenantManagedCertificateRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantManagedCertificateRequestArrayOutput)
+}
+
+type GetDistributionTenantManagedCertificateRequestOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantManagedCertificateRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantManagedCertificateRequest)(nil)).Elem()
+}
+
+func (o GetDistributionTenantManagedCertificateRequestOutput) ToGetDistributionTenantManagedCertificateRequestOutput() GetDistributionTenantManagedCertificateRequestOutput {
+	return o
+}
+
+func (o GetDistributionTenantManagedCertificateRequestOutput) ToGetDistributionTenantManagedCertificateRequestOutputWithContext(ctx context.Context) GetDistributionTenantManagedCertificateRequestOutput {
+	return o
+}
+
+func (o GetDistributionTenantManagedCertificateRequestOutput) CertificateTransparencyLoggingPreference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionTenantManagedCertificateRequest) string {
+		return v.CertificateTransparencyLoggingPreference
+	}).(pulumi.StringOutput)
+}
+
+func (o GetDistributionTenantManagedCertificateRequestOutput) PrimaryDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionTenantManagedCertificateRequest) string { return v.PrimaryDomainName }).(pulumi.StringOutput)
+}
+
+func (o GetDistributionTenantManagedCertificateRequestOutput) ValidationTokenHost() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionTenantManagedCertificateRequest) string { return v.ValidationTokenHost }).(pulumi.StringOutput)
+}
+
+type GetDistributionTenantManagedCertificateRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantManagedCertificateRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantManagedCertificateRequest)(nil)).Elem()
+}
+
+func (o GetDistributionTenantManagedCertificateRequestArrayOutput) ToGetDistributionTenantManagedCertificateRequestArrayOutput() GetDistributionTenantManagedCertificateRequestArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantManagedCertificateRequestArrayOutput) ToGetDistributionTenantManagedCertificateRequestArrayOutputWithContext(ctx context.Context) GetDistributionTenantManagedCertificateRequestArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantManagedCertificateRequestArrayOutput) Index(i pulumi.IntInput) GetDistributionTenantManagedCertificateRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionTenantManagedCertificateRequest {
+		return vs[0].([]GetDistributionTenantManagedCertificateRequest)[vs[1].(int)]
+	}).(GetDistributionTenantManagedCertificateRequestOutput)
+}
+
+type GetDistributionTenantParameter struct {
+	Name  string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+
+// GetDistributionTenantParameterInput is an input type that accepts GetDistributionTenantParameterArgs and GetDistributionTenantParameterOutput values.
+// You can construct a concrete instance of `GetDistributionTenantParameterInput` via:
+//
+//	GetDistributionTenantParameterArgs{...}
+type GetDistributionTenantParameterInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantParameterOutput() GetDistributionTenantParameterOutput
+	ToGetDistributionTenantParameterOutputWithContext(context.Context) GetDistributionTenantParameterOutput
+}
+
+type GetDistributionTenantParameterArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDistributionTenantParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantParameter)(nil)).Elem()
+}
+
+func (i GetDistributionTenantParameterArgs) ToGetDistributionTenantParameterOutput() GetDistributionTenantParameterOutput {
+	return i.ToGetDistributionTenantParameterOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantParameterArgs) ToGetDistributionTenantParameterOutputWithContext(ctx context.Context) GetDistributionTenantParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantParameterOutput)
+}
+
+// GetDistributionTenantParameterArrayInput is an input type that accepts GetDistributionTenantParameterArray and GetDistributionTenantParameterArrayOutput values.
+// You can construct a concrete instance of `GetDistributionTenantParameterArrayInput` via:
+//
+//	GetDistributionTenantParameterArray{ GetDistributionTenantParameterArgs{...} }
+type GetDistributionTenantParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionTenantParameterArrayOutput() GetDistributionTenantParameterArrayOutput
+	ToGetDistributionTenantParameterArrayOutputWithContext(context.Context) GetDistributionTenantParameterArrayOutput
+}
+
+type GetDistributionTenantParameterArray []GetDistributionTenantParameterInput
+
+func (GetDistributionTenantParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantParameter)(nil)).Elem()
+}
+
+func (i GetDistributionTenantParameterArray) ToGetDistributionTenantParameterArrayOutput() GetDistributionTenantParameterArrayOutput {
+	return i.ToGetDistributionTenantParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionTenantParameterArray) ToGetDistributionTenantParameterArrayOutputWithContext(ctx context.Context) GetDistributionTenantParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionTenantParameterArrayOutput)
+}
+
+type GetDistributionTenantParameterOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionTenantParameter)(nil)).Elem()
+}
+
+func (o GetDistributionTenantParameterOutput) ToGetDistributionTenantParameterOutput() GetDistributionTenantParameterOutput {
+	return o
+}
+
+func (o GetDistributionTenantParameterOutput) ToGetDistributionTenantParameterOutputWithContext(ctx context.Context) GetDistributionTenantParameterOutput {
+	return o
+}
+
+func (o GetDistributionTenantParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionTenantParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDistributionTenantParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionTenantParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDistributionTenantParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionTenantParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionTenantParameter)(nil)).Elem()
+}
+
+func (o GetDistributionTenantParameterArrayOutput) ToGetDistributionTenantParameterArrayOutput() GetDistributionTenantParameterArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantParameterArrayOutput) ToGetDistributionTenantParameterArrayOutputWithContext(ctx context.Context) GetDistributionTenantParameterArrayOutput {
+	return o
+}
+
+func (o GetDistributionTenantParameterArrayOutput) Index(i pulumi.IntInput) GetDistributionTenantParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionTenantParameter {
+		return vs[0].([]GetDistributionTenantParameter)[vs[1].(int)]
+	}).(GetDistributionTenantParameterOutput)
+}
+
 type GetOriginRequestPolicyCookiesConfig struct {
 	CookieBehavior string                                      `pulumi:"cookieBehavior"`
 	Cookies        []GetOriginRequestPolicyCookiesConfigCookie `pulumi:"cookies"`
@@ -16605,6 +23626,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionConnectionFunctionConfigInput)(nil)).Elem(), ConnectionFunctionConnectionFunctionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionConnectionFunctionConfigPtrInput)(nil)).Elem(), ConnectionFunctionConnectionFunctionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationInput)(nil)).Elem(), ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrInput)(nil)).Elem(), ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGroupTimeoutsInput)(nil)).Elem(), ConnectionGroupTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGroupTimeoutsPtrInput)(nil)).Elem(), ConnectionGroupTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyStagingDistributionDnsNamesInput)(nil)).Elem(), ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigArgs{})
@@ -16615,6 +23642,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConnectionFunctionAssociationInput)(nil)).Elem(), DistributionConnectionFunctionAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConnectionFunctionAssociationPtrInput)(nil)).Elem(), DistributionConnectionFunctionAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomErrorResponseInput)(nil)).Elem(), DistributionCustomErrorResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomErrorResponseArrayInput)(nil)).Elem(), DistributionCustomErrorResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorInput)(nil)).Elem(), DistributionDefaultCacheBehaviorArgs{})
@@ -16664,6 +23693,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionRestrictionsPtrInput)(nil)).Elem(), DistributionRestrictionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionRestrictionsGeoRestrictionInput)(nil)).Elem(), DistributionRestrictionsGeoRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionRestrictionsGeoRestrictionPtrInput)(nil)).Elem(), DistributionRestrictionsGeoRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantCustomizationsInput)(nil)).Elem(), DistributionTenantCustomizationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantCustomizationsPtrInput)(nil)).Elem(), DistributionTenantCustomizationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantCustomizationsCertificateInput)(nil)).Elem(), DistributionTenantCustomizationsCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantCustomizationsCertificatePtrInput)(nil)).Elem(), DistributionTenantCustomizationsCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantCustomizationsGeoRestrictionInput)(nil)).Elem(), DistributionTenantCustomizationsGeoRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantCustomizationsGeoRestrictionPtrInput)(nil)).Elem(), DistributionTenantCustomizationsGeoRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantCustomizationsWebAclInput)(nil)).Elem(), DistributionTenantCustomizationsWebAclArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantCustomizationsWebAclPtrInput)(nil)).Elem(), DistributionTenantCustomizationsWebAclArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantDomainInput)(nil)).Elem(), DistributionTenantDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantDomainArrayInput)(nil)).Elem(), DistributionTenantDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestPtrInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantParameterInput)(nil)).Elem(), DistributionTenantParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantParameterArrayInput)(nil)).Elem(), DistributionTenantParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantTimeoutsInput)(nil)).Elem(), DistributionTenantTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantTimeoutsPtrInput)(nil)).Elem(), DistributionTenantTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedKeyGroupInput)(nil)).Elem(), DistributionTrustedKeyGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedKeyGroupArrayInput)(nil)).Elem(), DistributionTrustedKeyGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedKeyGroupItemInput)(nil)).Elem(), DistributionTrustedKeyGroupItemArgs{})
@@ -16674,6 +23719,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedSignerItemArrayInput)(nil)).Elem(), DistributionTrustedSignerItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificateInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificatePtrInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsConfigInput)(nil)).Elem(), DistributionViewerMtlsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsConfigPtrInput)(nil)).Elem(), DistributionViewerMtlsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsConfigTrustStoreConfigInput)(nil)).Elem(), DistributionViewerMtlsConfigTrustStoreConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsConfigTrustStoreConfigPtrInput)(nil)).Elem(), DistributionViewerMtlsConfigTrustStoreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{})
@@ -16699,6 +23748,64 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionPtrInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionActiveTrustedKeyGroupInput)(nil)).Elem(), MultitenantDistributionActiveTrustedKeyGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionActiveTrustedKeyGroupArrayInput)(nil)).Elem(), MultitenantDistributionActiveTrustedKeyGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionActiveTrustedKeyGroupItemInput)(nil)).Elem(), MultitenantDistributionActiveTrustedKeyGroupItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionActiveTrustedKeyGroupItemArrayInput)(nil)).Elem(), MultitenantDistributionActiveTrustedKeyGroupItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorArrayInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorAllowedMethodsInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorAllowedMethodsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorAllowedMethodsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorFunctionAssociationInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorFunctionAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorFunctionAssociationArrayInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorFunctionAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorLambdaFunctionAssociationInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorTrustedKeyGroupsInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCustomErrorResponseInput)(nil)).Elem(), MultitenantDistributionCustomErrorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCustomErrorResponseArrayInput)(nil)).Elem(), MultitenantDistributionCustomErrorResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorInput)(nil)).Elem(), MultitenantDistributionDefaultCacheBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorPtrInput)(nil)).Elem(), MultitenantDistributionDefaultCacheBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorAllowedMethodsInput)(nil)).Elem(), MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrInput)(nil)).Elem(), MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorFunctionAssociationInput)(nil)).Elem(), MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayInput)(nil)).Elem(), MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationInput)(nil)).Elem(), MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayInput)(nil)).Elem(), MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsInput)(nil)).Elem(), MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrInput)(nil)).Elem(), MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginInput)(nil)).Elem(), MultitenantDistributionOriginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginArrayInput)(nil)).Elem(), MultitenantDistributionOriginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginCustomHeaderInput)(nil)).Elem(), MultitenantDistributionOriginCustomHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginCustomHeaderArrayInput)(nil)).Elem(), MultitenantDistributionOriginCustomHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginCustomOriginConfigInput)(nil)).Elem(), MultitenantDistributionOriginCustomOriginConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginCustomOriginConfigArrayInput)(nil)).Elem(), MultitenantDistributionOriginCustomOriginConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupInput)(nil)).Elem(), MultitenantDistributionOriginGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupArrayInput)(nil)).Elem(), MultitenantDistributionOriginGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupFailoverCriteriaInput)(nil)).Elem(), MultitenantDistributionOriginGroupFailoverCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupFailoverCriteriaPtrInput)(nil)).Elem(), MultitenantDistributionOriginGroupFailoverCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupMemberInput)(nil)).Elem(), MultitenantDistributionOriginGroupMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupMemberArrayInput)(nil)).Elem(), MultitenantDistributionOriginGroupMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginOriginShieldInput)(nil)).Elem(), MultitenantDistributionOriginOriginShieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginOriginShieldArrayInput)(nil)).Elem(), MultitenantDistributionOriginOriginShieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginVpcOriginConfigInput)(nil)).Elem(), MultitenantDistributionOriginVpcOriginConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginVpcOriginConfigArrayInput)(nil)).Elem(), MultitenantDistributionOriginVpcOriginConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionRestrictionsInput)(nil)).Elem(), MultitenantDistributionRestrictionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionRestrictionsPtrInput)(nil)).Elem(), MultitenantDistributionRestrictionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionRestrictionsGeoRestrictionInput)(nil)).Elem(), MultitenantDistributionRestrictionsGeoRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionRestrictionsGeoRestrictionPtrInput)(nil)).Elem(), MultitenantDistributionRestrictionsGeoRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionTenantConfigInput)(nil)).Elem(), MultitenantDistributionTenantConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionTenantConfigPtrInput)(nil)).Elem(), MultitenantDistributionTenantConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinitionInput)(nil)).Elem(), MultitenantDistributionTenantConfigParameterDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinitionArrayInput)(nil)).Elem(), MultitenantDistributionTenantConfigParameterDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinitionDefinitionInput)(nil)).Elem(), MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayInput)(nil)).Elem(), MultitenantDistributionTenantConfigParameterDefinitionDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaInput)(nil)).Elem(), MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayInput)(nil)).Elem(), MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionTimeoutsInput)(nil)).Elem(), MultitenantDistributionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionTimeoutsPtrInput)(nil)).Elem(), MultitenantDistributionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionViewerCertificateInput)(nil)).Elem(), MultitenantDistributionViewerCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionViewerCertificatePtrInput)(nil)).Elem(), MultitenantDistributionViewerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyCookiesConfigInput)(nil)).Elem(), OriginRequestPolicyCookiesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyCookiesConfigPtrInput)(nil)).Elem(), OriginRequestPolicyCookiesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyCookiesConfigCookiesInput)(nil)).Elem(), OriginRequestPolicyCookiesConfigCookiesArgs{})
@@ -16775,6 +23882,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantCustomizationInput)(nil)).Elem(), GetDistributionTenantCustomizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantCustomizationArrayInput)(nil)).Elem(), GetDistributionTenantCustomizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantCustomizationCertificateInput)(nil)).Elem(), GetDistributionTenantCustomizationCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantCustomizationCertificateArrayInput)(nil)).Elem(), GetDistributionTenantCustomizationCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantCustomizationGeoRestrictionInput)(nil)).Elem(), GetDistributionTenantCustomizationGeoRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantCustomizationGeoRestrictionArrayInput)(nil)).Elem(), GetDistributionTenantCustomizationGeoRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantCustomizationWebAclInput)(nil)).Elem(), GetDistributionTenantCustomizationWebAclArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantCustomizationWebAclArrayInput)(nil)).Elem(), GetDistributionTenantCustomizationWebAclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantDomainInput)(nil)).Elem(), GetDistributionTenantDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantDomainArrayInput)(nil)).Elem(), GetDistributionTenantDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantManagedCertificateRequestInput)(nil)).Elem(), GetDistributionTenantManagedCertificateRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantManagedCertificateRequestArrayInput)(nil)).Elem(), GetDistributionTenantManagedCertificateRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantParameterInput)(nil)).Elem(), GetDistributionTenantParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionTenantParameterArrayInput)(nil)).Elem(), GetDistributionTenantParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyCookiesConfigInput)(nil)).Elem(), GetOriginRequestPolicyCookiesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyCookiesConfigArrayInput)(nil)).Elem(), GetOriginRequestPolicyCookiesConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyCookiesConfigCookieInput)(nil)).Elem(), GetOriginRequestPolicyCookiesConfigCookieArgs{})
@@ -16839,6 +23960,12 @@ func init() {
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionConnectionFunctionConfigOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionConnectionFunctionConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionGroupTimeoutsOutput{})
+	pulumi.RegisterOutputType(ConnectionGroupTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigOutput{})
@@ -16849,6 +23976,8 @@ func init() {
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput{})
+	pulumi.RegisterOutputType(DistributionConnectionFunctionAssociationOutput{})
+	pulumi.RegisterOutputType(DistributionConnectionFunctionAssociationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorOutput{})
@@ -16898,6 +24027,22 @@ func init() {
 	pulumi.RegisterOutputType(DistributionRestrictionsPtrOutput{})
 	pulumi.RegisterOutputType(DistributionRestrictionsGeoRestrictionOutput{})
 	pulumi.RegisterOutputType(DistributionRestrictionsGeoRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantCustomizationsOutput{})
+	pulumi.RegisterOutputType(DistributionTenantCustomizationsPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantCustomizationsCertificateOutput{})
+	pulumi.RegisterOutputType(DistributionTenantCustomizationsCertificatePtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantCustomizationsGeoRestrictionOutput{})
+	pulumi.RegisterOutputType(DistributionTenantCustomizationsGeoRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantCustomizationsWebAclOutput{})
+	pulumi.RegisterOutputType(DistributionTenantCustomizationsWebAclPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantDomainOutput{})
+	pulumi.RegisterOutputType(DistributionTenantDomainArrayOutput{})
+	pulumi.RegisterOutputType(DistributionTenantManagedCertificateRequestOutput{})
+	pulumi.RegisterOutputType(DistributionTenantManagedCertificateRequestPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantParameterOutput{})
+	pulumi.RegisterOutputType(DistributionTenantParameterArrayOutput{})
+	pulumi.RegisterOutputType(DistributionTenantTimeoutsOutput{})
+	pulumi.RegisterOutputType(DistributionTenantTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DistributionTrustedKeyGroupOutput{})
 	pulumi.RegisterOutputType(DistributionTrustedKeyGroupArrayOutput{})
 	pulumi.RegisterOutputType(DistributionTrustedKeyGroupItemOutput{})
@@ -16908,6 +24053,10 @@ func init() {
 	pulumi.RegisterOutputType(DistributionTrustedSignerItemArrayOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificateOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
+	pulumi.RegisterOutputType(DistributionViewerMtlsConfigOutput{})
+	pulumi.RegisterOutputType(DistributionViewerMtlsConfigPtrOutput{})
+	pulumi.RegisterOutputType(DistributionViewerMtlsConfigTrustStoreConfigOutput{})
+	pulumi.RegisterOutputType(DistributionViewerMtlsConfigTrustStoreConfigPtrOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput{})
@@ -16933,6 +24082,64 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionActiveTrustedKeyGroupOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionActiveTrustedKeyGroupArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionActiveTrustedKeyGroupItemOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorAllowedMethodsOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorFunctionAssociationOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorTrustedKeyGroupsOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorTrustedKeyGroupsPtrOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCustomErrorResponseOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionCustomErrorResponseArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionDefaultCacheBehaviorOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionDefaultCacheBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionDefaultCacheBehaviorFunctionAssociationOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsPtrOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginCustomHeaderOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginCustomHeaderArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginCustomOriginConfigOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginCustomOriginConfigArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupFailoverCriteriaOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupMemberOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupMemberArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginOriginShieldOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginOriginShieldArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginVpcOriginConfigOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginVpcOriginConfigArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionRestrictionsOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionRestrictionsPtrOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionRestrictionsGeoRestrictionOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionRestrictionsGeoRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionTenantConfigOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionTenantConfigPtrOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionTenantConfigParameterDefinitionOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionTenantConfigParameterDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionTenantConfigParameterDefinitionDefinitionOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionTenantConfigParameterDefinitionDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionTimeoutsOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionViewerCertificateOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionViewerCertificatePtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigCookiesOutput{})
@@ -17009,6 +24216,20 @@ func init() {
 	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput{})
 	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantCustomizationOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantCustomizationArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantCustomizationCertificateOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantCustomizationCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantCustomizationGeoRestrictionOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantCustomizationGeoRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantCustomizationWebAclOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantCustomizationWebAclArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantDomainOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantDomainArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantManagedCertificateRequestOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantManagedCertificateRequestArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantParameterOutput{})
+	pulumi.RegisterOutputType(GetDistributionTenantParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetOriginRequestPolicyCookiesConfigOutput{})
 	pulumi.RegisterOutputType(GetOriginRequestPolicyCookiesConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetOriginRequestPolicyCookiesConfigCookieOutput{})

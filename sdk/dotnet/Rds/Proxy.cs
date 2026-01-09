@@ -52,6 +52,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `TargetConnectionNetworkType` must be `IPV6`.
+        /// </summary>
+        [Output("endpointNetworkType")]
+        public Output<string> EndpointNetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         /// </summary>
         [Output("engineFamily")]
@@ -98,6 +104,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+        /// </summary>
+        [Output("targetConnectionNetworkType")]
+        public Output<string> TargetConnectionNetworkType { get; private set; } = null!;
 
         /// <summary>
         /// One or more VPC security group IDs to associate with the new proxy.
@@ -182,6 +194,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DefaultAuthScheme { get; set; }
 
         /// <summary>
+        /// Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `TargetConnectionNetworkType` must be `IPV6`.
+        /// </summary>
+        [Input("endpointNetworkType")]
+        public Input<string>? EndpointNetworkType { get; set; }
+
+        /// <summary>
         /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         /// </summary>
         [Input("engineFamily", required: true)]
@@ -228,6 +246,12 @@ namespace Pulumi.Aws.Rds
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+        /// </summary>
+        [Input("targetConnectionNetworkType")]
+        public Input<string>? TargetConnectionNetworkType { get; set; }
 
         [Input("vpcSecurityGroupIds")]
         private InputList<string>? _vpcSecurityGroupIds;
@@ -298,6 +322,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
+        /// Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `TargetConnectionNetworkType` must be `IPV6`.
+        /// </summary>
+        [Input("endpointNetworkType")]
+        public Input<string>? EndpointNetworkType { get; set; }
+
+        /// <summary>
         /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         /// </summary>
         [Input("engineFamily")]
@@ -356,6 +386,12 @@ namespace Pulumi.Aws.Rds
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+        /// </summary>
+        [Input("targetConnectionNetworkType")]
+        public Input<string>? TargetConnectionNetworkType { get; set; }
 
         [Input("vpcSecurityGroupIds")]
         private InputList<string>? _vpcSecurityGroupIds;

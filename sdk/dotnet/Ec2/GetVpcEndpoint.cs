@@ -145,6 +145,12 @@ namespace Pulumi.Aws.Ec2
         public string? ServiceName { get; set; }
 
         /// <summary>
+        /// AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
+        /// </summary>
+        [Input("serviceRegion")]
+        public string? ServiceRegion { get; set; }
+
+        /// <summary>
         /// State of the specific VPC Endpoint to retrieve.
         /// </summary>
         [Input("state")]
@@ -162,6 +168,12 @@ namespace Pulumi.Aws.Ec2
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+        /// </summary>
+        [Input("vpcEndpointType")]
+        public string? VpcEndpointType { get; set; }
 
         /// <summary>
         /// ID of the VPC in which the specific VPC Endpoint is used.
@@ -211,6 +223,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ServiceName { get; set; }
 
         /// <summary>
+        /// AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
+        /// </summary>
+        [Input("serviceRegion")]
+        public Input<string>? ServiceRegion { get; set; }
+
+        /// <summary>
         /// State of the specific VPC Endpoint to retrieve.
         /// </summary>
         [Input("state")]
@@ -228,6 +246,12 @@ namespace Pulumi.Aws.Ec2
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+        /// </summary>
+        [Input("vpcEndpointType")]
+        public Input<string>? VpcEndpointType { get; set; }
 
         /// <summary>
         /// ID of the VPC in which the specific VPC Endpoint is used.
@@ -301,15 +325,13 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly string ServiceName;
+        public readonly string ServiceRegion;
         public readonly string State;
         /// <summary>
         /// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// VPC Endpoint type, `Gateway` or `Interface`.
-        /// </summary>
         public readonly string VpcEndpointType;
         public readonly string VpcId;
 
@@ -349,6 +371,8 @@ namespace Pulumi.Aws.Ec2
 
             string serviceName,
 
+            string serviceRegion,
+
             string state,
 
             ImmutableArray<string> subnetIds,
@@ -376,6 +400,7 @@ namespace Pulumi.Aws.Ec2
             RouteTableIds = routeTableIds;
             SecurityGroupIds = securityGroupIds;
             ServiceName = serviceName;
+            ServiceRegion = serviceRegion;
             State = state;
             SubnetIds = subnetIds;
             Tags = tags;

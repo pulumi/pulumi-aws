@@ -307,47 +307,7 @@ class ProxyTarget(pulumi.CustomResource):
                  target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an RDS DB proxy target resource.
-
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.Proxy("example",
-            name="example",
-            debug_logging=False,
-            engine_family="MYSQL",
-            idle_client_timeout=1800,
-            require_tls=True,
-            role_arn=example_aws_iam_role["arn"],
-            vpc_security_group_ids=[example_aws_security_group["id"]],
-            vpc_subnet_ids=[example_aws_subnet["id"]],
-            auths=[{
-                "auth_scheme": "SECRETS",
-                "description": "example",
-                "iam_auth": "DISABLED",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            }],
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("example",
-            db_proxy_name=example.name,
-            connection_pool_config={
-                "connection_borrow_timeout": 120,
-                "init_query": "SET x=1, y=2",
-                "max_connections_percent": 100,
-                "max_idle_connections_percent": 50,
-                "session_pinning_filters": ["EXCLUDE_VARIABLE_SETS"],
-            })
-        example_proxy_target = aws.rds.ProxyTarget("example",
-            db_instance_identifier=example_aws_db_instance["identifier"],
-            db_proxy_name=example.name,
-            target_group_name=example_proxy_default_target_group.name)
-        ```
 
         ## Import
 
@@ -383,47 +343,7 @@ class ProxyTarget(pulumi.CustomResource):
                  args: ProxyTargetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an RDS DB proxy target resource.
-
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.Proxy("example",
-            name="example",
-            debug_logging=False,
-            engine_family="MYSQL",
-            idle_client_timeout=1800,
-            require_tls=True,
-            role_arn=example_aws_iam_role["arn"],
-            vpc_security_group_ids=[example_aws_security_group["id"]],
-            vpc_subnet_ids=[example_aws_subnet["id"]],
-            auths=[{
-                "auth_scheme": "SECRETS",
-                "description": "example",
-                "iam_auth": "DISABLED",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            }],
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("example",
-            db_proxy_name=example.name,
-            connection_pool_config={
-                "connection_borrow_timeout": 120,
-                "init_query": "SET x=1, y=2",
-                "max_connections_percent": 100,
-                "max_idle_connections_percent": 50,
-                "session_pinning_filters": ["EXCLUDE_VARIABLE_SETS"],
-            })
-        example_proxy_target = aws.rds.ProxyTarget("example",
-            db_instance_identifier=example_aws_db_instance["identifier"],
-            db_proxy_name=example.name,
-            target_group_name=example_proxy_default_target_group.name)
-        ```
 
         ## Import
 

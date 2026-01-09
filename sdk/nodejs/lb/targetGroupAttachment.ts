@@ -52,6 +52,26 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Target using QUIC
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lb.TargetGroup("test", {
+ *     name: "test",
+ *     port: 443,
+ *     protocol: "QUIC",
+ * });
+ * const testInstance = new aws.ec2.Instance("test", {});
+ * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
+ *     targetGroupArn: test.arn,
+ *     targetId: testInstance.id,
+ *     port: 443,
+ *     quicServerId: "0x1a2b3c4d5e6f7a8b",
+ * });
+ * ```
+ *
  * ## Import
  *
  * You cannot import Target Group Attachments.
@@ -93,6 +113,10 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      */
     declare public readonly port: pulumi.Output<number | undefined>;
     /**
+     * Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+     */
+    declare public readonly quicServerId: pulumi.Output<string | undefined>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -122,6 +146,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             const state = argsOrState as TargetGroupAttachmentState | undefined;
             resourceInputs["availabilityZone"] = state?.availabilityZone;
             resourceInputs["port"] = state?.port;
+            resourceInputs["quicServerId"] = state?.quicServerId;
             resourceInputs["region"] = state?.region;
             resourceInputs["targetGroupArn"] = state?.targetGroupArn;
             resourceInputs["targetId"] = state?.targetId;
@@ -135,6 +160,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             }
             resourceInputs["availabilityZone"] = args?.availabilityZone;
             resourceInputs["port"] = args?.port;
+            resourceInputs["quicServerId"] = args?.quicServerId;
             resourceInputs["region"] = args?.region;
             resourceInputs["targetGroupArn"] = args?.targetGroupArn;
             resourceInputs["targetId"] = args?.targetId;
@@ -158,6 +184,10 @@ export interface TargetGroupAttachmentState {
      * The port on which targets receive traffic.
      */
     port?: pulumi.Input<number>;
+    /**
+     * Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+     */
+    quicServerId?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -186,6 +216,10 @@ export interface TargetGroupAttachmentArgs {
      * The port on which targets receive traffic.
      */
     port?: pulumi.Input<number>;
+    /**
+     * Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+     */
+    quicServerId?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

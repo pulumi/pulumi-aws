@@ -69,6 +69,12 @@ namespace Pulumi.Aws.Iam
         public Output<string> SamlMetadataDocument { get; private set; } = null!;
 
         /// <summary>
+        /// Unique identifier assigned to the SAML provider.
+        /// </summary>
+        [Output("samlProviderUuid")]
+        public Output<string> SamlProviderUuid { get; private set; } = null!;
+
+        /// <summary>
         /// Map of resource tags for the IAM SAML provider. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -181,6 +187,12 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("samlMetadataDocument")]
         public Input<string>? SamlMetadataDocument { get; set; }
+
+        /// <summary>
+        /// Unique identifier assigned to the SAML provider.
+        /// </summary>
+        [Input("samlProviderUuid")]
+        public Input<string>? SamlProviderUuid { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

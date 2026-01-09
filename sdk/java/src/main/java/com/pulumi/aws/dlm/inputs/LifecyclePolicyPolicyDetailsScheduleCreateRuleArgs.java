@@ -18,14 +18,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
     public static final LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs();
 
     /**
-     * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
+     * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`. For details on valid Cron expressions, see [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html#eb-cron-expressions).
      * 
      */
     @Import(name="cronExpression")
     private @Nullable Output<String> cronExpression;
 
     /**
-     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
+     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`. For details on valid Cron expressions, see [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html#eb-cron-expressions).
      * 
      */
     public Optional<Output<String>> cronExpression() {
@@ -121,7 +121,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
+         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`. For details on valid Cron expressions, see [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html#eb-cron-expressions).
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
+         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`. For details on valid Cron expressions, see [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html#eb-cron-expressions).
          * 
          * @return builder
          * 

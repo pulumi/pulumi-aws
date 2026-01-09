@@ -1241,6 +1241,7 @@ class EventSourceMapping(pulumi.CustomResource):
             provisioned_poller_config={
                 "maximum_pollers": 100,
                 "minimum_pollers": 10,
+                "poller_group_name": "group-123",
             })
         ```
 
@@ -1493,6 +1494,7 @@ class EventSourceMapping(pulumi.CustomResource):
             provisioned_poller_config={
                 "maximum_pollers": 100,
                 "minimum_pollers": 10,
+                "poller_group_name": "group-123",
             })
         ```
 

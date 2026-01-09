@@ -308,6 +308,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> FunctionUrlAuthType { get; private set; } = null!;
 
         /// <summary>
+        /// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+        /// </summary>
+        [Output("invokedViaFunctionUrl")]
+        public Output<bool?> InvokedViaFunctionUrl { get; private set; } = null!;
+
+        /// <summary>
         /// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
         /// 
         /// The following arguments are optional:
@@ -428,6 +434,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? FunctionUrlAuthType { get; set; }
 
         /// <summary>
+        /// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+        /// </summary>
+        [Input("invokedViaFunctionUrl")]
+        public Input<bool>? InvokedViaFunctionUrl { get; set; }
+
+        /// <summary>
         /// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
         /// 
         /// The following arguments are optional:
@@ -508,6 +520,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("functionUrlAuthType")]
         public Input<string>? FunctionUrlAuthType { get; set; }
+
+        /// <summary>
+        /// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+        /// </summary>
+        [Input("invokedViaFunctionUrl")]
+        public Input<bool>? InvokedViaFunctionUrl { get; set; }
 
         /// <summary>
         /// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)

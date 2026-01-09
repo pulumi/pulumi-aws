@@ -172,6 +172,12 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Output<string> PipelineName { get; private set; } = null!;
 
         /// <summary>
+        /// ARN of the IAM role that grants the pipeline permission to access AWS resources.
+        /// </summary>
+        [Output("pipelineRoleArn")]
+        public Output<string> PipelineRoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -286,6 +292,12 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Input<string> PipelineName { get; set; } = null!;
 
         /// <summary>
+        /// ARN of the IAM role that grants the pipeline permission to access AWS resources.
+        /// </summary>
+        [Input("pipelineRoleArn")]
+        public Input<string>? PipelineRoleArn { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -381,6 +393,12 @@ namespace Pulumi.Aws.OpenSearchIngest
         /// </summary>
         [Input("pipelineName")]
         public Input<string>? PipelineName { get; set; }
+
+        /// <summary>
+        /// ARN of the IAM role that grants the pipeline permission to access AWS resources.
+        /// </summary>
+        [Input("pipelineRoleArn")]
+        public Input<string>? PipelineRoleArn { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Ecr
     public partial class RepositoryCreationTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        /// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         /// </summary>
         [Output("appliedFors")]
         public Output<ImmutableArray<string>> AppliedFors { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Ecr
         private InputList<string>? _appliedFors;
 
         /// <summary>
-        /// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        /// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         /// </summary>
         public InputList<string> AppliedFors
         {
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.Ecr
         private InputList<string>? _appliedFors;
 
         /// <summary>
-        /// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        /// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         /// </summary>
         public InputList<string> AppliedFors
         {

@@ -4270,20 +4270,30 @@ type GetResolverFirewallRulesFirewallRule struct {
 	BlockOverrideTtl int `pulumi:"blockOverrideTtl"`
 	// The way that you want DNS Firewall to block the request.
 	BlockResponse string `pulumi:"blockResponse"`
+	// The confidence threshold for DNS Firewall Advanced rules.
+	ConfidenceThreshold string `pulumi:"confidenceThreshold"`
 	// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
 	CreationTime string `pulumi:"creationTime"`
 	// A unique string defined by you to identify the request.
 	CreatorRequestId string `pulumi:"creatorRequestId"`
+	// The type of DNS Firewall Advanced rule.
+	DnsThreatProtection string `pulumi:"dnsThreatProtection"`
 	// The ID of the domain list that's used in the rule.
 	FirewallDomainListId string `pulumi:"firewallDomainListId"`
+	// How DNS Firewall evaluates DNS redirection in the DNS redirection chain.
+	FirewallDomainRedirectionAction string `pulumi:"firewallDomainRedirectionAction"`
 	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
+	// The ID of the DNS Firewall Advanced rule.
+	FirewallThreatProtectionId string `pulumi:"firewallThreatProtectionId"`
 	// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
 	ModificationTime string `pulumi:"modificationTime"`
 	// The name of the rule.
 	Name string `pulumi:"name"`
 	// The setting that determines the processing order of the rules in a rule group.
 	Priority int `pulumi:"priority"`
+	// The DNS query type that the rule evaluates.
+	QType string `pulumi:"qType"`
 }
 
 // GetResolverFirewallRulesFirewallRuleInput is an input type that accepts GetResolverFirewallRulesFirewallRuleArgs and GetResolverFirewallRulesFirewallRuleOutput values.
@@ -4308,20 +4318,30 @@ type GetResolverFirewallRulesFirewallRuleArgs struct {
 	BlockOverrideTtl pulumi.IntInput `pulumi:"blockOverrideTtl"`
 	// The way that you want DNS Firewall to block the request.
 	BlockResponse pulumi.StringInput `pulumi:"blockResponse"`
+	// The confidence threshold for DNS Firewall Advanced rules.
+	ConfidenceThreshold pulumi.StringInput `pulumi:"confidenceThreshold"`
 	// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
 	CreationTime pulumi.StringInput `pulumi:"creationTime"`
 	// A unique string defined by you to identify the request.
 	CreatorRequestId pulumi.StringInput `pulumi:"creatorRequestId"`
+	// The type of DNS Firewall Advanced rule.
+	DnsThreatProtection pulumi.StringInput `pulumi:"dnsThreatProtection"`
 	// The ID of the domain list that's used in the rule.
 	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
+	// How DNS Firewall evaluates DNS redirection in the DNS redirection chain.
+	FirewallDomainRedirectionAction pulumi.StringInput `pulumi:"firewallDomainRedirectionAction"`
 	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
 	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
+	// The ID of the DNS Firewall Advanced rule.
+	FirewallThreatProtectionId pulumi.StringInput `pulumi:"firewallThreatProtectionId"`
 	// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
 	ModificationTime pulumi.StringInput `pulumi:"modificationTime"`
 	// The name of the rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The setting that determines the processing order of the rules in a rule group.
 	Priority pulumi.IntInput `pulumi:"priority"`
+	// The DNS query type that the rule evaluates.
+	QType pulumi.StringInput `pulumi:"qType"`
 }
 
 func (GetResolverFirewallRulesFirewallRuleArgs) ElementType() reflect.Type {
@@ -4400,6 +4420,11 @@ func (o GetResolverFirewallRulesFirewallRuleOutput) BlockResponse() pulumi.Strin
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.BlockResponse }).(pulumi.StringOutput)
 }
 
+// The confidence threshold for DNS Firewall Advanced rules.
+func (o GetResolverFirewallRulesFirewallRuleOutput) ConfidenceThreshold() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.ConfidenceThreshold }).(pulumi.StringOutput)
+}
+
 // The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
 func (o GetResolverFirewallRulesFirewallRuleOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.CreationTime }).(pulumi.StringOutput)
@@ -4410,14 +4435,29 @@ func (o GetResolverFirewallRulesFirewallRuleOutput) CreatorRequestId() pulumi.St
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.CreatorRequestId }).(pulumi.StringOutput)
 }
 
+// The type of DNS Firewall Advanced rule.
+func (o GetResolverFirewallRulesFirewallRuleOutput) DnsThreatProtection() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.DnsThreatProtection }).(pulumi.StringOutput)
+}
+
 // The ID of the domain list that's used in the rule.
 func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallDomainListId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.FirewallDomainListId }).(pulumi.StringOutput)
 }
 
+// How DNS Firewall evaluates DNS redirection in the DNS redirection chain.
+func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallDomainRedirectionAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.FirewallDomainRedirectionAction }).(pulumi.StringOutput)
+}
+
 // The unique identifier of the firewall rule group that you want to retrieve the rules for.
 func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallRuleGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
+}
+
+// The ID of the DNS Firewall Advanced rule.
+func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallThreatProtectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.FirewallThreatProtectionId }).(pulumi.StringOutput)
 }
 
 // The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
@@ -4433,6 +4473,11 @@ func (o GetResolverFirewallRulesFirewallRuleOutput) Name() pulumi.StringOutput {
 // The setting that determines the processing order of the rules in a rule group.
 func (o GetResolverFirewallRulesFirewallRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The DNS query type that the rule evaluates.
+func (o GetResolverFirewallRulesFirewallRuleOutput) QType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.QType }).(pulumi.StringOutput)
 }
 
 type GetResolverFirewallRulesFirewallRuleArrayOutput struct{ *pulumi.OutputState }
@@ -4453,6 +4498,130 @@ func (o GetResolverFirewallRulesFirewallRuleArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResolverFirewallRulesFirewallRule {
 		return vs[0].([]GetResolverFirewallRulesFirewallRule)[vs[1].(int)]
 	}).(GetResolverFirewallRulesFirewallRuleOutput)
+}
+
+type GetResolverRuleTargetIp struct {
+	// IPv4 address that you want to forward DNS queries to.
+	Ip string `pulumi:"ip"`
+	// IPv6 address that you want to forward DNS queries to.
+	Ipv6 string `pulumi:"ipv6"`
+	// Port at the IP address that you want to forward DNS queries to.
+	Port int `pulumi:"port"`
+	// Protocol for the target IP address. Valid values are `Do53` (DNS over port 53), `DoH` (DNS over HTTPS), and `DoH-FIPS` (DNS over HTTPS with FIPS).
+	Protocol string `pulumi:"protocol"`
+}
+
+// GetResolverRuleTargetIpInput is an input type that accepts GetResolverRuleTargetIpArgs and GetResolverRuleTargetIpOutput values.
+// You can construct a concrete instance of `GetResolverRuleTargetIpInput` via:
+//
+//	GetResolverRuleTargetIpArgs{...}
+type GetResolverRuleTargetIpInput interface {
+	pulumi.Input
+
+	ToGetResolverRuleTargetIpOutput() GetResolverRuleTargetIpOutput
+	ToGetResolverRuleTargetIpOutputWithContext(context.Context) GetResolverRuleTargetIpOutput
+}
+
+type GetResolverRuleTargetIpArgs struct {
+	// IPv4 address that you want to forward DNS queries to.
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// IPv6 address that you want to forward DNS queries to.
+	Ipv6 pulumi.StringInput `pulumi:"ipv6"`
+	// Port at the IP address that you want to forward DNS queries to.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Protocol for the target IP address. Valid values are `Do53` (DNS over port 53), `DoH` (DNS over HTTPS), and `DoH-FIPS` (DNS over HTTPS with FIPS).
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (GetResolverRuleTargetIpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverRuleTargetIp)(nil)).Elem()
+}
+
+func (i GetResolverRuleTargetIpArgs) ToGetResolverRuleTargetIpOutput() GetResolverRuleTargetIpOutput {
+	return i.ToGetResolverRuleTargetIpOutputWithContext(context.Background())
+}
+
+func (i GetResolverRuleTargetIpArgs) ToGetResolverRuleTargetIpOutputWithContext(ctx context.Context) GetResolverRuleTargetIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverRuleTargetIpOutput)
+}
+
+// GetResolverRuleTargetIpArrayInput is an input type that accepts GetResolverRuleTargetIpArray and GetResolverRuleTargetIpArrayOutput values.
+// You can construct a concrete instance of `GetResolverRuleTargetIpArrayInput` via:
+//
+//	GetResolverRuleTargetIpArray{ GetResolverRuleTargetIpArgs{...} }
+type GetResolverRuleTargetIpArrayInput interface {
+	pulumi.Input
+
+	ToGetResolverRuleTargetIpArrayOutput() GetResolverRuleTargetIpArrayOutput
+	ToGetResolverRuleTargetIpArrayOutputWithContext(context.Context) GetResolverRuleTargetIpArrayOutput
+}
+
+type GetResolverRuleTargetIpArray []GetResolverRuleTargetIpInput
+
+func (GetResolverRuleTargetIpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverRuleTargetIp)(nil)).Elem()
+}
+
+func (i GetResolverRuleTargetIpArray) ToGetResolverRuleTargetIpArrayOutput() GetResolverRuleTargetIpArrayOutput {
+	return i.ToGetResolverRuleTargetIpArrayOutputWithContext(context.Background())
+}
+
+func (i GetResolverRuleTargetIpArray) ToGetResolverRuleTargetIpArrayOutputWithContext(ctx context.Context) GetResolverRuleTargetIpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverRuleTargetIpArrayOutput)
+}
+
+type GetResolverRuleTargetIpOutput struct{ *pulumi.OutputState }
+
+func (GetResolverRuleTargetIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverRuleTargetIp)(nil)).Elem()
+}
+
+func (o GetResolverRuleTargetIpOutput) ToGetResolverRuleTargetIpOutput() GetResolverRuleTargetIpOutput {
+	return o
+}
+
+func (o GetResolverRuleTargetIpOutput) ToGetResolverRuleTargetIpOutputWithContext(ctx context.Context) GetResolverRuleTargetIpOutput {
+	return o
+}
+
+// IPv4 address that you want to forward DNS queries to.
+func (o GetResolverRuleTargetIpOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverRuleTargetIp) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+// IPv6 address that you want to forward DNS queries to.
+func (o GetResolverRuleTargetIpOutput) Ipv6() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverRuleTargetIp) string { return v.Ipv6 }).(pulumi.StringOutput)
+}
+
+// Port at the IP address that you want to forward DNS queries to.
+func (o GetResolverRuleTargetIpOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetResolverRuleTargetIp) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Protocol for the target IP address. Valid values are `Do53` (DNS over port 53), `DoH` (DNS over HTTPS), and `DoH-FIPS` (DNS over HTTPS with FIPS).
+func (o GetResolverRuleTargetIpOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverRuleTargetIp) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type GetResolverRuleTargetIpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResolverRuleTargetIpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverRuleTargetIp)(nil)).Elem()
+}
+
+func (o GetResolverRuleTargetIpArrayOutput) ToGetResolverRuleTargetIpArrayOutput() GetResolverRuleTargetIpArrayOutput {
+	return o
+}
+
+func (o GetResolverRuleTargetIpArrayOutput) ToGetResolverRuleTargetIpArrayOutputWithContext(ctx context.Context) GetResolverRuleTargetIpArrayOutput {
+	return o
+}
+
+func (o GetResolverRuleTargetIpArrayOutput) Index(i pulumi.IntInput) GetResolverRuleTargetIpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResolverRuleTargetIp {
+		return vs[0].([]GetResolverRuleTargetIp)[vs[1].(int)]
+	}).(GetResolverRuleTargetIpOutput)
 }
 
 type GetTrafficPolicyDocumentEndpoint struct {
@@ -5725,6 +5894,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverEndpointFilterArrayInput)(nil)).Elem(), GetResolverEndpointFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverFirewallRulesFirewallRuleInput)(nil)).Elem(), GetResolverFirewallRulesFirewallRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverFirewallRulesFirewallRuleArrayInput)(nil)).Elem(), GetResolverFirewallRulesFirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverRuleTargetIpInput)(nil)).Elem(), GetResolverRuleTargetIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverRuleTargetIpArrayInput)(nil)).Elem(), GetResolverRuleTargetIpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentEndpointInput)(nil)).Elem(), GetTrafficPolicyDocumentEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentEndpointArrayInput)(nil)).Elem(), GetTrafficPolicyDocumentEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleArgs{})
@@ -5802,6 +5973,8 @@ func init() {
 	pulumi.RegisterOutputType(GetResolverEndpointFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetResolverFirewallRulesFirewallRuleOutput{})
 	pulumi.RegisterOutputType(GetResolverFirewallRulesFirewallRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetResolverRuleTargetIpOutput{})
+	pulumi.RegisterOutputType(GetResolverRuleTargetIpArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficPolicyDocumentEndpointOutput{})
 	pulumi.RegisterOutputType(GetTrafficPolicyDocumentEndpointArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleOutput{})

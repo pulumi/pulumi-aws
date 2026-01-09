@@ -5,50 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an RDS DB proxy target resource.
- *
  * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.Proxy("example", {
- *     name: "example",
- *     debugLogging: false,
- *     engineFamily: "MYSQL",
- *     idleClientTimeout: 1800,
- *     requireTls: true,
- *     roleArn: exampleAwsIamRole.arn,
- *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
- *     vpcSubnetIds: [exampleAwsSubnet.id],
- *     auths: [{
- *         authScheme: "SECRETS",
- *         description: "example",
- *         iamAuth: "DISABLED",
- *         secretArn: exampleAwsSecretsmanagerSecret.arn,
- *     }],
- *     tags: {
- *         Name: "example",
- *         Key: "value",
- *     },
- * });
- * const exampleProxyDefaultTargetGroup = new aws.rds.ProxyDefaultTargetGroup("example", {
- *     dbProxyName: example.name,
- *     connectionPoolConfig: {
- *         connectionBorrowTimeout: 120,
- *         initQuery: "SET x=1, y=2",
- *         maxConnectionsPercent: 100,
- *         maxIdleConnectionsPercent: 50,
- *         sessionPinningFilters: ["EXCLUDE_VARIABLE_SETS"],
- *     },
- * });
- * const exampleProxyTarget = new aws.rds.ProxyTarget("example", {
- *     dbInstanceIdentifier: exampleAwsDbInstance.identifier,
- *     dbProxyName: example.name,
- *     targetGroupName: exampleProxyDefaultTargetGroup.name,
- * });
- * ```
  *
  * ## Import
  *

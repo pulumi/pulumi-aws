@@ -23,6 +23,7 @@ class ServiceNetworkResourceAssociationArgs:
     def __init__(__self__, *,
                  resource_configuration_identifier: pulumi.Input[_builtins.str],
                  service_network_identifier: pulumi.Input[_builtins.str],
+                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']] = None):
@@ -32,11 +33,14 @@ class ServiceNetworkResourceAssociationArgs:
         :param pulumi.Input[_builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
         pulumi.set(__self__, "service_network_identifier", service_network_identifier)
+        if private_dns_enabled is not None:
+            pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -69,6 +73,18 @@ class ServiceNetworkResourceAssociationArgs:
     @service_network_identifier.setter
     def service_network_identifier(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_network_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsEnabled")
+    def private_dns_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
+        """
+        return pulumi.get(self, "private_dns_enabled")
+
+    @private_dns_enabled.setter
+    def private_dns_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "private_dns_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -109,6 +125,7 @@ class _ServiceNetworkResourceAssociationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]]] = None,
+                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -119,6 +136,7 @@ class _ServiceNetworkResourceAssociationState:
         Input properties used for looking up and filtering ServiceNetworkResourceAssociation resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the Service Network Resource Association.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]] dns_entries: DNS entry of the association in the service network.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
         :param pulumi.Input[_builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
@@ -131,6 +149,8 @@ class _ServiceNetworkResourceAssociationState:
             pulumi.set(__self__, "arn", arn)
         if dns_entries is not None:
             pulumi.set(__self__, "dns_entries", dns_entries)
+        if private_dns_enabled is not None:
+            pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if resource_configuration_identifier is not None:
@@ -167,6 +187,18 @@ class _ServiceNetworkResourceAssociationState:
     @dns_entries.setter
     def dns_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]]]):
         pulumi.set(self, "dns_entries", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsEnabled")
+    def private_dns_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
+        """
+        return pulumi.get(self, "private_dns_enabled")
+
+    @private_dns_enabled.setter
+    def private_dns_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "private_dns_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -246,6 +278,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -281,6 +314,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
         :param pulumi.Input[_builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
@@ -336,6 +370,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -350,6 +385,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceNetworkResourceAssociationArgs.__new__(ServiceNetworkResourceAssociationArgs)
 
+            __props__.__dict__["private_dns_enabled"] = private_dns_enabled
             __props__.__dict__["region"] = region
             if resource_configuration_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_configuration_identifier'")
@@ -374,6 +410,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict']]]]] = None,
+            private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             resource_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
             service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -389,6 +426,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Service Network Resource Association.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict']]]] dns_entries: DNS entry of the association in the service network.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
         :param pulumi.Input[_builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
@@ -403,6 +441,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["dns_entries"] = dns_entries
+        __props__.__dict__["private_dns_enabled"] = private_dns_enabled
         __props__.__dict__["region"] = region
         __props__.__dict__["resource_configuration_identifier"] = resource_configuration_identifier
         __props__.__dict__["service_network_identifier"] = service_network_identifier
@@ -426,6 +465,14 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         DNS entry of the association in the service network.
         """
         return pulumi.get(self, "dns_entries")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsEnabled")
+    def private_dns_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
+        """
+        return pulumi.get(self, "private_dns_enabled")
 
     @_builtins.property
     @pulumi.getter

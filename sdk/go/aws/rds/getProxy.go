@@ -68,6 +68,8 @@ type LookupProxyResult struct {
 	DefaultAuthScheme string `pulumi:"defaultAuthScheme"`
 	// Endpoint that you can use to connect to the DB proxy.
 	Endpoint string `pulumi:"endpoint"`
+	// Network type of the DB proxy endpoint.
+	EndpointNetworkType string `pulumi:"endpointNetworkType"`
 	// Kinds of databases that the proxy can connect to.
 	EngineFamily string `pulumi:"engineFamily"`
 	// The provider-assigned unique ID for this managed resource.
@@ -80,6 +82,8 @@ type LookupProxyResult struct {
 	RequireTls bool `pulumi:"requireTls"`
 	// ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
 	RoleArn string `pulumi:"roleArn"`
+	// Network type that the proxy uses to connect to the target database.
+	TargetConnectionNetworkType string `pulumi:"targetConnectionNetworkType"`
 	// Provides the VPC ID of the DB proxy.
 	VpcId string `pulumi:"vpcId"`
 	// Provides a list of VPC security groups that the proxy belongs to.
@@ -149,6 +153,11 @@ func (o LookupProxyResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// Network type of the DB proxy endpoint.
+func (o LookupProxyResultOutput) EndpointNetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProxyResult) string { return v.EndpointNetworkType }).(pulumi.StringOutput)
+}
+
 // Kinds of databases that the proxy can connect to.
 func (o LookupProxyResultOutput) EngineFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.EngineFamily }).(pulumi.StringOutput)
@@ -180,6 +189,11 @@ func (o LookupProxyResultOutput) RequireTls() pulumi.BoolOutput {
 // ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
 func (o LookupProxyResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Network type that the proxy uses to connect to the target database.
+func (o LookupProxyResultOutput) TargetConnectionNetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProxyResult) string { return v.TargetConnectionNetworkType }).(pulumi.StringOutput)
 }
 
 // Provides the VPC ID of the DB proxy.

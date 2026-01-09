@@ -36,6 +36,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** When using aws.dynamodb.TableReplica with this resource, use `lifecycle` `ignoreChanges` for `replica`, _e.g._, `lifecycle { ignoreChanges = [replica] }`.
  * 
+ * &gt; **Note:** If autoscaling creates drift for your `globalSecondaryIndex` blocks and/or more granular `lifecycle` management for GSIs, we recommend using the new **experimental** resource `aws.dynamodb.GlobalSecondaryIndex`.
+ * 
  * ## DynamoDB Table attributes
  * 
  * Only define attributes on the table object that are going to be used as:
@@ -44,6 +46,8 @@ import javax.annotation.Nullable;
  * * LSI or GSI hash key or range key
  * 
  * The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table&#39;s range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
+ * 
+ * &gt; **Note:** When using the `aws.dynamodb.GlobalSecondaryIndex` resource, you do not need to define the attributes for externally managed GSIs in the `aws.dynamodb.Table` resource.
  * 
  * ## Example Usage
  * 
@@ -441,14 +445,14 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="globalSecondaryIndexes", refs={List.class,TableGlobalSecondaryIndex.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<TableGlobalSecondaryIndex>> globalSecondaryIndexes;
+    private Output<List<TableGlobalSecondaryIndex>> globalSecondaryIndexes;
 
     /**
      * @return Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      * 
      */
-    public Output<Optional<List<TableGlobalSecondaryIndex>>> globalSecondaryIndexes() {
-        return Codegen.optional(this.globalSecondaryIndexes);
+    public Output<List<TableGlobalSecondaryIndex>> globalSecondaryIndexes() {
+        return this.globalSecondaryIndexes;
     }
     /**
      * Witness Region in a Multi-Region Strong Consistency deployment. **Note** This must be used alongside a single `replica` with `consistencyMode` set to `STRONG`. Other combinations will fail to provision. See below.

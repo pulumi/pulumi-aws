@@ -20,10 +20,16 @@ __all__ = [
     'DatabaseAclConfiguration',
     'DatabaseEncryptionConfiguration',
     'WorkgroupConfiguration',
+    'WorkgroupConfigurationCustomerContentEncryptionConfiguration',
     'WorkgroupConfigurationEngineVersion',
     'WorkgroupConfigurationIdentityCenterConfiguration',
     'WorkgroupConfigurationManagedQueryResultsConfiguration',
     'WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration',
+    'WorkgroupConfigurationMonitoringConfiguration',
+    'WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration',
+    'WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType',
+    'WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration',
+    'WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration',
     'WorkgroupConfigurationResultConfiguration',
     'WorkgroupConfigurationResultConfigurationAclConfiguration',
     'WorkgroupConfigurationResultConfigurationEncryptionConfiguration',
@@ -167,6 +173,10 @@ class WorkgroupConfiguration(dict):
         suggest = None
         if key == "bytesScannedCutoffPerQuery":
             suggest = "bytes_scanned_cutoff_per_query"
+        elif key == "customerContentEncryptionConfiguration":
+            suggest = "customer_content_encryption_configuration"
+        elif key == "enableMinimumEncryptionConfiguration":
+            suggest = "enable_minimum_encryption_configuration"
         elif key == "enforceWorkgroupConfiguration":
             suggest = "enforce_workgroup_configuration"
         elif key == "engineVersion":
@@ -177,6 +187,8 @@ class WorkgroupConfiguration(dict):
             suggest = "identity_center_configuration"
         elif key == "managedQueryResultsConfiguration":
             suggest = "managed_query_results_configuration"
+        elif key == "monitoringConfiguration":
+            suggest = "monitoring_configuration"
         elif key == "publishCloudwatchMetricsEnabled":
             suggest = "publish_cloudwatch_metrics_enabled"
         elif key == "requesterPaysEnabled":
@@ -197,27 +209,37 @@ class WorkgroupConfiguration(dict):
 
     def __init__(__self__, *,
                  bytes_scanned_cutoff_per_query: Optional[_builtins.int] = None,
+                 customer_content_encryption_configuration: Optional['outputs.WorkgroupConfigurationCustomerContentEncryptionConfiguration'] = None,
+                 enable_minimum_encryption_configuration: Optional[_builtins.bool] = None,
                  enforce_workgroup_configuration: Optional[_builtins.bool] = None,
                  engine_version: Optional['outputs.WorkgroupConfigurationEngineVersion'] = None,
                  execution_role: Optional[_builtins.str] = None,
                  identity_center_configuration: Optional['outputs.WorkgroupConfigurationIdentityCenterConfiguration'] = None,
                  managed_query_results_configuration: Optional['outputs.WorkgroupConfigurationManagedQueryResultsConfiguration'] = None,
+                 monitoring_configuration: Optional['outputs.WorkgroupConfigurationMonitoringConfiguration'] = None,
                  publish_cloudwatch_metrics_enabled: Optional[_builtins.bool] = None,
                  requester_pays_enabled: Optional[_builtins.bool] = None,
                  result_configuration: Optional['outputs.WorkgroupConfigurationResultConfiguration'] = None):
         """
         :param _builtins.int bytes_scanned_cutoff_per_query: Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
+        :param 'WorkgroupConfigurationCustomerContentEncryptionConfigurationArgs' customer_content_encryption_configuration: Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+        :param _builtins.bool enable_minimum_encryption_configuration: Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
         :param _builtins.bool enforce_workgroup_configuration: Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
         :param 'WorkgroupConfigurationEngineVersionArgs' engine_version: Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
         :param _builtins.str execution_role: Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
         :param 'WorkgroupConfigurationIdentityCenterConfigurationArgs' identity_center_configuration: Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
         :param 'WorkgroupConfigurationManagedQueryResultsConfigurationArgs' managed_query_results_configuration: Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+        :param 'WorkgroupConfigurationMonitoringConfigurationArgs' monitoring_configuration: Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
         :param _builtins.bool publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         :param _builtins.bool requester_pays_enabled: If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         :param 'WorkgroupConfigurationResultConfigurationArgs' result_configuration: Configuration block with result settings. See Result Configuration below.
         """
         if bytes_scanned_cutoff_per_query is not None:
             pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
+        if customer_content_encryption_configuration is not None:
+            pulumi.set(__self__, "customer_content_encryption_configuration", customer_content_encryption_configuration)
+        if enable_minimum_encryption_configuration is not None:
+            pulumi.set(__self__, "enable_minimum_encryption_configuration", enable_minimum_encryption_configuration)
         if enforce_workgroup_configuration is not None:
             pulumi.set(__self__, "enforce_workgroup_configuration", enforce_workgroup_configuration)
         if engine_version is not None:
@@ -228,6 +250,8 @@ class WorkgroupConfiguration(dict):
             pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
         if managed_query_results_configuration is not None:
             pulumi.set(__self__, "managed_query_results_configuration", managed_query_results_configuration)
+        if monitoring_configuration is not None:
+            pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
         if publish_cloudwatch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloudwatch_metrics_enabled", publish_cloudwatch_metrics_enabled)
         if requester_pays_enabled is not None:
@@ -242,6 +266,22 @@ class WorkgroupConfiguration(dict):
         Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         """
         return pulumi.get(self, "bytes_scanned_cutoff_per_query")
+
+    @_builtins.property
+    @pulumi.getter(name="customerContentEncryptionConfiguration")
+    def customer_content_encryption_configuration(self) -> Optional['outputs.WorkgroupConfigurationCustomerContentEncryptionConfiguration']:
+        """
+        Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+        """
+        return pulumi.get(self, "customer_content_encryption_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="enableMinimumEncryptionConfiguration")
+    def enable_minimum_encryption_configuration(self) -> Optional[_builtins.bool]:
+        """
+        Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
+        """
+        return pulumi.get(self, "enable_minimum_encryption_configuration")
 
     @_builtins.property
     @pulumi.getter(name="enforceWorkgroupConfiguration")
@@ -284,6 +324,14 @@ class WorkgroupConfiguration(dict):
         return pulumi.get(self, "managed_query_results_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="monitoringConfiguration")
+    def monitoring_configuration(self) -> Optional['outputs.WorkgroupConfigurationMonitoringConfiguration']:
+        """
+        Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
+        """
+        return pulumi.get(self, "monitoring_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="publishCloudwatchMetricsEnabled")
     def publish_cloudwatch_metrics_enabled(self) -> Optional[_builtins.bool]:
         """
@@ -306,6 +354,36 @@ class WorkgroupConfiguration(dict):
         Configuration block with result settings. See Result Configuration below.
         """
         return pulumi.get(self, "result_configuration")
+
+
+@pulumi.output_type
+class WorkgroupConfigurationCustomerContentEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKey":
+            suggest = "kms_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupConfigurationCustomerContentEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupConfigurationCustomerContentEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupConfigurationCustomerContentEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key: Optional[_builtins.str] = None):
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kms_key")
 
 
 @pulumi.output_type
@@ -477,19 +555,281 @@ class WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurat
 
     def __init__(__self__, *,
                  kms_key: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str kms_key: KMS key ARN for encrypting managed query results.
-        """
         if kms_key is not None:
             pulumi.set(__self__, "kms_key", kms_key)
 
     @_builtins.property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kms_key")
+
+
+@pulumi.output_type
+class WorkgroupConfigurationMonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLoggingConfiguration":
+            suggest = "cloud_watch_logging_configuration"
+        elif key == "managedLoggingConfiguration":
+            suggest = "managed_logging_configuration"
+        elif key == "s3LoggingConfiguration":
+            suggest = "s3_logging_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupConfigurationMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupConfigurationMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupConfigurationMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logging_configuration: Optional['outputs.WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration'] = None,
+                 managed_logging_configuration: Optional['outputs.WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration'] = None,
+                 s3_logging_configuration: Optional['outputs.WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration'] = None):
         """
-        KMS key ARN for encrypting managed query results.
+        :param 'WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgs' cloud_watch_logging_configuration: Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
+        :param 'WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs' managed_logging_configuration: Configuration block for managed log persistence. See Managed Logging Configuration below.
+        :param 'WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs' s3_logging_configuration: Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
+        """
+        if cloud_watch_logging_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_logging_configuration", cloud_watch_logging_configuration)
+        if managed_logging_configuration is not None:
+            pulumi.set(__self__, "managed_logging_configuration", managed_logging_configuration)
+        if s3_logging_configuration is not None:
+            pulumi.set(__self__, "s3_logging_configuration", s3_logging_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLoggingConfiguration")
+    def cloud_watch_logging_configuration(self) -> Optional['outputs.WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration']:
+        """
+        Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
+        """
+        return pulumi.get(self, "cloud_watch_logging_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="managedLoggingConfiguration")
+    def managed_logging_configuration(self) -> Optional['outputs.WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration']:
+        """
+        Configuration block for managed log persistence. See Managed Logging Configuration below.
+        """
+        return pulumi.get(self, "managed_logging_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="s3LoggingConfiguration")
+    def s3_logging_configuration(self) -> Optional['outputs.WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration']:
+        """
+        Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
+        """
+        return pulumi.get(self, "s3_logging_configuration")
+
+
+@pulumi.output_type
+class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroup":
+            suggest = "log_group"
+        elif key == "logStreamNamePrefix":
+            suggest = "log_stream_name_prefix"
+        elif key == "logTypes":
+            suggest = "log_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 log_group: Optional[_builtins.str] = None,
+                 log_stream_name_prefix: Optional[_builtins.str] = None,
+                 log_types: Optional[Sequence['outputs.WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType']] = None):
+        """
+        :param _builtins.str log_group: Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+        :param _builtins.str log_stream_name_prefix: Prefix for the CloudWatch log stream name.
+        :param Sequence['WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs'] log_types: Repeatable block defining log types to be delivered to CloudWatch.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+        if log_stream_name_prefix is not None:
+            pulumi.set(__self__, "log_stream_name_prefix", log_stream_name_prefix)
+        if log_types is not None:
+            pulumi.set(__self__, "log_types", log_types)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[_builtins.str]:
+        """
+        Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+        """
+        return pulumi.get(self, "log_group")
+
+    @_builtins.property
+    @pulumi.getter(name="logStreamNamePrefix")
+    def log_stream_name_prefix(self) -> Optional[_builtins.str]:
+        """
+        Prefix for the CloudWatch log stream name.
+        """
+        return pulumi.get(self, "log_stream_name_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="logTypes")
+    def log_types(self) -> Optional[Sequence['outputs.WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType']]:
+        """
+        Repeatable block defining log types to be delivered to CloudWatch.
+        """
+        return pulumi.get(self, "log_types")
+
+
+@pulumi.output_type
+class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str key: Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
+        :param Sequence[_builtins.str] values: List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKey":
+            suggest = "kms_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 kms_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Boolean whether managed log persistence is enabled for the workgroup.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Boolean whether managed log persistence is enabled for the workgroup.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kms_key")
+
+
+@pulumi.output_type
+class WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKey":
+            suggest = "kms_key"
+        elif key == "logLocation":
+            suggest = "log_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 kms_key: Optional[_builtins.str] = None,
+                 log_location: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Boolean whether Amazon S3 logging is enabled for the workgroup.
+        :param _builtins.str kms_key: KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+        :param _builtins.str log_location: Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+        if log_location is not None:
+            pulumi.set(__self__, "log_location", log_location)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Boolean whether Amazon S3 logging is enabled for the workgroup.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[_builtins.str]:
+        """
+        KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
         """
         return pulumi.get(self, "kms_key")
+
+    @_builtins.property
+    @pulumi.getter(name="logLocation")
+    def log_location(self) -> Optional[_builtins.str]:
+        """
+        Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
+        """
+        return pulumi.get(self, "log_location")
 
 
 @pulumi.output_type

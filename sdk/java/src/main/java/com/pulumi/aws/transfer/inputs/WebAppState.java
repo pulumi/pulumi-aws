@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.transfer.inputs;
 
+import com.pulumi.aws.transfer.inputs.WebAppEndpointDetailsArgs;
 import com.pulumi.aws.transfer.inputs.WebAppIdentityProviderDetailsArgs;
 import com.pulumi.aws.transfer.inputs.WebAppWebAppUnitArgs;
 import com.pulumi.core.Output;
@@ -20,14 +21,14 @@ public final class WebAppState extends com.pulumi.resources.ResourceArgs {
     public static final WebAppState Empty = new WebAppState();
 
     /**
-     * URL provided to interact with the Transfer Family web app.
+     * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
      * 
      */
     @Import(name="accessEndpoint")
     private @Nullable Output<String> accessEndpoint;
 
     /**
-     * @return URL provided to interact with the Transfer Family web app.
+     * @return URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
      * 
      */
     public Optional<Output<String>> accessEndpoint() {
@@ -47,6 +48,21 @@ public final class WebAppState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     * 
+     */
+    @Import(name="endpointDetails")
+    private @Nullable Output<WebAppEndpointDetailsArgs> endpointDetails;
+
+    /**
+     * @return Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     * 
+     */
+    public Optional<Output<WebAppEndpointDetailsArgs>> endpointDetails() {
+        return Optional.ofNullable(this.endpointDetails);
     }
 
     /**
@@ -157,6 +173,7 @@ public final class WebAppState extends com.pulumi.resources.ResourceArgs {
     private WebAppState(WebAppState $) {
         this.accessEndpoint = $.accessEndpoint;
         this.arn = $.arn;
+        this.endpointDetails = $.endpointDetails;
         this.identityProviderDetails = $.identityProviderDetails;
         this.region = $.region;
         this.tags = $.tags;
@@ -185,7 +202,7 @@ public final class WebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessEndpoint URL provided to interact with the Transfer Family web app.
+         * @param accessEndpoint URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
          * 
          * @return builder
          * 
@@ -196,7 +213,7 @@ public final class WebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessEndpoint URL provided to interact with the Transfer Family web app.
+         * @param accessEndpoint URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
          * 
          * @return builder
          * 
@@ -224,6 +241,27 @@ public final class WebAppState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param endpointDetails Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointDetails(@Nullable Output<WebAppEndpointDetailsArgs> endpointDetails) {
+            $.endpointDetails = endpointDetails;
+            return this;
+        }
+
+        /**
+         * @param endpointDetails Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointDetails(WebAppEndpointDetailsArgs endpointDetails) {
+            return endpointDetails(Output.of(endpointDetails));
         }
 
         /**

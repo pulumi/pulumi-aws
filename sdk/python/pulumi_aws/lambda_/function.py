@@ -704,6 +704,7 @@ class _FunctionState:
                  replace_security_groups_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[_builtins.int]] = None,
+                 response_streaming_invoke_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  role: Optional[pulumi.Input[_builtins.str]] = None,
                  runtime: Optional[pulumi.Input[Union[_builtins.str, 'Runtime']]] = None,
                  s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
@@ -756,6 +757,7 @@ class _FunctionState:
         :param pulumi.Input[_builtins.bool] replace_security_groups_on_destroy: Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replacement_security_group_ids: List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
         :param pulumi.Input[_builtins.int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
+        :param pulumi.Input[_builtins.str] response_streaming_invoke_arn: ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `apigateway.Integration`'s `uri`.
         :param pulumi.Input[_builtins.str] role: ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
                
                The following arguments are optional:
@@ -840,6 +842,8 @@ class _FunctionState:
             pulumi.set(__self__, "replacement_security_group_ids", replacement_security_group_ids)
         if reserved_concurrent_executions is not None:
             pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
+        if response_streaming_invoke_arn is not None:
+            pulumi.set(__self__, "response_streaming_invoke_arn", response_streaming_invoke_arn)
         if role is not None:
             pulumi.set(__self__, "role", role)
         if runtime is not None:
@@ -1250,6 +1254,18 @@ class _FunctionState:
     @reserved_concurrent_executions.setter
     def reserved_concurrent_executions(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "reserved_concurrent_executions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="responseStreamingInvokeArn")
+    def response_streaming_invoke_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `apigateway.Integration`'s `uri`.
+        """
+        return pulumi.get(self, "response_streaming_invoke_arn")
+
+    @response_streaming_invoke_arn.setter
+    def response_streaming_invoke_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "response_streaming_invoke_arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2581,6 +2597,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["last_modified"] = None
             __props__.__dict__["qualified_arn"] = None
             __props__.__dict__["qualified_invoke_arn"] = None
+            __props__.__dict__["response_streaming_invoke_arn"] = None
             __props__.__dict__["signing_job_arn"] = None
             __props__.__dict__["signing_profile_version_arn"] = None
             __props__.__dict__["source_code_size"] = None
@@ -2627,6 +2644,7 @@ class Function(pulumi.CustomResource):
             replace_security_groups_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
             replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             reserved_concurrent_executions: Optional[pulumi.Input[_builtins.int]] = None,
+            response_streaming_invoke_arn: Optional[pulumi.Input[_builtins.str]] = None,
             role: Optional[pulumi.Input[_builtins.str]] = None,
             runtime: Optional[pulumi.Input[Union[_builtins.str, 'Runtime']]] = None,
             s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2684,6 +2702,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] replace_security_groups_on_destroy: Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replacement_security_group_ids: List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
         :param pulumi.Input[_builtins.int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
+        :param pulumi.Input[_builtins.str] response_streaming_invoke_arn: ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `apigateway.Integration`'s `uri`.
         :param pulumi.Input[_builtins.str] role: ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
                
                The following arguments are optional:
@@ -2741,6 +2760,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["replace_security_groups_on_destroy"] = replace_security_groups_on_destroy
         __props__.__dict__["replacement_security_group_ids"] = replacement_security_group_ids
         __props__.__dict__["reserved_concurrent_executions"] = reserved_concurrent_executions
+        __props__.__dict__["response_streaming_invoke_arn"] = response_streaming_invoke_arn
         __props__.__dict__["role"] = role
         __props__.__dict__["runtime"] = runtime
         __props__.__dict__["s3_bucket"] = s3_bucket
@@ -3009,6 +3029,14 @@ class Function(pulumi.CustomResource):
         Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
         """
         return pulumi.get(self, "reserved_concurrent_executions")
+
+    @_builtins.property
+    @pulumi.getter(name="responseStreamingInvokeArn")
+    def response_streaming_invoke_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `apigateway.Integration`'s `uri`.
+        """
+        return pulumi.get(self, "response_streaming_invoke_arn")
 
     @_builtins.property
     @pulumi.getter

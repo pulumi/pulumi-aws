@@ -37,8 +37,6 @@ import (
 //
 // ## Import
 //
-// In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:
-//
 // Using `pulumi import`, import IAM Outbound Web Identity Federation resources using the AWS account ID. For example:
 //
 // ```sh

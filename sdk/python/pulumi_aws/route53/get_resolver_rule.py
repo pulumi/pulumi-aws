@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetResolverRuleResult',
@@ -26,7 +27,7 @@ class GetResolverRuleResult:
     """
     A collection of values returned by getResolverRule.
     """
-    def __init__(__self__, arn=None, domain_name=None, id=None, name=None, owner_id=None, region=None, resolver_endpoint_id=None, resolver_rule_id=None, rule_type=None, share_status=None, tags=None):
+    def __init__(__self__, arn=None, domain_name=None, id=None, name=None, owner_id=None, region=None, resolver_endpoint_id=None, resolver_rule_id=None, rule_type=None, share_status=None, tags=None, target_ips=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -60,6 +61,9 @@ class GetResolverRuleResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if target_ips and not isinstance(target_ips, list):
+            raise TypeError("Expected argument 'target_ips' to be a list")
+        pulumi.set(__self__, "target_ips", target_ips)
 
     @_builtins.property
     @pulumi.getter
@@ -132,6 +136,14 @@ class GetResolverRuleResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter(name="targetIps")
+    def target_ips(self) -> Sequence['outputs.GetResolverRuleTargetIpResult']:
+        """
+        List of configurations for target IP addresses. Only applicable for `FORWARD` rules. See `target_ips` below for details.
+        """
+        return pulumi.get(self, "target_ips")
+
 
 class AwaitableGetResolverRuleResult(GetResolverRuleResult):
     # pylint: disable=using-constant-test
@@ -149,7 +161,8 @@ class AwaitableGetResolverRuleResult(GetResolverRuleResult):
             resolver_rule_id=self.resolver_rule_id,
             rule_type=self.rule_type,
             share_status=self.share_status,
-            tags=self.tags)
+            tags=self.tags,
+            target_ips=self.target_ips)
 
 
 def get_resolver_rule(domain_name: Optional[_builtins.str] = None,
@@ -206,7 +219,8 @@ def get_resolver_rule(domain_name: Optional[_builtins.str] = None,
         resolver_rule_id=pulumi.get(__ret__, 'resolver_rule_id'),
         rule_type=pulumi.get(__ret__, 'rule_type'),
         share_status=pulumi.get(__ret__, 'share_status'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        target_ips=pulumi.get(__ret__, 'target_ips'))
 def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                              name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -260,4 +274,5 @@ def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[_builti
         resolver_rule_id=pulumi.get(__response__, 'resolver_rule_id'),
         rule_type=pulumi.get(__response__, 'rule_type'),
         share_status=pulumi.get(__response__, 'share_status'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        target_ips=pulumi.get(__response__, 'target_ips')))

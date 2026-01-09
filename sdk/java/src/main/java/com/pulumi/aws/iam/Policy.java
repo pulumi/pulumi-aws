@@ -110,6 +110,20 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.attachmentCount;
     }
     /**
+     * Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     * 
+     */
+    @Export(name="delayAfterPolicyCreationInMs", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> delayAfterPolicyCreationInMs;
+
+    /**
+     * @return Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     * 
+     */
+    public Output<Optional<Integer>> delayAfterPolicyCreationInMs() {
+        return Codegen.optional(this.delayAfterPolicyCreationInMs);
+    }
+    /**
      * Description of the IAM policy.
      * 
      */

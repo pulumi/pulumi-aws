@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Policy on untagged image
+ * ### Policy on Untagged Images
  * 
  * <pre>
  * {@code
@@ -56,21 +56,21 @@ import javax.annotation.Nullable;
  *             .repository(example.name())
  *             .policy("""
  * {
- *     \"rules\": [
- *         {
- *             \"rulePriority\": 1,
- *             \"description\": \"Expire images older than 14 days\",
- *             \"selection\": {
- *                 \"tagStatus\": \"untagged\",
- *                 \"countType\": \"sinceImagePushed\",
- *                 \"countUnit\": \"days\",
- *                 \"countNumber\": 14
- *             },
- *             \"action\": {
- *                 \"type\": \"expire\"
- *             }
- *         }
- *     ]
+ *   \"rules\": [
+ *     {
+ *       \"rulePriority\": 1,
+ *       \"description\": \"Expire images older than 14 days\",
+ *       \"selection\": {
+ *         \"tagStatus\": \"untagged\",
+ *         \"countType\": \"sinceImagePushed\",
+ *         \"countUnit\": \"days\",
+ *         \"countNumber\": 14
+ *       },
+ *       \"action\": {
+ *         \"type\": \"expire\"
+ *       }
+ *     }
+ *   ]
  * }
  *             """)
  *             .build());
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Policy on tagged image
+ * ### Policy on Tagged Images
  * 
  * <pre>
  * {@code
@@ -114,21 +114,94 @@ import javax.annotation.Nullable;
  *             .repository(example.name())
  *             .policy("""
  * {
- *     \"rules\": [
- *         {
- *             \"rulePriority\": 1,
- *             \"description\": \"Keep last 30 images\",
- *             \"selection\": {
- *                 \"tagStatus\": \"tagged\",
- *                 \"tagPrefixList\": [\"v\"],
- *                 \"countType\": \"imageCountMoreThan\",
- *                 \"countNumber\": 30
- *             },
- *             \"action\": {
- *                 \"type\": \"expire\"
- *             }
- *         }
- *     ]
+ *   \"rules\": [
+ *     {
+ *       \"rulePriority\": 1,
+ *       \"description\": \"Keep last 30 images\",
+ *       \"selection\": {
+ *         \"tagStatus\": \"tagged\",
+ *         \"tagPrefixList\": [\"v\"],
+ *         \"countType\": \"imageCountMoreThan\",
+ *         \"countNumber\": 30
+ *       },
+ *       \"action\": {
+ *         \"type\": \"expire\"
+ *       }
+ *     }
+ *   ]
+ * }
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Policy to Archive and Delete
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecr.Repository;
+ * import com.pulumi.aws.ecr.RepositoryArgs;
+ * import com.pulumi.aws.ecr.LifecyclePolicy;
+ * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Repository("example", RepositoryArgs.builder()
+ *             .name("example-repo")
+ *             .build());
+ * 
+ *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
+ *             .repository(example.name())
+ *             .policy("""
+ * {
+ *   \"rules\": [
+ *     {
+ *       \"rulePriority\": 1,
+ *       \"description\": \"Archive images not pulled in 90 days\",
+ *       \"selection\": {
+ *         \"tagStatus\": \"any\",
+ *         \"countType\": \"sinceImagePulled\",
+ *         \"countUnit\": \"days\",
+ *         \"countNumber\": 90
+ *       },
+ *       \"action\": {
+ *         \"type\": \"transition\",
+ *         \"targetStorageClass\": \"archive\"
+ *       }
+ *     },
+ *     {
+ *       \"rulePriority\": 2,
+ *       \"description\": \"Delete images archived for more than 365 days\",
+ *       \"selection\": {
+ *         \"tagStatus\": \"any\",
+ *         \"storageClass\": \"archive\",
+ *         \"countType\": \"sinceImageTransitioned\",
+ *         \"countUnit\": \"days\",
+ *         \"countNumber\": 365
+ *       },
+ *       \"action\": {
+ *         \"type\": \"expire\"
+ *       }
+ *     }
+ *   ]
  * }
  *             """)
  *             .build());

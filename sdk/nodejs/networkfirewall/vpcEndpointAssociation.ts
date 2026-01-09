@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  *     vpcId: exampleAwsVpc.id,
  *     subnetMapping: {
- *         subnetId: exampleTwo.id,
+ *         subnetId: exampleAwsSubnet.id,
  *     },
  *     tags: {
  *         Name: "example endpoint",

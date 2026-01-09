@@ -634,6 +634,10 @@ export class Function extends pulumi.CustomResource {
      */
     declare public readonly reservedConcurrentExecutions: pulumi.Output<number | undefined>;
     /**
+     * ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `aws.apigateway.Integration`'s `uri`.
+     */
+    declare public /*out*/ readonly responseStreamingInvokeArn: pulumi.Output<string>;
+    /**
      * ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
      *
      * The following arguments are optional:
@@ -756,6 +760,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["replaceSecurityGroupsOnDestroy"] = state?.replaceSecurityGroupsOnDestroy;
             resourceInputs["replacementSecurityGroupIds"] = state?.replacementSecurityGroupIds;
             resourceInputs["reservedConcurrentExecutions"] = state?.reservedConcurrentExecutions;
+            resourceInputs["responseStreamingInvokeArn"] = state?.responseStreamingInvokeArn;
             resourceInputs["role"] = state?.role;
             resourceInputs["runtime"] = state?.runtime;
             resourceInputs["s3Bucket"] = state?.s3Bucket;
@@ -825,6 +830,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["qualifiedArn"] = undefined /*out*/;
             resourceInputs["qualifiedInvokeArn"] = undefined /*out*/;
+            resourceInputs["responseStreamingInvokeArn"] = undefined /*out*/;
             resourceInputs["signingJobArn"] = undefined /*out*/;
             resourceInputs["signingProfileVersionArn"] = undefined /*out*/;
             resourceInputs["sourceCodeSize"] = undefined /*out*/;
@@ -964,6 +970,10 @@ export interface FunctionState {
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
      */
     reservedConcurrentExecutions?: pulumi.Input<number>;
+    /**
+     * ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `aws.apigateway.Integration`'s `uri`.
+     */
+    responseStreamingInvokeArn?: pulumi.Input<string>;
     /**
      * ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
      *

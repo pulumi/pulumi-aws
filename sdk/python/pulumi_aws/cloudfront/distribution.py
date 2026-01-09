@@ -29,6 +29,7 @@ class DistributionArgs:
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_function_association: Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
                  default_root_object: Optional[pulumi.Input[_builtins.str]] = None,
@@ -41,6 +42,7 @@ class DistributionArgs:
                  retain_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
                  staging: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 viewer_mtls_config: Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']] = None,
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -53,6 +55,7 @@ class DistributionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
+        :param pulumi.Input['DistributionConnectionFunctionAssociationArgs'] connection_function_association: A connection function association configuration block (maximum one).
         :param pulumi.Input[_builtins.str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input[_builtins.str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
@@ -65,6 +68,7 @@ class DistributionArgs:
         :param pulumi.Input[_builtins.bool] retain_on_delete: Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
         :param pulumi.Input[_builtins.bool] staging: A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['DistributionViewerMtlsConfigArgs'] viewer_mtls_config: The viewer mTLS configuration for this distribution (maximum one).
         :param pulumi.Input[_builtins.bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
@@ -79,6 +83,8 @@ class DistributionArgs:
             pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if connection_function_association is not None:
+            pulumi.set(__self__, "connection_function_association", connection_function_association)
         if continuous_deployment_policy_id is not None:
             pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
@@ -103,6 +109,8 @@ class DistributionArgs:
             pulumi.set(__self__, "staging", staging)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if viewer_mtls_config is not None:
+            pulumi.set(__self__, "viewer_mtls_config", viewer_mtls_config)
         if wait_for_deployment is not None:
             pulumi.set(__self__, "wait_for_deployment", wait_for_deployment)
         if web_acl_id is not None:
@@ -203,6 +211,18 @@ class DistributionArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionFunctionAssociation")
+    def connection_function_association(self) -> Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']]:
+        """
+        A connection function association configuration block (maximum one).
+        """
+        return pulumi.get(self, "connection_function_association")
+
+    @connection_function_association.setter
+    def connection_function_association(self, value: Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']]):
+        pulumi.set(self, "connection_function_association", value)
 
     @_builtins.property
     @pulumi.getter(name="continuousDeploymentPolicyId")
@@ -349,6 +369,18 @@ class DistributionArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="viewerMtlsConfig")
+    def viewer_mtls_config(self) -> Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']]:
+        """
+        The viewer mTLS configuration for this distribution (maximum one).
+        """
+        return pulumi.get(self, "viewer_mtls_config")
+
+    @viewer_mtls_config.setter
+    def viewer_mtls_config(self, value: Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']]):
+        pulumi.set(self, "viewer_mtls_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="waitForDeployment")
     def wait_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -381,6 +413,7 @@ class _DistributionState:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  caller_reference: Optional[pulumi.Input[_builtins.str]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_function_association: Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
                  default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
@@ -408,6 +441,7 @@ class _DistributionState:
                  trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]] = None,
                  viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
+                 viewer_mtls_config: Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']] = None,
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -417,6 +451,7 @@ class _DistributionState:
         :param pulumi.Input[_builtins.str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         :param pulumi.Input[_builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
+        :param pulumi.Input['DistributionConnectionFunctionAssociationArgs'] connection_function_association: A connection function association configuration block (maximum one).
         :param pulumi.Input[_builtins.str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
@@ -444,6 +479,7 @@ class _DistributionState:
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]] trusted_key_groups: List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]] trusted_signers: List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
         :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: The SSL configuration for this distribution (maximum one).
+        :param pulumi.Input['DistributionViewerMtlsConfigArgs'] viewer_mtls_config: The viewer mTLS configuration for this distribution (maximum one).
         :param pulumi.Input[_builtins.bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
@@ -457,6 +493,8 @@ class _DistributionState:
             pulumi.set(__self__, "caller_reference", caller_reference)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if connection_function_association is not None:
+            pulumi.set(__self__, "connection_function_association", connection_function_association)
         if continuous_deployment_policy_id is not None:
             pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
@@ -511,6 +549,8 @@ class _DistributionState:
             pulumi.set(__self__, "trusted_signers", trusted_signers)
         if viewer_certificate is not None:
             pulumi.set(__self__, "viewer_certificate", viewer_certificate)
+        if viewer_mtls_config is not None:
+            pulumi.set(__self__, "viewer_mtls_config", viewer_mtls_config)
         if wait_for_deployment is not None:
             pulumi.set(__self__, "wait_for_deployment", wait_for_deployment)
         if web_acl_id is not None:
@@ -575,6 +615,18 @@ class _DistributionState:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionFunctionAssociation")
+    def connection_function_association(self) -> Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']]:
+        """
+        A connection function association configuration block (maximum one).
+        """
+        return pulumi.get(self, "connection_function_association")
+
+    @connection_function_association.setter
+    def connection_function_association(self, value: Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']]):
+        pulumi.set(self, "connection_function_association", value)
 
     @_builtins.property
     @pulumi.getter(name="continuousDeploymentPolicyId")
@@ -901,6 +953,18 @@ class _DistributionState:
         pulumi.set(self, "viewer_certificate", value)
 
     @_builtins.property
+    @pulumi.getter(name="viewerMtlsConfig")
+    def viewer_mtls_config(self) -> Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']]:
+        """
+        The viewer mTLS configuration for this distribution (maximum one).
+        """
+        return pulumi.get(self, "viewer_mtls_config")
+
+    @viewer_mtls_config.setter
+    def viewer_mtls_config(self, value: Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']]):
+        pulumi.set(self, "viewer_mtls_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="waitForDeployment")
     def wait_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -934,6 +998,7 @@ class Distribution(pulumi.CustomResource):
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_function_association: Optional[pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
                  default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
@@ -951,6 +1016,7 @@ class Distribution(pulumi.CustomResource):
                  staging: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
+                 viewer_mtls_config: Optional[pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -1302,6 +1368,30 @@ class Distribution(pulumi.CustomResource):
             delivery_destination_arn=example_log_delivery_destination.arn)
         ```
 
+        ### With Connection Function and Viewer mTLS
+
+        The example below creates a CloudFront distribution with a connection function association and viewer mTLS configuration.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.ConnectionFunction("example", name="example-connection-function")
+        example_trust_store = aws.cloudfront.TrustStore("example", name="example-trust-store")
+        example_distribution = aws.cloudfront.Distribution("example",
+            connection_function_association={
+                "id": example.id,
+            },
+            viewer_mtls_config={
+                "mode": "verify",
+                "trust_store_config": {
+                    "trust_store_id": example_trust_store.id,
+                    "advertise_trust_store_ca_names": True,
+                    "ignore_certificate_expiry": False,
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
@@ -1315,6 +1405,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
+        :param pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']] connection_function_association: A connection function association configuration block (maximum one).
         :param pulumi.Input[_builtins.str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
@@ -1332,6 +1423,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] staging: A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']] viewer_certificate: The SSL configuration for this distribution (maximum one).
+        :param pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']] viewer_mtls_config: The viewer mTLS configuration for this distribution (maximum one).
         :param pulumi.Input[_builtins.bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
@@ -1689,6 +1781,30 @@ class Distribution(pulumi.CustomResource):
             delivery_destination_arn=example_log_delivery_destination.arn)
         ```
 
+        ### With Connection Function and Viewer mTLS
+
+        The example below creates a CloudFront distribution with a connection function association and viewer mTLS configuration.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.ConnectionFunction("example", name="example-connection-function")
+        example_trust_store = aws.cloudfront.TrustStore("example", name="example-trust-store")
+        example_distribution = aws.cloudfront.Distribution("example",
+            connection_function_association={
+                "id": example.id,
+            },
+            viewer_mtls_config={
+                "mode": "verify",
+                "trust_store_config": {
+                    "trust_store_id": example_trust_store.id,
+                    "advertise_trust_store_ca_names": True,
+                    "ignore_certificate_expiry": False,
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
@@ -1715,6 +1831,7 @@ class Distribution(pulumi.CustomResource):
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_function_association: Optional[pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
                  default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
@@ -1732,6 +1849,7 @@ class Distribution(pulumi.CustomResource):
                  staging: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
+                 viewer_mtls_config: Optional[pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -1746,6 +1864,7 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["aliases"] = aliases
             __props__.__dict__["anycast_ip_list_id"] = anycast_ip_list_id
             __props__.__dict__["comment"] = comment
+            __props__.__dict__["connection_function_association"] = connection_function_association
             __props__.__dict__["continuous_deployment_policy_id"] = continuous_deployment_policy_id
             __props__.__dict__["custom_error_responses"] = custom_error_responses
             if default_cache_behavior is None and not opts.urn:
@@ -1773,6 +1892,7 @@ class Distribution(pulumi.CustomResource):
             if viewer_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'viewer_certificate'")
             __props__.__dict__["viewer_certificate"] = viewer_certificate
+            __props__.__dict__["viewer_mtls_config"] = viewer_mtls_config
             __props__.__dict__["wait_for_deployment"] = wait_for_deployment
             __props__.__dict__["web_acl_id"] = web_acl_id
             __props__.__dict__["arn"] = None
@@ -1802,6 +1922,7 @@ class Distribution(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             caller_reference: Optional[pulumi.Input[_builtins.str]] = None,
             comment: Optional[pulumi.Input[_builtins.str]] = None,
+            connection_function_association: Optional[pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
             continuous_deployment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
             custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
             default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
@@ -1829,6 +1950,7 @@ class Distribution(pulumi.CustomResource):
             trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedKeyGroupArgs', 'DistributionTrustedKeyGroupArgsDict']]]]] = None,
             trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedSignerArgs', 'DistributionTrustedSignerArgsDict']]]]] = None,
             viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
+            viewer_mtls_config: Optional[pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
             wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
             web_acl_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Distribution':
         """
@@ -1843,6 +1965,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         :param pulumi.Input[_builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
+        :param pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']] connection_function_association: A connection function association configuration block (maximum one).
         :param pulumi.Input[_builtins.str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
@@ -1870,6 +1993,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedKeyGroupArgs', 'DistributionTrustedKeyGroupArgsDict']]]] trusted_key_groups: List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedSignerArgs', 'DistributionTrustedSignerArgsDict']]]] trusted_signers: List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
         :param pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']] viewer_certificate: The SSL configuration for this distribution (maximum one).
+        :param pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']] viewer_mtls_config: The viewer mTLS configuration for this distribution (maximum one).
         :param pulumi.Input[_builtins.bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
@@ -1882,6 +2006,7 @@ class Distribution(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["caller_reference"] = caller_reference
         __props__.__dict__["comment"] = comment
+        __props__.__dict__["connection_function_association"] = connection_function_association
         __props__.__dict__["continuous_deployment_policy_id"] = continuous_deployment_policy_id
         __props__.__dict__["custom_error_responses"] = custom_error_responses
         __props__.__dict__["default_cache_behavior"] = default_cache_behavior
@@ -1909,6 +2034,7 @@ class Distribution(pulumi.CustomResource):
         __props__.__dict__["trusted_key_groups"] = trusted_key_groups
         __props__.__dict__["trusted_signers"] = trusted_signers
         __props__.__dict__["viewer_certificate"] = viewer_certificate
+        __props__.__dict__["viewer_mtls_config"] = viewer_mtls_config
         __props__.__dict__["wait_for_deployment"] = wait_for_deployment
         __props__.__dict__["web_acl_id"] = web_acl_id
         return Distribution(resource_name, opts=opts, __props__=__props__)
@@ -1952,6 +2078,14 @@ class Distribution(pulumi.CustomResource):
         Any comments you want to include about the distribution.
         """
         return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionFunctionAssociation")
+    def connection_function_association(self) -> pulumi.Output[Optional['outputs.DistributionConnectionFunctionAssociation']]:
+        """
+        A connection function association configuration block (maximum one).
+        """
+        return pulumi.get(self, "connection_function_association")
 
     @_builtins.property
     @pulumi.getter(name="continuousDeploymentPolicyId")
@@ -2168,6 +2302,14 @@ class Distribution(pulumi.CustomResource):
         The SSL configuration for this distribution (maximum one).
         """
         return pulumi.get(self, "viewer_certificate")
+
+    @_builtins.property
+    @pulumi.getter(name="viewerMtlsConfig")
+    def viewer_mtls_config(self) -> pulumi.Output[Optional['outputs.DistributionViewerMtlsConfig']]:
+        """
+        The viewer mTLS configuration for this distribution (maximum one).
+        """
+        return pulumi.get(self, "viewer_mtls_config")
 
     @_builtins.property
     @pulumi.getter(name="waitForDeployment")

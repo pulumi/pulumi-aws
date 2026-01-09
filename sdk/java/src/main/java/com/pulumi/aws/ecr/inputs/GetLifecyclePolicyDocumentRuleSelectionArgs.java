@@ -19,14 +19,14 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
     public static final GetLifecyclePolicyDocumentRuleSelectionArgs Empty = new GetLifecyclePolicyDocumentRuleSelectionArgs();
 
     /**
-     * Specify a count number. If the `countType` used is &#34;imageCountMoreThan&#34;, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is &#34;sinceImagePushed&#34;, then the value is the maximum age limit for your images.
+     * Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
      * 
      */
     @Import(name="countNumber", required=true)
     private Output<Integer> countNumber;
 
     /**
-     * @return Specify a count number. If the `countType` used is &#34;imageCountMoreThan&#34;, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is &#34;sinceImagePushed&#34;, then the value is the maximum age limit for your images.
+     * @return Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
      * 
      */
     public Output<Integer> countNumber() {
@@ -34,14 +34,14 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
     }
 
     /**
-     * Specify a count type to apply to the images. If `countType` is set to &#34;imageCountMoreThan&#34;, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to &#34;sinceImagePushed&#34;, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+     * Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
      * 
      */
     @Import(name="countType", required=true)
     private Output<String> countType;
 
     /**
-     * @return Specify a count type to apply to the images. If `countType` is set to &#34;imageCountMoreThan&#34;, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to &#34;sinceImagePushed&#34;, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+     * @return Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
      * 
      */
     public Output<String> countType() {
@@ -49,18 +49,33 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
     }
 
     /**
-     * Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+     * Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
      * 
      */
     @Import(name="countUnit")
     private @Nullable Output<String> countUnit;
 
     /**
-     * @return Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+     * @return Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
      * 
      */
     public Optional<Output<String>> countUnit() {
         return Optional.ofNullable(this.countUnit);
+    }
+
+    /**
+     * The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+     * 
+     */
+    @Import(name="storageClass")
+    private @Nullable Output<String> storageClass;
+
+    /**
+     * @return The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+     * 
+     */
+    public Optional<Output<String>> storageClass() {
+        return Optional.ofNullable(this.storageClass);
     }
 
     /**
@@ -94,14 +109,14 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
     }
 
     /**
-     * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are &#34;tagged&#34;, &#34;untagged&#34;, or &#34;any&#34;. If you specify &#34;any&#34;, then all images have the rule applied to them. If you specify &#34;tagged&#34;, then you must also specify a `tagPrefixList` value. If you specify &#34;untagged&#34;, then you must omit `tagPrefixList`.
+     * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
      * 
      */
     @Import(name="tagStatus", required=true)
     private Output<String> tagStatus;
 
     /**
-     * @return Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are &#34;tagged&#34;, &#34;untagged&#34;, or &#34;any&#34;. If you specify &#34;any&#34;, then all images have the rule applied to them. If you specify &#34;tagged&#34;, then you must also specify a `tagPrefixList` value. If you specify &#34;untagged&#34;, then you must omit `tagPrefixList`.
+     * @return Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
      * 
      */
     public Output<String> tagStatus() {
@@ -114,6 +129,7 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
         this.countNumber = $.countNumber;
         this.countType = $.countType;
         this.countUnit = $.countUnit;
+        this.storageClass = $.storageClass;
         this.tagPatternLists = $.tagPatternLists;
         this.tagPrefixLists = $.tagPrefixLists;
         this.tagStatus = $.tagStatus;
@@ -138,7 +154,7 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
         }
 
         /**
-         * @param countNumber Specify a count number. If the `countType` used is &#34;imageCountMoreThan&#34;, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is &#34;sinceImagePushed&#34;, then the value is the maximum age limit for your images.
+         * @param countNumber Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
          * 
          * @return builder
          * 
@@ -149,7 +165,7 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
         }
 
         /**
-         * @param countNumber Specify a count number. If the `countType` used is &#34;imageCountMoreThan&#34;, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is &#34;sinceImagePushed&#34;, then the value is the maximum age limit for your images.
+         * @param countNumber Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
          * 
          * @return builder
          * 
@@ -159,7 +175,7 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
         }
 
         /**
-         * @param countType Specify a count type to apply to the images. If `countType` is set to &#34;imageCountMoreThan&#34;, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to &#34;sinceImagePushed&#34;, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+         * @param countType Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
          * 
          * @return builder
          * 
@@ -170,7 +186,7 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
         }
 
         /**
-         * @param countType Specify a count type to apply to the images. If `countType` is set to &#34;imageCountMoreThan&#34;, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to &#34;sinceImagePushed&#34;, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+         * @param countType Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
          * 
          * @return builder
          * 
@@ -180,7 +196,7 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
         }
 
         /**
-         * @param countUnit Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+         * @param countUnit Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
          * 
          * @return builder
          * 
@@ -191,13 +207,34 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
         }
 
         /**
-         * @param countUnit Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+         * @param countUnit Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
          * 
          * @return builder
          * 
          */
         public Builder countUnit(String countUnit) {
             return countUnit(Output.of(countUnit));
+        }
+
+        /**
+         * @param storageClass The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageClass(@Nullable Output<String> storageClass) {
+            $.storageClass = storageClass;
+            return this;
+        }
+
+        /**
+         * @param storageClass The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageClass(String storageClass) {
+            return storageClass(Output.of(storageClass));
         }
 
         /**
@@ -263,7 +300,7 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
         }
 
         /**
-         * @param tagStatus Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are &#34;tagged&#34;, &#34;untagged&#34;, or &#34;any&#34;. If you specify &#34;any&#34;, then all images have the rule applied to them. If you specify &#34;tagged&#34;, then you must also specify a `tagPrefixList` value. If you specify &#34;untagged&#34;, then you must omit `tagPrefixList`.
+         * @param tagStatus Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
          * 
          * @return builder
          * 
@@ -274,7 +311,7 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
         }
 
         /**
-         * @param tagStatus Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are &#34;tagged&#34;, &#34;untagged&#34;, or &#34;any&#34;. If you specify &#34;any&#34;, then all images have the rule applied to them. If you specify &#34;tagged&#34;, then you must also specify a `tagPrefixList` value. If you specify &#34;untagged&#34;, then you must omit `tagPrefixList`.
+         * @param tagStatus Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
          * 
          * @return builder
          * 

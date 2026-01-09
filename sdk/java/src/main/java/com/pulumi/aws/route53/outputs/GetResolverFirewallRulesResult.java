@@ -15,7 +15,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResolverFirewallRulesResult {
+    /**
+     * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list, or a threat in a DNS Firewall Advanced rule.
+     * 
+     */
     private @Nullable String action;
+    /**
+     * @return The unique identifier of the firewall rule group.
+     * 
+     */
     private String firewallRuleGroupId;
     /**
      * @return List with information about the firewall rules. See details below.
@@ -27,13 +35,25 @@ public final class GetResolverFirewallRulesResult {
      * 
      */
     private String id;
+    /**
+     * @return The priority of the rule in the rule group.
+     * 
+     */
     private @Nullable Integer priority;
     private String region;
 
     private GetResolverFirewallRulesResult() {}
+    /**
+     * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list, or a threat in a DNS Firewall Advanced rule.
+     * 
+     */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }
+    /**
+     * @return The unique identifier of the firewall rule group.
+     * 
+     */
     public String firewallRuleGroupId() {
         return this.firewallRuleGroupId;
     }
@@ -51,6 +71,10 @@ public final class GetResolverFirewallRulesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The priority of the rule in the rule group.
+     * 
+     */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }

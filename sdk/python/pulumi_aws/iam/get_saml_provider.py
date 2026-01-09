@@ -26,7 +26,7 @@ class GetSamlProviderResult:
     """
     A collection of values returned by getSamlProvider.
     """
-    def __init__(__self__, arn=None, create_date=None, id=None, name=None, saml_metadata_document=None, tags=None, valid_until=None):
+    def __init__(__self__, arn=None, create_date=None, id=None, name=None, saml_metadata_document=None, saml_provider_uuid=None, tags=None, valid_until=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetSamlProviderResult:
         if saml_metadata_document and not isinstance(saml_metadata_document, str):
             raise TypeError("Expected argument 'saml_metadata_document' to be a str")
         pulumi.set(__self__, "saml_metadata_document", saml_metadata_document)
+        if saml_provider_uuid and not isinstance(saml_provider_uuid, str):
+            raise TypeError("Expected argument 'saml_provider_uuid' to be a str")
+        pulumi.set(__self__, "saml_provider_uuid", saml_provider_uuid)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -87,6 +90,14 @@ class GetSamlProviderResult:
         return pulumi.get(self, "saml_metadata_document")
 
     @_builtins.property
+    @pulumi.getter(name="samlProviderUuid")
+    def saml_provider_uuid(self) -> _builtins.str:
+        """
+        Unique identifier assigned to the SAML provider.
+        """
+        return pulumi.get(self, "saml_provider_uuid")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
@@ -114,6 +125,7 @@ class AwaitableGetSamlProviderResult(GetSamlProviderResult):
             id=self.id,
             name=self.name,
             saml_metadata_document=self.saml_metadata_document,
+            saml_provider_uuid=self.saml_provider_uuid,
             tags=self.tags,
             valid_until=self.valid_until)
 
@@ -151,6 +163,7 @@ def get_saml_provider(arn: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         saml_metadata_document=pulumi.get(__ret__, 'saml_metadata_document'),
+        saml_provider_uuid=pulumi.get(__ret__, 'saml_provider_uuid'),
         tags=pulumi.get(__ret__, 'tags'),
         valid_until=pulumi.get(__ret__, 'valid_until'))
 def get_saml_provider_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -185,5 +198,6 @@ def get_saml_provider_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         saml_metadata_document=pulumi.get(__response__, 'saml_metadata_document'),
+        saml_provider_uuid=pulumi.get(__response__, 'saml_provider_uuid'),
         tags=pulumi.get(__response__, 'tags'),
         valid_until=pulumi.get(__response__, 'valid_until')))

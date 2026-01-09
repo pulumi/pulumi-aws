@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+        /// </summary>
+        [Input("capacityOptionType")]
+        public Input<string>? CapacityOptionType { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
         /// </summary>
         [Input("ec2InstanceProfileArn", required: true)]

@@ -60,7 +60,7 @@ type LookupRepositoryCreationTemplateArgs struct {
 
 // A collection of values returned by getRepositoryCreationTemplate.
 type LookupRepositoryCreationTemplateResult struct {
-	// Which features this template applies to. Contains one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+	// Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
 	AppliedFors []string `pulumi:"appliedFors"`
 	// The ARN of the custom role used for repository creation.
 	CustomRoleArn string `pulumi:"customRoleArn"`
@@ -124,7 +124,7 @@ func (o LookupRepositoryCreationTemplateResultOutput) ToLookupRepositoryCreation
 	return o
 }
 
-// Which features this template applies to. Contains one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+// Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
 func (o LookupRepositoryCreationTemplateResultOutput) AppliedFors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) []string { return v.AppliedFors }).(pulumi.StringArrayOutput)
 }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecr.Inputs
     public sealed class GetLifecyclePolicyDocumentRuleInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the action type.
+        /// Specifies the action to take.
         /// </summary>
         [Input("action")]
         public Input<Inputs.GetLifecyclePolicyDocumentRuleActionInputArgs>? Action { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ecr.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `Priority`. Values do not need to be sequential across rules in a policy. A rule with a `TagStatus` value of "any" must have the highest value for `Priority` and be evaluated last.
+        /// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `Priority`. Values do not need to be sequential across rules in a policy. A rule with a `TagStatus` value of `Any` must have the highest value for `Priority` and be evaluated last.
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;

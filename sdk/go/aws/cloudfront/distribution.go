@@ -540,6 +540,56 @@ import (
 //
 // ```
 //
+// ### With Connection Function and Viewer mTLS
+//
+// The example below creates a CloudFront distribution with a connection function association and viewer mTLS configuration.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cloudfront.NewConnectionFunction(ctx, "example", &cloudfront.ConnectionFunctionArgs{
+//				Name: pulumi.String("example-connection-function"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTrustStore, err := cloudfront.NewTrustStore(ctx, "example", &cloudfront.TrustStoreArgs{
+//				Name: pulumi.String("example-trust-store"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudfront.NewDistribution(ctx, "example", &cloudfront.DistributionArgs{
+//				ConnectionFunctionAssociation: &cloudfront.DistributionConnectionFunctionAssociationArgs{
+//					Id: example.ID(),
+//				},
+//				ViewerMtlsConfig: &cloudfront.DistributionViewerMtlsConfigArgs{
+//					Mode: pulumi.String("verify"),
+//					TrustStoreConfig: &cloudfront.DistributionViewerMtlsConfigTrustStoreConfigArgs{
+//						TrustStoreId:               exampleTrustStore.ID(),
+//						AdvertiseTrustStoreCaNames: pulumi.Bool(true),
+//						IgnoreCertificateExpiry:    pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
@@ -560,6 +610,8 @@ type Distribution struct {
 	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// A connection function association configuration block (maximum one).
+	ConnectionFunctionAssociation DistributionConnectionFunctionAssociationPtrOutput `pulumi:"connectionFunctionAssociation"`
 	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
 	ContinuousDeploymentPolicyId pulumi.StringOutput `pulumi:"continuousDeploymentPolicyId"`
 	// One or more custom error response elements (multiples allowed).
@@ -614,6 +666,8 @@ type Distribution struct {
 	TrustedSigners DistributionTrustedSignerArrayOutput `pulumi:"trustedSigners"`
 	// The SSL configuration for this distribution (maximum one).
 	ViewerCertificate DistributionViewerCertificateOutput `pulumi:"viewerCertificate"`
+	// The viewer mTLS configuration for this distribution (maximum one).
+	ViewerMtlsConfig DistributionViewerMtlsConfigPtrOutput `pulumi:"viewerMtlsConfig"`
 	// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
 	WaitForDeployment pulumi.BoolPtrOutput `pulumi:"waitForDeployment"`
 	// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
@@ -675,6 +729,8 @@ type distributionState struct {
 	CallerReference *string `pulumi:"callerReference"`
 	// Any comments you want to include about the distribution.
 	Comment *string `pulumi:"comment"`
+	// A connection function association configuration block (maximum one).
+	ConnectionFunctionAssociation *DistributionConnectionFunctionAssociation `pulumi:"connectionFunctionAssociation"`
 	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
 	ContinuousDeploymentPolicyId *string `pulumi:"continuousDeploymentPolicyId"`
 	// One or more custom error response elements (multiples allowed).
@@ -729,6 +785,8 @@ type distributionState struct {
 	TrustedSigners []DistributionTrustedSigner `pulumi:"trustedSigners"`
 	// The SSL configuration for this distribution (maximum one).
 	ViewerCertificate *DistributionViewerCertificate `pulumi:"viewerCertificate"`
+	// The viewer mTLS configuration for this distribution (maximum one).
+	ViewerMtlsConfig *DistributionViewerMtlsConfig `pulumi:"viewerMtlsConfig"`
 	// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
 	WaitForDeployment *bool `pulumi:"waitForDeployment"`
 	// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
@@ -746,6 +804,8 @@ type DistributionState struct {
 	CallerReference pulumi.StringPtrInput
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrInput
+	// A connection function association configuration block (maximum one).
+	ConnectionFunctionAssociation DistributionConnectionFunctionAssociationPtrInput
 	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
 	ContinuousDeploymentPolicyId pulumi.StringPtrInput
 	// One or more custom error response elements (multiples allowed).
@@ -800,6 +860,8 @@ type DistributionState struct {
 	TrustedSigners DistributionTrustedSignerArrayInput
 	// The SSL configuration for this distribution (maximum one).
 	ViewerCertificate DistributionViewerCertificatePtrInput
+	// The viewer mTLS configuration for this distribution (maximum one).
+	ViewerMtlsConfig DistributionViewerMtlsConfigPtrInput
 	// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
 	WaitForDeployment pulumi.BoolPtrInput
 	// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
@@ -817,6 +879,8 @@ type distributionArgs struct {
 	AnycastIpListId *string `pulumi:"anycastIpListId"`
 	// Any comments you want to include about the distribution.
 	Comment *string `pulumi:"comment"`
+	// A connection function association configuration block (maximum one).
+	ConnectionFunctionAssociation *DistributionConnectionFunctionAssociation `pulumi:"connectionFunctionAssociation"`
 	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
 	ContinuousDeploymentPolicyId *string `pulumi:"continuousDeploymentPolicyId"`
 	// One or more custom error response elements (multiples allowed).
@@ -851,6 +915,8 @@ type distributionArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The SSL configuration for this distribution (maximum one).
 	ViewerCertificate DistributionViewerCertificate `pulumi:"viewerCertificate"`
+	// The viewer mTLS configuration for this distribution (maximum one).
+	ViewerMtlsConfig *DistributionViewerMtlsConfig `pulumi:"viewerMtlsConfig"`
 	// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
 	WaitForDeployment *bool `pulumi:"waitForDeployment"`
 	// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
@@ -865,6 +931,8 @@ type DistributionArgs struct {
 	AnycastIpListId pulumi.StringPtrInput
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrInput
+	// A connection function association configuration block (maximum one).
+	ConnectionFunctionAssociation DistributionConnectionFunctionAssociationPtrInput
 	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
 	ContinuousDeploymentPolicyId pulumi.StringPtrInput
 	// One or more custom error response elements (multiples allowed).
@@ -899,6 +967,8 @@ type DistributionArgs struct {
 	Tags pulumi.StringMapInput
 	// The SSL configuration for this distribution (maximum one).
 	ViewerCertificate DistributionViewerCertificateInput
+	// The viewer mTLS configuration for this distribution (maximum one).
+	ViewerMtlsConfig DistributionViewerMtlsConfigPtrInput
 	// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
 	WaitForDeployment pulumi.BoolPtrInput
 	// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
@@ -1015,6 +1085,13 @@ func (o DistributionOutput) CallerReference() pulumi.StringOutput {
 // Any comments you want to include about the distribution.
 func (o DistributionOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// A connection function association configuration block (maximum one).
+func (o DistributionOutput) ConnectionFunctionAssociation() DistributionConnectionFunctionAssociationPtrOutput {
+	return o.ApplyT(func(v *Distribution) DistributionConnectionFunctionAssociationPtrOutput {
+		return v.ConnectionFunctionAssociation
+	}).(DistributionConnectionFunctionAssociationPtrOutput)
 }
 
 // Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
@@ -1150,6 +1227,11 @@ func (o DistributionOutput) TrustedSigners() DistributionTrustedSignerArrayOutpu
 // The SSL configuration for this distribution (maximum one).
 func (o DistributionOutput) ViewerCertificate() DistributionViewerCertificateOutput {
 	return o.ApplyT(func(v *Distribution) DistributionViewerCertificateOutput { return v.ViewerCertificate }).(DistributionViewerCertificateOutput)
+}
+
+// The viewer mTLS configuration for this distribution (maximum one).
+func (o DistributionOutput) ViewerMtlsConfig() DistributionViewerMtlsConfigPtrOutput {
+	return o.ApplyT(func(v *Distribution) DistributionViewerMtlsConfigPtrOutput { return v.ViewerMtlsConfig }).(DistributionViewerMtlsConfigPtrOutput)
 }
 
 // If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.

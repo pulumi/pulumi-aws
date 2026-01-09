@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Provides an AWS Backup Global Settings resource.
     /// 
+    /// &gt; **Note:** This resource will show perpetual differences for any supported settings not explicitly configured in the `GlobalSettings` configuration block. To avoid this, specify all supported options with their default values (typically `"false"`, but check the plan diff for the actual value). See [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide for available settings.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -27,6 +29,8 @@ namespace Pulumi.Aws.Backup
     ///         GlobalSettingsList = 
     ///         {
     ///             { "isCrossAccountBackupEnabled", "true" },
+    ///             { "isMpaEnabled", "false" },
+    ///             { "isDelegatedAdministratorEnabled", "false" },
     ///         },
     ///     });
     /// 
@@ -45,7 +49,7 @@ namespace Pulumi.Aws.Backup
     public partial class GlobalSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of resources along with the opt-in preferences for the account.
+        /// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         /// </summary>
         [Output("globalSettings")]
         public Output<ImmutableDictionary<string, string>> GlobalSettingsList { get; private set; } = null!;
@@ -100,7 +104,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _globalSettings;
 
         /// <summary>
-        /// A list of resources along with the opt-in preferences for the account.
+        /// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         /// </summary>
         public InputMap<string> GlobalSettingsList
         {
@@ -120,7 +124,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _globalSettings;
 
         /// <summary>
-        /// A list of resources along with the opt-in preferences for the account.
+        /// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         /// </summary>
         public InputMap<string> GlobalSettingsList
         {

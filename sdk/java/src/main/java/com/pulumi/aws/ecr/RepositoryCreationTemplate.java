@@ -123,14 +123,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate")
 public class RepositoryCreationTemplate extends com.pulumi.resources.CustomResource {
     /**
-     * Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+     * Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
      * 
      */
     @Export(name="appliedFors", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> appliedFors;
 
     /**
-     * @return Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+     * @return Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
      * 
      */
     public Output<List<String>> appliedFors() {

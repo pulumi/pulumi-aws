@@ -17,14 +17,14 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     public static final VirtualMfaDeviceState Empty = new VirtualMfaDeviceState();
 
     /**
-     * The Amazon Resource Name (ARN) specifying the virtual mfa device.
+     * Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the virtual mfa device.
+     * @return Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
+     * Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
      * 
      */
     @Import(name="base32StringSeed")
     private @Nullable Output<String> base32StringSeed;
 
     /**
-     * @return The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
+     * @return Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
      * 
      */
     public Optional<Output<String>> base32StringSeed() {
@@ -47,14 +47,14 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The date and time when the virtual MFA device was enabled.
+     * Date and time when the virtual MFA device was enabled.
      * 
      */
     @Import(name="enableDate")
     private @Nullable Output<String> enableDate;
 
     /**
-     * @return The date and time when the virtual MFA device was enabled.
+     * @return Date and time when the virtual MFA device was enabled.
      * 
      */
     public Optional<Output<String>> enableDate() {
@@ -62,14 +62,14 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The path for the virtual MFA device.
+     * Path for the virtual MFA device.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The path for the virtual MFA device.
+     * @return Path for the virtual MFA device.
      * 
      */
     public Optional<Output<String>> path() {
@@ -77,18 +77,33 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+     * QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
      * 
      */
     @Import(name="qrCodePng")
     private @Nullable Output<String> qrCodePng;
 
     /**
-     * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+     * @return QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
      * 
      */
     public Optional<Output<String>> qrCodePng() {
         return Optional.ofNullable(this.qrCodePng);
+    }
+
+    /**
+     * Serial number associated with the virtual MFA device.
+     * 
+     */
+    @Import(name="serialNumber")
+    private @Nullable Output<String> serialNumber;
+
+    /**
+     * @return Serial number associated with the virtual MFA device.
+     * 
+     */
+    public Optional<Output<String>> serialNumber() {
+        return Optional.ofNullable(this.serialNumber);
     }
 
     /**
@@ -107,14 +122,14 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -122,14 +137,14 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The associated IAM User name if the virtual MFA device is enabled.
+     * Name of the IAM user associated with this virtual MFA device.
      * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
-     * @return The associated IAM User name if the virtual MFA device is enabled.
+     * @return Name of the IAM user associated with this virtual MFA device.
      * 
      */
     public Optional<Output<String>> userName() {
@@ -137,14 +152,14 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+     * Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
     @Import(name="virtualMfaDeviceName")
     private @Nullable Output<String> virtualMfaDeviceName;
 
     /**
-     * @return The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+     * @return Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
     public Optional<Output<String>> virtualMfaDeviceName() {
@@ -159,6 +174,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         this.enableDate = $.enableDate;
         this.path = $.path;
         this.qrCodePng = $.qrCodePng;
+        this.serialNumber = $.serialNumber;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.userName = $.userName;
@@ -184,7 +200,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the virtual mfa device.
+         * @param arn Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
          * 
          * @return builder
          * 
@@ -195,7 +211,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the virtual mfa device.
+         * @param arn Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
          * 
          * @return builder
          * 
@@ -205,7 +221,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param base32StringSeed The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
+         * @param base32StringSeed Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
          * 
          * @return builder
          * 
@@ -216,7 +232,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param base32StringSeed The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
+         * @param base32StringSeed Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
          * 
          * @return builder
          * 
@@ -226,7 +242,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param enableDate The date and time when the virtual MFA device was enabled.
+         * @param enableDate Date and time when the virtual MFA device was enabled.
          * 
          * @return builder
          * 
@@ -237,7 +253,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param enableDate The date and time when the virtual MFA device was enabled.
+         * @param enableDate Date and time when the virtual MFA device was enabled.
          * 
          * @return builder
          * 
@@ -247,7 +263,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param path The path for the virtual MFA device.
+         * @param path Path for the virtual MFA device.
          * 
          * @return builder
          * 
@@ -258,7 +274,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param path The path for the virtual MFA device.
+         * @param path Path for the virtual MFA device.
          * 
          * @return builder
          * 
@@ -268,7 +284,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param qrCodePng A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+         * @param qrCodePng QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
          * 
          * @return builder
          * 
@@ -279,13 +295,34 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param qrCodePng A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+         * @param qrCodePng QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
          * 
          * @return builder
          * 
          */
         public Builder qrCodePng(String qrCodePng) {
             return qrCodePng(Output.of(qrCodePng));
+        }
+
+        /**
+         * @param serialNumber Serial number associated with the virtual MFA device.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serialNumber(@Nullable Output<String> serialNumber) {
+            $.serialNumber = serialNumber;
+            return this;
+        }
+
+        /**
+         * @param serialNumber Serial number associated with the virtual MFA device.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serialNumber(String serialNumber) {
+            return serialNumber(Output.of(serialNumber));
         }
 
         /**
@@ -310,7 +347,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -321,7 +358,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -331,7 +368,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userName The associated IAM User name if the virtual MFA device is enabled.
+         * @param userName Name of the IAM user associated with this virtual MFA device.
          * 
          * @return builder
          * 
@@ -342,7 +379,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userName The associated IAM User name if the virtual MFA device is enabled.
+         * @param userName Name of the IAM user associated with this virtual MFA device.
          * 
          * @return builder
          * 
@@ -352,7 +389,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param virtualMfaDeviceName The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+         * @param virtualMfaDeviceName Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
          * 
          * @return builder
          * 
@@ -363,7 +400,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param virtualMfaDeviceName The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+         * @param virtualMfaDeviceName Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
          * 
          * @return builder
          * 

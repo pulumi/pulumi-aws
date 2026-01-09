@@ -844,7 +844,7 @@ func (o FirewallPolicyEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrO
 type FirewallPolicyFirewallPolicy struct {
 	// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
 	PolicyVariables *FirewallPolicyFirewallPolicyPolicyVariables `pulumi:"policyVariables"`
-	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
 	StatefulDefaultActions []string `pulumi:"statefulDefaultActions"`
 	// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
 	StatefulEngineOptions *FirewallPolicyFirewallPolicyStatefulEngineOptions `pulumi:"statefulEngineOptions"`
@@ -878,7 +878,7 @@ type FirewallPolicyFirewallPolicyInput interface {
 type FirewallPolicyFirewallPolicyArgs struct {
 	// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
 	PolicyVariables FirewallPolicyFirewallPolicyPolicyVariablesPtrInput `pulumi:"policyVariables"`
-	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
 	StatefulDefaultActions pulumi.StringArrayInput `pulumi:"statefulDefaultActions"`
 	// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
 	StatefulEngineOptions FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrInput `pulumi:"statefulEngineOptions"`
@@ -982,7 +982,7 @@ func (o FirewallPolicyFirewallPolicyOutput) PolicyVariables() FirewallPolicyFire
 	}).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
 }
 
-// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
 func (o FirewallPolicyFirewallPolicyOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []string { return v.StatefulDefaultActions }).(pulumi.StringArrayOutput)
 }
@@ -1066,7 +1066,7 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) PolicyVariables() FirewallPolicyF
 	}).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
 }
 
-// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
 func (o FirewallPolicyFirewallPolicyPtrOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []string {
 		if v == nil {

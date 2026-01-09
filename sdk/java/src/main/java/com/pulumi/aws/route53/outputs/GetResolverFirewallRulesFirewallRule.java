@@ -37,6 +37,11 @@ public final class GetResolverFirewallRulesFirewallRule {
      */
     private String blockResponse;
     /**
+     * @return The confidence threshold for DNS Firewall Advanced rules.
+     * 
+     */
+    private String confidenceThreshold;
+    /**
      * @return The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
      * 
      */
@@ -47,15 +52,30 @@ public final class GetResolverFirewallRulesFirewallRule {
      */
     private String creatorRequestId;
     /**
+     * @return The type of DNS Firewall Advanced rule.
+     * 
+     */
+    private String dnsThreatProtection;
+    /**
      * @return The ID of the domain list that&#39;s used in the rule.
      * 
      */
     private String firewallDomainListId;
     /**
+     * @return How DNS Firewall evaluates DNS redirection in the DNS redirection chain.
+     * 
+     */
+    private String firewallDomainRedirectionAction;
+    /**
      * @return The unique identifier of the firewall rule group that you want to retrieve the rules for.
      * 
      */
     private String firewallRuleGroupId;
+    /**
+     * @return The ID of the DNS Firewall Advanced rule.
+     * 
+     */
+    private String firewallThreatProtectionId;
     /**
      * @return The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
      * 
@@ -71,6 +91,11 @@ public final class GetResolverFirewallRulesFirewallRule {
      * 
      */
     private Integer priority;
+    /**
+     * @return The DNS query type that the rule evaluates.
+     * 
+     */
+    private String qType;
 
     private GetResolverFirewallRulesFirewallRule() {}
     /**
@@ -109,6 +134,13 @@ public final class GetResolverFirewallRulesFirewallRule {
         return this.blockResponse;
     }
     /**
+     * @return The confidence threshold for DNS Firewall Advanced rules.
+     * 
+     */
+    public String confidenceThreshold() {
+        return this.confidenceThreshold;
+    }
+    /**
      * @return The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
      * 
      */
@@ -123,6 +155,13 @@ public final class GetResolverFirewallRulesFirewallRule {
         return this.creatorRequestId;
     }
     /**
+     * @return The type of DNS Firewall Advanced rule.
+     * 
+     */
+    public String dnsThreatProtection() {
+        return this.dnsThreatProtection;
+    }
+    /**
      * @return The ID of the domain list that&#39;s used in the rule.
      * 
      */
@@ -130,11 +169,25 @@ public final class GetResolverFirewallRulesFirewallRule {
         return this.firewallDomainListId;
     }
     /**
+     * @return How DNS Firewall evaluates DNS redirection in the DNS redirection chain.
+     * 
+     */
+    public String firewallDomainRedirectionAction() {
+        return this.firewallDomainRedirectionAction;
+    }
+    /**
      * @return The unique identifier of the firewall rule group that you want to retrieve the rules for.
      * 
      */
     public String firewallRuleGroupId() {
         return this.firewallRuleGroupId;
+    }
+    /**
+     * @return The ID of the DNS Firewall Advanced rule.
+     * 
+     */
+    public String firewallThreatProtectionId() {
+        return this.firewallThreatProtectionId;
     }
     /**
      * @return The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
@@ -157,6 +210,13 @@ public final class GetResolverFirewallRulesFirewallRule {
     public Integer priority() {
         return this.priority;
     }
+    /**
+     * @return The DNS query type that the rule evaluates.
+     * 
+     */
+    public String qType() {
+        return this.qType;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -172,13 +232,18 @@ public final class GetResolverFirewallRulesFirewallRule {
         private String blockOverrideDomain;
         private Integer blockOverrideTtl;
         private String blockResponse;
+        private String confidenceThreshold;
         private String creationTime;
         private String creatorRequestId;
+        private String dnsThreatProtection;
         private String firewallDomainListId;
+        private String firewallDomainRedirectionAction;
         private String firewallRuleGroupId;
+        private String firewallThreatProtectionId;
         private String modificationTime;
         private String name;
         private Integer priority;
+        private String qType;
         public Builder() {}
         public Builder(GetResolverFirewallRulesFirewallRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -187,13 +252,18 @@ public final class GetResolverFirewallRulesFirewallRule {
     	      this.blockOverrideDomain = defaults.blockOverrideDomain;
     	      this.blockOverrideTtl = defaults.blockOverrideTtl;
     	      this.blockResponse = defaults.blockResponse;
+    	      this.confidenceThreshold = defaults.confidenceThreshold;
     	      this.creationTime = defaults.creationTime;
     	      this.creatorRequestId = defaults.creatorRequestId;
+    	      this.dnsThreatProtection = defaults.dnsThreatProtection;
     	      this.firewallDomainListId = defaults.firewallDomainListId;
+    	      this.firewallDomainRedirectionAction = defaults.firewallDomainRedirectionAction;
     	      this.firewallRuleGroupId = defaults.firewallRuleGroupId;
+    	      this.firewallThreatProtectionId = defaults.firewallThreatProtectionId;
     	      this.modificationTime = defaults.modificationTime;
     	      this.name = defaults.name;
     	      this.priority = defaults.priority;
+    	      this.qType = defaults.qType;
         }
 
         @CustomType.Setter
@@ -237,6 +307,14 @@ public final class GetResolverFirewallRulesFirewallRule {
             return this;
         }
         @CustomType.Setter
+        public Builder confidenceThreshold(String confidenceThreshold) {
+            if (confidenceThreshold == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "confidenceThreshold");
+            }
+            this.confidenceThreshold = confidenceThreshold;
+            return this;
+        }
+        @CustomType.Setter
         public Builder creationTime(String creationTime) {
             if (creationTime == null) {
               throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "creationTime");
@@ -253,6 +331,14 @@ public final class GetResolverFirewallRulesFirewallRule {
             return this;
         }
         @CustomType.Setter
+        public Builder dnsThreatProtection(String dnsThreatProtection) {
+            if (dnsThreatProtection == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "dnsThreatProtection");
+            }
+            this.dnsThreatProtection = dnsThreatProtection;
+            return this;
+        }
+        @CustomType.Setter
         public Builder firewallDomainListId(String firewallDomainListId) {
             if (firewallDomainListId == null) {
               throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "firewallDomainListId");
@@ -261,11 +347,27 @@ public final class GetResolverFirewallRulesFirewallRule {
             return this;
         }
         @CustomType.Setter
+        public Builder firewallDomainRedirectionAction(String firewallDomainRedirectionAction) {
+            if (firewallDomainRedirectionAction == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "firewallDomainRedirectionAction");
+            }
+            this.firewallDomainRedirectionAction = firewallDomainRedirectionAction;
+            return this;
+        }
+        @CustomType.Setter
         public Builder firewallRuleGroupId(String firewallRuleGroupId) {
             if (firewallRuleGroupId == null) {
               throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "firewallRuleGroupId");
             }
             this.firewallRuleGroupId = firewallRuleGroupId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder firewallThreatProtectionId(String firewallThreatProtectionId) {
+            if (firewallThreatProtectionId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "firewallThreatProtectionId");
+            }
+            this.firewallThreatProtectionId = firewallThreatProtectionId;
             return this;
         }
         @CustomType.Setter
@@ -292,6 +394,14 @@ public final class GetResolverFirewallRulesFirewallRule {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
+        public Builder qType(String qType) {
+            if (qType == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "qType");
+            }
+            this.qType = qType;
+            return this;
+        }
         public GetResolverFirewallRulesFirewallRule build() {
             final var _resultValue = new GetResolverFirewallRulesFirewallRule();
             _resultValue.action = action;
@@ -299,13 +409,18 @@ public final class GetResolverFirewallRulesFirewallRule {
             _resultValue.blockOverrideDomain = blockOverrideDomain;
             _resultValue.blockOverrideTtl = blockOverrideTtl;
             _resultValue.blockResponse = blockResponse;
+            _resultValue.confidenceThreshold = confidenceThreshold;
             _resultValue.creationTime = creationTime;
             _resultValue.creatorRequestId = creatorRequestId;
+            _resultValue.dnsThreatProtection = dnsThreatProtection;
             _resultValue.firewallDomainListId = firewallDomainListId;
+            _resultValue.firewallDomainRedirectionAction = firewallDomainRedirectionAction;
             _resultValue.firewallRuleGroupId = firewallRuleGroupId;
+            _resultValue.firewallThreatProtectionId = firewallThreatProtectionId;
             _resultValue.modificationTime = modificationTime;
             _resultValue.name = name;
             _resultValue.priority = priority;
+            _resultValue.qType = qType;
             return _resultValue;
         }
     }

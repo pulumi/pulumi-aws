@@ -40,6 +40,11 @@ public final class GetProxyResult {
      */
     private String endpoint;
     /**
+     * @return Network type of the DB proxy endpoint.
+     * 
+     */
+    private String endpointNetworkType;
+    /**
      * @return Kinds of databases that the proxy can connect to.
      * 
      */
@@ -66,6 +71,11 @@ public final class GetProxyResult {
      * 
      */
     private String roleArn;
+    /**
+     * @return Network type that the proxy uses to connect to the target database.
+     * 
+     */
+    private String targetConnectionNetworkType;
     /**
      * @return Provides the VPC ID of the DB proxy.
      * 
@@ -119,6 +129,13 @@ public final class GetProxyResult {
         return this.endpoint;
     }
     /**
+     * @return Network type of the DB proxy endpoint.
+     * 
+     */
+    public String endpointNetworkType() {
+        return this.endpointNetworkType;
+    }
+    /**
      * @return Kinds of databases that the proxy can connect to.
      * 
      */
@@ -160,6 +177,13 @@ public final class GetProxyResult {
         return this.roleArn;
     }
     /**
+     * @return Network type that the proxy uses to connect to the target database.
+     * 
+     */
+    public String targetConnectionNetworkType() {
+        return this.targetConnectionNetworkType;
+    }
+    /**
      * @return Provides the VPC ID of the DB proxy.
      * 
      */
@@ -195,6 +219,7 @@ public final class GetProxyResult {
         private Boolean debugLogging;
         private String defaultAuthScheme;
         private String endpoint;
+        private String endpointNetworkType;
         private String engineFamily;
         private String id;
         private Integer idleClientTimeout;
@@ -202,6 +227,7 @@ public final class GetProxyResult {
         private String region;
         private Boolean requireTls;
         private String roleArn;
+        private String targetConnectionNetworkType;
         private String vpcId;
         private List<String> vpcSecurityGroupIds;
         private List<String> vpcSubnetIds;
@@ -213,6 +239,7 @@ public final class GetProxyResult {
     	      this.debugLogging = defaults.debugLogging;
     	      this.defaultAuthScheme = defaults.defaultAuthScheme;
     	      this.endpoint = defaults.endpoint;
+    	      this.endpointNetworkType = defaults.endpointNetworkType;
     	      this.engineFamily = defaults.engineFamily;
     	      this.id = defaults.id;
     	      this.idleClientTimeout = defaults.idleClientTimeout;
@@ -220,6 +247,7 @@ public final class GetProxyResult {
     	      this.region = defaults.region;
     	      this.requireTls = defaults.requireTls;
     	      this.roleArn = defaults.roleArn;
+    	      this.targetConnectionNetworkType = defaults.targetConnectionNetworkType;
     	      this.vpcId = defaults.vpcId;
     	      this.vpcSecurityGroupIds = defaults.vpcSecurityGroupIds;
     	      this.vpcSubnetIds = defaults.vpcSubnetIds;
@@ -266,6 +294,14 @@ public final class GetProxyResult {
               throw new MissingRequiredPropertyException("GetProxyResult", "endpoint");
             }
             this.endpoint = endpoint;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpointNetworkType(String endpointNetworkType) {
+            if (endpointNetworkType == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "endpointNetworkType");
+            }
+            this.endpointNetworkType = endpointNetworkType;
             return this;
         }
         @CustomType.Setter
@@ -325,6 +361,14 @@ public final class GetProxyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder targetConnectionNetworkType(String targetConnectionNetworkType) {
+            if (targetConnectionNetworkType == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "targetConnectionNetworkType");
+            }
+            this.targetConnectionNetworkType = targetConnectionNetworkType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             if (vpcId == null) {
               throw new MissingRequiredPropertyException("GetProxyResult", "vpcId");
@@ -361,6 +405,7 @@ public final class GetProxyResult {
             _resultValue.debugLogging = debugLogging;
             _resultValue.defaultAuthScheme = defaultAuthScheme;
             _resultValue.endpoint = endpoint;
+            _resultValue.endpointNetworkType = endpointNetworkType;
             _resultValue.engineFamily = engineFamily;
             _resultValue.id = id;
             _resultValue.idleClientTimeout = idleClientTimeout;
@@ -368,6 +413,7 @@ public final class GetProxyResult {
             _resultValue.region = region;
             _resultValue.requireTls = requireTls;
             _resultValue.roleArn = roleArn;
+            _resultValue.targetConnectionNetworkType = targetConnectionNetworkType;
             _resultValue.vpcId = vpcId;
             _resultValue.vpcSecurityGroupIds = vpcSecurityGroupIds;
             _resultValue.vpcSubnetIds = vpcSubnetIds;

@@ -17280,6 +17280,10 @@ class VpcEndpointDnsOptions(dict):
             suggest = "dns_record_ip_type"
         elif key == "privateDnsOnlyForInboundResolverEndpoint":
             suggest = "private_dns_only_for_inbound_resolver_endpoint"
+        elif key == "privateDnsPreference":
+            suggest = "private_dns_preference"
+        elif key == "privateDnsSpecifiedDomains":
+            suggest = "private_dns_specified_domains"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VpcEndpointDnsOptions. Access the value via the '{suggest}' property getter instead.")
@@ -17294,15 +17298,23 @@ class VpcEndpointDnsOptions(dict):
 
     def __init__(__self__, *,
                  dns_record_ip_type: Optional[_builtins.str] = None,
-                 private_dns_only_for_inbound_resolver_endpoint: Optional[_builtins.bool] = None):
+                 private_dns_only_for_inbound_resolver_endpoint: Optional[_builtins.bool] = None,
+                 private_dns_preference: Optional[_builtins.str] = None,
+                 private_dns_specified_domains: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str dns_record_ip_type: The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
-        :param _builtins.bool private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if private_dns_enabled is `true`.
+        :param _builtins.bool private_dns_only_for_inbound_resolver_endpoint: Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `private_dns_enabled` is `true`.
+        :param _builtins.str private_dns_preference: Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `private_dns_enabled` is `true` and when the `vpc_endpoint_type` is `ServiceNetwork` or `Resource`.
+        :param Sequence[_builtins.str] private_dns_specified_domains: List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `private_dns_enabled` is `true` and `private_dns_preference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
         """
         if dns_record_ip_type is not None:
             pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
         if private_dns_only_for_inbound_resolver_endpoint is not None:
             pulumi.set(__self__, "private_dns_only_for_inbound_resolver_endpoint", private_dns_only_for_inbound_resolver_endpoint)
+        if private_dns_preference is not None:
+            pulumi.set(__self__, "private_dns_preference", private_dns_preference)
+        if private_dns_specified_domains is not None:
+            pulumi.set(__self__, "private_dns_specified_domains", private_dns_specified_domains)
 
     @_builtins.property
     @pulumi.getter(name="dnsRecordIpType")
@@ -17316,9 +17328,25 @@ class VpcEndpointDnsOptions(dict):
     @pulumi.getter(name="privateDnsOnlyForInboundResolverEndpoint")
     def private_dns_only_for_inbound_resolver_endpoint(self) -> Optional[_builtins.bool]:
         """
-        Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if private_dns_enabled is `true`.
+        Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `private_dns_enabled` is `true`.
         """
         return pulumi.get(self, "private_dns_only_for_inbound_resolver_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsPreference")
+    def private_dns_preference(self) -> Optional[_builtins.str]:
+        """
+        Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `private_dns_enabled` is `true` and when the `vpc_endpoint_type` is `ServiceNetwork` or `Resource`.
+        """
+        return pulumi.get(self, "private_dns_preference")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsSpecifiedDomains")
+    def private_dns_specified_domains(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `private_dns_enabled` is `true` and `private_dns_preference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
+        """
+        return pulumi.get(self, "private_dns_specified_domains")
 
 
 @pulumi.output_type
@@ -25487,13 +25515,19 @@ class GetVpcEndpointDnsEntryResult(dict):
 class GetVpcEndpointDnsOptionResult(dict):
     def __init__(__self__, *,
                  dns_record_ip_type: _builtins.str,
-                 private_dns_only_for_inbound_resolver_endpoint: _builtins.bool):
+                 private_dns_only_for_inbound_resolver_endpoint: _builtins.bool,
+                 private_dns_preference: _builtins.str,
+                 private_dns_specified_domains: Sequence[_builtins.str]):
         """
         :param _builtins.str dns_record_ip_type: The DNS records created for the endpoint.
         :param _builtins.bool private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints.
+        :param _builtins.str private_dns_preference: Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
+        :param Sequence[_builtins.str] private_dns_specified_domains: List of private domains to create private hosted zones for and associate with the specified VPC.
         """
         pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
         pulumi.set(__self__, "private_dns_only_for_inbound_resolver_endpoint", private_dns_only_for_inbound_resolver_endpoint)
+        pulumi.set(__self__, "private_dns_preference", private_dns_preference)
+        pulumi.set(__self__, "private_dns_specified_domains", private_dns_specified_domains)
 
     @_builtins.property
     @pulumi.getter(name="dnsRecordIpType")
@@ -25510,6 +25544,22 @@ class GetVpcEndpointDnsOptionResult(dict):
         Indicates whether to enable private DNS only for inbound endpoints.
         """
         return pulumi.get(self, "private_dns_only_for_inbound_resolver_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsPreference")
+    def private_dns_preference(self) -> _builtins.str:
+        """
+        Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
+        """
+        return pulumi.get(self, "private_dns_preference")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsSpecifiedDomains")
+    def private_dns_specified_domains(self) -> Sequence[_builtins.str]:
+        """
+        List of private domains to create private hosted zones for and associate with the specified VPC.
+        """
+        return pulumi.get(self, "private_dns_specified_domains")
 
 
 @pulumi.output_type

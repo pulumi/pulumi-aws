@@ -72,7 +72,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter(name="appliedFors")
     def applied_fors(self) -> Sequence[_builtins.str]:
         """
-        Which features this template applies to. Contains one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         """
         return pulumi.get(self, "applied_fors")
 

@@ -20,14 +20,14 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
     public static final GrantArgs Empty = new GrantArgs();
 
     /**
-     * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+     * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
      * 
      */
     @Import(name="constraints")
     private @Nullable Output<List<GrantConstraintArgs>> constraints;
 
     /**
-     * @return A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+     * @return A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
      * 
      */
     public Optional<Output<List<GrantConstraintArgs>>> constraints() {
@@ -35,14 +35,14 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+     * A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
      * 
      */
     @Import(name="grantCreationTokens")
     private @Nullable Output<List<String>> grantCreationTokens;
 
     /**
-     * @return A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+     * @return A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
      * 
      */
     public Optional<Output<List<String>>> grantCreationTokens() {
@@ -189,7 +189,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param constraints A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+         * @param constraints A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param constraints A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+         * @param constraints A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param constraints A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+         * @param constraints A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantCreationTokens A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+         * @param grantCreationTokens A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantCreationTokens A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+         * @param grantCreationTokens A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantCreationTokens A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+         * @param grantCreationTokens A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
          * 
          * @return builder
          * 

@@ -535,6 +535,49 @@ namespace Pulumi.Aws.CloudFront
     /// });
     /// ```
     /// 
+    /// ### With Connection Function and Viewer mTLS
+    /// 
+    /// The example below creates a CloudFront distribution with a connection function association and viewer mTLS configuration.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudFront.ConnectionFunction("example", new()
+    ///     {
+    ///         Name = "example-connection-function",
+    ///     });
+    /// 
+    ///     var exampleTrustStore = new Aws.CloudFront.TrustStore("example", new()
+    ///     {
+    ///         Name = "example-trust-store",
+    ///     });
+    /// 
+    ///     var exampleDistribution = new Aws.CloudFront.Distribution("example", new()
+    ///     {
+    ///         ConnectionFunctionAssociation = new Aws.CloudFront.Inputs.DistributionConnectionFunctionAssociationArgs
+    ///         {
+    ///             Id = example.Id,
+    ///         },
+    ///         ViewerMtlsConfig = new Aws.CloudFront.Inputs.DistributionViewerMtlsConfigArgs
+    ///         {
+    ///             Mode = "verify",
+    ///             TrustStoreConfig = new Aws.CloudFront.Inputs.DistributionViewerMtlsConfigTrustStoreConfigArgs
+    ///             {
+    ///                 TrustStoreId = exampleTrustStore.Id,
+    ///                 AdvertiseTrustStoreCaNames = true,
+    ///                 IgnoreCertificateExpiry = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
@@ -575,6 +618,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
+
+        /// <summary>
+        /// A connection function association configuration block (maximum one).
+        /// </summary>
+        [Output("connectionFunctionAssociation")]
+        public Output<Outputs.DistributionConnectionFunctionAssociation?> ConnectionFunctionAssociation { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
@@ -739,6 +788,12 @@ namespace Pulumi.Aws.CloudFront
         public Output<Outputs.DistributionViewerCertificate> ViewerCertificate { get; private set; } = null!;
 
         /// <summary>
+        /// The viewer mTLS configuration for this distribution (maximum one).
+        /// </summary>
+        [Output("viewerMtlsConfig")]
+        public Output<Outputs.DistributionViewerMtlsConfig?> ViewerMtlsConfig { get; private set; } = null!;
+
+        /// <summary>
         /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`False` will skip the process. Default: `True`.
         /// </summary>
         [Output("waitForDeployment")]
@@ -819,6 +874,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// A connection function association configuration block (maximum one).
+        /// </summary>
+        [Input("connectionFunctionAssociation")]
+        public Input<Inputs.DistributionConnectionFunctionAssociationArgs>? ConnectionFunctionAssociation { get; set; }
 
         /// <summary>
         /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
@@ -953,6 +1014,12 @@ namespace Pulumi.Aws.CloudFront
         public Input<Inputs.DistributionViewerCertificateArgs> ViewerCertificate { get; set; } = null!;
 
         /// <summary>
+        /// The viewer mTLS configuration for this distribution (maximum one).
+        /// </summary>
+        [Input("viewerMtlsConfig")]
+        public Input<Inputs.DistributionViewerMtlsConfigArgs>? ViewerMtlsConfig { get; set; }
+
+        /// <summary>
         /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`False` will skip the process. Default: `True`.
         /// </summary>
         [Input("waitForDeployment")]
@@ -1007,6 +1074,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// A connection function association configuration block (maximum one).
+        /// </summary>
+        [Input("connectionFunctionAssociation")]
+        public Input<Inputs.DistributionConnectionFunctionAssociationGetArgs>? ConnectionFunctionAssociation { get; set; }
 
         /// <summary>
         /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
@@ -1217,6 +1290,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("viewerCertificate")]
         public Input<Inputs.DistributionViewerCertificateGetArgs>? ViewerCertificate { get; set; }
+
+        /// <summary>
+        /// The viewer mTLS configuration for this distribution (maximum one).
+        /// </summary>
+        [Input("viewerMtlsConfig")]
+        public Input<Inputs.DistributionViewerMtlsConfigGetArgs>? ViewerMtlsConfig { get; set; }
 
         /// <summary>
         /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`False` will skip the process. Default: `True`.

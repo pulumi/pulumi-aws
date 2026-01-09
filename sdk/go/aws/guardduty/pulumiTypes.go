@@ -1304,8 +1304,12 @@ type FilterFindingCriteriaCriterion struct {
 	LessThan *string `pulumi:"lessThan"`
 	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LessThanOrEqual *string `pulumi:"lessThanOrEqual"`
+	// List of string values to be evaluated as matching conditions.
+	Matches []string `pulumi:"matches"`
 	// List of string values to be evaluated.
 	NotEquals []string `pulumi:"notEquals"`
+	// List of string values to be evaluated as non-matching conditions.
+	NotMatches []string `pulumi:"notMatches"`
 }
 
 // FilterFindingCriteriaCriterionInput is an input type that accepts FilterFindingCriteriaCriterionArgs and FilterFindingCriteriaCriterionOutput values.
@@ -1332,8 +1336,12 @@ type FilterFindingCriteriaCriterionArgs struct {
 	LessThan pulumi.StringPtrInput `pulumi:"lessThan"`
 	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LessThanOrEqual pulumi.StringPtrInput `pulumi:"lessThanOrEqual"`
+	// List of string values to be evaluated as matching conditions.
+	Matches pulumi.StringArrayInput `pulumi:"matches"`
 	// List of string values to be evaluated.
 	NotEquals pulumi.StringArrayInput `pulumi:"notEquals"`
+	// List of string values to be evaluated as non-matching conditions.
+	NotMatches pulumi.StringArrayInput `pulumi:"notMatches"`
 }
 
 func (FilterFindingCriteriaCriterionArgs) ElementType() reflect.Type {
@@ -1417,9 +1425,19 @@ func (o FilterFindingCriteriaCriterionOutput) LessThanOrEqual() pulumi.StringPtr
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) *string { return v.LessThanOrEqual }).(pulumi.StringPtrOutput)
 }
 
+// List of string values to be evaluated as matching conditions.
+func (o FilterFindingCriteriaCriterionOutput) Matches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterFindingCriteriaCriterion) []string { return v.Matches }).(pulumi.StringArrayOutput)
+}
+
 // List of string values to be evaluated.
 func (o FilterFindingCriteriaCriterionOutput) NotEquals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) []string { return v.NotEquals }).(pulumi.StringArrayOutput)
+}
+
+// List of string values to be evaluated as non-matching conditions.
+func (o FilterFindingCriteriaCriterionOutput) NotMatches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterFindingCriteriaCriterion) []string { return v.NotMatches }).(pulumi.StringArrayOutput)
 }
 
 type FilterFindingCriteriaCriterionArrayOutput struct{ *pulumi.OutputState }

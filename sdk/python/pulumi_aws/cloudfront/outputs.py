@@ -23,11 +23,15 @@ __all__ = [
     'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings',
+    'ConnectionFunctionConnectionFunctionConfig',
+    'ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation',
+    'ConnectionGroupTimeouts',
     'ContinuousDeploymentPolicyStagingDistributionDnsNames',
     'ContinuousDeploymentPolicyTrafficConfig',
     'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig',
     'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig',
     'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig',
+    'DistributionConnectionFunctionAssociation',
     'DistributionCustomErrorResponse',
     'DistributionDefaultCacheBehavior',
     'DistributionDefaultCacheBehaviorForwardedValues',
@@ -53,11 +57,21 @@ __all__ = [
     'DistributionOriginVpcOriginConfig',
     'DistributionRestrictions',
     'DistributionRestrictionsGeoRestriction',
+    'DistributionTenantCustomizations',
+    'DistributionTenantCustomizationsCertificate',
+    'DistributionTenantCustomizationsGeoRestriction',
+    'DistributionTenantCustomizationsWebAcl',
+    'DistributionTenantDomain',
+    'DistributionTenantManagedCertificateRequest',
+    'DistributionTenantParameter',
+    'DistributionTenantTimeouts',
     'DistributionTrustedKeyGroup',
     'DistributionTrustedKeyGroupItem',
     'DistributionTrustedSigner',
     'DistributionTrustedSignerItem',
     'DistributionViewerCertificate',
+    'DistributionViewerMtlsConfig',
+    'DistributionViewerMtlsConfigTrustStoreConfig',
     'FieldLevelEncryptionConfigContentTypeProfileConfig',
     'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles',
     'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem',
@@ -71,6 +85,35 @@ __all__ = [
     'KeyvaluestoreKeysExclusiveResourceKeyValuePair',
     'MonitoringSubscriptionMonitoringSubscription',
     'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig',
+    'MultitenantDistributionActiveTrustedKeyGroup',
+    'MultitenantDistributionActiveTrustedKeyGroupItem',
+    'MultitenantDistributionCacheBehavior',
+    'MultitenantDistributionCacheBehaviorAllowedMethods',
+    'MultitenantDistributionCacheBehaviorFunctionAssociation',
+    'MultitenantDistributionCacheBehaviorLambdaFunctionAssociation',
+    'MultitenantDistributionCacheBehaviorTrustedKeyGroups',
+    'MultitenantDistributionCustomErrorResponse',
+    'MultitenantDistributionDefaultCacheBehavior',
+    'MultitenantDistributionDefaultCacheBehaviorAllowedMethods',
+    'MultitenantDistributionDefaultCacheBehaviorFunctionAssociation',
+    'MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation',
+    'MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups',
+    'MultitenantDistributionOrigin',
+    'MultitenantDistributionOriginCustomHeader',
+    'MultitenantDistributionOriginCustomOriginConfig',
+    'MultitenantDistributionOriginGroup',
+    'MultitenantDistributionOriginGroupFailoverCriteria',
+    'MultitenantDistributionOriginGroupMember',
+    'MultitenantDistributionOriginOriginShield',
+    'MultitenantDistributionOriginVpcOriginConfig',
+    'MultitenantDistributionRestrictions',
+    'MultitenantDistributionRestrictionsGeoRestriction',
+    'MultitenantDistributionTenantConfig',
+    'MultitenantDistributionTenantConfigParameterDefinition',
+    'MultitenantDistributionTenantConfigParameterDefinitionDefinition',
+    'MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema',
+    'MultitenantDistributionTimeouts',
+    'MultitenantDistributionViewerCertificate',
     'OriginRequestPolicyCookiesConfig',
     'OriginRequestPolicyCookiesConfigCookies',
     'OriginRequestPolicyHeadersConfig',
@@ -109,6 +152,13 @@ __all__ = [
     'GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult',
     'GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult',
     'GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult',
+    'GetDistributionTenantCustomizationResult',
+    'GetDistributionTenantCustomizationCertificateResult',
+    'GetDistributionTenantCustomizationGeoRestrictionResult',
+    'GetDistributionTenantCustomizationWebAclResult',
+    'GetDistributionTenantDomainResult',
+    'GetDistributionTenantManagedCertificateRequestResult',
+    'GetDistributionTenantParameterResult',
     'GetOriginRequestPolicyCookiesConfigResult',
     'GetOriginRequestPolicyCookiesConfigCookieResult',
     'GetOriginRequestPolicyHeadersConfigResult',
@@ -427,6 +477,142 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQuery
 
 
 @pulumi.output_type
+class ConnectionFunctionConnectionFunctionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyValueStoreAssociation":
+            suggest = "key_value_store_association"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionFunctionConnectionFunctionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionFunctionConnectionFunctionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionFunctionConnectionFunctionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 runtime: _builtins.str,
+                 key_value_store_association: Optional['outputs.ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation'] = None):
+        """
+        :param _builtins.str comment: Comment to describe the function.
+        :param _builtins.str runtime: Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+        :param 'ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs' key_value_store_association: Key value store associations. See `key_value_store_association` below.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "runtime", runtime)
+        if key_value_store_association is not None:
+            pulumi.set(__self__, "key_value_store_association", key_value_store_association)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        """
+        Comment to describe the function.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> _builtins.str:
+        """
+        Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+        """
+        return pulumi.get(self, "runtime")
+
+    @_builtins.property
+    @pulumi.getter(name="keyValueStoreAssociation")
+    def key_value_store_association(self) -> Optional['outputs.ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation']:
+        """
+        Key value store associations. See `key_value_store_association` below.
+        """
+        return pulumi.get(self, "key_value_store_association")
+
+
+@pulumi.output_type
+class ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyValueStoreArn":
+            suggest = "key_value_store_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_value_store_arn: _builtins.str):
+        """
+        :param _builtins.str key_value_store_arn: ARN of the key value store.
+        """
+        pulumi.set(__self__, "key_value_store_arn", key_value_store_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="keyValueStoreArn")
+    def key_value_store_arn(self) -> _builtins.str:
+        """
+        ARN of the key value store.
+        """
+        return pulumi.get(self, "key_value_store_arn")
+
+
+@pulumi.output_type
+class ConnectionGroupTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Default is 90 minutes.
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
 class ContinuousDeploymentPolicyStagingDistributionDnsNames(dict):
     def __init__(__self__, *,
                  quantity: _builtins.int,
@@ -639,6 +825,24 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickiness
         The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
         """
         return pulumi.get(self, "maximum_ttl")
+
+
+@pulumi.output_type
+class DistributionConnectionFunctionAssociation(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -2402,6 +2606,8 @@ class DistributionOriginVpcOriginConfig(dict):
             suggest = "origin_keepalive_timeout"
         elif key == "originReadTimeout":
             suggest = "origin_read_timeout"
+        elif key == "ownerAccountId":
+            suggest = "owner_account_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DistributionOriginVpcOriginConfig. Access the value via the '{suggest}' property getter instead.")
@@ -2417,15 +2623,19 @@ class DistributionOriginVpcOriginConfig(dict):
     def __init__(__self__, *,
                  vpc_origin_id: _builtins.str,
                  origin_keepalive_timeout: Optional[_builtins.int] = None,
-                 origin_read_timeout: Optional[_builtins.int] = None):
+                 origin_read_timeout: Optional[_builtins.int] = None,
+                 owner_account_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str vpc_origin_id: The VPC origin ID.
+        :param _builtins.str owner_account_id: The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
         """
         pulumi.set(__self__, "vpc_origin_id", vpc_origin_id)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
         if origin_read_timeout is not None:
             pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
+        if owner_account_id is not None:
+            pulumi.set(__self__, "owner_account_id", owner_account_id)
 
     @_builtins.property
     @pulumi.getter(name="vpcOriginId")
@@ -2444,6 +2654,14 @@ class DistributionOriginVpcOriginConfig(dict):
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "origin_read_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerAccountId")
+    def owner_account_id(self) -> Optional[_builtins.str]:
+        """
+        The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
+        """
+        return pulumi.get(self, "owner_account_id")
 
 
 @pulumi.output_type
@@ -2520,6 +2738,332 @@ class DistributionRestrictionsGeoRestriction(dict):
         [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
         """
         return pulumi.get(self, "locations")
+
+
+@pulumi.output_type
+class DistributionTenantCustomizations(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "geoRestriction":
+            suggest = "geo_restriction"
+        elif key == "webAcl":
+            suggest = "web_acl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionTenantCustomizations. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionTenantCustomizations.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionTenantCustomizations.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate: Optional['outputs.DistributionTenantCustomizationsCertificate'] = None,
+                 geo_restriction: Optional['outputs.DistributionTenantCustomizationsGeoRestriction'] = None,
+                 web_acl: Optional['outputs.DistributionTenantCustomizationsWebAcl'] = None):
+        """
+        :param 'DistributionTenantCustomizationsCertificateArgs' certificate: Certificate configuration for the tenant (maximum one).
+        :param 'DistributionTenantCustomizationsGeoRestrictionArgs' geo_restriction: Geographic restrictions configuration for the tenant (maximum one).
+        :param 'DistributionTenantCustomizationsWebAclArgs' web_acl: Web ACL configuration for the tenant (maximum one).
+        """
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if geo_restriction is not None:
+            pulumi.set(__self__, "geo_restriction", geo_restriction)
+        if web_acl is not None:
+            pulumi.set(__self__, "web_acl", web_acl)
+
+    @_builtins.property
+    @pulumi.getter
+    def certificate(self) -> Optional['outputs.DistributionTenantCustomizationsCertificate']:
+        """
+        Certificate configuration for the tenant (maximum one).
+        """
+        return pulumi.get(self, "certificate")
+
+    @_builtins.property
+    @pulumi.getter(name="geoRestriction")
+    def geo_restriction(self) -> Optional['outputs.DistributionTenantCustomizationsGeoRestriction']:
+        """
+        Geographic restrictions configuration for the tenant (maximum one).
+        """
+        return pulumi.get(self, "geo_restriction")
+
+    @_builtins.property
+    @pulumi.getter(name="webAcl")
+    def web_acl(self) -> Optional['outputs.DistributionTenantCustomizationsWebAcl']:
+        """
+        Web ACL configuration for the tenant (maximum one).
+        """
+        return pulumi.get(self, "web_acl")
+
+
+@pulumi.output_type
+class DistributionTenantCustomizationsCertificate(dict):
+    def __init__(__self__, *,
+                 arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str arn: ARN of the distribution tenant.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the distribution tenant.
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class DistributionTenantCustomizationsGeoRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictionType":
+            suggest = "restriction_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionTenantCustomizationsGeoRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionTenantCustomizationsGeoRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionTenantCustomizationsGeoRestriction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 locations: Optional[Sequence[_builtins.str]] = None,
+                 restriction_type: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] locations: Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restriction_type` is `whitelist` or `blacklist`.
+        :param _builtins.str restriction_type: Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
+        """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if restriction_type is not None:
+            pulumi.set(__self__, "restriction_type", restriction_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restriction_type` is `whitelist` or `blacklist`.
+        """
+        return pulumi.get(self, "locations")
+
+    @_builtins.property
+    @pulumi.getter(name="restrictionType")
+    def restriction_type(self) -> Optional[_builtins.str]:
+        """
+        Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
+        """
+        return pulumi.get(self, "restriction_type")
+
+
+@pulumi.output_type
+class DistributionTenantCustomizationsWebAcl(dict):
+    def __init__(__self__, *,
+                 action: Optional[_builtins.str] = None,
+                 arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str action: Action to take for the web ACL. Valid values: `allow`, `block`.
+        :param _builtins.str arn: ARN of the distribution tenant.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[_builtins.str]:
+        """
+        Action to take for the web ACL. Valid values: `allow`, `block`.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the distribution tenant.
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class DistributionTenantDomain(dict):
+    def __init__(__self__, *,
+                 domain: _builtins.str,
+                 status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str domain: Set of domains associated with the distribution tenant.
+        :param _builtins.str status: Current status of the distribution tenant.
+        """
+        pulumi.set(__self__, "domain", domain)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        Set of domains associated with the distribution tenant.
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        Current status of the distribution tenant.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DistributionTenantManagedCertificateRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateTransparencyLoggingPreference":
+            suggest = "certificate_transparency_logging_preference"
+        elif key == "primaryDomainName":
+            suggest = "primary_domain_name"
+        elif key == "validationTokenHost":
+            suggest = "validation_token_host"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionTenantManagedCertificateRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionTenantManagedCertificateRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionTenantManagedCertificateRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_transparency_logging_preference: Optional[_builtins.str] = None,
+                 primary_domain_name: Optional[_builtins.str] = None,
+                 validation_token_host: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str certificate_transparency_logging_preference: Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
+        :param _builtins.str primary_domain_name: Primary domain name for the certificate.
+        :param _builtins.str validation_token_host: Host for validation token. Valid values: `cloudfront`, `domain`.
+        """
+        if certificate_transparency_logging_preference is not None:
+            pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
+        if primary_domain_name is not None:
+            pulumi.set(__self__, "primary_domain_name", primary_domain_name)
+        if validation_token_host is not None:
+            pulumi.set(__self__, "validation_token_host", validation_token_host)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateTransparencyLoggingPreference")
+    def certificate_transparency_logging_preference(self) -> Optional[_builtins.str]:
+        """
+        Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
+        """
+        return pulumi.get(self, "certificate_transparency_logging_preference")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryDomainName")
+    def primary_domain_name(self) -> Optional[_builtins.str]:
+        """
+        Primary domain name for the certificate.
+        """
+        return pulumi.get(self, "primary_domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="validationTokenHost")
+    def validation_token_host(self) -> Optional[_builtins.str]:
+        """
+        Host for validation token. Valid values: `cloudfront`, `domain`.
+        """
+        return pulumi.get(self, "validation_token_host")
+
+
+@pulumi.output_type
+class DistributionTenantParameter(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Name of the distribution tenant.
+        :param _builtins.str value: Value of the parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the distribution tenant.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DistributionTenantTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type
@@ -2774,6 +3318,117 @@ class DistributionViewerCertificate(dict):
         How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
         """
         return pulumi.get(self, "ssl_support_method")
+
+
+@pulumi.output_type
+class DistributionViewerMtlsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trustStoreConfig":
+            suggest = "trust_store_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionViewerMtlsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionViewerMtlsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionViewerMtlsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: Optional[_builtins.str] = None,
+                 trust_store_config: Optional['outputs.DistributionViewerMtlsConfigTrustStoreConfig'] = None):
+        """
+        :param _builtins.str mode: The mode for viewer mTLS. Valid values: `required`, `optional`.
+        :param 'DistributionViewerMtlsConfigTrustStoreConfigArgs' trust_store_config: The trust store configuration for viewer mTLS (maximum one).
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if trust_store_config is not None:
+            pulumi.set(__self__, "trust_store_config", trust_store_config)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[_builtins.str]:
+        """
+        The mode for viewer mTLS. Valid values: `required`, `optional`.
+        """
+        return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter(name="trustStoreConfig")
+    def trust_store_config(self) -> Optional['outputs.DistributionViewerMtlsConfigTrustStoreConfig']:
+        """
+        The trust store configuration for viewer mTLS (maximum one).
+        """
+        return pulumi.get(self, "trust_store_config")
+
+
+@pulumi.output_type
+class DistributionViewerMtlsConfigTrustStoreConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trustStoreId":
+            suggest = "trust_store_id"
+        elif key == "advertiseTrustStoreCaNames":
+            suggest = "advertise_trust_store_ca_names"
+        elif key == "ignoreCertificateExpiry":
+            suggest = "ignore_certificate_expiry"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionViewerMtlsConfigTrustStoreConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionViewerMtlsConfigTrustStoreConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionViewerMtlsConfigTrustStoreConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 trust_store_id: _builtins.str,
+                 advertise_trust_store_ca_names: Optional[_builtins.bool] = None,
+                 ignore_certificate_expiry: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str trust_store_id: Identifier of the trust store to use for viewer mTLS.
+        :param _builtins.bool advertise_trust_store_ca_names: Whether to advertise the trust store CA names to clients. Defaults to `false`.
+        :param _builtins.bool ignore_certificate_expiry: Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
+        """
+        pulumi.set(__self__, "trust_store_id", trust_store_id)
+        if advertise_trust_store_ca_names is not None:
+            pulumi.set(__self__, "advertise_trust_store_ca_names", advertise_trust_store_ca_names)
+        if ignore_certificate_expiry is not None:
+            pulumi.set(__self__, "ignore_certificate_expiry", ignore_certificate_expiry)
+
+    @_builtins.property
+    @pulumi.getter(name="trustStoreId")
+    def trust_store_id(self) -> _builtins.str:
+        """
+        Identifier of the trust store to use for viewer mTLS.
+        """
+        return pulumi.get(self, "trust_store_id")
+
+    @_builtins.property
+    @pulumi.getter(name="advertiseTrustStoreCaNames")
+    def advertise_trust_store_ca_names(self) -> Optional[_builtins.bool]:
+        """
+        Whether to advertise the trust store CA names to clients. Defaults to `false`.
+        """
+        return pulumi.get(self, "advertise_trust_store_ca_names")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreCertificateExpiry")
+    def ignore_certificate_expiry(self) -> Optional[_builtins.bool]:
+        """
+        Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
+        """
+        return pulumi.get(self, "ignore_certificate_expiry")
 
 
 @pulumi.output_type
@@ -3201,6 +3856,1843 @@ class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionCon
         A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
         """
         return pulumi.get(self, "realtime_metrics_subscription_status")
+
+
+@pulumi.output_type
+class MultitenantDistributionActiveTrustedKeyGroup(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None,
+                 items: Optional[Sequence['outputs.MultitenantDistributionActiveTrustedKeyGroupItem']] = None):
+        """
+        :param _builtins.bool enabled: Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+        :param Sequence['MultitenantDistributionActiveTrustedKeyGroupItemArgs'] items: List of key groups. See Key Group Items below.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence['outputs.MultitenantDistributionActiveTrustedKeyGroupItem']]:
+        """
+        List of key groups. See Key Group Items below.
+        """
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class MultitenantDistributionActiveTrustedKeyGroupItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyGroupId":
+            suggest = "key_group_id"
+        elif key == "keyPairIds":
+            suggest = "key_pair_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionActiveTrustedKeyGroupItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionActiveTrustedKeyGroupItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionActiveTrustedKeyGroupItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_group_id: Optional[_builtins.str] = None,
+                 key_pair_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str key_group_id: ID of the key group that contains the public keys.
+        :param Sequence[_builtins.str] key_pair_ids: Set of active CloudFront key pairs associated with the signer that can be used to verify the signatures of signed URLs and signed cookies.
+        """
+        if key_group_id is not None:
+            pulumi.set(__self__, "key_group_id", key_group_id)
+        if key_pair_ids is not None:
+            pulumi.set(__self__, "key_pair_ids", key_pair_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="keyGroupId")
+    def key_group_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the key group that contains the public keys.
+        """
+        return pulumi.get(self, "key_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="keyPairIds")
+    def key_pair_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of active CloudFront key pairs associated with the signer that can be used to verify the signatures of signed URLs and signed cookies.
+        """
+        return pulumi.get(self, "key_pair_ids")
+
+
+@pulumi.output_type
+class MultitenantDistributionCacheBehavior(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathPattern":
+            suggest = "path_pattern"
+        elif key == "targetOriginId":
+            suggest = "target_origin_id"
+        elif key == "viewerProtocolPolicy":
+            suggest = "viewer_protocol_policy"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "cachePolicyId":
+            suggest = "cache_policy_id"
+        elif key == "fieldLevelEncryptionId":
+            suggest = "field_level_encryption_id"
+        elif key == "functionAssociations":
+            suggest = "function_associations"
+        elif key == "lambdaFunctionAssociations":
+            suggest = "lambda_function_associations"
+        elif key == "originRequestPolicyId":
+            suggest = "origin_request_policy_id"
+        elif key == "realtimeLogConfigArn":
+            suggest = "realtime_log_config_arn"
+        elif key == "responseHeadersPolicyId":
+            suggest = "response_headers_policy_id"
+        elif key == "trustedKeyGroups":
+            suggest = "trusted_key_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionCacheBehavior. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionCacheBehavior.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionCacheBehavior.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path_pattern: _builtins.str,
+                 target_origin_id: _builtins.str,
+                 viewer_protocol_policy: _builtins.str,
+                 allowed_methods: Optional['outputs.MultitenantDistributionCacheBehaviorAllowedMethods'] = None,
+                 cache_policy_id: Optional[_builtins.str] = None,
+                 compress: Optional[_builtins.bool] = None,
+                 field_level_encryption_id: Optional[_builtins.str] = None,
+                 function_associations: Optional[Sequence['outputs.MultitenantDistributionCacheBehaviorFunctionAssociation']] = None,
+                 lambda_function_associations: Optional[Sequence['outputs.MultitenantDistributionCacheBehaviorLambdaFunctionAssociation']] = None,
+                 origin_request_policy_id: Optional[_builtins.str] = None,
+                 realtime_log_config_arn: Optional[_builtins.str] = None,
+                 response_headers_policy_id: Optional[_builtins.str] = None,
+                 trusted_key_groups: Optional['outputs.MultitenantDistributionCacheBehaviorTrustedKeyGroups'] = None):
+        """
+        :param _builtins.str path_pattern: Pattern that specifies which requests you want this cache behavior to apply to.
+        :param _builtins.str target_origin_id: Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+        :param _builtins.str viewer_protocol_policy: Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+        :param 'MultitenantDistributionCacheBehaviorAllowedMethodsArgs' allowed_methods: Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+        :param _builtins.str cache_policy_id: Unique identifier of the cache policy that is attached to the cache behavior.
+        :param _builtins.bool compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
+        :param _builtins.str field_level_encryption_id: Field level encryption configuration ID.
+        :param Sequence['MultitenantDistributionCacheBehaviorFunctionAssociationArgs'] function_associations: Configuration block for CloudFront Functions associations. See Function Association below.
+        :param Sequence['MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: Configuration block for Lambda@Edge associations. See Lambda Function Association below.
+        :param _builtins.str origin_request_policy_id: Unique identifier of the origin request policy that is attached to the behavior.
+        :param _builtins.str realtime_log_config_arn: ARN of the real-time log configuration that is attached to this cache behavior.
+        :param _builtins.str response_headers_policy_id: Identifier for a response headers policy.
+        :param 'MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs' trusted_key_groups: List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        """
+        pulumi.set(__self__, "path_pattern", path_pattern)
+        pulumi.set(__self__, "target_origin_id", target_origin_id)
+        pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if cache_policy_id is not None:
+            pulumi.set(__self__, "cache_policy_id", cache_policy_id)
+        if compress is not None:
+            pulumi.set(__self__, "compress", compress)
+        if field_level_encryption_id is not None:
+            pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
+        if function_associations is not None:
+            pulumi.set(__self__, "function_associations", function_associations)
+        if lambda_function_associations is not None:
+            pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
+        if origin_request_policy_id is not None:
+            pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
+        if realtime_log_config_arn is not None:
+            pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+        if response_headers_policy_id is not None:
+            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
+        if trusted_key_groups is not None:
+            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="pathPattern")
+    def path_pattern(self) -> _builtins.str:
+        """
+        Pattern that specifies which requests you want this cache behavior to apply to.
+        """
+        return pulumi.get(self, "path_pattern")
+
+    @_builtins.property
+    @pulumi.getter(name="targetOriginId")
+    def target_origin_id(self) -> _builtins.str:
+        """
+        Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+        """
+        return pulumi.get(self, "target_origin_id")
+
+    @_builtins.property
+    @pulumi.getter(name="viewerProtocolPolicy")
+    def viewer_protocol_policy(self) -> _builtins.str:
+        """
+        Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+        """
+        return pulumi.get(self, "viewer_protocol_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional['outputs.MultitenantDistributionCacheBehaviorAllowedMethods']:
+        """
+        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @_builtins.property
+    @pulumi.getter(name="cachePolicyId")
+    def cache_policy_id(self) -> Optional[_builtins.str]:
+        """
+        Unique identifier of the cache policy that is attached to the cache behavior.
+        """
+        return pulumi.get(self, "cache_policy_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def compress(self) -> Optional[_builtins.bool]:
+        """
+        Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
+        """
+        return pulumi.get(self, "compress")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldLevelEncryptionId")
+    def field_level_encryption_id(self) -> Optional[_builtins.str]:
+        """
+        Field level encryption configuration ID.
+        """
+        return pulumi.get(self, "field_level_encryption_id")
+
+    @_builtins.property
+    @pulumi.getter(name="functionAssociations")
+    def function_associations(self) -> Optional[Sequence['outputs.MultitenantDistributionCacheBehaviorFunctionAssociation']]:
+        """
+        Configuration block for CloudFront Functions associations. See Function Association below.
+        """
+        return pulumi.get(self, "function_associations")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaFunctionAssociations")
+    def lambda_function_associations(self) -> Optional[Sequence['outputs.MultitenantDistributionCacheBehaviorLambdaFunctionAssociation']]:
+        """
+        Configuration block for Lambda@Edge associations. See Lambda Function Association below.
+        """
+        return pulumi.get(self, "lambda_function_associations")
+
+    @_builtins.property
+    @pulumi.getter(name="originRequestPolicyId")
+    def origin_request_policy_id(self) -> Optional[_builtins.str]:
+        """
+        Unique identifier of the origin request policy that is attached to the behavior.
+        """
+        return pulumi.get(self, "origin_request_policy_id")
+
+    @_builtins.property
+    @pulumi.getter(name="realtimeLogConfigArn")
+    def realtime_log_config_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the real-time log configuration that is attached to this cache behavior.
+        """
+        return pulumi.get(self, "realtime_log_config_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="responseHeadersPolicyId")
+    def response_headers_policy_id(self) -> Optional[_builtins.str]:
+        """
+        Identifier for a response headers policy.
+        """
+        return pulumi.get(self, "response_headers_policy_id")
+
+    @_builtins.property
+    @pulumi.getter(name="trustedKeyGroups")
+    def trusted_key_groups(self) -> Optional['outputs.MultitenantDistributionCacheBehaviorTrustedKeyGroups']:
+        """
+        List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        """
+        return pulumi.get(self, "trusted_key_groups")
+
+
+@pulumi.output_type
+class MultitenantDistributionCacheBehaviorAllowedMethods(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachedMethods":
+            suggest = "cached_methods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionCacheBehaviorAllowedMethods. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionCacheBehaviorAllowedMethods.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionCacheBehaviorAllowedMethods.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cached_methods: Sequence[_builtins.str],
+                 items: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] cached_methods: Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+        """
+        pulumi.set(__self__, "cached_methods", cached_methods)
+        pulumi.set(__self__, "items", items)
+
+    @_builtins.property
+    @pulumi.getter(name="cachedMethods")
+    def cached_methods(self) -> Sequence[_builtins.str]:
+        """
+        Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+        """
+        return pulumi.get(self, "cached_methods")
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class MultitenantDistributionCacheBehaviorFunctionAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "functionArn":
+            suggest = "function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionCacheBehaviorFunctionAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionCacheBehaviorFunctionAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionCacheBehaviorFunctionAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_type: _builtins.str,
+                 function_arn: _builtins.str):
+        """
+        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+        :param _builtins.str function_arn: ARN of the CloudFront function.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "function_arn", function_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> _builtins.str:
+        """
+        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+        """
+        return pulumi.get(self, "event_type")
+
+    @_builtins.property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> _builtins.str:
+        """
+        ARN of the CloudFront function.
+        """
+        return pulumi.get(self, "function_arn")
+
+
+@pulumi.output_type
+class MultitenantDistributionCacheBehaviorLambdaFunctionAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "lambdaFunctionArn":
+            suggest = "lambda_function_arn"
+        elif key == "includeBody":
+            suggest = "include_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionCacheBehaviorLambdaFunctionAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionCacheBehaviorLambdaFunctionAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionCacheBehaviorLambdaFunctionAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_type: _builtins.str,
+                 lambda_function_arn: _builtins.str,
+                 include_body: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+        :param _builtins.str lambda_function_arn: ARN of the Lambda function.
+        :param _builtins.bool include_body: When set to true, the request body is exposed to the Lambda function. Default: `false`.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+        if include_body is not None:
+            pulumi.set(__self__, "include_body", include_body)
+
+    @_builtins.property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> _builtins.str:
+        """
+        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+        """
+        return pulumi.get(self, "event_type")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> _builtins.str:
+        """
+        ARN of the Lambda function.
+        """
+        return pulumi.get(self, "lambda_function_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="includeBody")
+    def include_body(self) -> Optional[_builtins.bool]:
+        """
+        When set to true, the request body is exposed to the Lambda function. Default: `false`.
+        """
+        return pulumi.get(self, "include_body")
+
+
+@pulumi.output_type
+class MultitenantDistributionCacheBehaviorTrustedKeyGroups(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None,
+                 items: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the distribution is enabled to accept end user requests for content.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class MultitenantDistributionCustomErrorResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorCachingMinTtl":
+            suggest = "error_caching_min_ttl"
+        elif key == "responseCode":
+            suggest = "response_code"
+        elif key == "responsePagePath":
+            suggest = "response_page_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionCustomErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionCustomErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionCustomErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: _builtins.int,
+                 error_caching_min_ttl: Optional[_builtins.int] = None,
+                 response_code: Optional[_builtins.str] = None,
+                 response_page_path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int error_code: HTTP status code for which you want to specify a custom error page and/or a caching duration.
+        :param _builtins.int error_caching_min_ttl: Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
+        :param _builtins.str response_code: HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+        :param _builtins.str response_page_path: Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        if error_caching_min_ttl is not None:
+            pulumi.set(__self__, "error_caching_min_ttl", error_caching_min_ttl)
+        if response_code is not None:
+            pulumi.set(__self__, "response_code", response_code)
+        if response_page_path is not None:
+            pulumi.set(__self__, "response_page_path", response_page_path)
+
+    @_builtins.property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> _builtins.int:
+        """
+        HTTP status code for which you want to specify a custom error page and/or a caching duration.
+        """
+        return pulumi.get(self, "error_code")
+
+    @_builtins.property
+    @pulumi.getter(name="errorCachingMinTtl")
+    def error_caching_min_ttl(self) -> Optional[_builtins.int]:
+        """
+        Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
+        """
+        return pulumi.get(self, "error_caching_min_ttl")
+
+    @_builtins.property
+    @pulumi.getter(name="responseCode")
+    def response_code(self) -> Optional[_builtins.str]:
+        """
+        HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+        """
+        return pulumi.get(self, "response_code")
+
+    @_builtins.property
+    @pulumi.getter(name="responsePagePath")
+    def response_page_path(self) -> Optional[_builtins.str]:
+        """
+        Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+        """
+        return pulumi.get(self, "response_page_path")
+
+
+@pulumi.output_type
+class MultitenantDistributionDefaultCacheBehavior(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetOriginId":
+            suggest = "target_origin_id"
+        elif key == "viewerProtocolPolicy":
+            suggest = "viewer_protocol_policy"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "cachePolicyId":
+            suggest = "cache_policy_id"
+        elif key == "fieldLevelEncryptionId":
+            suggest = "field_level_encryption_id"
+        elif key == "functionAssociations":
+            suggest = "function_associations"
+        elif key == "lambdaFunctionAssociations":
+            suggest = "lambda_function_associations"
+        elif key == "originRequestPolicyId":
+            suggest = "origin_request_policy_id"
+        elif key == "realtimeLogConfigArn":
+            suggest = "realtime_log_config_arn"
+        elif key == "responseHeadersPolicyId":
+            suggest = "response_headers_policy_id"
+        elif key == "trustedKeyGroups":
+            suggest = "trusted_key_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionDefaultCacheBehavior. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionDefaultCacheBehavior.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionDefaultCacheBehavior.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_origin_id: _builtins.str,
+                 viewer_protocol_policy: _builtins.str,
+                 allowed_methods: Optional['outputs.MultitenantDistributionDefaultCacheBehaviorAllowedMethods'] = None,
+                 cache_policy_id: Optional[_builtins.str] = None,
+                 compress: Optional[_builtins.bool] = None,
+                 field_level_encryption_id: Optional[_builtins.str] = None,
+                 function_associations: Optional[Sequence['outputs.MultitenantDistributionDefaultCacheBehaviorFunctionAssociation']] = None,
+                 lambda_function_associations: Optional[Sequence['outputs.MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation']] = None,
+                 origin_request_policy_id: Optional[_builtins.str] = None,
+                 realtime_log_config_arn: Optional[_builtins.str] = None,
+                 response_headers_policy_id: Optional[_builtins.str] = None,
+                 trusted_key_groups: Optional['outputs.MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups'] = None):
+        """
+        :param _builtins.str target_origin_id: Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+        :param _builtins.str viewer_protocol_policy: Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+        :param 'MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs' allowed_methods: Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+        :param _builtins.str cache_policy_id: Unique identifier of the cache policy that is attached to the cache behavior.
+        :param _builtins.bool compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
+        :param _builtins.str field_level_encryption_id: Field level encryption configuration ID.
+        :param Sequence['MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs'] function_associations: Configuration block for CloudFront Functions associations. See Function Association below.
+        :param Sequence['MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: Configuration block for Lambda@Edge associations. See Lambda Function Association below.
+        :param _builtins.str origin_request_policy_id: Unique identifier of the origin request policy that is attached to the behavior.
+        :param _builtins.str realtime_log_config_arn: ARN of the real-time log configuration that is attached to this cache behavior.
+        :param _builtins.str response_headers_policy_id: Identifier for a response headers policy.
+        :param 'MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs' trusted_key_groups: List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        """
+        pulumi.set(__self__, "target_origin_id", target_origin_id)
+        pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if cache_policy_id is not None:
+            pulumi.set(__self__, "cache_policy_id", cache_policy_id)
+        if compress is not None:
+            pulumi.set(__self__, "compress", compress)
+        if field_level_encryption_id is not None:
+            pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
+        if function_associations is not None:
+            pulumi.set(__self__, "function_associations", function_associations)
+        if lambda_function_associations is not None:
+            pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
+        if origin_request_policy_id is not None:
+            pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
+        if realtime_log_config_arn is not None:
+            pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+        if response_headers_policy_id is not None:
+            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
+        if trusted_key_groups is not None:
+            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="targetOriginId")
+    def target_origin_id(self) -> _builtins.str:
+        """
+        Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+        """
+        return pulumi.get(self, "target_origin_id")
+
+    @_builtins.property
+    @pulumi.getter(name="viewerProtocolPolicy")
+    def viewer_protocol_policy(self) -> _builtins.str:
+        """
+        Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+        """
+        return pulumi.get(self, "viewer_protocol_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional['outputs.MultitenantDistributionDefaultCacheBehaviorAllowedMethods']:
+        """
+        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @_builtins.property
+    @pulumi.getter(name="cachePolicyId")
+    def cache_policy_id(self) -> Optional[_builtins.str]:
+        """
+        Unique identifier of the cache policy that is attached to the cache behavior.
+        """
+        return pulumi.get(self, "cache_policy_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def compress(self) -> Optional[_builtins.bool]:
+        """
+        Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
+        """
+        return pulumi.get(self, "compress")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldLevelEncryptionId")
+    def field_level_encryption_id(self) -> Optional[_builtins.str]:
+        """
+        Field level encryption configuration ID.
+        """
+        return pulumi.get(self, "field_level_encryption_id")
+
+    @_builtins.property
+    @pulumi.getter(name="functionAssociations")
+    def function_associations(self) -> Optional[Sequence['outputs.MultitenantDistributionDefaultCacheBehaviorFunctionAssociation']]:
+        """
+        Configuration block for CloudFront Functions associations. See Function Association below.
+        """
+        return pulumi.get(self, "function_associations")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaFunctionAssociations")
+    def lambda_function_associations(self) -> Optional[Sequence['outputs.MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation']]:
+        """
+        Configuration block for Lambda@Edge associations. See Lambda Function Association below.
+        """
+        return pulumi.get(self, "lambda_function_associations")
+
+    @_builtins.property
+    @pulumi.getter(name="originRequestPolicyId")
+    def origin_request_policy_id(self) -> Optional[_builtins.str]:
+        """
+        Unique identifier of the origin request policy that is attached to the behavior.
+        """
+        return pulumi.get(self, "origin_request_policy_id")
+
+    @_builtins.property
+    @pulumi.getter(name="realtimeLogConfigArn")
+    def realtime_log_config_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the real-time log configuration that is attached to this cache behavior.
+        """
+        return pulumi.get(self, "realtime_log_config_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="responseHeadersPolicyId")
+    def response_headers_policy_id(self) -> Optional[_builtins.str]:
+        """
+        Identifier for a response headers policy.
+        """
+        return pulumi.get(self, "response_headers_policy_id")
+
+    @_builtins.property
+    @pulumi.getter(name="trustedKeyGroups")
+    def trusted_key_groups(self) -> Optional['outputs.MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups']:
+        """
+        List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        """
+        return pulumi.get(self, "trusted_key_groups")
+
+
+@pulumi.output_type
+class MultitenantDistributionDefaultCacheBehaviorAllowedMethods(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachedMethods":
+            suggest = "cached_methods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionDefaultCacheBehaviorAllowedMethods. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionDefaultCacheBehaviorAllowedMethods.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionDefaultCacheBehaviorAllowedMethods.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cached_methods: Sequence[_builtins.str],
+                 items: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] cached_methods: Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+        """
+        pulumi.set(__self__, "cached_methods", cached_methods)
+        pulumi.set(__self__, "items", items)
+
+    @_builtins.property
+    @pulumi.getter(name="cachedMethods")
+    def cached_methods(self) -> Sequence[_builtins.str]:
+        """
+        Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+        """
+        return pulumi.get(self, "cached_methods")
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class MultitenantDistributionDefaultCacheBehaviorFunctionAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "functionArn":
+            suggest = "function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionDefaultCacheBehaviorFunctionAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionDefaultCacheBehaviorFunctionAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionDefaultCacheBehaviorFunctionAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_type: _builtins.str,
+                 function_arn: _builtins.str):
+        """
+        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+        :param _builtins.str function_arn: ARN of the CloudFront function.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "function_arn", function_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> _builtins.str:
+        """
+        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+        """
+        return pulumi.get(self, "event_type")
+
+    @_builtins.property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> _builtins.str:
+        """
+        ARN of the CloudFront function.
+        """
+        return pulumi.get(self, "function_arn")
+
+
+@pulumi.output_type
+class MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "lambdaFunctionArn":
+            suggest = "lambda_function_arn"
+        elif key == "includeBody":
+            suggest = "include_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_type: _builtins.str,
+                 lambda_function_arn: _builtins.str,
+                 include_body: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+        :param _builtins.str lambda_function_arn: ARN of the Lambda function.
+        :param _builtins.bool include_body: When set to true, the request body is exposed to the Lambda function. Default: `false`.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+        if include_body is not None:
+            pulumi.set(__self__, "include_body", include_body)
+
+    @_builtins.property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> _builtins.str:
+        """
+        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+        """
+        return pulumi.get(self, "event_type")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> _builtins.str:
+        """
+        ARN of the Lambda function.
+        """
+        return pulumi.get(self, "lambda_function_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="includeBody")
+    def include_body(self) -> Optional[_builtins.bool]:
+        """
+        When set to true, the request body is exposed to the Lambda function. Default: `false`.
+        """
+        return pulumi.get(self, "include_body")
+
+
+@pulumi.output_type
+class MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None,
+                 items: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the distribution is enabled to accept end user requests for content.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class MultitenantDistributionOrigin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "connectionAttempts":
+            suggest = "connection_attempts"
+        elif key == "connectionTimeout":
+            suggest = "connection_timeout"
+        elif key == "customHeaders":
+            suggest = "custom_headers"
+        elif key == "customOriginConfigs":
+            suggest = "custom_origin_configs"
+        elif key == "originAccessControlId":
+            suggest = "origin_access_control_id"
+        elif key == "originPath":
+            suggest = "origin_path"
+        elif key == "originShields":
+            suggest = "origin_shields"
+        elif key == "responseCompletionTimeout":
+            suggest = "response_completion_timeout"
+        elif key == "vpcOriginConfigs":
+            suggest = "vpc_origin_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionOrigin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionOrigin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionOrigin.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: _builtins.str,
+                 id: _builtins.str,
+                 connection_attempts: Optional[_builtins.int] = None,
+                 connection_timeout: Optional[_builtins.int] = None,
+                 custom_headers: Optional[Sequence['outputs.MultitenantDistributionOriginCustomHeader']] = None,
+                 custom_origin_configs: Optional[Sequence['outputs.MultitenantDistributionOriginCustomOriginConfig']] = None,
+                 origin_access_control_id: Optional[_builtins.str] = None,
+                 origin_path: Optional[_builtins.str] = None,
+                 origin_shields: Optional[Sequence['outputs.MultitenantDistributionOriginOriginShield']] = None,
+                 response_completion_timeout: Optional[_builtins.int] = None,
+                 vpc_origin_configs: Optional[Sequence['outputs.MultitenantDistributionOriginVpcOriginConfig']] = None):
+        """
+        :param _builtins.str domain_name: DNS domain name of either the S3 bucket, or web site of your custom origin.
+        :param _builtins.str id: Identifier for the distribution.
+        :param _builtins.int connection_attempts: Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Default: 3.
+        :param _builtins.int connection_timeout: Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Default: 10.
+        :param Sequence['MultitenantDistributionOriginCustomHeaderArgs'] custom_headers: One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin. See Custom Header below.
+        :param Sequence['MultitenantDistributionOriginCustomOriginConfigArgs'] custom_origin_configs: CloudFront origin access identity to associate with the origin. See Custom Origin Config below.
+        :param _builtins.str origin_access_control_id: CloudFront origin access control identifier to associate with the origin.
+        :param _builtins.str origin_path: Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
+        :param Sequence['MultitenantDistributionOriginOriginShieldArgs'] origin_shields: CloudFront Origin Shield configuration information. See Origin Shield below.
+        :param _builtins.int response_completion_timeout: Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+        :param Sequence['MultitenantDistributionOriginVpcOriginConfigArgs'] vpc_origin_configs: CloudFront VPC origin configuration. See VPC Origin Config below.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "id", id)
+        if connection_attempts is not None:
+            pulumi.set(__self__, "connection_attempts", connection_attempts)
+        if connection_timeout is not None:
+            pulumi.set(__self__, "connection_timeout", connection_timeout)
+        if custom_headers is not None:
+            pulumi.set(__self__, "custom_headers", custom_headers)
+        if custom_origin_configs is not None:
+            pulumi.set(__self__, "custom_origin_configs", custom_origin_configs)
+        if origin_access_control_id is not None:
+            pulumi.set(__self__, "origin_access_control_id", origin_access_control_id)
+        if origin_path is not None:
+            pulumi.set(__self__, "origin_path", origin_path)
+        if origin_shields is not None:
+            pulumi.set(__self__, "origin_shields", origin_shields)
+        if response_completion_timeout is not None:
+            pulumi.set(__self__, "response_completion_timeout", response_completion_timeout)
+        if vpc_origin_configs is not None:
+            pulumi.set(__self__, "vpc_origin_configs", vpc_origin_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> _builtins.str:
+        """
+        DNS domain name of either the S3 bucket, or web site of your custom origin.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Identifier for the distribution.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionAttempts")
+    def connection_attempts(self) -> Optional[_builtins.int]:
+        """
+        Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Default: 3.
+        """
+        return pulumi.get(self, "connection_attempts")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionTimeout")
+    def connection_timeout(self) -> Optional[_builtins.int]:
+        """
+        Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Default: 10.
+        """
+        return pulumi.get(self, "connection_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="customHeaders")
+    def custom_headers(self) -> Optional[Sequence['outputs.MultitenantDistributionOriginCustomHeader']]:
+        """
+        One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin. See Custom Header below.
+        """
+        return pulumi.get(self, "custom_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="customOriginConfigs")
+    def custom_origin_configs(self) -> Optional[Sequence['outputs.MultitenantDistributionOriginCustomOriginConfig']]:
+        """
+        CloudFront origin access identity to associate with the origin. See Custom Origin Config below.
+        """
+        return pulumi.get(self, "custom_origin_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="originAccessControlId")
+    def origin_access_control_id(self) -> Optional[_builtins.str]:
+        """
+        CloudFront origin access control identifier to associate with the origin.
+        """
+        return pulumi.get(self, "origin_access_control_id")
+
+    @_builtins.property
+    @pulumi.getter(name="originPath")
+    def origin_path(self) -> Optional[_builtins.str]:
+        """
+        Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
+        """
+        return pulumi.get(self, "origin_path")
+
+    @_builtins.property
+    @pulumi.getter(name="originShields")
+    def origin_shields(self) -> Optional[Sequence['outputs.MultitenantDistributionOriginOriginShield']]:
+        """
+        CloudFront Origin Shield configuration information. See Origin Shield below.
+        """
+        return pulumi.get(self, "origin_shields")
+
+    @_builtins.property
+    @pulumi.getter(name="responseCompletionTimeout")
+    def response_completion_timeout(self) -> Optional[_builtins.int]:
+        """
+        Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+        """
+        return pulumi.get(self, "response_completion_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcOriginConfigs")
+    def vpc_origin_configs(self) -> Optional[Sequence['outputs.MultitenantDistributionOriginVpcOriginConfig']]:
+        """
+        CloudFront VPC origin configuration. See VPC Origin Config below.
+        """
+        return pulumi.get(self, "vpc_origin_configs")
+
+
+@pulumi.output_type
+class MultitenantDistributionOriginCustomHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+        elif key == "headerValue":
+            suggest = "header_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionOriginCustomHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionOriginCustomHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionOriginCustomHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: _builtins.str,
+                 header_value: _builtins.str):
+        """
+        :param _builtins.str header_name: Name of the header.
+        :param _builtins.str header_value: Value for the header.
+        """
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "header_value", header_value)
+
+    @_builtins.property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> _builtins.str:
+        """
+        Name of the header.
+        """
+        return pulumi.get(self, "header_name")
+
+    @_builtins.property
+    @pulumi.getter(name="headerValue")
+    def header_value(self) -> _builtins.str:
+        """
+        Value for the header.
+        """
+        return pulumi.get(self, "header_value")
+
+
+@pulumi.output_type
+class MultitenantDistributionOriginCustomOriginConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpPort":
+            suggest = "http_port"
+        elif key == "httpsPort":
+            suggest = "https_port"
+        elif key == "originProtocolPolicy":
+            suggest = "origin_protocol_policy"
+        elif key == "originSslProtocols":
+            suggest = "origin_ssl_protocols"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
+        elif key == "originKeepaliveTimeout":
+            suggest = "origin_keepalive_timeout"
+        elif key == "originReadTimeout":
+            suggest = "origin_read_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionOriginCustomOriginConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionOriginCustomOriginConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionOriginCustomOriginConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http_port: _builtins.int,
+                 https_port: _builtins.int,
+                 origin_protocol_policy: _builtins.str,
+                 origin_ssl_protocols: Sequence[_builtins.str],
+                 ip_address_type: Optional[_builtins.str] = None,
+                 origin_keepalive_timeout: Optional[_builtins.int] = None,
+                 origin_read_timeout: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int http_port: HTTP port the custom origin listens on.
+        :param _builtins.int https_port: HTTPS port the custom origin listens on.
+        :param _builtins.str origin_protocol_policy: Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
+        :param Sequence[_builtins.str] origin_ssl_protocols: List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
+        :param _builtins.str ip_address_type: Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
+        :param _builtins.int origin_keepalive_timeout: Custom keep-alive timeout, in seconds. Default: 5.
+        :param _builtins.int origin_read_timeout: Custom read timeout, in seconds. Default: 30.
+        """
+        pulumi.set(__self__, "http_port", http_port)
+        pulumi.set(__self__, "https_port", https_port)
+        pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
+        pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if origin_keepalive_timeout is not None:
+            pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
+        if origin_read_timeout is not None:
+            pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
+
+    @_builtins.property
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> _builtins.int:
+        """
+        HTTP port the custom origin listens on.
+        """
+        return pulumi.get(self, "http_port")
+
+    @_builtins.property
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> _builtins.int:
+        """
+        HTTPS port the custom origin listens on.
+        """
+        return pulumi.get(self, "https_port")
+
+    @_builtins.property
+    @pulumi.getter(name="originProtocolPolicy")
+    def origin_protocol_policy(self) -> _builtins.str:
+        """
+        Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
+        """
+        return pulumi.get(self, "origin_protocol_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="originSslProtocols")
+    def origin_ssl_protocols(self) -> Sequence[_builtins.str]:
+        """
+        List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
+        """
+        return pulumi.get(self, "origin_ssl_protocols")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[_builtins.str]:
+        """
+        Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="originKeepaliveTimeout")
+    def origin_keepalive_timeout(self) -> Optional[_builtins.int]:
+        """
+        Custom keep-alive timeout, in seconds. Default: 5.
+        """
+        return pulumi.get(self, "origin_keepalive_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="originReadTimeout")
+    def origin_read_timeout(self) -> Optional[_builtins.int]:
+        """
+        Custom read timeout, in seconds. Default: 30.
+        """
+        return pulumi.get(self, "origin_read_timeout")
+
+
+@pulumi.output_type
+class MultitenantDistributionOriginGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "originId":
+            suggest = "origin_id"
+        elif key == "failoverCriteria":
+            suggest = "failover_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionOriginGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionOriginGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionOriginGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 origin_id: _builtins.str,
+                 failover_criteria: Optional['outputs.MultitenantDistributionOriginGroupFailoverCriteria'] = None,
+                 members: Optional[Sequence['outputs.MultitenantDistributionOriginGroupMember']] = None):
+        """
+        :param _builtins.str origin_id: Unique identifier for the origin group.
+        :param 'MultitenantDistributionOriginGroupFailoverCriteriaArgs' failover_criteria: Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
+        :param Sequence['MultitenantDistributionOriginGroupMemberArgs'] members: List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
+        """
+        pulumi.set(__self__, "origin_id", origin_id)
+        if failover_criteria is not None:
+            pulumi.set(__self__, "failover_criteria", failover_criteria)
+        if members is not None:
+            pulumi.set(__self__, "members", members)
+
+    @_builtins.property
+    @pulumi.getter(name="originId")
+    def origin_id(self) -> _builtins.str:
+        """
+        Unique identifier for the origin group.
+        """
+        return pulumi.get(self, "origin_id")
+
+    @_builtins.property
+    @pulumi.getter(name="failoverCriteria")
+    def failover_criteria(self) -> Optional['outputs.MultitenantDistributionOriginGroupFailoverCriteria']:
+        """
+        Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
+        """
+        return pulumi.get(self, "failover_criteria")
+
+    @_builtins.property
+    @pulumi.getter
+    def members(self) -> Optional[Sequence['outputs.MultitenantDistributionOriginGroupMember']]:
+        """
+        List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
+        """
+        return pulumi.get(self, "members")
+
+
+@pulumi.output_type
+class MultitenantDistributionOriginGroupFailoverCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCodes":
+            suggest = "status_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionOriginGroupFailoverCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionOriginGroupFailoverCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionOriginGroupFailoverCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status_codes: Sequence[_builtins.int]):
+        """
+        :param Sequence[_builtins.int] status_codes: List of HTTP status codes that trigger a failover to the secondary origin.
+        """
+        pulumi.set(__self__, "status_codes", status_codes)
+
+    @_builtins.property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Sequence[_builtins.int]:
+        """
+        List of HTTP status codes that trigger a failover to the secondary origin.
+        """
+        return pulumi.get(self, "status_codes")
+
+
+@pulumi.output_type
+class MultitenantDistributionOriginGroupMember(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "originId":
+            suggest = "origin_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionOriginGroupMember. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionOriginGroupMember.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionOriginGroupMember.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 origin_id: _builtins.str):
+        pulumi.set(__self__, "origin_id", origin_id)
+
+    @_builtins.property
+    @pulumi.getter(name="originId")
+    def origin_id(self) -> _builtins.str:
+        return pulumi.get(self, "origin_id")
+
+
+@pulumi.output_type
+class MultitenantDistributionOriginOriginShield(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "originShieldRegion":
+            suggest = "origin_shield_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionOriginOriginShield. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionOriginOriginShield.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionOriginOriginShield.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 origin_shield_region: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Whether Origin Shield is enabled.
+        :param _builtins.str origin_shield_region: AWS Region for Origin Shield. Required when `enabled` is `true`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if origin_shield_region is not None:
+            pulumi.set(__self__, "origin_shield_region", origin_shield_region)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether Origin Shield is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="originShieldRegion")
+    def origin_shield_region(self) -> Optional[_builtins.str]:
+        """
+        AWS Region for Origin Shield. Required when `enabled` is `true`.
+        """
+        return pulumi.get(self, "origin_shield_region")
+
+
+@pulumi.output_type
+class MultitenantDistributionOriginVpcOriginConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcOriginId":
+            suggest = "vpc_origin_id"
+        elif key == "originKeepaliveTimeout":
+            suggest = "origin_keepalive_timeout"
+        elif key == "originReadTimeout":
+            suggest = "origin_read_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionOriginVpcOriginConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionOriginVpcOriginConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionOriginVpcOriginConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_origin_id: _builtins.str,
+                 origin_keepalive_timeout: Optional[_builtins.int] = None,
+                 origin_read_timeout: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str vpc_origin_id: ID of the VPC origin that you want CloudFront to route requests to.
+        :param _builtins.int origin_keepalive_timeout: Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
+        :param _builtins.int origin_read_timeout: Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
+        """
+        pulumi.set(__self__, "vpc_origin_id", vpc_origin_id)
+        if origin_keepalive_timeout is not None:
+            pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
+        if origin_read_timeout is not None:
+            pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcOriginId")
+    def vpc_origin_id(self) -> _builtins.str:
+        """
+        ID of the VPC origin that you want CloudFront to route requests to.
+        """
+        return pulumi.get(self, "vpc_origin_id")
+
+    @_builtins.property
+    @pulumi.getter(name="originKeepaliveTimeout")
+    def origin_keepalive_timeout(self) -> Optional[_builtins.int]:
+        """
+        Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
+        """
+        return pulumi.get(self, "origin_keepalive_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="originReadTimeout")
+    def origin_read_timeout(self) -> Optional[_builtins.int]:
+        """
+        Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
+        """
+        return pulumi.get(self, "origin_read_timeout")
+
+
+@pulumi.output_type
+class MultitenantDistributionRestrictions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "geoRestriction":
+            suggest = "geo_restriction"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionRestrictions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionRestrictions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionRestrictions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 geo_restriction: Optional['outputs.MultitenantDistributionRestrictionsGeoRestriction'] = None):
+        """
+        :param 'MultitenantDistributionRestrictionsGeoRestrictionArgs' geo_restriction: Geographic restriction configuration. See Geo Restriction below.
+        """
+        if geo_restriction is not None:
+            pulumi.set(__self__, "geo_restriction", geo_restriction)
+
+    @_builtins.property
+    @pulumi.getter(name="geoRestriction")
+    def geo_restriction(self) -> Optional['outputs.MultitenantDistributionRestrictionsGeoRestriction']:
+        """
+        Geographic restriction configuration. See Geo Restriction below.
+        """
+        return pulumi.get(self, "geo_restriction")
+
+
+@pulumi.output_type
+class MultitenantDistributionRestrictionsGeoRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictionType":
+            suggest = "restriction_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionRestrictionsGeoRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionRestrictionsGeoRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionRestrictionsGeoRestriction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 restriction_type: _builtins.str,
+                 items: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str restriction_type: Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
+        :param Sequence[_builtins.str] items: List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restriction_type` is `whitelist` or `blacklist`.
+        """
+        pulumi.set(__self__, "restriction_type", restriction_type)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @_builtins.property
+    @pulumi.getter(name="restrictionType")
+    def restriction_type(self) -> _builtins.str:
+        """
+        Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
+        """
+        return pulumi.get(self, "restriction_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restriction_type` is `whitelist` or `blacklist`.
+        """
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class MultitenantDistributionTenantConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterDefinitions":
+            suggest = "parameter_definitions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionTenantConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionTenantConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionTenantConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_definitions: Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinition']] = None):
+        """
+        :param Sequence['MultitenantDistributionTenantConfigParameterDefinitionArgs'] parameter_definitions: One or more parameter definitions for the tenant configuration. See Parameter Definition below.
+        """
+        if parameter_definitions is not None:
+            pulumi.set(__self__, "parameter_definitions", parameter_definitions)
+
+    @_builtins.property
+    @pulumi.getter(name="parameterDefinitions")
+    def parameter_definitions(self) -> Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinition']]:
+        """
+        One or more parameter definitions for the tenant configuration. See Parameter Definition below.
+        """
+        return pulumi.get(self, "parameter_definitions")
+
+
+@pulumi.output_type
+class MultitenantDistributionTenantConfigParameterDefinition(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 definitions: Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinitionDefinition']] = None):
+        """
+        :param _builtins.str name: Name of the parameter.
+        :param Sequence['MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs'] definitions: Definition of the parameter schema. See Parameter Definition Schema below.
+        """
+        pulumi.set(__self__, "name", name)
+        if definitions is not None:
+            pulumi.set(__self__, "definitions", definitions)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def definitions(self) -> Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinitionDefinition']]:
+        """
+        Definition of the parameter schema. See Parameter Definition Schema below.
+        """
+        return pulumi.get(self, "definitions")
+
+
+@pulumi.output_type
+class MultitenantDistributionTenantConfigParameterDefinitionDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringSchemas":
+            suggest = "string_schemas"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionTenantConfigParameterDefinitionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionTenantConfigParameterDefinitionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionTenantConfigParameterDefinitionDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_schemas: Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema']] = None):
+        """
+        :param Sequence['MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs'] string_schemas: String schema configuration. See String Schema below.
+        """
+        if string_schemas is not None:
+            pulumi.set(__self__, "string_schemas", string_schemas)
+
+    @_builtins.property
+    @pulumi.getter(name="stringSchemas")
+    def string_schemas(self) -> Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema']]:
+        """
+        String schema configuration. See String Schema below.
+        """
+        return pulumi.get(self, "string_schemas")
+
+
+@pulumi.output_type
+class MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 required: _builtins.bool,
+                 comment: Optional[_builtins.str] = None,
+                 default_value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool required: Whether the parameter is required.
+        :param _builtins.str comment: Comment describing the parameter.
+        :param _builtins.str default_value: Default value for the parameter.
+        """
+        pulumi.set(__self__, "required", required)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> _builtins.bool:
+        """
+        Whether the parameter is required.
+        """
+        return pulumi.get(self, "required")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Comment describing the parameter.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[_builtins.str]:
+        """
+        Default value for the parameter.
+        """
+        return pulumi.get(self, "default_value")
+
+
+@pulumi.output_type
+class MultitenantDistributionTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class MultitenantDistributionViewerCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acmCertificateArn":
+            suggest = "acm_certificate_arn"
+        elif key == "cloudfrontDefaultCertificate":
+            suggest = "cloudfront_default_certificate"
+        elif key == "minimumProtocolVersion":
+            suggest = "minimum_protocol_version"
+        elif key == "sslSupportMethod":
+            suggest = "ssl_support_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionViewerCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionViewerCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionViewerCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 acm_certificate_arn: Optional[_builtins.str] = None,
+                 cloudfront_default_certificate: Optional[_builtins.bool] = None,
+                 minimum_protocol_version: Optional[_builtins.str] = None,
+                 ssl_support_method: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str acm_certificate_arn: ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
+        :param _builtins.bool cloudfront_default_certificate: Whether to use the CloudFront default certificate. Cannot be used with `acm_certificate_arn`.
+        :param _builtins.str minimum_protocol_version: Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
+        :param _builtins.str ssl_support_method: How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acm_certificate_arn` is specified.
+        """
+        if acm_certificate_arn is not None:
+            pulumi.set(__self__, "acm_certificate_arn", acm_certificate_arn)
+        if cloudfront_default_certificate is not None:
+            pulumi.set(__self__, "cloudfront_default_certificate", cloudfront_default_certificate)
+        if minimum_protocol_version is not None:
+            pulumi.set(__self__, "minimum_protocol_version", minimum_protocol_version)
+        if ssl_support_method is not None:
+            pulumi.set(__self__, "ssl_support_method", ssl_support_method)
+
+    @_builtins.property
+    @pulumi.getter(name="acmCertificateArn")
+    def acm_certificate_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
+        """
+        return pulumi.get(self, "acm_certificate_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudfrontDefaultCertificate")
+    def cloudfront_default_certificate(self) -> Optional[_builtins.bool]:
+        """
+        Whether to use the CloudFront default certificate. Cannot be used with `acm_certificate_arn`.
+        """
+        return pulumi.get(self, "cloudfront_default_certificate")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumProtocolVersion")
+    def minimum_protocol_version(self) -> Optional[_builtins.str]:
+        """
+        Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
+        """
+        return pulumi.get(self, "minimum_protocol_version")
+
+    @_builtins.property
+    @pulumi.getter(name="sslSupportMethod")
+    def ssl_support_method(self) -> Optional[_builtins.str]:
+        """
+        How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acm_certificate_arn` is specified.
+        """
+        return pulumi.get(self, "ssl_support_method")
 
 
 @pulumi.output_type
@@ -4634,6 +7126,172 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQu
         List of item names (`cookies`, `headers`, or `query_strings`).
         """
         return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class GetDistributionTenantCustomizationResult(dict):
+    def __init__(__self__, *,
+                 certificates: Sequence['outputs.GetDistributionTenantCustomizationCertificateResult'],
+                 geo_restrictions: Sequence['outputs.GetDistributionTenantCustomizationGeoRestrictionResult'],
+                 web_acls: Sequence['outputs.GetDistributionTenantCustomizationWebAclResult']):
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "geo_restrictions", geo_restrictions)
+        pulumi.set(__self__, "web_acls", web_acls)
+
+    @_builtins.property
+    @pulumi.getter
+    def certificates(self) -> Sequence['outputs.GetDistributionTenantCustomizationCertificateResult']:
+        return pulumi.get(self, "certificates")
+
+    @_builtins.property
+    @pulumi.getter(name="geoRestrictions")
+    def geo_restrictions(self) -> Sequence['outputs.GetDistributionTenantCustomizationGeoRestrictionResult']:
+        return pulumi.get(self, "geo_restrictions")
+
+    @_builtins.property
+    @pulumi.getter(name="webAcls")
+    def web_acls(self) -> Sequence['outputs.GetDistributionTenantCustomizationWebAclResult']:
+        return pulumi.get(self, "web_acls")
+
+
+@pulumi.output_type
+class GetDistributionTenantCustomizationCertificateResult(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str):
+        """
+        :param _builtins.str arn: ARN (Amazon Resource Name) for the distribution tenant.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN (Amazon Resource Name) for the distribution tenant.
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class GetDistributionTenantCustomizationGeoRestrictionResult(dict):
+    def __init__(__self__, *,
+                 locations: Sequence[_builtins.str],
+                 restriction_type: _builtins.str):
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "restriction_type", restriction_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "locations")
+
+    @_builtins.property
+    @pulumi.getter(name="restrictionType")
+    def restriction_type(self) -> _builtins.str:
+        return pulumi.get(self, "restriction_type")
+
+
+@pulumi.output_type
+class GetDistributionTenantCustomizationWebAclResult(dict):
+    def __init__(__self__, *,
+                 action: _builtins.str,
+                 arn: _builtins.str):
+        """
+        :param _builtins.str arn: ARN (Amazon Resource Name) for the distribution tenant.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> _builtins.str:
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN (Amazon Resource Name) for the distribution tenant.
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class GetDistributionTenantDomainResult(dict):
+    def __init__(__self__, *,
+                 domain: _builtins.str,
+                 status: _builtins.str):
+        """
+        :param _builtins.str domain: An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
+        :param _builtins.str status: Current status of the distribution tenant. `Deployed` if the
+               distribution tenant's information is fully propagated throughout the Amazon
+               CloudFront system.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Current status of the distribution tenant. `Deployed` if the
+        distribution tenant's information is fully propagated throughout the Amazon
+        CloudFront system.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetDistributionTenantManagedCertificateRequestResult(dict):
+    def __init__(__self__, *,
+                 certificate_transparency_logging_preference: _builtins.str,
+                 primary_domain_name: _builtins.str,
+                 validation_token_host: _builtins.str):
+        pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
+        pulumi.set(__self__, "primary_domain_name", primary_domain_name)
+        pulumi.set(__self__, "validation_token_host", validation_token_host)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateTransparencyLoggingPreference")
+    def certificate_transparency_logging_preference(self) -> _builtins.str:
+        return pulumi.get(self, "certificate_transparency_logging_preference")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryDomainName")
+    def primary_domain_name(self) -> _builtins.str:
+        return pulumi.get(self, "primary_domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="validationTokenHost")
+    def validation_token_host(self) -> _builtins.str:
+        return pulumi.get(self, "validation_token_host")
+
+
+@pulumi.output_type
+class GetDistributionTenantParameterResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -3247,6 +3247,143 @@ func (o ImageImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+type ImageLoggingConfiguration struct {
+	// Name of the CloudWatch Log Group to send logs to.
+	LogGroupName string `pulumi:"logGroupName"`
+}
+
+// ImageLoggingConfigurationInput is an input type that accepts ImageLoggingConfigurationArgs and ImageLoggingConfigurationOutput values.
+// You can construct a concrete instance of `ImageLoggingConfigurationInput` via:
+//
+//	ImageLoggingConfigurationArgs{...}
+type ImageLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToImageLoggingConfigurationOutput() ImageLoggingConfigurationOutput
+	ToImageLoggingConfigurationOutputWithContext(context.Context) ImageLoggingConfigurationOutput
+}
+
+type ImageLoggingConfigurationArgs struct {
+	// Name of the CloudWatch Log Group to send logs to.
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
+}
+
+func (ImageLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageLoggingConfiguration)(nil)).Elem()
+}
+
+func (i ImageLoggingConfigurationArgs) ToImageLoggingConfigurationOutput() ImageLoggingConfigurationOutput {
+	return i.ToImageLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImageLoggingConfigurationArgs) ToImageLoggingConfigurationOutputWithContext(ctx context.Context) ImageLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageLoggingConfigurationOutput)
+}
+
+func (i ImageLoggingConfigurationArgs) ToImageLoggingConfigurationPtrOutput() ImageLoggingConfigurationPtrOutput {
+	return i.ToImageLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImageLoggingConfigurationArgs) ToImageLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImageLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageLoggingConfigurationOutput).ToImageLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImageLoggingConfigurationPtrInput is an input type that accepts ImageLoggingConfigurationArgs, ImageLoggingConfigurationPtr and ImageLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImageLoggingConfigurationPtrInput` via:
+//
+//	        ImageLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImageLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImageLoggingConfigurationPtrOutput() ImageLoggingConfigurationPtrOutput
+	ToImageLoggingConfigurationPtrOutputWithContext(context.Context) ImageLoggingConfigurationPtrOutput
+}
+
+type imageLoggingConfigurationPtrType ImageLoggingConfigurationArgs
+
+func ImageLoggingConfigurationPtr(v *ImageLoggingConfigurationArgs) ImageLoggingConfigurationPtrInput {
+	return (*imageLoggingConfigurationPtrType)(v)
+}
+
+func (*imageLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *imageLoggingConfigurationPtrType) ToImageLoggingConfigurationPtrOutput() ImageLoggingConfigurationPtrOutput {
+	return i.ToImageLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imageLoggingConfigurationPtrType) ToImageLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImageLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageLoggingConfigurationPtrOutput)
+}
+
+type ImageLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImageLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ImageLoggingConfigurationOutput) ToImageLoggingConfigurationOutput() ImageLoggingConfigurationOutput {
+	return o
+}
+
+func (o ImageLoggingConfigurationOutput) ToImageLoggingConfigurationOutputWithContext(ctx context.Context) ImageLoggingConfigurationOutput {
+	return o
+}
+
+func (o ImageLoggingConfigurationOutput) ToImageLoggingConfigurationPtrOutput() ImageLoggingConfigurationPtrOutput {
+	return o.ToImageLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImageLoggingConfigurationOutput) ToImageLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImageLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageLoggingConfiguration) *ImageLoggingConfiguration {
+		return &v
+	}).(ImageLoggingConfigurationPtrOutput)
+}
+
+// Name of the CloudWatch Log Group to send logs to.
+func (o ImageLoggingConfigurationOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageLoggingConfiguration) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+type ImageLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ImageLoggingConfigurationPtrOutput) ToImageLoggingConfigurationPtrOutput() ImageLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageLoggingConfigurationPtrOutput) ToImageLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImageLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageLoggingConfigurationPtrOutput) Elem() ImageLoggingConfigurationOutput {
+	return o.ApplyT(func(v *ImageLoggingConfiguration) ImageLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImageLoggingConfiguration
+		return ret
+	}).(ImageLoggingConfigurationOutput)
+}
+
+// Name of the CloudWatch Log Group to send logs to.
+func (o ImageLoggingConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
 type ImageOutputResource struct {
 	// Set of objects with each Amazon Machine Image (AMI) created.
 	Amis []ImageOutputResourceAmi `pulumi:"amis"`
@@ -4056,6 +4193,162 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.I
 		}
 		return v.TimeoutMinutes
 	}).(pulumi.IntPtrOutput)
+}
+
+type ImagePipelineLoggingConfiguration struct {
+	// Name of the CloudWatch Log Group to send image logs to.
+	ImageLogGroupName *string `pulumi:"imageLogGroupName"`
+	// Name of the CloudWatch Log Group to send pipeline logs to.
+	PipelineLogGroupName *string `pulumi:"pipelineLogGroupName"`
+}
+
+// ImagePipelineLoggingConfigurationInput is an input type that accepts ImagePipelineLoggingConfigurationArgs and ImagePipelineLoggingConfigurationOutput values.
+// You can construct a concrete instance of `ImagePipelineLoggingConfigurationInput` via:
+//
+//	ImagePipelineLoggingConfigurationArgs{...}
+type ImagePipelineLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToImagePipelineLoggingConfigurationOutput() ImagePipelineLoggingConfigurationOutput
+	ToImagePipelineLoggingConfigurationOutputWithContext(context.Context) ImagePipelineLoggingConfigurationOutput
+}
+
+type ImagePipelineLoggingConfigurationArgs struct {
+	// Name of the CloudWatch Log Group to send image logs to.
+	ImageLogGroupName pulumi.StringPtrInput `pulumi:"imageLogGroupName"`
+	// Name of the CloudWatch Log Group to send pipeline logs to.
+	PipelineLogGroupName pulumi.StringPtrInput `pulumi:"pipelineLogGroupName"`
+}
+
+func (ImagePipelineLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineLoggingConfiguration)(nil)).Elem()
+}
+
+func (i ImagePipelineLoggingConfigurationArgs) ToImagePipelineLoggingConfigurationOutput() ImagePipelineLoggingConfigurationOutput {
+	return i.ToImagePipelineLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineLoggingConfigurationArgs) ToImagePipelineLoggingConfigurationOutputWithContext(ctx context.Context) ImagePipelineLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineLoggingConfigurationOutput)
+}
+
+func (i ImagePipelineLoggingConfigurationArgs) ToImagePipelineLoggingConfigurationPtrOutput() ImagePipelineLoggingConfigurationPtrOutput {
+	return i.ToImagePipelineLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineLoggingConfigurationArgs) ToImagePipelineLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineLoggingConfigurationOutput).ToImagePipelineLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImagePipelineLoggingConfigurationPtrInput is an input type that accepts ImagePipelineLoggingConfigurationArgs, ImagePipelineLoggingConfigurationPtr and ImagePipelineLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImagePipelineLoggingConfigurationPtrInput` via:
+//
+//	        ImagePipelineLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImagePipelineLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineLoggingConfigurationPtrOutput() ImagePipelineLoggingConfigurationPtrOutput
+	ToImagePipelineLoggingConfigurationPtrOutputWithContext(context.Context) ImagePipelineLoggingConfigurationPtrOutput
+}
+
+type imagePipelineLoggingConfigurationPtrType ImagePipelineLoggingConfigurationArgs
+
+func ImagePipelineLoggingConfigurationPtr(v *ImagePipelineLoggingConfigurationArgs) ImagePipelineLoggingConfigurationPtrInput {
+	return (*imagePipelineLoggingConfigurationPtrType)(v)
+}
+
+func (*imagePipelineLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *imagePipelineLoggingConfigurationPtrType) ToImagePipelineLoggingConfigurationPtrOutput() ImagePipelineLoggingConfigurationPtrOutput {
+	return i.ToImagePipelineLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineLoggingConfigurationPtrType) ToImagePipelineLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineLoggingConfigurationPtrOutput)
+}
+
+type ImagePipelineLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineLoggingConfigurationOutput) ToImagePipelineLoggingConfigurationOutput() ImagePipelineLoggingConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineLoggingConfigurationOutput) ToImagePipelineLoggingConfigurationOutputWithContext(ctx context.Context) ImagePipelineLoggingConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineLoggingConfigurationOutput) ToImagePipelineLoggingConfigurationPtrOutput() ImagePipelineLoggingConfigurationPtrOutput {
+	return o.ToImagePipelineLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineLoggingConfigurationOutput) ToImagePipelineLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineLoggingConfiguration) *ImagePipelineLoggingConfiguration {
+		return &v
+	}).(ImagePipelineLoggingConfigurationPtrOutput)
+}
+
+// Name of the CloudWatch Log Group to send image logs to.
+func (o ImagePipelineLoggingConfigurationOutput) ImageLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineLoggingConfiguration) *string { return v.ImageLogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the CloudWatch Log Group to send pipeline logs to.
+func (o ImagePipelineLoggingConfigurationOutput) PipelineLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineLoggingConfiguration) *string { return v.PipelineLogGroupName }).(pulumi.StringPtrOutput)
+}
+
+type ImagePipelineLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineLoggingConfigurationPtrOutput) ToImagePipelineLoggingConfigurationPtrOutput() ImagePipelineLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineLoggingConfigurationPtrOutput) ToImagePipelineLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineLoggingConfigurationPtrOutput) Elem() ImagePipelineLoggingConfigurationOutput {
+	return o.ApplyT(func(v *ImagePipelineLoggingConfiguration) ImagePipelineLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineLoggingConfiguration
+		return ret
+	}).(ImagePipelineLoggingConfigurationOutput)
+}
+
+// Name of the CloudWatch Log Group to send image logs to.
+func (o ImagePipelineLoggingConfigurationPtrOutput) ImageLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageLogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the CloudWatch Log Group to send pipeline logs to.
+func (o ImagePipelineLoggingConfigurationPtrOutput) PipelineLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineLogGroupName
+	}).(pulumi.StringPtrOutput)
 }
 
 type ImagePipelineSchedule struct {
@@ -12379,6 +12672,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageScanningConfigurationEcrConfigurationPtrInput)(nil)).Elem(), ImageImageScanningConfigurationEcrConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageTestsConfigurationInput)(nil)).Elem(), ImageImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageTestsConfigurationPtrInput)(nil)).Elem(), ImageImageTestsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageLoggingConfigurationInput)(nil)).Elem(), ImageLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageLoggingConfigurationPtrInput)(nil)).Elem(), ImageLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceInput)(nil)).Elem(), ImageOutputResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceArrayInput)(nil)).Elem(), ImageOutputResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceAmiInput)(nil)).Elem(), ImageOutputResourceAmiArgs{})
@@ -12391,6 +12686,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationEcrConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineLoggingConfigurationInput)(nil)).Elem(), ImagePipelineLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineLoggingConfigurationPtrInput)(nil)).Elem(), ImagePipelineLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScheduleInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineSchedulePtrInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineWorkflowInput)(nil)).Elem(), ImagePipelineWorkflowArgs{})
@@ -12559,6 +12856,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageImageScanningConfigurationEcrConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageImageTestsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImageLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(ImageLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageOutputResourceOutput{})
 	pulumi.RegisterOutputType(ImageOutputResourceArrayOutput{})
 	pulumi.RegisterOutputType(ImageOutputResourceAmiOutput{})
@@ -12571,6 +12870,8 @@ func init() {
 	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(ImagePipelineLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
 	pulumi.RegisterOutputType(ImagePipelineSchedulePtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineWorkflowOutput{})

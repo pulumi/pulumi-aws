@@ -739,6 +739,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly int ReservedConcurrentExecutions;
         /// <summary>
+        /// ARN to be used for invoking Lambda Function from API Gateway with response streaming.
+        /// </summary>
+        public readonly string ResponseStreamingInvokeArn;
+        /// <summary>
         /// IAM role attached to the Lambda Function.
         /// </summary>
         public readonly string Role;
@@ -845,6 +849,8 @@ namespace Pulumi.Aws.Lambda
 
             int reservedConcurrentExecutions,
 
+            string responseStreamingInvokeArn,
+
             string role,
 
             string runtime,
@@ -897,6 +903,7 @@ namespace Pulumi.Aws.Lambda
             Qualifier = qualifier;
             Region = region;
             ReservedConcurrentExecutions = reservedConcurrentExecutions;
+            ResponseStreamingInvokeArn = responseStreamingInvokeArn;
             Role = role;
             Runtime = runtime;
             SigningJobArn = signingJobArn;

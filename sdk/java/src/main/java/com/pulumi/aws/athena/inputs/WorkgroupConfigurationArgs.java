@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.athena.inputs;
 
+import com.pulumi.aws.athena.inputs.WorkgroupConfigurationCustomerContentEncryptionConfigurationArgs;
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationEngineVersionArgs;
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationIdentityCenterConfigurationArgs;
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationManagedQueryResultsConfigurationArgs;
+import com.pulumi.aws.athena.inputs.WorkgroupConfigurationMonitoringConfigurationArgs;
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -34,6 +36,36 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<Integer>> bytesScannedCutoffPerQuery() {
         return Optional.ofNullable(this.bytesScannedCutoffPerQuery);
+    }
+
+    /**
+     * Configuration block to specify the KMS key that is used to encrypt the user&#39;s data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+     * 
+     */
+    @Import(name="customerContentEncryptionConfiguration")
+    private @Nullable Output<WorkgroupConfigurationCustomerContentEncryptionConfigurationArgs> customerContentEncryptionConfiguration;
+
+    /**
+     * @return Configuration block to specify the KMS key that is used to encrypt the user&#39;s data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+     * 
+     */
+    public Optional<Output<WorkgroupConfigurationCustomerContentEncryptionConfigurationArgs>> customerContentEncryptionConfiguration() {
+        return Optional.ofNullable(this.customerContentEncryptionConfiguration);
+    }
+
+    /**
+     * Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
+     * 
+     */
+    @Import(name="enableMinimumEncryptionConfiguration")
+    private @Nullable Output<Boolean> enableMinimumEncryptionConfiguration;
+
+    /**
+     * @return Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
+     * 
+     */
+    public Optional<Output<Boolean>> enableMinimumEncryptionConfiguration() {
+        return Optional.ofNullable(this.enableMinimumEncryptionConfiguration);
     }
 
     /**
@@ -112,6 +144,21 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
+     * 
+     */
+    @Import(name="monitoringConfiguration")
+    private @Nullable Output<WorkgroupConfigurationMonitoringConfigurationArgs> monitoringConfiguration;
+
+    /**
+     * @return Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
+     * 
+     */
+    public Optional<Output<WorkgroupConfigurationMonitoringConfigurationArgs>> monitoringConfiguration() {
+        return Optional.ofNullable(this.monitoringConfiguration);
+    }
+
+    /**
      * Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
      */
@@ -160,11 +207,14 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
 
     private WorkgroupConfigurationArgs(WorkgroupConfigurationArgs $) {
         this.bytesScannedCutoffPerQuery = $.bytesScannedCutoffPerQuery;
+        this.customerContentEncryptionConfiguration = $.customerContentEncryptionConfiguration;
+        this.enableMinimumEncryptionConfiguration = $.enableMinimumEncryptionConfiguration;
         this.enforceWorkgroupConfiguration = $.enforceWorkgroupConfiguration;
         this.engineVersion = $.engineVersion;
         this.executionRole = $.executionRole;
         this.identityCenterConfiguration = $.identityCenterConfiguration;
         this.managedQueryResultsConfiguration = $.managedQueryResultsConfiguration;
+        this.monitoringConfiguration = $.monitoringConfiguration;
         this.publishCloudwatchMetricsEnabled = $.publishCloudwatchMetricsEnabled;
         this.requesterPaysEnabled = $.requesterPaysEnabled;
         this.resultConfiguration = $.resultConfiguration;
@@ -207,6 +257,48 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
          */
         public Builder bytesScannedCutoffPerQuery(Integer bytesScannedCutoffPerQuery) {
             return bytesScannedCutoffPerQuery(Output.of(bytesScannedCutoffPerQuery));
+        }
+
+        /**
+         * @param customerContentEncryptionConfiguration Configuration block to specify the KMS key that is used to encrypt the user&#39;s data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerContentEncryptionConfiguration(@Nullable Output<WorkgroupConfigurationCustomerContentEncryptionConfigurationArgs> customerContentEncryptionConfiguration) {
+            $.customerContentEncryptionConfiguration = customerContentEncryptionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param customerContentEncryptionConfiguration Configuration block to specify the KMS key that is used to encrypt the user&#39;s data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerContentEncryptionConfiguration(WorkgroupConfigurationCustomerContentEncryptionConfigurationArgs customerContentEncryptionConfiguration) {
+            return customerContentEncryptionConfiguration(Output.of(customerContentEncryptionConfiguration));
+        }
+
+        /**
+         * @param enableMinimumEncryptionConfiguration Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableMinimumEncryptionConfiguration(@Nullable Output<Boolean> enableMinimumEncryptionConfiguration) {
+            $.enableMinimumEncryptionConfiguration = enableMinimumEncryptionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param enableMinimumEncryptionConfiguration Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableMinimumEncryptionConfiguration(Boolean enableMinimumEncryptionConfiguration) {
+            return enableMinimumEncryptionConfiguration(Output.of(enableMinimumEncryptionConfiguration));
         }
 
         /**
@@ -312,6 +404,27 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
          */
         public Builder managedQueryResultsConfiguration(WorkgroupConfigurationManagedQueryResultsConfigurationArgs managedQueryResultsConfiguration) {
             return managedQueryResultsConfiguration(Output.of(managedQueryResultsConfiguration));
+        }
+
+        /**
+         * @param monitoringConfiguration Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringConfiguration(@Nullable Output<WorkgroupConfigurationMonitoringConfigurationArgs> monitoringConfiguration) {
+            $.monitoringConfiguration = monitoringConfiguration;
+            return this;
+        }
+
+        /**
+         * @param monitoringConfiguration Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringConfiguration(WorkgroupConfigurationMonitoringConfigurationArgs monitoringConfiguration) {
+            return monitoringConfiguration(Output.of(monitoringConfiguration));
         }
 
         /**

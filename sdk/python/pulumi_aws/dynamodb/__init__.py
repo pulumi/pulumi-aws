@@ -10,6 +10,7 @@ from .contributor_insights import *
 from .get_table import *
 from .get_table_item import *
 from .get_tables import *
+from .global_secondary_index import *
 from .global_table import *
 from .kinesis_streaming_destination import *
 from .resource_policy import *

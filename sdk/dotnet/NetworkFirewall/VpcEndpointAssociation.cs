@@ -32,7 +32,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         VpcId = exampleAwsVpc.Id,
     ///         SubnetMapping = new Aws.NetworkFirewall.Inputs.VpcEndpointAssociationSubnetMappingArgs
     ///         {
-    ///             SubnetId = exampleTwo.Id,
+    ///             SubnetId = exampleAwsSubnet.Id,
     ///         },
     ///         Tags = 
     ///         {

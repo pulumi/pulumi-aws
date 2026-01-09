@@ -6,6 +6,7 @@ package com.pulumi.aws.transfer;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.transfer.WebAppArgs;
 import com.pulumi.aws.transfer.inputs.WebAppState;
+import com.pulumi.aws.transfer.outputs.WebAppEndpointDetails;
 import com.pulumi.aws.transfer.outputs.WebAppIdentityProviderDetails;
 import com.pulumi.aws.transfer.outputs.WebAppWebAppUnit;
 import com.pulumi.core.Output;
@@ -158,14 +159,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:transfer/webApp:WebApp")
 public class WebApp extends com.pulumi.resources.CustomResource {
     /**
-     * URL provided to interact with the Transfer Family web app.
+     * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
      * 
      */
     @Export(name="accessEndpoint", refs={String.class}, tree="[0]")
     private Output<String> accessEndpoint;
 
     /**
-     * @return URL provided to interact with the Transfer Family web app.
+     * @return URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
      * 
      */
     public Output<String> accessEndpoint() {
@@ -184,6 +185,20 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     * 
+     */
+    @Export(name="endpointDetails", refs={WebAppEndpointDetails.class}, tree="[0]")
+    private Output</* @Nullable */ WebAppEndpointDetails> endpointDetails;
+
+    /**
+     * @return Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     * 
+     */
+    public Output<Optional<WebAppEndpointDetails>> endpointDetails() {
+        return Codegen.optional(this.endpointDetails);
     }
     /**
      * Block for details of the identity provider to use with the web app. See Identity provider details below.

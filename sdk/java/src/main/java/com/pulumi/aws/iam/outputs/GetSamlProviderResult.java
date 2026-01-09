@@ -33,6 +33,11 @@ public final class GetSamlProviderResult {
      */
     private String samlMetadataDocument;
     /**
+     * @return Unique identifier assigned to the SAML provider.
+     * 
+     */
+    private String samlProviderUuid;
+    /**
      * @return Tags attached to the SAML provider.
      * 
      */
@@ -76,6 +81,13 @@ public final class GetSamlProviderResult {
         return this.samlMetadataDocument;
     }
     /**
+     * @return Unique identifier assigned to the SAML provider.
+     * 
+     */
+    public String samlProviderUuid() {
+        return this.samlProviderUuid;
+    }
+    /**
      * @return Tags attached to the SAML provider.
      * 
      */
@@ -104,6 +116,7 @@ public final class GetSamlProviderResult {
         private String id;
         private String name;
         private String samlMetadataDocument;
+        private String samlProviderUuid;
         private Map<String,String> tags;
         private String validUntil;
         public Builder() {}
@@ -114,6 +127,7 @@ public final class GetSamlProviderResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.samlMetadataDocument = defaults.samlMetadataDocument;
+    	      this.samlProviderUuid = defaults.samlProviderUuid;
     	      this.tags = defaults.tags;
     	      this.validUntil = defaults.validUntil;
         }
@@ -159,6 +173,14 @@ public final class GetSamlProviderResult {
             return this;
         }
         @CustomType.Setter
+        public Builder samlProviderUuid(String samlProviderUuid) {
+            if (samlProviderUuid == null) {
+              throw new MissingRequiredPropertyException("GetSamlProviderResult", "samlProviderUuid");
+            }
+            this.samlProviderUuid = samlProviderUuid;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetSamlProviderResult", "tags");
@@ -181,6 +203,7 @@ public final class GetSamlProviderResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.samlMetadataDocument = samlMetadataDocument;
+            _resultValue.samlProviderUuid = samlProviderUuid;
             _resultValue.tags = tags;
             _resultValue.validUntil = validUntil;
             return _resultValue;

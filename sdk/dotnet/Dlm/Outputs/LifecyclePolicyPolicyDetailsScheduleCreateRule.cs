@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleCreateRule
     {
         /// <summary>
-        /// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `Interval`, `IntervalUnit`, and `Times`.
+        /// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `Interval`, `IntervalUnit`, and `Times`. For details on valid Cron expressions, see [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html#eb-cron-expressions).
         /// </summary>
         public readonly string? CronExpression;
         public readonly int? Interval;

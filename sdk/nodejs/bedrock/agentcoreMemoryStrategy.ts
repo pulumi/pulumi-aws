@@ -187,6 +187,9 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
      * ID of the memory to associate with this strategy. Changing this forces a new resource.
      */
     declare public readonly memoryId: pulumi.Output<string>;
+    /**
+     * Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+     */
     declare public /*out*/ readonly memoryStrategyId: pulumi.Output<string>;
     /**
      * Name of the memory strategy.
@@ -275,6 +278,9 @@ export interface AgentcoreMemoryStrategyState {
      * ID of the memory to associate with this strategy. Changing this forces a new resource.
      */
     memoryId?: pulumi.Input<string>;
+    /**
+     * Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+     */
     memoryStrategyId?: pulumi.Input<string>;
     /**
      * Name of the memory strategy.

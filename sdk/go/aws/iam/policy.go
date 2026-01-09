@@ -81,6 +81,8 @@ type Policy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Number of entities (users, groups, and roles) that the policy is attached to.
 	AttachmentCount pulumi.IntOutput `pulumi:"attachmentCount"`
+	// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+	DelayAfterPolicyCreationInMs pulumi.IntPtrOutput `pulumi:"delayAfterPolicyCreationInMs"`
 	// Description of the IAM policy.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the policy. If omitted, the provider will assign a random, unique name.
@@ -136,6 +138,8 @@ type policyState struct {
 	Arn *string `pulumi:"arn"`
 	// Number of entities (users, groups, and roles) that the policy is attached to.
 	AttachmentCount *int `pulumi:"attachmentCount"`
+	// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+	DelayAfterPolicyCreationInMs *int `pulumi:"delayAfterPolicyCreationInMs"`
 	// Description of the IAM policy.
 	Description *string `pulumi:"description"`
 	// Name of the policy. If omitted, the provider will assign a random, unique name.
@@ -159,6 +163,8 @@ type PolicyState struct {
 	Arn pulumi.StringPtrInput
 	// Number of entities (users, groups, and roles) that the policy is attached to.
 	AttachmentCount pulumi.IntPtrInput
+	// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+	DelayAfterPolicyCreationInMs pulumi.IntPtrInput
 	// Description of the IAM policy.
 	Description pulumi.StringPtrInput
 	// Name of the policy. If omitted, the provider will assign a random, unique name.
@@ -182,6 +188,8 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
+	// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+	DelayAfterPolicyCreationInMs *int `pulumi:"delayAfterPolicyCreationInMs"`
 	// Description of the IAM policy.
 	Description *string `pulumi:"description"`
 	// Name of the policy. If omitted, the provider will assign a random, unique name.
@@ -198,6 +206,8 @@ type policyArgs struct {
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
+	// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+	DelayAfterPolicyCreationInMs pulumi.IntPtrInput
 	// Description of the IAM policy.
 	Description pulumi.StringPtrInput
 	// Name of the policy. If omitted, the provider will assign a random, unique name.
@@ -307,6 +317,11 @@ func (o PolicyOutput) Arn() pulumi.StringOutput {
 // Number of entities (users, groups, and roles) that the policy is attached to.
 func (o PolicyOutput) AttachmentCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Policy) pulumi.IntOutput { return v.AttachmentCount }).(pulumi.IntOutput)
+}
+
+// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+func (o PolicyOutput) DelayAfterPolicyCreationInMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.IntPtrOutput { return v.DelayAfterPolicyCreationInMs }).(pulumi.IntPtrOutput)
 }
 
 // Description of the IAM policy.

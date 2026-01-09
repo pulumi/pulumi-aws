@@ -475,14 +475,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authToken);
     }
     /**
-     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
+     * Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
      * 
      */
     @Export(name="authTokenUpdateStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authTokenUpdateStrategy;
 
     /**
-     * @return Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
+     * @return Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
      * 
      */
     public Output<Optional<String>> authTokenUpdateStrategy() {

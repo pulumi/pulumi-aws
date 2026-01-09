@@ -70,9 +70,17 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.memoryId);
     }
 
+    /**
+     * Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+     * 
+     */
     @Import(name="memoryStrategyId")
     private @Nullable Output<String> memoryStrategyId;
 
+    /**
+     * @return Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+     * 
+     */
     public Optional<Output<String>> memoryStrategyId() {
         return Optional.ofNullable(this.memoryStrategyId);
     }
@@ -253,11 +261,23 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
             return memoryId(Output.of(memoryId));
         }
 
+        /**
+         * @param memoryStrategyId Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+         * 
+         * @return builder
+         * 
+         */
         public Builder memoryStrategyId(@Nullable Output<String> memoryStrategyId) {
             $.memoryStrategyId = memoryStrategyId;
             return this;
         }
 
+        /**
+         * @param memoryStrategyId Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+         * 
+         * @return builder
+         * 
+         */
         public Builder memoryStrategyId(String memoryStrategyId) {
             return memoryStrategyId(Output.of(memoryStrategyId));
         }

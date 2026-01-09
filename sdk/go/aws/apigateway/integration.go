@@ -87,20 +87,29 @@ import (
 //
 //	"fmt"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			myregion := cfg.RequireObject("myregion")
-//			accountId := cfg.RequireObject("accountId")
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			// API Gateway
 //			api, err := apigateway.NewRestApi(ctx, "api", &apigateway.RestApiArgs{
 //				Name: pulumi.String("myapi"),
@@ -192,8 +201,44 @@ import (
 //					id := _args[0].(string)
 //					httpMethod := _args[1].(string)
 //					path := _args[2].(string)
-//					return fmt.Sprintf("arn:aws:execute-api:%v:%v:%v/*/%v%v", myregion, accountId, id, httpMethod, path), nil
+//					return fmt.Sprintf("arn:%v:execute-api:%v:%v:%v/*/%v%v", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId, id, httpMethod, path), nil
 //				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Lambda integration with response streaming
+//
+// All other resources and data sources are the same as in the previous example; only the integration configuration differs.
+// Note that the `timeout` of the `lambda.Function` may need to be adjusted.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewIntegration(ctx, "integration", &apigateway.IntegrationArgs{
+//				RestApi:               pulumi.Any(api.Id),
+//				ResourceId:            pulumi.Any(resource.Id),
+//				HttpMethod:            pulumi.Any(method.HttpMethod),
+//				IntegrationHttpMethod: pulumi.String("POST"),
+//				Type:                  pulumi.String("AWS_PROXY"),
+//				Uri:                   pulumi.Any(lambda.ResponseStreamingInvokeArn),
+//				ResponseTransferMode:  pulumi.String("STREAM"),
+//				TimeoutMilliseconds:   pulumi.Int(900000),
 //			})
 //			if err != nil {
 //				return err

@@ -68,11 +68,15 @@ type LookupVpcEndpointArgs struct {
 	Region *string `pulumi:"region"`
 	// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
+	// AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
+	ServiceRegion *string `pulumi:"serviceRegion"`
 	// State of the specific VPC Endpoint to retrieve.
 	State *string `pulumi:"state"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the specific VPC Endpoint to retrieve.
 	Tags map[string]string `pulumi:"tags"`
+	// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+	VpcEndpointType *string `pulumi:"vpcEndpointType"`
 	// ID of the VPC in which the specific VPC Endpoint is used.
 	//
 	// The arguments of this data source act as filters for querying the available VPC endpoints.
@@ -111,13 +115,13 @@ type LookupVpcEndpointResult struct {
 	// One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	ServiceName      string   `pulumi:"serviceName"`
+	ServiceRegion    string   `pulumi:"serviceRegion"`
 	State            string   `pulumi:"state"`
 	// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
-	SubnetIds []string          `pulumi:"subnetIds"`
-	Tags      map[string]string `pulumi:"tags"`
-	// VPC Endpoint type, `Gateway` or `Interface`.
-	VpcEndpointType string `pulumi:"vpcEndpointType"`
-	VpcId           string `pulumi:"vpcId"`
+	SubnetIds       []string          `pulumi:"subnetIds"`
+	Tags            map[string]string `pulumi:"tags"`
+	VpcEndpointType string            `pulumi:"vpcEndpointType"`
+	VpcId           string            `pulumi:"vpcId"`
 }
 
 func LookupVpcEndpointOutput(ctx *pulumi.Context, args LookupVpcEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointResultOutput {
@@ -139,11 +143,15 @@ type LookupVpcEndpointOutputArgs struct {
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
+	// AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
+	ServiceRegion pulumi.StringPtrInput `pulumi:"serviceRegion"`
 	// State of the specific VPC Endpoint to retrieve.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the specific VPC Endpoint to retrieve.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+	VpcEndpointType pulumi.StringPtrInput `pulumi:"vpcEndpointType"`
 	// ID of the VPC in which the specific VPC Endpoint is used.
 	//
 	// The arguments of this data source act as filters for querying the available VPC endpoints.
@@ -250,6 +258,10 @@ func (o LookupVpcEndpointResultOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
+func (o LookupVpcEndpointResultOutput) ServiceRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.ServiceRegion }).(pulumi.StringOutput)
+}
+
 func (o LookupVpcEndpointResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.State }).(pulumi.StringOutput)
 }
@@ -263,7 +275,6 @@ func (o LookupVpcEndpointResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// VPC Endpoint type, `Gateway` or `Interface`.
 func (o LookupVpcEndpointResultOutput) VpcEndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.VpcEndpointType }).(pulumi.StringOutput)
 }

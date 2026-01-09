@@ -16,5 +16,6 @@ from .secret import *
 from .secret_policy import *
 from .secret_rotation import *
 from .secret_version import *
+from .tag import *
 from ._inputs import *
 from . import outputs

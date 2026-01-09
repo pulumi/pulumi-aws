@@ -36,12 +36,14 @@ __all__ = [
     'ImageImageScanningConfiguration',
     'ImageImageScanningConfigurationEcrConfiguration',
     'ImageImageTestsConfiguration',
+    'ImageLoggingConfiguration',
     'ImageOutputResource',
     'ImageOutputResourceAmi',
     'ImageOutputResourceContainer',
     'ImagePipelineImageScanningConfiguration',
     'ImagePipelineImageScanningConfigurationEcrConfiguration',
     'ImagePipelineImageTestsConfiguration',
+    'ImagePipelineLoggingConfiguration',
     'ImagePipelineSchedule',
     'ImagePipelineWorkflow',
     'ImagePipelineWorkflowParameter',
@@ -1438,6 +1440,41 @@ class ImageImageTestsConfiguration(dict):
 
 
 @pulumi.output_type
+class ImageLoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: _builtins.str):
+        """
+        :param _builtins.str log_group_name: Name of the CloudWatch Log Group to send logs to.
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> _builtins.str:
+        """
+        Name of the CloudWatch Log Group to send logs to.
+        """
+        return pulumi.get(self, "log_group_name")
+
+
+@pulumi.output_type
 class ImageOutputResource(dict):
     def __init__(__self__, *,
                  amis: Optional[Sequence['outputs.ImageOutputResourceAmi']] = None,
@@ -1744,6 +1781,56 @@ class ImagePipelineImageTestsConfiguration(dict):
         Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
         """
         return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
+class ImagePipelineLoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageLogGroupName":
+            suggest = "image_log_group_name"
+        elif key == "pipelineLogGroupName":
+            suggest = "pipeline_log_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImagePipelineLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImagePipelineLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImagePipelineLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_log_group_name: Optional[_builtins.str] = None,
+                 pipeline_log_group_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str image_log_group_name: Name of the CloudWatch Log Group to send image logs to.
+        :param _builtins.str pipeline_log_group_name: Name of the CloudWatch Log Group to send pipeline logs to.
+        """
+        if image_log_group_name is not None:
+            pulumi.set(__self__, "image_log_group_name", image_log_group_name)
+        if pipeline_log_group_name is not None:
+            pulumi.set(__self__, "pipeline_log_group_name", pipeline_log_group_name)
+
+    @_builtins.property
+    @pulumi.getter(name="imageLogGroupName")
+    def image_log_group_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the CloudWatch Log Group to send image logs to.
+        """
+        return pulumi.get(self, "image_log_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineLogGroupName")
+    def pipeline_log_group_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the CloudWatch Log Group to send pipeline logs to.
+        """
+        return pulumi.get(self, "pipeline_log_group_name")
 
 
 @pulumi.output_type

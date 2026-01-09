@@ -43,6 +43,10 @@ __all__ = [
     'UserHomeDirectoryMappingArgsDict',
     'UserPosixProfileArgs',
     'UserPosixProfileArgsDict',
+    'WebAppEndpointDetailsArgs',
+    'WebAppEndpointDetailsArgsDict',
+    'WebAppEndpointDetailsVpcArgs',
+    'WebAppEndpointDetailsVpcArgsDict',
     'WebAppIdentityProviderDetailsArgs',
     'WebAppIdentityProviderDetailsArgsDict',
     'WebAppIdentityProviderDetailsIdentityCenterConfigArgs',
@@ -1065,6 +1069,128 @@ class UserPosixProfileArgs:
     @secondary_gids.setter
     def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "secondary_gids", value)
+
+
+if not MYPY:
+    class WebAppEndpointDetailsArgsDict(TypedDict):
+        vpc: NotRequired[pulumi.Input['WebAppEndpointDetailsVpcArgsDict']]
+        """
+        Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+        """
+elif False:
+    WebAppEndpointDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppEndpointDetailsArgs:
+    def __init__(__self__, *,
+                 vpc: Optional[pulumi.Input['WebAppEndpointDetailsVpcArgs']] = None):
+        """
+        :param pulumi.Input['WebAppEndpointDetailsVpcArgs'] vpc: Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+        """
+        if vpc is not None:
+            pulumi.set(__self__, "vpc", vpc)
+
+    @_builtins.property
+    @pulumi.getter
+    def vpc(self) -> Optional[pulumi.Input['WebAppEndpointDetailsVpcArgs']]:
+        """
+        Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+        """
+        return pulumi.get(self, "vpc")
+
+    @vpc.setter
+    def vpc(self, value: Optional[pulumi.Input['WebAppEndpointDetailsVpcArgs']]):
+        pulumi.set(self, "vpc", value)
+
+
+if not MYPY:
+    class WebAppEndpointDetailsVpcArgsDict(TypedDict):
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of subnet IDs within the VPC where the web app endpoint will be deployed. These subnets must be in the same VPC specified in the `vpc_id` parameter.
+        """
+        vpc_id: pulumi.Input[_builtins.str]
+        """
+        ID of the VPC where the web app endpoint will be hosted. The VPC must be dual-stack, meaning it supports both IPv4 and IPv6 addressing.
+        """
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of security group IDs that control access to the web app endpoint. If not specified, the VPC's default security group is used.
+        """
+        vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ID of the VPC endpoint created for the web app.
+        """
+elif False:
+    WebAppEndpointDetailsVpcArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppEndpointDetailsVpcArgs:
+    def __init__(__self__, *,
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 vpc_id: pulumi.Input[_builtins.str],
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs within the VPC where the web app endpoint will be deployed. These subnets must be in the same VPC specified in the `vpc_id` parameter.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC where the web app endpoint will be hosted. The VPC must be dual-stack, meaning it supports both IPv4 and IPv6 addressing.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs that control access to the web app endpoint. If not specified, the VPC's default security group is used.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_id: ID of the VPC endpoint created for the web app.
+        """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of subnet IDs within the VPC where the web app endpoint will be deployed. These subnets must be in the same VPC specified in the `vpc_id` parameter.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the VPC where the web app endpoint will be hosted. The VPC must be dual-stack, meaning it supports both IPv4 and IPv6 addressing.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vpc_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of security group IDs that control access to the web app endpoint. If not specified, the VPC's default security group is used.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the VPC endpoint created for the web app.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "vpc_endpoint_id", value)
 
 
 if not MYPY:

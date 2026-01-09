@@ -536,6 +536,10 @@ if not MYPY:
         """
         The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
         """
+        capacity_option_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+        """
         instance_requirements: NotRequired[pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgsDict']]
         """
         The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
@@ -556,18 +560,22 @@ class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs:
     def __init__(__self__, *,
                  ec2_instance_profile_arn: pulumi.Input[_builtins.str],
                  network_configuration: pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs'],
+                 capacity_option_type: Optional[pulumi.Input[_builtins.str]] = None,
                  instance_requirements: Optional[pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs']] = None,
                  monitoring: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_configuration: Optional[pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] ec2_instance_profile_arn: The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
         :param pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs'] network_configuration: The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+        :param pulumi.Input[_builtins.str] capacity_option_type: The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
         :param pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs'] instance_requirements: The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
         :param pulumi.Input[_builtins.str] monitoring: CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
         :param pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs'] storage_configuration: The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
         """
         pulumi.set(__self__, "ec2_instance_profile_arn", ec2_instance_profile_arn)
         pulumi.set(__self__, "network_configuration", network_configuration)
+        if capacity_option_type is not None:
+            pulumi.set(__self__, "capacity_option_type", capacity_option_type)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if monitoring is not None:
@@ -598,6 +606,18 @@ class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs:
     @network_configuration.setter
     def network_configuration(self, value: pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs']):
         pulumi.set(self, "network_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityOptionType")
+    def capacity_option_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+        """
+        return pulumi.get(self, "capacity_option_type")
+
+    @capacity_option_type.setter
+    def capacity_option_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "capacity_option_type", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")

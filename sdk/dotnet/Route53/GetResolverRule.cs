@@ -237,6 +237,10 @@ namespace Pulumi.Aws.Route53
         /// Map of tags assigned to the resolver rule.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// List of configurations for target IP addresses. Only applicable for `FORWARD` rules. See `TargetIps` below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetResolverRuleTargetIpResult> TargetIps;
 
         [OutputConstructor]
         private GetResolverRuleResult(
@@ -260,7 +264,9 @@ namespace Pulumi.Aws.Route53
 
             string shareStatus,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            ImmutableArray<Outputs.GetResolverRuleTargetIpResult> targetIps)
         {
             Arn = arn;
             DomainName = domainName;
@@ -273,6 +279,7 @@ namespace Pulumi.Aws.Route53
             RuleType = ruleType;
             ShareStatus = shareStatus;
             Tags = tags;
+            TargetIps = targetIps;
         }
     }
 }

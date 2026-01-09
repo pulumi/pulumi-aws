@@ -6,8 +6,12 @@ package com.pulumi.aws.cloudfront;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
 import com.pulumi.aws.cloudfront.inputs.GetCachePolicyPlainArgs;
+import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
+import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupPlainArgs;
 import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
 import com.pulumi.aws.cloudfront.inputs.GetDistributionPlainArgs;
+import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
+import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantPlainArgs;
 import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
 import com.pulumi.aws.cloudfront.inputs.GetFunctionPlainArgs;
 import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
@@ -25,7 +29,9 @@ import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigPlainArgs;
 import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
 import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyPlainArgs;
 import com.pulumi.aws.cloudfront.outputs.GetCachePolicyResult;
+import com.pulumi.aws.cloudfront.outputs.GetConnectionGroupResult;
 import com.pulumi.aws.cloudfront.outputs.GetDistributionResult;
+import com.pulumi.aws.cloudfront.outputs.GetDistributionTenantResult;
 import com.pulumi.aws.cloudfront.outputs.GetFunctionResult;
 import com.pulumi.aws.cloudfront.outputs.GetLogDeliveryCanonicalUserIdResult;
 import com.pulumi.aws.cloudfront.outputs.GetOriginAccessControlResult;
@@ -610,6 +616,286 @@ public final class CloudfrontFunctions {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getCachePolicy:getCachePolicy", TypeShape.of(GetCachePolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about a CloudFront connection group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getConnectionGroup(GetConnectionGroupArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetConnectionGroupResult> getConnectionGroup() {
+        return getConnectionGroup(GetConnectionGroupArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront connection group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getConnectionGroup(GetConnectionGroupArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetConnectionGroupResult> getConnectionGroupPlain() {
+        return getConnectionGroupPlain(GetConnectionGroupPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront connection group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getConnectionGroup(GetConnectionGroupArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetConnectionGroupResult> getConnectionGroup(GetConnectionGroupArgs args) {
+        return getConnectionGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront connection group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getConnectionGroup(GetConnectionGroupArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetConnectionGroupResult> getConnectionGroupPlain(GetConnectionGroupPlainArgs args) {
+        return getConnectionGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront connection group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getConnectionGroup(GetConnectionGroupArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetConnectionGroupResult> getConnectionGroup(GetConnectionGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cloudfront/getConnectionGroup:getConnectionGroup", TypeShape.of(GetConnectionGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront connection group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getConnectionGroup(GetConnectionGroupArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetConnectionGroupResult> getConnectionGroup(GetConnectionGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:cloudfront/getConnectionGroup:getConnectionGroup", TypeShape.of(GetConnectionGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront connection group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getConnectionGroup(GetConnectionGroupArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetConnectionGroupResult> getConnectionGroupPlain(GetConnectionGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:cloudfront/getConnectionGroup:getConnectionGroup", TypeShape.of(GetConnectionGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about a CloudFront distribution.
      * 
      * ## Example Usage
@@ -808,6 +1094,286 @@ public final class CloudfrontFunctions {
      */
     public static CompletableFuture<GetDistributionResult> getDistributionPlain(GetDistributionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getDistribution:getDistribution", TypeShape.of(GetDistributionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront distribution tenant.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getDistributionTenant(GetDistributionTenantArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDistributionTenantResult> getDistributionTenant() {
+        return getDistributionTenant(GetDistributionTenantArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront distribution tenant.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getDistributionTenant(GetDistributionTenantArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDistributionTenantResult> getDistributionTenantPlain() {
+        return getDistributionTenantPlain(GetDistributionTenantPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront distribution tenant.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getDistributionTenant(GetDistributionTenantArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDistributionTenantResult> getDistributionTenant(GetDistributionTenantArgs args) {
+        return getDistributionTenant(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront distribution tenant.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getDistributionTenant(GetDistributionTenantArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDistributionTenantResult> getDistributionTenantPlain(GetDistributionTenantPlainArgs args) {
+        return getDistributionTenantPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront distribution tenant.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getDistributionTenant(GetDistributionTenantArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDistributionTenantResult> getDistributionTenant(GetDistributionTenantArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cloudfront/getDistributionTenant:getDistributionTenant", TypeShape.of(GetDistributionTenantResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront distribution tenant.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getDistributionTenant(GetDistributionTenantArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDistributionTenantResult> getDistributionTenant(GetDistributionTenantArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:cloudfront/getDistributionTenant:getDistributionTenant", TypeShape.of(GetDistributionTenantResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a CloudFront distribution tenant.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getDistributionTenant(GetDistributionTenantArgs.builder()
+     *             .id("EDFDVBD632BHDS5")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDistributionTenantResult> getDistributionTenantPlain(GetDistributionTenantPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:cloudfront/getDistributionTenant:getDistributionTenant", TypeShape.of(GetDistributionTenantResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information about a CloudFront Function.

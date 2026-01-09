@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
 /**
  * Provides an AWS Backup Global Settings resource.
  * 
+ * &gt; **Note:** This resource will show perpetual differences for any supported settings not explicitly configured in the `globalSettings` configuration block. To avoid this, specify all supported options with their default values (typically `&#34;false&#34;`, but check the plan diff for the actual value). See [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide for available settings.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -42,7 +44,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new GlobalSettings("test", GlobalSettingsArgs.builder()
- *             .globalSettings(Map.of("isCrossAccountBackupEnabled", "true"))
+ *             .globalSettings(Map.ofEntries(
+ *                 Map.entry("isCrossAccountBackupEnabled", "true"),
+ *                 Map.entry("isMpaEnabled", "false"),
+ *                 Map.entry("isDelegatedAdministratorEnabled", "false")
+ *             ))
  *             .build());
  * 
  *     }
@@ -62,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/globalSettings:GlobalSettings")
 public class GlobalSettings extends com.pulumi.resources.CustomResource {
     /**
-     * A list of resources along with the opt-in preferences for the account.
+     * A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
      * 
      */
     @Export(name="globalSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> globalSettings;
 
     /**
-     * @return A list of resources along with the opt-in preferences for the account.
+     * @return A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
      * 
      */
     public Output<Map<String,String>> globalSettings() {

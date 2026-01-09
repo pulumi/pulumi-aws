@@ -18,6 +18,14 @@ namespace Pulumi.Aws.Athena.Outputs
         /// </summary>
         public readonly int? BytesScannedCutoffPerQuery;
         /// <summary>
+        /// Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+        /// </summary>
+        public readonly Outputs.WorkgroupConfigurationCustomerContentEncryptionConfiguration? CustomerContentEncryptionConfiguration;
+        /// <summary>
+        /// Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
+        /// </summary>
+        public readonly bool? EnableMinimumEncryptionConfiguration;
+        /// <summary>
         /// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `True`.
         /// </summary>
         public readonly bool? EnforceWorkgroupConfiguration;
@@ -38,6 +46,10 @@ namespace Pulumi.Aws.Athena.Outputs
         /// </summary>
         public readonly Outputs.WorkgroupConfigurationManagedQueryResultsConfiguration? ManagedQueryResultsConfiguration;
         /// <summary>
+        /// Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
+        /// </summary>
+        public readonly Outputs.WorkgroupConfigurationMonitoringConfiguration? MonitoringConfiguration;
+        /// <summary>
         /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `True`.
         /// </summary>
         public readonly bool? PublishCloudwatchMetricsEnabled;
@@ -54,6 +66,10 @@ namespace Pulumi.Aws.Athena.Outputs
         private WorkgroupConfiguration(
             int? bytesScannedCutoffPerQuery,
 
+            Outputs.WorkgroupConfigurationCustomerContentEncryptionConfiguration? customerContentEncryptionConfiguration,
+
+            bool? enableMinimumEncryptionConfiguration,
+
             bool? enforceWorkgroupConfiguration,
 
             Outputs.WorkgroupConfigurationEngineVersion? engineVersion,
@@ -64,6 +80,8 @@ namespace Pulumi.Aws.Athena.Outputs
 
             Outputs.WorkgroupConfigurationManagedQueryResultsConfiguration? managedQueryResultsConfiguration,
 
+            Outputs.WorkgroupConfigurationMonitoringConfiguration? monitoringConfiguration,
+
             bool? publishCloudwatchMetricsEnabled,
 
             bool? requesterPaysEnabled,
@@ -71,11 +89,14 @@ namespace Pulumi.Aws.Athena.Outputs
             Outputs.WorkgroupConfigurationResultConfiguration? resultConfiguration)
         {
             BytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
+            CustomerContentEncryptionConfiguration = customerContentEncryptionConfiguration;
+            EnableMinimumEncryptionConfiguration = enableMinimumEncryptionConfiguration;
             EnforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
             EngineVersion = engineVersion;
             ExecutionRole = executionRole;
             IdentityCenterConfiguration = identityCenterConfiguration;
             ManagedQueryResultsConfiguration = managedQueryResultsConfiguration;
+            MonitoringConfiguration = monitoringConfiguration;
             PublishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             RequesterPaysEnabled = requesterPaysEnabled;
             ResultConfiguration = resultConfiguration;

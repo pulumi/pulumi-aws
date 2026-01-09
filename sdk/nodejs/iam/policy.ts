@@ -82,6 +82,10 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly attachmentCount: pulumi.Output<number>;
     /**
+     * Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     */
+    declare public readonly delayAfterPolicyCreationInMs: pulumi.Output<number | undefined>;
+    /**
      * Description of the IAM policy.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -129,6 +133,7 @@ export class Policy extends pulumi.CustomResource {
             const state = argsOrState as PolicyState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["attachmentCount"] = state?.attachmentCount;
+            resourceInputs["delayAfterPolicyCreationInMs"] = state?.delayAfterPolicyCreationInMs;
             resourceInputs["description"] = state?.description;
             resourceInputs["name"] = state?.name;
             resourceInputs["namePrefix"] = state?.namePrefix;
@@ -142,6 +147,7 @@ export class Policy extends pulumi.CustomResource {
             if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
+            resourceInputs["delayAfterPolicyCreationInMs"] = args?.delayAfterPolicyCreationInMs;
             resourceInputs["description"] = args?.description;
             resourceInputs["name"] = args?.name;
             resourceInputs["namePrefix"] = args?.namePrefix;
@@ -170,6 +176,10 @@ export interface PolicyState {
      * Number of entities (users, groups, and roles) that the policy is attached to.
      */
     attachmentCount?: pulumi.Input<number>;
+    /**
+     * Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     */
+    delayAfterPolicyCreationInMs?: pulumi.Input<number>;
     /**
      * Description of the IAM policy.
      */
@@ -208,6 +218,10 @@ export interface PolicyState {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
+    /**
+     * Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     */
+    delayAfterPolicyCreationInMs?: pulumi.Input<number>;
     /**
      * Description of the IAM policy.
      */

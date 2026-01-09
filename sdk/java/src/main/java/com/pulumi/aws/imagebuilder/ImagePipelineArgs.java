@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder;
 
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineImageScanningConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineImageTestsConfigurationArgs;
+import com.pulumi.aws.imagebuilder.inputs.ImagePipelineLoggingConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineScheduleArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineWorkflowArgs;
 import com.pulumi.core.Output;
@@ -159,6 +160,21 @@ public final class ImagePipelineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block with logging configuration. Detailed below.
+     * 
+     */
+    @Import(name="loggingConfiguration")
+    private @Nullable Output<ImagePipelineLoggingConfigurationArgs> loggingConfiguration;
+
+    /**
+     * @return Configuration block with logging configuration. Detailed below.
+     * 
+     */
+    public Optional<Output<ImagePipelineLoggingConfigurationArgs>> loggingConfiguration() {
+        return Optional.ofNullable(this.loggingConfiguration);
+    }
+
+    /**
      * Name of the image pipeline.
      * 
      * The following arguments are optional:
@@ -264,6 +280,7 @@ public final class ImagePipelineArgs extends com.pulumi.resources.ResourceArgs {
         this.imageScanningConfiguration = $.imageScanningConfiguration;
         this.imageTestsConfiguration = $.imageTestsConfiguration;
         this.infrastructureConfigurationArn = $.infrastructureConfigurationArn;
+        this.loggingConfiguration = $.loggingConfiguration;
         this.name = $.name;
         this.region = $.region;
         this.schedule = $.schedule;
@@ -477,6 +494,27 @@ public final class ImagePipelineArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder infrastructureConfigurationArn(String infrastructureConfigurationArn) {
             return infrastructureConfigurationArn(Output.of(infrastructureConfigurationArn));
+        }
+
+        /**
+         * @param loggingConfiguration Configuration block with logging configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingConfiguration(@Nullable Output<ImagePipelineLoggingConfigurationArgs> loggingConfiguration) {
+            $.loggingConfiguration = loggingConfiguration;
+            return this;
+        }
+
+        /**
+         * @param loggingConfiguration Configuration block with logging configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingConfiguration(ImagePipelineLoggingConfigurationArgs loggingConfiguration) {
+            return loggingConfiguration(Output.of(loggingConfiguration));
         }
 
         /**

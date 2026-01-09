@@ -15,20 +15,25 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetLifecyclePolicyDocumentRuleSelection {
     /**
-     * @return Specify a count number. If the `countType` used is &#34;imageCountMoreThan&#34;, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is &#34;sinceImagePushed&#34;, then the value is the maximum age limit for your images.
+     * @return Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
      * 
      */
     private Integer countNumber;
     /**
-     * @return Specify a count type to apply to the images. If `countType` is set to &#34;imageCountMoreThan&#34;, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to &#34;sinceImagePushed&#34;, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+     * @return Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
      * 
      */
     private String countType;
     /**
-     * @return Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+     * @return Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
      * 
      */
     private @Nullable String countUnit;
+    /**
+     * @return The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+     * 
+     */
+    private @Nullable String storageClass;
     /**
      * @return You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod\*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
      * 
@@ -40,32 +45,39 @@ public final class GetLifecyclePolicyDocumentRuleSelection {
      */
     private @Nullable List<String> tagPrefixLists;
     /**
-     * @return Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are &#34;tagged&#34;, &#34;untagged&#34;, or &#34;any&#34;. If you specify &#34;any&#34;, then all images have the rule applied to them. If you specify &#34;tagged&#34;, then you must also specify a `tagPrefixList` value. If you specify &#34;untagged&#34;, then you must omit `tagPrefixList`.
+     * @return Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
      * 
      */
     private String tagStatus;
 
     private GetLifecyclePolicyDocumentRuleSelection() {}
     /**
-     * @return Specify a count number. If the `countType` used is &#34;imageCountMoreThan&#34;, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is &#34;sinceImagePushed&#34;, then the value is the maximum age limit for your images.
+     * @return Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
      * 
      */
     public Integer countNumber() {
         return this.countNumber;
     }
     /**
-     * @return Specify a count type to apply to the images. If `countType` is set to &#34;imageCountMoreThan&#34;, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to &#34;sinceImagePushed&#34;, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+     * @return Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
      * 
      */
     public String countType() {
         return this.countType;
     }
     /**
-     * @return Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+     * @return Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
      * 
      */
     public Optional<String> countUnit() {
         return Optional.ofNullable(this.countUnit);
+    }
+    /**
+     * @return The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+     * 
+     */
+    public Optional<String> storageClass() {
+        return Optional.ofNullable(this.storageClass);
     }
     /**
      * @return You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod\*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
@@ -82,7 +94,7 @@ public final class GetLifecyclePolicyDocumentRuleSelection {
         return this.tagPrefixLists == null ? List.of() : this.tagPrefixLists;
     }
     /**
-     * @return Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are &#34;tagged&#34;, &#34;untagged&#34;, or &#34;any&#34;. If you specify &#34;any&#34;, then all images have the rule applied to them. If you specify &#34;tagged&#34;, then you must also specify a `tagPrefixList` value. If you specify &#34;untagged&#34;, then you must omit `tagPrefixList`.
+     * @return Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
      * 
      */
     public String tagStatus() {
@@ -101,6 +113,7 @@ public final class GetLifecyclePolicyDocumentRuleSelection {
         private Integer countNumber;
         private String countType;
         private @Nullable String countUnit;
+        private @Nullable String storageClass;
         private @Nullable List<String> tagPatternLists;
         private @Nullable List<String> tagPrefixLists;
         private String tagStatus;
@@ -110,6 +123,7 @@ public final class GetLifecyclePolicyDocumentRuleSelection {
     	      this.countNumber = defaults.countNumber;
     	      this.countType = defaults.countType;
     	      this.countUnit = defaults.countUnit;
+    	      this.storageClass = defaults.storageClass;
     	      this.tagPatternLists = defaults.tagPatternLists;
     	      this.tagPrefixLists = defaults.tagPrefixLists;
     	      this.tagStatus = defaults.tagStatus;
@@ -135,6 +149,12 @@ public final class GetLifecyclePolicyDocumentRuleSelection {
         public Builder countUnit(@Nullable String countUnit) {
 
             this.countUnit = countUnit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder storageClass(@Nullable String storageClass) {
+
+            this.storageClass = storageClass;
             return this;
         }
         @CustomType.Setter
@@ -168,6 +188,7 @@ public final class GetLifecyclePolicyDocumentRuleSelection {
             _resultValue.countNumber = countNumber;
             _resultValue.countType = countType;
             _resultValue.countUnit = countUnit;
+            _resultValue.storageClass = storageClass;
             _resultValue.tagPatternLists = tagPatternLists;
             _resultValue.tagPrefixLists = tagPrefixLists;
             _resultValue.tagStatus = tagStatus;

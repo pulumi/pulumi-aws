@@ -10,6 +10,16 @@ export type CachePolicy = import("./cachePolicy").CachePolicy;
 export const CachePolicy: typeof import("./cachePolicy").CachePolicy = null as any;
 utilities.lazyLoad(exports, ["CachePolicy"], () => require("./cachePolicy"));
 
+export { ConnectionFunctionArgs, ConnectionFunctionState } from "./connectionFunction";
+export type ConnectionFunction = import("./connectionFunction").ConnectionFunction;
+export const ConnectionFunction: typeof import("./connectionFunction").ConnectionFunction = null as any;
+utilities.lazyLoad(exports, ["ConnectionFunction"], () => require("./connectionFunction"));
+
+export { ConnectionGroupArgs, ConnectionGroupState } from "./connectionGroup";
+export type ConnectionGroup = import("./connectionGroup").ConnectionGroup;
+export const ConnectionGroup: typeof import("./connectionGroup").ConnectionGroup = null as any;
+utilities.lazyLoad(exports, ["ConnectionGroup"], () => require("./connectionGroup"));
+
 export { ContinuousDeploymentPolicyArgs, ContinuousDeploymentPolicyState } from "./continuousDeploymentPolicy";
 export type ContinuousDeploymentPolicy = import("./continuousDeploymentPolicy").ContinuousDeploymentPolicy;
 export const ContinuousDeploymentPolicy: typeof import("./continuousDeploymentPolicy").ContinuousDeploymentPolicy = null as any;
@@ -19,6 +29,11 @@ export { DistributionArgs, DistributionState } from "./distribution";
 export type Distribution = import("./distribution").Distribution;
 export const Distribution: typeof import("./distribution").Distribution = null as any;
 utilities.lazyLoad(exports, ["Distribution"], () => require("./distribution"));
+
+export { DistributionTenantArgs, DistributionTenantState } from "./distributionTenant";
+export type DistributionTenant = import("./distributionTenant").DistributionTenant;
+export const DistributionTenant: typeof import("./distributionTenant").DistributionTenant = null as any;
+utilities.lazyLoad(exports, ["DistributionTenant"], () => require("./distributionTenant"));
 
 export { FieldLevelEncryptionConfigArgs, FieldLevelEncryptionConfigState } from "./fieldLevelEncryptionConfig";
 export type FieldLevelEncryptionConfig = import("./fieldLevelEncryptionConfig").FieldLevelEncryptionConfig;
@@ -40,10 +55,20 @@ export const getCachePolicy: typeof import("./getCachePolicy").getCachePolicy = 
 export const getCachePolicyOutput: typeof import("./getCachePolicy").getCachePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getCachePolicy","getCachePolicyOutput"], () => require("./getCachePolicy"));
 
+export { GetConnectionGroupArgs, GetConnectionGroupResult, GetConnectionGroupOutputArgs } from "./getConnectionGroup";
+export const getConnectionGroup: typeof import("./getConnectionGroup").getConnectionGroup = null as any;
+export const getConnectionGroupOutput: typeof import("./getConnectionGroup").getConnectionGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionGroup","getConnectionGroupOutput"], () => require("./getConnectionGroup"));
+
 export { GetDistributionArgs, GetDistributionResult, GetDistributionOutputArgs } from "./getDistribution";
 export const getDistribution: typeof import("./getDistribution").getDistribution = null as any;
 export const getDistributionOutput: typeof import("./getDistribution").getDistributionOutput = null as any;
 utilities.lazyLoad(exports, ["getDistribution","getDistributionOutput"], () => require("./getDistribution"));
+
+export { GetDistributionTenantArgs, GetDistributionTenantResult, GetDistributionTenantOutputArgs } from "./getDistributionTenant";
+export const getDistributionTenant: typeof import("./getDistributionTenant").getDistributionTenant = null as any;
+export const getDistributionTenantOutput: typeof import("./getDistributionTenant").getDistributionTenantOutput = null as any;
+utilities.lazyLoad(exports, ["getDistributionTenant","getDistributionTenantOutput"], () => require("./getDistributionTenant"));
 
 export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
 export const getFunction: typeof import("./getFunction").getFunction = null as any;
@@ -110,6 +135,11 @@ export type MonitoringSubscription = import("./monitoringSubscription").Monitori
 export const MonitoringSubscription: typeof import("./monitoringSubscription").MonitoringSubscription = null as any;
 utilities.lazyLoad(exports, ["MonitoringSubscription"], () => require("./monitoringSubscription"));
 
+export { MultitenantDistributionArgs, MultitenantDistributionState } from "./multitenantDistribution";
+export type MultitenantDistribution = import("./multitenantDistribution").MultitenantDistribution;
+export const MultitenantDistribution: typeof import("./multitenantDistribution").MultitenantDistribution = null as any;
+utilities.lazyLoad(exports, ["MultitenantDistribution"], () => require("./multitenantDistribution"));
+
 export { OriginAccessControlArgs, OriginAccessControlState } from "./originAccessControl";
 export type OriginAccessControl = import("./originAccessControl").OriginAccessControl;
 export const OriginAccessControl: typeof import("./originAccessControl").OriginAccessControl = null as any;
@@ -157,10 +187,16 @@ const _module = {
         switch (type) {
             case "aws:cloudfront/cachePolicy:CachePolicy":
                 return new CachePolicy(name, <any>undefined, { urn })
+            case "aws:cloudfront/connectionFunction:ConnectionFunction":
+                return new ConnectionFunction(name, <any>undefined, { urn })
+            case "aws:cloudfront/connectionGroup:ConnectionGroup":
+                return new ConnectionGroup(name, <any>undefined, { urn })
             case "aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy":
                 return new ContinuousDeploymentPolicy(name, <any>undefined, { urn })
             case "aws:cloudfront/distribution:Distribution":
                 return new Distribution(name, <any>undefined, { urn })
+            case "aws:cloudfront/distributionTenant:DistributionTenant":
+                return new DistributionTenant(name, <any>undefined, { urn })
             case "aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig":
                 return new FieldLevelEncryptionConfig(name, <any>undefined, { urn })
             case "aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile":
@@ -177,6 +213,8 @@ const _module = {
                 return new KeyvaluestoreKeysExclusive(name, <any>undefined, { urn })
             case "aws:cloudfront/monitoringSubscription:MonitoringSubscription":
                 return new MonitoringSubscription(name, <any>undefined, { urn })
+            case "aws:cloudfront/multitenantDistribution:MultitenantDistribution":
+                return new MultitenantDistribution(name, <any>undefined, { urn })
             case "aws:cloudfront/originAccessControl:OriginAccessControl":
                 return new OriginAccessControl(name, <any>undefined, { urn })
             case "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
@@ -199,8 +237,11 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "cloudfront/cachePolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/connectionFunction", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/connectionGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/continuousDeploymentPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/distribution", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/distributionTenant", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/fieldLevelEncryptionConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/fieldLevelEncryptionProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/function", _module)
@@ -209,6 +250,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudfront/keyValueStore", _module
 pulumi.runtime.registerResourceModule("aws", "cloudfront/keyvaluestoreKey", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/keyvaluestoreKeysExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/monitoringSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/multitenantDistribution", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessControl", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessIdentity", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originRequestPolicy", _module)

@@ -51,14 +51,14 @@ class TaskDefinitionArgs:
         :param pulumi.Input[_builtins.bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-        :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
         :param pulumi.Input[_builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
+        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host`, `task`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
         :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -187,7 +187,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="ipcMode")
     def ipc_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
         """
         return pulumi.get(self, "ipc_mode")
 
@@ -211,7 +211,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+        Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
         """
         return pulumi.get(self, "network_mode")
 
@@ -223,7 +223,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="pidMode")
     def pid_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        Process namespace to use for the containers in the task. Valid values: host`, `task`.
         """
         return pulumi.get(self, "pid_mode")
 
@@ -271,7 +271,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="requiresCompatibilities")
     def requires_compatibilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+        Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
         """
         return pulumi.get(self, "requires_compatibilities")
 
@@ -395,14 +395,14 @@ class _TaskDefinitionState:
         :param pulumi.Input[_builtins.str] family: A unique name for your task definition.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
         :param pulumi.Input[_builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
+        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host`, `task`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
         :param pulumi.Input[_builtins.int] revision: Revision of the task in a particular family.
         :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
@@ -567,7 +567,7 @@ class _TaskDefinitionState:
     @pulumi.getter(name="ipcMode")
     def ipc_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
         """
         return pulumi.get(self, "ipc_mode")
 
@@ -591,7 +591,7 @@ class _TaskDefinitionState:
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+        Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
         """
         return pulumi.get(self, "network_mode")
 
@@ -603,7 +603,7 @@ class _TaskDefinitionState:
     @pulumi.getter(name="pidMode")
     def pid_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        Process namespace to use for the containers in the task. Valid values: host`, `task`.
         """
         return pulumi.get(self, "pid_mode")
 
@@ -651,7 +651,7 @@ class _TaskDefinitionState:
     @pulumi.getter(name="requiresCompatibilities")
     def requires_compatibilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+        Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
         """
         return pulumi.get(self, "requires_compatibilities")
 
@@ -1015,14 +1015,14 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] family: A unique name for your task definition.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
         :param pulumi.Input[_builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
+        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host`, `task`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
         :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1381,14 +1381,14 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] family: A unique name for your task definition.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
         :param pulumi.Input[_builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
+        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host`, `task`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
         :param pulumi.Input[_builtins.int] revision: Revision of the task in a particular family.
         :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
@@ -1502,7 +1502,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="ipcMode")
     def ipc_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
         """
         return pulumi.get(self, "ipc_mode")
 
@@ -1518,7 +1518,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> pulumi.Output[_builtins.str]:
         """
-        Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+        Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
         """
         return pulumi.get(self, "network_mode")
 
@@ -1526,7 +1526,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="pidMode")
     def pid_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        Process namespace to use for the containers in the task. Valid values: host`, `task`.
         """
         return pulumi.get(self, "pid_mode")
 
@@ -1558,7 +1558,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="requiresCompatibilities")
     def requires_compatibilities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+        Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
         """
         return pulumi.get(self, "requires_compatibilities")
 

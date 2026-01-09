@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration {
-    /**
-     * @return KMS key ARN for encrypting managed query results.
-     * 
-     */
     private @Nullable String kmsKey;
 
     private WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration() {}
-    /**
-     * @return KMS key ARN for encrypting managed query results.
-     * 
-     */
     public Optional<String> kmsKey() {
         return Optional.ofNullable(this.kmsKey);
     }

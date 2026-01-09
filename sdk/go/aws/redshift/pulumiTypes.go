@@ -369,6 +369,1169 @@ func (o EndpointAccessVpcEndpointNetworkInterfaceArrayOutput) Index(i pulumi.Int
 	}).(EndpointAccessVpcEndpointNetworkInterfaceOutput)
 }
 
+type IdcApplicationAuthorizedTokenIssuer struct {
+	// List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+	AuthorizedAudiencesLists []string `pulumi:"authorizedAudiencesLists"`
+	// ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+	TrustedTokenIssuerArn *string `pulumi:"trustedTokenIssuerArn"`
+}
+
+// IdcApplicationAuthorizedTokenIssuerInput is an input type that accepts IdcApplicationAuthorizedTokenIssuerArgs and IdcApplicationAuthorizedTokenIssuerOutput values.
+// You can construct a concrete instance of `IdcApplicationAuthorizedTokenIssuerInput` via:
+//
+//	IdcApplicationAuthorizedTokenIssuerArgs{...}
+type IdcApplicationAuthorizedTokenIssuerInput interface {
+	pulumi.Input
+
+	ToIdcApplicationAuthorizedTokenIssuerOutput() IdcApplicationAuthorizedTokenIssuerOutput
+	ToIdcApplicationAuthorizedTokenIssuerOutputWithContext(context.Context) IdcApplicationAuthorizedTokenIssuerOutput
+}
+
+type IdcApplicationAuthorizedTokenIssuerArgs struct {
+	// List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+	AuthorizedAudiencesLists pulumi.StringArrayInput `pulumi:"authorizedAudiencesLists"`
+	// ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+	TrustedTokenIssuerArn pulumi.StringPtrInput `pulumi:"trustedTokenIssuerArn"`
+}
+
+func (IdcApplicationAuthorizedTokenIssuerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationAuthorizedTokenIssuer)(nil)).Elem()
+}
+
+func (i IdcApplicationAuthorizedTokenIssuerArgs) ToIdcApplicationAuthorizedTokenIssuerOutput() IdcApplicationAuthorizedTokenIssuerOutput {
+	return i.ToIdcApplicationAuthorizedTokenIssuerOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationAuthorizedTokenIssuerArgs) ToIdcApplicationAuthorizedTokenIssuerOutputWithContext(ctx context.Context) IdcApplicationAuthorizedTokenIssuerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationAuthorizedTokenIssuerOutput)
+}
+
+func (i IdcApplicationAuthorizedTokenIssuerArgs) ToIdcApplicationAuthorizedTokenIssuerPtrOutput() IdcApplicationAuthorizedTokenIssuerPtrOutput {
+	return i.ToIdcApplicationAuthorizedTokenIssuerPtrOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationAuthorizedTokenIssuerArgs) ToIdcApplicationAuthorizedTokenIssuerPtrOutputWithContext(ctx context.Context) IdcApplicationAuthorizedTokenIssuerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationAuthorizedTokenIssuerOutput).ToIdcApplicationAuthorizedTokenIssuerPtrOutputWithContext(ctx)
+}
+
+// IdcApplicationAuthorizedTokenIssuerPtrInput is an input type that accepts IdcApplicationAuthorizedTokenIssuerArgs, IdcApplicationAuthorizedTokenIssuerPtr and IdcApplicationAuthorizedTokenIssuerPtrOutput values.
+// You can construct a concrete instance of `IdcApplicationAuthorizedTokenIssuerPtrInput` via:
+//
+//	        IdcApplicationAuthorizedTokenIssuerArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdcApplicationAuthorizedTokenIssuerPtrInput interface {
+	pulumi.Input
+
+	ToIdcApplicationAuthorizedTokenIssuerPtrOutput() IdcApplicationAuthorizedTokenIssuerPtrOutput
+	ToIdcApplicationAuthorizedTokenIssuerPtrOutputWithContext(context.Context) IdcApplicationAuthorizedTokenIssuerPtrOutput
+}
+
+type idcApplicationAuthorizedTokenIssuerPtrType IdcApplicationAuthorizedTokenIssuerArgs
+
+func IdcApplicationAuthorizedTokenIssuerPtr(v *IdcApplicationAuthorizedTokenIssuerArgs) IdcApplicationAuthorizedTokenIssuerPtrInput {
+	return (*idcApplicationAuthorizedTokenIssuerPtrType)(v)
+}
+
+func (*idcApplicationAuthorizedTokenIssuerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationAuthorizedTokenIssuer)(nil)).Elem()
+}
+
+func (i *idcApplicationAuthorizedTokenIssuerPtrType) ToIdcApplicationAuthorizedTokenIssuerPtrOutput() IdcApplicationAuthorizedTokenIssuerPtrOutput {
+	return i.ToIdcApplicationAuthorizedTokenIssuerPtrOutputWithContext(context.Background())
+}
+
+func (i *idcApplicationAuthorizedTokenIssuerPtrType) ToIdcApplicationAuthorizedTokenIssuerPtrOutputWithContext(ctx context.Context) IdcApplicationAuthorizedTokenIssuerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationAuthorizedTokenIssuerPtrOutput)
+}
+
+type IdcApplicationAuthorizedTokenIssuerOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationAuthorizedTokenIssuerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationAuthorizedTokenIssuer)(nil)).Elem()
+}
+
+func (o IdcApplicationAuthorizedTokenIssuerOutput) ToIdcApplicationAuthorizedTokenIssuerOutput() IdcApplicationAuthorizedTokenIssuerOutput {
+	return o
+}
+
+func (o IdcApplicationAuthorizedTokenIssuerOutput) ToIdcApplicationAuthorizedTokenIssuerOutputWithContext(ctx context.Context) IdcApplicationAuthorizedTokenIssuerOutput {
+	return o
+}
+
+func (o IdcApplicationAuthorizedTokenIssuerOutput) ToIdcApplicationAuthorizedTokenIssuerPtrOutput() IdcApplicationAuthorizedTokenIssuerPtrOutput {
+	return o.ToIdcApplicationAuthorizedTokenIssuerPtrOutputWithContext(context.Background())
+}
+
+func (o IdcApplicationAuthorizedTokenIssuerOutput) ToIdcApplicationAuthorizedTokenIssuerPtrOutputWithContext(ctx context.Context) IdcApplicationAuthorizedTokenIssuerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdcApplicationAuthorizedTokenIssuer) *IdcApplicationAuthorizedTokenIssuer {
+		return &v
+	}).(IdcApplicationAuthorizedTokenIssuerPtrOutput)
+}
+
+// List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+func (o IdcApplicationAuthorizedTokenIssuerOutput) AuthorizedAudiencesLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdcApplicationAuthorizedTokenIssuer) []string { return v.AuthorizedAudiencesLists }).(pulumi.StringArrayOutput)
+}
+
+// ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+func (o IdcApplicationAuthorizedTokenIssuerOutput) TrustedTokenIssuerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdcApplicationAuthorizedTokenIssuer) *string { return v.TrustedTokenIssuerArn }).(pulumi.StringPtrOutput)
+}
+
+type IdcApplicationAuthorizedTokenIssuerPtrOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationAuthorizedTokenIssuerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationAuthorizedTokenIssuer)(nil)).Elem()
+}
+
+func (o IdcApplicationAuthorizedTokenIssuerPtrOutput) ToIdcApplicationAuthorizedTokenIssuerPtrOutput() IdcApplicationAuthorizedTokenIssuerPtrOutput {
+	return o
+}
+
+func (o IdcApplicationAuthorizedTokenIssuerPtrOutput) ToIdcApplicationAuthorizedTokenIssuerPtrOutputWithContext(ctx context.Context) IdcApplicationAuthorizedTokenIssuerPtrOutput {
+	return o
+}
+
+func (o IdcApplicationAuthorizedTokenIssuerPtrOutput) Elem() IdcApplicationAuthorizedTokenIssuerOutput {
+	return o.ApplyT(func(v *IdcApplicationAuthorizedTokenIssuer) IdcApplicationAuthorizedTokenIssuer {
+		if v != nil {
+			return *v
+		}
+		var ret IdcApplicationAuthorizedTokenIssuer
+		return ret
+	}).(IdcApplicationAuthorizedTokenIssuerOutput)
+}
+
+// List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+func (o IdcApplicationAuthorizedTokenIssuerPtrOutput) AuthorizedAudiencesLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdcApplicationAuthorizedTokenIssuer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizedAudiencesLists
+	}).(pulumi.StringArrayOutput)
+}
+
+// ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+func (o IdcApplicationAuthorizedTokenIssuerPtrOutput) TrustedTokenIssuerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdcApplicationAuthorizedTokenIssuer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedTokenIssuerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdcApplicationServiceIntegration struct {
+	// List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
+	LakeFormation *IdcApplicationServiceIntegrationLakeFormation `pulumi:"lakeFormation"`
+	// List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
+	Redshift *IdcApplicationServiceIntegrationRedshift `pulumi:"redshift"`
+	// List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
+	S3AccessGrants *IdcApplicationServiceIntegrationS3AccessGrants `pulumi:"s3AccessGrants"`
+}
+
+// IdcApplicationServiceIntegrationInput is an input type that accepts IdcApplicationServiceIntegrationArgs and IdcApplicationServiceIntegrationOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationInput` via:
+//
+//	IdcApplicationServiceIntegrationArgs{...}
+type IdcApplicationServiceIntegrationInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationOutput() IdcApplicationServiceIntegrationOutput
+	ToIdcApplicationServiceIntegrationOutputWithContext(context.Context) IdcApplicationServiceIntegrationOutput
+}
+
+type IdcApplicationServiceIntegrationArgs struct {
+	// List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
+	LakeFormation IdcApplicationServiceIntegrationLakeFormationPtrInput `pulumi:"lakeFormation"`
+	// List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
+	Redshift IdcApplicationServiceIntegrationRedshiftPtrInput `pulumi:"redshift"`
+	// List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
+	S3AccessGrants IdcApplicationServiceIntegrationS3AccessGrantsPtrInput `pulumi:"s3AccessGrants"`
+}
+
+func (IdcApplicationServiceIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegration)(nil)).Elem()
+}
+
+func (i IdcApplicationServiceIntegrationArgs) ToIdcApplicationServiceIntegrationOutput() IdcApplicationServiceIntegrationOutput {
+	return i.ToIdcApplicationServiceIntegrationOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationArgs) ToIdcApplicationServiceIntegrationOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationOutput)
+}
+
+func (i IdcApplicationServiceIntegrationArgs) ToIdcApplicationServiceIntegrationPtrOutput() IdcApplicationServiceIntegrationPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationArgs) ToIdcApplicationServiceIntegrationPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationOutput).ToIdcApplicationServiceIntegrationPtrOutputWithContext(ctx)
+}
+
+// IdcApplicationServiceIntegrationPtrInput is an input type that accepts IdcApplicationServiceIntegrationArgs, IdcApplicationServiceIntegrationPtr and IdcApplicationServiceIntegrationPtrOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationPtrInput` via:
+//
+//	        IdcApplicationServiceIntegrationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdcApplicationServiceIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationPtrOutput() IdcApplicationServiceIntegrationPtrOutput
+	ToIdcApplicationServiceIntegrationPtrOutputWithContext(context.Context) IdcApplicationServiceIntegrationPtrOutput
+}
+
+type idcApplicationServiceIntegrationPtrType IdcApplicationServiceIntegrationArgs
+
+func IdcApplicationServiceIntegrationPtr(v *IdcApplicationServiceIntegrationArgs) IdcApplicationServiceIntegrationPtrInput {
+	return (*idcApplicationServiceIntegrationPtrType)(v)
+}
+
+func (*idcApplicationServiceIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegration)(nil)).Elem()
+}
+
+func (i *idcApplicationServiceIntegrationPtrType) ToIdcApplicationServiceIntegrationPtrOutput() IdcApplicationServiceIntegrationPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *idcApplicationServiceIntegrationPtrType) ToIdcApplicationServiceIntegrationPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegration)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationOutput) ToIdcApplicationServiceIntegrationOutput() IdcApplicationServiceIntegrationOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationOutput) ToIdcApplicationServiceIntegrationOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationOutput) ToIdcApplicationServiceIntegrationPtrOutput() IdcApplicationServiceIntegrationPtrOutput {
+	return o.ToIdcApplicationServiceIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o IdcApplicationServiceIntegrationOutput) ToIdcApplicationServiceIntegrationPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdcApplicationServiceIntegration) *IdcApplicationServiceIntegration {
+		return &v
+	}).(IdcApplicationServiceIntegrationPtrOutput)
+}
+
+// List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
+func (o IdcApplicationServiceIntegrationOutput) LakeFormation() IdcApplicationServiceIntegrationLakeFormationPtrOutput {
+	return o.ApplyT(func(v IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationLakeFormation {
+		return v.LakeFormation
+	}).(IdcApplicationServiceIntegrationLakeFormationPtrOutput)
+}
+
+// List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
+func (o IdcApplicationServiceIntegrationOutput) Redshift() IdcApplicationServiceIntegrationRedshiftPtrOutput {
+	return o.ApplyT(func(v IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationRedshift { return v.Redshift }).(IdcApplicationServiceIntegrationRedshiftPtrOutput)
+}
+
+// List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
+func (o IdcApplicationServiceIntegrationOutput) S3AccessGrants() IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
+	return o.ApplyT(func(v IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationS3AccessGrants {
+		return v.S3AccessGrants
+	}).(IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegration)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationPtrOutput) ToIdcApplicationServiceIntegrationPtrOutput() IdcApplicationServiceIntegrationPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationPtrOutput) ToIdcApplicationServiceIntegrationPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationPtrOutput) Elem() IdcApplicationServiceIntegrationOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegration) IdcApplicationServiceIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret IdcApplicationServiceIntegration
+		return ret
+	}).(IdcApplicationServiceIntegrationOutput)
+}
+
+// List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
+func (o IdcApplicationServiceIntegrationPtrOutput) LakeFormation() IdcApplicationServiceIntegrationLakeFormationPtrOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationLakeFormation {
+		if v == nil {
+			return nil
+		}
+		return v.LakeFormation
+	}).(IdcApplicationServiceIntegrationLakeFormationPtrOutput)
+}
+
+// List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
+func (o IdcApplicationServiceIntegrationPtrOutput) Redshift() IdcApplicationServiceIntegrationRedshiftPtrOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationRedshift {
+		if v == nil {
+			return nil
+		}
+		return v.Redshift
+	}).(IdcApplicationServiceIntegrationRedshiftPtrOutput)
+}
+
+// List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
+func (o IdcApplicationServiceIntegrationPtrOutput) S3AccessGrants() IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationS3AccessGrants {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessGrants
+	}).(IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationLakeFormation struct {
+	// Lake formation scope.
+	LakeFormationQuery *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery `pulumi:"lakeFormationQuery"`
+}
+
+// IdcApplicationServiceIntegrationLakeFormationInput is an input type that accepts IdcApplicationServiceIntegrationLakeFormationArgs and IdcApplicationServiceIntegrationLakeFormationOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationLakeFormationInput` via:
+//
+//	IdcApplicationServiceIntegrationLakeFormationArgs{...}
+type IdcApplicationServiceIntegrationLakeFormationInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationLakeFormationOutput() IdcApplicationServiceIntegrationLakeFormationOutput
+	ToIdcApplicationServiceIntegrationLakeFormationOutputWithContext(context.Context) IdcApplicationServiceIntegrationLakeFormationOutput
+}
+
+type IdcApplicationServiceIntegrationLakeFormationArgs struct {
+	// Lake formation scope.
+	LakeFormationQuery IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrInput `pulumi:"lakeFormationQuery"`
+}
+
+func (IdcApplicationServiceIntegrationLakeFormationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationLakeFormation)(nil)).Elem()
+}
+
+func (i IdcApplicationServiceIntegrationLakeFormationArgs) ToIdcApplicationServiceIntegrationLakeFormationOutput() IdcApplicationServiceIntegrationLakeFormationOutput {
+	return i.ToIdcApplicationServiceIntegrationLakeFormationOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationLakeFormationArgs) ToIdcApplicationServiceIntegrationLakeFormationOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationLakeFormationOutput)
+}
+
+func (i IdcApplicationServiceIntegrationLakeFormationArgs) ToIdcApplicationServiceIntegrationLakeFormationPtrOutput() IdcApplicationServiceIntegrationLakeFormationPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationLakeFormationPtrOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationLakeFormationArgs) ToIdcApplicationServiceIntegrationLakeFormationPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationLakeFormationOutput).ToIdcApplicationServiceIntegrationLakeFormationPtrOutputWithContext(ctx)
+}
+
+// IdcApplicationServiceIntegrationLakeFormationPtrInput is an input type that accepts IdcApplicationServiceIntegrationLakeFormationArgs, IdcApplicationServiceIntegrationLakeFormationPtr and IdcApplicationServiceIntegrationLakeFormationPtrOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationLakeFormationPtrInput` via:
+//
+//	        IdcApplicationServiceIntegrationLakeFormationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdcApplicationServiceIntegrationLakeFormationPtrInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationLakeFormationPtrOutput() IdcApplicationServiceIntegrationLakeFormationPtrOutput
+	ToIdcApplicationServiceIntegrationLakeFormationPtrOutputWithContext(context.Context) IdcApplicationServiceIntegrationLakeFormationPtrOutput
+}
+
+type idcApplicationServiceIntegrationLakeFormationPtrType IdcApplicationServiceIntegrationLakeFormationArgs
+
+func IdcApplicationServiceIntegrationLakeFormationPtr(v *IdcApplicationServiceIntegrationLakeFormationArgs) IdcApplicationServiceIntegrationLakeFormationPtrInput {
+	return (*idcApplicationServiceIntegrationLakeFormationPtrType)(v)
+}
+
+func (*idcApplicationServiceIntegrationLakeFormationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationLakeFormation)(nil)).Elem()
+}
+
+func (i *idcApplicationServiceIntegrationLakeFormationPtrType) ToIdcApplicationServiceIntegrationLakeFormationPtrOutput() IdcApplicationServiceIntegrationLakeFormationPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationLakeFormationPtrOutputWithContext(context.Background())
+}
+
+func (i *idcApplicationServiceIntegrationLakeFormationPtrType) ToIdcApplicationServiceIntegrationLakeFormationPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationLakeFormationPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationLakeFormationOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationLakeFormationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationLakeFormation)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationOutput) ToIdcApplicationServiceIntegrationLakeFormationOutput() IdcApplicationServiceIntegrationLakeFormationOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationOutput) ToIdcApplicationServiceIntegrationLakeFormationOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationOutput) ToIdcApplicationServiceIntegrationLakeFormationPtrOutput() IdcApplicationServiceIntegrationLakeFormationPtrOutput {
+	return o.ToIdcApplicationServiceIntegrationLakeFormationPtrOutputWithContext(context.Background())
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationOutput) ToIdcApplicationServiceIntegrationLakeFormationPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdcApplicationServiceIntegrationLakeFormation) *IdcApplicationServiceIntegrationLakeFormation {
+		return &v
+	}).(IdcApplicationServiceIntegrationLakeFormationPtrOutput)
+}
+
+// Lake formation scope.
+func (o IdcApplicationServiceIntegrationLakeFormationOutput) LakeFormationQuery() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
+	return o.ApplyT(func(v IdcApplicationServiceIntegrationLakeFormation) *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery {
+		return v.LakeFormationQuery
+	}).(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationLakeFormationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationLakeFormationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationLakeFormation)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationPtrOutput) ToIdcApplicationServiceIntegrationLakeFormationPtrOutput() IdcApplicationServiceIntegrationLakeFormationPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationPtrOutput) ToIdcApplicationServiceIntegrationLakeFormationPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationPtrOutput) Elem() IdcApplicationServiceIntegrationLakeFormationOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationLakeFormation) IdcApplicationServiceIntegrationLakeFormation {
+		if v != nil {
+			return *v
+		}
+		var ret IdcApplicationServiceIntegrationLakeFormation
+		return ret
+	}).(IdcApplicationServiceIntegrationLakeFormationOutput)
+}
+
+// Lake formation scope.
+func (o IdcApplicationServiceIntegrationLakeFormationPtrOutput) LakeFormationQuery() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationLakeFormation) *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery {
+		if v == nil {
+			return nil
+		}
+		return v.LakeFormationQuery
+	}).(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery struct {
+	// Determines whether the query scope is enabled or disabled.
+	Authorization string `pulumi:"authorization"`
+}
+
+// IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryInput is an input type that accepts IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs and IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryInput` via:
+//
+//	IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs{...}
+type IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput
+	ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutputWithContext(context.Context) IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput
+}
+
+type IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs struct {
+	// Determines whether the query scope is enabled or disabled.
+	Authorization pulumi.StringInput `pulumi:"authorization"`
+}
+
+func (IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery)(nil)).Elem()
+}
+
+func (i IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput {
+	return i.ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput)
+}
+
+func (i IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput).ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutputWithContext(ctx)
+}
+
+// IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrInput is an input type that accepts IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs, IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtr and IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrInput` via:
+//
+//	        IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput
+	ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutputWithContext(context.Context) IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput
+}
+
+type idcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrType IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs
+
+func IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtr(v *IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs) IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrInput {
+	return (*idcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrType)(v)
+}
+
+func (*idcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery)(nil)).Elem()
+}
+
+func (i *idcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrType) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *idcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrType) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
+	return o.ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutputWithContext(context.Background())
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery) *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery {
+		return &v
+	}).(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput)
+}
+
+// Determines whether the query scope is enabled or disabled.
+func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput) Authorization() pulumi.StringOutput {
+	return o.ApplyT(func(v IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery) string { return v.Authorization }).(pulumi.StringOutput)
+}
+
+type IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput) ToIdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput) Elem() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery) IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery {
+		if v != nil {
+			return *v
+		}
+		var ret IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery
+		return ret
+	}).(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput)
+}
+
+// Determines whether the query scope is enabled or disabled.
+func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput) Authorization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Authorization
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationRedshift struct {
+	// Amazon Redshift connect service integration scope.
+	Connect *IdcApplicationServiceIntegrationRedshiftConnect `pulumi:"connect"`
+}
+
+// IdcApplicationServiceIntegrationRedshiftInput is an input type that accepts IdcApplicationServiceIntegrationRedshiftArgs and IdcApplicationServiceIntegrationRedshiftOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationRedshiftInput` via:
+//
+//	IdcApplicationServiceIntegrationRedshiftArgs{...}
+type IdcApplicationServiceIntegrationRedshiftInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationRedshiftOutput() IdcApplicationServiceIntegrationRedshiftOutput
+	ToIdcApplicationServiceIntegrationRedshiftOutputWithContext(context.Context) IdcApplicationServiceIntegrationRedshiftOutput
+}
+
+type IdcApplicationServiceIntegrationRedshiftArgs struct {
+	// Amazon Redshift connect service integration scope.
+	Connect IdcApplicationServiceIntegrationRedshiftConnectPtrInput `pulumi:"connect"`
+}
+
+func (IdcApplicationServiceIntegrationRedshiftArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationRedshift)(nil)).Elem()
+}
+
+func (i IdcApplicationServiceIntegrationRedshiftArgs) ToIdcApplicationServiceIntegrationRedshiftOutput() IdcApplicationServiceIntegrationRedshiftOutput {
+	return i.ToIdcApplicationServiceIntegrationRedshiftOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationRedshiftArgs) ToIdcApplicationServiceIntegrationRedshiftOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationRedshiftOutput)
+}
+
+func (i IdcApplicationServiceIntegrationRedshiftArgs) ToIdcApplicationServiceIntegrationRedshiftPtrOutput() IdcApplicationServiceIntegrationRedshiftPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationRedshiftPtrOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationRedshiftArgs) ToIdcApplicationServiceIntegrationRedshiftPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationRedshiftOutput).ToIdcApplicationServiceIntegrationRedshiftPtrOutputWithContext(ctx)
+}
+
+// IdcApplicationServiceIntegrationRedshiftPtrInput is an input type that accepts IdcApplicationServiceIntegrationRedshiftArgs, IdcApplicationServiceIntegrationRedshiftPtr and IdcApplicationServiceIntegrationRedshiftPtrOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationRedshiftPtrInput` via:
+//
+//	        IdcApplicationServiceIntegrationRedshiftArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdcApplicationServiceIntegrationRedshiftPtrInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationRedshiftPtrOutput() IdcApplicationServiceIntegrationRedshiftPtrOutput
+	ToIdcApplicationServiceIntegrationRedshiftPtrOutputWithContext(context.Context) IdcApplicationServiceIntegrationRedshiftPtrOutput
+}
+
+type idcApplicationServiceIntegrationRedshiftPtrType IdcApplicationServiceIntegrationRedshiftArgs
+
+func IdcApplicationServiceIntegrationRedshiftPtr(v *IdcApplicationServiceIntegrationRedshiftArgs) IdcApplicationServiceIntegrationRedshiftPtrInput {
+	return (*idcApplicationServiceIntegrationRedshiftPtrType)(v)
+}
+
+func (*idcApplicationServiceIntegrationRedshiftPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationRedshift)(nil)).Elem()
+}
+
+func (i *idcApplicationServiceIntegrationRedshiftPtrType) ToIdcApplicationServiceIntegrationRedshiftPtrOutput() IdcApplicationServiceIntegrationRedshiftPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationRedshiftPtrOutputWithContext(context.Background())
+}
+
+func (i *idcApplicationServiceIntegrationRedshiftPtrType) ToIdcApplicationServiceIntegrationRedshiftPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationRedshiftPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationRedshiftOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationRedshiftOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationRedshift)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftOutput) ToIdcApplicationServiceIntegrationRedshiftOutput() IdcApplicationServiceIntegrationRedshiftOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftOutput) ToIdcApplicationServiceIntegrationRedshiftOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftOutput) ToIdcApplicationServiceIntegrationRedshiftPtrOutput() IdcApplicationServiceIntegrationRedshiftPtrOutput {
+	return o.ToIdcApplicationServiceIntegrationRedshiftPtrOutputWithContext(context.Background())
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftOutput) ToIdcApplicationServiceIntegrationRedshiftPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdcApplicationServiceIntegrationRedshift) *IdcApplicationServiceIntegrationRedshift {
+		return &v
+	}).(IdcApplicationServiceIntegrationRedshiftPtrOutput)
+}
+
+// Amazon Redshift connect service integration scope.
+func (o IdcApplicationServiceIntegrationRedshiftOutput) Connect() IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
+	return o.ApplyT(func(v IdcApplicationServiceIntegrationRedshift) *IdcApplicationServiceIntegrationRedshiftConnect {
+		return v.Connect
+	}).(IdcApplicationServiceIntegrationRedshiftConnectPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationRedshiftPtrOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationRedshiftPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationRedshift)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftPtrOutput) ToIdcApplicationServiceIntegrationRedshiftPtrOutput() IdcApplicationServiceIntegrationRedshiftPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftPtrOutput) ToIdcApplicationServiceIntegrationRedshiftPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftPtrOutput) Elem() IdcApplicationServiceIntegrationRedshiftOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationRedshift) IdcApplicationServiceIntegrationRedshift {
+		if v != nil {
+			return *v
+		}
+		var ret IdcApplicationServiceIntegrationRedshift
+		return ret
+	}).(IdcApplicationServiceIntegrationRedshiftOutput)
+}
+
+// Amazon Redshift connect service integration scope.
+func (o IdcApplicationServiceIntegrationRedshiftPtrOutput) Connect() IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationRedshift) *IdcApplicationServiceIntegrationRedshiftConnect {
+		if v == nil {
+			return nil
+		}
+		return v.Connect
+	}).(IdcApplicationServiceIntegrationRedshiftConnectPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationRedshiftConnect struct {
+	// Determines whether the connect integration is enabled or disabled.
+	Authorization string `pulumi:"authorization"`
+}
+
+// IdcApplicationServiceIntegrationRedshiftConnectInput is an input type that accepts IdcApplicationServiceIntegrationRedshiftConnectArgs and IdcApplicationServiceIntegrationRedshiftConnectOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationRedshiftConnectInput` via:
+//
+//	IdcApplicationServiceIntegrationRedshiftConnectArgs{...}
+type IdcApplicationServiceIntegrationRedshiftConnectInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationRedshiftConnectOutput() IdcApplicationServiceIntegrationRedshiftConnectOutput
+	ToIdcApplicationServiceIntegrationRedshiftConnectOutputWithContext(context.Context) IdcApplicationServiceIntegrationRedshiftConnectOutput
+}
+
+type IdcApplicationServiceIntegrationRedshiftConnectArgs struct {
+	// Determines whether the connect integration is enabled or disabled.
+	Authorization pulumi.StringInput `pulumi:"authorization"`
+}
+
+func (IdcApplicationServiceIntegrationRedshiftConnectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationRedshiftConnect)(nil)).Elem()
+}
+
+func (i IdcApplicationServiceIntegrationRedshiftConnectArgs) ToIdcApplicationServiceIntegrationRedshiftConnectOutput() IdcApplicationServiceIntegrationRedshiftConnectOutput {
+	return i.ToIdcApplicationServiceIntegrationRedshiftConnectOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationRedshiftConnectArgs) ToIdcApplicationServiceIntegrationRedshiftConnectOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftConnectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationRedshiftConnectOutput)
+}
+
+func (i IdcApplicationServiceIntegrationRedshiftConnectArgs) ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutput() IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationRedshiftConnectArgs) ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationRedshiftConnectOutput).ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutputWithContext(ctx)
+}
+
+// IdcApplicationServiceIntegrationRedshiftConnectPtrInput is an input type that accepts IdcApplicationServiceIntegrationRedshiftConnectArgs, IdcApplicationServiceIntegrationRedshiftConnectPtr and IdcApplicationServiceIntegrationRedshiftConnectPtrOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationRedshiftConnectPtrInput` via:
+//
+//	        IdcApplicationServiceIntegrationRedshiftConnectArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdcApplicationServiceIntegrationRedshiftConnectPtrInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutput() IdcApplicationServiceIntegrationRedshiftConnectPtrOutput
+	ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutputWithContext(context.Context) IdcApplicationServiceIntegrationRedshiftConnectPtrOutput
+}
+
+type idcApplicationServiceIntegrationRedshiftConnectPtrType IdcApplicationServiceIntegrationRedshiftConnectArgs
+
+func IdcApplicationServiceIntegrationRedshiftConnectPtr(v *IdcApplicationServiceIntegrationRedshiftConnectArgs) IdcApplicationServiceIntegrationRedshiftConnectPtrInput {
+	return (*idcApplicationServiceIntegrationRedshiftConnectPtrType)(v)
+}
+
+func (*idcApplicationServiceIntegrationRedshiftConnectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationRedshiftConnect)(nil)).Elem()
+}
+
+func (i *idcApplicationServiceIntegrationRedshiftConnectPtrType) ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutput() IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutputWithContext(context.Background())
+}
+
+func (i *idcApplicationServiceIntegrationRedshiftConnectPtrType) ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationRedshiftConnectPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationRedshiftConnectOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationRedshiftConnectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationRedshiftConnect)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftConnectOutput) ToIdcApplicationServiceIntegrationRedshiftConnectOutput() IdcApplicationServiceIntegrationRedshiftConnectOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftConnectOutput) ToIdcApplicationServiceIntegrationRedshiftConnectOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftConnectOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftConnectOutput) ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutput() IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
+	return o.ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutputWithContext(context.Background())
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftConnectOutput) ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdcApplicationServiceIntegrationRedshiftConnect) *IdcApplicationServiceIntegrationRedshiftConnect {
+		return &v
+	}).(IdcApplicationServiceIntegrationRedshiftConnectPtrOutput)
+}
+
+// Determines whether the connect integration is enabled or disabled.
+func (o IdcApplicationServiceIntegrationRedshiftConnectOutput) Authorization() pulumi.StringOutput {
+	return o.ApplyT(func(v IdcApplicationServiceIntegrationRedshiftConnect) string { return v.Authorization }).(pulumi.StringOutput)
+}
+
+type IdcApplicationServiceIntegrationRedshiftConnectPtrOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationRedshiftConnectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationRedshiftConnect)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftConnectPtrOutput) ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutput() IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftConnectPtrOutput) ToIdcApplicationServiceIntegrationRedshiftConnectPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationRedshiftConnectPtrOutput) Elem() IdcApplicationServiceIntegrationRedshiftConnectOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationRedshiftConnect) IdcApplicationServiceIntegrationRedshiftConnect {
+		if v != nil {
+			return *v
+		}
+		var ret IdcApplicationServiceIntegrationRedshiftConnect
+		return ret
+	}).(IdcApplicationServiceIntegrationRedshiftConnectOutput)
+}
+
+// Determines whether the connect integration is enabled or disabled.
+func (o IdcApplicationServiceIntegrationRedshiftConnectPtrOutput) Authorization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationRedshiftConnect) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Authorization
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationS3AccessGrants struct {
+	// S3 Access grants integration scope.
+	ReadWriteAccess *IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess `pulumi:"readWriteAccess"`
+}
+
+// IdcApplicationServiceIntegrationS3AccessGrantsInput is an input type that accepts IdcApplicationServiceIntegrationS3AccessGrantsArgs and IdcApplicationServiceIntegrationS3AccessGrantsOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationS3AccessGrantsInput` via:
+//
+//	IdcApplicationServiceIntegrationS3AccessGrantsArgs{...}
+type IdcApplicationServiceIntegrationS3AccessGrantsInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationS3AccessGrantsOutput() IdcApplicationServiceIntegrationS3AccessGrantsOutput
+	ToIdcApplicationServiceIntegrationS3AccessGrantsOutputWithContext(context.Context) IdcApplicationServiceIntegrationS3AccessGrantsOutput
+}
+
+type IdcApplicationServiceIntegrationS3AccessGrantsArgs struct {
+	// S3 Access grants integration scope.
+	ReadWriteAccess IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrInput `pulumi:"readWriteAccess"`
+}
+
+func (IdcApplicationServiceIntegrationS3AccessGrantsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationS3AccessGrants)(nil)).Elem()
+}
+
+func (i IdcApplicationServiceIntegrationS3AccessGrantsArgs) ToIdcApplicationServiceIntegrationS3AccessGrantsOutput() IdcApplicationServiceIntegrationS3AccessGrantsOutput {
+	return i.ToIdcApplicationServiceIntegrationS3AccessGrantsOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationS3AccessGrantsArgs) ToIdcApplicationServiceIntegrationS3AccessGrantsOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationS3AccessGrantsOutput)
+}
+
+func (i IdcApplicationServiceIntegrationS3AccessGrantsArgs) ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutput() IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationS3AccessGrantsArgs) ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationS3AccessGrantsOutput).ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutputWithContext(ctx)
+}
+
+// IdcApplicationServiceIntegrationS3AccessGrantsPtrInput is an input type that accepts IdcApplicationServiceIntegrationS3AccessGrantsArgs, IdcApplicationServiceIntegrationS3AccessGrantsPtr and IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationS3AccessGrantsPtrInput` via:
+//
+//	        IdcApplicationServiceIntegrationS3AccessGrantsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdcApplicationServiceIntegrationS3AccessGrantsPtrInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutput() IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput
+	ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutputWithContext(context.Context) IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput
+}
+
+type idcApplicationServiceIntegrationS3AccessGrantsPtrType IdcApplicationServiceIntegrationS3AccessGrantsArgs
+
+func IdcApplicationServiceIntegrationS3AccessGrantsPtr(v *IdcApplicationServiceIntegrationS3AccessGrantsArgs) IdcApplicationServiceIntegrationS3AccessGrantsPtrInput {
+	return (*idcApplicationServiceIntegrationS3AccessGrantsPtrType)(v)
+}
+
+func (*idcApplicationServiceIntegrationS3AccessGrantsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationS3AccessGrants)(nil)).Elem()
+}
+
+func (i *idcApplicationServiceIntegrationS3AccessGrantsPtrType) ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutput() IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutputWithContext(context.Background())
+}
+
+func (i *idcApplicationServiceIntegrationS3AccessGrantsPtrType) ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationS3AccessGrantsOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationS3AccessGrantsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationS3AccessGrants)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsOutput() IdcApplicationServiceIntegrationS3AccessGrantsOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutput() IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
+	return o.ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutputWithContext(context.Background())
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdcApplicationServiceIntegrationS3AccessGrants) *IdcApplicationServiceIntegrationS3AccessGrants {
+		return &v
+	}).(IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput)
+}
+
+// S3 Access grants integration scope.
+func (o IdcApplicationServiceIntegrationS3AccessGrantsOutput) ReadWriteAccess() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
+	return o.ApplyT(func(v IdcApplicationServiceIntegrationS3AccessGrants) *IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess {
+		return v.ReadWriteAccess
+	}).(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationS3AccessGrants)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutput() IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput) Elem() IdcApplicationServiceIntegrationS3AccessGrantsOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationS3AccessGrants) IdcApplicationServiceIntegrationS3AccessGrants {
+		if v != nil {
+			return *v
+		}
+		var ret IdcApplicationServiceIntegrationS3AccessGrants
+		return ret
+	}).(IdcApplicationServiceIntegrationS3AccessGrantsOutput)
+}
+
+// S3 Access grants integration scope.
+func (o IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput) ReadWriteAccess() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationS3AccessGrants) *IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess {
+		if v == nil {
+			return nil
+		}
+		return v.ReadWriteAccess
+	}).(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess struct {
+	// Determines whether read/write scope is enabled or disabled.
+	Authorization string `pulumi:"authorization"`
+}
+
+// IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessInput is an input type that accepts IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs and IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessInput` via:
+//
+//	IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs{...}
+type IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput
+	ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutputWithContext(context.Context) IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput
+}
+
+type IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs struct {
+	// Determines whether read/write scope is enabled or disabled.
+	Authorization pulumi.StringInput `pulumi:"authorization"`
+}
+
+func (IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess)(nil)).Elem()
+}
+
+func (i IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput {
+	return i.ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput)
+}
+
+func (i IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutputWithContext(context.Background())
+}
+
+func (i IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput).ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutputWithContext(ctx)
+}
+
+// IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrInput is an input type that accepts IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs, IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtr and IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput values.
+// You can construct a concrete instance of `IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrInput` via:
+//
+//	        IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrInput interface {
+	pulumi.Input
+
+	ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput
+	ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutputWithContext(context.Context) IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput
+}
+
+type idcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrType IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs
+
+func IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtr(v *IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs) IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrInput {
+	return (*idcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrType)(v)
+}
+
+func (*idcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess)(nil)).Elem()
+}
+
+func (i *idcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrType) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
+	return i.ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *idcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrType) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput)
+}
+
+type IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
+	return o.ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutputWithContext(context.Background())
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess) *IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess {
+		return &v
+	}).(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput)
+}
+
+// Determines whether read/write scope is enabled or disabled.
+func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput) Authorization() pulumi.StringOutput {
+	return o.ApplyT(func(v IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess) string { return v.Authorization }).(pulumi.StringOutput)
+}
+
+type IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess)(nil)).Elem()
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput) ToIdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutputWithContext(ctx context.Context) IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
+	return o
+}
+
+func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput) Elem() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess) IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess {
+		if v != nil {
+			return *v
+		}
+		var ret IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess
+		return ret
+	}).(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput)
+}
+
+// Determines whether read/write scope is enabled or disabled.
+func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput) Authorization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Authorization
+	}).(pulumi.StringPtrOutput)
+}
+
 type IntegrationTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -1670,6 +2833,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcEndpointArrayInput)(nil)).Elem(), EndpointAccessVpcEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcEndpointNetworkInterfaceInput)(nil)).Elem(), EndpointAccessVpcEndpointNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcEndpointNetworkInterfaceArrayInput)(nil)).Elem(), EndpointAccessVpcEndpointNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationAuthorizedTokenIssuerInput)(nil)).Elem(), IdcApplicationAuthorizedTokenIssuerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationAuthorizedTokenIssuerPtrInput)(nil)).Elem(), IdcApplicationAuthorizedTokenIssuerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationInput)(nil)).Elem(), IdcApplicationServiceIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationPtrInput)(nil)).Elem(), IdcApplicationServiceIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationLakeFormationInput)(nil)).Elem(), IdcApplicationServiceIntegrationLakeFormationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationLakeFormationPtrInput)(nil)).Elem(), IdcApplicationServiceIntegrationLakeFormationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryInput)(nil)).Elem(), IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrInput)(nil)).Elem(), IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationRedshiftInput)(nil)).Elem(), IdcApplicationServiceIntegrationRedshiftArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationRedshiftPtrInput)(nil)).Elem(), IdcApplicationServiceIntegrationRedshiftArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationRedshiftConnectInput)(nil)).Elem(), IdcApplicationServiceIntegrationRedshiftConnectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationRedshiftConnectPtrInput)(nil)).Elem(), IdcApplicationServiceIntegrationRedshiftConnectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationS3AccessGrantsInput)(nil)).Elem(), IdcApplicationServiceIntegrationS3AccessGrantsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationS3AccessGrantsPtrInput)(nil)).Elem(), IdcApplicationServiceIntegrationS3AccessGrantsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessInput)(nil)).Elem(), IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrInput)(nil)).Elem(), IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTimeoutsInput)(nil)).Elem(), IntegrationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTimeoutsPtrInput)(nil)).Elem(), IntegrationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
@@ -1694,6 +2873,22 @@ func init() {
 	pulumi.RegisterOutputType(EndpointAccessVpcEndpointArrayOutput{})
 	pulumi.RegisterOutputType(EndpointAccessVpcEndpointNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(EndpointAccessVpcEndpointNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(IdcApplicationAuthorizedTokenIssuerOutput{})
+	pulumi.RegisterOutputType(IdcApplicationAuthorizedTokenIssuerPtrOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationLakeFormationOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationLakeFormationPtrOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationRedshiftOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationRedshiftPtrOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationRedshiftConnectOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationRedshiftConnectPtrOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationS3AccessGrantsOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput{})
+	pulumi.RegisterOutputType(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationTimeoutsOutput{})
 	pulumi.RegisterOutputType(IntegrationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})

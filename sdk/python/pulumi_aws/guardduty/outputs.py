@@ -338,6 +338,8 @@ class FilterFindingCriteriaCriterion(dict):
             suggest = "less_than_or_equal"
         elif key == "notEquals":
             suggest = "not_equals"
+        elif key == "notMatches":
+            suggest = "not_matches"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FilterFindingCriteriaCriterion. Access the value via the '{suggest}' property getter instead.")
@@ -357,7 +359,9 @@ class FilterFindingCriteriaCriterion(dict):
                  greater_than_or_equal: Optional[_builtins.str] = None,
                  less_than: Optional[_builtins.str] = None,
                  less_than_or_equal: Optional[_builtins.str] = None,
-                 not_equals: Optional[Sequence[_builtins.str]] = None):
+                 matches: Optional[Sequence[_builtins.str]] = None,
+                 not_equals: Optional[Sequence[_builtins.str]] = None,
+                 not_matches: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str field: The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
         :param Sequence[_builtins.str] equals: List of string values to be evaluated.
@@ -365,7 +369,9 @@ class FilterFindingCriteriaCriterion(dict):
         :param _builtins.str greater_than_or_equal: A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param _builtins.str less_than: A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param _builtins.str less_than_or_equal: A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param Sequence[_builtins.str] matches: List of string values to be evaluated as matching conditions.
         :param Sequence[_builtins.str] not_equals: List of string values to be evaluated.
+        :param Sequence[_builtins.str] not_matches: List of string values to be evaluated as non-matching conditions.
         """
         pulumi.set(__self__, "field", field)
         if equals is not None:
@@ -378,8 +384,12 @@ class FilterFindingCriteriaCriterion(dict):
             pulumi.set(__self__, "less_than", less_than)
         if less_than_or_equal is not None:
             pulumi.set(__self__, "less_than_or_equal", less_than_or_equal)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
         if not_equals is not None:
             pulumi.set(__self__, "not_equals", not_equals)
+        if not_matches is not None:
+            pulumi.set(__self__, "not_matches", not_matches)
 
     @_builtins.property
     @pulumi.getter
@@ -430,12 +440,28 @@ class FilterFindingCriteriaCriterion(dict):
         return pulumi.get(self, "less_than_or_equal")
 
     @_builtins.property
+    @pulumi.getter
+    def matches(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of string values to be evaluated as matching conditions.
+        """
+        return pulumi.get(self, "matches")
+
+    @_builtins.property
     @pulumi.getter(name="notEquals")
     def not_equals(self) -> Optional[Sequence[_builtins.str]]:
         """
         List of string values to be evaluated.
         """
         return pulumi.get(self, "not_equals")
+
+    @_builtins.property
+    @pulumi.getter(name="notMatches")
+    def not_matches(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of string values to be evaluated as non-matching conditions.
+        """
+        return pulumi.get(self, "not_matches")
 
 
 @pulumi.output_type

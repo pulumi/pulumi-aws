@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Lambda.Outputs
         /// Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
         /// </summary>
         public readonly int? MinimumPollers;
+        /// <summary>
+        /// The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+        /// </summary>
+        public readonly string? PollerGroupName;
 
         [OutputConstructor]
         private EventSourceMappingProvisionedPollerConfig(
             int? maximumPollers,
 
-            int? minimumPollers)
+            int? minimumPollers,
+
+            string? pollerGroupName)
         {
             MaximumPollers = maximumPollers;
             MinimumPollers = minimumPollers;
+            PollerGroupName = pollerGroupName;
         }
     }
 }

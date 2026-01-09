@@ -260,7 +260,8 @@ type AgentcoreMemoryStrategy struct {
 	Description            pulumi.StringPtrOutput `pulumi:"description"`
 	MemoryExecutionRoleArn pulumi.StringPtrOutput `pulumi:"memoryExecutionRoleArn"`
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
-	MemoryId         pulumi.StringOutput `pulumi:"memoryId"`
+	MemoryId pulumi.StringOutput `pulumi:"memoryId"`
+	// Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
 	MemoryStrategyId pulumi.StringOutput `pulumi:"memoryStrategyId"`
 	// Name of the memory strategy.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -320,7 +321,8 @@ type agentcoreMemoryStrategyState struct {
 	Description            *string `pulumi:"description"`
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
-	MemoryId         *string `pulumi:"memoryId"`
+	MemoryId *string `pulumi:"memoryId"`
+	// Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
 	MemoryStrategyId *string `pulumi:"memoryStrategyId"`
 	// Name of the memory strategy.
 	Name *string `pulumi:"name"`
@@ -342,7 +344,8 @@ type AgentcoreMemoryStrategyState struct {
 	Description            pulumi.StringPtrInput
 	MemoryExecutionRoleArn pulumi.StringPtrInput
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
-	MemoryId         pulumi.StringPtrInput
+	MemoryId pulumi.StringPtrInput
+	// Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
 	MemoryStrategyId pulumi.StringPtrInput
 	// Name of the memory strategy.
 	Name pulumi.StringPtrInput
@@ -510,6 +513,7 @@ func (o AgentcoreMemoryStrategyOutput) MemoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringOutput { return v.MemoryId }).(pulumi.StringOutput)
 }
 
+// Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
 func (o AgentcoreMemoryStrategyOutput) MemoryStrategyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringOutput { return v.MemoryStrategyId }).(pulumi.StringOutput)
 }

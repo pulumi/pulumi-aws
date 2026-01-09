@@ -82,6 +82,36 @@ namespace Pulumi.Aws.LB
     /// });
     /// ```
     /// 
+    /// ### Target using QUIC
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LB.TargetGroup("test", new()
+    ///     {
+    ///         Name = "test",
+    ///         Port = 443,
+    ///         Protocol = "QUIC",
+    ///     });
+    /// 
+    ///     var testInstance = new Aws.Ec2.Instance("test");
+    /// 
+    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("test", new()
+    ///     {
+    ///         TargetGroupArn = test.Arn,
+    ///         TargetId = testInstance.Id,
+    ///         Port = 443,
+    ///         QuicServerId = "0x1a2b3c4d5e6f7a8b",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// You cannot import Target Group Attachments.
@@ -100,6 +130,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
+
+        /// <summary>
+        /// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+        /// </summary>
+        [Output("quicServerId")]
+        public Output<string?> QuicServerId { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -184,6 +220,12 @@ namespace Pulumi.Aws.LB
         public Input<int>? Port { get; set; }
 
         /// <summary>
+        /// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+        /// </summary>
+        [Input("quicServerId")]
+        public Input<string>? QuicServerId { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -222,6 +264,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
+        /// </summary>
+        [Input("quicServerId")]
+        public Input<string>? QuicServerId { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -27,7 +27,7 @@ class GetDomainNameResult:
     """
     A collection of values returned by getDomainName.
     """
-    def __init__(__self__, arn=None, certificate_arn=None, certificate_name=None, certificate_upload_date=None, cloudfront_domain_name=None, cloudfront_zone_id=None, domain_name=None, domain_name_id=None, endpoint_configurations=None, id=None, policy=None, region=None, regional_certificate_arn=None, regional_certificate_name=None, regional_domain_name=None, regional_zone_id=None, security_policy=None, tags=None):
+    def __init__(__self__, arn=None, certificate_arn=None, certificate_name=None, certificate_upload_date=None, cloudfront_domain_name=None, cloudfront_zone_id=None, domain_name=None, domain_name_id=None, endpoint_access_mode=None, endpoint_configurations=None, id=None, policy=None, region=None, regional_certificate_arn=None, regional_certificate_name=None, regional_domain_name=None, regional_zone_id=None, security_policy=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +52,9 @@ class GetDomainNameResult:
         if domain_name_id and not isinstance(domain_name_id, str):
             raise TypeError("Expected argument 'domain_name_id' to be a str")
         pulumi.set(__self__, "domain_name_id", domain_name_id)
+        if endpoint_access_mode and not isinstance(endpoint_access_mode, str):
+            raise TypeError("Expected argument 'endpoint_access_mode' to be a str")
+        pulumi.set(__self__, "endpoint_access_mode", endpoint_access_mode)
         if endpoint_configurations and not isinstance(endpoint_configurations, list):
             raise TypeError("Expected argument 'endpoint_configurations' to be a list")
         pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
@@ -140,6 +143,14 @@ class GetDomainNameResult:
     @pulumi.getter(name="domainNameId")
     def domain_name_id(self) -> _builtins.str:
         return pulumi.get(self, "domain_name_id")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> _builtins.str:
+        """
+        (Optional) Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
 
     @_builtins.property
     @pulumi.getter(name="endpointConfigurations")
@@ -233,6 +244,7 @@ class AwaitableGetDomainNameResult(GetDomainNameResult):
             cloudfront_zone_id=self.cloudfront_zone_id,
             domain_name=self.domain_name,
             domain_name_id=self.domain_name_id,
+            endpoint_access_mode=self.endpoint_access_mode,
             endpoint_configurations=self.endpoint_configurations,
             id=self.id,
             policy=self.policy,
@@ -285,6 +297,7 @@ def get_domain_name(domain_name: Optional[_builtins.str] = None,
         cloudfront_zone_id=pulumi.get(__ret__, 'cloudfront_zone_id'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
         domain_name_id=pulumi.get(__ret__, 'domain_name_id'),
+        endpoint_access_mode=pulumi.get(__ret__, 'endpoint_access_mode'),
         endpoint_configurations=pulumi.get(__ret__, 'endpoint_configurations'),
         id=pulumi.get(__ret__, 'id'),
         policy=pulumi.get(__ret__, 'policy'),
@@ -334,6 +347,7 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[_builtins.str]] = 
         cloudfront_zone_id=pulumi.get(__response__, 'cloudfront_zone_id'),
         domain_name=pulumi.get(__response__, 'domain_name'),
         domain_name_id=pulumi.get(__response__, 'domain_name_id'),
+        endpoint_access_mode=pulumi.get(__response__, 'endpoint_access_mode'),
         endpoint_configurations=pulumi.get(__response__, 'endpoint_configurations'),
         id=pulumi.get(__response__, 'id'),
         policy=pulumi.get(__response__, 'policy'),

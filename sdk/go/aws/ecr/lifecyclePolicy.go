@@ -20,7 +20,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Policy on untagged image
+// ### Policy on Untagged Images
 //
 // ```go
 // package main
@@ -43,21 +43,21 @@ import (
 //			_, err = ecr.NewLifecyclePolicy(ctx, "example", &ecr.LifecyclePolicyArgs{
 //				Repository: example.Name,
 //				Policy: pulumi.Any(`{
-//	    \"rules\": [
-//	        {
-//	            \"rulePriority\": 1,
-//	            \"description\": \"Expire images older than 14 days\",
-//	            \"selection\": {
-//	                \"tagStatus\": \"untagged\",
-//	                \"countType\": \"sinceImagePushed\",
-//	                \"countUnit\": \"days\",
-//	                \"countNumber\": 14
-//	            },
-//	            \"action\": {
-//	                \"type\": \"expire\"
-//	            }
-//	        }
-//	    ]
+//	  \"rules\": [
+//	    {
+//	      \"rulePriority\": 1,
+//	      \"description\": \"Expire images older than 14 days\",
+//	      \"selection\": {
+//	        \"tagStatus\": \"untagged\",
+//	        \"countType\": \"sinceImagePushed\",
+//	        \"countUnit\": \"days\",
+//	        \"countNumber\": 14
+//	      },
+//	      \"action\": {
+//	        \"type\": \"expire\"
+//	      }
+//	    }
+//	  ]
 //	}
 //
 // `),
@@ -72,7 +72,7 @@ import (
 //
 // ```
 //
-// ### Policy on tagged image
+// ### Policy on Tagged Images
 //
 // ```go
 // package main
@@ -95,21 +95,88 @@ import (
 //			_, err = ecr.NewLifecyclePolicy(ctx, "example", &ecr.LifecyclePolicyArgs{
 //				Repository: example.Name,
 //				Policy: pulumi.Any(`{
-//	    \"rules\": [
-//	        {
-//	            \"rulePriority\": 1,
-//	            \"description\": \"Keep last 30 images\",
-//	            \"selection\": {
-//	                \"tagStatus\": \"tagged\",
-//	                \"tagPrefixList\": [\"v\"],
-//	                \"countType\": \"imageCountMoreThan\",
-//	                \"countNumber\": 30
-//	            },
-//	            \"action\": {
-//	                \"type\": \"expire\"
-//	            }
-//	        }
-//	    ]
+//	  \"rules\": [
+//	    {
+//	      \"rulePriority\": 1,
+//	      \"description\": \"Keep last 30 images\",
+//	      \"selection\": {
+//	        \"tagStatus\": \"tagged\",
+//	        \"tagPrefixList\": [\"v\"],
+//	        \"countType\": \"imageCountMoreThan\",
+//	        \"countNumber\": 30
+//	      },
+//	      \"action\": {
+//	        \"type\": \"expire\"
+//	      }
+//	    }
+//	  ]
+//	}
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Policy to Archive and Delete
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ecr.NewRepository(ctx, "example", &ecr.RepositoryArgs{
+//				Name: pulumi.String("example-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecr.NewLifecyclePolicy(ctx, "example", &ecr.LifecyclePolicyArgs{
+//				Repository: example.Name,
+//				Policy: pulumi.Any(`{
+//	  \"rules\": [
+//	    {
+//	      \"rulePriority\": 1,
+//	      \"description\": \"Archive images not pulled in 90 days\",
+//	      \"selection\": {
+//	        \"tagStatus\": \"any\",
+//	        \"countType\": \"sinceImagePulled\",
+//	        \"countUnit\": \"days\",
+//	        \"countNumber\": 90
+//	      },
+//	      \"action\": {
+//	        \"type\": \"transition\",
+//	        \"targetStorageClass\": \"archive\"
+//	      }
+//	    },
+//	    {
+//	      \"rulePriority\": 2,
+//	      \"description\": \"Delete images archived for more than 365 days\",
+//	      \"selection\": {
+//	        \"tagStatus\": \"any\",
+//	        \"storageClass\": \"archive\",
+//	        \"countType\": \"sinceImageTransitioned\",
+//	        \"countUnit\": \"days\",
+//	        \"countNumber\": 365
+//	      },
+//	      \"action\": {
+//	        \"type\": \"expire\"
+//	      }
+//	    }
+//	  ]
 //	}
 //
 // `),

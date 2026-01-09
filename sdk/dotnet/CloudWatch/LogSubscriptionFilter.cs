@@ -47,31 +47,43 @@ namespace Pulumi.Aws.CloudWatch
     public partial class LogSubscriptionFilter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
+        /// Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `False`. Valid only for log groups that have an active log transformer.
+        /// </summary>
+        [Output("applyOnTransformedLogs")]
+        public Output<bool> ApplyOnTransformedLogs { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         /// </summary>
         [Output("destinationArn")]
         public Output<string> DestinationArn { get; private set; } = null!;
 
         /// <summary>
-        /// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
+        /// Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
         /// </summary>
         [Output("distribution")]
         public Output<string?> Distribution { get; private set; } = null!;
 
         /// <summary>
-        /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
+        /// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        /// </summary>
+        [Output("emitSystemFields")]
+        public Output<ImmutableArray<string>> EmitSystemFields { get; private set; } = null!;
+
+        /// <summary>
+        /// Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         [Output("filterPattern")]
         public Output<string> FilterPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the log group to associate the subscription filter with
+        /// Name of the log group to associate the subscription filter with.
         /// </summary>
         [Output("logGroup")]
         public Output<string> LogGroup { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the subscription filter
+        /// Name for the subscription filter.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -83,7 +95,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
+        /// ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -135,31 +147,49 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogSubscriptionFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
+        /// Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `False`. Valid only for log groups that have an active log transformer.
+        /// </summary>
+        [Input("applyOnTransformedLogs")]
+        public Input<bool>? ApplyOnTransformedLogs { get; set; }
+
+        /// <summary>
+        /// ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
 
         /// <summary>
-        /// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
+        /// Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
         /// </summary>
         [Input("distribution")]
         public Input<string>? Distribution { get; set; }
 
+        [Input("emitSystemFields")]
+        private InputList<string>? _emitSystemFields;
+
         /// <summary>
-        /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
+        /// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        /// </summary>
+        public InputList<string> EmitSystemFields
+        {
+            get => _emitSystemFields ?? (_emitSystemFields = new InputList<string>());
+            set => _emitSystemFields = value;
+        }
+
+        /// <summary>
+        /// Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         [Input("filterPattern", required: true)]
         public Input<string> FilterPattern { get; set; } = null!;
 
         /// <summary>
-        /// The name of the log group to associate the subscription filter with
+        /// Name of the log group to associate the subscription filter with.
         /// </summary>
         [Input("logGroup", required: true)]
         public Input<string> LogGroup { get; set; } = null!;
 
         /// <summary>
-        /// A name for the subscription filter
+        /// Name for the subscription filter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -171,7 +201,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
+        /// ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -185,31 +215,49 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogSubscriptionFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
+        /// Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `False`. Valid only for log groups that have an active log transformer.
+        /// </summary>
+        [Input("applyOnTransformedLogs")]
+        public Input<bool>? ApplyOnTransformedLogs { get; set; }
+
+        /// <summary>
+        /// ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         /// </summary>
         [Input("destinationArn")]
         public Input<string>? DestinationArn { get; set; }
 
         /// <summary>
-        /// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
+        /// Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
         /// </summary>
         [Input("distribution")]
         public Input<string>? Distribution { get; set; }
 
+        [Input("emitSystemFields")]
+        private InputList<string>? _emitSystemFields;
+
         /// <summary>
-        /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
+        /// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        /// </summary>
+        public InputList<string> EmitSystemFields
+        {
+            get => _emitSystemFields ?? (_emitSystemFields = new InputList<string>());
+            set => _emitSystemFields = value;
+        }
+
+        /// <summary>
+        /// Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         [Input("filterPattern")]
         public Input<string>? FilterPattern { get; set; }
 
         /// <summary>
-        /// The name of the log group to associate the subscription filter with
+        /// Name of the log group to associate the subscription filter with.
         /// </summary>
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }
 
         /// <summary>
-        /// A name for the subscription filter
+        /// Name for the subscription filter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -221,7 +269,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
+        /// ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

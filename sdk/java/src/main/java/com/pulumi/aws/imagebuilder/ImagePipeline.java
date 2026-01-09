@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.ImagePipelineArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineState;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineImageScanningConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineImageTestsConfiguration;
+import com.pulumi.aws.imagebuilder.outputs.ImagePipelineLoggingConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineSchedule;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineWorkflow;
 import com.pulumi.core.Output;
@@ -224,6 +225,20 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
      */
     public Output<String> infrastructureConfigurationArn() {
         return this.infrastructureConfigurationArn;
+    }
+    /**
+     * Configuration block with logging configuration. Detailed below.
+     * 
+     */
+    @Export(name="loggingConfiguration", refs={ImagePipelineLoggingConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ImagePipelineLoggingConfiguration> loggingConfiguration;
+
+    /**
+     * @return Configuration block with logging configuration. Detailed below.
+     * 
+     */
+    public Output<Optional<ImagePipelineLoggingConfiguration>> loggingConfiguration() {
+        return Codegen.optional(this.loggingConfiguration);
     }
     /**
      * Name of the image pipeline.

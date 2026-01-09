@@ -82,9 +82,12 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var config = new Config();
-    ///     var myregion = config.RequireObject&lt;dynamic&gt;("myregion");
-    ///     var accountId = config.RequireObject&lt;dynamic&gt;("accountId");
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
     ///     // API Gateway
     ///     var api = new Aws.ApiGateway.RestApi("api", new()
     ///     {
@@ -169,13 +172,44 @@ namespace Pulumi.Aws.ApiGateway
     ///         Action = "lambda:InvokeFunction",
     ///         Function = lambda.Name,
     ///         Principal = "apigateway.amazonaws.com",
-    ///         SourceArn = Output.Tuple(api.Id, method.HttpMethod, resource.Path).Apply(values =&gt;
+    ///         SourceArn = Output.Tuple(currentGetPartition, currentGetRegion, current, api.Id, method.HttpMethod, resource.Path).Apply(values =&gt;
     ///         {
-    ///             var id = values.Item1;
-    ///             var httpMethod = values.Item2;
-    ///             var path = values.Item3;
-    ///             return $"arn:aws:execute-api:{myregion}:{accountId}:{id}/*/{httpMethod}{path}";
+    ///             var currentGetPartition = values.Item1;
+    ///             var currentGetRegion = values.Item2;
+    ///             var current = values.Item3;
+    ///             var id = values.Item4;
+    ///             var httpMethod = values.Item5;
+    ///             var path = values.Item6;
+    ///             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:execute-api:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:{id}/*/{httpMethod}{path}";
     ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Lambda integration with response streaming
+    /// 
+    /// All other resources and data sources are the same as in the previous example; only the integration configuration differs.
+    /// Note that the `Timeout` of the `aws.lambda.Function` may need to be adjusted.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integration = new Aws.ApiGateway.Integration("integration", new()
+    ///     {
+    ///         RestApi = api.Id,
+    ///         ResourceId = resource.Id,
+    ///         HttpMethod = method.HttpMethod,
+    ///         IntegrationHttpMethod = "POST",
+    ///         Type = "AWS_PROXY",
+    ///         Uri = lambda.ResponseStreamingInvokeArn,
+    ///         ResponseTransferMode = "STREAM",
+    ///         TimeoutMilliseconds = 900000,
     ///     });
     /// 
     /// });

@@ -181,6 +181,7 @@ class _AgentcoreMemoryStrategyState:
         :param pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs'] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
         :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
+        :param pulumi.Input[_builtins.str] memory_strategy_id: Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
         :param pulumi.Input[_builtins.str] name: Name of the memory strategy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
                
@@ -257,6 +258,9 @@ class _AgentcoreMemoryStrategyState:
     @_builtins.property
     @pulumi.getter(name="memoryStrategyId")
     def memory_strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+        """
         return pulumi.get(self, "memory_strategy_id")
 
     @memory_strategy_id.setter
@@ -702,6 +706,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
         :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
+        :param pulumi.Input[_builtins.str] memory_strategy_id: Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
         :param pulumi.Input[_builtins.str] name: Name of the memory strategy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
                
@@ -757,6 +762,9 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="memoryStrategyId")
     def memory_strategy_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
+        """
         return pulumi.get(self, "memory_strategy_id")
 
     @_builtins.property
