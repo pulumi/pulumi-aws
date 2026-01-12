@@ -70,7 +70,7 @@ jobs:
         MISE_ENV: test
         MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
       with:
-        version: 2025.11.6
+        version: 2026.1.1
         github_token: ${{ steps.app-auth.outputs.token }}
         plugin_install: https://github.com/pulumi/vfox-pulumi
         # also save this cache since we are using a different mise env.
