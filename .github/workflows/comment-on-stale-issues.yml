@@ -11,8 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Stale issue job
     steps:
-    # Workaround until https://github.com/aws-actions/stale-issue-cleanup/issues/385 is fixed
-    - uses: pose/stale-issue-cleanup@04621e0eafc22d7bb8812c417325f35cc0ed0fce
+    - uses: aws-actions/stale-issue-cleanup@0604f2edf84a3a66bc0dfb4a30eb07814cbdf440
       with:
         issue-types: issues # only look at issues (ignore pull-requests)
 
