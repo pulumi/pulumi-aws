@@ -97,4 +97,4 @@ jobs:
         # TODO[pulumi/pulumi-aws#6115]: reenable TestAccSQSQueue_List_basic
         run: |
           cd upstream
-          TF_ACC=1 make testacc GO_VER=go PKG=${{ matrix.service }} ACCTEST_PARALLELISM=6 TESTS="${{ matrix.tests }}" TESTARGS="-skip 'tags|.*/.*/Tags|TestAccSQSQueue_List_basic'"
+          TF_ACC=1 make testacc GO_VER=go PKG=${{ matrix.service }} ACCTEST_PARALLELISM=6 TESTS="${{ matrix.tests }}" TESTARGS="-skip 'tags|TestAccSQSQueue_List_basic|.*/.*/Tags'"
