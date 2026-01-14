@@ -94,6 +94,7 @@ jobs:
           role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
       - if: ${{ matrix.tests }}
         name: Test ${{ matrix.service }}
+        # TODO[pulumi/pulumi-aws#6115]: reenable TestAccSQSQueue_List_basic
         run: |
           cd upstream
-          TF_ACC=1 make testacc GO_VER=go PKG=${{ matrix.service }} ACCTEST_PARALLELISM=6 TESTS="${{ matrix.tests }}" TESTARGS="-skip 'tags|.*/.*/Tags'"
+          TF_ACC=1 make testacc GO_VER=go PKG=${{ matrix.service }} ACCTEST_PARALLELISM=6 TESTS="${{ matrix.tests }}" TESTARGS="-skip 'tags|.*/.*/Tags|TestAccSQSQueue_List_basic'"
