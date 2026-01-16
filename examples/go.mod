@@ -24,8 +24,6 @@ require (
 // We use this for gRPC based testing.
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250923233607-7f1981c8674a
-
-	github.com/blampe/patches/mirrors/aws/v6 => github.com/blampe/patches/mirrors/aws/v6 main
 	github.com/pulumi/pulumi-aws/provider/v7 => ../provider
 )
 
@@ -334,6 +332,7 @@ require (
 	github.com/beevik/etree v1.6.0 // indirect
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
 	github.com/bgentry/speakeasy v0.2.0 // indirect
+	github.com/blampe/patches/mirrors/aws/v6 v6.0.0-20260116005930-95b65f97b40f // indirect
 	github.com/blang/semver v3.5.1+incompatible // indirect
 	github.com/cedar-policy/cedar-go v1.4.0 // indirect
 	github.com/cenkalti/backoff/v3 v3.2.2 // indirect
@@ -415,7 +414,6 @@ require (
 	github.com/hashicorp/terraform-plugin-log v0.10.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.38.1 // indirect
 	github.com/hashicorp/terraform-plugin-testing v1.14.0 // indirect
-	github.com/blampe/patches/mirrors/aws/v6 v1.60.1-0.20220923175450-ca71523cdc36 // indirect
 	github.com/hashicorp/terraform-registry-address v0.4.0 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.12.0 // indirect
