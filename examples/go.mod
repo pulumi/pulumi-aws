@@ -25,7 +25,7 @@ require (
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250923233607-7f1981c8674a
 
-	github.com/hashicorp/terraform-provider-aws => ../upstream
+	github.com/hashicorp/terraform-provider-aws => github.com/blampe/patches/mirrors/aws/v6 main
 	github.com/pulumi/pulumi-aws/provider/v7 => ../provider
 )
 
