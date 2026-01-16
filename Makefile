@@ -239,7 +239,7 @@ test:
 .PHONY: test
 test_provider_cmd = cd provider && go test -v -short \
 	-coverprofile="coverage.txt" \
-	-coverpkg="./...,github.com/hashicorp/terraform-provider-..." \
+	-coverpkg="./...,github.com/blampe/patches/..." \
 	-parallel $(TESTPARALLELISM) \
 	./...
 test_provider:

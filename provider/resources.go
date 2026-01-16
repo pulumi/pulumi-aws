@@ -905,18 +905,18 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	var credentialsValidationRun atomic.Bool
 
 	prov := tfbridge.ProviderInfo{
-		P:                p,
-		Name:             "aws",
-		DisplayName:      "AWS",
-		Description:      "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
-		Keywords:         []string{"pulumi", "aws"},
-		License:          "Apache-2.0",
-		Homepage:         "https://pulumi.io",
-		Repository:       "https://github.com/pulumi/pulumi-aws",
-		Version:          version.Version,
-		GitHubOrg:        "hashicorp",
-		UpstreamRepoPath: "./upstream",
-		DocRules:         &tfbridge.DocRuleInfo{EditRules: editRules},
+		P:           p,
+		Name:        "aws",
+		DisplayName: "AWS",
+		Description: "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
+		Keywords:    []string{"pulumi", "aws"},
+		License:     "Apache-2.0",
+		Homepage:    "https://pulumi.io",
+		Repository:  "https://github.com/pulumi/pulumi-aws",
+		Version:     version.Version,
+		GitHubOrg:   "hashicorp",
+		//UpstreamRepoPath: "github.com/blampe/patches/mirrors/aws/v6",
+		DocRules: &tfbridge.DocRuleInfo{EditRules: editRules},
 
 		// See pulumi/pulumi-aws#2880
 		SkipValidateProviderConfigForPluginFramework: true,
