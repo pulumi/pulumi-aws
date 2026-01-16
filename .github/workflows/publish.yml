@@ -171,7 +171,7 @@ jobs:
         # only saving the cache in the prerequisites job
         cache_save: false
     - name: Setup Node
-      uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
+      uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
       with:
         # we don't set node-version because we install with mise.
         # this step is needed to setup npm auth
