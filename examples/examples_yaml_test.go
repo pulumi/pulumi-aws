@@ -440,7 +440,7 @@ func TestIMDSAuth(t *testing.T) {
 		localProviderBuild = filepath.Join(os.TempDir(), "pulumi-resource-aws")
 		ldFlags := []string{
 			"-X", "github.com/pulumi/pulumi-aws/provider/v7/pkg/version.Version=6.0.0-alpha.0+dev",
-			"-X", "github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=6.0.0-alpha.0+dev",
+			"-X", "github.com/blampe/patches/mirrors/aws/v6/version.ProviderVersion=6.0.0-alpha.0+dev",
 		}
 		args := []string{
 			"build", "-o", localProviderBuild,

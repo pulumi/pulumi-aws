@@ -2357,13 +2357,13 @@
   ],
   "sagemaker_code_repository.html.markdown": [
     {
-      "old": "    repository_url = \"https://github.com/hashicorp/terraform-provider-aws.git\"",
+      "old": "    repository_url = \"https://github.com/blampe/patches/mirrors/aws/v6.git\"",
       "new": "    repository_url = \"https://github.com/github/docs.git\""
     }
   ],
   "sagemaker_notebook_instance.html.markdown": [
     {
-      "old": "    repository_url = \"https://github.com/hashicorp/terraform-provider-aws.git\"",
+      "old": "    repository_url = \"https://github.com/blampe/patches/mirrors/aws/v6.git\"",
       "new": "    repository_url = \"https://github.com/github/docs.git\""
     }
   ],

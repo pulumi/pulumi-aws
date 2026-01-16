@@ -20,7 +20,7 @@ import (
 	"log"
 	"os"
 
-	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
+	awsShim "github.com/blampe/patches/mirrors/aws/v6/shim"
 	"github.com/pulumi/pulumi-aws/provider/v7/pkg/iam"
 	"github.com/pulumi/pulumi-aws/provider/v7/pkg/rds"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"

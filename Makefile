@@ -25,8 +25,8 @@ endif
 
 # Strips debug information from the provider binary to reduce its size and speed up builds
 LDFLAGS_STRIP_SYMBOLS=-s -w
-LDFLAGS_PROJ_VERSION=-X $(PROJECT)/$(VERSION_PATH)=$(PROVIDER_VERSION) -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=$(PROVIDER_VERSION)
-LDFLAGS_UPSTREAM_VERSION=-X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=v$(PROVIDER_VERSION)
+LDFLAGS_PROJ_VERSION=-X $(PROJECT)/$(VERSION_PATH)=$(PROVIDER_VERSION) -X github.com/blampe/patches/mirrors/aws/v6/version.ProviderVersion=$(PROVIDER_VERSION)
+LDFLAGS_UPSTREAM_VERSION=-X github.com/blampe/patches/mirrors/aws/v6/version.ProviderVersion=v$(PROVIDER_VERSION)
 LDFLAGS_EXTRAS=
 LDFLAGS=$(LDFLAGS_PROJ_VERSION) $(LDFLAGS_UPSTREAM_VERSION) $(LDFLAGS_EXTRAS) $(LDFLAGS_STRIP_SYMBOLS)
 

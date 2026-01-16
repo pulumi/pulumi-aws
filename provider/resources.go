@@ -4595,7 +4595,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// This attribute is flattened upstream, so we
 					// only show one item in the Pulumi
-					// API. https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/elasticbeanstalk/application_data_source.go#L73
+					// API. https://github.com/blampe/patches/mirrors/aws/v6/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/elasticbeanstalk/application_data_source.go#L73
 					"appversion_lifecycle": {MaxItemsOne: ref(true)},
 				},
 			},
@@ -4607,10 +4607,10 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsDataSource(elbMod, "getLoadBalancer"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// This attribute is flattened upstream:
-					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elb/load_balancer_data_source.go#L302.
+					// https://github.com/blampe/patches/mirrors/aws/v6/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elb/load_balancer_data_source.go#L302.
 					"access_logs": {MaxItemsOne: ref(true)},
 					// This attribute is flattened upstream:
-					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elb/load_balancer_data_source.go#L327
+					// https://github.com/blampe/patches/mirrors/aws/v6/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elb/load_balancer_data_source.go#L327
 					"health_check": {MaxItemsOne: ref(true)},
 				},
 			},
@@ -4645,7 +4645,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsDataSource(eksMod, "getCluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// This attribute is flattened upstream. See
-					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/eks/cluster_data_source.go#L231
+					// https://github.com/blampe/patches/mirrors/aws/v6/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/eks/cluster_data_source.go#L231
 					// for details.
 					"vpc_config": {MaxItemsOne: ref(true)},
 				},
@@ -4691,16 +4691,16 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsDataSource(lambdaMod, "getFunction"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// This item is flattened upstream. See
-					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L263-L273
+					// https://github.com/blampe/patches/mirrors/aws/v6/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L263-L273
 					"dead_letter_config": {MaxItemsOne: ref(true)},
 					// This item is flattened upstream. See
-					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L321-L323
+					// https://github.com/blampe/patches/mirrors/aws/v6/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L321-L323
 					"vpc_config": {MaxItemsOne: ref(true)},
 					// This item is flattened upstream. See
-					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L275-L277
+					// https://github.com/blampe/patches/mirrors/aws/v6/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L275-L277
 					"environment": {MaxItemsOne: ref(true)},
 					// This item is flattened upstream. See
-					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L313-L319
+					// https://github.com/blampe/patches/mirrors/aws/v6/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L313-L319
 					"tracing_config": {MaxItemsOne: ref(true)},
 				},
 			},
@@ -4723,10 +4723,10 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsDataSource(mqMod, "getBroker"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// This attribute is flattened upstream. See
-					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/mq/broker_data_source.go#L315-L317
+					// https://github.com/blampe/patches/mirrors/aws/v6/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/mq/broker_data_source.go#L315-L317
 					"configuration": {MaxItemsOne: ref(true)},
 					// This attribute is flattened upstream. See
-					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/mq/broker_data_source.go#L336-L338.
+					// https://github.com/blampe/patches/mirrors/aws/v6/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/mq/broker_data_source.go#L336-L338.
 					"maintenance_window_start_time": {MaxItemsOne: ref(true)},
 					// This attribute is flattened upstream.
 					"logs": {
@@ -5066,7 +5066,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// This attribute is flattened upstream. See
-					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elbv2/load_balancer_data_source.go#L319
+					// https://github.com/blampe/patches/mirrors/aws/v6/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elbv2/load_balancer_data_source.go#L319
 					"access_logs": {MaxItemsOne: ref(true)},
 				},
 			},

@@ -25,7 +25,7 @@ require (
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250923233607-7f1981c8674a
 
-	github.com/hashicorp/terraform-provider-aws => github.com/blampe/patches/mirrors/aws/v6 main
+	github.com/blampe/patches/mirrors/aws/v6 => github.com/blampe/patches/mirrors/aws/v6 main
 	github.com/pulumi/pulumi-aws/provider/v7 => ../provider
 )
 
@@ -415,7 +415,7 @@ require (
 	github.com/hashicorp/terraform-plugin-log v0.10.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.38.1 // indirect
 	github.com/hashicorp/terraform-plugin-testing v1.14.0 // indirect
-	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36 // indirect
+	github.com/blampe/patches/mirrors/aws/v6 v1.60.1-0.20220923175450-ca71523cdc36 // indirect
 	github.com/hashicorp/terraform-registry-address v0.4.0 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.12.0 // indirect
